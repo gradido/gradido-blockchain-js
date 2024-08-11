@@ -1,2 +1,3 @@
 # gradido-blockchain-js
-gradido blockchain c++ lib as nodejs module
+Gradido Blockchain c++ lib as nodejs module
+
