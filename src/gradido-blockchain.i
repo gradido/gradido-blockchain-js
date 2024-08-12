@@ -10,7 +10,7 @@
 
 /* operator remapping with names because no operator overloading in javascript */
 %rename(call) operator();
-%rename(clone) operator=;
+// %rename(clone) operator=;
 %rename(equal) operator==;
 %rename(notEqual) operator!=;
 %rename(gt) operator>;
@@ -34,6 +34,7 @@
 %include <std_unique_ptr.i>
 %include <std_shared_ptr.i>
 %include <stdint.i>
+%include <std_vector.i>
 
 %include "types.i"
 
@@ -47,12 +48,13 @@
 %typemap(ts) gradido::data::TransactionType "TransactionType";
 
 // base types
-%include "GradidoUnit.i"
 %include "MemoryBlock.i"
-%include "Protocol.i"
-
 // crypto types
 %include "crypto/SecretKeyCryptography.i"
+// base types
+%include "GradidoUnit.i"
+%include "Protocol.i"
+
 
 // advanced types
 %include "TransactionBodyBuilder.i"

@@ -35,27 +35,11 @@ void _exports_SecretKeyCryptography_inst::GetMembers(
   
   /* register wrapper functions */
   // jsnapi_register_member_function
-  members.erase("getKeyHashed");
-  members.insert({
-    "getKeyHashed",
-      _exports_SecretKeyCryptography_templ::InstanceMethod("getKeyHashed",
-        &_exports_SecretKeyCryptography_templ::_wrap_SecretKeyCryptography_getKeyHashed,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("isTheSame");
-  members.insert({
-    "isTheSame",
-      _exports_SecretKeyCryptography_templ::InstanceMethod("isTheSame",
-        &_exports_SecretKeyCryptography_templ::_wrap_SecretKeyCryptography_isTheSame,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("equal");
   members.insert({
     "equal",
       _exports_SecretKeyCryptography_templ::InstanceMethod("equal",
-        &_exports_SecretKeyCryptography_templ::_wrap_SecretKeyCryptography__wrap_SecretKeyCryptography_equal,
+        &_exports_SecretKeyCryptography_templ::_wrap_SecretKeyCryptography_equal,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

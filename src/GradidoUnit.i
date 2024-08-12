@@ -1,6 +1,8 @@
 /* GradidoUnit.i */
 /*%module gradido*/
 
+%ignore GradidoUnit::operator=;
+
 %exception {
     try {
         $function

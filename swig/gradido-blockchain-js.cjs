@@ -16,8 +16,9 @@
 var dll = require('../lib/index.cjs');
 var {
   CrossGroupType_CROSS,
+  SignaturePairs,
   CrossGroupType_INBOUND,
-  Block,
+  MemoryBlock,
   CrossGroupType_LOCAL,
   Timestamp,
   TransactionType_DEFERRED_TRANSFER,
@@ -39,7 +40,7 @@ var {
   GRADIDO_CONFIRMED_TRANSACTION_V3_3_VERSION_STRING,
   AddressType_NONE,
   AddressType_CRYPTO_ACCOUNT,
-  ConstBlockPtrComparator,
+  MemoryBlocks,
   GradidoCreation,
   SignatureMap,
   ConfirmedTransaction,
@@ -51,16 +52,17 @@ var {
   TransactionBody,
   GradidoTransaction,
   GradidoUnit,
-  RegisterAddress,
   TransactionType_COMMUNITY_ROOT,
+  RegisterAddress,
   TransactionType_CREATION,
   TransactionType_REGISTER_ADDRESS,
 } = dll;
 
 module.exports = {
   CrossGroupType_CROSS,
+  SignaturePairs,
   CrossGroupType_INBOUND,
-  Block,
+  MemoryBlock,
   CrossGroupType_LOCAL,
   Timestamp,
   TransactionType_DEFERRED_TRANSFER,
@@ -82,7 +84,7 @@ module.exports = {
   GRADIDO_CONFIRMED_TRANSACTION_V3_3_VERSION_STRING,
   AddressType_NONE,
   AddressType_CRYPTO_ACCOUNT,
-  ConstBlockPtrComparator,
+  MemoryBlocks,
   GradidoCreation,
   SignatureMap,
   ConfirmedTransaction,
@@ -94,8 +96,8 @@ module.exports = {
   TransactionBody,
   GradidoTransaction,
   GradidoUnit,
-  RegisterAddress,
   TransactionType_COMMUNITY_ROOT,
+  RegisterAddress,
   TransactionType_CREATION,
   TransactionType_REGISTER_ADDRESS,
 };

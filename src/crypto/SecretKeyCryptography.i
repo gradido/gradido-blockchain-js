@@ -1,5 +1,7 @@
 %module crypto
 
+typedef uint64_t KeyHashed;
+
 %exception {
     try {
         $function
@@ -19,11 +21,15 @@
 }
 
 %shared_ptr(SecretKeyCryptography)
-%rename ("$ignore", fullname=1) SecretKeyCryptography::decrypt(const std::vector<unsigned char>& encryptedMessage) const;
-%rename ("$ignore", fullname=1) SecretKeyCryptography::decrypt(const unsigned char* encryptedMessage, size_t encryptedMessageSize) const;
+%ignore SecretKeyCryptography::decrypt(const std::vector<unsigned char>& encryptedMessage) const;
+%ignore SecretKeyCryptography::decrypt(const unsigned char* encryptedMessage, size_t encryptedMessageSize) const;
+%ignore SecretKeyCryptography::isTheSame;
+%ignore SecretKeyCryptography::getKeyHashed;
+%rename("$ignore") SomeClass::operator==(const KeyHashed& other) const;
+%ignore SecretKeyCryptography::operator==(const KeyHashed& hash) const;
 
 %{
-using namespace gradido;
+//using namespace gradido;
 #include "gradido_blockchain/crypto/SecretKeyCryptography.h"
 %}
 

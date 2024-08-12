@@ -1363,17 +1363,19 @@ fail:
 
 
 SWIGINTERN
-int SWIG_AsVal_long (Napi::Value obj, long* val)
+int SWIG_AsVal_unsigned_SS_long (Napi::Value obj, unsigned long *val)
 {
-  if (!obj.IsNumber()) {
+  if(!obj.IsNumber()) {
     return SWIG_TypeError;
   }
   if (val) {
     Napi::Number num;
     NAPI_CHECK_RESULT(obj.ToNumber(), num);
-    *val = static_cast<long>(num.Int64Value());
+    if (num.Int64Value() < 0) {
+      return SWIG_TypeError;
+    }
+    *val = static_cast<unsigned long>(num.Int64Value());
   }
-
   return SWIG_OK;
   goto fail;
 fail:
@@ -1383,16 +1385,18 @@ fail:
 
 #ifdef SWIG_LONG_LONG_AVAILABLE
 SWIGINTERN
-int SWIG_AsVal_long_SS_long (Napi::Value obj, long long* val)
+int SWIG_AsVal_unsigned_SS_long_SS_long (Napi::Value obj, unsigned long long *val)
 {
   if(!obj.IsNumber()) {
     return SWIG_TypeError;
   }
-
+  if (obj.ToNumber().Int64Value() < 0) {
+    return SWIG_TypeError;
+  }
   if (val) {
     Napi::Number num;
     NAPI_CHECK_RESULT(obj.ToNumber(), num);
-    *val = static_cast<long long>(num.Int64Value());
+    *val = static_cast<unsigned long long>(num.Int64Value());
   }
   return SWIG_OK;
   goto fail;
@@ -1403,16 +1407,22 @@ fail:
 
 
 SWIGINTERN
-int SWIG_AsVal_double (Napi::Value obj, double *val)
+Napi::Value SWIG_From_bool(Napi::Env env, bool val)
 {
-  if(!obj.IsNumber()) {
+  return Napi::Boolean::New(env, val);
+}
+
+
+SWIGINTERN
+int SWIG_AsVal_int (Napi::Value valRef, int* val)
+{
+  if (!valRef.IsNumber()) {
     return SWIG_TypeError;
   }
-
-  if(val) {
+  if (val) {
     Napi::Number num;
-    NAPI_CHECK_RESULT(obj.ToNumber(), num);
-    *val = static_cast<double>(num.DoubleValue());
+    NAPI_CHECK_RESULT(valRef.ToNumber(), num);
+    *val = static_cast<int>(num.Int32Value());
   }
 
   return SWIG_OK;
@@ -1497,26 +1507,17 @@ SWIG_AsPtr_std_string (Napi::Value obj, std::string **val)
 
 
 SWIGINTERN
-Napi::Value SWIG_From_bool(Napi::Env env, bool val)
+int SWIG_AsVal_long (Napi::Value obj, long* val)
 {
-  return Napi::Boolean::New(env, val);
-}
-
-
-SWIGINTERN
-int SWIG_AsVal_unsigned_SS_long (Napi::Value obj, unsigned long *val)
-{
-  if(!obj.IsNumber()) {
+  if (!obj.IsNumber()) {
     return SWIG_TypeError;
   }
   if (val) {
     Napi::Number num;
     NAPI_CHECK_RESULT(obj.ToNumber(), num);
-    if (num.Int64Value() < 0) {
-      return SWIG_TypeError;
-    }
-    *val = static_cast<unsigned long>(num.Int64Value());
+    *val = static_cast<long>(num.Int64Value());
   }
+
   return SWIG_OK;
   goto fail;
 fail:
@@ -1526,18 +1527,16 @@ fail:
 
 #ifdef SWIG_LONG_LONG_AVAILABLE
 SWIGINTERN
-int SWIG_AsVal_unsigned_SS_long_SS_long (Napi::Value obj, unsigned long long *val)
+int SWIG_AsVal_long_SS_long (Napi::Value obj, long long* val)
 {
   if(!obj.IsNumber()) {
     return SWIG_TypeError;
   }
-  if (obj.ToNumber().Int64Value() < 0) {
-    return SWIG_TypeError;
-  }
+
   if (val) {
     Napi::Number num;
     NAPI_CHECK_RESULT(obj.ToNumber(), num);
-    *val = static_cast<unsigned long long>(num.Int64Value());
+    *val = static_cast<long long>(num.Int64Value());
   }
   return SWIG_OK;
   goto fail;
@@ -1548,15 +1547,16 @@ fail:
 
 
 SWIGINTERN
-int SWIG_AsVal_int (Napi::Value valRef, int* val)
+int SWIG_AsVal_double (Napi::Value obj, double *val)
 {
-  if (!valRef.IsNumber()) {
+  if(!obj.IsNumber()) {
     return SWIG_TypeError;
   }
-  if (val) {
+
+  if(val) {
     Napi::Number num;
-    NAPI_CHECK_RESULT(valRef.ToNumber(), num);
-    *val = static_cast<int>(num.Int32Value());
+    NAPI_CHECK_RESULT(obj.ToNumber(), num);
+    *val = static_cast<double>(num.DoubleValue());
   }
 
   return SWIG_OK;
@@ -1895,206 +1895,216 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
   
 
   /* register classes */
-  /* Class: GradidoUnit (_exports_GradidoUnit) */
+  /* Class: MemoryBlocks (_exports_MemoryBlocks) */
 // jsnapi_registerclass
-Napi::Function _exports_GradidoUnit_ctor = _exports_GradidoUnit_inst::GetClass(env);
-exports.Set("GradidoUnit", _exports_GradidoUnit_ctor);
-if (SWIGTYPE_p_GradidoUnit->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_GradidoUnit->clientdata = new size_t(0);
+Napi::Function _exports_MemoryBlocks_ctor = _exports_MemoryBlocks_inst::GetClass(env);
+exports.Set("MemoryBlocks", _exports_MemoryBlocks_ctor);
+if (SWIGTYPE_p_std__vectorT_std__shared_ptrT_memory__Block_t_t->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_std__vectorT_std__shared_ptrT_memory__Block_t_t->clientdata = new size_t(0);
 }
-Napi::FunctionReference *_exports_GradidoUnit_ctor_ref = new Napi::FunctionReference();
-*_exports_GradidoUnit_ctor_ref = Napi::Persistent(_exports_GradidoUnit_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[0] = _exports_GradidoUnit_ctor_ref;
-/* Class: Block (_exports_Block) */
+Napi::FunctionReference *_exports_MemoryBlocks_ctor_ref = new Napi::FunctionReference();
+*_exports_MemoryBlocks_ctor_ref = Napi::Persistent(_exports_MemoryBlocks_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[0] = _exports_MemoryBlocks_ctor_ref;
+/* Class: MemoryBlock (_exports_MemoryBlock) */
 // jsnapi_registerclass
-Napi::Function _exports_Block_ctor = _exports_Block_inst::GetClass(env);
-exports.Set("Block", _exports_Block_ctor);
+Napi::Function _exports_MemoryBlock_ctor = _exports_MemoryBlock_inst::GetClass(env);
+exports.Set("MemoryBlock", _exports_MemoryBlock_ctor);
 if (SWIGTYPE_p_memory__Block->clientdata == SWIG_NULLPTR) {
   SWIGTYPE_p_memory__Block->clientdata = new size_t(1);
 }
-Napi::FunctionReference *_exports_Block_ctor_ref = new Napi::FunctionReference();
-*_exports_Block_ctor_ref = Napi::Persistent(_exports_Block_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[1] = _exports_Block_ctor_ref;
-/* Class: ConstBlockPtrComparator (_exports_ConstBlockPtrComparator) */
-// jsnapi_registerclass
-Napi::Function _exports_ConstBlockPtrComparator_ctor = _exports_ConstBlockPtrComparator_inst::GetClass(env);
-exports.Set("ConstBlockPtrComparator", _exports_ConstBlockPtrComparator_ctor);
-if (SWIGTYPE_p_memory__ConstBlockPtrComparator->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_memory__ConstBlockPtrComparator->clientdata = new size_t(2);
-}
-Napi::FunctionReference *_exports_ConstBlockPtrComparator_ctor_ref = new Napi::FunctionReference();
-*_exports_ConstBlockPtrComparator_ctor_ref = Napi::Persistent(_exports_ConstBlockPtrComparator_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[2] = _exports_ConstBlockPtrComparator_ctor_ref;
-/* Class: SignaturePair (_exports_SignaturePair) */
-// jsnapi_registerclass
-Napi::Function _exports_SignaturePair_ctor = _exports_SignaturePair_inst::GetClass(env);
-exports.Set("SignaturePair", _exports_SignaturePair_ctor);
-if (SWIGTYPE_p_gradido__data__SignaturePair->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__data__SignaturePair->clientdata = new size_t(3);
-}
-Napi::FunctionReference *_exports_SignaturePair_ctor_ref = new Napi::FunctionReference();
-*_exports_SignaturePair_ctor_ref = Napi::Persistent(_exports_SignaturePair_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[3] = _exports_SignaturePair_ctor_ref;
-/* Class: SignatureMap (_exports_SignatureMap) */
-// jsnapi_registerclass
-Napi::Function _exports_SignatureMap_ctor = _exports_SignatureMap_inst::GetClass(env);
-exports.Set("SignatureMap", _exports_SignatureMap_ctor);
-if (SWIGTYPE_p_gradido__data__SignatureMap->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__data__SignatureMap->clientdata = new size_t(4);
-}
-Napi::FunctionReference *_exports_SignatureMap_ctor_ref = new Napi::FunctionReference();
-*_exports_SignatureMap_ctor_ref = Napi::Persistent(_exports_SignatureMap_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[4] = _exports_SignatureMap_ctor_ref;
-/* Class: TimestampSeconds (_exports_TimestampSeconds) */
-// jsnapi_registerclass
-Napi::Function _exports_TimestampSeconds_ctor = _exports_TimestampSeconds_inst::GetClass(env);
-exports.Set("TimestampSeconds", _exports_TimestampSeconds_ctor);
-if (SWIGTYPE_p_gradido__data__TimestampSeconds->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__data__TimestampSeconds->clientdata = new size_t(5);
-}
-Napi::FunctionReference *_exports_TimestampSeconds_ctor_ref = new Napi::FunctionReference();
-*_exports_TimestampSeconds_ctor_ref = Napi::Persistent(_exports_TimestampSeconds_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[5] = _exports_TimestampSeconds_ctor_ref;
-/* Class: Timestamp (_exports_Timestamp) */
-// jsnapi_registerclass
-Napi::Function _exports_Timestamp_ctor = _exports_Timestamp_inst::GetClass(env);
-exports.Set("Timestamp", _exports_Timestamp_ctor);
-if (SWIGTYPE_p_gradido__data__Timestamp->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__data__Timestamp->clientdata = new size_t(6);
-}
-Napi::FunctionReference *_exports_Timestamp_ctor_ref = new Napi::FunctionReference();
-*_exports_Timestamp_ctor_ref = Napi::Persistent(_exports_Timestamp_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[6] = _exports_Timestamp_ctor_ref;
-/* Class: TransferAmount (_exports_TransferAmount) */
-// jsnapi_registerclass
-Napi::Function _exports_TransferAmount_ctor = _exports_TransferAmount_inst::GetClass(env);
-exports.Set("TransferAmount", _exports_TransferAmount_ctor);
-if (SWIGTYPE_p_gradido__data__TransferAmount->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__data__TransferAmount->clientdata = new size_t(7);
-}
-Napi::FunctionReference *_exports_TransferAmount_ctor_ref = new Napi::FunctionReference();
-*_exports_TransferAmount_ctor_ref = Napi::Persistent(_exports_TransferAmount_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[7] = _exports_TransferAmount_ctor_ref;
-/* Class: CommunityFriendsUpdate (_exports_CommunityFriendsUpdate) */
-// jsnapi_registerclass
-Napi::Function _exports_CommunityFriendsUpdate_ctor = _exports_CommunityFriendsUpdate_inst::GetClass(env);
-exports.Set("CommunityFriendsUpdate", _exports_CommunityFriendsUpdate_ctor);
-if (SWIGTYPE_p_gradido__data__CommunityFriendsUpdate->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__data__CommunityFriendsUpdate->clientdata = new size_t(8);
-}
-Napi::FunctionReference *_exports_CommunityFriendsUpdate_ctor_ref = new Napi::FunctionReference();
-*_exports_CommunityFriendsUpdate_ctor_ref = Napi::Persistent(_exports_CommunityFriendsUpdate_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[8] = _exports_CommunityFriendsUpdate_ctor_ref;
-/* Class: CommunityRoot (_exports_CommunityRoot) */
-// jsnapi_registerclass
-Napi::Function _exports_CommunityRoot_ctor = _exports_CommunityRoot_inst::GetClass(env);
-exports.Set("CommunityRoot", _exports_CommunityRoot_ctor);
-if (SWIGTYPE_p_gradido__data__CommunityRoot->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__data__CommunityRoot->clientdata = new size_t(9);
-}
-Napi::FunctionReference *_exports_CommunityRoot_ctor_ref = new Napi::FunctionReference();
-*_exports_CommunityRoot_ctor_ref = Napi::Persistent(_exports_CommunityRoot_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[9] = _exports_CommunityRoot_ctor_ref;
-/* Class: GradidoCreation (_exports_GradidoCreation) */
-// jsnapi_registerclass
-Napi::Function _exports_GradidoCreation_ctor = _exports_GradidoCreation_inst::GetClass(env);
-exports.Set("GradidoCreation", _exports_GradidoCreation_ctor);
-if (SWIGTYPE_p_gradido__data__GradidoCreation->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__data__GradidoCreation->clientdata = new size_t(10);
-}
-Napi::FunctionReference *_exports_GradidoCreation_ctor_ref = new Napi::FunctionReference();
-*_exports_GradidoCreation_ctor_ref = Napi::Persistent(_exports_GradidoCreation_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[10] = _exports_GradidoCreation_ctor_ref;
-/* Class: GradidoTransfer (_exports_GradidoTransfer) */
-// jsnapi_registerclass
-Napi::Function _exports_GradidoTransfer_ctor = _exports_GradidoTransfer_inst::GetClass(env);
-exports.Set("GradidoTransfer", _exports_GradidoTransfer_ctor);
-if (SWIGTYPE_p_gradido__data__GradidoTransfer->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__data__GradidoTransfer->clientdata = new size_t(11);
-}
-Napi::FunctionReference *_exports_GradidoTransfer_ctor_ref = new Napi::FunctionReference();
-*_exports_GradidoTransfer_ctor_ref = Napi::Persistent(_exports_GradidoTransfer_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[11] = _exports_GradidoTransfer_ctor_ref;
-/* Class: GradidoDeferredTransfer (_exports_GradidoDeferredTransfer) */
-// jsnapi_registerclass
-Napi::Function _exports_GradidoDeferredTransfer_ctor = _exports_GradidoDeferredTransfer_inst::GetClass(env);
-exports.Set("GradidoDeferredTransfer", _exports_GradidoDeferredTransfer_ctor);
-if (SWIGTYPE_p_gradido__data__GradidoDeferredTransfer->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__data__GradidoDeferredTransfer->clientdata = new size_t(12);
-}
-Napi::FunctionReference *_exports_GradidoDeferredTransfer_ctor_ref = new Napi::FunctionReference();
-*_exports_GradidoDeferredTransfer_ctor_ref = Napi::Persistent(_exports_GradidoDeferredTransfer_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[12] = _exports_GradidoDeferredTransfer_ctor_ref;
-/* Class: RegisterAddress (_exports_RegisterAddress) */
-// jsnapi_registerclass
-Napi::Function _exports_RegisterAddress_ctor = _exports_RegisterAddress_inst::GetClass(env);
-exports.Set("RegisterAddress", _exports_RegisterAddress_ctor);
-if (SWIGTYPE_p_gradido__data__RegisterAddress->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__data__RegisterAddress->clientdata = new size_t(13);
-}
-Napi::FunctionReference *_exports_RegisterAddress_ctor_ref = new Napi::FunctionReference();
-*_exports_RegisterAddress_ctor_ref = Napi::Persistent(_exports_RegisterAddress_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[13] = _exports_RegisterAddress_ctor_ref;
-/* Class: TransactionBody (_exports_TransactionBody) */
-// jsnapi_registerclass
-Napi::Function _exports_TransactionBody_ctor = _exports_TransactionBody_inst::GetClass(env);
-exports.Set("TransactionBody", _exports_TransactionBody_ctor);
-if (SWIGTYPE_p_gradido__data__TransactionBody->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__data__TransactionBody->clientdata = new size_t(14);
-}
-Napi::FunctionReference *_exports_TransactionBody_ctor_ref = new Napi::FunctionReference();
-*_exports_TransactionBody_ctor_ref = Napi::Persistent(_exports_TransactionBody_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[14] = _exports_TransactionBody_ctor_ref;
-/* Class: GradidoTransaction (_exports_GradidoTransaction) */
-// jsnapi_registerclass
-Napi::Function _exports_GradidoTransaction_ctor = _exports_GradidoTransaction_inst::GetClass(env);
-exports.Set("GradidoTransaction", _exports_GradidoTransaction_ctor);
-if (SWIGTYPE_p_gradido__data__GradidoTransaction->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__data__GradidoTransaction->clientdata = new size_t(15);
-}
-Napi::FunctionReference *_exports_GradidoTransaction_ctor_ref = new Napi::FunctionReference();
-*_exports_GradidoTransaction_ctor_ref = Napi::Persistent(_exports_GradidoTransaction_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[15] = _exports_GradidoTransaction_ctor_ref;
-/* Class: ConfirmedTransaction (_exports_ConfirmedTransaction) */
-// jsnapi_registerclass
-Napi::Function _exports_ConfirmedTransaction_ctor = _exports_ConfirmedTransaction_inst::GetClass(env);
-exports.Set("ConfirmedTransaction", _exports_ConfirmedTransaction_ctor);
-if (SWIGTYPE_p_gradido__data__ConfirmedTransaction->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__data__ConfirmedTransaction->clientdata = new size_t(16);
-}
-Napi::FunctionReference *_exports_ConfirmedTransaction_ctor_ref = new Napi::FunctionReference();
-*_exports_ConfirmedTransaction_ctor_ref = Napi::Persistent(_exports_ConfirmedTransaction_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[16] = _exports_ConfirmedTransaction_ctor_ref;
+Napi::FunctionReference *_exports_MemoryBlock_ctor_ref = new Napi::FunctionReference();
+*_exports_MemoryBlock_ctor_ref = Napi::Persistent(_exports_MemoryBlock_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[1] = _exports_MemoryBlock_ctor_ref;
 /* Class: SecretKeyCryptography (_exports_SecretKeyCryptography) */
 // jsnapi_registerclass
 Napi::Function _exports_SecretKeyCryptography_ctor = _exports_SecretKeyCryptography_inst::GetClass(env);
 exports.Set("SecretKeyCryptography", _exports_SecretKeyCryptography_ctor);
 if (SWIGTYPE_p_SecretKeyCryptography->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_SecretKeyCryptography->clientdata = new size_t(17);
+  SWIGTYPE_p_SecretKeyCryptography->clientdata = new size_t(2);
 }
 Napi::FunctionReference *_exports_SecretKeyCryptography_ctor_ref = new Napi::FunctionReference();
 *_exports_SecretKeyCryptography_ctor_ref = Napi::Persistent(_exports_SecretKeyCryptography_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[17] = _exports_SecretKeyCryptography_ctor_ref;
+env.GetInstanceData<EnvInstanceData>()->ctor[2] = _exports_SecretKeyCryptography_ctor_ref;
+/* Class: GradidoUnit (_exports_GradidoUnit) */
+// jsnapi_registerclass
+Napi::Function _exports_GradidoUnit_ctor = _exports_GradidoUnit_inst::GetClass(env);
+exports.Set("GradidoUnit", _exports_GradidoUnit_ctor);
+if (SWIGTYPE_p_GradidoUnit->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_GradidoUnit->clientdata = new size_t(3);
+}
+Napi::FunctionReference *_exports_GradidoUnit_ctor_ref = new Napi::FunctionReference();
+*_exports_GradidoUnit_ctor_ref = Napi::Persistent(_exports_GradidoUnit_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[3] = _exports_GradidoUnit_ctor_ref;
+/* Class: SignaturePairs (_exports_SignaturePairs) */
+// jsnapi_registerclass
+Napi::Function _exports_SignaturePairs_ctor = _exports_SignaturePairs_inst::GetClass(env);
+exports.Set("SignaturePairs", _exports_SignaturePairs_ctor);
+if (SWIGTYPE_p_std__vectorT_gradido__data__SignaturePair_t->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_std__vectorT_gradido__data__SignaturePair_t->clientdata = new size_t(4);
+}
+Napi::FunctionReference *_exports_SignaturePairs_ctor_ref = new Napi::FunctionReference();
+*_exports_SignaturePairs_ctor_ref = Napi::Persistent(_exports_SignaturePairs_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[4] = _exports_SignaturePairs_ctor_ref;
+/* Class: SignaturePair (_exports_SignaturePair) */
+// jsnapi_registerclass
+Napi::Function _exports_SignaturePair_ctor = _exports_SignaturePair_inst::GetClass(env);
+exports.Set("SignaturePair", _exports_SignaturePair_ctor);
+if (SWIGTYPE_p_gradido__data__SignaturePair->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__data__SignaturePair->clientdata = new size_t(5);
+}
+Napi::FunctionReference *_exports_SignaturePair_ctor_ref = new Napi::FunctionReference();
+*_exports_SignaturePair_ctor_ref = Napi::Persistent(_exports_SignaturePair_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[5] = _exports_SignaturePair_ctor_ref;
+/* Class: SignatureMap (_exports_SignatureMap) */
+// jsnapi_registerclass
+Napi::Function _exports_SignatureMap_ctor = _exports_SignatureMap_inst::GetClass(env);
+exports.Set("SignatureMap", _exports_SignatureMap_ctor);
+if (SWIGTYPE_p_gradido__data__SignatureMap->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__data__SignatureMap->clientdata = new size_t(6);
+}
+Napi::FunctionReference *_exports_SignatureMap_ctor_ref = new Napi::FunctionReference();
+*_exports_SignatureMap_ctor_ref = Napi::Persistent(_exports_SignatureMap_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[6] = _exports_SignatureMap_ctor_ref;
+/* Class: TimestampSeconds (_exports_TimestampSeconds) */
+// jsnapi_registerclass
+Napi::Function _exports_TimestampSeconds_ctor = _exports_TimestampSeconds_inst::GetClass(env);
+exports.Set("TimestampSeconds", _exports_TimestampSeconds_ctor);
+if (SWIGTYPE_p_gradido__data__TimestampSeconds->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__data__TimestampSeconds->clientdata = new size_t(7);
+}
+Napi::FunctionReference *_exports_TimestampSeconds_ctor_ref = new Napi::FunctionReference();
+*_exports_TimestampSeconds_ctor_ref = Napi::Persistent(_exports_TimestampSeconds_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[7] = _exports_TimestampSeconds_ctor_ref;
+/* Class: Timestamp (_exports_Timestamp) */
+// jsnapi_registerclass
+Napi::Function _exports_Timestamp_ctor = _exports_Timestamp_inst::GetClass(env);
+exports.Set("Timestamp", _exports_Timestamp_ctor);
+if (SWIGTYPE_p_gradido__data__Timestamp->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__data__Timestamp->clientdata = new size_t(8);
+}
+Napi::FunctionReference *_exports_Timestamp_ctor_ref = new Napi::FunctionReference();
+*_exports_Timestamp_ctor_ref = Napi::Persistent(_exports_Timestamp_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[8] = _exports_Timestamp_ctor_ref;
+/* Class: TransferAmount (_exports_TransferAmount) */
+// jsnapi_registerclass
+Napi::Function _exports_TransferAmount_ctor = _exports_TransferAmount_inst::GetClass(env);
+exports.Set("TransferAmount", _exports_TransferAmount_ctor);
+if (SWIGTYPE_p_gradido__data__TransferAmount->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__data__TransferAmount->clientdata = new size_t(9);
+}
+Napi::FunctionReference *_exports_TransferAmount_ctor_ref = new Napi::FunctionReference();
+*_exports_TransferAmount_ctor_ref = Napi::Persistent(_exports_TransferAmount_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[9] = _exports_TransferAmount_ctor_ref;
+/* Class: CommunityFriendsUpdate (_exports_CommunityFriendsUpdate) */
+// jsnapi_registerclass
+Napi::Function _exports_CommunityFriendsUpdate_ctor = _exports_CommunityFriendsUpdate_inst::GetClass(env);
+exports.Set("CommunityFriendsUpdate", _exports_CommunityFriendsUpdate_ctor);
+if (SWIGTYPE_p_gradido__data__CommunityFriendsUpdate->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__data__CommunityFriendsUpdate->clientdata = new size_t(10);
+}
+Napi::FunctionReference *_exports_CommunityFriendsUpdate_ctor_ref = new Napi::FunctionReference();
+*_exports_CommunityFriendsUpdate_ctor_ref = Napi::Persistent(_exports_CommunityFriendsUpdate_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[10] = _exports_CommunityFriendsUpdate_ctor_ref;
+/* Class: CommunityRoot (_exports_CommunityRoot) */
+// jsnapi_registerclass
+Napi::Function _exports_CommunityRoot_ctor = _exports_CommunityRoot_inst::GetClass(env);
+exports.Set("CommunityRoot", _exports_CommunityRoot_ctor);
+if (SWIGTYPE_p_gradido__data__CommunityRoot->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__data__CommunityRoot->clientdata = new size_t(11);
+}
+Napi::FunctionReference *_exports_CommunityRoot_ctor_ref = new Napi::FunctionReference();
+*_exports_CommunityRoot_ctor_ref = Napi::Persistent(_exports_CommunityRoot_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[11] = _exports_CommunityRoot_ctor_ref;
+/* Class: GradidoCreation (_exports_GradidoCreation) */
+// jsnapi_registerclass
+Napi::Function _exports_GradidoCreation_ctor = _exports_GradidoCreation_inst::GetClass(env);
+exports.Set("GradidoCreation", _exports_GradidoCreation_ctor);
+if (SWIGTYPE_p_gradido__data__GradidoCreation->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__data__GradidoCreation->clientdata = new size_t(12);
+}
+Napi::FunctionReference *_exports_GradidoCreation_ctor_ref = new Napi::FunctionReference();
+*_exports_GradidoCreation_ctor_ref = Napi::Persistent(_exports_GradidoCreation_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[12] = _exports_GradidoCreation_ctor_ref;
+/* Class: GradidoTransfer (_exports_GradidoTransfer) */
+// jsnapi_registerclass
+Napi::Function _exports_GradidoTransfer_ctor = _exports_GradidoTransfer_inst::GetClass(env);
+exports.Set("GradidoTransfer", _exports_GradidoTransfer_ctor);
+if (SWIGTYPE_p_gradido__data__GradidoTransfer->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__data__GradidoTransfer->clientdata = new size_t(13);
+}
+Napi::FunctionReference *_exports_GradidoTransfer_ctor_ref = new Napi::FunctionReference();
+*_exports_GradidoTransfer_ctor_ref = Napi::Persistent(_exports_GradidoTransfer_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[13] = _exports_GradidoTransfer_ctor_ref;
+/* Class: GradidoDeferredTransfer (_exports_GradidoDeferredTransfer) */
+// jsnapi_registerclass
+Napi::Function _exports_GradidoDeferredTransfer_ctor = _exports_GradidoDeferredTransfer_inst::GetClass(env);
+exports.Set("GradidoDeferredTransfer", _exports_GradidoDeferredTransfer_ctor);
+if (SWIGTYPE_p_gradido__data__GradidoDeferredTransfer->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__data__GradidoDeferredTransfer->clientdata = new size_t(14);
+}
+Napi::FunctionReference *_exports_GradidoDeferredTransfer_ctor_ref = new Napi::FunctionReference();
+*_exports_GradidoDeferredTransfer_ctor_ref = Napi::Persistent(_exports_GradidoDeferredTransfer_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[14] = _exports_GradidoDeferredTransfer_ctor_ref;
+/* Class: RegisterAddress (_exports_RegisterAddress) */
+// jsnapi_registerclass
+Napi::Function _exports_RegisterAddress_ctor = _exports_RegisterAddress_inst::GetClass(env);
+exports.Set("RegisterAddress", _exports_RegisterAddress_ctor);
+if (SWIGTYPE_p_gradido__data__RegisterAddress->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__data__RegisterAddress->clientdata = new size_t(15);
+}
+Napi::FunctionReference *_exports_RegisterAddress_ctor_ref = new Napi::FunctionReference();
+*_exports_RegisterAddress_ctor_ref = Napi::Persistent(_exports_RegisterAddress_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[15] = _exports_RegisterAddress_ctor_ref;
+/* Class: TransactionBody (_exports_TransactionBody) */
+// jsnapi_registerclass
+Napi::Function _exports_TransactionBody_ctor = _exports_TransactionBody_inst::GetClass(env);
+exports.Set("TransactionBody", _exports_TransactionBody_ctor);
+if (SWIGTYPE_p_gradido__data__TransactionBody->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__data__TransactionBody->clientdata = new size_t(16);
+}
+Napi::FunctionReference *_exports_TransactionBody_ctor_ref = new Napi::FunctionReference();
+*_exports_TransactionBody_ctor_ref = Napi::Persistent(_exports_TransactionBody_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[16] = _exports_TransactionBody_ctor_ref;
+/* Class: GradidoTransaction (_exports_GradidoTransaction) */
+// jsnapi_registerclass
+Napi::Function _exports_GradidoTransaction_ctor = _exports_GradidoTransaction_inst::GetClass(env);
+exports.Set("GradidoTransaction", _exports_GradidoTransaction_ctor);
+if (SWIGTYPE_p_gradido__data__GradidoTransaction->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__data__GradidoTransaction->clientdata = new size_t(17);
+}
+Napi::FunctionReference *_exports_GradidoTransaction_ctor_ref = new Napi::FunctionReference();
+*_exports_GradidoTransaction_ctor_ref = Napi::Persistent(_exports_GradidoTransaction_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[17] = _exports_GradidoTransaction_ctor_ref;
+/* Class: ConfirmedTransaction (_exports_ConfirmedTransaction) */
+// jsnapi_registerclass
+Napi::Function _exports_ConfirmedTransaction_ctor = _exports_ConfirmedTransaction_inst::GetClass(env);
+exports.Set("ConfirmedTransaction", _exports_ConfirmedTransaction_ctor);
+if (SWIGTYPE_p_gradido__data__ConfirmedTransaction->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__data__ConfirmedTransaction->clientdata = new size_t(18);
+}
+Napi::FunctionReference *_exports_ConfirmedTransaction_ctor_ref = new Napi::FunctionReference();
+*_exports_ConfirmedTransaction_ctor_ref = Napi::Persistent(_exports_ConfirmedTransaction_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[18] = _exports_ConfirmedTransaction_ctor_ref;
 /* Class: TransactionBodyBuilder (_exports_TransactionBodyBuilder) */
 // jsnapi_registerclass
 Napi::Function _exports_TransactionBodyBuilder_ctor = _exports_TransactionBodyBuilder_inst::GetClass(env);
 exports.Set("TransactionBodyBuilder", _exports_TransactionBodyBuilder_ctor);
 if (SWIGTYPE_p_gradido__TransactionBodyBuilder->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__TransactionBodyBuilder->clientdata = new size_t(18);
+  SWIGTYPE_p_gradido__TransactionBodyBuilder->clientdata = new size_t(19);
 }
 Napi::FunctionReference *_exports_TransactionBodyBuilder_ctor_ref = new Napi::FunctionReference();
 *_exports_TransactionBodyBuilder_ctor_ref = Napi::Persistent(_exports_TransactionBodyBuilder_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[18] = _exports_TransactionBodyBuilder_ctor_ref;
+env.GetInstanceData<EnvInstanceData>()->ctor[19] = _exports_TransactionBodyBuilder_ctor_ref;
 /* Class: GradidoTransactionBuilder (_exports_GradidoTransactionBuilder) */
 // jsnapi_registerclass
 Napi::Function _exports_GradidoTransactionBuilder_ctor = _exports_GradidoTransactionBuilder_inst::GetClass(env);
 exports.Set("GradidoTransactionBuilder", _exports_GradidoTransactionBuilder_ctor);
 if (SWIGTYPE_p_gradido__GradidoTransactionBuilder->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__GradidoTransactionBuilder->clientdata = new size_t(19);
+  SWIGTYPE_p_gradido__GradidoTransactionBuilder->clientdata = new size_t(20);
 }
 Napi::FunctionReference *_exports_GradidoTransactionBuilder_ctor_ref = new Napi::FunctionReference();
 *_exports_GradidoTransactionBuilder_ctor_ref = Napi::Persistent(_exports_GradidoTransactionBuilder_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[19] = _exports_GradidoTransactionBuilder_ctor_ref;
+env.GetInstanceData<EnvInstanceData>()->ctor[20] = _exports_GradidoTransactionBuilder_ctor_ref;
 
 
   /* initialize the inheritance helpers */
@@ -2117,6 +2127,51 @@ env.GetInstanceData<EnvInstanceData>()->ctor[19] = _exports_GradidoTransactionBu
 
   /* setup inheritances */
   
+// Inheritance for _exports_MemoryBlocks (MemoryBlocks) <- SWIG_NAPI_ObjectWrap
+// jsnapi_setup_inheritance
+do {
+  Napi::Value protoBase, protoSub;
+  NAPI_CHECK_RESULT(_exports_MemoryBlocks_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
+  NAPI_CHECK_MAYBE(setProto.Call({
+    _exports_MemoryBlocks_ctor, SWIG_NAPI_ObjectWrap_ctor
+  }));
+  NAPI_CHECK_MAYBE(setProto.Call({
+    protoSub, protoBase
+  }));
+} while (0);
+
+
+// Inheritance for _exports_MemoryBlock (MemoryBlock) <- SWIG_NAPI_ObjectWrap
+// jsnapi_setup_inheritance
+do {
+  Napi::Value protoBase, protoSub;
+  NAPI_CHECK_RESULT(_exports_MemoryBlock_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
+  NAPI_CHECK_MAYBE(setProto.Call({
+    _exports_MemoryBlock_ctor, SWIG_NAPI_ObjectWrap_ctor
+  }));
+  NAPI_CHECK_MAYBE(setProto.Call({
+    protoSub, protoBase
+  }));
+} while (0);
+
+
+// Inheritance for _exports_SecretKeyCryptography (SecretKeyCryptography) <- SWIG_NAPI_ObjectWrap
+// jsnapi_setup_inheritance
+do {
+  Napi::Value protoBase, protoSub;
+  NAPI_CHECK_RESULT(_exports_SecretKeyCryptography_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
+  NAPI_CHECK_MAYBE(setProto.Call({
+    _exports_SecretKeyCryptography_ctor, SWIG_NAPI_ObjectWrap_ctor
+  }));
+  NAPI_CHECK_MAYBE(setProto.Call({
+    protoSub, protoBase
+  }));
+} while (0);
+
+
 // Inheritance for _exports_GradidoUnit (GradidoUnit) <- SWIG_NAPI_ObjectWrap
 // jsnapi_setup_inheritance
 do {
@@ -2132,29 +2187,14 @@ do {
 } while (0);
 
 
-// Inheritance for _exports_Block (Block) <- SWIG_NAPI_ObjectWrap
+// Inheritance for _exports_SignaturePairs (SignaturePairs) <- SWIG_NAPI_ObjectWrap
 // jsnapi_setup_inheritance
 do {
   Napi::Value protoBase, protoSub;
-  NAPI_CHECK_RESULT(_exports_Block_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(_exports_SignaturePairs_ctor.Get("prototype"), protoSub);
   NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
   NAPI_CHECK_MAYBE(setProto.Call({
-    _exports_Block_ctor, SWIG_NAPI_ObjectWrap_ctor
-  }));
-  NAPI_CHECK_MAYBE(setProto.Call({
-    protoSub, protoBase
-  }));
-} while (0);
-
-
-// Inheritance for _exports_ConstBlockPtrComparator (ConstBlockPtrComparator) <- SWIG_NAPI_ObjectWrap
-// jsnapi_setup_inheritance
-do {
-  Napi::Value protoBase, protoSub;
-  NAPI_CHECK_RESULT(_exports_ConstBlockPtrComparator_ctor.Get("prototype"), protoSub);
-  NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
-  NAPI_CHECK_MAYBE(setProto.Call({
-    _exports_ConstBlockPtrComparator_ctor, SWIG_NAPI_ObjectWrap_ctor
+    _exports_SignaturePairs_ctor, SWIG_NAPI_ObjectWrap_ctor
   }));
   NAPI_CHECK_MAYBE(setProto.Call({
     protoSub, protoBase
@@ -2365,21 +2405,6 @@ do {
   NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
   NAPI_CHECK_MAYBE(setProto.Call({
     _exports_ConfirmedTransaction_ctor, SWIG_NAPI_ObjectWrap_ctor
-  }));
-  NAPI_CHECK_MAYBE(setProto.Call({
-    protoSub, protoBase
-  }));
-} while (0);
-
-
-// Inheritance for _exports_SecretKeyCryptography (SecretKeyCryptography) <- SWIG_NAPI_ObjectWrap
-// jsnapi_setup_inheritance
-do {
-  Napi::Value protoBase, protoSub;
-  NAPI_CHECK_RESULT(_exports_SecretKeyCryptography_ctor.Get("prototype"), protoSub);
-  NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
-  NAPI_CHECK_MAYBE(setProto.Call({
-    _exports_SecretKeyCryptography_ctor, SWIG_NAPI_ObjectWrap_ctor
   }));
   NAPI_CHECK_MAYBE(setProto.Call({
     protoSub, protoBase

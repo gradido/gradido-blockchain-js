@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(gradiod-blockchain-js)
+project(gradido-blockchain-js)
 IF(WIN32)
 	set(CMAKE_CXX_FLAGS         "/MP /EHsc /std:c++20")
 	set(BUILD_SHARED_LIBS ON)
@@ -42,7 +42,7 @@ include_directories(
 
 FILE(GLOB SWIG_GENERATED_INTERFACE "swig/*.cxx" "swig/*.h")
 
-add_library(gradiod-blockchain-js SHARED ${SWIG_GENERATED_INTERFACE} ${CMAKE_JS_SRC})
+add_library(${PROJECT_NAME} STATIC ${SWIG_GENERATED_INTERFACE} ${CMAKE_JS_SRC})
 
 # This line will give our library file a .node extension without any "lib" prefix
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "" SUFFIX ".node")

@@ -83,14 +83,6 @@ void _exports_GradidoUnit_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("clone");
-  members.insert({
-    "clone",
-      _exports_GradidoUnit_templ::InstanceMethod("clone",
-        &_exports_GradidoUnit_templ::_wrap_GradidoUnit_clone,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("gt");
   members.insert({
     "gt",

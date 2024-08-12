@@ -8,25 +8,25 @@
 
 #include "swig/gradido-blockchain-js.h"
 
-/* Class: Block (_exports_Block) */
+/* Class: MemoryBlock (_exports_MemoryBlock) */
 // jsnapi_getclass
-Napi::Function _exports_Block_inst::GetClass(Napi::Env env) {
-  std::map<std::string, _exports_Block_templ::PropertyDescriptor> members, staticMembers;
+Napi::Function _exports_MemoryBlock_inst::GetClass(Napi::Env env) {
+  std::map<std::string, _exports_MemoryBlock_templ::PropertyDescriptor> members, staticMembers;
   GetMembers(env, members, staticMembers);
   
-  std::vector<_exports_Block_inst::PropertyDescriptor> symbolTable;
+  std::vector<_exports_MemoryBlock_inst::PropertyDescriptor> symbolTable;
   for (auto it = members.begin(); it != members.end(); it++)
   symbolTable.push_back(it->second);
   for (auto it = staticMembers.begin(); it != staticMembers.end(); it++)
   symbolTable.push_back(it->second);
   
-  return Napi::ObjectWrap<_exports_Block_inst>::DefineClass(env, "Block", symbolTable);
+  return Napi::ObjectWrap<_exports_MemoryBlock_inst>::DefineClass(env, "MemoryBlock", symbolTable);
 }
 
-void _exports_Block_inst::GetMembers(
+void _exports_MemoryBlock_inst::GetMembers(
   Napi::Env env,
-  std::map<std::string, _exports_Block_templ::PropertyDescriptor> &members,
-  std::map<std::string, _exports_Block_templ::PropertyDescriptor> &staticMembers
+  std::map<std::string, _exports_MemoryBlock_templ::PropertyDescriptor> &members,
+  std::map<std::string, _exports_MemoryBlock_templ::PropertyDescriptor> &staticMembers
   ) {
   std::map<std::string, SWIG_NAPI_ObjectWrap_templ<SWIG_NAPI_ObjectWrap_inst>::PropertyDescriptor> baseMembers, baseStaticMembers;
   SWIG_NAPI_ObjectWrap_inst::GetMembers(env, baseMembers, baseStaticMembers);
@@ -35,115 +35,83 @@ void _exports_Block_inst::GetMembers(
   
   /* register wrapper functions */
   // jsnapi_register_member_function
-  members.erase("clone");
-  members.insert({
-    "clone",
-      _exports_Block_templ::InstanceMethod("clone",
-        &_exports_Block_templ::_wrap_Block_clone,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("size");
   members.insert({
     "size",
-      _exports_Block_templ::InstanceMethod("size",
-        &_exports_Block_templ::_wrap_Block_size,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("span");
-  members.insert({
-    "span",
-      _exports_Block_templ::InstanceMethod("span",
-        &_exports_Block_templ::_wrap_Block_span,
+      _exports_MemoryBlock_templ::InstanceMethod("size",
+        &_exports_MemoryBlock_templ::_wrap_MemoryBlock_size,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
   members.erase("data");
   members.insert({
     "data",
-      _exports_Block_templ::InstanceMethod("data",
-        &_exports_Block_templ::_wrap_Block__wrap_Block_data,
+      _exports_MemoryBlock_templ::InstanceMethod("data",
+        &_exports_MemoryBlock_templ::_wrap_MemoryBlock_data,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
   members.erase("convertToHex");
   members.insert({
     "convertToHex",
-      _exports_Block_templ::InstanceMethod("convertToHex",
-        &_exports_Block_templ::_wrap_Block_convertToHex,
+      _exports_MemoryBlock_templ::InstanceMethod("convertToHex",
+        &_exports_MemoryBlock_templ::_wrap_MemoryBlock_convertToHex,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
   members.erase("convertToBase64");
   members.insert({
     "convertToBase64",
-      _exports_Block_templ::InstanceMethod("convertToBase64",
-        &_exports_Block_templ::_wrap_Block__wrap_Block_convertToBase64,
+      _exports_MemoryBlock_templ::InstanceMethod("convertToBase64",
+        &_exports_MemoryBlock_templ::_wrap_MemoryBlock__wrap_MemoryBlock_convertToBase64,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
   members.erase("copyAsString");
   members.insert({
     "copyAsString",
-      _exports_Block_templ::InstanceMethod("copyAsString",
-        &_exports_Block_templ::_wrap_Block_copyAsString,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("copyAsVector");
-  members.insert({
-    "copyAsVector",
-      _exports_Block_templ::InstanceMethod("copyAsVector",
-        &_exports_Block_templ::_wrap_Block_copyAsVector,
+      _exports_MemoryBlock_templ::InstanceMethod("copyAsString",
+        &_exports_MemoryBlock_templ::_wrap_MemoryBlock_copyAsString,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
   members.erase("calculateHash");
   members.insert({
     "calculateHash",
-      _exports_Block_templ::InstanceMethod("calculateHash",
-        &_exports_Block_templ::_wrap_Block_calculateHash,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("isTheSame");
-  members.insert({
-    "isTheSame",
-      _exports_Block_templ::InstanceMethod("isTheSame",
-        &_exports_Block_templ::_wrap_Block__wrap_Block_isTheSame,
+      _exports_MemoryBlock_templ::InstanceMethod("calculateHash",
+        &_exports_MemoryBlock_templ::_wrap_MemoryBlock_calculateHash,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
   members.erase("isEmpty");
   members.insert({
     "isEmpty",
-      _exports_Block_templ::InstanceMethod("isEmpty",
-        &_exports_Block_templ::_wrap_Block_isEmpty,
+      _exports_MemoryBlock_templ::InstanceMethod("isEmpty",
+        &_exports_MemoryBlock_templ::_wrap_MemoryBlock_isEmpty,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
   members.erase("equal");
   members.insert({
     "equal",
-      _exports_Block_templ::InstanceMethod("equal",
-        &_exports_Block_templ::_wrap_Block_equal,
+      _exports_MemoryBlock_templ::InstanceMethod("equal",
+        &_exports_MemoryBlock_templ::_wrap_MemoryBlock_equal,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
   members.erase("notEqual");
   members.insert({
     "notEqual",
-      _exports_Block_templ::InstanceMethod("notEqual",
-        &_exports_Block_templ::_wrap_Block_notEqual,
+      _exports_MemoryBlock_templ::InstanceMethod("notEqual",
+        &_exports_MemoryBlock_templ::_wrap_MemoryBlock_notEqual,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
   members.erase("lt");
   members.insert({
     "lt",
-      _exports_Block_templ::InstanceMethod("lt",
-        &_exports_Block_templ::_wrap_Block_lt,
+      _exports_MemoryBlock_templ::InstanceMethod("lt",
+        &_exports_MemoryBlock_templ::_wrap_MemoryBlock_lt,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
@@ -153,7 +121,7 @@ void _exports_Block_inst::GetMembers(
   staticMembers.insert({
     "fromHex",
       StaticMethod("fromHex",
-        &_exports_Block_templ::_wrap_Block__wrap_Block_fromHex,
+        &_exports_MemoryBlock_templ::_wrap_MemoryBlock_fromHex,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_static_function
@@ -161,7 +129,7 @@ void _exports_Block_inst::GetMembers(
   staticMembers.insert({
     "fromBase64",
       StaticMethod("fromBase64",
-        &_exports_Block_templ::_wrap_Block__wrap_Block_fromBase64,
+        &_exports_MemoryBlock_templ::_wrap_MemoryBlock__wrap_MemoryBlock_fromBase64,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
