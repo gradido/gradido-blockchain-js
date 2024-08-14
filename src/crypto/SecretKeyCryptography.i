@@ -25,7 +25,7 @@ typedef uint64_t KeyHashed;
 %ignore SecretKeyCryptography::decrypt(const unsigned char* encryptedMessage, size_t encryptedMessageSize) const;
 %ignore SecretKeyCryptography::isTheSame;
 %ignore SecretKeyCryptography::getKeyHashed;
-%rename("$ignore") SomeClass::operator==(const KeyHashed& other) const;
+%rename("$ignore") SecretKeyCryptography::operator==(const KeyHashed& other) const;
 %ignore SecretKeyCryptography::operator==(const KeyHashed& hash) const;
 
 %{

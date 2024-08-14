@@ -41,11 +41,12 @@ typedef std::chrono::system_clock::duration Duration;
 
 %typemap(out) Duration {
     double seconds = std::chrono::duration_cast<std::chrono::seconds>($1).count();
-    $result = Napi::Number::New(env, seconds);
+    $result = Napi::Number::New(env, std::chrono::duration_cast<std::chrono::seconds>($1).count());
 }
 
 // converting size_t
 %typemap(ts) size_t "number";
+%typemap(cstype) size_t "number";
 // Typemap for size_t -> JavaScript Number
 %typemap(out) size_t {
     $result = Napi::Number::New(env, static_cast<double>($1));

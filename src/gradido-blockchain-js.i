@@ -4,11 +4,10 @@
 %module gradido
 
 %{
-#include <span>
 #include "gradido_blockchain/const.h"
 %}
 
-/* operator remapping with names because no operator overloading in javascript */
+// operator remapping with names because no operator overloading in javascript 
 %rename(call) operator();
 // %rename(clone) operator=;
 %rename(equal) operator==;
@@ -26,9 +25,7 @@
 %ignore operator*;
 %ignore operator/;
 
-%include "gradido_blockchain/const.h"
-
-/* std libs */
+// std libs 
 %include <std_string.i>
 %include <std_except.i>
 %include <std_unique_ptr.i>
@@ -50,11 +47,17 @@
 // base types
 %include "MemoryBlock.i"
 // crypto types
+%include "gradido_blockchain/crypto/MnemonicType.h"
+%typemap(ts) MnemonicType "MnemonicType";
+%include "crypto/CryptoConfig.i"
+%include "crypto/Passphrase.i"
 %include "crypto/SecretKeyCryptography.i"
+%include "crypto/KeyPairEd25519.i"
+%include "crypto/AuthenticatedEncryption.i"
+%include "crypto/SealedBoxes.i"
 // base types
 %include "GradidoUnit.i"
 %include "Protocol.i"
-
 
 // advanced types
 %include "TransactionBodyBuilder.i"

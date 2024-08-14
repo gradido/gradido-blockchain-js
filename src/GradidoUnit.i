@@ -20,6 +20,7 @@
 /* TODO: specifiy that is only for GradidoUnit */
 %rename(value) operator double;
 %ignore operator std::string;
+%ignore GradidoUnit::GradidoUnit(int64_t gddCent);
 
 %ignore FixedPointedArithmetikOverflowException;
 %include "gradido_blockchain/GradidoUnit.h"

@@ -5,7 +5,7 @@ namespace memory {
   %ignore Block::Block(size_t size);
   %ignore Block::Block(const std::vector<unsigned char>& data);
   %ignore Block::Block(std::span<std::byte> data);
-  %ignore Block::Block(const std::string& data);
+  ignore Block::Block(const std::string& data);
   %ignore Block::data() const;
   %ignore Block::span() const;
   %ignore Block::operator uint8_t*();
@@ -24,7 +24,15 @@ namespace memory {
 }
 
 %exception {
-  
+  try {
+        $function    
+    } catch (const GradidoInvalidHexException& e) {
+      SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+    } catch (const GradidoInvalidBase64Exception& e) {
+      SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+    } catch (const std::exception& e) {
+      SWIG_exception(SWIG_RuntimeError, e.what());
+    }
 }
 
 %{
@@ -39,7 +47,9 @@ namespace memory {
 
 // define a typemap to convert uint8array into unsigned char* 
 %typemap(ts) (size_t size, const unsigned char* data) "Uint8Array";
+%typemap(cstype) (size_t size, const unsigned char* data) "Uint8Array";
 %typemap(in) (size_t size, const unsigned char* data) {
+  SWIG_exception_fail(SWIG_TypeError, "Hui");
   if (!info[1].IsTypedArray()) {
     SWIG_exception_fail(SWIG_TypeError, "Expected a Uint8Array as input");
   }
@@ -55,6 +65,6 @@ namespace memory {
   memcpy(jsarray.Data(), arg1->data(), arg1->size());
   $result = jsarray;
 }
-
+//*/
 %include "gradido_blockchain/memory/Block.h"
 

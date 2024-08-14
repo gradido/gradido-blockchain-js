@@ -42,14 +42,14 @@ include_directories(
 
 FILE(GLOB SWIG_GENERATED_INTERFACE "swig/*.cxx" "swig/*.h")
 
-add_library(${PROJECT_NAME} STATIC ${SWIG_GENERATED_INTERFACE} ${CMAKE_JS_SRC})
+add_library(${PROJECT_NAME} SHARED ${SWIG_GENERATED_INTERFACE} ${CMAKE_JS_SRC})
 
 # This line will give our library file a .node extension without any "lib" prefix
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "" SUFFIX ".node")
 
 # Essential library files to link to a node addon,
 # you should add this line in every CMake.js based project.
-target_link_libraries(${PROJECT_NAME} ${CMAKE_JS_LIB} GradidoBlockchain)
+target_link_libraries(${PROJECT_NAME} ${CMAKE_JS_LIB} GradidoBlockchain sodium)
 
 execute_process(COMMAND node -p "require('node-addon-api').include"
   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
@@ -58,4 +58,4 @@ execute_process(COMMAND node -p "require('node-addon-api').include"
 string(REPLACE "\n" "" NODE_ADDON_API_DIR ${NODE_ADDON_API_DIR})
 string(REPLACE "\"" "" NODE_ADDON_API_DIR ${NODE_ADDON_API_DIR})
 target_include_directories(${PROJECT_NAME} PRIVATE ${NODE_ADDON_API_DIR})
-add_definitions(-DNAPI_VERSION=8)
+add_definitions(-DNAPI_VERSION=7)

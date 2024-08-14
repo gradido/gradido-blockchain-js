@@ -8,10 +8,6 @@
 
 declare const _SWIG_enum_tag: unique symbol;
 
-export const GRADIDO_TRANSACTION_BODY_V3_3_VERSION_STRING: string;
-
-export const GRADIDO_CONFIRMED_TRANSACTION_V3_3_VERSION_STRING: string;
-
 export const AddressType_NONE: AddressType;
 
 export const AddressType_COMMUNITY_HUMAN: AddressType;
@@ -83,6 +79,8 @@ export  class MemoryBlock {
 
   constructor(size: Uint8Array);
 
+  constructor(data: string);
+
   constructor(other: MemoryBlock);
 
   size(): number;
@@ -114,6 +112,39 @@ export  class MemoryBlock {
   lt(b: MemoryBlock): boolean;
 }
 
+export const MnemonicType_GRADIDO_BOOK_GERMAN_RANDOM_ORDER: MnemonicType;
+
+export const MnemonicType_GRADIDO_BOOK_GERMAN_RANDOM_ORDER_FIXED_CASES: MnemonicType;
+
+export const MnemonicType_BIP0039_SORTED_ORDER: MnemonicType;
+
+export const MnemonicType_MAX: MnemonicType;
+
+export type MnemonicType = number & { readonly [_SWIG_enum_tag]: 'MnemonicType'; };
+
+export function loadCryptoKeys(cryptoAppSecret: MemoryBlock, serverCryptoKey: MemoryBlock): void;
+
+export  class Passphrase {
+
+  constructor(passphrase: string, wordListType: MnemonicType);
+
+ static generate(wordListType: MnemonicType): Passphrase;
+
+ static detectMnemonicWithKeyPair(passphrase: string, userKeyPair: KeyPairEd25519): MnemonicType;
+
+ static detectMnemonic(passphrase: string): MnemonicType;
+
+  transform(wordListType: MnemonicType): Passphrase;
+
+  createClearPassphrase(): string;
+
+ static filter(passphrase: string): string;
+
+  checkIfValid(): boolean;
+
+  getString(): string;
+}
+
 export  class SecretKeyCryptography {
 
   constructor();
@@ -131,11 +162,112 @@ export  class SecretKeyCryptography {
   decrypt(encryptedMessage: MemoryBlock): MemoryBlock;
 }
 
-export  class GradidoUnit {
+export const Ed25519DerivationType_SOFT: Ed25519DerivationType;
+
+export const Ed25519DerivationType_HARD: Ed25519DerivationType;
+
+export type Ed25519DerivationType = number & { readonly [_SWIG_enum_tag]: 'Ed25519DerivationType'; };
+
+export const ED25519_CHAIN_CODE_SIZE: number;
+
+export  class KeyPairEd25519 {
+
+  constructor(publicKey: MemoryBlock, privateKey: MemoryBlock, chainCode: MemoryBlock);
+
+  constructor(publicKey: MemoryBlock, privateKey: MemoryBlock);
+
+  constructor(publicKey: MemoryBlock);
+
+ static create(passphrase: Passphrase): KeyPairEd25519;
+
+ static calculatePublicKey(privateKey: MemoryBlock): MemoryBlock;
+
+  deriveChild(index: number): KeyPairEd25519Ex;
+
+ static getDerivationType(index: number): Ed25519DerivationType;
+
+  sign(message: MemoryBlock): MemoryBlock;
+
+  sign(bodyBytes: string): MemoryBlock;
+
+  sign(message: Uint8Array): MemoryBlock;
+
+  verify(message: string, signature: string): boolean;
+
+  verify(message: MemoryBlock, signature: MemoryBlock): boolean;
+
+  is3rdHighestBitClear(): boolean;
+
+  getPublicKey(): MemoryBlock;
+
+  getChainCode(): MemoryBlock;
+
+  isTheSame(b: KeyPairEd25519): boolean;
+
+  isTheSame(privkey: MemoryBlock): number;
+
+  equal(b: KeyPairEd25519): boolean;
+
+  notEqual(b: KeyPairEd25519): boolean;
+
+  hasPrivateKey(): boolean;
+
+  getCryptedPrivKey(password: SecretKeyCryptography): MemoryBlock;
+}
+
+export  class KeyPairEd25519Ex extends KeyPairEd25519 {
+
+  constructor(publicKey: MemoryBlock, privateKey: MemoryBlock, chainCode: MemoryBlock, derivationIndex: number);
+
+  sign(message: Uint8Array): MemoryBlock;
+
+  isChildOf(parent: KeyPairEd25519 | KeyPairEd25519Ex): boolean;
+}
+
+export  class AuthenticatedEncryption {
 
   constructor();
 
-  constructor(gddCent: number);
+  constructor(ed25519KeyPair: KeyPairEd25519 | KeyPairEd25519Ex);
+
+  constructor(privateKeyx25519: MemoryBlock);
+
+  constructor(pubkeyx25519: any);
+
+  encrypt(message: Uint8Array, recipiantKey: AuthenticatedEncryption): MemoryBlock;
+
+  encrypt(message: MemoryBlock, recipiantKey: AuthenticatedEncryption): MemoryBlock;
+
+  encrypt(message: string, recipiantKey: AuthenticatedEncryption): MemoryBlock;
+
+  encrypt(message: MemoryBlock, precalculatedSharedSecretIndex: number): MemoryBlock;
+
+  decrypt(encryptedMessage: MemoryBlock, senderKey: AuthenticatedEncryption): MemoryBlock;
+
+  decrypt(encryptedMessage: MemoryBlock, precalculatedSharedSecretIndex: number): MemoryBlock;
+
+  precalculateSharedSecret(recipiantKey: AuthenticatedEncryption): number;
+
+  removePrecalculatedSharedSecret(index: number): boolean;
+
+  mPubkey: MemoryBlock;
+
+  getPublicKey(): MemoryBlock;
+
+  getPrivateKey(): MemoryBlock;
+
+  hasPrivateKey(): boolean;
+}
+
+export function SealedBoxEncrypt(keys: AuthenticatedEncryption, message: string): MemoryBlock;
+
+export function SealedBoxDecrypt(keys: AuthenticatedEncryption, encryptedMessage: MemoryBlock): string;
+
+export function SealedBoxDecrypt(privateKey: MemoryBlock, encryptedMessage: MemoryBlock): string;
+
+export  class GradidoUnit {
+
+  constructor();
 
   constructor(gdd: number);
 
@@ -544,7 +676,7 @@ export  class GradidoTransactionBuilder {
 
   addSignaturePair(publicKey: MemoryBlock, signature: MemoryBlock): GradidoTransactionBuilder;
 
-  sign(keyPair: any): GradidoTransactionBuilder;
+  sign(keyPair: KeyPairEd25519): GradidoTransactionBuilder;
 
   setParentMessageId(paringMessageId: MemoryBlock): GradidoTransactionBuilder;
 }
