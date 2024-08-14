@@ -1173,6 +1173,18 @@ SWIG_From_std_string  SWIG_NAPI_FROM_DECL_ARGS(const std::string& s)
 
 #include "gradido_blockchain/crypto/CryptoConfig.h"
 
+
+// helper for initalizing Crypto Keys
+//! \param appSecret app secret as app wide salt for generating encryption key for password encryption
+//! \param serverCryptoKey server shorthash, exactly 16 Bytes long, 32 Character in Hex Format, used for shorthash as salt, for example password encryption key hash
+static void loadCryptoKeys(memory::BlockPtr cryptoAppSecret, memory::BlockPtr serverCryptoKey) {
+  CryptoConfig::g_CryptoAppSecret = cryptoAppSecret;
+  if (!serverCryptoKey || serverCryptoKey->size() != crypto_shorthash_KEYBYTES) {
+    throw std::runtime_error("crypto.server_key hasn't correct size or isn't valid hex");
+  }
+  CryptoConfig::g_ServerCryptoKey = serverCryptoKey;
+}
+
 // js_global_declaration
 Napi::Value _wrap_loadCryptoKeys(const Napi::CallbackInfo &info);
 
@@ -5378,6 +5390,8 @@ Napi::Value _exports_SecretKeyCryptography_templ<SWIG_OBJ_WRAP>::_wrap_new_Secre
     {
       try {
         result = (SecretKeyCryptography *)new SecretKeyCryptography();
+      } catch(const CryptoConfig::MissingKeyException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const MissingEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const EncryptionException& e) {
@@ -5449,6 +5463,8 @@ Napi::Value _exports_SecretKeyCryptography_templ<SWIG_OBJ_WRAP>::_wrap_new_Secre
     arg3 = static_cast< int >(val3);{
       try {
         result = (SecretKeyCryptography *)new SecretKeyCryptography(arg1,SWIG_STD_MOVE(arg2),arg3);
+      } catch(const CryptoConfig::MissingKeyException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const MissingEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const EncryptionException& e) {
@@ -5643,6 +5659,8 @@ Napi::Value _exports_SecretKeyCryptography_templ<SWIG_OBJ_WRAP>::_wrap_SecretKey
     {
       try {
         result = (bool)((SecretKeyCryptography const *)arg1)->operator ==((std::shared_ptr< SecretKeyCryptography > const &)*arg2);
+      } catch(const CryptoConfig::MissingKeyException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const MissingEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const EncryptionException& e) {
@@ -5718,6 +5736,8 @@ Napi::Value _exports_SecretKeyCryptography_templ<SWIG_OBJ_WRAP>::_wrap_SecretKey
     {
       try {
         result = (bool)((SecretKeyCryptography const *)arg1)->hasKey();
+      } catch(const CryptoConfig::MissingKeyException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const MissingEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const EncryptionException& e) {
@@ -5812,6 +5832,8 @@ Napi::Value _exports_SecretKeyCryptography_templ<SWIG_OBJ_WRAP>::_wrap_SecretKey
     {
       try {
         (arg1)->createKey((std::string const &)*arg2,(std::string const &)*arg3);
+      } catch(const CryptoConfig::MissingKeyException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const MissingEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const EncryptionException& e) {
@@ -5894,6 +5916,8 @@ Napi::Value _exports_SecretKeyCryptography_templ<SWIG_OBJ_WRAP>::_wrap_SecretKey
     {
       try {
         result = ((SecretKeyCryptography const *)arg1)->encrypt((memory::Block const &)*arg2);
+      } catch(const CryptoConfig::MissingKeyException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const MissingEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const EncryptionException& e) {
@@ -5969,6 +5993,8 @@ Napi::Value _exports_SecretKeyCryptography_templ<SWIG_OBJ_WRAP>::_wrap_SecretKey
     {
       try {
         result = ((SecretKeyCryptography const *)arg1)->decrypt((memory::Block const &)*arg2);
+      } catch(const CryptoConfig::MissingKeyException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const MissingEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const EncryptionException& e) {

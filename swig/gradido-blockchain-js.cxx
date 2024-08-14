@@ -1564,18 +1564,6 @@ fail:
 }
 
 
-// helper for initalizing Crypto Keys
-//! \param appSecret app secret as app wide salt for generating encryption key for password encryption
-//! \param serverCryptoKey server shorthash, exactly 16 Bytes long, 32 Character in Hex Format, used for shorthash as salt, for example password encryption key hash
-void loadCryptoKeys(memory::BlockPtr cryptoAppSecret, memory::BlockPtr serverCryptoKey) {
-  CryptoConfig::g_CryptoAppSecret = cryptoAppSecret;
-  if (!serverCryptoKey || serverCryptoKey->size() != crypto_shorthash_KEYBYTES) {
-    throw std::runtime_error("crypto.server_key hasn't correct size or isn't valid hex");
-  }
-  CryptoConfig::g_ServerCryptoKey = serverCryptoKey;
-}
-
-
 // js_global_getter
 Napi::Value exports_Ed25519DerivationType_SOFT_get(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();

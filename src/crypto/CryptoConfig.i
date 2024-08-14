@@ -1,4 +1,9 @@
 %exception {
+    try {
+        $function
+    } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+    }
 }
 
 namespace CryptoConfig {
@@ -17,11 +22,11 @@ namespace CryptoConfig {
 %{
 #include "gradido_blockchain/crypto/CryptoConfig.h"
 %}
-%wrapper %{
+%{
 // helper for initalizing Crypto Keys
 //! \param appSecret app secret as app wide salt for generating encryption key for password encryption
 //! \param serverCryptoKey server shorthash, exactly 16 Bytes long, 32 Character in Hex Format, used for shorthash as salt, for example password encryption key hash
-void loadCryptoKeys(memory::BlockPtr cryptoAppSecret, memory::BlockPtr serverCryptoKey) {
+static void loadCryptoKeys(memory::BlockPtr cryptoAppSecret, memory::BlockPtr serverCryptoKey) {
   CryptoConfig::g_CryptoAppSecret = cryptoAppSecret;
   if (!serverCryptoKey || serverCryptoKey->size() != crypto_shorthash_KEYBYTES) {
     throw std::runtime_error("crypto.server_key hasn't correct size or isn't valid hex");
@@ -30,7 +35,7 @@ void loadCryptoKeys(memory::BlockPtr cryptoAppSecret, memory::BlockPtr serverCry
 }
 %}
 
-void loadCryptoKeys(memory::BlockPtr cryptoAppSecret, memory::BlockPtr serverCryptoKey);
+static void loadCryptoKeys(memory::BlockPtr cryptoAppSecret, memory::BlockPtr serverCryptoKey);
 
 %init %{
 CryptoConfig::loadMnemonicWordLists();

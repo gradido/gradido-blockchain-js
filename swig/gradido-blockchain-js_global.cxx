@@ -51,7 +51,11 @@ Napi::Value _wrap_loadCryptoKeys(const Napi::CallbackInfo &info) {
     
     
     {
-      
+      try {
+        loadCryptoKeys(SWIG_STD_MOVE(arg1),SWIG_STD_MOVE(arg2));
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
     }
     
     

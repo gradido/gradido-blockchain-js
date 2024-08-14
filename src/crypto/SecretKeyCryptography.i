@@ -5,6 +5,8 @@ typedef uint64_t KeyHashed;
 %exception {
     try {
         $function
+    } catch(const CryptoConfig::MissingKeyException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
     } catch (const MissingEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
     } catch (const EncryptionException& e) {

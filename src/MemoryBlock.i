@@ -5,7 +5,6 @@ namespace memory {
   %ignore Block::Block(size_t size);
   %ignore Block::Block(const std::vector<unsigned char>& data);
   %ignore Block::Block(std::span<std::byte> data);
-  ignore Block::Block(const std::string& data);
   %ignore Block::data() const;
   %ignore Block::span() const;
   %ignore Block::operator uint8_t*();
