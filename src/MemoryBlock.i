@@ -43,25 +43,22 @@ namespace memory {
 %typemap(ts) std::vector<std::shared_ptr<memory::Block>> "MemoryBlocks";
 %typemap(ts) std::vector<memory::ConstBlockPtr> "MemoryBlocks";
 
-
-// define a typemap to convert uint8array into unsigned char* 
-%typemap(ts) (size_t size, const unsigned char* data) "Uint8Array";
-%typemap(cstype) (size_t size, const unsigned char* data) "Uint8Array";
+// define a typemap to convert Buffer into unsigned char* 
+%typemap(ts) (size_t size, const unsigned char* data) "Buffer";
+%typemap(cstype) (size_t size, const unsigned char* data) "Buffer";
 %typemap(in) (size_t size, const unsigned char* data) {
-  if (!$input.IsTypedArray()) {
-    SWIG_exception_fail(SWIG_TypeError, "Expected a Uint8Array as input");
-  }
-  
-  Napi::Uint8Array array = $input.As<Napi::Uint8Array>();
-  $1 = array.ByteLength();
-  $2 = array.Data();  
+  try {
+    Napi::Buffer buffer = $input.As<Napi::Buffer<uint8_t>>();
+    $1 = buffer.Length();
+    $2 = buffer.Data();  
+  } catch(Napi::Error& ex) {
+    SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer as input");
+  } 
 }
 
-%typemap(ts) uint8_t* "Uint8Array";
+%typemap(ts) uint8_t* "Buffer";
 %typemap(out) uint8_t* {
-  auto jsarray = Napi::Uint8Array::New(info.Env(), arg1->size());
-  memcpy(jsarray.Data(), arg1->data(), arg1->size());
-  $result = jsarray;
+  $result = Napi::Buffer<uint8_t>::Copy(info.Env(), arg1->data(), arg1->size());
 }
 //*/
 %include "gradido_blockchain/memory/Block.h"

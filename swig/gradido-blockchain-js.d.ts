@@ -77,7 +77,7 @@ export  class MemoryBlocks {
 
 export  class MemoryBlock {
 
-  constructor(size: Uint8Array);
+  constructor(size: Buffer);
 
   constructor(data: string);
 
@@ -85,7 +85,7 @@ export  class MemoryBlock {
 
   size(): number;
 
-  data(): Uint8Array;
+  data(): Buffer;
 
   convertToHex(): string;
 
@@ -297,7 +297,7 @@ export  class GradidoUnit {
 
   notEqual(other: GradidoUnit): boolean;
 
- static calculateDecay(gradidoCent: number, seconds: number): number;
+ static calculateDecayDirect(gradidoCent: number, seconds: number): number;
 
   calculateDecay(duration: number): GradidoUnit;
 

@@ -1,4 +1,4 @@
-import { MemoryBlock, SecretKeyCryptography, loadCryptoKeys } from "../../"
+import { MemoryBlock, SecretKeyCryptography, loadCryptoKeys } from '../../'
 
 describe('authenticated encryption', () => {
   loadCryptoKeys(

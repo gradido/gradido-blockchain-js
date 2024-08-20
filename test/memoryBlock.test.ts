@@ -1,4 +1,4 @@
-import { MemoryBlock } from "../"
+import { MemoryBlock } from '../'
 
 const exampleString = 
 'It is possible to fly without motors, but not without knowledge and skill.'
@@ -40,7 +40,7 @@ describe('MemoryBlock Constructors', () => {
   })
 
   it('from Uint8Array', () => {
-    const ar = new Uint8Array(Buffer.from(exampleString))
+    const ar = Buffer.from(exampleString)
     const block = new MemoryBlock(ar)
     expect(block.size()).toEqual(exampleString.length)
     expect(block.copyAsString()).toEqual(exampleString)
@@ -72,5 +72,26 @@ describe('MemoryBlock Operations', () => {
 
     const block2 = new MemoryBlock('bla')
     expect(block2.isEmpty()).toBeFalsy()
+  })
+
+  it('compare', () => {
+    const blockStr = new MemoryBlock(exampleString)
+    const blockHex = MemoryBlock.fromHex(exampleStringHex)
+    const blockBase64 = MemoryBlock.fromBase64(exampleStringBase64)
+    const otherBlock = new MemoryBlock('diff content')
+    expect(blockStr.equal(blockHex)).toBeTruthy()
+    expect(blockStr.equal(blockBase64)).toBeTruthy()
+    expect(blockStr.equal(blockStr)).toBeTruthy()
+    expect(blockHex.equal(blockStr)).toBeTruthy()
+    expect(blockHex.equal(blockBase64)).toBeTruthy()
+    expect(blockHex.equal(blockHex)).toBeTruthy()
+    expect(blockHex.notEqual(blockHex)).toBeFalsy()
+    expect(blockBase64.equal(blockStr)).toBeTruthy()
+    expect(blockBase64.equal(blockHex)).toBeTruthy()
+    expect(blockBase64.equal(blockBase64)).toBeTruthy()
+    expect(blockBase64.notEqual(blockBase64)).toBeFalsy()
+    expect(otherBlock.notEqual(blockStr)).toBeTruthy()
+    expect(otherBlock.notEqual(blockBase64)).toBeTruthy()
+    expect(otherBlock.notEqual(blockHex)).toBeTruthy()    
   })
 })

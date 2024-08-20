@@ -1713,11 +1713,11 @@ Napi::Value _wrap_GradidoUnit_equal(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_GradidoUnit_notEqual(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
-static Napi::Value _wrap_GradidoUnit_calculateDecay__SWIG_0(const Napi::CallbackInfo &);
+static Napi::Value _wrap_GradidoUnit_calculateDecayDirect(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_GradidoUnit_calculateDecay__SWIG_0(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_GradidoUnit_calculateDecay__SWIG_1(const Napi::CallbackInfo &);
-// jsnapi_class_method_declaration
-Napi::Value _wrap_GradidoUnit_calculateDecay__SWIG_2(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_GradidoUnit__wrap_GradidoUnit_calculateDecay(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
@@ -3385,13 +3385,13 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_new_MemoryBlock__SW
     }
     {
       {
-        if (!info[0].IsTypedArray()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a Uint8Array as input");
-        }
-        
-        Napi::Uint8Array array = info[0].As<Napi::Uint8Array>();
-        arg1 = array.ByteLength();
-        arg2 = array.Data();  
+        try {
+          Napi::Buffer buffer = info[0].As<Napi::Buffer<uint8_t>>();
+          arg1 = buffer.Length();
+          arg2 = buffer.Data();  
+        } catch(Napi::Error& ex) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer as input");
+        } 
       }
     }
     {
@@ -3795,9 +3795,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlock_data(co
     
     
     {
-      auto jsarray = Napi::Uint8Array::New(info.Env(), arg1->size());
-      memcpy(jsarray.Data(), arg1->data(), arg1->size());
-      jsresult = jsarray;
+      jsresult = Napi::Buffer<uint8_t>::Copy(info.Env(), arg1->data(), arg1->size());
     }
     
     
@@ -10964,9 +10962,9 @@ fail:
 }
 
 
-// js_overloaded_function
+// js_function
 template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_calculateDecay__SWIG_0(const Napi::CallbackInfo &info) {
+Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_calculateDecayDirect(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
   int64_t arg1 ;
@@ -10977,17 +10975,22 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_calcula
   int ecode2 = 0 ;
   int64_t result;
   
+  
 #ifdef NAPI_CPP_EXCEPTIONS
   try {
 #endif
     
+    if(static_cast<int>(info.Length()) < 2 || static_cast<int>(info.Length()) > 2) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_GradidoUnit_calculateDecayDirect.");
+    }
+    
     ecode1 = SWIG_AsVal_long_SS_long(info[0], &val1);
     if (!SWIG_IsOK(ecode1)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "GradidoUnit_calculateDecay" "', argument " "1"" of type '" "int64_t""'");
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "GradidoUnit_calculateDecayDirect" "', argument " "1"" of type '" "int64_t""'");
     } 
     arg1 = static_cast< int64_t >(val1);ecode2 = SWIG_AsVal_long_SS_long(info[1], &val2);
     if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "GradidoUnit_calculateDecay" "', argument " "2"" of type '" "int64_t""'");
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "GradidoUnit_calculateDecayDirect" "', argument " "2"" of type '" "int64_t""'");
     } 
     arg2 = static_cast< int64_t >(val2);
     
@@ -11025,7 +11028,7 @@ fail:
 
 // js_overloaded_function
 template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_calculateDecay__SWIG_1(const Napi::CallbackInfo &info) {
+Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_calculateDecay__SWIG_0(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
   GradidoUnit *arg1 = (GradidoUnit *) 0 ;
@@ -11086,7 +11089,7 @@ fail:
 
 // js_overloaded_function
 template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_calculateDecay__SWIG_2(const Napi::CallbackInfo &info) {
+Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_calculateDecay__SWIG_1(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
   GradidoUnit *arg1 = (GradidoUnit *) 0 ;
@@ -11169,7 +11172,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit__wrap_G
 #ifdef NAPI_CPP_EXCEPTIONS
     bool tryNext = false;
     try {
-      jsresult = _wrap_GradidoUnit_calculateDecay__SWIG_1(info);
+      jsresult = _wrap_GradidoUnit_calculateDecay__SWIG_0(info);
     } catch (const Napi::TypeError &) {
       tryNext = true;
     } catch (const Napi::Error &e) {
@@ -11178,7 +11181,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit__wrap_G
     if (!tryNext)
     return jsresult;
 #else
-    _wrap_GradidoUnit_calculateDecay__SWIG_1(info);
+    _wrap_GradidoUnit_calculateDecay__SWIG_0(info);
     if (env.IsExceptionPending()) {
       Napi::Error e = env.GetAndClearPendingException();
       Napi::Value typeErrorValue;
@@ -11205,7 +11208,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit__wrap_G
 #ifdef NAPI_CPP_EXCEPTIONS
     bool tryNext = false;
     try {
-      jsresult = _wrap_GradidoUnit_calculateDecay__SWIG_2(info);
+      jsresult = _wrap_GradidoUnit_calculateDecay__SWIG_1(info);
     } catch (const Napi::TypeError &) {
       tryNext = true;
     } catch (const Napi::Error &e) {
@@ -11214,7 +11217,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit__wrap_G
     if (!tryNext)
     return jsresult;
 #else
-    _wrap_GradidoUnit_calculateDecay__SWIG_2(info);
+    _wrap_GradidoUnit_calculateDecay__SWIG_1(info);
     if (env.IsExceptionPending()) {
       Napi::Error e = env.GetAndClearPendingException();
       Napi::Value typeErrorValue;

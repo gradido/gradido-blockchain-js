@@ -141,6 +141,14 @@ void _exports_GradidoUnit_inst::GetMembers(
   
   /* add static class functions and variables */
   // jsnapi_register_static_function
+  staticMembers.erase("calculateDecayDirect");
+  staticMembers.insert({
+    "calculateDecayDirect",
+      StaticMethod("calculateDecayDirect",
+        &_exports_GradidoUnit_templ::_wrap_GradidoUnit_calculateDecayDirect,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_static_function
   staticMembers.erase("calculateDecayDurationSeconds");
   staticMembers.insert({
     "calculateDecayDurationSeconds",

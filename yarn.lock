@@ -624,6 +624,13 @@
   dependencies:
     undici-types "~6.18.2"
 
+"@types/sodium-native@^2.3.9":
+  version "2.3.9"
+  resolved "https://registry.yarnpkg.com/@types/sodium-native/-/sodium-native-2.3.9.tgz#50b790bd837aaf20c3880cb31b45244142ff00d4"
+  integrity sha512-jZIg5ltGH1okmnH3FrLQsgwjcjOVozMSHwSiEm1/LpMekhOMHbQqp21P4H24mizh1BjwI6Q8qmphmD/HJuAqWg==
+  dependencies:
+    "@types/node" "*"
+
 "@types/stack-utils@^2.0.0":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-2.0.3.tgz#6209321eb2c1712a7e7466422b8cb1fc0d9dd5d8"
@@ -2077,7 +2084,7 @@ node-api-headers@^1.1.0:
   resolved "https://registry.yarnpkg.com/node-api-headers/-/node-api-headers-1.2.0.tgz#b717cd420aec79031f8dc83a50eb0a8bdf24c70d"
   integrity sha512-L9AiEkBfgupC0D/LsudLPOhzy/EdObsp+FHyL1zSK0kKv5FDA9rJMoRz8xd+ojxzlqfg0tTZm2h8ot2nS7bgRA==
 
-node-gyp-build@^4.8.1:
+node-gyp-build@^4.8.0, node-gyp-build@^4.8.1:
   version "4.8.1"
   resolved "https://registry.yarnpkg.com/node-gyp-build/-/node-gyp-build-4.8.1.tgz#976d3ad905e71b76086f4f0b0d3637fe79b6cda5"
   integrity sha512-OSs33Z9yWr148JZcbZd5WiAXhh/n9z8TxQcdMhIOlpN9AhWpLfvVFO73+m77bBABQMaY9XSvIa+qk0jlI7Gcaw==
@@ -2382,6 +2389,13 @@ slash@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
   integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
+
+sodium-native@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/sodium-native/-/sodium-native-4.1.1.tgz#109bc924dd55c13db87c6dd30da047487595723c"
+  integrity sha512-LXkAfRd4FHtkQS4X6g+nRcVaN7mWVNepV06phIsC6+IZFvGh1voW5TNQiQp2twVaMf05gZqQjuS+uWLM6gHhNQ==
+  dependencies:
+    node-gyp-build "^4.8.0"
 
 source-map-support@0.5.13:
   version "0.5.13"
