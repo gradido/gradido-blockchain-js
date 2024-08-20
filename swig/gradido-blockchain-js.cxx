@@ -2025,7 +2025,6 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
 
 
 CryptoConfig::loadMnemonicWordLists();
-fprintf(stderr, "Hello World\n");
 
 
   /* initialize the base SWIG object class */

@@ -48,12 +48,11 @@ namespace memory {
 %typemap(ts) (size_t size, const unsigned char* data) "Uint8Array";
 %typemap(cstype) (size_t size, const unsigned char* data) "Uint8Array";
 %typemap(in) (size_t size, const unsigned char* data) {
-  SWIG_exception_fail(SWIG_TypeError, "Hui");
-  if (!info[1].IsTypedArray()) {
+  if (!$input.IsTypedArray()) {
     SWIG_exception_fail(SWIG_TypeError, "Expected a Uint8Array as input");
   }
   
-  Napi::Uint8Array array = info[1].As<Napi::Uint8Array>();
+  Napi::Uint8Array array = $input.As<Napi::Uint8Array>();
   $1 = array.ByteLength();
   $2 = array.Data();  
 }

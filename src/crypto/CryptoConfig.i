@@ -39,7 +39,6 @@ static void loadCryptoKeys(memory::BlockPtr cryptoAppSecret, memory::BlockPtr se
 
 %init %{
 CryptoConfig::loadMnemonicWordLists();
-fprintf(stderr, "Hello World\n");
 %}
 
 

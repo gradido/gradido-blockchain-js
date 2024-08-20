@@ -3385,12 +3385,11 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_new_MemoryBlock__SW
     }
     {
       {
-        SWIG_exception_fail(SWIG_TypeError, "Hui");
-        if (!info[1].IsTypedArray()) {
+        if (!info[0].IsTypedArray()) {
           SWIG_exception_fail(SWIG_TypeError, "Expected a Uint8Array as input");
         }
         
-        Napi::Uint8Array array = info[1].As<Napi::Uint8Array>();
+        Napi::Uint8Array array = info[0].As<Napi::Uint8Array>();
         arg1 = array.ByteLength();
         arg2 = array.Data();  
       }
