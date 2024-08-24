@@ -64,9 +64,13 @@ function generateKeyPairs(): KeyPair[] {
 function sign(transaction: GradidoTransaction, keyPair: KeyPair)
 {
     const signBuffer = Buffer.alloc(crypto_sign_BYTES)
+    const bodyBytes = transaction.getBodyBytes()
+    if(!bodyBytes) {
+      throw Error('transaction has empty body bytes, cannot sign without payload')
+    }
     crypto_sign_detached(
       signBuffer, 
-      Buffer.from(transaction.getBodyBytes().data()), 
+      Buffer.from(bodyBytes.data()), 
       Buffer.from(keyPair.privateKey.data())
     )
     transaction.getSignatureMap().push(new SignaturePair(keyPair.publicKey, new MemoryBlock(signBuffer)));

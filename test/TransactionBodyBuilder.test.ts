@@ -37,9 +37,9 @@ describe('test TransactionBodyBuilderFactory', () => {
     expect(transactionBody.isInvolved(keyPairs[0].publicKey)).toBeTruthy()
 
     const communityRoot = transactionBody.getCommunityRoot()
-    expect(communityRoot.getPubkey().equal(keyPairs[0].publicKey)).toBeTruthy()
-    expect(communityRoot.getGmwPubkey().equal(keyPairs[1].publicKey)).toBeTruthy()
-    expect(communityRoot.getAufPubkey().equal(keyPairs[2].publicKey)).toBeTruthy()
+    expect(communityRoot.getPubkey()?.equal(keyPairs[0].publicKey)).toBeTruthy()
+    expect(communityRoot.getGmwPubkey()?.equal(keyPairs[1].publicKey)).toBeTruthy()
+    expect(communityRoot.getAufPubkey()?.equal(keyPairs[2].publicKey)).toBeTruthy()
     expect(transactionBody.getCreatedAt().gt(new Timestamp(now))).toBeTruthy()
   })
 
@@ -71,7 +71,7 @@ describe('test TransactionBodyBuilderFactory', () => {
       .setRegisterAddress(
         keyPairs[3].publicKey,
         AddressType_COMMUNITY_HUMAN,
-        MemoryBlock.empty(),
+        null,
         keyPairs[4].publicKey
       )
       .setCreatedAt(now)

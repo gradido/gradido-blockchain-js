@@ -2293,6 +2293,16 @@ if (SWIGTYPE_p_gradido__GradidoTransactionBuilder->clientdata == SWIG_NULLPTR) {
 Napi::FunctionReference *_exports_GradidoTransactionBuilder_ctor_ref = new Napi::FunctionReference();
 *_exports_GradidoTransactionBuilder_ctor_ref = Napi::Persistent(_exports_GradidoTransactionBuilder_ctor);
 env.GetInstanceData<EnvInstanceData>()->ctor[24] = _exports_GradidoTransactionBuilder_ctor_ref;
+/* Class: InteractionSerialize (_exports_InteractionSerialize) */
+// jsnapi_registerclass
+Napi::Function _exports_InteractionSerialize_ctor = _exports_InteractionSerialize_inst::GetClass(env);
+exports.Set("InteractionSerialize", _exports_InteractionSerialize_ctor);
+if (SWIGTYPE_p_gradido__interaction__serialize__Context->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__interaction__serialize__Context->clientdata = new size_t(25);
+}
+Napi::FunctionReference *_exports_InteractionSerialize_ctor_ref = new Napi::FunctionReference();
+*_exports_InteractionSerialize_ctor_ref = Napi::Persistent(_exports_InteractionSerialize_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[25] = _exports_InteractionSerialize_ctor_ref;
 
 
   /* initialize the inheritance helpers */
@@ -2683,6 +2693,21 @@ do {
   NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
   NAPI_CHECK_MAYBE(setProto.Call({
     _exports_GradidoTransactionBuilder_ctor, SWIG_NAPI_ObjectWrap_ctor
+  }));
+  NAPI_CHECK_MAYBE(setProto.Call({
+    protoSub, protoBase
+  }));
+} while (0);
+
+
+// Inheritance for _exports_InteractionSerialize (InteractionSerialize) <- SWIG_NAPI_ObjectWrap
+// jsnapi_setup_inheritance
+do {
+  Napi::Value protoBase, protoSub;
+  NAPI_CHECK_RESULT(_exports_InteractionSerialize_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
+  NAPI_CHECK_MAYBE(setProto.Call({
+    _exports_InteractionSerialize_ctor, SWIG_NAPI_ObjectWrap_ctor
   }));
   NAPI_CHECK_MAYBE(setProto.Call({
     protoSub, protoBase

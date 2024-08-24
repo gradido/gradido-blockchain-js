@@ -102,7 +102,7 @@ describe('test passphrases code', () => {
       expect(passphrase.checkIfValid()).toBeTruthy()
 
       const keyPair = KeyPairEd25519.create(passphrase);
-      expect(keyPair.getPublicKey().convertToHex()).toEqual(passphraseStrings.pubkeyHex)
+      expect(keyPair.getPublicKey()?.convertToHex()).toEqual(passphraseStrings.pubkeyHex)
 
       const passphraseEnglish = passphrase.transform(MnemonicType_BIP0039_SORTED_ORDER)
       expect(passphraseEnglish.getString()).toEqual(passphraseStrings.englishSortedOrderBIP0039)

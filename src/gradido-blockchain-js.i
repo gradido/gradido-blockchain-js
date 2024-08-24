@@ -63,3 +63,6 @@
 // advanced types
 %include "TransactionBodyBuilder.i"
 %include "GradidoTransactionBuilder.i"
+
+// interactions
+%include "interaction/serialize.i"

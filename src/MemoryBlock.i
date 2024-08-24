@@ -37,15 +37,17 @@ namespace memory {
 %{
 #include "gradido_blockchain/memory/Block.h"
 %}
-
+/*
 %extend memory::Block {
-  static memory::Block empty() {
+  static memory::BlockPtr empty() {
     return memory::Block(0);
   }
 }
-
+*/
 %template(MemoryBlocks) std::vector<std::shared_ptr<memory::Block>>;
 
+%typemap(ts) memory::ConstBlockPtr "MemoryBlock|null"
+%typemap(ts) memory::BlockPtr "MemoryBlock|null"
 %typemap(ts) std::vector<std::shared_ptr<memory::Block>> "MemoryBlocks";
 %typemap(ts) std::vector<memory::ConstBlockPtr> "MemoryBlocks";
 

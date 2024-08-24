@@ -16,7 +16,7 @@ describe('gradido transaction builder test', () => {
       .sign(keyPair)
       .build()
 
-    expect(gradidoTransaction.getBodyBytes().convertToBase64()).toEqual('CgASCAiAzLn/BRAAGgMzLjMgAA==')
+    expect(gradidoTransaction.getBodyBytes()?.convertToBase64()).toEqual('CgASCAiAzLn/BRAAGgMzLjMgAA==')
     const signaturePairs = gradidoTransaction.getSignatureMap().getSignaturePairs()
     expect(keyPairs[0].publicKey.convertToHex()).toEqual('643c438776fc2634faf887df8485b9ed580729c2099e00e4d4d53cd74626a0d6')
     expect(signaturePairs.get(0).getSignature().convertToHex()).toEqual(
