@@ -163,7 +163,7 @@ describe('Serialize Gradido Transactions Tests', () => {
     )
     const sign = Buffer.alloc(crypto_sign_BYTES)
     const signatureMap = new SignatureMap
-    for(let i = 0; i < 2; i++) {
+    for(let i = 0; i < 2; i++) {      
       crypto_sign_detached(sign, message.data(), keyPairs[i].privateKey.data())
       signatureMap.push(new SignaturePair(keyPairs[i].publicKey, new MemoryBlock(sign)))
     }

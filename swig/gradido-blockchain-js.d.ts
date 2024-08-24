@@ -716,4 +716,29 @@ export  class InteractionSerialize {
   run(): MemoryBlock|null;
 }
 
+export const BodyBytesType_BASE64: BodyBytesType;
+
+export const BodyBytesType_HEX: BodyBytesType;
+
+export const BodyBytesType_JSON: BodyBytesType;
+
+export type BodyBytesType = number & { readonly [_SWIG_enum_tag]: 'BodyBytesType'; };
+
+export  class InteractionToJson {
+
+  constructor(body: TransactionBody);
+
+  constructor(gradidoTransaction: GradidoTransaction, format: BodyBytesType);
+
+  constructor(gradidoTransaction: GradidoTransaction);
+
+  constructor(confirmedTransaction: ConfirmedTransaction, format: BodyBytesType);
+
+  constructor(confirmedTransaction: ConfirmedTransaction);
+
+  run(pretty: boolean): string;
+
+  run(): string;
+}
+
 

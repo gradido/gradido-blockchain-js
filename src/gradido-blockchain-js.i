@@ -66,3 +66,4 @@
 
 // interactions
 %include "interaction/serialize.i"
+%include "interaction/toJson.i"

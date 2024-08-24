@@ -1750,6 +1750,93 @@ fail:
 }
 
 
+// js_global_getter
+Napi::Value exports_BodyBytesType_BASE64_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(gradido::interaction::toJson::BodyBytesType::BASE64));
+    
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return Napi::Value();
+#endif
+}
+
+
+// js_global_getter
+Napi::Value exports_BodyBytesType_HEX_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(gradido::interaction::toJson::BodyBytesType::HEX));
+    
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return Napi::Value();
+#endif
+}
+
+
+// js_global_getter
+Napi::Value exports_BodyBytesType_JSON_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(gradido::interaction::toJson::BodyBytesType::JSON));
+    
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return Napi::Value();
+#endif
+}
+
+
 
 
 EnvInstanceData::EnvInstanceData(Napi::Env env, swig_module_info *swig_module) :
@@ -2303,6 +2390,16 @@ if (SWIGTYPE_p_gradido__interaction__serialize__Context->clientdata == SWIG_NULL
 Napi::FunctionReference *_exports_InteractionSerialize_ctor_ref = new Napi::FunctionReference();
 *_exports_InteractionSerialize_ctor_ref = Napi::Persistent(_exports_InteractionSerialize_ctor);
 env.GetInstanceData<EnvInstanceData>()->ctor[25] = _exports_InteractionSerialize_ctor_ref;
+/* Class: InteractionToJson (_exports_InteractionToJson) */
+// jsnapi_registerclass
+Napi::Function _exports_InteractionToJson_ctor = _exports_InteractionToJson_inst::GetClass(env);
+exports.Set("InteractionToJson", _exports_InteractionToJson_ctor);
+if (SWIGTYPE_p_gradido__interaction__toJson__Context->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__interaction__toJson__Context->clientdata = new size_t(26);
+}
+Napi::FunctionReference *_exports_InteractionToJson_ctor_ref = new Napi::FunctionReference();
+*_exports_InteractionToJson_ctor_ref = Napi::Persistent(_exports_InteractionToJson_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[26] = _exports_InteractionToJson_ctor_ref;
 
 
   /* initialize the inheritance helpers */
@@ -2715,6 +2812,21 @@ do {
 } while (0);
 
 
+// Inheritance for _exports_InteractionToJson (InteractionToJson) <- SWIG_NAPI_ObjectWrap
+// jsnapi_setup_inheritance
+do {
+  Napi::Value protoBase, protoSub;
+  NAPI_CHECK_RESULT(_exports_InteractionToJson_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
+  NAPI_CHECK_MAYBE(setProto.Call({
+    _exports_InteractionToJson_ctor, SWIG_NAPI_ObjectWrap_ctor
+  }));
+  NAPI_CHECK_MAYBE(setProto.Call({
+    protoSub, protoBase
+  }));
+} while (0);
+
+
 
   /* create and register namespace objects */
   // jsnapi_register_global_constant
@@ -2957,6 +3069,33 @@ do {
 // jsnapi_register_global_function
 do {
   Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Function("SealedBoxDecrypt", _wrap_SealedBoxes__wrap_SealedBoxDecrypt,
+    static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
+  NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
+} while (0);
+// jsnapi_register_global_constant
+do {
+  Napi::Function f = Napi::Function::New(env, exports_BodyBytesType_BASE64_get);
+  Napi::Value value;
+  NAPI_CHECK_RESULT(f.Call(0, SWIG_NULLPTR), value);
+  Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Value("BodyBytesType_BASE64", value,
+    static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
+  NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
+} while (0);
+// jsnapi_register_global_constant
+do {
+  Napi::Function f = Napi::Function::New(env, exports_BodyBytesType_HEX_get);
+  Napi::Value value;
+  NAPI_CHECK_RESULT(f.Call(0, SWIG_NULLPTR), value);
+  Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Value("BodyBytesType_HEX", value,
+    static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
+  NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
+} while (0);
+// jsnapi_register_global_constant
+do {
+  Napi::Function f = Napi::Function::New(env, exports_BodyBytesType_JSON_get);
+  Napi::Value value;
+  NAPI_CHECK_RESULT(f.Call(0, SWIG_NULLPTR), value);
+  Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Value("BodyBytesType_JSON", value,
     static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
   NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
 } while (0);

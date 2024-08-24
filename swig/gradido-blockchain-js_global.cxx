@@ -417,6 +417,7 @@ SWIGINTERN swig_type_info _swigt__p_gradido__data__TimestampSeconds = {"_p_gradi
 SWIGINTERN swig_type_info _swigt__p_gradido__data__TransactionBody = {"_p_gradido__data__TransactionBody", "gradido::data::TransactionBody *|p_gradido__data__TransactionBody", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__TransferAmount = {"_p_gradido__data__TransferAmount", "gradido::data::TransferAmount *|p_gradido__data__TransferAmount", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__serialize__Context = {"_p_gradido__interaction__serialize__Context", "gradido::interaction::serialize::Context *|p_gradido__interaction__serialize__Context", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_gradido__interaction__toJson__Context = {"_p_gradido__interaction__toJson__Context", "p_gradido__interaction__toJson__Context|gradido::interaction::toJson::Context *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_int = {"_p_int", "int32_t *|int_fast16_t *|int_fast32_t *|int_least32_t *|intptr_t *|int *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_long_long = {"_p_long_long", "int64_t *|int_fast64_t *|int_least64_t *|intmax_t *|long long *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_memory__Block = {"_p_memory__Block", "MemoryBin *|p_memory__Block|memory::Block *", 0, 0, (void*)0, 0};
@@ -479,6 +480,7 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_gradido__data__TransactionBody,
   &_swigt__p_gradido__data__TransferAmount,
   &_swigt__p_gradido__interaction__serialize__Context,
+  &_swigt__p_gradido__interaction__toJson__Context,
   &_swigt__p_int,
   &_swigt__p_long_long,
   &_swigt__p_memory__Block,
@@ -538,6 +540,7 @@ SWIGINTERN swig_cast_info _swigc__p_gradido__data__TimestampSeconds[] = {  {&_sw
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__TransactionBody[] = {  {&_swigt__p_gradido__data__TransactionBody, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__TransferAmount[] = {  {&_swigt__p_gradido__data__TransferAmount, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__serialize__Context[] = {  {&_swigt__p_gradido__interaction__serialize__Context, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__toJson__Context[] = {  {&_swigt__p_gradido__interaction__toJson__Context, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_long_long[] = {  {&_swigt__p_long_long, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_memory__Block[] = {  {&_swigt__p_memory__Block, 0, 0, 0},{0, 0, 0, 0}};
@@ -597,6 +600,7 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_gradido__data__TransactionBody,
   _swigc__p_gradido__data__TransferAmount,
   _swigc__p_gradido__interaction__serialize__Context,
+  _swigc__p_gradido__interaction__toJson__Context,
   _swigc__p_int,
   _swigc__p_long_long,
   _swigc__p_memory__Block,
@@ -629,6 +633,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
 
-SWIGINTERN swig_type_info *swig_types[58];
-SWIGINTERN swig_module_info swig_module = {swig_types, 57, 0, 0, 0, 0};
+SWIGINTERN swig_type_info *swig_types[59];
+SWIGINTERN swig_module_info swig_module = {swig_types, 58, 0, 0, 0, 0};
 
