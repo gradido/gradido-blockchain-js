@@ -42,68 +42,61 @@ void _exports_ConfirmedTransaction_inst::GetMembers(
         &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction__wrap_ConfirmedTransaction_calculateRunningHash,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("id");
+  // jsnapi_register_member_function
+  members.erase("getId");
   members.insert({
-    "id",
-      _exports_ConfirmedTransaction_templ::InstanceAccessor("id",
-        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_id_get,
-        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_id_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getId",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("getId",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_getId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("gradidoTransaction");
+  // jsnapi_register_member_function
+  members.erase("getGradidoTransaction");
   members.insert({
-    "gradidoTransaction",
-      _exports_ConfirmedTransaction_templ::InstanceAccessor("gradidoTransaction",
-        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_gradidoTransaction_get,
-        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_gradidoTransaction_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getGradidoTransaction",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("getGradidoTransaction",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_getGradidoTransaction,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("confirmedAt");
+  // jsnapi_register_member_function
+  members.erase("getConfirmedAt");
   members.insert({
-    "confirmedAt",
-      _exports_ConfirmedTransaction_templ::InstanceAccessor("confirmedAt",
-        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_confirmedAt_get,
-        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_confirmedAt_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getConfirmedAt",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("getConfirmedAt",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_getConfirmedAt,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("versionNumber");
+  // jsnapi_register_member_function
+  members.erase("getVersionNumber");
   members.insert({
-    "versionNumber",
-      _exports_ConfirmedTransaction_templ::InstanceAccessor("versionNumber",
-        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_versionNumber_get,
-        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_versionNumber_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getVersionNumber",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("getVersionNumber",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_getVersionNumber,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("runningHash");
+  // jsnapi_register_member_function
+  members.erase("getRunningHash");
   members.insert({
-    "runningHash",
-      _exports_ConfirmedTransaction_templ::InstanceAccessor("runningHash",
-        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_runningHash_get,
-        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_runningHash_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getRunningHash",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("getRunningHash",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_getRunningHash,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("messageId");
+  // jsnapi_register_member_function
+  members.erase("getMessageId");
   members.insert({
-    "messageId",
-      _exports_ConfirmedTransaction_templ::InstanceAccessor("messageId",
-        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_messageId_get,
-        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_messageId_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getMessageId",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("getMessageId",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_getMessageId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("accountBalance");
+  // jsnapi_register_member_function
+  members.erase("getAccountBalance");
   members.insert({
-    "accountBalance",
-      _exports_ConfirmedTransaction_templ::InstanceAccessor("accountBalance",
-        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_accountBalance_get,
-        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_accountBalance_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getAccountBalance",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("getAccountBalance",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_getAccountBalance,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
   /* add static class functions and variables */

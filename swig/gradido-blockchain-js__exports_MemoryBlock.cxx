@@ -132,6 +132,14 @@ void _exports_MemoryBlock_inst::GetMembers(
         &_exports_MemoryBlock_templ::_wrap_MemoryBlock__wrap_MemoryBlock_fromBase64,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_static_function
+  staticMembers.erase("empty");
+  staticMembers.insert({
+    "empty",
+      StaticMethod("empty",
+        &_exports_MemoryBlock_templ::_wrap_MemoryBlock_empty,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   
 #ifndef NAPI_CPP_EXCEPTIONS

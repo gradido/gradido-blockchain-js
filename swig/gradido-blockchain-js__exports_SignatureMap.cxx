@@ -42,14 +42,13 @@ void _exports_SignatureMap_inst::GetMembers(
         &_exports_SignatureMap_templ::_wrap_SignatureMap_push,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("signaturePairs");
+  // jsnapi_register_member_function
+  members.erase("getSignaturePairs");
   members.insert({
-    "signaturePairs",
-      _exports_SignatureMap_templ::InstanceAccessor("signaturePairs",
-        &_exports_SignatureMap_templ::_wrap_SignatureMap_signaturePairs_get,
-        &_exports_SignatureMap_templ::_wrap_SignatureMap_signaturePairs_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getSignaturePairs",
+      _exports_SignatureMap_templ::InstanceMethod("getSignaturePairs",
+        &_exports_SignatureMap_templ::_wrap_SignatureMap_getSignaturePairs,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
   /* add static class functions and variables */

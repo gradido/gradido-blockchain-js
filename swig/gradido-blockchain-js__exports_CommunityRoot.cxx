@@ -50,32 +50,29 @@ void _exports_CommunityRoot_inst::GetMembers(
         &_exports_CommunityRoot_templ::_wrap_CommunityRoot_isInvolved,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("pubkey");
+  // jsnapi_register_member_function
+  members.erase("getPubkey");
   members.insert({
-    "pubkey",
-      _exports_CommunityRoot_templ::InstanceAccessor("pubkey",
-        &_exports_CommunityRoot_templ::_wrap_CommunityRoot_pubkey_get,
-        &_exports_CommunityRoot_templ::_wrap_CommunityRoot_pubkey_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getPubkey",
+      _exports_CommunityRoot_templ::InstanceMethod("getPubkey",
+        &_exports_CommunityRoot_templ::_wrap_CommunityRoot_getPubkey,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("gmwPubkey");
+  // jsnapi_register_member_function
+  members.erase("getGmwPubkey");
   members.insert({
-    "gmwPubkey",
-      _exports_CommunityRoot_templ::InstanceAccessor("gmwPubkey",
-        &_exports_CommunityRoot_templ::_wrap_CommunityRoot_gmwPubkey_get,
-        &_exports_CommunityRoot_templ::_wrap_CommunityRoot_gmwPubkey_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getGmwPubkey",
+      _exports_CommunityRoot_templ::InstanceMethod("getGmwPubkey",
+        &_exports_CommunityRoot_templ::_wrap_CommunityRoot_getGmwPubkey,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("aufPubkey");
+  // jsnapi_register_member_function
+  members.erase("getAufPubkey");
   members.insert({
-    "aufPubkey",
-      _exports_CommunityRoot_templ::InstanceAccessor("aufPubkey",
-        &_exports_CommunityRoot_templ::_wrap_CommunityRoot_aufPubkey_get,
-        &_exports_CommunityRoot_templ::_wrap_CommunityRoot_aufPubkey_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getAufPubkey",
+      _exports_CommunityRoot_templ::InstanceMethod("getAufPubkey",
+        &_exports_CommunityRoot_templ::_wrap_CommunityRoot_getAufPubkey,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
   /* add static class functions and variables */

@@ -58,23 +58,21 @@ void _exports_GradidoTransfer_inst::GetMembers(
         &_exports_GradidoTransfer_templ::_wrap_GradidoTransfer_isInvolved,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("sender");
+  // jsnapi_register_member_function
+  members.erase("getSender");
   members.insert({
-    "sender",
-      _exports_GradidoTransfer_templ::InstanceAccessor("sender",
-        &_exports_GradidoTransfer_templ::_wrap_GradidoTransfer_sender_get,
-        &_exports_GradidoTransfer_templ::_wrap_GradidoTransfer_sender_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getSender",
+      _exports_GradidoTransfer_templ::InstanceMethod("getSender",
+        &_exports_GradidoTransfer_templ::_wrap_GradidoTransfer_getSender,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("recipient");
+  // jsnapi_register_member_function
+  members.erase("getRecipient");
   members.insert({
-    "recipient",
-      _exports_GradidoTransfer_templ::InstanceAccessor("recipient",
-        &_exports_GradidoTransfer_templ::_wrap_GradidoTransfer_recipient_get,
-        &_exports_GradidoTransfer_templ::_wrap_GradidoTransfer_recipient_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getRecipient",
+      _exports_GradidoTransfer_templ::InstanceMethod("getRecipient",
+        &_exports_GradidoTransfer_templ::_wrap_GradidoTransfer_getRecipient,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
   /* add static class functions and variables */

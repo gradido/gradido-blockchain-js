@@ -50,23 +50,21 @@ void _exports_GradidoCreation_inst::GetMembers(
         &_exports_GradidoCreation_templ::_wrap_GradidoCreation_isInvolved,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("recipient");
+  // jsnapi_register_member_function
+  members.erase("getRecipient");
   members.insert({
-    "recipient",
-      _exports_GradidoCreation_templ::InstanceAccessor("recipient",
-        &_exports_GradidoCreation_templ::_wrap_GradidoCreation_recipient_get,
-        &_exports_GradidoCreation_templ::_wrap_GradidoCreation_recipient_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getRecipient",
+      _exports_GradidoCreation_templ::InstanceMethod("getRecipient",
+        &_exports_GradidoCreation_templ::_wrap_GradidoCreation_getRecipient,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("targetDate");
+  // jsnapi_register_member_function
+  members.erase("getTargetDate");
   members.insert({
-    "targetDate",
-      _exports_GradidoCreation_templ::InstanceAccessor("targetDate",
-        &_exports_GradidoCreation_templ::_wrap_GradidoCreation_targetDate_get,
-        &_exports_GradidoCreation_templ::_wrap_GradidoCreation_targetDate_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getTargetDate",
+      _exports_GradidoCreation_templ::InstanceMethod("getTargetDate",
+        &_exports_GradidoCreation_templ::_wrap_GradidoCreation_getTargetDate,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
   /* add static class functions and variables */

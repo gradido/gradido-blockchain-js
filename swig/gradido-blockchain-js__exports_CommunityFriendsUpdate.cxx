@@ -42,14 +42,13 @@ void _exports_CommunityFriendsUpdate_inst::GetMembers(
         &_exports_CommunityFriendsUpdate_templ::_wrap_CommunityFriendsUpdate_equal,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("colorFusion");
+  // jsnapi_register_member_function
+  members.erase("getColorFusion");
   members.insert({
-    "colorFusion",
-      _exports_CommunityFriendsUpdate_templ::InstanceAccessor("colorFusion",
-        &_exports_CommunityFriendsUpdate_templ::_wrap_CommunityFriendsUpdate_colorFusion_get,
-        &_exports_CommunityFriendsUpdate_templ::_wrap_CommunityFriendsUpdate_colorFusion_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getColorFusion",
+      _exports_CommunityFriendsUpdate_templ::InstanceMethod("getColorFusion",
+        &_exports_CommunityFriendsUpdate_templ::_wrap_CommunityFriendsUpdate_getColorFusion,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
   /* add static class functions and variables */

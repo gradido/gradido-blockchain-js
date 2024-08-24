@@ -55,7 +55,7 @@ void _exports_TransactionBodyBuilder_inst::GetMembers(
   members.insert({
     "setDeferredTransfer",
       _exports_TransactionBodyBuilder_templ::InstanceMethod("setDeferredTransfer",
-        &_exports_TransactionBodyBuilder_templ::_wrap_TransactionBodyBuilder_setDeferredTransfer,
+        &_exports_TransactionBodyBuilder_templ::_wrap_TransactionBodyBuilder__wrap_TransactionBodyBuilder_setDeferredTransfer,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -63,7 +63,7 @@ void _exports_TransactionBodyBuilder_inst::GetMembers(
   members.insert({
     "setCommunityFriendsUpdate",
       _exports_TransactionBodyBuilder_templ::InstanceMethod("setCommunityFriendsUpdate",
-        &_exports_TransactionBodyBuilder_templ::_wrap_TransactionBodyBuilder_setCommunityFriendsUpdate,
+        &_exports_TransactionBodyBuilder_templ::_wrap_TransactionBodyBuilder__wrap_TransactionBodyBuilder_setCommunityFriendsUpdate,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -79,7 +79,7 @@ void _exports_TransactionBodyBuilder_inst::GetMembers(
   members.insert({
     "setTransactionCreation",
       _exports_TransactionBodyBuilder_templ::InstanceMethod("setTransactionCreation",
-        &_exports_TransactionBodyBuilder_templ::_wrap_TransactionBodyBuilder_setTransactionCreation,
+        &_exports_TransactionBodyBuilder_templ::_wrap_TransactionBodyBuilder__wrap_TransactionBodyBuilder_setTransactionCreation,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -87,7 +87,7 @@ void _exports_TransactionBodyBuilder_inst::GetMembers(
   members.insert({
     "setTransactionTransfer",
       _exports_TransactionBodyBuilder_templ::InstanceMethod("setTransactionTransfer",
-        &_exports_TransactionBodyBuilder_templ::_wrap_TransactionBodyBuilder_setTransactionTransfer,
+        &_exports_TransactionBodyBuilder_templ::_wrap_TransactionBodyBuilder__wrap_TransactionBodyBuilder_setTransactionTransfer,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -95,7 +95,7 @@ void _exports_TransactionBodyBuilder_inst::GetMembers(
   members.insert({
     "setCommunityRoot",
       _exports_TransactionBodyBuilder_templ::InstanceMethod("setCommunityRoot",
-        &_exports_TransactionBodyBuilder_templ::_wrap_TransactionBodyBuilder_setCommunityRoot,
+        &_exports_TransactionBodyBuilder_templ::_wrap_TransactionBodyBuilder__wrap_TransactionBodyBuilder_setCommunityRoot,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -107,6 +107,14 @@ void _exports_TransactionBodyBuilder_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("setCrossGroupType");
+  members.insert({
+    "setCrossGroupType",
+      _exports_TransactionBodyBuilder_templ::InstanceMethod("setCrossGroupType",
+        &_exports_TransactionBodyBuilder_templ::_wrap_TransactionBodyBuilder_setCrossGroupType,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("setMemo");
   members.insert({
     "setMemo",
@@ -115,11 +123,11 @@ void _exports_TransactionBodyBuilder_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("setCrossGroupType");
+  members.erase("setVersionNumber");
   members.insert({
-    "setCrossGroupType",
-      _exports_TransactionBodyBuilder_templ::InstanceMethod("setCrossGroupType",
-        &_exports_TransactionBodyBuilder_templ::_wrap_TransactionBodyBuilder_setCrossGroupType,
+    "setVersionNumber",
+      _exports_TransactionBodyBuilder_templ::InstanceMethod("setVersionNumber",
+        &_exports_TransactionBodyBuilder_templ::_wrap_TransactionBodyBuilder_setVersionNumber,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

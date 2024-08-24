@@ -2133,56 +2133,56 @@ if (SWIGTYPE_p_std__vectorT_gradido__data__SignaturePair_t->clientdata == SWIG_N
 Napi::FunctionReference *_exports_SignaturePairs_ctor_ref = new Napi::FunctionReference();
 *_exports_SignaturePairs_ctor_ref = Napi::Persistent(_exports_SignaturePairs_ctor);
 env.GetInstanceData<EnvInstanceData>()->ctor[8] = _exports_SignaturePairs_ctor_ref;
-/* Class: SignaturePair (_exports_SignaturePair) */
-// jsnapi_registerclass
-Napi::Function _exports_SignaturePair_ctor = _exports_SignaturePair_inst::GetClass(env);
-exports.Set("SignaturePair", _exports_SignaturePair_ctor);
-if (SWIGTYPE_p_gradido__data__SignaturePair->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__data__SignaturePair->clientdata = new size_t(9);
-}
-Napi::FunctionReference *_exports_SignaturePair_ctor_ref = new Napi::FunctionReference();
-*_exports_SignaturePair_ctor_ref = Napi::Persistent(_exports_SignaturePair_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[9] = _exports_SignaturePair_ctor_ref;
-/* Class: SignatureMap (_exports_SignatureMap) */
-// jsnapi_registerclass
-Napi::Function _exports_SignatureMap_ctor = _exports_SignatureMap_inst::GetClass(env);
-exports.Set("SignatureMap", _exports_SignatureMap_ctor);
-if (SWIGTYPE_p_gradido__data__SignatureMap->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__data__SignatureMap->clientdata = new size_t(10);
-}
-Napi::FunctionReference *_exports_SignatureMap_ctor_ref = new Napi::FunctionReference();
-*_exports_SignatureMap_ctor_ref = Napi::Persistent(_exports_SignatureMap_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[10] = _exports_SignatureMap_ctor_ref;
-/* Class: TimestampSeconds (_exports_TimestampSeconds) */
-// jsnapi_registerclass
-Napi::Function _exports_TimestampSeconds_ctor = _exports_TimestampSeconds_inst::GetClass(env);
-exports.Set("TimestampSeconds", _exports_TimestampSeconds_ctor);
-if (SWIGTYPE_p_gradido__data__TimestampSeconds->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__data__TimestampSeconds->clientdata = new size_t(11);
-}
-Napi::FunctionReference *_exports_TimestampSeconds_ctor_ref = new Napi::FunctionReference();
-*_exports_TimestampSeconds_ctor_ref = Napi::Persistent(_exports_TimestampSeconds_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[11] = _exports_TimestampSeconds_ctor_ref;
-/* Class: Timestamp (_exports_Timestamp) */
-// jsnapi_registerclass
-Napi::Function _exports_Timestamp_ctor = _exports_Timestamp_inst::GetClass(env);
-exports.Set("Timestamp", _exports_Timestamp_ctor);
-if (SWIGTYPE_p_gradido__data__Timestamp->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__data__Timestamp->clientdata = new size_t(12);
-}
-Napi::FunctionReference *_exports_Timestamp_ctor_ref = new Napi::FunctionReference();
-*_exports_Timestamp_ctor_ref = Napi::Persistent(_exports_Timestamp_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[12] = _exports_Timestamp_ctor_ref;
 /* Class: TransferAmount (_exports_TransferAmount) */
 // jsnapi_registerclass
 Napi::Function _exports_TransferAmount_ctor = _exports_TransferAmount_inst::GetClass(env);
 exports.Set("TransferAmount", _exports_TransferAmount_ctor);
 if (SWIGTYPE_p_gradido__data__TransferAmount->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__data__TransferAmount->clientdata = new size_t(13);
+  SWIGTYPE_p_gradido__data__TransferAmount->clientdata = new size_t(9);
 }
 Napi::FunctionReference *_exports_TransferAmount_ctor_ref = new Napi::FunctionReference();
 *_exports_TransferAmount_ctor_ref = Napi::Persistent(_exports_TransferAmount_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[13] = _exports_TransferAmount_ctor_ref;
+env.GetInstanceData<EnvInstanceData>()->ctor[9] = _exports_TransferAmount_ctor_ref;
+/* Class: TimestampSeconds (_exports_TimestampSeconds) */
+// jsnapi_registerclass
+Napi::Function _exports_TimestampSeconds_ctor = _exports_TimestampSeconds_inst::GetClass(env);
+exports.Set("TimestampSeconds", _exports_TimestampSeconds_ctor);
+if (SWIGTYPE_p_gradido__data__TimestampSeconds->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__data__TimestampSeconds->clientdata = new size_t(10);
+}
+Napi::FunctionReference *_exports_TimestampSeconds_ctor_ref = new Napi::FunctionReference();
+*_exports_TimestampSeconds_ctor_ref = Napi::Persistent(_exports_TimestampSeconds_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[10] = _exports_TimestampSeconds_ctor_ref;
+/* Class: Timestamp (_exports_Timestamp) */
+// jsnapi_registerclass
+Napi::Function _exports_Timestamp_ctor = _exports_Timestamp_inst::GetClass(env);
+exports.Set("Timestamp", _exports_Timestamp_ctor);
+if (SWIGTYPE_p_gradido__data__Timestamp->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__data__Timestamp->clientdata = new size_t(11);
+}
+Napi::FunctionReference *_exports_Timestamp_ctor_ref = new Napi::FunctionReference();
+*_exports_Timestamp_ctor_ref = Napi::Persistent(_exports_Timestamp_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[11] = _exports_Timestamp_ctor_ref;
+/* Class: SignaturePair (_exports_SignaturePair) */
+// jsnapi_registerclass
+Napi::Function _exports_SignaturePair_ctor = _exports_SignaturePair_inst::GetClass(env);
+exports.Set("SignaturePair", _exports_SignaturePair_ctor);
+if (SWIGTYPE_p_gradido__data__SignaturePair->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__data__SignaturePair->clientdata = new size_t(12);
+}
+Napi::FunctionReference *_exports_SignaturePair_ctor_ref = new Napi::FunctionReference();
+*_exports_SignaturePair_ctor_ref = Napi::Persistent(_exports_SignaturePair_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[12] = _exports_SignaturePair_ctor_ref;
+/* Class: SignatureMap (_exports_SignatureMap) */
+// jsnapi_registerclass
+Napi::Function _exports_SignatureMap_ctor = _exports_SignatureMap_inst::GetClass(env);
+exports.Set("SignatureMap", _exports_SignatureMap_ctor);
+if (SWIGTYPE_p_gradido__data__SignatureMap->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__data__SignatureMap->clientdata = new size_t(13);
+}
+Napi::FunctionReference *_exports_SignatureMap_ctor_ref = new Napi::FunctionReference();
+*_exports_SignatureMap_ctor_ref = Napi::Persistent(_exports_SignatureMap_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[13] = _exports_SignatureMap_ctor_ref;
 /* Class: CommunityFriendsUpdate (_exports_CommunityFriendsUpdate) */
 // jsnapi_registerclass
 Napi::Function _exports_CommunityFriendsUpdate_ctor = _exports_CommunityFriendsUpdate_inst::GetClass(env);
@@ -2450,29 +2450,14 @@ do {
 } while (0);
 
 
-// Inheritance for _exports_SignaturePair (SignaturePair) <- SWIG_NAPI_ObjectWrap
+// Inheritance for _exports_TransferAmount (TransferAmount) <- SWIG_NAPI_ObjectWrap
 // jsnapi_setup_inheritance
 do {
   Napi::Value protoBase, protoSub;
-  NAPI_CHECK_RESULT(_exports_SignaturePair_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(_exports_TransferAmount_ctor.Get("prototype"), protoSub);
   NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
   NAPI_CHECK_MAYBE(setProto.Call({
-    _exports_SignaturePair_ctor, SWIG_NAPI_ObjectWrap_ctor
-  }));
-  NAPI_CHECK_MAYBE(setProto.Call({
-    protoSub, protoBase
-  }));
-} while (0);
-
-
-// Inheritance for _exports_SignatureMap (SignatureMap) <- SWIG_NAPI_ObjectWrap
-// jsnapi_setup_inheritance
-do {
-  Napi::Value protoBase, protoSub;
-  NAPI_CHECK_RESULT(_exports_SignatureMap_ctor.Get("prototype"), protoSub);
-  NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
-  NAPI_CHECK_MAYBE(setProto.Call({
-    _exports_SignatureMap_ctor, SWIG_NAPI_ObjectWrap_ctor
+    _exports_TransferAmount_ctor, SWIG_NAPI_ObjectWrap_ctor
   }));
   NAPI_CHECK_MAYBE(setProto.Call({
     protoSub, protoBase
@@ -2510,14 +2495,29 @@ do {
 } while (0);
 
 
-// Inheritance for _exports_TransferAmount (TransferAmount) <- SWIG_NAPI_ObjectWrap
+// Inheritance for _exports_SignaturePair (SignaturePair) <- SWIG_NAPI_ObjectWrap
 // jsnapi_setup_inheritance
 do {
   Napi::Value protoBase, protoSub;
-  NAPI_CHECK_RESULT(_exports_TransferAmount_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(_exports_SignaturePair_ctor.Get("prototype"), protoSub);
   NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
   NAPI_CHECK_MAYBE(setProto.Call({
-    _exports_TransferAmount_ctor, SWIG_NAPI_ObjectWrap_ctor
+    _exports_SignaturePair_ctor, SWIG_NAPI_ObjectWrap_ctor
+  }));
+  NAPI_CHECK_MAYBE(setProto.Call({
+    protoSub, protoBase
+  }));
+} while (0);
+
+
+// Inheritance for _exports_SignatureMap (SignatureMap) <- SWIG_NAPI_ObjectWrap
+// jsnapi_setup_inheritance
+do {
+  Napi::Value protoBase, protoSub;
+  NAPI_CHECK_RESULT(_exports_SignatureMap_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
+  NAPI_CHECK_MAYBE(setProto.Call({
+    _exports_SignatureMap_ctor, SWIG_NAPI_ObjectWrap_ctor
   }));
   NAPI_CHECK_MAYBE(setProto.Call({
     protoSub, protoBase

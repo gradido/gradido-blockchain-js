@@ -33,6 +33,7 @@
 %include <stdint.i>
 %include <std_vector.i>
 
+%include <nodejs_buffer.i>
 %include "types.i"
 
 // enums
@@ -57,7 +58,7 @@
 %include "crypto/SealedBoxes.i"
 // base types
 %include "GradidoUnit.i"
-%include "Protocol.i"
+%include "data.i"
 
 // advanced types
 %include "TransactionBodyBuilder.i"

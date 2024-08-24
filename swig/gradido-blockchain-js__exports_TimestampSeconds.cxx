@@ -35,11 +35,19 @@ void _exports_TimestampSeconds_inst::GetMembers(
   
   /* register wrapper functions */
   // jsnapi_register_member_function
-  members.erase("getAsTimepoint");
+  members.erase("getDate");
   members.insert({
-    "getAsTimepoint",
-      _exports_TimestampSeconds_templ::InstanceMethod("getAsTimepoint",
-        &_exports_TimestampSeconds_templ::_wrap_TimestampSeconds_getAsTimepoint,
+    "getDate",
+      _exports_TimestampSeconds_templ::InstanceMethod("getDate",
+        &_exports_TimestampSeconds_templ::_wrap_TimestampSeconds_getDate,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getSeconds");
+  members.insert({
+    "getSeconds",
+      _exports_TimestampSeconds_templ::InstanceMethod("getSeconds",
+        &_exports_TimestampSeconds_templ::_wrap_TimestampSeconds_getSeconds,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -89,15 +97,6 @@ void _exports_TimestampSeconds_inst::GetMembers(
       _exports_TimestampSeconds_templ::InstanceMethod("gte",
         &_exports_TimestampSeconds_templ::_wrap_TimestampSeconds_gte,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_variable
-  members.erase("seconds");
-  members.insert({
-    "seconds",
-      _exports_TimestampSeconds_templ::InstanceAccessor("seconds",
-        &_exports_TimestampSeconds_templ::_wrap_TimestampSeconds_seconds_get,
-        &_exports_TimestampSeconds_templ::_wrap_TimestampSeconds_seconds_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
     });
   
   /* add static class functions and variables */

@@ -42,32 +42,29 @@ void _exports_TransferAmount_inst::GetMembers(
         &_exports_TransferAmount_templ::_wrap_TransferAmount_equal,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("pubkey");
+  // jsnapi_register_member_function
+  members.erase("getPubkey");
   members.insert({
-    "pubkey",
-      _exports_TransferAmount_templ::InstanceAccessor("pubkey",
-        &_exports_TransferAmount_templ::_wrap_TransferAmount_pubkey_get,
-        &_exports_TransferAmount_templ::_wrap_TransferAmount_pubkey_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getPubkey",
+      _exports_TransferAmount_templ::InstanceMethod("getPubkey",
+        &_exports_TransferAmount_templ::_wrap_TransferAmount_getPubkey,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("amount");
+  // jsnapi_register_member_function
+  members.erase("getAmount");
   members.insert({
-    "amount",
-      _exports_TransferAmount_templ::InstanceAccessor("amount",
-        &_exports_TransferAmount_templ::_wrap_TransferAmount_amount_get,
-        &_exports_TransferAmount_templ::_wrap_TransferAmount_amount_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getAmount",
+      _exports_TransferAmount_templ::InstanceMethod("getAmount",
+        &_exports_TransferAmount_templ::_wrap_TransferAmount_getAmount,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("communityId");
+  // jsnapi_register_member_function
+  members.erase("getCommunityId");
   members.insert({
-    "communityId",
-      _exports_TransferAmount_templ::InstanceAccessor("communityId",
-        &_exports_TransferAmount_templ::_wrap_TransferAmount_communityId_get,
-        &_exports_TransferAmount_templ::_wrap_TransferAmount_communityId_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getCommunityId",
+      _exports_TransferAmount_templ::InstanceMethod("getCommunityId",
+        &_exports_TransferAmount_templ::_wrap_TransferAmount_getCommunityId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
   /* add static class functions and variables */

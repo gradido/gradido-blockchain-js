@@ -66,23 +66,21 @@ void _exports_GradidoDeferredTransfer_inst::GetMembers(
         &_exports_GradidoDeferredTransfer_templ::_wrap_GradidoDeferredTransfer_getRecipientPublicKey,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("transfer");
+  // jsnapi_register_member_function
+  members.erase("getTransfer");
   members.insert({
-    "transfer",
-      _exports_GradidoDeferredTransfer_templ::InstanceAccessor("transfer",
-        &_exports_GradidoDeferredTransfer_templ::_wrap_GradidoDeferredTransfer_transfer_get,
-        &_exports_GradidoDeferredTransfer_templ::_wrap_GradidoDeferredTransfer_transfer_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getTransfer",
+      _exports_GradidoDeferredTransfer_templ::InstanceMethod("getTransfer",
+        &_exports_GradidoDeferredTransfer_templ::_wrap_GradidoDeferredTransfer_getTransfer,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("timeout");
+  // jsnapi_register_member_function
+  members.erase("getTimeout");
   members.insert({
-    "timeout",
-      _exports_GradidoDeferredTransfer_templ::InstanceAccessor("timeout",
-        &_exports_GradidoDeferredTransfer_templ::_wrap_GradidoDeferredTransfer_timeout_get,
-        &_exports_GradidoDeferredTransfer_templ::_wrap_GradidoDeferredTransfer_timeout_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getTimeout",
+      _exports_GradidoDeferredTransfer_templ::InstanceMethod("getTimeout",
+        &_exports_GradidoDeferredTransfer_templ::_wrap_GradidoDeferredTransfer_getTimeout,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
   /* add static class functions and variables */

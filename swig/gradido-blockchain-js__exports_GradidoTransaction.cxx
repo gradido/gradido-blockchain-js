@@ -34,33 +34,6 @@ void _exports_GradidoTransaction_inst::GetMembers(
   staticMembers.insert(staticMembers.begin(), staticMembers.end());
   
   /* register wrapper functions */
-  // jsnapi_register_member_variable
-  members.erase("signatureMap");
-  members.insert({
-    "signatureMap",
-      _exports_GradidoTransaction_templ::InstanceAccessor("signatureMap",
-        &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction_signatureMap_get,
-        &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction_signatureMap_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
-    });
-  // jsnapi_register_member_variable
-  members.erase("bodyBytes");
-  members.insert({
-    "bodyBytes",
-      _exports_GradidoTransaction_templ::InstanceAccessor("bodyBytes",
-        &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction_bodyBytes_get,
-        &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction_bodyBytes_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
-    });
-  // jsnapi_register_member_variable
-  members.erase("paringMessageId");
-  members.insert({
-    "paringMessageId",
-      _exports_GradidoTransaction_templ::InstanceAccessor("paringMessageId",
-        &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction_paringMessageId_get,
-        &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction_paringMessageId_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
-    });
   // jsnapi_register_member_function
   members.erase("getTransactionBody");
   members.insert({
@@ -107,6 +80,30 @@ void _exports_GradidoTransaction_inst::GetMembers(
     "getFingerprint",
       _exports_GradidoTransaction_templ::InstanceMethod("getFingerprint",
         &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction_getFingerprint,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getSignatureMap");
+  members.insert({
+    "getSignatureMap",
+      _exports_GradidoTransaction_templ::InstanceMethod("getSignatureMap",
+        &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction__wrap_GradidoTransaction_getSignatureMap,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getBodyBytes");
+  members.insert({
+    "getBodyBytes",
+      _exports_GradidoTransaction_templ::InstanceMethod("getBodyBytes",
+        &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction_getBodyBytes,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getParingMessageId");
+  members.insert({
+    "getParingMessageId",
+      _exports_GradidoTransaction_templ::InstanceMethod("getParingMessageId",
+        &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction_getParingMessageId,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

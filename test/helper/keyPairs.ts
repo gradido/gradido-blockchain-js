@@ -4,7 +4,8 @@
 import { 
   crypto_hash_sha512,
   crypto_sign_seed_keypair,
-  crypto_hash_sha512_BYTES, 
+  crypto_sign_SEEDBYTES, 
+  crypto_hash_sha512_BYTES,
   crypto_sign_PUBLICKEYBYTES, 
   crypto_sign_SECRETKEYBYTES, 
   crypto_sign_BYTES, 
@@ -52,7 +53,7 @@ function generateKeyPairs(): KeyPair[] {
 		crypto_hash_sha512(hash, seed);
     const publicKeyBuffer = Buffer.alloc(crypto_sign_PUBLICKEYBYTES)
     const privateKeyBuffer = Buffer.alloc(crypto_sign_SECRETKEYBYTES)
-		crypto_sign_seed_keypair(publicKeyBuffer, privateKeyBuffer, hash);
+		crypto_sign_seed_keypair(publicKeyBuffer, privateKeyBuffer, hash.subarray(0, crypto_sign_SEEDBYTES));
 		keyPairs.push(new KeyPair(publicKeyBuffer, privateKeyBuffer))
 	}
 
@@ -65,10 +66,10 @@ function sign(transaction: GradidoTransaction, keyPair: KeyPair)
     const signBuffer = Buffer.alloc(crypto_sign_BYTES)
     crypto_sign_detached(
       signBuffer, 
-      Buffer.from(transaction.bodyBytes.data()), 
+      Buffer.from(transaction.getBodyBytes().data()), 
       Buffer.from(keyPair.privateKey.data())
     )
-    transaction.signatureMap.push(new SignaturePair(keyPair.publicKey, new MemoryBlock(signBuffer)));
+    transaction.getSignatureMap().push(new SignaturePair(keyPair.publicKey, new MemoryBlock(signBuffer)));
 }
 
-export { generateKeyPairs, sign }
+export { generateKeyPairs, sign, KeyPair }

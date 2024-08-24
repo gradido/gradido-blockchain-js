@@ -35,11 +35,27 @@ void _exports_Timestamp_inst::GetMembers(
   
   /* register wrapper functions */
   // jsnapi_register_member_function
-  members.erase("getAsTimepoint");
+  members.erase("getDate");
   members.insert({
-    "getAsTimepoint",
-      _exports_Timestamp_templ::InstanceMethod("getAsTimepoint",
-        &_exports_Timestamp_templ::_wrap_Timestamp_getAsTimepoint,
+    "getDate",
+      _exports_Timestamp_templ::InstanceMethod("getDate",
+        &_exports_Timestamp_templ::_wrap_Timestamp_getDate,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getSeconds");
+  members.insert({
+    "getSeconds",
+      _exports_Timestamp_templ::InstanceMethod("getSeconds",
+        &_exports_Timestamp_templ::_wrap_Timestamp_getSeconds,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getNanos");
+  members.insert({
+    "getNanos",
+      _exports_Timestamp_templ::InstanceMethod("getNanos",
+        &_exports_Timestamp_templ::_wrap_Timestamp_getNanos,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -65,24 +81,6 @@ void _exports_Timestamp_inst::GetMembers(
       _exports_Timestamp_templ::InstanceMethod("gt",
         &_exports_Timestamp_templ::_wrap_Timestamp__wrap_Timestamp_gt,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_variable
-  members.erase("seconds");
-  members.insert({
-    "seconds",
-      _exports_Timestamp_templ::InstanceAccessor("seconds",
-        &_exports_Timestamp_templ::_wrap_Timestamp_seconds_get,
-        &_exports_Timestamp_templ::_wrap_Timestamp_seconds_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
-    });
-  // jsnapi_register_member_variable
-  members.erase("nanos");
-  members.insert({
-    "nanos",
-      _exports_Timestamp_templ::InstanceAccessor("nanos",
-        &_exports_Timestamp_templ::_wrap_Timestamp_nanos_get,
-        &_exports_Timestamp_templ::_wrap_Timestamp_nanos_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
     });
   
   /* add static class functions and variables */

@@ -429,19 +429,12 @@ SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_KeyPairEd25519_t = {"_p_std
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_KeyPairEd25519Ex_t = {"_p_std__shared_ptrT_KeyPairEd25519Ex_t", 0, 0, 0, 0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_Passphrase_t = {"_p_std__shared_ptrT_Passphrase_t", "std::shared_ptr< Passphrase > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_SecretKeyCryptography_t = {"_p_std__shared_ptrT_SecretKeyCryptography_t", "std::shared_ptr< SecretKeyCryptography > *", 0, 0, (void*)0, 0};
-SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_gradido__data__CommunityFriendsUpdate_t = {"_p_std__shared_ptrT_gradido__data__CommunityFriendsUpdate_t", "std::shared_ptr< gradido::data::CommunityFriendsUpdate > *", 0, 0, (void*)0, 0};
-SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_gradido__data__CommunityRoot_t = {"_p_std__shared_ptrT_gradido__data__CommunityRoot_t", "std::shared_ptr< gradido::data::CommunityRoot > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t = {"_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t", "gradido::data::ConstConfirmedTransactionPtr *|std::shared_ptr< gradido::data::ConfirmedTransaction const > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t = {"_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t", "gradido::data::ConfirmedTransactionPtr *|std::shared_ptr< gradido::data::ConfirmedTransaction > *", 0, 0, (void*)0, 0};
-SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_gradido__data__GradidoCreation_t = {"_p_std__shared_ptrT_gradido__data__GradidoCreation_t", "std::shared_ptr< gradido::data::GradidoCreation > *", 0, 0, (void*)0, 0};
-SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_gradido__data__GradidoDeferredTransfer_t = {"_p_std__shared_ptrT_gradido__data__GradidoDeferredTransfer_t", "std::shared_ptr< gradido::data::GradidoDeferredTransfer > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t = {"_p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t", "gradido::data::ConstGradidoTransactionPtr *|std::shared_ptr< gradido::data::GradidoTransaction const > *", 0, 0, (void*)0, 0};
-SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_gradido__data__GradidoTransfer_t = {"_p_std__shared_ptrT_gradido__data__GradidoTransfer_t", "std::shared_ptr< gradido::data::GradidoTransfer > *", 0, 0, (void*)0, 0};
-SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_gradido__data__RegisterAddress_t = {"_p_std__shared_ptrT_gradido__data__RegisterAddress_t", "std::shared_ptr< gradido::data::RegisterAddress > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_gradido__data__TransactionBody_const_t = {"_p_std__shared_ptrT_gradido__data__TransactionBody_const_t", "gradido::data::ConstTransactionBodyPtr *|std::shared_ptr< gradido::data::TransactionBody const > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_memory__Block_const_t = {"_p_std__shared_ptrT_memory__Block_const_t", "memory::ConstBlockPtr *|std::shared_ptr< memory::Block const > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_memory__Block_t = {"_p_std__shared_ptrT_memory__Block_t", "memory::BlockPtr *|std::vector< std::shared_ptr< memory::Block > >::value_type *|std::shared_ptr< memory::Block > *", 0, 0, (void*)0, 0};
-SWIGINTERN swig_type_info _swigt__p_std__string = {"_p_std__string", "std::string *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_gradido__data__SignaturePair_t = {"_p_std__vectorT_gradido__data__SignaturePair_t", "std::vector< gradido::data::SignaturePair > *|p_std__vectorT_gradido__data__SignaturePair_t", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t = {"_p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t", "std::vector< memory::ConstBlockPtr > *|std::vector< std::shared_ptr< memory::Block const > > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_std__shared_ptrT_memory__Block_t_t = {"_p_std__vectorT_std__shared_ptrT_memory__Block_t_t", "p_std__vectorT_std__shared_ptrT_memory__Block_t_t|std::vector< std::shared_ptr< memory::Block > > *", 0, 0, (void*)0, 0};
@@ -497,19 +490,12 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_std__shared_ptrT_KeyPairEd25519_t,
   &_swigt__p_std__shared_ptrT_Passphrase_t,
   &_swigt__p_std__shared_ptrT_SecretKeyCryptography_t,
-  &_swigt__p_std__shared_ptrT_gradido__data__CommunityFriendsUpdate_t,
-  &_swigt__p_std__shared_ptrT_gradido__data__CommunityRoot_t,
   &_swigt__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t,
   &_swigt__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t,
-  &_swigt__p_std__shared_ptrT_gradido__data__GradidoCreation_t,
-  &_swigt__p_std__shared_ptrT_gradido__data__GradidoDeferredTransfer_t,
   &_swigt__p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t,
-  &_swigt__p_std__shared_ptrT_gradido__data__GradidoTransfer_t,
-  &_swigt__p_std__shared_ptrT_gradido__data__RegisterAddress_t,
   &_swigt__p_std__shared_ptrT_gradido__data__TransactionBody_const_t,
   &_swigt__p_std__shared_ptrT_memory__Block_const_t,
   &_swigt__p_std__shared_ptrT_memory__Block_t,
-  &_swigt__p_std__string,
   &_swigt__p_std__vectorT_gradido__data__SignaturePair_t,
   &_swigt__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t,
   &_swigt__p_std__vectorT_std__shared_ptrT_memory__Block_t_t,
@@ -562,19 +548,12 @@ SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_KeyPairEd25519Ex_t[] = {{&_
 SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_KeyPairEd25519_t[] = {  {&_swigt__p_std__shared_ptrT_KeyPairEd25519_t, 0, 0, 0},  {&_swigt__p_std__shared_ptrT_KeyPairEd25519Ex_t, _p_std__shared_ptrT_KeyPairEd25519Ex_tTo_p_std__shared_ptrT_KeyPairEd25519_t, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_Passphrase_t[] = {  {&_swigt__p_std__shared_ptrT_Passphrase_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_SecretKeyCryptography_t[] = {  {&_swigt__p_std__shared_ptrT_SecretKeyCryptography_t, 0, 0, 0},{0, 0, 0, 0}};
-SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_gradido__data__CommunityFriendsUpdate_t[] = {  {&_swigt__p_std__shared_ptrT_gradido__data__CommunityFriendsUpdate_t, 0, 0, 0},{0, 0, 0, 0}};
-SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_gradido__data__CommunityRoot_t[] = {  {&_swigt__p_std__shared_ptrT_gradido__data__CommunityRoot_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t[] = {  {&_swigt__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t[] = {  {&_swigt__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t, 0, 0, 0},{0, 0, 0, 0}};
-SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_gradido__data__GradidoCreation_t[] = {  {&_swigt__p_std__shared_ptrT_gradido__data__GradidoCreation_t, 0, 0, 0},{0, 0, 0, 0}};
-SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_gradido__data__GradidoDeferredTransfer_t[] = {  {&_swigt__p_std__shared_ptrT_gradido__data__GradidoDeferredTransfer_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t[] = {  {&_swigt__p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t, 0, 0, 0},{0, 0, 0, 0}};
-SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_gradido__data__GradidoTransfer_t[] = {  {&_swigt__p_std__shared_ptrT_gradido__data__GradidoTransfer_t, 0, 0, 0},{0, 0, 0, 0}};
-SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_gradido__data__RegisterAddress_t[] = {  {&_swigt__p_std__shared_ptrT_gradido__data__RegisterAddress_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_gradido__data__TransactionBody_const_t[] = {  {&_swigt__p_std__shared_ptrT_gradido__data__TransactionBody_const_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_memory__Block_const_t[] = {  {&_swigt__p_std__shared_ptrT_memory__Block_const_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_memory__Block_t[] = {  {&_swigt__p_std__shared_ptrT_memory__Block_t, 0, 0, 0},{0, 0, 0, 0}};
-SWIGINTERN swig_cast_info _swigc__p_std__string[] = {  {&_swigt__p_std__string, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_gradido__data__SignaturePair_t[] = {  {&_swigt__p_std__vectorT_gradido__data__SignaturePair_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t[] = {  {&_swigt__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_std__shared_ptrT_memory__Block_t_t[] = {  {&_swigt__p_std__vectorT_std__shared_ptrT_memory__Block_t_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -627,19 +606,12 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_std__shared_ptrT_KeyPairEd25519_t,
   _swigc__p_std__shared_ptrT_Passphrase_t,
   _swigc__p_std__shared_ptrT_SecretKeyCryptography_t,
-  _swigc__p_std__shared_ptrT_gradido__data__CommunityFriendsUpdate_t,
-  _swigc__p_std__shared_ptrT_gradido__data__CommunityRoot_t,
   _swigc__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t,
   _swigc__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t,
-  _swigc__p_std__shared_ptrT_gradido__data__GradidoCreation_t,
-  _swigc__p_std__shared_ptrT_gradido__data__GradidoDeferredTransfer_t,
   _swigc__p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t,
-  _swigc__p_std__shared_ptrT_gradido__data__GradidoTransfer_t,
-  _swigc__p_std__shared_ptrT_gradido__data__RegisterAddress_t,
   _swigc__p_std__shared_ptrT_gradido__data__TransactionBody_const_t,
   _swigc__p_std__shared_ptrT_memory__Block_const_t,
   _swigc__p_std__shared_ptrT_memory__Block_t,
-  _swigc__p_std__string,
   _swigc__p_std__vectorT_gradido__data__SignaturePair_t,
   _swigc__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t,
   _swigc__p_std__vectorT_std__shared_ptrT_memory__Block_t_t,
@@ -653,6 +625,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
 
-SWIGINTERN swig_type_info *swig_types[64];
-SWIGINTERN swig_module_info swig_module = {swig_types, 63, 0, 0, 0, 0};
+SWIGINTERN swig_type_info *swig_types[57];
+SWIGINTERN swig_module_info swig_module = {swig_types, 56, 0, 0, 0, 0};
 

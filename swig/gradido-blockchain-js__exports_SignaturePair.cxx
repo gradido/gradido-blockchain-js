@@ -34,30 +34,28 @@ void _exports_SignaturePair_inst::GetMembers(
   staticMembers.insert(staticMembers.begin(), staticMembers.end());
   
   /* register wrapper functions */
-  // jsnapi_register_member_variable
-  members.erase("pubkey");
-  members.insert({
-    "pubkey",
-      _exports_SignaturePair_templ::InstanceAccessor("pubkey",
-        &_exports_SignaturePair_templ::_wrap_SignaturePair_pubkey_get,
-        &_exports_SignaturePair_templ::_wrap_SignaturePair_pubkey_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
-    });
-  // jsnapi_register_member_variable
-  members.erase("signature");
-  members.insert({
-    "signature",
-      _exports_SignaturePair_templ::InstanceAccessor("signature",
-        &_exports_SignaturePair_templ::_wrap_SignaturePair_signature_get,
-        &_exports_SignaturePair_templ::_wrap_SignaturePair_signature_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
-    });
   // jsnapi_register_member_function
   members.erase("equal");
   members.insert({
     "equal",
       _exports_SignaturePair_templ::InstanceMethod("equal",
         &_exports_SignaturePair_templ::_wrap_SignaturePair_equal,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getPubkey");
+  members.insert({
+    "getPubkey",
+      _exports_SignaturePair_templ::InstanceMethod("getPubkey",
+        &_exports_SignaturePair_templ::_wrap_SignaturePair_getPubkey,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getSignature");
+  members.insert({
+    "getSignature",
+      _exports_SignaturePair_templ::InstanceMethod("getSignature",
+        &_exports_SignaturePair_templ::_wrap_SignaturePair_getSignature,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

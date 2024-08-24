@@ -55,7 +55,7 @@ void _exports_GradidoTransactionBuilder_inst::GetMembers(
   members.insert({
     "setTransactionBody",
       _exports_GradidoTransactionBuilder_templ::InstanceMethod("setTransactionBody",
-        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder_setTransactionBody,
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder__wrap_GradidoTransactionBuilder_setTransactionBody,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

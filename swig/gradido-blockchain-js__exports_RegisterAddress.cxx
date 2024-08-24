@@ -58,50 +58,45 @@ void _exports_RegisterAddress_inst::GetMembers(
         &_exports_RegisterAddress_templ::_wrap_RegisterAddress_isInvolved,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("userPubkey");
+  // jsnapi_register_member_function
+  members.erase("getUserPublicKey");
   members.insert({
-    "userPubkey",
-      _exports_RegisterAddress_templ::InstanceAccessor("userPubkey",
-        &_exports_RegisterAddress_templ::_wrap_RegisterAddress_userPubkey_get,
-        &_exports_RegisterAddress_templ::_wrap_RegisterAddress_userPubkey_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getUserPublicKey",
+      _exports_RegisterAddress_templ::InstanceMethod("getUserPublicKey",
+        &_exports_RegisterAddress_templ::_wrap_RegisterAddress_getUserPublicKey,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("addressType");
+  // jsnapi_register_member_function
+  members.erase("getAddressType");
   members.insert({
-    "addressType",
-      _exports_RegisterAddress_templ::InstanceAccessor("addressType",
-        &_exports_RegisterAddress_templ::_wrap_RegisterAddress_addressType_get,
-        &_exports_RegisterAddress_templ::_wrap_RegisterAddress_addressType_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getAddressType",
+      _exports_RegisterAddress_templ::InstanceMethod("getAddressType",
+        &_exports_RegisterAddress_templ::_wrap_RegisterAddress_getAddressType,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("nameHash");
+  // jsnapi_register_member_function
+  members.erase("getNameHash");
   members.insert({
-    "nameHash",
-      _exports_RegisterAddress_templ::InstanceAccessor("nameHash",
-        &_exports_RegisterAddress_templ::_wrap_RegisterAddress_nameHash_get,
-        &_exports_RegisterAddress_templ::_wrap_RegisterAddress_nameHash_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getNameHash",
+      _exports_RegisterAddress_templ::InstanceMethod("getNameHash",
+        &_exports_RegisterAddress_templ::_wrap_RegisterAddress_getNameHash,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("accountPubkey");
+  // jsnapi_register_member_function
+  members.erase("getAccountPublicKey");
   members.insert({
-    "accountPubkey",
-      _exports_RegisterAddress_templ::InstanceAccessor("accountPubkey",
-        &_exports_RegisterAddress_templ::_wrap_RegisterAddress_accountPubkey_get,
-        &_exports_RegisterAddress_templ::_wrap_RegisterAddress_accountPubkey_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getAccountPublicKey",
+      _exports_RegisterAddress_templ::InstanceMethod("getAccountPublicKey",
+        &_exports_RegisterAddress_templ::_wrap_RegisterAddress_getAccountPublicKey,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_variable
-  members.erase("derivationIndex");
+  // jsnapi_register_member_function
+  members.erase("getDerivationIndex");
   members.insert({
-    "derivationIndex",
-      _exports_RegisterAddress_templ::InstanceAccessor("derivationIndex",
-        &_exports_RegisterAddress_templ::_wrap_RegisterAddress_derivationIndex_get,
-        &_exports_RegisterAddress_templ::_wrap_RegisterAddress_derivationIndex_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    "getDerivationIndex",
+      _exports_RegisterAddress_templ::InstanceMethod("getDerivationIndex",
+        &_exports_RegisterAddress_templ::_wrap_RegisterAddress_getDerivationIndex,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
   /* add static class functions and variables */
