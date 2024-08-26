@@ -40,7 +40,7 @@ describe('test TransactionBodyBuilderFactory', () => {
     expect(communityRoot.getPubkey()?.equal(keyPairs[0].publicKey)).toBeTruthy()
     expect(communityRoot.getGmwPubkey()?.equal(keyPairs[1].publicKey)).toBeTruthy()
     expect(communityRoot.getAufPubkey()?.equal(keyPairs[2].publicKey)).toBeTruthy()
-    expect(transactionBody.getCreatedAt().gt(new Timestamp(now))).toBeTruthy()
+    expect(transactionBody.getCreatedAt().gt(new Timestamp(now))).toBeTruthy()    
   })
 
   it('register address user only', () => {

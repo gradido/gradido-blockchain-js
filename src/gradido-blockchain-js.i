@@ -29,7 +29,7 @@
 %include <std_string.i>
 %include <std_except.i>
 %include <std_unique_ptr.i>
-%include <std_shared_ptr.i>
+%include "lib/std_shared_ptr.i"
 %include <stdint.i>
 %include <std_vector.i>
 
@@ -67,3 +67,4 @@
 // interactions
 %include "interaction/serialize.i"
 %include "interaction/toJson.i"
+%include "interaction/deserialize.i"

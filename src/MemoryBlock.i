@@ -46,8 +46,6 @@ namespace memory {
 */
 %template(MemoryBlocks) std::vector<std::shared_ptr<memory::Block>>;
 
-%typemap(ts) memory::ConstBlockPtr "MemoryBlock|null"
-%typemap(ts) memory::BlockPtr "MemoryBlock|null"
 %typemap(ts) std::vector<std::shared_ptr<memory::Block>> "MemoryBlocks";
 %typemap(ts) std::vector<memory::ConstBlockPtr> "MemoryBlocks";
 
@@ -68,6 +66,9 @@ namespace memory {
 %typemap(out) uint8_t* {
   $result = Napi::Buffer<uint8_t>::Copy(info.Env(), arg1->data(), arg1->size());
 }
-//*/
+
+// define typemaps for returning actually null if memoryBlock is empty
+%typemap(ts) memory::ConstBlockPtr "MemoryBlock|null"
+%typemap(ts) memory::BlockPtr "MemoryBlock|null"
 %include "gradido_blockchain/memory/Block.h"
 

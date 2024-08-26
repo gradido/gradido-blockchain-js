@@ -14,19 +14,15 @@ typedef std::chrono::system_clock::duration Duration;
     if(!$input.IsDate()) {
         SWIG_exception_fail(SWIG_TypeError, "Expected a Date object");
     }
-    auto date = $input.As<Napi::Date>();
-    auto duration = std::chrono::milliseconds(static_cast<long long>(date.ValueOf()));
-    $1 = std::chrono::time_point<std::chrono::system_clock>(duration);
+    $1 = Timepoint(std::chrono::milliseconds(static_cast<uint64_t>($input.As<Napi::Date>().ValueOf())));
 }
 
-%typemap(in) const Timepoint& {
+%typemap(in) const Timepoint& (Timepoint temp) {
     if(!$input.IsDate()) {
         SWIG_exception_fail(SWIG_TypeError, "Expected a Date object");
     }
-    auto date = $input.As<Napi::Date>();
-    auto duration = std::chrono::milliseconds(static_cast<long long>(date.ValueOf()));
-    auto timepoint = std::chrono::time_point<std::chrono::system_clock>(duration);
-    $1 = &timepoint;
+    temp = Timepoint(std::chrono::milliseconds(static_cast<uint64_t>($input.As<Napi::Date>().ValueOf())));
+    $1 = &temp;
 }
 
 // Typemap für Duration -> JavaScript number in seconds

@@ -741,4 +741,39 @@ export  class InteractionToJson {
   run(): string;
 }
 
+export const DeserializeType_UNKNOWN: DeserializeType;
+
+export const DeserializeType_TRANSACTION_BODY: DeserializeType;
+
+export const DeserializeType_GRADIDO_TRANSACTION: DeserializeType;
+
+export const DeserializeType_CONFIRMED_TRANSACTION: DeserializeType;
+
+export const DeserializeType_MAX: DeserializeType;
+
+export type DeserializeType = number & { readonly [_SWIG_enum_tag]: 'DeserializeType'; };
+
+export  class InteractionDeserialize {
+
+  constructor(rawData: MemoryBlock|null, hint: DeserializeType);
+
+  constructor(rawData: MemoryBlock|null);
+
+  run(): void;
+
+  isGradidoTransaction(): boolean;
+
+  isTransactionBody(): boolean;
+
+  isConfirmedTransaction(): boolean;
+
+  getType(): DeserializeType;
+
+  getTransactionBody(): TransactionBody;
+
+  getGradidoTransaction(): GradidoTransaction;
+
+  getConfirmedTransaction(): ConfirmedTransaction;
+}
+
 

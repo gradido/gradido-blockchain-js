@@ -1,3 +1,11 @@
+%exception {
+    try {
+        $function
+    } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+    }
+}
+
 %unique_ptr(gradido::data::GradidoTransfer)
 %unique_ptr(gradido::data::GradidoCreation)
 %unique_ptr(gradido::data::CommunityFriendsUpdate)
