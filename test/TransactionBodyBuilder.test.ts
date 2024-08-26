@@ -63,7 +63,7 @@ describe('test TransactionBodyBuilderFactory', () => {
 
       const registerAddress = transactionBody.getRegisterAddress()
       expect(registerAddress.getAddressType()).toBe(AddressType_COMMUNITY_HUMAN)
-      expect(registerAddress.getUserPublicKey()).toEqual(keyPairs[3].publicKey)
+      expect(registerAddress.getUserPublicKey()?.equal(keyPairs[3].publicKey)).toBeTruthy()
   })
 
   it('register address user and account', () => {
@@ -91,8 +91,8 @@ describe('test TransactionBodyBuilderFactory', () => {
 
       const registerAddress = transactionBody.getRegisterAddress()
       expect(registerAddress.getAddressType()).toBe(AddressType_COMMUNITY_HUMAN)
-      expect(registerAddress.getUserPublicKey()).toEqual(keyPairs[3].publicKey)
-      expect(registerAddress.getAccountPublicKey()).toEqual(keyPairs[4].publicKey)
+      expect(registerAddress.getUserPublicKey()?.equal(keyPairs[3].publicKey)).toBeTruthy()
+      expect(registerAddress.getAccountPublicKey()?.equal(keyPairs[4].publicKey)).toBeTruthy()
   })
 
   it('gradido creation', () => {
@@ -120,9 +120,9 @@ describe('test TransactionBodyBuilderFactory', () => {
 
     const creation = transactionBody.getCreation()
     const recipient = creation.getRecipient()
-    expect(recipient.getPubkey()).toEqual(keyPairs[4].publicKey)
+    expect(recipient.getPubkey()?.equal(keyPairs[4].publicKey)).toBeTruthy()
     expect(recipient.getAmount().toString()).toEqual('1000.0000')
-    expect(creation.getTargetDate()).toEqual(new TimestampSeconds(1660953712))
+    expect(creation.getTargetDate().getDate()).toEqual(new TimestampSeconds(1660953712).getDate())
   })
 
   it('gradido transfer', () => {
@@ -154,10 +154,10 @@ describe('test TransactionBodyBuilderFactory', () => {
 
     const transfer = transactionBody.getTransfer()
     const sender = transfer.getSender()
-    expect(sender.getPubkey()).toEqual(keyPairs[4].publicKey)
+    expect(sender.getPubkey()?.equal(keyPairs[4].publicKey)).toBeTruthy()
     expect(sender.getCommunityId()).toEqual('')
     expect(sender.getAmount().toString()).toEqual('100.2516')
-    expect(transfer.getRecipient()).toEqual(keyPairs[5].publicKey)
+    expect(transfer.getRecipient()?.equal(keyPairs[5].publicKey)).toBeTruthy()
   
   })
 
@@ -195,11 +195,11 @@ describe('test TransactionBodyBuilderFactory', () => {
     const deferredTransfer = transactionBody.getDeferredTransfer()
     const transfer = deferredTransfer.getTransfer()
     const sender = transfer.getSender()
-    expect(sender.getPubkey()).toEqual(keyPairs[4].publicKey)
+    expect(sender.getPubkey()?.equal(keyPairs[4].publicKey)).toBeTruthy()
     expect(sender.getCommunityId()).toEqual('')
     expect(sender.getAmount().toString()).toEqual('100.2516')
-    expect(transfer.getRecipient()).toEqual(keyPairs[5].publicKey)
-    expect(deferredTransfer.getTimeout()).toEqual(new TimestampSeconds(now5DaysLater))
+    expect(transfer.getRecipient()?.equal(keyPairs[5].publicKey)).toBeTruthy()
+    expect(deferredTransfer.getTimeout().getDate()).toEqual(new TimestampSeconds(now5DaysLater).getDate())
   
   })
 })
