@@ -398,6 +398,7 @@ SWIGINTERN swig_type_info _swigt__p_DecryptionException = {"_p_DecryptionExcepti
 SWIGINTERN swig_type_info _swigt__p_EncryptionException = {"_p_EncryptionException", 0, 0, 0, 0, 0};
 SWIGINTERN swig_type_info _swigt__p_EncryptionKeyException = {"_p_EncryptionKeyException", 0, 0, 0, 0, 0};
 SWIGINTERN swig_type_info _swigt__p_MissingEncryptionException = {"_p_MissingEncryptionException", 0, 0, 0, 0, 0};
+SWIGINTERN swig_type_info _swigt__p_blockchain__AbstractProvider = {"_p_blockchain__AbstractProvider", "blockchain::AbstractProvider *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_difference_type = {"_p_difference_type", "difference_type *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__GradidoTransactionBuilder = {"_p_gradido__GradidoTransactionBuilder", "p_gradido__GradidoTransactionBuilder|gradido::GradidoTransactionBuilder *", 0, 0, (void*)0, 0};
@@ -419,6 +420,7 @@ SWIGINTERN swig_type_info _swigt__p_gradido__data__TransferAmount = {"_p_gradido
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__deserialize__Context = {"_p_gradido__interaction__deserialize__Context", "p_gradido__interaction__deserialize__Context|gradido::interaction::deserialize::Context *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__serialize__Context = {"_p_gradido__interaction__serialize__Context", "gradido::interaction::serialize::Context *|p_gradido__interaction__serialize__Context", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__toJson__Context = {"_p_gradido__interaction__toJson__Context", "p_gradido__interaction__toJson__Context|gradido::interaction::toJson::Context *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_gradido__interaction__validate__Context = {"_p_gradido__interaction__validate__Context", "p_gradido__interaction__validate__Context|gradido::interaction::validate::Context *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_int = {"_p_int", "int32_t *|int_fast16_t *|int_fast32_t *|int_least32_t *|intptr_t *|int *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_long_long = {"_p_long_long", "int64_t *|int_fast64_t *|int_least64_t *|intmax_t *|long long *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_memory__Block = {"_p_memory__Block", "MemoryBin *|p_memory__Block|memory::Block *", 0, 0, (void*)0, 0};
@@ -462,6 +464,7 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_Passphrase,
   &_swigt__p_SecretKeyCryptography,
   &_swigt__p_SecretKeyCryptographyException,
+  &_swigt__p_blockchain__AbstractProvider,
   &_swigt__p_char,
   &_swigt__p_difference_type,
   &_swigt__p_gradido__GradidoTransactionBuilder,
@@ -483,6 +486,7 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_gradido__interaction__deserialize__Context,
   &_swigt__p_gradido__interaction__serialize__Context,
   &_swigt__p_gradido__interaction__toJson__Context,
+  &_swigt__p_gradido__interaction__validate__Context,
   &_swigt__p_int,
   &_swigt__p_long_long,
   &_swigt__p_memory__Block,
@@ -523,6 +527,7 @@ SWIGINTERN swig_cast_info _swigc__p_EncryptionException[] = {{&_swigt__p_Encrypt
 SWIGINTERN swig_cast_info _swigc__p_EncryptionKeyException[] = {{&_swigt__p_EncryptionKeyException, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_MissingEncryptionException[] = {{&_swigt__p_MissingEncryptionException, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_SecretKeyCryptographyException[] = {  {&_swigt__p_SecretKeyCryptographyException, 0, 0, 0},  {&_swigt__p_DecryptionException, _p_DecryptionExceptionTo_p_SecretKeyCryptographyException, 0, 0},  {&_swigt__p_EncryptionException, _p_EncryptionExceptionTo_p_SecretKeyCryptographyException, 0, 0},  {&_swigt__p_EncryptionKeyException, _p_EncryptionKeyExceptionTo_p_SecretKeyCryptographyException, 0, 0},  {&_swigt__p_MissingEncryptionException, _p_MissingEncryptionExceptionTo_p_SecretKeyCryptographyException, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_blockchain__AbstractProvider[] = {  {&_swigt__p_blockchain__AbstractProvider, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_difference_type[] = {  {&_swigt__p_difference_type, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__GradidoTransactionBuilder[] = {  {&_swigt__p_gradido__GradidoTransactionBuilder, 0, 0, 0},{0, 0, 0, 0}};
@@ -544,6 +549,7 @@ SWIGINTERN swig_cast_info _swigc__p_gradido__data__TransferAmount[] = {  {&_swig
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__deserialize__Context[] = {  {&_swigt__p_gradido__interaction__deserialize__Context, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__serialize__Context[] = {  {&_swigt__p_gradido__interaction__serialize__Context, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__toJson__Context[] = {  {&_swigt__p_gradido__interaction__toJson__Context, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__validate__Context[] = {  {&_swigt__p_gradido__interaction__validate__Context, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_long_long[] = {  {&_swigt__p_long_long, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_memory__Block[] = {  {&_swigt__p_memory__Block, 0, 0, 0},{0, 0, 0, 0}};
@@ -584,6 +590,7 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_Passphrase,
   _swigc__p_SecretKeyCryptography,
   _swigc__p_SecretKeyCryptographyException,
+  _swigc__p_blockchain__AbstractProvider,
   _swigc__p_char,
   _swigc__p_difference_type,
   _swigc__p_gradido__GradidoTransactionBuilder,
@@ -605,6 +612,7 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_gradido__interaction__deserialize__Context,
   _swigc__p_gradido__interaction__serialize__Context,
   _swigc__p_gradido__interaction__toJson__Context,
+  _swigc__p_gradido__interaction__validate__Context,
   _swigc__p_int,
   _swigc__p_long_long,
   _swigc__p_memory__Block,
@@ -637,6 +645,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
 
-SWIGINTERN swig_type_info *swig_types[60];
-SWIGINTERN swig_module_info swig_module = {swig_types, 59, 0, 0, 0, 0};
+SWIGINTERN swig_type_info *swig_types[62];
+SWIGINTERN swig_module_info swig_module = {swig_types, 61, 0, 0, 0, 0};
 
