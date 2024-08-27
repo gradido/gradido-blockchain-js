@@ -48,7 +48,7 @@ describe('validate Confirmed Transactions', () => {
       '899.748379'
     )
     expect(() => new InteractionValidate(confirmedTransaction).run(ValidateType_SINGLE, ''))
-      .toThrow('TransactionValidationInvalidInputException: wrong version in gradido block with version_number: uint64')
+      .toThrow('TransactionValidationInvalidInputException: wrong version with version_number: string, expected: 3.3, actual: 1')
 
   })
 
@@ -62,7 +62,7 @@ describe('validate Confirmed Transactions', () => {
       '899.748379'
     )
     expect(() => new InteractionValidate(confirmedTransaction).run(ValidateType_SINGLE, ''))
-      .toThrow('TransactionValidationInvalidInputException: wrong size with message_id: binary')
+      .toThrow('TransactionValidationInvalidInputException: wrong size with message_id: bytes, expected: 32, actual: 10')
 
   })
 
@@ -76,6 +76,6 @@ describe('validate Confirmed Transactions', () => {
       '899.748379'
     )
     expect(() => new InteractionValidate(confirmedTransaction).run(ValidateType_SINGLE, ''))
-      .toThrow('TransactionValidationInvalidInputException: timespan between created and received are negative with iota milestone timestamp: 1609459199')
+      .toThrow('TransactionValidationInvalidInputException: timespan between created and received are negative with confirmed_at: TimestampSeconds, expected: >= 2021-01-01 00:00:00.0000, actual: 2020-12-31 23:59:59.0000')
   })
 })

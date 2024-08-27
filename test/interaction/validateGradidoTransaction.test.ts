@@ -124,7 +124,7 @@ describe('validate Gradido Transaction', () => {
           .sign(new KeyPairEd25519(keyPairs[4].publicKey, keyPairs[4].privateKey))
           .build()
         expect(() => new InteractionValidate(transaction).run(ValidateType_SINGLE, ''))
-          .toThrow('TransactionValidationForbiddenSignException: , this forbidden pubkey was used for signing: 8a8c93293cb97e8784178da8ae588144f7c982f4658bfd35101a1e2b479c3e57')
+          .toThrow('TransactionValidationForbiddenSignException: this forbidden pubkey was used for signing: 8a8c93293cb97e8784178da8ae588144f7c982f4658bfd35101a1e2b479c3e57')
       })
     })
   })

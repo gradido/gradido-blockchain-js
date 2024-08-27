@@ -60,7 +60,7 @@ describe('validate Gradido Creation Transactions', () => {
         .build()
       expect(body.isCreation()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: not in expected range [5;450] with memo: string')
+        .toThrow('TransactionValidationInvalidInputException: not in expected range [5;450] with memo: hall and  with memo: string, expected: >= 5 && <= 450, actual: 4')
     })
 
     it('memo to big', () => {
@@ -73,7 +73,7 @@ describe('validate Gradido Creation Transactions', () => {
         .build()
       expect(body.isCreation()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: not in expected range [5;450] with memo: string')
+        .toThrow('TransactionValidationInvalidInputException: not in expected range [5;450] with memo: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa and  with memo: string, expected: >= 5 && <= 450, actual: 451')
     })
   })  
 
@@ -87,7 +87,7 @@ describe('validate Gradido Creation Transactions', () => {
         .build()
       expect(body.isCreation()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: zero or negative amount with amount: GradidoUnit')
+        .toThrow('TransactionValidationInvalidInputException: zero or negative amount with memo: Deine erste Schoepfung;) and  with amount: string')
     })
 
     it('zero amount', () => {
@@ -99,7 +99,7 @@ describe('validate Gradido Creation Transactions', () => {
         .build()
       expect(body.isCreation()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: zero or negative amount with amount: GradidoUnit')
+        .toThrow('TransactionValidationInvalidInputException: zero or negative amount with memo: Deine erste Schoepfung;) and  with amount: string')
     })
 
     it('amount to big', () => {
@@ -111,7 +111,7 @@ describe('validate Gradido Creation Transactions', () => {
         .build()
       expect(body.isCreation()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: creation amount to high, max 1000 per month with amount: string')
+        .toThrow('TransactionValidationInvalidInputException: creation amount to high, max 1000 per month with memo: Deine erste Schoepfung;) and  with amount: string, expected: <= 10000, actual: 2000.0000')
     })
   })
 
@@ -126,7 +126,7 @@ describe('validate Gradido Creation Transactions', () => {
         .build()
       expect(body.isCreation()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, communityId))
-        .toThrow("TransactionValidationInvalidInputException: coin communityId shouldn't be set if it is the same as blockchain communityId with communityId: hex")
+        .toThrow("TransactionValidationInvalidInputException: coin communityId shouldn't be set if it is the same as blockchain communityId with memo: Deine erste Schoepfung;) and  with community_id: string, expected: != test-group, actual: test-group")
     })
 
     it('invalid coin community id', () => {
@@ -138,7 +138,7 @@ describe('validate Gradido Creation Transactions', () => {
         .build()
       expect(body.isCreation()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: invalid character, only ascii with coinCommunityId: string')
+        .toThrow('TransactionValidationInvalidInputException: invalid character, only lowercase english latin letter, numbers and - with memo: Deine erste Schoepfung;) and  with community_id: string, expected: ^[a-z0-9-]{3,120}$, actual: <script>')
     })
   })
 
@@ -152,7 +152,7 @@ describe('validate Gradido Creation Transactions', () => {
         .build()
       expect(body.isCreation()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: missing with sender: public key')
+        .toThrow('TransactionValidationInvalidInputException: missing with memo: Deine erste Schoepfung;) and  with sender: public key')
     })
 
     it('empty', () => {
@@ -164,7 +164,7 @@ describe('validate Gradido Creation Transactions', () => {
         .build()
       expect(body.isCreation()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: empty with sender: public key')
+        .toThrow('TransactionValidationInvalidInputException: empty with memo: Deine erste Schoepfung;) and  with sender: public key')
     })
 
     it('invalid', () => {
@@ -176,7 +176,7 @@ describe('validate Gradido Creation Transactions', () => {
         .build()
       expect(body.isCreation()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: invalid size with sender: public key')
+        .toThrow('TransactionValidationInvalidInputException: invalid size with memo: Deine erste Schoepfung;) and  with sender: public key')
     })
   })
 })

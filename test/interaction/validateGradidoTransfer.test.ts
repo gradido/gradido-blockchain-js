@@ -56,7 +56,7 @@ describe('validate Gradido Transfer Transactions', () => {
   
       expect(body.isTransfer()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: not in expected range [5;450] with memo: string')
+        .toThrow('TransactionValidationInvalidInputException: not in expected range [5;450] with memo: hall and  with memo: string, expected: >= 5 && <= 450, actual: 4')
     })
 
     it('memo to big', () => {
@@ -70,7 +70,7 @@ describe('validate Gradido Transfer Transactions', () => {
   
       expect(body.isTransfer()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: not in expected range [5;450] with memo: string')
+        .toThrow('TransactionValidationInvalidInputException: not in expected range [5;450] with memo: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa and  with memo: string, expected: >= 5 && <= 450, actual: 451')
     })
   })
 
@@ -85,7 +85,7 @@ describe('validate Gradido Transfer Transactions', () => {
   
       expect(body.isTransfer()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: zero or negative amount with amount: GradidoUnit')
+        .toThrow('TransactionValidationInvalidInputException: zero or negative amount with memo: Ich teile mit dir and  with amount: string')
     })
 
     it('negative amount', () => {
@@ -98,7 +98,7 @@ describe('validate Gradido Transfer Transactions', () => {
   
       expect(body.isTransfer()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: zero or negative amount with amount: GradidoUnit')
+        .toThrow('TransactionValidationInvalidInputException: zero or negative amount with memo: Ich teile mit dir and  with amount: string')
     })
   }) 
 
@@ -114,7 +114,7 @@ describe('validate Gradido Transfer Transactions', () => {
   
       expect(body.isTransfer()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, communityId))
-        .toThrow("TransactionValidationInvalidInputException: coin communityId shouldn't be set if it is the same as blockchain communityId with communityId: hex")
+        .toThrow("TransactionValidationInvalidInputException: coin communityId shouldn't be set if it is the same as blockchain communityId with memo: Ich teile mit dir and  with community_id: string, expected: != test-group, actual: test-group")
     })
 
     it('invalid coin community id', () => {
@@ -127,7 +127,7 @@ describe('validate Gradido Transfer Transactions', () => {
   
       expect(body.isTransfer()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: invalid character, only ascii with coinCommunityId: string')
+        .toThrow('TransactionValidationInvalidInputException: invalid character, only lowercase english latin letter, numbers and - with memo: Ich teile mit dir and  with community_id: string, expected: ^[a-z0-9-]{3,120}$, actual: <script>')
     })
   })
 
@@ -155,7 +155,7 @@ describe('validate Gradido Transfer Transactions', () => {
 
       expect(body.isTransfer()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: missing with sender: public key')
+        .toThrow('TransactionValidationInvalidInputException: missing with memo: Ich teile mit dir and  with sender: public key')
     })
 
     it('recipient public key: null', () => {
@@ -168,7 +168,7 @@ describe('validate Gradido Transfer Transactions', () => {
 
       expect(body.isTransfer()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: missing with recipient: public key')
+        .toThrow('TransactionValidationInvalidInputException: missing with memo: Ich teile mit dir and  with recipient: public key')
     })
 
     it('sender public key: empty', () => {
@@ -181,7 +181,7 @@ describe('validate Gradido Transfer Transactions', () => {
 
       expect(body.isTransfer()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: empty with sender: public key')
+        .toThrow('TransactionValidationInvalidInputException: empty with memo: Ich teile mit dir and  with sender: public key')
     })
 
     it('recipient public key: empty', () => {
@@ -194,7 +194,7 @@ describe('validate Gradido Transfer Transactions', () => {
 
       expect(body.isTransfer()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: empty with recipient: public key')
+        .toThrow('TransactionValidationInvalidInputException: empty with memo: Ich teile mit dir and  with recipient: public key')
     })
 
     it('sender public key: invalid', () => {
@@ -207,7 +207,7 @@ describe('validate Gradido Transfer Transactions', () => {
 
       expect(body.isTransfer()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: invalid size with sender: public key')
+        .toThrow('TransactionValidationInvalidInputException: invalid size with memo: Ich teile mit dir and  with sender: public key')
     })
 
     it('recipient public key: invalid', () => {
@@ -220,7 +220,7 @@ describe('validate Gradido Transfer Transactions', () => {
 
       expect(body.isTransfer()).toBeTruthy()
       expect(() => new InteractionValidate(body).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: invalid size with recipient: public key')
+        .toThrow('TransactionValidationInvalidInputException: invalid size with memo: Ich teile mit dir and  with recipient: public key')
     })
   })
 })
