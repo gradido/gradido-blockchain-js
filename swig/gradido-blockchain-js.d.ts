@@ -56,7 +56,7 @@ export  class MemoryBlocks {
 
   constructor(n: number);
 
-  constructor(other: any);
+  constructor(other: MemoryBlocks);
 
   size(): number;
 
@@ -68,11 +68,11 @@ export  class MemoryBlocks {
 
   clear(): void;
 
-  add(x: any): void;
+  add(x: MemoryBlock): void;
 
-  get(i: number): any;
+  get(i: number): MemoryBlock;
 
-  set(i: number, val: any): void;
+  set(i: number, val: MemoryBlock): void;
 }
 
 export  class MemoryBlock {
@@ -232,8 +232,6 @@ export  class AuthenticatedEncryption {
 
   constructor(privateKeyx25519: MemoryBlock|null);
 
-  constructor(pubkeyx25519: any);
-
   encrypt(message: Uint8Array, recipiantKey: AuthenticatedEncryption): MemoryBlock;
 
   encrypt(message: MemoryBlock, recipiantKey: AuthenticatedEncryption): MemoryBlock;
@@ -314,7 +312,7 @@ export  class SignaturePairs {
 
   constructor(n: number);
 
-  constructor(other: any);
+  constructor(other: SignaturePairs);
 
   size(): number;
 
@@ -326,11 +324,11 @@ export  class SignaturePairs {
 
   clear(): void;
 
-  add(x: any): void;
+  add(x: SignaturePair): void;
 
-  get(i: number): any;
+  get(i: number): SignaturePair;
 
-  set(i: number, val: any): void;
+  set(i: number, val: SignaturePair): void;
 }
 
 export  class TransferAmount {
@@ -423,7 +421,7 @@ export  class SignatureMap {
 
   push(signaturePair: SignaturePair): void;
 
-  getSignaturePairs(): any;
+  getSignaturePairs(): SignaturePairs;
 }
 
 export  class CommunityFriendsUpdate {
@@ -675,11 +673,11 @@ export  class TransactionBodyBuilder {
 
   setCreatedAt(createdAt: Date): TransactionBodyBuilder;
 
-  setCrossGroupType(type: CrossGroupType): TransactionBodyBuilder;
-
   setMemo(memo: string): TransactionBodyBuilder;
 
   setVersionNumber(versionNumber: string): TransactionBodyBuilder;
+
+  setCrossGroupType(type: CrossGroupType): TransactionBodyBuilder;
 
   setOtherGroup(otherGroup: string): TransactionBodyBuilder;
 }
@@ -807,6 +805,219 @@ export  class InteractionValidate {
   run(type: ValidateType, communityId: string, blockchainProvider: any): void;
 
   run(type: ValidateType, communityId: string): void;
+}
+
+export  class TransactionEntries {
+
+  constructor();
+
+  constructor(n: number);
+
+  constructor(other: TransactionEntries);
+
+  size(): number;
+
+  capacity(): number;
+
+  reserve(n: number): void;
+
+  isEmpty(): boolean;
+
+  clear(): void;
+
+  add(x: TransactionEntry): void;
+
+  get(i: number): TransactionEntry;
+
+  set(i: number, val: TransactionEntry): void;
+}
+
+export  class TransactionEntry {
+
+  constructor();
+
+  constructor(serializedTransaction: MemoryBlock|null);
+
+  constructor(confirmedTransaction: ConfirmedTransaction);
+
+  constructor(transactionNr: number, month: number, year: number, transactionType: TransactionType, communityId: string);
+
+  lt(b: TransactionEntry): boolean;
+
+  gt(b: TransactionEntry): boolean;
+
+  getTransactionNr(): number;
+
+  getSerializedTransaction(): MemoryBlock|null;
+
+  getConfirmedTransaction(): ConfirmedTransaction;
+
+  getMonth(): number;
+
+  getYear(): number;
+
+  getTransactionType(): TransactionType;
+
+  getCoinCommunityId(): string;
+
+  getTransactionBody(): TransactionBody;
+
+  isTransfer(): boolean;
+
+  isCreation(): boolean;
+
+  isCommunityFriendsUpdate(): boolean;
+
+  isRegisterAddress(): boolean;
+
+  isDeferredTransfer(): boolean;
+
+  isCommunityRoot(): boolean;
+}
+
+export  class DeferredRedeemedTransferPair {
+
+  constructor();
+
+  constructor(first: TransactionEntry, second: TransactionEntry);
+
+  constructor(other: DeferredRedeemedTransferPair);
+
+  first: TransactionEntry;
+
+  second: TransactionEntry;
+}
+
+export const FilterResult_USE: FilterResult;
+
+export const FilterResult_DISMISS: FilterResult;
+
+export const FilterResult_STOP: FilterResult;
+
+export type FilterResult = number & { readonly [_SWIG_enum_tag]: 'FilterResult'; };
+
+export  class Pagination {
+
+  constructor();
+
+  constructor(_size: number);
+
+  constructor(_size: number, _page: number);
+
+  size: number;
+
+  page: number;
+
+  skipEntriesCount(): number;
+}
+
+export const SearchDirection_ASC: SearchDirection;
+
+export const SearchDirection_DESC: SearchDirection;
+
+export type SearchDirection = number & { readonly [_SWIG_enum_tag]: 'SearchDirection'; };
+
+export  class TimepointInterval {
+
+  constructor();
+
+  constructor(startDate: Date, endDate: Date);
+
+  constructor(date: Date);
+
+  getStartDate(): Date;
+
+  getEndDate(): Date;
+
+  isEmpty(): boolean;
+
+  isInsideInterval(month: number, year: number): boolean;
+
+  isInsideInterval(date: Date): boolean;
+}
+
+export  class Filter {
+
+  minTransactionNr: number;
+
+  maxTransactionNr: number;
+
+  involvedPublicKey: MemoryBlock|null;
+
+  searchDirection: SearchDirection;
+
+  pagination: Pagination;
+
+  coinCommunityId: string;
+
+  timepointInterval: TimepointInterval;
+
+  transactionType: TransactionType;
+
+ static LAST_TRANSACTION: Filter;
+
+ static ALL_TRANSACTIONS: Filter;
+}
+
+export  class FilterBuilder {
+
+  reset(): void;
+
+  setMinTransactionNr(_minTransactionNr: number): FilterBuilder;
+
+  setMaxTransactionNr(_maxTransactionNr: number): FilterBuilder;
+
+  setInvolvedPublicKey(_involvedPublicKey: MemoryBlock|null): FilterBuilder;
+
+  setSearchDirection(_searchDirection: SearchDirection): FilterBuilder;
+
+  setPagination(_pagination: Pagination): FilterBuilder;
+
+  setCoinCommunityId(_coinCommunityId: string): FilterBuilder;
+
+  setTimepointInterval(_timepointInterval: TimepointInterval): FilterBuilder;
+
+  setTransactionType(_transactionType: TransactionType): FilterBuilder;
+
+  build(): Filter;
+
+  getFilter(): Filter;
+
+  constructor();
+}
+
+export  class InMemory {
+
+  clear(): void;
+
+  exit(): void;
+
+  addGradidoTransaction(gradidoTransaction: GradidoTransaction, messageId: MemoryBlock|null, confirmedAt: Date): boolean;
+
+  getSortedTransactions(): TransactionEntries;
+
+  findAll(filter: Filter): TransactionEntries;
+
+  findAll(): TransactionEntries;
+
+  findTimeoutedDeferredTransfersInRange(senderPublicKey: MemoryBlock|null, timepointInterval: TimepointInterval, maxTransactionNr: number): TransactionEntries;
+
+  findRedeemedDeferredTransfersInRange(senderPublicKey: MemoryBlock|null, timepointInterval: TimepointInterval, maxTransactionNr: number): any;
+
+  getTransactionForId(transactionId: number): TransactionEntry;
+
+  findByMessageId(messageId: MemoryBlock|null, filter: Filter): TransactionEntry;
+
+  findByMessageId(messageId: MemoryBlock|null): TransactionEntry;
+}
+
+export  class InMemoryProvider {
+
+ static getInstance(): InMemoryProvider;
+
+  clear(): void;
+
+  getBlockchain(communityId: string): InMemory;
 }
 
 

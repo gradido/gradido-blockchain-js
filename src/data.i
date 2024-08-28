@@ -37,9 +37,10 @@
 #include "gradido_blockchain/data/ConfirmedTransaction.h"
 %}
 
-%template(SignaturePairs) std::vector<gradido::data::SignaturePair>;
-
 %typemap(ts) std::vector<gradido::data::SignaturePair> "SignaturePairs";
+%typemap(ts) const gradido::data::SignaturePair& "SignaturePair";
+%typemap(ts) const std::vector<gradido::data::SignaturePair>& "SignaturePairs";
+%template(SignaturePairs) std::vector<gradido::data::SignaturePair>;
 
 
 %typemap(ts) uint8_t* "Buffer";

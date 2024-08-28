@@ -19,6 +19,7 @@
 %ignore AuthenticatedDecryptionException;
 %ignore AuthenticatedKeyTransformationException;
 %ignore AuthenticatedPrepareException;
+%ignore AuthenticatedEncryption::AuthenticatedEncryption(const std::array<unsigned char, crypto_scalarmult_curve25519_BYTES>& pubkeyx25519);
 
 %{
 #include "gradido_blockchain/crypto/AuthenticatedEncryption.h"

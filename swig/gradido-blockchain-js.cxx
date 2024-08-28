@@ -2185,6 +2185,151 @@ fail:
 }
 
 
+// js_global_getter
+Napi::Value exports_FilterResult_USE_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(gradido::blockchain::FilterResult::USE));
+    
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return Napi::Value();
+#endif
+}
+
+
+// js_global_getter
+Napi::Value exports_FilterResult_DISMISS_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(gradido::blockchain::FilterResult::DISMISS));
+    
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return Napi::Value();
+#endif
+}
+
+
+// js_global_getter
+Napi::Value exports_FilterResult_STOP_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(gradido::blockchain::FilterResult::STOP));
+    
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return Napi::Value();
+#endif
+}
+
+
+// js_global_getter
+Napi::Value exports_SearchDirection_ASC_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(gradido::blockchain::SearchDirection::ASC));
+    
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return Napi::Value();
+#endif
+}
+
+
+// js_global_getter
+Napi::Value exports_SearchDirection_DESC_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(gradido::blockchain::SearchDirection::DESC));
+    
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return Napi::Value();
+#endif
+}
+
+
 
 
 EnvInstanceData::EnvInstanceData(Napi::Env env, swig_module_info *swig_module) :
@@ -2768,6 +2913,96 @@ if (SWIGTYPE_p_gradido__interaction__validate__Context->clientdata == SWIG_NULLP
 Napi::FunctionReference *_exports_InteractionValidate_ctor_ref = new Napi::FunctionReference();
 *_exports_InteractionValidate_ctor_ref = Napi::Persistent(_exports_InteractionValidate_ctor);
 env.GetInstanceData<EnvInstanceData>()->ctor[28] = _exports_InteractionValidate_ctor_ref;
+/* Class: TransactionEntries (_exports_TransactionEntries) */
+// jsnapi_registerclass
+Napi::Function _exports_TransactionEntries_ctor = _exports_TransactionEntries_inst::GetClass(env);
+exports.Set("TransactionEntries", _exports_TransactionEntries_ctor);
+if (SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t->clientdata = new size_t(29);
+}
+Napi::FunctionReference *_exports_TransactionEntries_ctor_ref = new Napi::FunctionReference();
+*_exports_TransactionEntries_ctor_ref = Napi::Persistent(_exports_TransactionEntries_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[29] = _exports_TransactionEntries_ctor_ref;
+/* Class: TransactionEntry (_exports_TransactionEntry) */
+// jsnapi_registerclass
+Napi::Function _exports_TransactionEntry_ctor = _exports_TransactionEntry_inst::GetClass(env);
+exports.Set("TransactionEntry", _exports_TransactionEntry_ctor);
+if (SWIGTYPE_p_gradido__blockchain__TransactionEntry->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__blockchain__TransactionEntry->clientdata = new size_t(30);
+}
+Napi::FunctionReference *_exports_TransactionEntry_ctor_ref = new Napi::FunctionReference();
+*_exports_TransactionEntry_ctor_ref = Napi::Persistent(_exports_TransactionEntry_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[30] = _exports_TransactionEntry_ctor_ref;
+/* Class: DeferredRedeemedTransferPair (_exports_DeferredRedeemedTransferPair) */
+// jsnapi_registerclass
+Napi::Function _exports_DeferredRedeemedTransferPair_ctor = _exports_DeferredRedeemedTransferPair_inst::GetClass(env);
+exports.Set("DeferredRedeemedTransferPair", _exports_DeferredRedeemedTransferPair_ctor);
+if (SWIGTYPE_p_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t->clientdata = new size_t(31);
+}
+Napi::FunctionReference *_exports_DeferredRedeemedTransferPair_ctor_ref = new Napi::FunctionReference();
+*_exports_DeferredRedeemedTransferPair_ctor_ref = Napi::Persistent(_exports_DeferredRedeemedTransferPair_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[31] = _exports_DeferredRedeemedTransferPair_ctor_ref;
+/* Class: Pagination (_exports_Pagination) */
+// jsnapi_registerclass
+Napi::Function _exports_Pagination_ctor = _exports_Pagination_inst::GetClass(env);
+exports.Set("Pagination", _exports_Pagination_ctor);
+if (SWIGTYPE_p_gradido__blockchain__Pagination->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__blockchain__Pagination->clientdata = new size_t(32);
+}
+Napi::FunctionReference *_exports_Pagination_ctor_ref = new Napi::FunctionReference();
+*_exports_Pagination_ctor_ref = Napi::Persistent(_exports_Pagination_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[32] = _exports_Pagination_ctor_ref;
+/* Class: TimepointInterval (_exports_TimepointInterval) */
+// jsnapi_registerclass
+Napi::Function _exports_TimepointInterval_ctor = _exports_TimepointInterval_inst::GetClass(env);
+exports.Set("TimepointInterval", _exports_TimepointInterval_ctor);
+if (SWIGTYPE_p_TimepointInterval->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_TimepointInterval->clientdata = new size_t(33);
+}
+Napi::FunctionReference *_exports_TimepointInterval_ctor_ref = new Napi::FunctionReference();
+*_exports_TimepointInterval_ctor_ref = Napi::Persistent(_exports_TimepointInterval_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[33] = _exports_TimepointInterval_ctor_ref;
+/* Class: Filter (_exports_Filter) */
+// jsnapi_registerclass
+Napi::Function _exports_Filter_ctor = _exports_Filter_inst::GetClass(env);
+exports.Set("Filter", _exports_Filter_ctor);
+if (SWIGTYPE_p_gradido__blockchain__Filter->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__blockchain__Filter->clientdata = new size_t(34);
+}
+Napi::FunctionReference *_exports_Filter_ctor_ref = new Napi::FunctionReference();
+*_exports_Filter_ctor_ref = Napi::Persistent(_exports_Filter_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[34] = _exports_Filter_ctor_ref;
+/* Class: FilterBuilder (_exports_FilterBuilder) */
+// jsnapi_registerclass
+Napi::Function _exports_FilterBuilder_ctor = _exports_FilterBuilder_inst::GetClass(env);
+exports.Set("FilterBuilder", _exports_FilterBuilder_ctor);
+if (SWIGTYPE_p_gradido__blockchain__FilterBuilder->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__blockchain__FilterBuilder->clientdata = new size_t(35);
+}
+Napi::FunctionReference *_exports_FilterBuilder_ctor_ref = new Napi::FunctionReference();
+*_exports_FilterBuilder_ctor_ref = Napi::Persistent(_exports_FilterBuilder_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[35] = _exports_FilterBuilder_ctor_ref;
+/* Class: InMemory (_exports_InMemory) */
+// jsnapi_registerclass
+Napi::Function _exports_InMemory_ctor = _exports_InMemory_inst::GetClass(env);
+exports.Set("InMemory", _exports_InMemory_ctor);
+if (SWIGTYPE_p_gradido__blockchain__InMemory->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__blockchain__InMemory->clientdata = new size_t(36);
+}
+Napi::FunctionReference *_exports_InMemory_ctor_ref = new Napi::FunctionReference();
+*_exports_InMemory_ctor_ref = Napi::Persistent(_exports_InMemory_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[36] = _exports_InMemory_ctor_ref;
+/* Class: InMemoryProvider (_exports_InMemoryProvider) */
+// jsnapi_registerclass
+Napi::Function _exports_InMemoryProvider_ctor = _exports_InMemoryProvider_inst::GetClass(env);
+exports.Set("InMemoryProvider", _exports_InMemoryProvider_ctor);
+if (SWIGTYPE_p_gradido__blockchain__InMemoryProvider->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__blockchain__InMemoryProvider->clientdata = new size_t(37);
+}
+Napi::FunctionReference *_exports_InMemoryProvider_ctor_ref = new Napi::FunctionReference();
+*_exports_InMemoryProvider_ctor_ref = Napi::Persistent(_exports_InMemoryProvider_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[37] = _exports_InMemoryProvider_ctor_ref;
 
 
   /* initialize the inheritance helpers */
@@ -3225,6 +3460,141 @@ do {
 } while (0);
 
 
+// Inheritance for _exports_TransactionEntries (TransactionEntries) <- SWIG_NAPI_ObjectWrap
+// jsnapi_setup_inheritance
+do {
+  Napi::Value protoBase, protoSub;
+  NAPI_CHECK_RESULT(_exports_TransactionEntries_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
+  NAPI_CHECK_MAYBE(setProto.Call({
+    _exports_TransactionEntries_ctor, SWIG_NAPI_ObjectWrap_ctor
+  }));
+  NAPI_CHECK_MAYBE(setProto.Call({
+    protoSub, protoBase
+  }));
+} while (0);
+
+
+// Inheritance for _exports_TransactionEntry (TransactionEntry) <- SWIG_NAPI_ObjectWrap
+// jsnapi_setup_inheritance
+do {
+  Napi::Value protoBase, protoSub;
+  NAPI_CHECK_RESULT(_exports_TransactionEntry_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
+  NAPI_CHECK_MAYBE(setProto.Call({
+    _exports_TransactionEntry_ctor, SWIG_NAPI_ObjectWrap_ctor
+  }));
+  NAPI_CHECK_MAYBE(setProto.Call({
+    protoSub, protoBase
+  }));
+} while (0);
+
+
+// Inheritance for _exports_DeferredRedeemedTransferPair (DeferredRedeemedTransferPair) <- SWIG_NAPI_ObjectWrap
+// jsnapi_setup_inheritance
+do {
+  Napi::Value protoBase, protoSub;
+  NAPI_CHECK_RESULT(_exports_DeferredRedeemedTransferPair_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
+  NAPI_CHECK_MAYBE(setProto.Call({
+    _exports_DeferredRedeemedTransferPair_ctor, SWIG_NAPI_ObjectWrap_ctor
+  }));
+  NAPI_CHECK_MAYBE(setProto.Call({
+    protoSub, protoBase
+  }));
+} while (0);
+
+
+// Inheritance for _exports_Pagination (Pagination) <- SWIG_NAPI_ObjectWrap
+// jsnapi_setup_inheritance
+do {
+  Napi::Value protoBase, protoSub;
+  NAPI_CHECK_RESULT(_exports_Pagination_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
+  NAPI_CHECK_MAYBE(setProto.Call({
+    _exports_Pagination_ctor, SWIG_NAPI_ObjectWrap_ctor
+  }));
+  NAPI_CHECK_MAYBE(setProto.Call({
+    protoSub, protoBase
+  }));
+} while (0);
+
+
+// Inheritance for _exports_TimepointInterval (TimepointInterval) <- SWIG_NAPI_ObjectWrap
+// jsnapi_setup_inheritance
+do {
+  Napi::Value protoBase, protoSub;
+  NAPI_CHECK_RESULT(_exports_TimepointInterval_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
+  NAPI_CHECK_MAYBE(setProto.Call({
+    _exports_TimepointInterval_ctor, SWIG_NAPI_ObjectWrap_ctor
+  }));
+  NAPI_CHECK_MAYBE(setProto.Call({
+    protoSub, protoBase
+  }));
+} while (0);
+
+
+// Inheritance for _exports_Filter (Filter) <- SWIG_NAPI_ObjectWrap
+// jsnapi_setup_inheritance
+do {
+  Napi::Value protoBase, protoSub;
+  NAPI_CHECK_RESULT(_exports_Filter_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
+  NAPI_CHECK_MAYBE(setProto.Call({
+    _exports_Filter_ctor, SWIG_NAPI_ObjectWrap_ctor
+  }));
+  NAPI_CHECK_MAYBE(setProto.Call({
+    protoSub, protoBase
+  }));
+} while (0);
+
+
+// Inheritance for _exports_FilterBuilder (FilterBuilder) <- SWIG_NAPI_ObjectWrap
+// jsnapi_setup_inheritance
+do {
+  Napi::Value protoBase, protoSub;
+  NAPI_CHECK_RESULT(_exports_FilterBuilder_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
+  NAPI_CHECK_MAYBE(setProto.Call({
+    _exports_FilterBuilder_ctor, SWIG_NAPI_ObjectWrap_ctor
+  }));
+  NAPI_CHECK_MAYBE(setProto.Call({
+    protoSub, protoBase
+  }));
+} while (0);
+
+
+// Inheritance for _exports_InMemory (InMemory) <- SWIG_NAPI_ObjectWrap
+// jsnapi_setup_inheritance
+do {
+  Napi::Value protoBase, protoSub;
+  NAPI_CHECK_RESULT(_exports_InMemory_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
+  NAPI_CHECK_MAYBE(setProto.Call({
+    _exports_InMemory_ctor, SWIG_NAPI_ObjectWrap_ctor
+  }));
+  NAPI_CHECK_MAYBE(setProto.Call({
+    protoSub, protoBase
+  }));
+} while (0);
+
+
+// Inheritance for _exports_InMemoryProvider (InMemoryProvider) <- SWIG_NAPI_ObjectWrap
+// jsnapi_setup_inheritance
+do {
+  Napi::Value protoBase, protoSub;
+  NAPI_CHECK_RESULT(_exports_InMemoryProvider_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
+  NAPI_CHECK_MAYBE(setProto.Call({
+    _exports_InMemoryProvider_ctor, SWIG_NAPI_ObjectWrap_ctor
+  }));
+  NAPI_CHECK_MAYBE(setProto.Call({
+    protoSub, protoBase
+  }));
+} while (0);
+
+
 
   /* create and register namespace objects */
   // jsnapi_register_global_constant
@@ -3602,6 +3972,51 @@ do {
   Napi::Value value;
   NAPI_CHECK_RESULT(f.Call(0, SWIG_NULLPTR), value);
   Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Value("ValidateType_CONNECTED_BLOCKCHAIN", value,
+    static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
+  NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
+} while (0);
+// jsnapi_register_global_constant
+do {
+  Napi::Function f = Napi::Function::New(env, exports_FilterResult_USE_get);
+  Napi::Value value;
+  NAPI_CHECK_RESULT(f.Call(0, SWIG_NULLPTR), value);
+  Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Value("FilterResult_USE", value,
+    static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
+  NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
+} while (0);
+// jsnapi_register_global_constant
+do {
+  Napi::Function f = Napi::Function::New(env, exports_FilterResult_DISMISS_get);
+  Napi::Value value;
+  NAPI_CHECK_RESULT(f.Call(0, SWIG_NULLPTR), value);
+  Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Value("FilterResult_DISMISS", value,
+    static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
+  NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
+} while (0);
+// jsnapi_register_global_constant
+do {
+  Napi::Function f = Napi::Function::New(env, exports_FilterResult_STOP_get);
+  Napi::Value value;
+  NAPI_CHECK_RESULT(f.Call(0, SWIG_NULLPTR), value);
+  Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Value("FilterResult_STOP", value,
+    static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
+  NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
+} while (0);
+// jsnapi_register_global_constant
+do {
+  Napi::Function f = Napi::Function::New(env, exports_SearchDirection_ASC_get);
+  Napi::Value value;
+  NAPI_CHECK_RESULT(f.Call(0, SWIG_NULLPTR), value);
+  Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Value("SearchDirection_ASC", value,
+    static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
+  NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
+} while (0);
+// jsnapi_register_global_constant
+do {
+  Napi::Function f = Napi::Function::New(env, exports_SearchDirection_DESC_get);
+  Napi::Value value;
+  NAPI_CHECK_RESULT(f.Call(0, SWIG_NULLPTR), value);
+  Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Value("SearchDirection_DESC", value,
     static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
   NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
 } while (0);

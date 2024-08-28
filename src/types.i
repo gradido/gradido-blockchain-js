@@ -55,3 +55,29 @@ typedef std::chrono::system_clock::duration Duration;
     }
     $1 = static_cast<size_t>($input.As<Napi::Number>().Uint32Value());
 }
+
+// typemaps for date Month and date Year
+%typemap(ts) date::month "number";
+%typemap(in) date::month {
+    if(!$input.IsNumber()) {
+        SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+    }
+    $1 = date::month($input.As<Napi::Number>().Uint32Value());
+}
+
+%typemap(out) date::month {
+    $result = Napi::Number::New(env, static_cast<unsigned>($1));
+}
+
+// typemaps for date Month and date Year
+%typemap(ts) date::year "number";
+%typemap(in) date::year {
+    if(!$input.IsNumber()) {
+        SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+    }
+    $1 = date::year($input.As<Napi::Number>().Int32Value());
+}
+
+%typemap(out) date::year {
+    $result = Napi::Number::New(env, static_cast<int>($1));
+}

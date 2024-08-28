@@ -2,6 +2,7 @@
 
 /* gradido-blockchain.i */
 %module gradido
+%ignore GradidoBlockchainException;
 
 %{
 #include "gradido_blockchain/const.h"
@@ -30,9 +31,10 @@
 %include <std_except.i>
 %include <std_unique_ptr.i>
 %include "lib/std_shared_ptr.i"
+%include "lib/std_string_view.i"
 %include <stdint.i>
 %include <std_vector.i>
-
+%include <std_pair.i>
 %include <nodejs_buffer.i>
 %include "types.i"
 
@@ -44,7 +46,6 @@
 %typemap(ts) gradido::data::AddressType "AddressType";
 %typemap(ts) gradido::data::CrossGroupType "CrossGroupType";
 %typemap(ts) gradido::data::TransactionType "TransactionType";
-
 // base types
 %include "MemoryBlock.i"
 // crypto types
@@ -69,3 +70,5 @@
 %include "interaction/toJson.i"
 %include "interaction/deserialize.i"
 %include "interaction/validate.i"
+
+%include "blockchain/blockchain.i"

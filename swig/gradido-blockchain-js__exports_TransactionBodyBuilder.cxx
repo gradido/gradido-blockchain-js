@@ -107,14 +107,6 @@ void _exports_TransactionBodyBuilder_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("setCrossGroupType");
-  members.insert({
-    "setCrossGroupType",
-      _exports_TransactionBodyBuilder_templ::InstanceMethod("setCrossGroupType",
-        &_exports_TransactionBodyBuilder_templ::_wrap_TransactionBodyBuilder_setCrossGroupType,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("setMemo");
   members.insert({
     "setMemo",
@@ -128,6 +120,14 @@ void _exports_TransactionBodyBuilder_inst::GetMembers(
     "setVersionNumber",
       _exports_TransactionBodyBuilder_templ::InstanceMethod("setVersionNumber",
         &_exports_TransactionBodyBuilder_templ::_wrap_TransactionBodyBuilder_setVersionNumber,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("setCrossGroupType");
+  members.insert({
+    "setCrossGroupType",
+      _exports_TransactionBodyBuilder_templ::InstanceMethod("setCrossGroupType",
+        &_exports_TransactionBodyBuilder_templ::_wrap_TransactionBodyBuilder_setCrossGroupType,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

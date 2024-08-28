@@ -383,6 +383,12 @@ static void *_p_EncryptionKeyExceptionTo_p_SecretKeyCryptographyException(void *
 static void *_p_MissingEncryptionExceptionTo_p_SecretKeyCryptographyException(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((SecretKeyCryptographyException *)  ((MissingEncryptionException *) x));
 }
+static void *_p_gradido__blockchain__InMemoryTo_p_gradido__blockchain__Abstract(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((gradido::blockchain::Abstract *)  ((gradido::blockchain::InMemory *) x));
+}
+static void *_p_gradido__blockchain__InMemoryProviderTo_p_gradido__blockchain__AbstractProvider(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((gradido::blockchain::AbstractProvider *)  ((gradido::blockchain::InMemoryProvider *) x));
+}
 static void *_p_std__shared_ptrT_KeyPairEd25519Ex_tTo_p_std__shared_ptrT_KeyPairEd25519_t(void *x, int *newmemory) {
     *newmemory = SWIG_CAST_NEW_MEMORY;
     return (void *) new std::shared_ptr< KeyPairEd25519 >(*(std::shared_ptr< KeyPairEd25519Ex > *)x);
@@ -398,11 +404,23 @@ SWIGINTERN swig_type_info _swigt__p_DecryptionException = {"_p_DecryptionExcepti
 SWIGINTERN swig_type_info _swigt__p_EncryptionException = {"_p_EncryptionException", 0, 0, 0, 0, 0};
 SWIGINTERN swig_type_info _swigt__p_EncryptionKeyException = {"_p_EncryptionKeyException", 0, 0, 0, 0, 0};
 SWIGINTERN swig_type_info _swigt__p_MissingEncryptionException = {"_p_MissingEncryptionException", 0, 0, 0, 0, 0};
+SWIGINTERN swig_type_info _swigt__p_TimepointInterval = {"_p_TimepointInterval", "TimepointInterval *|p_TimepointInterval", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_blockchain__AbstractProvider = {"_p_blockchain__AbstractProvider", "blockchain::AbstractProvider *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_date__month = {"_p_date__month", "date::month *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_date__year = {"_p_date__year", "date::year *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_difference_type = {"_p_difference_type", "difference_type *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_first_type = {"_p_first_type", "first_type *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__GradidoTransactionBuilder = {"_p_gradido__GradidoTransactionBuilder", "p_gradido__GradidoTransactionBuilder|gradido::GradidoTransactionBuilder *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__TransactionBodyBuilder = {"_p_gradido__TransactionBodyBuilder", "p_gradido__TransactionBodyBuilder|gradido::TransactionBodyBuilder *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_gradido__blockchain__Abstract = {"_p_gradido__blockchain__Abstract", "gradido::blockchain::Abstract *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_gradido__blockchain__AbstractProvider = {"_p_gradido__blockchain__AbstractProvider", "gradido::blockchain::AbstractProvider *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_gradido__blockchain__Filter = {"_p_gradido__blockchain__Filter", "gradido::blockchain::Filter *|p_gradido__blockchain__Filter", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_gradido__blockchain__FilterBuilder = {"_p_gradido__blockchain__FilterBuilder", "p_gradido__blockchain__FilterBuilder|gradido::blockchain::FilterBuilder *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_gradido__blockchain__InMemory = {"_p_gradido__blockchain__InMemory", "gradido::blockchain::InMemory *|p_gradido__blockchain__InMemory", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_gradido__blockchain__InMemoryProvider = {"_p_gradido__blockchain__InMemoryProvider", "p_gradido__blockchain__InMemoryProvider|gradido::blockchain::InMemoryProvider *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_gradido__blockchain__Pagination = {"_p_gradido__blockchain__Pagination", "p_gradido__blockchain__Pagination|gradido::blockchain::Pagination *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_gradido__blockchain__TransactionEntry = {"_p_gradido__blockchain__TransactionEntry", "gradido::blockchain::TransactionEntry *|p_gradido__blockchain__TransactionEntry", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__CommunityFriendsUpdate = {"_p_gradido__data__CommunityFriendsUpdate", "p_gradido__data__CommunityFriendsUpdate|gradido::data::CommunityFriendsUpdate *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__CommunityRoot = {"_p_gradido__data__CommunityRoot", "p_gradido__data__CommunityRoot|gradido::data::CommunityRoot *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__ConfirmedTransaction = {"_p_gradido__data__ConfirmedTransaction", "p_gradido__data__ConfirmedTransaction|gradido::data::ConfirmedTransaction *", 0, 0, (void*)0, 0};
@@ -424,16 +442,20 @@ SWIGINTERN swig_type_info _swigt__p_gradido__interaction__validate__Context = {"
 SWIGINTERN swig_type_info _swigt__p_int = {"_p_int", "int32_t *|int_fast16_t *|int_fast32_t *|int_least32_t *|intptr_t *|int *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_long_long = {"_p_long_long", "int64_t *|int_fast64_t *|int_least64_t *|intmax_t *|long long *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_memory__Block = {"_p_memory__Block", "MemoryBin *|p_memory__Block|memory::Block *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_second_type = {"_p_second_type", "second_type *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_short = {"_p_short", "int16_t *|int_least16_t *|short *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_signed_char = {"_p_signed_char", "int8_t *|int_fast8_t *|int_least8_t *|signed char *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_size_type = {"_p_size_type", "size_type *", 0, 0, (void*)0, 0};
-SWIGINTERN swig_type_info _swigt__p_std__arrayT_unsigned_char_crypto_scalarmult_curve25519_BYTES_t = {"_p_std__arrayT_unsigned_char_crypto_scalarmult_curve25519_BYTES_t", "std::array< unsigned char,crypto_scalarmult_curve25519_BYTES > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__chrono__system_clock__duration = {"_p_std__chrono__system_clock__duration", "Duration *|std::chrono::system_clock::duration *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__chrono__time_pointT_std__chrono__system_clock_t = {"_p_std__chrono__time_pointT_std__chrono__system_clock_t", "Timepoint *|std::chrono::time_point< std::chrono::system_clock > *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_std__listT_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t_t = {"_p_std__listT_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t_t", "std::list< gradido::blockchain::DeferredRedeemedTransferPair > *|std::list< std::pair< std::shared_ptr< gradido::blockchain::TransactionEntry >,std::shared_ptr< gradido::blockchain::TransactionEntry > > > *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_std__listT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t = {"_p_std__listT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t", "gradido::blockchain::TransactionEntries *|std::list< std::shared_ptr< gradido::blockchain::TransactionEntry > > *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t = {"_p_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t", "gradido::blockchain::DeferredRedeemedTransferPair *|p_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t|std::pair< std::shared_ptr< gradido::blockchain::TransactionEntry >,std::shared_ptr< gradido::blockchain::TransactionEntry > > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_KeyPairEd25519_t = {"_p_std__shared_ptrT_KeyPairEd25519_t", "std::shared_ptr< KeyPairEd25519 > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_KeyPairEd25519Ex_t = {"_p_std__shared_ptrT_KeyPairEd25519Ex_t", 0, 0, 0, 0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_Passphrase_t = {"_p_std__shared_ptrT_Passphrase_t", "std::shared_ptr< Passphrase > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_SecretKeyCryptography_t = {"_p_std__shared_ptrT_SecretKeyCryptography_t", "std::shared_ptr< SecretKeyCryptography > *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_gradido__blockchain__TransactionEntry_t = {"_p_std__shared_ptrT_gradido__blockchain__TransactionEntry_t", "std::vector< std::shared_ptr< gradido::blockchain::TransactionEntry > >::value_type *|std::shared_ptr< gradido::blockchain::TransactionEntry > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t = {"_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t", "gradido::data::ConstConfirmedTransactionPtr *|std::shared_ptr< gradido::data::ConfirmedTransaction const > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t = {"_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t", "gradido::data::ConfirmedTransactionPtr *|std::shared_ptr< gradido::data::ConfirmedTransaction > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t = {"_p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t", "gradido::data::ConstGradidoTransactionPtr *|std::shared_ptr< gradido::data::GradidoTransaction const > *", 0, 0, (void*)0, 0};
@@ -441,6 +463,7 @@ SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_gradido__data__TransactionB
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_memory__Block_const_t = {"_p_std__shared_ptrT_memory__Block_const_t", "memory::ConstBlockPtr *|std::shared_ptr< memory::Block const > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_memory__Block_t = {"_p_std__shared_ptrT_memory__Block_t", "memory::BlockPtr *|std::vector< std::shared_ptr< memory::Block > >::value_type *|std::shared_ptr< memory::Block > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_gradido__data__SignaturePair_t = {"_p_std__vectorT_gradido__data__SignaturePair_t", "std::vector< gradido::data::SignaturePair > *|p_std__vectorT_gradido__data__SignaturePair_t", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t = {"_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t", "std::vector< std::shared_ptr< gradido::blockchain::TransactionEntry > > *|p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t = {"_p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t", "std::vector< memory::ConstBlockPtr > *|std::vector< std::shared_ptr< memory::Block const > > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_std__shared_ptrT_memory__Block_t_t = {"_p_std__vectorT_std__shared_ptrT_memory__Block_t_t", "p_std__vectorT_std__shared_ptrT_memory__Block_t_t|std::vector< std::shared_ptr< memory::Block > > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "uint8_t *|uint_fast8_t *|uint_least8_t *|unsigned char *", 0, 0, (void*)0, 0};
@@ -464,11 +487,23 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_Passphrase,
   &_swigt__p_SecretKeyCryptography,
   &_swigt__p_SecretKeyCryptographyException,
+  &_swigt__p_TimepointInterval,
   &_swigt__p_blockchain__AbstractProvider,
   &_swigt__p_char,
+  &_swigt__p_date__month,
+  &_swigt__p_date__year,
   &_swigt__p_difference_type,
+  &_swigt__p_first_type,
   &_swigt__p_gradido__GradidoTransactionBuilder,
   &_swigt__p_gradido__TransactionBodyBuilder,
+  &_swigt__p_gradido__blockchain__Abstract,
+  &_swigt__p_gradido__blockchain__AbstractProvider,
+  &_swigt__p_gradido__blockchain__Filter,
+  &_swigt__p_gradido__blockchain__FilterBuilder,
+  &_swigt__p_gradido__blockchain__InMemory,
+  &_swigt__p_gradido__blockchain__InMemoryProvider,
+  &_swigt__p_gradido__blockchain__Pagination,
+  &_swigt__p_gradido__blockchain__TransactionEntry,
   &_swigt__p_gradido__data__CommunityFriendsUpdate,
   &_swigt__p_gradido__data__CommunityRoot,
   &_swigt__p_gradido__data__ConfirmedTransaction,
@@ -490,16 +525,20 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_int,
   &_swigt__p_long_long,
   &_swigt__p_memory__Block,
+  &_swigt__p_second_type,
   &_swigt__p_short,
   &_swigt__p_signed_char,
   &_swigt__p_size_type,
-  &_swigt__p_std__arrayT_unsigned_char_crypto_scalarmult_curve25519_BYTES_t,
   &_swigt__p_std__chrono__system_clock__duration,
   &_swigt__p_std__chrono__time_pointT_std__chrono__system_clock_t,
+  &_swigt__p_std__listT_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t_t,
+  &_swigt__p_std__listT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t,
+  &_swigt__p_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t,
   &_swigt__p_std__shared_ptrT_KeyPairEd25519Ex_t,
   &_swigt__p_std__shared_ptrT_KeyPairEd25519_t,
   &_swigt__p_std__shared_ptrT_Passphrase_t,
   &_swigt__p_std__shared_ptrT_SecretKeyCryptography_t,
+  &_swigt__p_std__shared_ptrT_gradido__blockchain__TransactionEntry_t,
   &_swigt__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t,
   &_swigt__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t,
   &_swigt__p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t,
@@ -507,6 +546,7 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_std__shared_ptrT_memory__Block_const_t,
   &_swigt__p_std__shared_ptrT_memory__Block_t,
   &_swigt__p_std__vectorT_gradido__data__SignaturePair_t,
+  &_swigt__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t,
   &_swigt__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t,
   &_swigt__p_std__vectorT_std__shared_ptrT_memory__Block_t_t,
   &_swigt__p_unsigned_char,
@@ -527,11 +567,23 @@ SWIGINTERN swig_cast_info _swigc__p_EncryptionException[] = {{&_swigt__p_Encrypt
 SWIGINTERN swig_cast_info _swigc__p_EncryptionKeyException[] = {{&_swigt__p_EncryptionKeyException, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_MissingEncryptionException[] = {{&_swigt__p_MissingEncryptionException, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_SecretKeyCryptographyException[] = {  {&_swigt__p_SecretKeyCryptographyException, 0, 0, 0},  {&_swigt__p_DecryptionException, _p_DecryptionExceptionTo_p_SecretKeyCryptographyException, 0, 0},  {&_swigt__p_EncryptionException, _p_EncryptionExceptionTo_p_SecretKeyCryptographyException, 0, 0},  {&_swigt__p_EncryptionKeyException, _p_EncryptionKeyExceptionTo_p_SecretKeyCryptographyException, 0, 0},  {&_swigt__p_MissingEncryptionException, _p_MissingEncryptionExceptionTo_p_SecretKeyCryptographyException, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_TimepointInterval[] = {  {&_swigt__p_TimepointInterval, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_blockchain__AbstractProvider[] = {  {&_swigt__p_blockchain__AbstractProvider, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_date__month[] = {  {&_swigt__p_date__month, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_date__year[] = {  {&_swigt__p_date__year, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_difference_type[] = {  {&_swigt__p_difference_type, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_first_type[] = {  {&_swigt__p_first_type, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__GradidoTransactionBuilder[] = {  {&_swigt__p_gradido__GradidoTransactionBuilder, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__TransactionBodyBuilder[] = {  {&_swigt__p_gradido__TransactionBodyBuilder, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_gradido__blockchain__Abstract[] = {  {&_swigt__p_gradido__blockchain__Abstract, 0, 0, 0},  {&_swigt__p_gradido__blockchain__InMemory, _p_gradido__blockchain__InMemoryTo_p_gradido__blockchain__Abstract, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_gradido__blockchain__AbstractProvider[] = {  {&_swigt__p_gradido__blockchain__AbstractProvider, 0, 0, 0},  {&_swigt__p_gradido__blockchain__InMemoryProvider, _p_gradido__blockchain__InMemoryProviderTo_p_gradido__blockchain__AbstractProvider, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_gradido__blockchain__Filter[] = {  {&_swigt__p_gradido__blockchain__Filter, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_gradido__blockchain__FilterBuilder[] = {  {&_swigt__p_gradido__blockchain__FilterBuilder, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_gradido__blockchain__InMemory[] = {  {&_swigt__p_gradido__blockchain__InMemory, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_gradido__blockchain__InMemoryProvider[] = {  {&_swigt__p_gradido__blockchain__InMemoryProvider, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_gradido__blockchain__Pagination[] = {  {&_swigt__p_gradido__blockchain__Pagination, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_gradido__blockchain__TransactionEntry[] = {  {&_swigt__p_gradido__blockchain__TransactionEntry, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__CommunityFriendsUpdate[] = {  {&_swigt__p_gradido__data__CommunityFriendsUpdate, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__CommunityRoot[] = {  {&_swigt__p_gradido__data__CommunityRoot, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__ConfirmedTransaction[] = {  {&_swigt__p_gradido__data__ConfirmedTransaction, 0, 0, 0},{0, 0, 0, 0}};
@@ -553,16 +605,20 @@ SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__validate__Context[] = 
 SWIGINTERN swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_long_long[] = {  {&_swigt__p_long_long, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_memory__Block[] = {  {&_swigt__p_memory__Block, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_second_type[] = {  {&_swigt__p_second_type, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_short[] = {  {&_swigt__p_short, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_signed_char[] = {  {&_swigt__p_signed_char, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_size_type[] = {  {&_swigt__p_size_type, 0, 0, 0},{0, 0, 0, 0}};
-SWIGINTERN swig_cast_info _swigc__p_std__arrayT_unsigned_char_crypto_scalarmult_curve25519_BYTES_t[] = {  {&_swigt__p_std__arrayT_unsigned_char_crypto_scalarmult_curve25519_BYTES_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__chrono__system_clock__duration[] = {  {&_swigt__p_std__chrono__system_clock__duration, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__chrono__time_pointT_std__chrono__system_clock_t[] = {  {&_swigt__p_std__chrono__time_pointT_std__chrono__system_clock_t, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_std__listT_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t_t[] = {  {&_swigt__p_std__listT_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_std__listT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t[] = {  {&_swigt__p_std__listT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t[] = {  {&_swigt__p_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_KeyPairEd25519Ex_t[] = {{&_swigt__p_std__shared_ptrT_KeyPairEd25519Ex_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_KeyPairEd25519_t[] = {  {&_swigt__p_std__shared_ptrT_KeyPairEd25519_t, 0, 0, 0},  {&_swigt__p_std__shared_ptrT_KeyPairEd25519Ex_t, _p_std__shared_ptrT_KeyPairEd25519Ex_tTo_p_std__shared_ptrT_KeyPairEd25519_t, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_Passphrase_t[] = {  {&_swigt__p_std__shared_ptrT_Passphrase_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_SecretKeyCryptography_t[] = {  {&_swigt__p_std__shared_ptrT_SecretKeyCryptography_t, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_gradido__blockchain__TransactionEntry_t[] = {  {&_swigt__p_std__shared_ptrT_gradido__blockchain__TransactionEntry_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t[] = {  {&_swigt__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t[] = {  {&_swigt__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t[] = {  {&_swigt__p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -570,6 +626,7 @@ SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_gradido__data__TransactionB
 SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_memory__Block_const_t[] = {  {&_swigt__p_std__shared_ptrT_memory__Block_const_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_memory__Block_t[] = {  {&_swigt__p_std__shared_ptrT_memory__Block_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_gradido__data__SignaturePair_t[] = {  {&_swigt__p_std__vectorT_gradido__data__SignaturePair_t, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t[] = {  {&_swigt__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t[] = {  {&_swigt__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_std__shared_ptrT_memory__Block_t_t[] = {  {&_swigt__p_std__vectorT_std__shared_ptrT_memory__Block_t_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_unsigned_char[] = {  {&_swigt__p_unsigned_char, 0, 0, 0},{0, 0, 0, 0}};
@@ -590,11 +647,23 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_Passphrase,
   _swigc__p_SecretKeyCryptography,
   _swigc__p_SecretKeyCryptographyException,
+  _swigc__p_TimepointInterval,
   _swigc__p_blockchain__AbstractProvider,
   _swigc__p_char,
+  _swigc__p_date__month,
+  _swigc__p_date__year,
   _swigc__p_difference_type,
+  _swigc__p_first_type,
   _swigc__p_gradido__GradidoTransactionBuilder,
   _swigc__p_gradido__TransactionBodyBuilder,
+  _swigc__p_gradido__blockchain__Abstract,
+  _swigc__p_gradido__blockchain__AbstractProvider,
+  _swigc__p_gradido__blockchain__Filter,
+  _swigc__p_gradido__blockchain__FilterBuilder,
+  _swigc__p_gradido__blockchain__InMemory,
+  _swigc__p_gradido__blockchain__InMemoryProvider,
+  _swigc__p_gradido__blockchain__Pagination,
+  _swigc__p_gradido__blockchain__TransactionEntry,
   _swigc__p_gradido__data__CommunityFriendsUpdate,
   _swigc__p_gradido__data__CommunityRoot,
   _swigc__p_gradido__data__ConfirmedTransaction,
@@ -616,16 +685,20 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_int,
   _swigc__p_long_long,
   _swigc__p_memory__Block,
+  _swigc__p_second_type,
   _swigc__p_short,
   _swigc__p_signed_char,
   _swigc__p_size_type,
-  _swigc__p_std__arrayT_unsigned_char_crypto_scalarmult_curve25519_BYTES_t,
   _swigc__p_std__chrono__system_clock__duration,
   _swigc__p_std__chrono__time_pointT_std__chrono__system_clock_t,
+  _swigc__p_std__listT_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t_t,
+  _swigc__p_std__listT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t,
+  _swigc__p_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t,
   _swigc__p_std__shared_ptrT_KeyPairEd25519Ex_t,
   _swigc__p_std__shared_ptrT_KeyPairEd25519_t,
   _swigc__p_std__shared_ptrT_Passphrase_t,
   _swigc__p_std__shared_ptrT_SecretKeyCryptography_t,
+  _swigc__p_std__shared_ptrT_gradido__blockchain__TransactionEntry_t,
   _swigc__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t,
   _swigc__p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t,
   _swigc__p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t,
@@ -633,6 +706,7 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_std__shared_ptrT_memory__Block_const_t,
   _swigc__p_std__shared_ptrT_memory__Block_t,
   _swigc__p_std__vectorT_gradido__data__SignaturePair_t,
+  _swigc__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t,
   _swigc__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t,
   _swigc__p_std__vectorT_std__shared_ptrT_memory__Block_t_t,
   _swigc__p_unsigned_char,
@@ -645,6 +719,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
 
-SWIGINTERN swig_type_info *swig_types[62];
-SWIGINTERN swig_module_info swig_module = {swig_types, 61, 0, 0, 0, 0};
+SWIGINTERN swig_type_info *swig_types[79];
+SWIGINTERN swig_module_info swig_module = {swig_types, 78, 0, 0, 0, 0};
 

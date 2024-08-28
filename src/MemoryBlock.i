@@ -1,6 +1,7 @@
 %include "arraybuffer.i"
 %rename(MemoryBlock) memory::Block;
 %shared_ptr(memory::Block)
+
 namespace memory {
   %ignore Block::Block(size_t size);
   %ignore Block::Block(const std::vector<unsigned char>& data);
@@ -44,10 +45,11 @@ namespace memory {
   }
 }
 */
-%template(MemoryBlocks) std::vector<std::shared_ptr<memory::Block>>;
-
 %typemap(ts) std::vector<std::shared_ptr<memory::Block>> "MemoryBlocks";
+%typemap(ts) const std::vector<std::shared_ptr<memory::Block>>& "MemoryBlocks";
 %typemap(ts) std::vector<memory::ConstBlockPtr> "MemoryBlocks";
+%typemap(ts) const std::shared_ptr<memory::Block>& "MemoryBlock";
+%template(MemoryBlocks) std::vector<std::shared_ptr<memory::Block>>;
 
 // define a typemap to convert Buffer into unsigned char* 
 %typemap(ts) (size_t size, const unsigned char* data) "Buffer";

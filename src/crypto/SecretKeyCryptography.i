@@ -1,7 +1,5 @@
 %module crypto
 
-typedef uint64_t KeyHashed;
-
 %exception {
     try {
         $function
