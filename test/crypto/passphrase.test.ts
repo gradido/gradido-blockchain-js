@@ -102,16 +102,16 @@ describe('test passphrases code', () => {
       expect(passphrase.checkIfValid()).toBeTruthy()
 
       const keyPair = KeyPairEd25519.create(passphrase);
-      expect(keyPair.getPublicKey()?.convertToHex()).toEqual(passphraseStrings.pubkeyHex)
+      expect(keyPair?.getPublicKey()?.convertToHex()).toEqual(passphraseStrings.pubkeyHex)
 
       const passphraseEnglish = passphrase.transform(MnemonicType_BIP0039_SORTED_ORDER)
-      expect(passphraseEnglish.getString()).toEqual(passphraseStrings.englishSortedOrderBIP0039)
+      expect(passphraseEnglish?.getString()).toEqual(passphraseStrings.englishSortedOrderBIP0039)
 
-      const passphraseGerman = passphraseEnglish.transform(MnemonicType_GRADIDO_BOOK_GERMAN_RANDOM_ORDER)
-      expect(passphraseGerman.getString()).toEqual(passphraseStrings.germanRandomOrder)
+      const passphraseGerman = passphraseEnglish?.transform(MnemonicType_GRADIDO_BOOK_GERMAN_RANDOM_ORDER)
+      expect(passphraseGerman?.getString()).toEqual(passphraseStrings.germanRandomOrder)
 
-      const passphraseGermanFixed = passphraseGerman.transform(MnemonicType_GRADIDO_BOOK_GERMAN_RANDOM_ORDER_FIXED_CASES)
-      expect(passphraseGermanFixed.getString()).toEqual(passphraseStrings.germanRandomOrderFixedCases)
+      const passphraseGermanFixed = passphraseGerman?.transform(MnemonicType_GRADIDO_BOOK_GERMAN_RANDOM_ORDER_FIXED_CASES)
+      expect(passphraseGermanFixed?.getString()).toEqual(passphraseStrings.germanRandomOrderFixedCases)
     })
   })
 })

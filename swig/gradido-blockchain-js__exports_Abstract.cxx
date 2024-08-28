@@ -8,28 +8,28 @@
 
 #include "swig/gradido-blockchain-js.h"
 
-/* Class: InMemoryBlockchain (_exports_InMemoryBlockchain) */
+/* Class: Abstract (_exports_Abstract) */
 // jsnapi_getclass
-Napi::Function _exports_InMemoryBlockchain_inst::GetClass(Napi::Env env) {
-  std::map<std::string, _exports_InMemoryBlockchain_templ::PropertyDescriptor> members, staticMembers;
+Napi::Function _exports_Abstract_inst::GetClass(Napi::Env env) {
+  std::map<std::string, _exports_Abstract_templ::PropertyDescriptor> members, staticMembers;
   GetMembers(env, members, staticMembers);
   
-  std::vector<_exports_InMemoryBlockchain_inst::PropertyDescriptor> symbolTable;
+  std::vector<_exports_Abstract_inst::PropertyDescriptor> symbolTable;
   for (auto it = members.begin(); it != members.end(); it++)
   symbolTable.push_back(it->second);
   for (auto it = staticMembers.begin(); it != staticMembers.end(); it++)
   symbolTable.push_back(it->second);
   
-  return Napi::ObjectWrap<_exports_InMemoryBlockchain_inst>::DefineClass(env, "InMemoryBlockchain", symbolTable);
+  return Napi::ObjectWrap<_exports_Abstract_inst>::DefineClass(env, "Abstract", symbolTable);
 }
 
-void _exports_InMemoryBlockchain_inst::GetMembers(
+void _exports_Abstract_inst::GetMembers(
   Napi::Env env,
-  std::map<std::string, _exports_InMemoryBlockchain_templ::PropertyDescriptor> &members,
-  std::map<std::string, _exports_InMemoryBlockchain_templ::PropertyDescriptor> &staticMembers
+  std::map<std::string, _exports_Abstract_templ::PropertyDescriptor> &members,
+  std::map<std::string, _exports_Abstract_templ::PropertyDescriptor> &staticMembers
   ) {
-  std::map<std::string, _exports_Abstract_templ<_exports_Abstract_inst>::PropertyDescriptor> baseMembers, baseStaticMembers;
-  _exports_Abstract_inst::GetMembers(env, baseMembers, baseStaticMembers);
+  std::map<std::string, SWIG_NAPI_ObjectWrap_templ<SWIG_NAPI_ObjectWrap_inst>::PropertyDescriptor> baseMembers, baseStaticMembers;
+  SWIG_NAPI_ObjectWrap_inst::GetMembers(env, baseMembers, baseStaticMembers);
   members.insert(baseMembers.begin(), baseMembers.end());
   staticMembers.insert(staticMembers.begin(), staticMembers.end());
   
@@ -112,78 +112,6 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
     "getStartDate",
       _exports_Abstract_templ::InstanceMethod("getStartDate",
         &_exports_Abstract_templ::_wrap_Abstract_getStartDate,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("clear");
-  members.insert({
-    "clear",
-      _exports_InMemoryBlockchain_templ::InstanceMethod("clear",
-        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_clear,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("exit");
-  members.insert({
-    "exit",
-      _exports_InMemoryBlockchain_templ::InstanceMethod("exit",
-        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_exit,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("addGradidoTransaction");
-  members.insert({
-    "addGradidoTransaction",
-      _exports_InMemoryBlockchain_templ::InstanceMethod("addGradidoTransaction",
-        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_addGradidoTransaction,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("getSortedTransactions");
-  members.insert({
-    "getSortedTransactions",
-      _exports_InMemoryBlockchain_templ::InstanceMethod("getSortedTransactions",
-        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_getSortedTransactions,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("findAll");
-  members.insert({
-    "findAll",
-      _exports_InMemoryBlockchain_templ::InstanceMethod("findAll",
-        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain__wrap_InMemoryBlockchain_findAll,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("findTimeoutedDeferredTransfersInRange");
-  members.insert({
-    "findTimeoutedDeferredTransfersInRange",
-      _exports_InMemoryBlockchain_templ::InstanceMethod("findTimeoutedDeferredTransfersInRange",
-        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_findTimeoutedDeferredTransfersInRange,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("findRedeemedDeferredTransfersInRange");
-  members.insert({
-    "findRedeemedDeferredTransfersInRange",
-      _exports_InMemoryBlockchain_templ::InstanceMethod("findRedeemedDeferredTransfersInRange",
-        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_findRedeemedDeferredTransfersInRange,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("getTransactionForId");
-  members.insert({
-    "getTransactionForId",
-      _exports_InMemoryBlockchain_templ::InstanceMethod("getTransactionForId",
-        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_getTransactionForId,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("findByMessageId");
-  members.insert({
-    "findByMessageId",
-      _exports_InMemoryBlockchain_templ::InstanceMethod("findByMessageId",
-        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain__wrap_InMemoryBlockchain_findByMessageId,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

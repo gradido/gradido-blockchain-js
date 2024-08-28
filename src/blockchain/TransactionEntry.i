@@ -14,8 +14,8 @@ namespace gradido::blockchain {
     %typemap(ts) TransactionEntries "TransactionEntries";
     %typemap(ts) const TransactionEntries& "TransactionEntries";    
     %typemap(ts) const std::vector<std::shared_ptr<TransactionEntry>>& "TransactionEntries";
-    %typemap(ts) std::shared_ptr<TransactionEntry> "TransactionEntry";
-    %typemap(ts) const std::shared_ptr<TransactionEntry>& "TransactionEntry";
+    %typemap(ts) std::shared_ptr<TransactionEntry> "TransactionEntry|null";
+    %typemap(ts) const std::shared_ptr<TransactionEntry>& "TransactionEntry|null";
 }
 
 %shared_ptr(gradido::blockchain::TransactionEntry)

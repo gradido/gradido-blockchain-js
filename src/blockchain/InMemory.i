@@ -6,6 +6,8 @@
         $function
     } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+    } catch (const CryptoConfig::MissingKeyException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
     } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
     }
@@ -14,7 +16,7 @@
 namespace gradido::blockchain {
     %rename(InMemoryBlockchain) InMemory;
     %ignore InMemory::getProvider() const;
-    %ignore Abstract;
+    %ignore Abstract::getProvider() const;
 }
 
 %{

@@ -43,11 +43,11 @@ void _exports_InMemoryBlockchainProvider_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getBlockchain");
+  members.erase("findBlockchain");
   members.insert({
-    "getBlockchain",
-      _exports_InMemoryBlockchainProvider_templ::InstanceMethod("getBlockchain",
-        &_exports_InMemoryBlockchainProvider_templ::_wrap_InMemoryBlockchainProvider_getBlockchain,
+    "findBlockchain",
+      _exports_InMemoryBlockchainProvider_templ::InstanceMethod("findBlockchain",
+        &_exports_InMemoryBlockchainProvider_templ::_wrap_InMemoryBlockchainProvider_findBlockchain,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
