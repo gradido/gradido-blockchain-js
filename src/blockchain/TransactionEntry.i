@@ -17,11 +17,13 @@ namespace gradido::blockchain {
     %typemap(ts) std::shared_ptr<TransactionEntry> "TransactionEntry";
     %typemap(ts) const std::shared_ptr<TransactionEntry>& "TransactionEntry";
 }
-%template(TransactionEntries) std::vector<std::shared_ptr<gradido::blockchain::TransactionEntry>>;
+
 %shared_ptr(gradido::blockchain::TransactionEntry)
 
 %{
 #include "gradido_blockchain/blockchain/TransactionEntry.h"
 %}
+
+%template(TransactionEntries) std::vector<std::shared_ptr<gradido::blockchain::TransactionEntry>>;
 
 %include "gradido_blockchain/blockchain/TransactionEntry.h"

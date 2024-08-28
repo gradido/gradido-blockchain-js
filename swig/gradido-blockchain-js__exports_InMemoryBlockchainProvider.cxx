@@ -8,25 +8,25 @@
 
 #include "swig/gradido-blockchain-js.h"
 
-/* Class: InMemoryProvider (_exports_InMemoryProvider) */
+/* Class: InMemoryBlockchainProvider (_exports_InMemoryBlockchainProvider) */
 // jsnapi_getclass
-Napi::Function _exports_InMemoryProvider_inst::GetClass(Napi::Env env) {
-  std::map<std::string, _exports_InMemoryProvider_templ::PropertyDescriptor> members, staticMembers;
+Napi::Function _exports_InMemoryBlockchainProvider_inst::GetClass(Napi::Env env) {
+  std::map<std::string, _exports_InMemoryBlockchainProvider_templ::PropertyDescriptor> members, staticMembers;
   GetMembers(env, members, staticMembers);
   
-  std::vector<_exports_InMemoryProvider_inst::PropertyDescriptor> symbolTable;
+  std::vector<_exports_InMemoryBlockchainProvider_inst::PropertyDescriptor> symbolTable;
   for (auto it = members.begin(); it != members.end(); it++)
   symbolTable.push_back(it->second);
   for (auto it = staticMembers.begin(); it != staticMembers.end(); it++)
   symbolTable.push_back(it->second);
   
-  return Napi::ObjectWrap<_exports_InMemoryProvider_inst>::DefineClass(env, "InMemoryProvider", symbolTable);
+  return Napi::ObjectWrap<_exports_InMemoryBlockchainProvider_inst>::DefineClass(env, "InMemoryBlockchainProvider", symbolTable);
 }
 
-void _exports_InMemoryProvider_inst::GetMembers(
+void _exports_InMemoryBlockchainProvider_inst::GetMembers(
   Napi::Env env,
-  std::map<std::string, _exports_InMemoryProvider_templ::PropertyDescriptor> &members,
-  std::map<std::string, _exports_InMemoryProvider_templ::PropertyDescriptor> &staticMembers
+  std::map<std::string, _exports_InMemoryBlockchainProvider_templ::PropertyDescriptor> &members,
+  std::map<std::string, _exports_InMemoryBlockchainProvider_templ::PropertyDescriptor> &staticMembers
   ) {
   std::map<std::string, SWIG_NAPI_ObjectWrap_templ<SWIG_NAPI_ObjectWrap_inst>::PropertyDescriptor> baseMembers, baseStaticMembers;
   SWIG_NAPI_ObjectWrap_inst::GetMembers(env, baseMembers, baseStaticMembers);
@@ -38,16 +38,16 @@ void _exports_InMemoryProvider_inst::GetMembers(
   members.erase("clear");
   members.insert({
     "clear",
-      _exports_InMemoryProvider_templ::InstanceMethod("clear",
-        &_exports_InMemoryProvider_templ::_wrap_InMemoryProvider_clear,
+      _exports_InMemoryBlockchainProvider_templ::InstanceMethod("clear",
+        &_exports_InMemoryBlockchainProvider_templ::_wrap_InMemoryBlockchainProvider_clear,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
   members.erase("getBlockchain");
   members.insert({
     "getBlockchain",
-      _exports_InMemoryProvider_templ::InstanceMethod("getBlockchain",
-        &_exports_InMemoryProvider_templ::_wrap_InMemoryProvider_getBlockchain,
+      _exports_InMemoryBlockchainProvider_templ::InstanceMethod("getBlockchain",
+        &_exports_InMemoryBlockchainProvider_templ::_wrap_InMemoryBlockchainProvider_getBlockchain,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
@@ -57,7 +57,7 @@ void _exports_InMemoryProvider_inst::GetMembers(
   staticMembers.insert({
     "getInstance",
       StaticMethod("getInstance",
-        &_exports_InMemoryProvider_templ::_wrap_InMemoryProvider_getInstance,
+        &_exports_InMemoryBlockchainProvider_templ::_wrap_InMemoryBlockchainProvider_getInstance,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

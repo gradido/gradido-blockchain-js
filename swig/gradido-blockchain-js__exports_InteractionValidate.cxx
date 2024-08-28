@@ -35,6 +35,14 @@ void _exports_InteractionValidate_inst::GetMembers(
   
   /* register wrapper functions */
   // jsnapi_register_member_function
+  members.erase("run");
+  members.insert({
+    "run",
+      _exports_InteractionValidate_templ::InstanceMethod("run",
+        &_exports_InteractionValidate_templ::_wrap_InteractionValidate__wrap_InteractionValidate_run,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("setSenderPreviousConfirmedTransaction");
   members.insert({
     "setSenderPreviousConfirmedTransaction",
@@ -48,14 +56,6 @@ void _exports_InteractionValidate_inst::GetMembers(
     "setRecipientPreviousConfirmedTransaction",
       _exports_InteractionValidate_templ::InstanceMethod("setRecipientPreviousConfirmedTransaction",
         &_exports_InteractionValidate_templ::_wrap_InteractionValidate_setRecipientPreviousConfirmedTransaction,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("run");
-  members.insert({
-    "run",
-      _exports_InteractionValidate_templ::InstanceMethod("run",
-        &_exports_InteractionValidate_templ::_wrap_InteractionValidate__wrap_InteractionValidate_run,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

@@ -69,6 +69,7 @@
 %include "interaction/serialize.i"
 %include "interaction/toJson.i"
 %include "interaction/deserialize.i"
-%include "interaction/validate.i"
 
 %include "blockchain/blockchain.i"
+
+%include "interaction/validate.i"

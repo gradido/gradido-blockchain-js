@@ -1,4 +1,5 @@
 %shared_ptr(gradido::blockchain::InMemory)
+%shared_ptr(gradido::blockchain::Abstract)
 
 %exception {
     try {
@@ -11,13 +12,13 @@
 }
 
 namespace gradido::blockchain {
-    %ignore Abstract;    
+    %rename(InMemoryBlockchain) InMemory;
     %ignore InMemory::getProvider() const;
+    %ignore Abstract;
 }
 
 %{
 #include "gradido_blockchain/blockchain/InMemory.h"
-
 %}
 
 %include "gradido_blockchain/blockchain/Abstract.h"    

@@ -405,7 +405,6 @@ SWIGINTERN swig_type_info _swigt__p_EncryptionException = {"_p_EncryptionExcepti
 SWIGINTERN swig_type_info _swigt__p_EncryptionKeyException = {"_p_EncryptionKeyException", 0, 0, 0, 0, 0};
 SWIGINTERN swig_type_info _swigt__p_MissingEncryptionException = {"_p_MissingEncryptionException", 0, 0, 0, 0, 0};
 SWIGINTERN swig_type_info _swigt__p_TimepointInterval = {"_p_TimepointInterval", "TimepointInterval *|p_TimepointInterval", 0, 0, (void*)0, 0};
-SWIGINTERN swig_type_info _swigt__p_blockchain__AbstractProvider = {"_p_blockchain__AbstractProvider", "blockchain::AbstractProvider *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_date__month = {"_p_date__month", "date::month *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_date__year = {"_p_date__year", "date::year *", 0, 0, (void*)0, 0};
@@ -488,7 +487,6 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_SecretKeyCryptography,
   &_swigt__p_SecretKeyCryptographyException,
   &_swigt__p_TimepointInterval,
-  &_swigt__p_blockchain__AbstractProvider,
   &_swigt__p_char,
   &_swigt__p_date__month,
   &_swigt__p_date__year,
@@ -568,7 +566,6 @@ SWIGINTERN swig_cast_info _swigc__p_EncryptionKeyException[] = {{&_swigt__p_Encr
 SWIGINTERN swig_cast_info _swigc__p_MissingEncryptionException[] = {{&_swigt__p_MissingEncryptionException, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_SecretKeyCryptographyException[] = {  {&_swigt__p_SecretKeyCryptographyException, 0, 0, 0},  {&_swigt__p_DecryptionException, _p_DecryptionExceptionTo_p_SecretKeyCryptographyException, 0, 0},  {&_swigt__p_EncryptionException, _p_EncryptionExceptionTo_p_SecretKeyCryptographyException, 0, 0},  {&_swigt__p_EncryptionKeyException, _p_EncryptionKeyExceptionTo_p_SecretKeyCryptographyException, 0, 0},  {&_swigt__p_MissingEncryptionException, _p_MissingEncryptionExceptionTo_p_SecretKeyCryptographyException, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_TimepointInterval[] = {  {&_swigt__p_TimepointInterval, 0, 0, 0},{0, 0, 0, 0}};
-SWIGINTERN swig_cast_info _swigc__p_blockchain__AbstractProvider[] = {  {&_swigt__p_blockchain__AbstractProvider, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_date__month[] = {  {&_swigt__p_date__month, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_date__year[] = {  {&_swigt__p_date__year, 0, 0, 0},{0, 0, 0, 0}};
@@ -648,7 +645,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_SecretKeyCryptography,
   _swigc__p_SecretKeyCryptographyException,
   _swigc__p_TimepointInterval,
-  _swigc__p_blockchain__AbstractProvider,
   _swigc__p_char,
   _swigc__p_date__month,
   _swigc__p_date__year,
@@ -719,6 +715,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
 
-SWIGINTERN swig_type_info *swig_types[79];
-SWIGINTERN swig_module_info swig_module = {swig_types, 78, 0, 0, 0, 0};
+SWIGINTERN swig_type_info *swig_types[78];
+SWIGINTERN swig_module_info swig_module = {swig_types, 77, 0, 0, 0, 0};
 

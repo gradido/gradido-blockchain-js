@@ -774,39 +774,6 @@ export  class InteractionDeserialize {
   getConfirmedTransaction(): ConfirmedTransaction;
 }
 
-export const ValidateType_SINGLE: ValidateType;
-
-export const ValidateType_PREVIOUS: ValidateType;
-
-export const ValidateType_MONTH_RANGE: ValidateType;
-
-export const ValidateType_PAIRED: ValidateType;
-
-export const ValidateType_ACCOUNT: ValidateType;
-
-export const ValidateType_CONNECTED_GROUP: ValidateType;
-
-export const ValidateType_CONNECTED_BLOCKCHAIN: ValidateType;
-
-export type ValidateType = number & { readonly [_SWIG_enum_tag]: 'ValidateType'; };
-
-export  class InteractionValidate {
-
-  constructor(body: TransactionBody);
-
-  constructor(body: GradidoTransaction);
-
-  constructor(body: ConfirmedTransaction);
-
-  setSenderPreviousConfirmedTransaction(senderPreviousConfirmedTransaction: ConfirmedTransaction): void;
-
-  setRecipientPreviousConfirmedTransaction(recipientPreviousConfirmedTransaction: ConfirmedTransaction): void;
-
-  run(type: ValidateType, communityId: string, blockchainProvider: any): void;
-
-  run(type: ValidateType, communityId: string): void;
-}
-
 export  class TransactionEntries {
 
   constructor();
@@ -986,7 +953,7 @@ export  class FilterBuilder {
   constructor();
 }
 
-export  class InMemory {
+export  class InMemoryBlockchain {
 
   clear(): void;
 
@@ -1011,13 +978,50 @@ export  class InMemory {
   findByMessageId(messageId: MemoryBlock|null): TransactionEntry;
 }
 
-export  class InMemoryProvider {
+export  class InMemoryBlockchainProvider {
 
- static getInstance(): InMemoryProvider;
+ static getInstance(): InMemoryBlockchainProvider;
 
   clear(): void;
 
-  getBlockchain(communityId: string): InMemory;
+  getBlockchain(communityId: string): InMemoryBlockchain;
+}
+
+export const ValidateType_SINGLE: ValidateType;
+
+export const ValidateType_PREVIOUS: ValidateType;
+
+export const ValidateType_MONTH_RANGE: ValidateType;
+
+export const ValidateType_PAIRED: ValidateType;
+
+export const ValidateType_ACCOUNT: ValidateType;
+
+export const ValidateType_CONNECTED_GROUP: ValidateType;
+
+export const ValidateType_CONNECTED_BLOCKCHAIN: ValidateType;
+
+export type ValidateType = number & { readonly [_SWIG_enum_tag]: 'ValidateType'; };
+
+export  class InteractionValidate {
+
+  constructor(body: TransactionBody);
+
+  constructor(body: GradidoTransaction);
+
+  constructor(body: ConfirmedTransaction);
+
+  run(type: ValidateType, communityId: string, blockchainProvider: AbstractBlockchainProvider | InMemoryBlockchainProvider): void;
+
+  run(type: ValidateType, communityId: string): void;
+
+  run(type: ValidateType): void;
+
+  run(): void;
+
+  setSenderPreviousConfirmedTransaction(senderPreviousConfirmedTransaction: ConfirmedTransaction): void;
+
+  setRecipientPreviousConfirmedTransaction(recipientPreviousConfirmedTransaction: ConfirmedTransaction): void;
 }
 
 

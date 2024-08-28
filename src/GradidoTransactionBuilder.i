@@ -3,7 +3,7 @@
 %exception {
     try {
         $function
-    } catch (const GradidoTransactionBuilderException& e) {
+    } catch (const gradido::GradidoTransactionBuilderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
     } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
@@ -11,7 +11,6 @@
 }
 
 %{
-using namespace gradido;
 #include "gradido_blockchain/GradidoTransactionBuilder.h"
 %}
 

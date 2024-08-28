@@ -44,11 +44,6 @@
 %rename(InteractionValidate) gradido::interaction::validate::Context;
 %rename(ValidateType) gradido::interaction::validate::Type;
 
-namespace gradido::interaction::validate {
-    %ignore Context::run(Type type = Type::SINGLE, std::string_view communityId = "", blockchain::AbstractProvider* blockchainProvider = nullptr);
-}
-
-
 %{
 #include "gradido_blockchain/interaction/validate/Type.h"
 #include "gradido_blockchain/interaction/validate/Exceptions.h"
@@ -58,11 +53,3 @@ namespace gradido::interaction::validate {
 %typemap(ts) gradido::interaction::validate::Type "ValidateType";
 
 %include "gradido_blockchain/interaction/validate/Context.h"
-
-%extend gradido::interaction::validate::Context {
-    void run(Type type = Type::SINGLE, const std::string& communityId = "", blockchain::AbstractProvider* blockchainProvider = nullptr)
-    {
-      return $self->run(type, std::string_view(communityId), blockchainProvider);
-    }
-};
-
