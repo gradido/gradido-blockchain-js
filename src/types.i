@@ -25,7 +25,7 @@ typedef std::chrono::system_clock::duration Duration;
     $1 = &temp;
 }
 
-// Typemap für Duration -> JavaScript number in seconds
+// Typemap for Duration -> JavaScript number in seconds
 %typemap(cstype) Duration "Duration";
 %typemap(ts) Duration "number";
 %typemap(in) Duration {

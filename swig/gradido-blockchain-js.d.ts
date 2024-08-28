@@ -27,6 +27,25 @@ export  class TimepointInterval {
   isInsideInterval(date: Date): boolean;
 }
 
+export  class Profiler {
+
+  constructor();
+
+  constructor(copy: Profiler);
+
+  reset(): void;
+
+  millis(): number;
+
+  micros(): number;
+
+  nanos(): number;
+
+  seconds(): number;
+
+  string(): string;
+}
+
 export const AddressType_NONE: AddressType;
 
 export const AddressType_COMMUNITY_HUMAN: AddressType;

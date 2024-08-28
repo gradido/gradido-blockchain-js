@@ -398,6 +398,7 @@ SWIGINTERN swig_type_info _swigt__p_GradidoUnit = {"_p_GradidoUnit", "p_GradidoU
 SWIGINTERN swig_type_info _swigt__p_KeyPairEd25519 = {"_p_KeyPairEd25519", "p_KeyPairEd25519|KeyPairEd25519 *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_KeyPairEd25519Ex = {"_p_KeyPairEd25519Ex", "p_KeyPairEd25519Ex|KeyPairEd25519Ex *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_Passphrase = {"_p_Passphrase", "p_Passphrase|Passphrase *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_Profiler = {"_p_Profiler", "p_Profiler|Profiler *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_SecretKeyCryptography = {"_p_SecretKeyCryptography", "p_SecretKeyCryptography|SecretKeyCryptography *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_SecretKeyCryptographyException = {"_p_SecretKeyCryptographyException", "SecretKeyCryptographyException *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_DecryptionException = {"_p_DecryptionException", 0, 0, 0, 0, 0};
@@ -484,6 +485,7 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_KeyPairEd25519Ex,
   &_swigt__p_MissingEncryptionException,
   &_swigt__p_Passphrase,
+  &_swigt__p_Profiler,
   &_swigt__p_SecretKeyCryptography,
   &_swigt__p_SecretKeyCryptographyException,
   &_swigt__p_TimepointInterval,
@@ -559,6 +561,7 @@ SWIGINTERN swig_cast_info _swigc__p_GradidoUnit[] = {  {&_swigt__p_GradidoUnit, 
 SWIGINTERN swig_cast_info _swigc__p_KeyPairEd25519[] = {  {&_swigt__p_KeyPairEd25519, 0, 0, 0},  {&_swigt__p_KeyPairEd25519Ex, _p_KeyPairEd25519ExTo_p_KeyPairEd25519, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_KeyPairEd25519Ex[] = {  {&_swigt__p_KeyPairEd25519Ex, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_Passphrase[] = {  {&_swigt__p_Passphrase, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_Profiler[] = {  {&_swigt__p_Profiler, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_SecretKeyCryptography[] = {  {&_swigt__p_SecretKeyCryptography, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_DecryptionException[] = {{&_swigt__p_DecryptionException, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_EncryptionException[] = {{&_swigt__p_EncryptionException, 0, 0, 0},{0, 0, 0, 0}};
@@ -642,6 +645,7 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_KeyPairEd25519Ex,
   _swigc__p_MissingEncryptionException,
   _swigc__p_Passphrase,
+  _swigc__p_Profiler,
   _swigc__p_SecretKeyCryptography,
   _swigc__p_SecretKeyCryptographyException,
   _swigc__p_TimepointInterval,
@@ -715,6 +719,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
 
-SWIGINTERN swig_type_info *swig_types[78];
-SWIGINTERN swig_module_info swig_module = {swig_types, 77, 0, 0, 0, 0};
+SWIGINTERN swig_type_info *swig_types[79];
+SWIGINTERN swig_module_info swig_module = {swig_types, 78, 0, 0, 0, 0};
 

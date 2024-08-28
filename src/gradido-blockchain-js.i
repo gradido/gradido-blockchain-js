@@ -38,6 +38,7 @@
 %include <nodejs_buffer.i>
 %include "types.i"
 %include "lib/TimepointInterval.i"
+%include "lib/Profiler.i"
 
 // enums
 %include "gradido_blockchain/data/AddressType.h"

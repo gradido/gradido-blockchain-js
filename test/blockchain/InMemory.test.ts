@@ -10,7 +10,8 @@ import {
   loadCryptoKeys,
   MemoryBlock,
   TransactionBodyBuilder,
-  TransactionType_COMMUNITY_ROOT
+  TransactionType_COMMUNITY_ROOT,
+  TransferAmount
 } from '../../'
 import { generateKeyPairs, KeyPair } from '../helper/keyPairs'
 import { communityRootTransactionBase64 } from '../helper/serializedTransactions'
@@ -77,6 +78,42 @@ function createRegisterAddress(keyPairIndexStart: number) {
   expect(blockchain.addGradidoTransaction(transactionBuilder.build(),null, lastCreatedAt)).toBeTruthy()
 }
 
+function createGradidoCreation(
+  recipientKeyPairIndex: number,
+  signerKeyPairIndex: number,
+  amount: string,
+  createdAt: Date,
+  targetDate: Date
+): boolean {
+  if(recipientKeyPairIndex <= 0 || recipientKeyPairIndex >= keyPairs.length ) {
+    throw new Error('recipientKeyPairIndex out of bounds')
+  }
+  if(signerKeyPairIndex <= 0  || signerKeyPairIndex >= keyPairs.length) {
+    throw new Error('signerKeyPairIndex out of bounds')
+  }
+  bodyBuilder
+    .setMemo('dummy memo')
+    .setCreatedAt(createdAt)
+    .setVersionNumber(versionString)
+    .setTransactionCreation(
+      new TransferAmount(keyPairs[recipientKeyPairIndex].publicKey, amount),
+      targetDate
+    )
+  transactionBuilder
+    .setTransactionBody(bodyBuilder.build())
+    .sign(new KeyPairEd25519(keyPairs[signerKeyPairIndex].publicKey, keyPairs[signerKeyPairIndex].privateKey))
+  if(blockchain.addGradidoTransaction(transactionBuilder.build(), null, new Date(createdAt.getTime() + 45000 ))) {
+    const lastTransaction = blockchain.findOne(Filter.LAST_TRANSACTION)?.getConfirmedTransaction()
+    expect(lastTransaction).not.toBeNull()
+    const account = keyPairIndexAccountMap.get(recipientKeyPairIndex)
+    expect(account).not.toBeUndefined()
+    account!.balance = lastTransaction!.getAccountBalance()
+    account!.balanceDate = lastTransaction!.getConfirmedAt().getDate()
+    return true
+  }
+  return false
+}
+
 function createRegisterAddressCursor(): void {
   createRegisterAddress(keyPairCursor);
 	keyPairCursor += 2;
@@ -114,7 +151,113 @@ describe('InMemoryBlockchain', () => {
     it('by type', () => {
       const f = new Filter()
       f.transactionType = TransactionType_COMMUNITY_ROOT
-      const transaction = blockchain.findOne(f)
+      let transaction = blockchain.findOne(f)
+      expect(transaction).not.toBeNull()
+      let body = transaction?.getTransactionBody()
+      expect(body).not.toBeNull()
+      expect(body?.isCommunityRoot()).toBeTruthy()
+
+      // after adding two create addresses transactions
+      createRegisterAddressCursor()
+      createRegisterAddressCursor()
+      transaction = blockchain.findOne(f)      
+      expect(transaction).not.toBeNull()
+      body = transaction?.getTransactionBody()
+      expect(body).not.toBeNull()
+      expect(body?.isCommunityRoot()).toBeTruthy()
+    })
+
+    it('by public key', () => {
+      const f = new Filter()
+      f.involvedPublicKey = keyPairs[0].publicKey
+      let transaction = blockchain.findOne(f)
+      expect(transaction).not.toBeNull()
+      let body = transaction?.getTransactionBody()
+      expect(body).not.toBeNull()
+      expect(body?.isCommunityRoot()).toBeTruthy()
+
+      // after adding two create addresses transactions
+      createRegisterAddressCursor()
+      createRegisterAddressCursor()
+      transaction = blockchain.findOne(f)      
+      expect(transaction).not.toBeNull()
+      body = transaction?.getTransactionBody()
+      expect(body).not.toBeNull()
+      expect(body?.isCommunityRoot()).toBeTruthy()
+    })
+
+    it('by transaction nr', () => {
+      const f = new Filter()
+      f.minTransactionNr = 1
+      f.maxTransactionNr = 1
+      let transaction = blockchain.findOne(f)
+      expect(transaction).not.toBeNull()
+      let body = transaction?.getTransactionBody()
+      expect(body).not.toBeNull()
+      expect(body?.isCommunityRoot()).toBeTruthy()
+
+      // after adding two create addresses transactions
+      createRegisterAddressCursor()
+      createRegisterAddressCursor()
+      transaction = blockchain.findOne(f)      
+      expect(transaction).not.toBeNull()
+      body = transaction?.getTransactionBody()
+      expect(body).not.toBeNull()
+      expect(body?.isCommunityRoot()).toBeTruthy()
+    })
+  })
+
+  describe('register address', () => {
+    it('register some addresses', () => {
+      expect(() => createRegisterAddressCursor()).not.toThrow()
+      expect(() => createRegisterAddressCursor()).not.toThrow()
+      expect(() => createRegisterAddressCursor()).not.toThrow()
+	    const f = new Filter
+	    f.involvedPublicKey = keyPairs[8].publicKey
+	    let transaction = blockchain.findOne(f)
+      expect(transaction).not.toBeNull()
+      let body = transaction?.getTransactionBody()
+      expect(body).not.toBeNull()
+      expect(body?.isRegisterAddress()).toBeTruthy()
+    })
+
+    it('invalid register address again', () => {
+      expect(() => createRegisterAddress(3)).not.toThrow()
+      expect(() => createRegisterAddress(3))
+        .toThrow('cannot register address because it already exist')
+    })
+  })
+
+  describe('creation transactions', () => {
+    it('valid', () => {
+      // register account and additional dummy account
+      expect(() => createRegisterAddress(3)).not.toThrow()
+      expect(() => createRegisterAddress(5)).not.toThrow()
+
+      // first creation
+      let createdAt = generateNewCreatedAt()
+      const targetDate = getFirstDayOfPreviousNMonth(createdAt, 1)
+      expect(createGradidoCreation(6, 4, '1000.0', createdAt, targetDate)).toBeTruthy()
+
+      // check account map
+      const account = keyPairIndexAccountMap.get(6)
+      expect(account?.balance.equal(new GradidoUnit(1000.0))).toBeTruthy()
+      expect(account?.balanceDate.getTime()).toBeGreaterThan(createdAt.getTime())
+
+      // second creation
+      createdAt = new Date(createdAt.getTime() + 23 * 60 * 60 * 1000)
+      lastCreatedAt = createdAt
+      let newTargetDate = getFirstDayOfPreviousNMonth(createdAt, 2)
+      if(targetDate.getMonth() === newTargetDate.getMonth()) {
+        newTargetDate = getFirstDayOfPreviousNMonth(createdAt, 1)
+      }
+      console.log(newTargetDate.toISOString())
+      expect(createGradidoCreation(6, 4, '1000.0', createdAt, newTargetDate)).toBeTruthy()
+
+      // check account map
+      // 1000.0000 decayed for 23 hours => 998.1829
+      expect(account?.balance.equal(new GradidoUnit(1998.1829))).toBeTruthy()
+      expect(account?.balanceDate.getTime()).toBeGreaterThan(createdAt.getTime())
     })
   })
 })
