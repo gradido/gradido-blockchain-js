@@ -18,8 +18,10 @@ import { communityRootTransactionBase64 } from '../helper/serializedTransactions
 import { versionString } from '../helper/const'
 
 function getFirstDayOfPreviousNMonth(startDate: Date, monthsAgo: number): Date {
-  return new Date(startDate.getFullYear(), startDate.getMonth() - monthsAgo, 1)
+  const local = new Date(startDate.getFullYear(), startDate.getMonth() - monthsAgo, 1)
+  return new Date(local.getTime() - local.getTimezoneOffset() * 60 * 1000)
 }
+
 
 function randomSeconds(): number {
   // 40 minutes
@@ -33,6 +35,7 @@ function randomSeconds(): number {
 class Account {
   constructor(pubkeyIndex: number) {
     this.pubkeyIndex = pubkeyIndex
+    this.balance = new GradidoUnit(0)
   }
   pubkeyIndex: number
   balance: GradidoUnit
@@ -236,11 +239,11 @@ describe('InMemoryBlockchain', () => {
 
       // first creation
       let createdAt = generateNewCreatedAt()
-      const targetDate = getFirstDayOfPreviousNMonth(createdAt, 1)
+      let targetDate = getFirstDayOfPreviousNMonth(createdAt, 1)
       expect(createGradidoCreation(6, 4, '1000.0', createdAt, targetDate)).toBeTruthy()
 
       // check account map
-      const account = keyPairIndexAccountMap.get(6)
+      let account = keyPairIndexAccountMap.get(6)
       expect(account?.balance.equal(new GradidoUnit(1000.0))).toBeTruthy()
       expect(account?.balanceDate.getTime()).toBeGreaterThan(createdAt.getTime())
 
@@ -251,13 +254,52 @@ describe('InMemoryBlockchain', () => {
       if(targetDate.getMonth() === newTargetDate.getMonth()) {
         newTargetDate = getFirstDayOfPreviousNMonth(createdAt, 1)
       }
-      console.log(newTargetDate.toISOString())
       expect(createGradidoCreation(6, 4, '1000.0', createdAt, newTargetDate)).toBeTruthy()
 
       // check account map
       // 1000.0000 decayed for 23 hours => 998.1829
       expect(account?.balance.equal(new GradidoUnit(1998.1829))).toBeTruthy()
       expect(account?.balanceDate.getTime()).toBeGreaterThan(createdAt.getTime())
+
+      expect(() => createRegisterAddress(7)).not.toThrow()
+      createdAt = generateNewCreatedAt()
+      targetDate = getFirstDayOfPreviousNMonth(createdAt, 2)
+      expect(createGradidoCreation(8, 4, '1000.0', createdAt, targetDate)).toBeTruthy()
+
+      account = keyPairIndexAccountMap.get(8)
+      expect(account).not.toBeNull()
+      expect(account?.balance.equal(new GradidoUnit(1000.0))).toBeTruthy()
+      expect(account?.balanceDate.getTime()).toBeGreaterThan(createdAt.getTime())
+    })
+
+    it('invalid', () => {
+      // register account and additional dummy account
+      expect(() => createRegisterAddress(3)).not.toThrow()
+      expect(() => createRegisterAddress(5)).not.toThrow()
+      let createdAt = generateNewCreatedAt()
+      let targetDate = getFirstDayOfPreviousNMonth(createdAt, 1)
+      const succeedCreatedAt = createdAt
+      expect(createGradidoCreation(6, 4, '1000.0', createdAt, targetDate)).toBeTruthy()
+      createdAt = new Date(createdAt.getTime() + 120 * 1000)
+      expect(() => createGradidoCreation(6, 4, '1000.0', createdAt, targetDate))
+        .toThrow('creation more than 1.000 GDD per month not allowed, target date: 12 2021, try to create: 1000.0000 GDD, for this target already created: 1000.0000 GDD')
+      createdAt = new Date(createdAt.getTime() + 10 * 60 * 60 * 1000)
+      targetDate = getFirstDayOfPreviousNMonth(createdAt, 3)
+      expect(() => createGradidoCreation(6, 4, '1000.0', createdAt, targetDate))
+        .toThrow('target date month is invalid with memo: dummy memo and  with target_date: TimestampSeconds, expected: >= ' + createdAt.toISOString().replace('T', ' ').replace('Z', '0') + ' - 2 months, actual: 2021-10-01 00:00:00.0000')
+      let account = keyPairIndexAccountMap.get(6)
+      expect(account).not.toBeNull()
+      expect(account?.balance.equal(new GradidoUnit(1000.0))).toBeTruthy()
+      expect(account?.balanceDate.getTime()).toBeGreaterThan(succeedCreatedAt.getTime())
+
+      expect(() => createRegisterAddress(7)).not.toThrow()
+      createdAt = generateNewCreatedAt()
+      targetDate = getFirstDayOfPreviousNMonth(createdAt, 3)
+      expect(() => createGradidoCreation(8, 4, '1000.0', createdAt, targetDate))
+        .toThrow('target date month is invalid with memo: dummy memo and  with target_date: TimestampSeconds, expected: >= ' + createdAt.toISOString().replace('T', ' ').replace('Z', '0') + ' - 2 months, actual: 2021-10-01 00:00:00.0000')
+      account = keyPairIndexAccountMap.get(8)
+      expect(account).not.toBeNull()
+      expect(account?.balance.equal(new GradidoUnit(0))).toBeTruthy()      
     })
   })
 })
