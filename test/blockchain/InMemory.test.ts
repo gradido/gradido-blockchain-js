@@ -3,9 +3,12 @@ import {
   AddressType_COMMUNITY_HUMAN,
   Filter,
   GradidoTransactionBuilder,
+  GradidoTransfer,
   GradidoUnit,
   InMemoryBlockchain,
   InMemoryBlockchainProvider,
+  InteractionCalculateAccountBalance,
+  InteractionToJson,
   KeyPairEd25519,
   loadCryptoKeys,
   MemoryBlock,
@@ -32,28 +35,52 @@ function randomSeconds(): number {
   return randombytes_uniform(max - min) + min
 }
 
-class Account {
-  constructor(pubkeyIndex: number) {
-    this.pubkeyIndex = pubkeyIndex
-    this.balance = new GradidoUnit(0)
-  }
-  pubkeyIndex: number
-  balance: GradidoUnit
-  balanceDate: Date
-}
 
 let keyPairs: KeyPair[]
 let keyPairCursor: number
 const communityId = 'test-community'
 let lastCreatedAt: Date
+let lastConfirmedAt: Date
 let blockchain: InMemoryBlockchain
 let transactionBuilder: GradidoTransactionBuilder
 let bodyBuilder: TransactionBodyBuilder
-let keyPairIndexAccountMap: Map<number, Account>
 
 function generateNewCreatedAt(): Date {
   lastCreatedAt = new Date(lastCreatedAt.getTime() + randomSeconds() * 1000)
   return lastCreatedAt
+}
+
+function generateNewConfirmedAt(createdAt: Date): Date {
+  lastConfirmedAt = new Date(createdAt.getTime() + 60 * 1000)
+  return lastConfirmedAt
+}
+
+function getBalance(keyPairIndex: number, date: Date): GradidoUnit 
+{
+  if(keyPairIndex <= 0 || keyPairIndex >= keyPairs.length ) {
+    throw new Error('keyPairIndex out of bounds')
+  }
+  const balanceCalculator = new InteractionCalculateAccountBalance(blockchain)
+  return balanceCalculator.run(keyPairs[keyPairIndex].publicKey, date)
+}
+
+function logBlockchain(): void
+{
+	const transactions = blockchain.getSortedTransactions()
+  console.log('------ log blockchain ---------')
+  for(let i = 0; i < transactions.size(); i++) {
+    const transactionEntry = transactions.get(i)
+    if(!transactionEntry || !transactionEntry.getConfirmedTransaction()) {
+      throw new Error('empty transactionEntry')
+    }
+    const confirmedTransaction = transactionEntry.getConfirmedTransaction()
+    if(!confirmedTransaction) {
+      throw new Error('missing confirmed transaction')
+    }
+    const toJson = new InteractionToJson(confirmedTransaction)
+    console.log(toJson.run(true))
+  }
+  console.log('------ log blockchain end ---------')
 }
 
 function createRegisterAddress(keyPairIndexStart: number) {
@@ -77,8 +104,7 @@ function createRegisterAddress(keyPairIndexStart: number) {
     // sign with community root key
     .sign(new KeyPairEd25519(keyPairs[0].publicKey, keyPairs[0].privateKey))
 
-  keyPairIndexAccountMap.set(accountPubkeyIndex, new Account(accountPubkeyIndex))
-  expect(blockchain.addGradidoTransaction(transactionBuilder.build(),null, lastCreatedAt)).toBeTruthy()
+  expect(blockchain.addGradidoTransaction(transactionBuilder.build(),null, generateNewConfirmedAt(lastCreatedAt))).toBeTruthy()
 }
 
 function createGradidoCreation(
@@ -105,16 +131,66 @@ function createGradidoCreation(
   transactionBuilder
     .setTransactionBody(bodyBuilder.build())
     .sign(new KeyPairEd25519(keyPairs[signerKeyPairIndex].publicKey, keyPairs[signerKeyPairIndex].privateKey))
-  if(blockchain.addGradidoTransaction(transactionBuilder.build(), null, new Date(createdAt.getTime() + 45000 ))) {
-    const lastTransaction = blockchain.findOne(Filter.LAST_TRANSACTION)?.getConfirmedTransaction()
-    expect(lastTransaction).not.toBeNull()
-    const account = keyPairIndexAccountMap.get(recipientKeyPairIndex)
-    expect(account).not.toBeUndefined()
-    account!.balance = lastTransaction!.getAccountBalance()
-    account!.balanceDate = lastTransaction!.getConfirmedAt().getDate()
-    return true
+  return blockchain.addGradidoTransaction(transactionBuilder.build(), null, generateNewConfirmedAt(createdAt))
+}
+
+function createGradidoTransfer(
+  senderKeyPairIndex: number,
+  recipientKeyPairIndex: number,
+  amount: string,
+  createdAt: Date
+) : boolean {
+  if(senderKeyPairIndex <= 0  || senderKeyPairIndex >= keyPairs.length) {
+    throw new Error('senderKeyPairIndex out of bounds')
   }
-  return false
+  if(recipientKeyPairIndex <= 0 || recipientKeyPairIndex >= keyPairs.length ) {
+    throw new Error('recipientKeyPairIndex out of bounds')
+  }
+  bodyBuilder
+    .setMemo('dummy memo')  
+    .setCreatedAt(createdAt)
+    .setVersionNumber(versionString)
+    .setTransactionTransfer(
+      new TransferAmount(keyPairs[senderKeyPairIndex].publicKey, amount),
+      keyPairs[recipientKeyPairIndex].publicKey
+    )
+  transactionBuilder
+    .setTransactionBody(bodyBuilder.build())
+    .sign(new KeyPairEd25519(keyPairs[senderKeyPairIndex].publicKey, keyPairs[senderKeyPairIndex].privateKey))
+
+  return blockchain.addGradidoTransaction(transactionBuilder.build(), null, generateNewConfirmedAt(createdAt))
+}
+
+
+function createGradidoDeferredTransfer(
+  senderKeyPairIndex: number,
+  recipientKeyPairIndex: number,
+  amount: string,
+  createdAt: Date,
+  timeout: Date
+) : boolean {
+  if(senderKeyPairIndex <= 0  || senderKeyPairIndex >= keyPairs.length) {
+    throw new Error('senderKeyPairIndex out of bounds')
+  }
+  if(recipientKeyPairIndex <= 0  || recipientKeyPairIndex >= keyPairs.length) {
+    throw new Error('recipientKeyPairIndex out of bounds')
+  }
+  
+  bodyBuilder
+    .setMemo('dummy memo')  
+    .setCreatedAt(createdAt)
+    .setVersionNumber(versionString)
+    .setDeferredTransfer(
+      new GradidoTransfer(
+        new TransferAmount(keyPairs[senderKeyPairIndex].publicKey, amount),
+        keyPairs[recipientKeyPairIndex].publicKey
+      ), timeout
+    )
+  transactionBuilder
+    .setTransactionBody(bodyBuilder.build())
+    .sign(new KeyPairEd25519(keyPairs[senderKeyPairIndex].publicKey, keyPairs[senderKeyPairIndex].privateKey))
+
+  return blockchain.addGradidoTransaction(transactionBuilder.build(), null, generateNewConfirmedAt(createdAt))
 }
 
 function createRegisterAddressCursor(): void {
@@ -135,7 +211,6 @@ describe('InMemoryBlockchain', () => {
     const tempBlockchain = InMemoryBlockchainProvider.getInstance().findBlockchain(communityId)
     expect(tempBlockchain).not.toBeNull()
     blockchain = tempBlockchain!
-    keyPairIndexAccountMap = new Map<number, Account>()
 
     // first transaction, community root to "register" community and make first public keys known
     const bodyBytes = MemoryBlock.fromBase64(communityRootTransactionBase64)
@@ -143,11 +218,10 @@ describe('InMemoryBlockchain', () => {
       .setTransactionBody(bodyBytes)
       .sign(new KeyPairEd25519(keyPairs[0].publicKey, keyPairs[0].privateKey))
 
-    blockchain.addGradidoTransaction(transactionBuilder.build(), null, lastCreatedAt)
+    blockchain.addGradidoTransaction(transactionBuilder.build(), null, generateNewConfirmedAt(lastCreatedAt))
   })
   afterEach(() => {
     InMemoryBlockchainProvider.getInstance().clear()
-    keyPairIndexAccountMap.clear()
   })
 
   describe('find community root transaction', () => {
@@ -242,10 +316,8 @@ describe('InMemoryBlockchain', () => {
       let targetDate = getFirstDayOfPreviousNMonth(createdAt, 1)
       expect(createGradidoCreation(6, 4, '1000.0', createdAt, targetDate)).toBeTruthy()
 
-      // check account map
-      let account = keyPairIndexAccountMap.get(6)
-      expect(account?.balance.equal(new GradidoUnit(1000.0))).toBeTruthy()
-      expect(account?.balanceDate.getTime()).toBeGreaterThan(createdAt.getTime())
+      // check account balance
+      expect(getBalance(6, lastConfirmedAt).toString()).toEqual(new GradidoUnit(1000).toString())
 
       // second creation
       createdAt = new Date(createdAt.getTime() + 23 * 60 * 60 * 1000)
@@ -256,20 +328,16 @@ describe('InMemoryBlockchain', () => {
       }
       expect(createGradidoCreation(6, 4, '1000.0', createdAt, newTargetDate)).toBeTruthy()
 
-      // check account map
+      // check account balance
       // 1000.0000 decayed for 23 hours => 998.1829
-      expect(account?.balance.equal(new GradidoUnit(1998.1829))).toBeTruthy()
-      expect(account?.balanceDate.getTime()).toBeGreaterThan(createdAt.getTime())
+      expect(getBalance(6, lastConfirmedAt).toString()).toEqual(new GradidoUnit(1998.1829).toString())
 
       expect(() => createRegisterAddress(7)).not.toThrow()
       createdAt = generateNewCreatedAt()
       targetDate = getFirstDayOfPreviousNMonth(createdAt, 2)
       expect(createGradidoCreation(8, 4, '1000.0', createdAt, targetDate)).toBeTruthy()
 
-      account = keyPairIndexAccountMap.get(8)
-      expect(account).not.toBeNull()
-      expect(account?.balance.equal(new GradidoUnit(1000.0))).toBeTruthy()
-      expect(account?.balanceDate.getTime()).toBeGreaterThan(createdAt.getTime())
+      expect(getBalance(8, lastConfirmedAt).toString()).toEqual(new GradidoUnit(1000).toString())
     })
 
     it('invalid', () => {
@@ -278,28 +346,97 @@ describe('InMemoryBlockchain', () => {
       expect(() => createRegisterAddress(5)).not.toThrow()
       let createdAt = generateNewCreatedAt()
       let targetDate = getFirstDayOfPreviousNMonth(createdAt, 1)
-      const succeedCreatedAt = createdAt
+
+      // valid creation
       expect(createGradidoCreation(6, 4, '1000.0', createdAt, targetDate)).toBeTruthy()
+      const confirmedAtValidCreation = lastConfirmedAt
       createdAt = new Date(createdAt.getTime() + 120 * 1000)
+      // invalid creation
       expect(() => createGradidoCreation(6, 4, '1000.0', createdAt, targetDate))
         .toThrow('creation more than 1.000 GDD per month not allowed, target date: 12 2021, try to create: 1000.0000 GDD, for this target already created: 1000.0000 GDD')
       createdAt = new Date(createdAt.getTime() + 10 * 60 * 60 * 1000)
       targetDate = getFirstDayOfPreviousNMonth(createdAt, 3)
+      // invalid creation
       expect(() => createGradidoCreation(6, 4, '1000.0', createdAt, targetDate))
         .toThrow('target date month is invalid with memo: dummy memo and  with target_date: TimestampSeconds, expected: >= ' + createdAt.toISOString().replace('T', ' ').replace('Z', '0') + ' - 2 months, actual: 2021-10-01 00:00:00.0000')
-      let account = keyPairIndexAccountMap.get(6)
-      expect(account).not.toBeNull()
-      expect(account?.balance.equal(new GradidoUnit(1000.0))).toBeTruthy()
-      expect(account?.balanceDate.getTime()).toBeGreaterThan(succeedCreatedAt.getTime())
-
+      // balance from first creation, but 10 hours and 3 minutes later
+      const decayed = new GradidoUnit(1000).calculateDecay(confirmedAtValidCreation, lastConfirmedAt)
+      expect(decayed.toString()).toEqual('999.2069')
+      expect(getBalance(6, lastConfirmedAt).toString()).toEqual(decayed.toString())
+      
       expect(() => createRegisterAddress(7)).not.toThrow()
       createdAt = generateNewCreatedAt()
       targetDate = getFirstDayOfPreviousNMonth(createdAt, 3)
       expect(() => createGradidoCreation(8, 4, '1000.0', createdAt, targetDate))
         .toThrow('target date month is invalid with memo: dummy memo and  with target_date: TimestampSeconds, expected: >= ' + createdAt.toISOString().replace('T', ' ').replace('Z', '0') + ' - 2 months, actual: 2021-10-01 00:00:00.0000')
-      account = keyPairIndexAccountMap.get(8)
-      expect(account).not.toBeNull()
-      expect(account?.balance.equal(new GradidoUnit(0))).toBeTruthy()      
+      expect(getBalance(8, lastConfirmedAt).toString()).toEqual(new GradidoUnit(0).toString())
+    })
+  })
+
+  describe('gradido transfer', () => {
+    it('valid', () => {
+      // register creation account and second account for sending gdd around
+      expect(() => createRegisterAddress(3)).not.toThrow()
+      expect(() => createRegisterAddress(5)).not.toThrow()
+
+      // first creation
+      let createdAt = generateNewCreatedAt()
+      let targetDate = getFirstDayOfPreviousNMonth(createdAt, 1)
+      expect(createGradidoCreation(6, 4, '1000.0', createdAt, targetDate)).toBeTruthy()
+
+      // check account
+      expect(getBalance(6, lastConfirmedAt).toString()).toEqual(new GradidoUnit(1000).toString())
+
+      // transfer
+      createdAt = new Date(lastCreatedAt.getTime() + 2* 24 * 60 * 60 * 1000)
+      expect(() => createGradidoTransfer(6, 4, '500.10', createdAt)).not.toThrow()
+
+      // check accounts
+      expect(getBalance(4, lastConfirmedAt).toString()).toEqual(new GradidoUnit(500.1).toString())
+      expect(getBalance(6, lastConfirmedAt).toString()).toEqual(new GradidoUnit(496.1116).toString())
+    })
+
+    it('invalid', () => {
+      // register creation account and second account for sending gdd around
+      expect(() => createRegisterAddress(3)).not.toThrow()
+      expect(() => createRegisterAddress(5)).not.toThrow()
+
+      // transfer
+      expect(() => createGradidoTransfer(6, 4, '500.10', generateNewCreatedAt()))
+        .toThrow('not enough gdd for transfer or deferred transfer, needed: 500.1000, exist: 0.0000')
+
+      expect(getBalance(4, lastConfirmedAt).toString()).toEqual(new GradidoUnit(0).toString())
+      expect(getBalance(6, lastConfirmedAt).toString()).toEqual(new GradidoUnit(0).toString())
+    })
+  })
+
+  describe('gradido deferred transfer', () => {
+    it('valid', () => {
+      // register creation account and second account for sending gdd around
+      expect(() => createRegisterAddress(3)).not.toThrow()
+      expect(() => createRegisterAddress(5)).not.toThrow()
+
+      // first creation
+      let createdAt = generateNewCreatedAt()
+      let targetDate = getFirstDayOfPreviousNMonth(createdAt, 1)
+      expect(createGradidoCreation(6, 4, '1000.0', createdAt, targetDate)).toBeTruthy()
+
+      // deferred transfer
+      createdAt = new Date(lastCreatedAt.getTime() + 10 * 60 * 60 * 1000)
+      const timeout = new Date(createdAt.getTime() + 60 * 24 * 60* 60 * 1000)
+      const recipientKeyPairIndex = keyPairCursor
+      keyPairCursor++
+      expect(() => createGradidoDeferredTransfer(6, recipientKeyPairIndex, '500.10', createdAt, timeout)).not.toThrow()
+
+      // check account
+      const deferredTransferBalance = getBalance(recipientKeyPairIndex, lastConfirmedAt)
+      expect(getBalance(6, lastConfirmedAt).equal(new GradidoUnit(499.1095))).toBeTruthy()
+      console.log(deferredTransferBalance.toString())
+      console.log(getBalance(6, lastConfirmedAt).add(deferredTransferBalance).toString())
+      // console.log(account?.balance.toString())
+      //logBlockchain()
+      
+      expect(() => createGradidoTransfer(recipientKeyPairIndex, 4, '500', generateNewCreatedAt())).not.toThrow()
     })
   })
 })

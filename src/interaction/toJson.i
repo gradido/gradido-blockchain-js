@@ -6,8 +6,6 @@
     }
 }
 
-%ignore operator|;
-%ignore operator&;
 %rename(InteractionToJson) gradido::interaction::toJson::Context;
 
 %{

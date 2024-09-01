@@ -739,44 +739,6 @@ export  class GradidoTransactionBuilder {
   setParentMessageId(paringMessageId: MemoryBlock|null): GradidoTransactionBuilder;
 }
 
-export  class InteractionSerialize {
-
-  constructor(body: TransactionBody);
-
-  constructor(transaction: GradidoTransaction);
-
-  constructor(confirmed: ConfirmedTransaction);
-
-  constructor(signatureMap: SignatureMap);
-
-  run(): MemoryBlock|null;
-}
-
-export const BodyBytesType_BASE64: BodyBytesType;
-
-export const BodyBytesType_HEX: BodyBytesType;
-
-export const BodyBytesType_JSON: BodyBytesType;
-
-export type BodyBytesType = number & { readonly [_SWIG_enum_tag]: 'BodyBytesType'; };
-
-export  class InteractionToJson {
-
-  constructor(body: TransactionBody);
-
-  constructor(gradidoTransaction: GradidoTransaction, format: BodyBytesType);
-
-  constructor(gradidoTransaction: GradidoTransaction);
-
-  constructor(confirmedTransaction: ConfirmedTransaction, format: BodyBytesType);
-
-  constructor(confirmedTransaction: ConfirmedTransaction);
-
-  run(pretty: boolean): string;
-
-  run(): string;
-}
-
 export const DeserializeType_UNKNOWN: DeserializeType;
 
 export const DeserializeType_TRANSACTION_BODY: DeserializeType;
@@ -810,6 +772,19 @@ export  class InteractionDeserialize {
   getGradidoTransaction(): GradidoTransaction|null;
 
   getConfirmedTransaction(): ConfirmedTransaction|null;
+}
+
+export  class InteractionSerialize {
+
+  constructor(body: TransactionBody);
+
+  constructor(transaction: GradidoTransaction);
+
+  constructor(confirmed: ConfirmedTransaction);
+
+  constructor(signatureMap: SignatureMap);
+
+  run(): MemoryBlock|null;
 }
 
 export  class TransactionEntries {
@@ -1037,6 +1012,46 @@ export  class InMemoryBlockchainProvider {
   clear(): void;
 
   findBlockchain(communityId: string): InMemoryBlockchain|null;
+}
+
+export const BodyBytesType_BASE64: BodyBytesType;
+
+export const BodyBytesType_HEX: BodyBytesType;
+
+export const BodyBytesType_JSON: BodyBytesType;
+
+export type BodyBytesType = number & { readonly [_SWIG_enum_tag]: 'BodyBytesType'; };
+
+export  class InteractionToJson {
+
+  constructor(body: TransactionBody);
+
+  constructor(gradidoTransaction: GradidoTransaction, format: BodyBytesType);
+
+  constructor(gradidoTransaction: GradidoTransaction);
+
+  constructor(confirmedTransaction: ConfirmedTransaction, format: BodyBytesType);
+
+  constructor(confirmedTransaction: ConfirmedTransaction);
+
+  constructor(filter: Filter);
+
+  run(pretty: boolean): string;
+
+  run(): string;
+}
+
+export  class InteractionCalculateAccountBalance {
+
+  constructor(blockchain: Abstract | InMemoryBlockchain);
+
+  run(gradidoTransaction: GradidoTransaction|null, confirmedAt: Date, id: number): GradidoUnit;
+
+  run(publicKey: MemoryBlock|null, balanceDate: Date, maxTransactionNr: number, coinCommunityId: string): GradidoUnit;
+
+  run(publicKey: MemoryBlock|null, balanceDate: Date, maxTransactionNr: number): GradidoUnit;
+
+  run(publicKey: MemoryBlock|null, balanceDate: Date): GradidoUnit;
 }
 
 export const ValidateType_SINGLE: ValidateType;

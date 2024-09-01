@@ -7,7 +7,7 @@
     } catch (const gradido::interaction::validate::InvalidCreationException& e) {
         std::string message = "InvalidCreationException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
-    } catch (const gradido::interaction::validate::InsufficientBalanceException& e) {
+    } catch (const InsufficientBalanceException& e) {
         std::string message = "InsufficientBalanceException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
     } catch (const gradido::interaction::validate::AddressAlreadyExistException& e) {

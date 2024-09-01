@@ -435,6 +435,7 @@ SWIGINTERN swig_type_info _swigt__p_gradido__data__Timestamp = {"_p_gradido__dat
 SWIGINTERN swig_type_info _swigt__p_gradido__data__TimestampSeconds = {"_p_gradido__data__TimestampSeconds", "gradido::data::TimestampSeconds *|p_gradido__data__TimestampSeconds", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__TransactionBody = {"_p_gradido__data__TransactionBody", "gradido::data::TransactionBody *|p_gradido__data__TransactionBody", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__TransferAmount = {"_p_gradido__data__TransferAmount", "gradido::data::TransferAmount *|p_gradido__data__TransferAmount", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_gradido__interaction__calculateAccountBalance__Context = {"_p_gradido__interaction__calculateAccountBalance__Context", "p_gradido__interaction__calculateAccountBalance__Context|gradido::interaction::calculateAccountBalance::Context *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__deserialize__Context = {"_p_gradido__interaction__deserialize__Context", "p_gradido__interaction__deserialize__Context|gradido::interaction::deserialize::Context *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__serialize__Context = {"_p_gradido__interaction__serialize__Context", "gradido::interaction::serialize::Context *|p_gradido__interaction__serialize__Context", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__toJson__Context = {"_p_gradido__interaction__toJson__Context", "p_gradido__interaction__toJson__Context|gradido::interaction::toJson::Context *", 0, 0, (void*)0, 0};
@@ -518,6 +519,7 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_gradido__data__TimestampSeconds,
   &_swigt__p_gradido__data__TransactionBody,
   &_swigt__p_gradido__data__TransferAmount,
+  &_swigt__p_gradido__interaction__calculateAccountBalance__Context,
   &_swigt__p_gradido__interaction__deserialize__Context,
   &_swigt__p_gradido__interaction__serialize__Context,
   &_swigt__p_gradido__interaction__toJson__Context,
@@ -598,6 +600,7 @@ SWIGINTERN swig_cast_info _swigc__p_gradido__data__Timestamp[] = {  {&_swigt__p_
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__TimestampSeconds[] = {  {&_swigt__p_gradido__data__TimestampSeconds, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__TransactionBody[] = {  {&_swigt__p_gradido__data__TransactionBody, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__TransferAmount[] = {  {&_swigt__p_gradido__data__TransferAmount, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__calculateAccountBalance__Context[] = {  {&_swigt__p_gradido__interaction__calculateAccountBalance__Context, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__deserialize__Context[] = {  {&_swigt__p_gradido__interaction__deserialize__Context, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__serialize__Context[] = {  {&_swigt__p_gradido__interaction__serialize__Context, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__toJson__Context[] = {  {&_swigt__p_gradido__interaction__toJson__Context, 0, 0, 0},{0, 0, 0, 0}};
@@ -678,6 +681,7 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_gradido__data__TimestampSeconds,
   _swigc__p_gradido__data__TransactionBody,
   _swigc__p_gradido__data__TransferAmount,
+  _swigc__p_gradido__interaction__calculateAccountBalance__Context,
   _swigc__p_gradido__interaction__deserialize__Context,
   _swigc__p_gradido__interaction__serialize__Context,
   _swigc__p_gradido__interaction__toJson__Context,
@@ -719,6 +723,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
 
-SWIGINTERN swig_type_info *swig_types[79];
-SWIGINTERN swig_module_info swig_module = {swig_types, 78, 0, 0, 0, 0};
+SWIGINTERN swig_type_info *swig_types[80];
+SWIGINTERN swig_module_info swig_module = {swig_types, 79, 0, 0, 0, 0};
 
