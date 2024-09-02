@@ -431,11 +431,7 @@ describe('InMemoryBlockchain', () => {
       // check account
       const deferredTransferBalance = getBalance(recipientKeyPairIndex, lastConfirmedAt)
       expect(getBalance(6, lastConfirmedAt).equal(new GradidoUnit(499.1095))).toBeTruthy()
-      console.log(deferredTransferBalance.toString())
-      console.log(getBalance(6, lastConfirmedAt).add(deferredTransferBalance).toString())
-      // console.log(account?.balance.toString())
-      //logBlockchain()
-      
+
       expect(() => createGradidoTransfer(recipientKeyPairIndex, 4, '500', generateNewCreatedAt())).not.toThrow()
     })
   })

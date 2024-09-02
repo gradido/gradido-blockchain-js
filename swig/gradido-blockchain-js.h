@@ -36387,14 +36387,14 @@ _exports_InteractionCalculateAccountBalance_templ<SWIG_OBJ_WRAP>::_exports_Inter
     }
     res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_gradido__blockchain__Abstract,  0 );
     if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_InteractionCalculateAccountBalance" "', argument " "1"" of type '" "gradido::blockchain::Abstract &""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_InteractionCalculateAccountBalance" "', argument " "1"" of type '" "gradido::blockchain::Abstract const &""'"); 
     }
     if (!argp1) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_InteractionCalculateAccountBalance" "', argument " "1"" of type '" "gradido::blockchain::Abstract &""'"); 
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_InteractionCalculateAccountBalance" "', argument " "1"" of type '" "gradido::blockchain::Abstract const &""'"); 
     }
     arg1 = reinterpret_cast< gradido::blockchain::Abstract * >(argp1);{
       try {
-        result = (gradido::interaction::calculateAccountBalance::Context *)new gradido::interaction::calculateAccountBalance::Context(*arg1);
+        result = (gradido::interaction::calculateAccountBalance::Context *)new gradido::interaction::calculateAccountBalance::Context((gradido::blockchain::Abstract const &)*arg1);
       } catch (const InsufficientBalanceException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {

@@ -1,7 +1,6 @@
 import { 
   AddressType_COMMUNITY_HUMAN,
   GradidoTransfer,
-  MemoryBlock,
   Timestamp,
   TimestampSeconds,
   TransactionBodyBuilder,
@@ -36,6 +35,9 @@ describe('test TransactionBodyBuilderFactory', () => {
     expect(transactionBody.getTransactionType()).toEqual(TransactionType_COMMUNITY_ROOT)
     expect(transactionBody.isInvolved(keyPairs[0].publicKey)).toBeTruthy()
 
+    const transferAmount = transactionBody.getTransferAmount()
+    expect(transferAmount).toBeNull()
+
     const communityRoot = transactionBody.getCommunityRoot()
     expect(communityRoot).not.toBeNull()
     expect(communityRoot?.getPubkey()?.equal(keyPairs[0].publicKey)).toBeTruthy()
@@ -61,6 +63,9 @@ describe('test TransactionBodyBuilderFactory', () => {
 
       expect(transactionBody.getMemo()).toBe('')
       expect(transactionBody.getCreatedAt().getDate()).toEqual(now)
+
+      const transferAmount = transactionBody.getTransferAmount()
+      expect(transferAmount).toBeNull()
 
       const registerAddress = transactionBody.getRegisterAddress()
       expect(registerAddress).not.toBeNull()
@@ -91,6 +96,9 @@ describe('test TransactionBodyBuilderFactory', () => {
       expect(transactionBody.getMemo()).toBe('')
       expect(transactionBody.getCreatedAt().getDate()).toEqual(now)
 
+      const transferAmount = transactionBody.getTransferAmount()
+      expect(transferAmount).toBeNull()
+
       const registerAddress = transactionBody.getRegisterAddress()
       expect(registerAddress).not.toBeNull()
       expect(registerAddress?.getAddressType()).toBe(AddressType_COMMUNITY_HUMAN)
@@ -120,6 +128,11 @@ describe('test TransactionBodyBuilderFactory', () => {
 
     expect(transactionBody.getMemo()).toEqual(memo)
     expect(transactionBody.getCreatedAt().getDate()).toEqual(now)
+
+    const transferAmount = transactionBody.getTransferAmount()
+    expect(transferAmount).not.toBeNull()
+    expect(transferAmount.getAmount().toString()).toEqual('1000.0000')
+    expect(transferAmount.getPubkey()?.equal(keyPairs[4].publicKey)).toBeTruthy()
 
     const creation = transactionBody.getCreation()
     expect(creation).not.toBeNull()
@@ -156,6 +169,12 @@ describe('test TransactionBodyBuilderFactory', () => {
 
     expect(transactionBody.getMemo()).toEqual(memo)
     expect(transactionBody.getCreatedAt().getDate()).toEqual(now)
+
+    const transferAmount = transactionBody.getTransferAmount()
+    expect(transferAmount).not.toBeNull()
+    expect(transferAmount.getPubkey()?.equal(keyPairs[4].publicKey)).toBeTruthy()
+    expect(transferAmount.getCommunityId()).toEqual('')
+    expect(transferAmount.getAmount().toString()).toEqual('100.2516')
 
     const transfer = transactionBody.getTransfer()
     expect(transfer).not.toBeNull()
@@ -198,6 +217,12 @@ describe('test TransactionBodyBuilderFactory', () => {
 
     expect(transactionBody.getMemo()).toEqual(memo)
     expect(transactionBody.getCreatedAt().getDate()).toEqual(now)
+
+    const transferAmount = transactionBody.getTransferAmount()
+    expect(transferAmount).not.toBeNull()
+    expect(transferAmount.getPubkey()?.equal(keyPairs[4].publicKey)).toBeTruthy()
+    expect(transferAmount.getCommunityId()).toEqual('')
+    expect(transferAmount.getAmount().toString()).toEqual('100.2516')
 
     const deferredTransfer = transactionBody.getDeferredTransfer()
     expect(deferredTransfer).not.toBeNull()
