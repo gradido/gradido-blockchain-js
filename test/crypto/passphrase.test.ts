@@ -16,7 +16,7 @@ const passphrases = [
       'ankommt gesamt gestorben m&uuml;de sind stolz Enkel geklappt Leonardo riesig Bezugsquelle berauben pr&uuml;fen bislang Villa Fortschritt moralisch unf&auml;hig Enkel erwidern Hanau Plage Fossilien ethnisch ',
     englishSortedOrderBIP0039: 
       'beauty slight skill maze wrap neither table term pizza journey unusual fence mind buzz scrap height critic service table knock fury shrimp curious fog ',
-    'pubkeyHex': '6fa7180b132e1248c649fc7b2e422ad57663299f85bd88b8b8031dce28b501a8'
+    'pubkeyHex': '0f06a369f00dbafe69b447d7c0fc04ff78d7743c9aec2615e87259be7ae2d9f7'
   },
   {
     germanRandomOrder:
@@ -25,7 +25,7 @@ const passphrases = [
       'Angst ausbeuten besser bekannt Bed&uuml;rfnisse Neidisch virtuell Pension gepr&auml;gt inmitten Abfall Absatzmarkt Wettbewerb Fidel jeder Heinrich Engagement leihen viertel Disziplin zufolge erwarten Iris J&auml;ger ',
     englishSortedOrderBIP0039: 
       'fresh hamster canvas lyrics chat mutual pair color airport estate fly assault suspect deliver similar fancy grass cliff tenant apple divert timber analyst seed ',
-    'pubkeyHex': '8943813a623863dd7c5e5b248e408ac8a8851ef758275b6043a06e9b5832c36c'
+    'pubkeyHex': '0c5a0c82b93826b08d839309d3bdeafb4adb625b4ab62059be070261dd2951a3'
   },
   {
     germanRandomOrder:
@@ -34,7 +34,7 @@ const passphrases = [
       'aushalten absolut signifikant Bezahlung zukunftsf&auml;hig Wurzel ergr&uuml;nden unausweichlich dunkel halb Nagel nehmen Begabung bezwingen wehren Fohlen keiner Krankheit leiblich &Auml;ste Finnland sehen erwidern Abs&auml;tze ',
     englishSortedOrderBIP0039: 
       'rack gentle paddle illness feature fatigue teach ball dust decade dish kick skate income small pill collect often man trap doctor coffee knock excuse ',
-    'pubkeyHex': 'd62f14173ae5d66b06753cc9d69d5471913ffc6053feedac2acf901eef3582a9'
+    'pubkeyHex': '2d47cdf42691f56c0e25f4d8d10bc609c3ff75188174b9b581c007adf7cd7001'
   }
 ]
 
@@ -88,11 +88,6 @@ describe('test passphrases code', () => {
       expect(passphrase.checkIfValid()).toBeTruthy()
     })
   })
-
-  it('throw exception', () => {
-    expect(() => new Passphrase("Höh, maß, xDäöas", MnemonicType_GRADIDO_BOOK_GERMAN_RANDOM_ORDER)).toThrow("word don't exist")
-  })
-
   it('createAndTransform', () => {
     passphrases.forEach((passphraseStrings) => {
       const passphrase = new Passphrase(

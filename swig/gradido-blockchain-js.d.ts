@@ -218,7 +218,9 @@ export  class KeyPairEd25519 {
 
  static create(passphrase: Passphrase|null): KeyPairEd25519|null;
 
- static calculatePublicKey(privateKey: MemoryBlock|null): MemoryBlock;
+ static create(seed: MemoryBlock): KeyPairEd25519|null;
+
+ static calculatePublicKey(privateKey: MemoryBlock): MemoryBlock;
 
   deriveChild(index: number): KeyPairEd25519Ex;
 
@@ -250,16 +252,26 @@ export  class KeyPairEd25519 {
 
   hasPrivateKey(): boolean;
 
-  getCryptedPrivKey(password: SecretKeyCryptography|null): MemoryBlock;
+  getCryptedPrivKey(password: SecretKeyCryptography): MemoryBlock;
+
+ static normalizeBytesForce3rd(key: MemoryBlock): void;
+
+  isNormalized(): boolean;
 }
 
 export  class KeyPairEd25519Ex extends KeyPairEd25519 {
 
   constructor(publicKey: MemoryBlock|null, privateKey: MemoryBlock|null, chainCode: MemoryBlock|null, derivationIndex: number);
 
-  sign(message: Uint8Array): MemoryBlock;
-
   isChildOf(parent: KeyPairEd25519 | KeyPairEd25519Ex): boolean;
+
+  getDerivationIndex(): number;
+
+  getDerivationType(): Ed25519DerivationType;
+
+  isSoftDerivated(): boolean;
+
+  isHardDerivated(): boolean;
 }
 
 export  class AuthenticatedEncryption {

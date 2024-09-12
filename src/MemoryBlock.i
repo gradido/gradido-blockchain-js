@@ -10,6 +10,7 @@ namespace memory {
   %ignore Block::span() const;
   %ignore Block::operator uint8_t*();
   %ignore Block::operator const uint8_t* () const;
+  %ignore Block::operator[];
   %ignore Block::data(size_t startIndex);
   %ignore Block::data(size_t startIndex) const;
   %ignore Block::copyAsVector() const;
@@ -21,6 +22,7 @@ namespace memory {
   %ignore Block::operator=;
   %ignore ConstBlockPtrComparator;
   %ignore Block::isTheSame;
+
 }
 
 %exception {

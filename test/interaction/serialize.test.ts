@@ -28,7 +28,7 @@ import {
   registeAddressTransactionBase64,
   transferTransactionBase64
 } from '../helper/serializedTransactions'
-import { generateKeyPairs, KeyPair } from '../helper/keyPairs'
+import { generateKeyPairs, KeyPair, simpleSign } from '../helper/keyPairs'
 import { crypto_generichash_BYTES, crypto_sign_BYTES, crypto_sign_detached } from 'sodium-native'
 
 let keyPairs: KeyPair[]
@@ -199,9 +199,11 @@ describe('Serialize Gradido Transactions Tests', () => {
       .setMemo(memo)
       .build()
     const builder2 = new GradidoTransactionBuilder
+    const bodyBytes = new InteractionSerialize(transactionBody).run()
+    expect(bodyBytes).not.toBeNull()
     const gradidoTransaction = builder2
-     .setTransactionBody(transactionBody)
-     .sign(new KeyPairEd25519(keyPairs[0].publicKey, keyPairs[0].privateKey))
+     .setTransactionBody(bodyBytes)
+     .addSignaturePair(keyPairs[0].publicKey, simpleSign(bodyBytes!, keyPairs[0]))
      .build()
 
      const confirmedTransaction = new ConfirmedTransaction(

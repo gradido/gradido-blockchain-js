@@ -27,4 +27,3 @@
 %include "gradido_blockchain/GradidoUnit.h"
 
 
-

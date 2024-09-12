@@ -5,7 +5,7 @@ import {
   MemoryBlock,
   ValidateType_SINGLE
 } from '../../'
-import { generateKeyPairs, KeyPair } from '../helper/keyPairs'
+import { generateKeyPairs, KeyPair, simpleSign } from '../helper/keyPairs'
 import {
   communityRootTransactionBase64,
   creationTransactionBase64,
@@ -34,9 +34,10 @@ describe('validate Gradido Transaction', () => {
 
   describe('community root transaction', () => {
     it('valid', () => {
+      const bodyBytes = MemoryBlock.fromBase64(communityRootTransactionBase64)
       const transaction = builder
-        .setTransactionBody(MemoryBlock.fromBase64(communityRootTransactionBase64))
-        .sign(new KeyPairEd25519(keyPairs[0].publicKey, keyPairs[0].privateKey))
+        .setTransactionBody(bodyBytes)
+        .addSignaturePair(keyPairs[0].publicKey, simpleSign(bodyBytes, keyPairs[0]))
         .build()
       expect(() => new InteractionValidate(transaction).run(ValidateType_SINGLE, '')).not.toThrow()
     })
@@ -50,9 +51,10 @@ describe('validate Gradido Transaction', () => {
       })
 
       it('wrong signer', () => {
+        const bodyBytes = MemoryBlock.fromBase64(communityRootTransactionBase64)
         const transaction = builder
-          .setTransactionBody(MemoryBlock.fromBase64(communityRootTransactionBase64))
-          .sign(new KeyPairEd25519(keyPairs[1].publicKey, keyPairs[1].privateKey))
+          .setTransactionBody(bodyBytes)
+          .addSignaturePair(keyPairs[1].publicKey, simpleSign(bodyBytes, keyPairs[1]))
           .build()
         expect(() => new InteractionValidate(transaction).run(ValidateType_SINGLE, ''))
           .toThrow('TransactionValidationRequiredSignMissingException: missing required sign')
@@ -62,10 +64,11 @@ describe('validate Gradido Transaction', () => {
 
   describe('register address transaction', () => {
     it('valid', () => {
+      const bodyBytes = MemoryBlock.fromBase64(registeAddressTransactionBase64)
       const transaction = builder
-        .setTransactionBody(MemoryBlock.fromBase64(registeAddressTransactionBase64))
-        .sign(new KeyPairEd25519(keyPairs[0].publicKey, keyPairs[0].privateKey))
-        .sign(new KeyPairEd25519(keyPairs[4].publicKey, keyPairs[4].privateKey))
+        .setTransactionBody(bodyBytes)
+        .addSignaturePair(keyPairs[0].publicKey, simpleSign(bodyBytes, keyPairs[0]))
+        .addSignaturePair(keyPairs[4].publicKey, simpleSign(bodyBytes, keyPairs[4]))
         .build()
       expect(() => new InteractionValidate(transaction).run(ValidateType_SINGLE, '')).not.toThrow()
     })
@@ -80,19 +83,21 @@ describe('validate Gradido Transaction', () => {
       })
 
       it('missing signature', () => {
+        const bodyBytes = MemoryBlock.fromBase64(registeAddressTransactionBase64)
         const transaction = builder
-          .setTransactionBody(MemoryBlock.fromBase64(registeAddressTransactionBase64))
-          .sign(new KeyPairEd25519(keyPairs[0].publicKey, keyPairs[0].privateKey))
+          .setTransactionBody(bodyBytes)
+          .addSignaturePair(keyPairs[0].publicKey, simpleSign(bodyBytes, keyPairs[0]))
           .build()
         expect(() => new InteractionValidate(transaction).run(ValidateType_SINGLE, ''))
           .toThrow('TransactionValidationMissingSignException: missing sign, signed: 1 from 2')
       })
 
       it('missing required signature', () => {
+        const bodyBytes = MemoryBlock.fromBase64(registeAddressTransactionBase64)
         const transaction = builder
-          .setTransactionBody(MemoryBlock.fromBase64(registeAddressTransactionBase64))
-          .sign(new KeyPairEd25519(keyPairs[0].publicKey, keyPairs[0].privateKey))
-          .sign(new KeyPairEd25519(keyPairs[3].publicKey, keyPairs[3].privateKey))
+          .setTransactionBody(bodyBytes)
+          .addSignaturePair(keyPairs[0].publicKey, simpleSign(bodyBytes, keyPairs[0]))
+          .addSignaturePair(keyPairs[3].publicKey, simpleSign(bodyBytes, keyPairs[3]))
           .build()
         expect(() => new InteractionValidate(transaction).run(ValidateType_SINGLE, ''))
           .toThrow('TransactionValidationRequiredSignMissingException: missing required sign')
@@ -102,9 +107,10 @@ describe('validate Gradido Transaction', () => {
 
   describe('Gradido Creation Transaction', () => {
     it('valid', () => {
+      const bodyBytes = MemoryBlock.fromBase64(creationTransactionBase64)
       const transaction = builder
-        .setTransactionBody(MemoryBlock.fromBase64(creationTransactionBase64))
-        .sign(new KeyPairEd25519(keyPairs[3].publicKey, keyPairs[3].privateKey))
+        .setTransactionBody(bodyBytes)
+        .addSignaturePair(keyPairs[3].publicKey, simpleSign(bodyBytes, keyPairs[3]))
         .build()
       expect(() => new InteractionValidate(transaction).run(ValidateType_SINGLE, '')).not.toThrow()
     })
@@ -119,9 +125,10 @@ describe('validate Gradido Transaction', () => {
       })
 
       it('wrong signature', () => {
+        const bodyBytes = MemoryBlock.fromBase64(creationTransactionBase64)
         const transaction = builder
-          .setTransactionBody(MemoryBlock.fromBase64(creationTransactionBase64))
-          .sign(new KeyPairEd25519(keyPairs[4].publicKey, keyPairs[4].privateKey))
+          .setTransactionBody(bodyBytes)
+          .addSignaturePair(keyPairs[4].publicKey, simpleSign(bodyBytes, keyPairs[4]))
           .build()
         expect(() => new InteractionValidate(transaction).run(ValidateType_SINGLE, ''))
           .toThrow('TransactionValidationForbiddenSignException: this forbidden pubkey was used for signing: 8a8c93293cb97e8784178da8ae588144f7c982f4658bfd35101a1e2b479c3e57')
@@ -131,9 +138,10 @@ describe('validate Gradido Transaction', () => {
 
   describe('Gradido Transfer Transaction', () => {
     it('valid', () => {
+      const bodyBytes = MemoryBlock.fromBase64(transferTransactionBase64)
       const transaction = builder
-        .setTransactionBody(MemoryBlock.fromBase64(transferTransactionBase64))
-        .sign(new KeyPairEd25519(keyPairs[4].publicKey, keyPairs[4].privateKey))
+        .setTransactionBody(bodyBytes)
+        .addSignaturePair(keyPairs[4].publicKey, simpleSign(bodyBytes,  keyPairs[4]))
         .build()
       expect(() => new InteractionValidate(transaction).run(ValidateType_SINGLE, '')).not.toThrow()
     })
@@ -148,9 +156,10 @@ describe('validate Gradido Transaction', () => {
       })
 
       it('wrong signature', () => {
+        const bodyBytes = MemoryBlock.fromBase64(transferTransactionBase64)
         const transaction = builder
-          .setTransactionBody(MemoryBlock.fromBase64(transferTransactionBase64))
-          .sign(new KeyPairEd25519(keyPairs[3].publicKey, keyPairs[3].privateKey))
+          .setTransactionBody(bodyBytes)
+          .addSignaturePair(keyPairs[3].publicKey, simpleSign(bodyBytes, keyPairs[3]))
           .build()
         expect(() => new InteractionValidate(transaction).run(ValidateType_SINGLE, ''))
           .toThrow('TransactionValidationRequiredSignMissingException: missing required sign')
@@ -160,9 +169,10 @@ describe('validate Gradido Transaction', () => {
 
   describe('Gradido Deferred Transfer Transaction', () => {
     it('valid', () => {
+      const bodyBytes = MemoryBlock.fromBase64(deferredTransferTransactionBase64)
       const transaction = builder
-        .setTransactionBody(MemoryBlock.fromBase64(deferredTransferTransactionBase64))
-        .sign(new KeyPairEd25519(keyPairs[4].publicKey, keyPairs[4].privateKey))
+        .setTransactionBody(bodyBytes)
+        .addSignaturePair(keyPairs[4].publicKey, simpleSign(bodyBytes, keyPairs[4]))
         .build()
       expect(() => new InteractionValidate(transaction).run(ValidateType_SINGLE, '')).not.toThrow()
     })
@@ -177,9 +187,10 @@ describe('validate Gradido Transaction', () => {
       })
 
       it('wrong signature', () => {
+        const bodyBytes = MemoryBlock.fromBase64(deferredTransferTransactionBase64)
         const transaction = builder
-          .setTransactionBody(MemoryBlock.fromBase64(deferredTransferTransactionBase64))
-          .sign(new KeyPairEd25519(keyPairs[3].publicKey, keyPairs[3].privateKey))
+          .setTransactionBody(bodyBytes)
+          .addSignaturePair(keyPairs[3].publicKey, simpleSign(bodyBytes, keyPairs[3]))
           .build()
         expect(() => new InteractionValidate(transaction).run(ValidateType_SINGLE, ''))
           .toThrow('TransactionValidationRequiredSignMissingException: missing required sign')

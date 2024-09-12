@@ -8,15 +8,17 @@ import {
   InMemoryBlockchain,
   InMemoryBlockchainProvider,
   InteractionCalculateAccountBalance,
+  InteractionSerialize,
   InteractionToJson,
   KeyPairEd25519,
   loadCryptoKeys,
   MemoryBlock,
+  MnemonicType_BIP0039_SORTED_ORDER,
+  Passphrase,
   TransactionBodyBuilder,
   TransactionType_COMMUNITY_ROOT,
   TransferAmount
 } from '../../'
-import { generateKeyPairs, KeyPair } from '../helper/keyPairs'
 import { communityRootTransactionBase64 } from '../helper/serializedTransactions'
 import { versionString } from '../helper/const'
 
@@ -36,7 +38,7 @@ function randomSeconds(): number {
 }
 
 
-let keyPairs: KeyPair[]
+let keyPairs: KeyPairEd25519[]
 let keyPairCursor: number
 const communityId = 'test-community'
 let lastCreatedAt: Date
@@ -55,13 +57,25 @@ function generateNewConfirmedAt(createdAt: Date): Date {
   return lastConfirmedAt
 }
 
+function generateKeyPairs() {
+  let keyPairs: KeyPairEd25519[] = []
+  for(let i = 0; i < 20; i++) {
+    const keyPair = KeyPairEd25519.create(Passphrase.generate(MnemonicType_BIP0039_SORTED_ORDER))
+    if(!keyPair) {
+      throw new Error('error creating random key pair')
+    }
+    keyPairs[i] = keyPair
+  }
+  return keyPairs
+}
+
 function getBalance(keyPairIndex: number, date: Date): GradidoUnit 
 {
   if(keyPairIndex <= 0 || keyPairIndex >= keyPairs.length ) {
     throw new Error('keyPairIndex out of bounds')
   }
   const balanceCalculator = new InteractionCalculateAccountBalance(blockchain)
-  return balanceCalculator.run(keyPairs[keyPairIndex].publicKey, date)
+  return balanceCalculator.run(keyPairs[keyPairIndex].getPublicKey(), date)
 }
 
 function logBlockchain(): void
@@ -93,16 +107,16 @@ function createRegisterAddress(keyPairIndexStart: number) {
     .setCreatedAt(generateNewCreatedAt())
     .setVersionNumber(versionString)
     .setRegisterAddress(
-      keyPairs[userPubkeyIndex].publicKey,
+      keyPairs[userPubkeyIndex].getPublicKey(),
       AddressType_COMMUNITY_HUMAN,
       null,
-      keyPairs[accountPubkeyIndex].publicKey
+      keyPairs[accountPubkeyIndex].getPublicKey()
     )
   transactionBuilder
     .setTransactionBody(bodyBuilder.build())
-    .sign(new KeyPairEd25519(keyPairs[accountPubkeyIndex].publicKey, keyPairs[accountPubkeyIndex].privateKey))
+    .sign(keyPairs[accountPubkeyIndex])
     // sign with community root key
-    .sign(new KeyPairEd25519(keyPairs[0].publicKey, keyPairs[0].privateKey))
+    .sign(keyPairs[0])
 
   expect(blockchain.addGradidoTransaction(transactionBuilder.build(),null, generateNewConfirmedAt(lastCreatedAt))).toBeTruthy()
 }
@@ -125,12 +139,12 @@ function createGradidoCreation(
     .setCreatedAt(createdAt)
     .setVersionNumber(versionString)
     .setTransactionCreation(
-      new TransferAmount(keyPairs[recipientKeyPairIndex].publicKey, amount),
+      new TransferAmount(keyPairs[recipientKeyPairIndex].getPublicKey(), amount),
       targetDate
     )
   transactionBuilder
     .setTransactionBody(bodyBuilder.build())
-    .sign(new KeyPairEd25519(keyPairs[signerKeyPairIndex].publicKey, keyPairs[signerKeyPairIndex].privateKey))
+    .sign(keyPairs[signerKeyPairIndex])
   return blockchain.addGradidoTransaction(transactionBuilder.build(), null, generateNewConfirmedAt(createdAt))
 }
 
@@ -151,12 +165,12 @@ function createGradidoTransfer(
     .setCreatedAt(createdAt)
     .setVersionNumber(versionString)
     .setTransactionTransfer(
-      new TransferAmount(keyPairs[senderKeyPairIndex].publicKey, amount),
-      keyPairs[recipientKeyPairIndex].publicKey
+      new TransferAmount(keyPairs[senderKeyPairIndex].getPublicKey(), amount),
+      keyPairs[recipientKeyPairIndex].getPublicKey()
     )
   transactionBuilder
     .setTransactionBody(bodyBuilder.build())
-    .sign(new KeyPairEd25519(keyPairs[senderKeyPairIndex].publicKey, keyPairs[senderKeyPairIndex].privateKey))
+    .sign(keyPairs[senderKeyPairIndex])
 
   return blockchain.addGradidoTransaction(transactionBuilder.build(), null, generateNewConfirmedAt(createdAt))
 }
@@ -182,13 +196,13 @@ function createGradidoDeferredTransfer(
     .setVersionNumber(versionString)
     .setDeferredTransfer(
       new GradidoTransfer(
-        new TransferAmount(keyPairs[senderKeyPairIndex].publicKey, amount),
-        keyPairs[recipientKeyPairIndex].publicKey
+        new TransferAmount(keyPairs[senderKeyPairIndex].getPublicKey(), amount),
+        keyPairs[recipientKeyPairIndex].getPublicKey()
       ), timeout
     )
   transactionBuilder
     .setTransactionBody(bodyBuilder.build())
-    .sign(new KeyPairEd25519(keyPairs[senderKeyPairIndex].publicKey, keyPairs[senderKeyPairIndex].privateKey))
+    .sign(keyPairs[senderKeyPairIndex])
 
   return blockchain.addGradidoTransaction(transactionBuilder.build(), null, generateNewConfirmedAt(createdAt))
 }
@@ -213,11 +227,16 @@ describe('InMemoryBlockchain', () => {
     blockchain = tempBlockchain!
 
     // first transaction, community root to "register" community and make first public keys known
-    const bodyBytes = MemoryBlock.fromBase64(communityRootTransactionBase64)
+    bodyBuilder
+     .setCommunityRoot(
+      keyPairs[0].getPublicKey(),
+      keyPairs[1].getPublicKey(),
+      keyPairs[2].getPublicKey()
+     )
+     .setCreatedAt(lastCreatedAt)
     transactionBuilder
-      .setTransactionBody(bodyBytes)
-      .sign(new KeyPairEd25519(keyPairs[0].publicKey, keyPairs[0].privateKey))
-
+      .setTransactionBody(bodyBuilder.build())
+      .sign(keyPairs[0])
     blockchain.addGradidoTransaction(transactionBuilder.build(), null, generateNewConfirmedAt(lastCreatedAt))
   })
   afterEach(() => {
@@ -246,7 +265,7 @@ describe('InMemoryBlockchain', () => {
 
     it('by public key', () => {
       const f = new Filter()
-      f.involvedPublicKey = keyPairs[0].publicKey
+      f.involvedPublicKey = keyPairs[0].getPublicKey()
       let transaction = blockchain.findOne(f)
       expect(transaction).not.toBeNull()
       let body = transaction?.getTransactionBody()
@@ -290,7 +309,7 @@ describe('InMemoryBlockchain', () => {
       expect(() => createRegisterAddressCursor()).not.toThrow()
       expect(() => createRegisterAddressCursor()).not.toThrow()
 	    const f = new Filter
-	    f.involvedPublicKey = keyPairs[8].publicKey
+	    f.involvedPublicKey = keyPairs[8].getPublicKey()
 	    let transaction = blockchain.findOne(f)
       expect(transaction).not.toBeNull()
       let body = transaction?.getTransactionBody()
@@ -431,7 +450,11 @@ describe('InMemoryBlockchain', () => {
       // check account
       const deferredTransferBalance = getBalance(recipientKeyPairIndex, lastConfirmedAt)
       expect(getBalance(6, lastConfirmedAt).equal(new GradidoUnit(499.1095))).toBeTruthy()
-
+      //console.log(deferredTransferBalance.toString())
+      //console.log(getBalance(6, lastConfirmedAt).add(deferredTransferBalance).toString())
+      // console.log(account?.balance.toString())
+      //logBlockchain()
+      
       expect(() => createGradidoTransfer(recipientKeyPairIndex, 4, '500', generateNewCreatedAt())).not.toThrow()
     })
   })

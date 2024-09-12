@@ -1238,6 +1238,13 @@ SWIGINTERN
 int SWIG_AsVal_unsigned_SS_int (Napi::Value valRef, unsigned int* val);
 
 
+SWIGINTERNINLINE
+Napi::Value SWIG_From_unsigned_SS_int(Napi::Env env, unsigned int val)
+{
+  return Napi::Number::New(env, val);
+}
+
+
 #include "gradido_blockchain/crypto/AuthenticatedEncryption.h"
 
 
@@ -1289,13 +1296,6 @@ SWIGINTERNINLINE void std_vector_Sl_gradido_data_SignaturePair_Sg__set(std::vect
 
 SWIGINTERN
 int SWIG_AsVal_bool (Napi::Value obj, bool *val);
-
-
-SWIGINTERNINLINE
-Napi::Value SWIG_From_unsigned_SS_int(Napi::Env env, unsigned int val)
-{
-  return Napi::Number::New(env, val);
-}
 
 
 #ifdef SWIG_LONG_LONG_AVAILABLE
@@ -1685,7 +1685,11 @@ Napi::Value _wrap_new_KeyPairEd25519__SWIG_1(const Napi::CallbackInfo &);
 Napi::Value _wrap_new_KeyPairEd25519__SWIG_2(const Napi::CallbackInfo &);
 virtual ~_exports_KeyPairEd25519_templ();
 // jsnapi_class_method_declaration
-static Napi::Value _wrap_KeyPairEd25519_create(const Napi::CallbackInfo &);
+static Napi::Value _wrap_KeyPairEd25519_create__SWIG_0(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+static Napi::Value _wrap_KeyPairEd25519_create__SWIG_1(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+static Napi::Value _wrap_KeyPairEd25519__wrap_KeyPairEd25519_create(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 static Napi::Value _wrap_KeyPairEd25519_calculatePublicKey(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
@@ -1726,6 +1730,10 @@ Napi::Value _wrap_KeyPairEd25519_notEqual(const Napi::CallbackInfo &);
 Napi::Value _wrap_KeyPairEd25519_hasPrivateKey(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_KeyPairEd25519_getCryptedPrivKey(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+static Napi::Value _wrap_KeyPairEd25519_normalizeBytesForce3rd(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_KeyPairEd25519_isNormalized(const Napi::CallbackInfo &);
 // jsnapi_class_epilogue_template
 };
 // jsnapi_class_instance
@@ -1750,9 +1758,15 @@ _exports_KeyPairEd25519Ex_templ(bool, const Napi::CallbackInfo &);
 Napi::Value _wrap_new_KeyPairEd25519Ex(const Napi::CallbackInfo &);
 virtual ~_exports_KeyPairEd25519Ex_templ();
 // jsnapi_class_method_declaration
-Napi::Value _wrap_KeyPairEd25519Ex_sign(const Napi::CallbackInfo &);
-// jsnapi_class_method_declaration
 Napi::Value _wrap_KeyPairEd25519Ex_isChildOf(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_KeyPairEd25519Ex_getDerivationIndex(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_KeyPairEd25519Ex_getDerivationType(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_KeyPairEd25519Ex_isSoftDerivated(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_KeyPairEd25519Ex_isHardDerivated(const Napi::CallbackInfo &);
 // jsnapi_class_epilogue_template
 };
 // jsnapi_class_instance
@@ -8042,17 +8056,26 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_new_KeyPairEd255
       try {
         result = (KeyPairEd25519 *)new KeyPairEd25519(SWIG_STD_MOVE(arg1),SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -8114,17 +8137,26 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_new_KeyPairEd255
       try {
         result = (KeyPairEd25519 *)new KeyPairEd25519(SWIG_STD_MOVE(arg1),SWIG_STD_MOVE(arg2));
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -8175,17 +8207,26 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_new_KeyPairEd255
       try {
         result = (KeyPairEd25519 *)new KeyPairEd25519(SWIG_STD_MOVE(arg1));
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -8364,22 +8405,17 @@ _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::~_exports_KeyPairEd25519_templ() {
 }
 
 
-// js_function
+// js_overloaded_function
 template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_create(const Napi::CallbackInfo &info) {
+Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_create__SWIG_0(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
   std::shared_ptr< Passphrase > arg1 ;
   std::shared_ptr< KeyPairEd25519 > result;
   
-  
 #ifdef NAPI_CPP_EXCEPTIONS
   try {
 #endif
-    
-    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_KeyPairEd25519_create.");
-    }
     
     {
       {
@@ -8400,17 +8436,26 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_c
       try {
         result = KeyPairEd25519::create(SWIG_STD_MOVE(arg1));
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -8446,12 +8491,186 @@ fail:
 }
 
 
+// js_overloaded_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_create__SWIG_1(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  memory::Block *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::shared_ptr< KeyPairEd25519 > result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_memory__Block,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519_create" "', argument " "1"" of type '" "memory::Block const &""'"); 
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "KeyPairEd25519_create" "', argument " "1"" of type '" "memory::Block const &""'"); 
+    }
+    arg1 = reinterpret_cast< memory::Block * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = KeyPairEd25519::create((memory::Block const &)*arg1);
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    {
+      if(!result) {
+        jsresult = env.Null();
+      } else {
+        jsresult = SWIG_NewPointerObj(const_cast<KeyPairEd25519 *>((&result)->get()), SWIGTYPE_p_KeyPairEd25519, SWIG_POINTER_OWN |  0 );
+        auto *owner = new std::shared_ptr< KeyPairEd25519>(*&result);
+        auto finalizer = new SWIG_NAPI_Finalizer([owner](){
+          delete owner;
+          });
+        SWIG_NAPI_SetFinalizer(env, jsresult, finalizer);
+      }
+    }
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function_dispatcher
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519__wrap_KeyPairEd25519_create(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_KeyPairEd25519_create__SWIG_0(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_KeyPairEd25519_create__SWIG_0(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_KeyPairEd25519_create__SWIG_1(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_KeyPairEd25519_create__SWIG_1(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  SWIG_Error(SWIG_ERROR, "Illegal arguments for function create.");
+#ifndef NAPI_CPP_EXCEPTIONS
+  goto fail;
+fail:
+#endif
+  return Napi::Value();
+}
+
+
 // js_function
 template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_calculatePublicKey(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
-  memory::ConstBlockPtr arg1 ;
+  memory::Block *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
   SwigValueWrapper< memory::Block > result;
   
   
@@ -8463,36 +8682,42 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_c
       SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_KeyPairEd25519_calculatePublicKey.");
     }
     
-    {
-      {
-        memory::Block *plain_ptr;
-        int res = SWIG_ConvertPtr(info[0], reinterpret_cast<void**>(&plain_ptr), SWIGTYPE_p_memory__Block,  0 );
-        if (!SWIG_IsOK(res)) {
-          SWIG_exception_fail(SWIG_ArgError(res), "in method '" "KeyPairEd25519_calculatePublicKey" "', argument " "1"" of type '" "memory::Block""'");
-        }
-        arg1 = std::shared_ptr<const memory::Block>(plain_ptr, SWIG_null_deleter());
-      }
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_memory__Block,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519_calculatePublicKey" "', argument " "1"" of type '" "memory::Block const &""'"); 
     }
-    
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "KeyPairEd25519_calculatePublicKey" "', argument " "1"" of type '" "memory::Block const &""'"); 
+    }
+    arg1 = reinterpret_cast< memory::Block * >(argp1);
     
     
     
     
     {
       try {
-        result = KeyPairEd25519::calculatePublicKey(SWIG_STD_MOVE(arg1));
+        result = KeyPairEd25519::calculatePublicKey((memory::Block const &)*arg1);
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -8541,7 +8766,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_d
     
     res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519, 0 |  0 );
     if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519_deriveChild" "', argument " "1"" of type '" "KeyPairEd25519 *""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519_deriveChild" "', argument " "1"" of type '" "KeyPairEd25519 const *""'"); 
     }
     arg1 = reinterpret_cast< KeyPairEd25519 * >(argp1);ecode2 = SWIG_AsVal_unsigned_SS_int(info[0], &val2);
     if (!SWIG_IsOK(ecode2)) {
@@ -8554,19 +8779,28 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_d
     
     {
       try {
-        result = (arg1)->deriveChild(arg2);
+        result = ((KeyPairEd25519 const *)arg1)->deriveChild(arg2);
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -8634,17 +8868,26 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_g
       try {
         result = (Ed25519DerivationType)KeyPairEd25519::getDerivationType(arg1);
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -8706,17 +8949,26 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_s
       try {
         result = ((KeyPairEd25519 const *)arg1)->sign((memory::Block const &)*arg2);
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -8783,17 +9035,26 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_s
       try {
         result = ((KeyPairEd25519 const *)arg1)->sign((std::string const &)*arg2);
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -8862,17 +9123,26 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_s
       try {
         result = ((KeyPairEd25519 const *)arg1)->sign((unsigned char const *)arg2,SWIG_STD_MOVE(arg3));
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -9077,17 +9347,26 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_v
       try {
         result = (bool)((KeyPairEd25519 const *)arg1)->verify((std::string const &)*arg2,(std::string const &)*arg3);
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -9166,17 +9445,26 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_v
       try {
         result = (bool)((KeyPairEd25519 const *)arg1)->verify((memory::Block const &)*arg2,(memory::Block const &)*arg3);
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -9320,17 +9608,26 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_i
       try {
         result = (bool)((KeyPairEd25519 const *)arg1)->is3rdHighestBitClear();
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -9387,17 +9684,26 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_g
       try {
         result = ((KeyPairEd25519 const *)arg1)->getPublicKey();
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -9465,17 +9771,26 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_g
       try {
         result = ((KeyPairEd25519 const *)arg1)->getChainCode();
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -9548,17 +9863,26 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_i
       try {
         result = (bool)((KeyPairEd25519 const *)arg1)->isTheSame((KeyPairEd25519 const &)*arg2);
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -9621,17 +9945,26 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_i
       try {
         result = (int)((KeyPairEd25519 const *)arg1)->isTheSame(SWIG_STD_MOVE(arg2));
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -9785,17 +10118,26 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_e
       try {
         result = (bool)((KeyPairEd25519 const *)arg1)->operator ==((KeyPairEd25519 const &)*arg2);
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -9862,17 +10204,26 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_n
       try {
         result = (bool)((KeyPairEd25519 const *)arg1)->operator !=((KeyPairEd25519 const &)*arg2);
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -9929,17 +10280,26 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_h
       try {
         result = (bool)((KeyPairEd25519 const *)arg1)->hasPrivateKey();
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -9970,9 +10330,11 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_g
   Napi::Env env = info.Env();
   Napi::Value jsresult;
   KeyPairEd25519 *arg1 = (KeyPairEd25519 *) 0 ;
-  std::shared_ptr< SecretKeyCryptography > arg2 ;
+  SecretKeyCryptography *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
   SwigValueWrapper< memory::Block > result;
   
   
@@ -9988,36 +10350,42 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_g
     if (!SWIG_IsOK(res1)) {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519_getCryptedPrivKey" "', argument " "1"" of type '" "KeyPairEd25519 const *""'"); 
     }
-    arg1 = reinterpret_cast< KeyPairEd25519 * >(argp1);{
-      {
-        SecretKeyCryptography *plain_ptr;
-        int res = SWIG_ConvertPtr(info[0], reinterpret_cast<void**>(&plain_ptr), SWIGTYPE_p_SecretKeyCryptography,  0 );
-        if (!SWIG_IsOK(res)) {
-          SWIG_exception_fail(SWIG_ArgError(res), "in method '" "KeyPairEd25519_getCryptedPrivKey" "', argument " "2"" of type '" "SecretKeyCryptography""'");
-        }
-        arg2 = std::shared_ptr< SecretKeyCryptography>(plain_ptr, SWIG_null_deleter());
-      }
+    arg1 = reinterpret_cast< KeyPairEd25519 * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_SecretKeyCryptography,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "KeyPairEd25519_getCryptedPrivKey" "', argument " "2"" of type '" "SecretKeyCryptography const &""'"); 
     }
-    
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "KeyPairEd25519_getCryptedPrivKey" "', argument " "2"" of type '" "SecretKeyCryptography const &""'"); 
+    }
+    arg2 = reinterpret_cast< SecretKeyCryptography * >(argp2);
     
     
     
     
     {
       try {
-        result = ((KeyPairEd25519 const *)arg1)->getCryptedPrivKey(SWIG_STD_MOVE(arg2));
+        result = ((KeyPairEd25519 const *)arg1)->getCryptedPrivKey((SecretKeyCryptography const &)*arg2);
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -10026,6 +10394,160 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_g
     
     
     jsresult = SWIG_NewPointerObj((new memory::Block(result)), SWIGTYPE_p_memory__Block, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_normalizeBytesForce3rd(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  memory::Block *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_KeyPairEd25519_normalizeBytesForce3rd.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_memory__Block,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519_normalizeBytesForce3rd" "', argument " "1"" of type '" "memory::Block &""'"); 
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "KeyPairEd25519_normalizeBytesForce3rd" "', argument " "1"" of type '" "memory::Block &""'"); 
+    }
+    arg1 = reinterpret_cast< memory::Block * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        KeyPairEd25519::normalizeBytesForce3rd(*arg1);
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = env.Undefined();
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_isNormalized(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  KeyPairEd25519 *arg1 = (KeyPairEd25519 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_KeyPairEd25519_isNormalized.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519_isNormalized" "', argument " "1"" of type '" "KeyPairEd25519 *""'"); 
+    }
+    arg1 = reinterpret_cast< KeyPairEd25519 * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)(arg1)->isNormalized();
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
     
     
     return jsresult;
@@ -10062,8 +10584,8 @@ _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_exports_KeyPairEd25519Ex_templ(
   memory::ConstBlockPtr arg1 ;
   memory::ConstBlockPtr arg2 ;
   memory::ConstBlockPtr arg3 ;
-  int arg4 ;
-  int val4 ;
+  uint32_t arg4 ;
+  unsigned int val4 ;
   int ecode4 = 0 ;
   KeyPairEd25519Ex *result;
 #ifdef NAPI_CPP_EXCEPTIONS
@@ -10102,25 +10624,34 @@ _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_exports_KeyPairEd25519Ex_templ(
         arg3 = std::shared_ptr<const memory::Block>(plain_ptr, SWIG_null_deleter());
       }
     }
-    ecode4 = SWIG_AsVal_int(info[3], &val4);
+    ecode4 = SWIG_AsVal_unsigned_SS_int(info[3], &val4);
     if (!SWIG_IsOK(ecode4)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_KeyPairEd25519Ex" "', argument " "4"" of type '" "int""'");
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_KeyPairEd25519Ex" "', argument " "4"" of type '" "uint32_t""'");
     } 
-    arg4 = static_cast< int >(val4);{
+    arg4 = static_cast< uint32_t >(val4);{
       try {
         result = (KeyPairEd25519Ex *)new KeyPairEd25519Ex(SWIG_STD_MOVE(arg1),SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3),arg4);
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -10163,86 +10694,6 @@ _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::~_exports_KeyPairEd25519Ex_templ
 
 // js_function
 template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_sign(const Napi::CallbackInfo &info) {
-  Napi::Env env = info.Env();
-  Napi::Value jsresult;
-  KeyPairEd25519Ex *arg1 = (KeyPairEd25519Ex *) 0 ;
-  unsigned char *arg2 = (unsigned char *) 0 ;
-  size_t arg3 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  SwigValueWrapper< memory::Block > result;
-  
-  
-#ifdef NAPI_CPP_EXCEPTIONS
-  try {
-#endif
-    
-    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_KeyPairEd25519Ex_sign.");
-    }
-    
-    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_sign" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
-    }
-    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);{
-      {
-        if (!info[1].IsTypedArray()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a Uint8Array as input");
-        }
-        
-        Napi::Uint8Array array = info[1].As<Napi::Uint8Array>();
-        arg2 = array.Data();  
-        arg3 = array.ByteLength();
-      }
-    }
-    
-    
-    
-    
-    
-    {
-      try {
-        result = ((KeyPairEd25519Ex const *)arg1)->sign((unsigned char const *)arg2,SWIG_STD_MOVE(arg3));
-      } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
-      } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
-      } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
-      } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
-      } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
-      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
-      } catch (const std::exception& e) {
-        SWIG_exception(SWIG_RuntimeError, e.what());
-      }
-    }
-    
-    
-    
-    jsresult = SWIG_NewPointerObj((new memory::Block(result)), SWIGTYPE_p_memory__Block, SWIG_POINTER_OWN |  0 );
-    
-    
-    return jsresult;
-#ifdef NAPI_CPP_EXCEPTIONS
-  } catch (...) {
-    std::rethrow_exception(std::current_exception());
-  }
-#else
-  goto fail;
-fail:
-  
-#endif
-  return Napi::Value();
-}
-
-
-// js_function
-template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_isChildOf(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
@@ -10280,17 +10731,330 @@ Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519
       try {
         result = (bool)(arg1)->isChildOf(arg2);
       } catch (const Ed25519SignException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519VerifyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519DeriveException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519InvalidKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const Ed25519MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_getDerivationIndex(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  KeyPairEd25519Ex *arg1 = (KeyPairEd25519Ex *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  uint32_t result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_KeyPairEd25519Ex_getDerivationIndex.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_getDerivationIndex" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
+    }
+    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (uint32_t)((KeyPairEd25519Ex const *)arg1)->getDerivationIndex();
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_unsigned_SS_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< unsigned int >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_getDerivationType(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  KeyPairEd25519Ex *arg1 = (KeyPairEd25519Ex *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  Ed25519DerivationType result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_KeyPairEd25519Ex_getDerivationType.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_getDerivationType" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
+    }
+    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (Ed25519DerivationType)((KeyPairEd25519Ex const *)arg1)->getDerivationType();
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_isSoftDerivated(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  KeyPairEd25519Ex *arg1 = (KeyPairEd25519Ex *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_KeyPairEd25519Ex_isSoftDerivated.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_isSoftDerivated" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
+    }
+    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)((KeyPairEd25519Ex const *)arg1)->isSoftDerivated();
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_isHardDerivated(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  KeyPairEd25519Ex *arg1 = (KeyPairEd25519Ex *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_KeyPairEd25519Ex_isHardDerivated.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_isHardDerivated" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
+    }
+    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)((KeyPairEd25519Ex const *)arg1)->isHardDerivated();
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
