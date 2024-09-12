@@ -269,7 +269,7 @@ describe('test interaction to Json', () => {
         gradidoTransaction: { 
           signatureMap: [{
             pubkey: '643c438776fc2634faf887df8485b9ed580729c2099e00e4d4d53cd74626a0d6',
-            signature: '04b195f8b28fbb09bbefb63df2c48a0898f24fbeb84f42e42bd24c0251fc31c55f1386b9f10243464455570f2cfbdefbef411cbb8d7037af7dff6765d9b33209'
+            signature: '2d9ab75e055a4853ce3cf69b8a121b052b32a50332b87ee540c6e1cfd5914ef914dca858eab8ed7c212dde5a69ee0087208ac4cbd7a884f95bb320a4d43e6002'
           }], 
           bodyBytes: { 
             json: {
@@ -289,7 +289,7 @@ describe('test interaction to Json', () => {
         },
         confirmedAt: '2021-01-01 01:22:10.0000',
         versionNumber: '3.3',
-        runningHash: '882700c5d5acc7381a9da4861edb90adbbabc7d642869fdd572b345e5665d85a',
+        runningHash: '7c8173198853521bf017bc47e8925d999b594b85a3c9635f4e2e46063ee7f8d1',
         messageId: '0000000000000000000000000000000000000000000000000000000000000000',
         accountBalance: '899.7484'
       }

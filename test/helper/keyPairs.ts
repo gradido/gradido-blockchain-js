@@ -9,7 +9,8 @@ import {
   crypto_sign_PUBLICKEYBYTES, 
   crypto_sign_SECRETKEYBYTES, 
   crypto_sign_BYTES, 
-  crypto_sign_detached 
+  crypto_sign_detached, 
+  crypto_sign_verify_detached
 } from 'sodium-native'
 import { GradidoTransaction, MemoryBlock, SignaturePair } from '../../'
 
@@ -60,6 +61,25 @@ function generateKeyPairs(): KeyPair[] {
   return keyPairs
 }
 
+function simpleSign(bodyBytes: MemoryBlock, keyPair: KeyPair): MemoryBlock
+{
+  const signBuffer = Buffer.alloc(crypto_sign_BYTES)
+  crypto_sign_detached(
+    signBuffer, 
+    Buffer.from(bodyBytes.data()), 
+    Buffer.from(keyPair.privateKey.data())
+  )
+  return new MemoryBlock(signBuffer)
+}
+
+function verify(signature: MemoryBlock, bodyBytes: MemoryBlock, keyPair: KeyPair): boolean
+{
+  return crypto_sign_verify_detached(
+    Buffer.from(signature.data()), 
+    Buffer.from(bodyBytes.data()), 
+    Buffer.from(keyPair.publicKey.data())
+  )
+}
 
 function sign(transaction: GradidoTransaction, keyPair: KeyPair)
 {
@@ -76,4 +96,4 @@ function sign(transaction: GradidoTransaction, keyPair: KeyPair)
     transaction.getSignatureMap().push(new SignaturePair(keyPair.publicKey, new MemoryBlock(signBuffer)));
 }
 
-export { generateKeyPairs, sign, KeyPair }
+export { generateKeyPairs, sign, simpleSign, verify, KeyPair }

@@ -8,7 +8,7 @@ import {
   ConfirmedTransaction 
 } from '../../'
 import { confirmedAt, createdAt, versionString } from '../helper/const'
-import { generateKeyPairs, KeyPair } from '../helper/keyPairs'
+import { generateKeyPairs, KeyPair, simpleSign } from '../helper/keyPairs'
 import { communityRootTransactionBase64 } from '../helper/serializedTransactions'
 
 let keyPairs: KeyPair[]
@@ -21,9 +21,10 @@ describe('validate Confirmed Transactions', () => {
   })
   beforeEach(() => {
     builder.reset()
+    const bodyBytes = MemoryBlock.fromBase64(communityRootTransactionBase64)
     builder
-      .setTransactionBody(MemoryBlock.fromBase64(communityRootTransactionBase64))
-      .sign(new KeyPairEd25519(keyPairs[0].publicKey, keyPairs[0].privateKey))
+      .setTransactionBody(bodyBytes)
+      .addSignaturePair(keyPairs[0].publicKey, simpleSign(bodyBytes, keyPairs[0]))
   })
   it('valid', () => { 
     const confirmedTransaction = new ConfirmedTransaction(

@@ -123,11 +123,11 @@ void _exports_KeyPairEd25519Ex_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("sign");
+  members.erase("isNormalized");
   members.insert({
-    "sign",
-      _exports_KeyPairEd25519Ex_templ::InstanceMethod("sign",
-        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_sign,
+    "isNormalized",
+      _exports_KeyPairEd25519_templ::InstanceMethod("isNormalized",
+        &_exports_KeyPairEd25519_templ::_wrap_KeyPairEd25519_isNormalized,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -138,6 +138,38 @@ void _exports_KeyPairEd25519Ex_inst::GetMembers(
         &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_isChildOf,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("getDerivationIndex");
+  members.insert({
+    "getDerivationIndex",
+      _exports_KeyPairEd25519Ex_templ::InstanceMethod("getDerivationIndex",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_getDerivationIndex,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getDerivationType");
+  members.insert({
+    "getDerivationType",
+      _exports_KeyPairEd25519Ex_templ::InstanceMethod("getDerivationType",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_getDerivationType,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isSoftDerivated");
+  members.insert({
+    "isSoftDerivated",
+      _exports_KeyPairEd25519Ex_templ::InstanceMethod("isSoftDerivated",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_isSoftDerivated,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isHardDerivated");
+  members.insert({
+    "isHardDerivated",
+      _exports_KeyPairEd25519Ex_templ::InstanceMethod("isHardDerivated",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_isHardDerivated,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   // jsnapi_register_static_function
@@ -145,7 +177,7 @@ void _exports_KeyPairEd25519Ex_inst::GetMembers(
   staticMembers.insert({
     "create",
       StaticMethod("create",
-        &_exports_KeyPairEd25519_templ::_wrap_KeyPairEd25519_create,
+        &_exports_KeyPairEd25519_templ::_wrap_KeyPairEd25519__wrap_KeyPairEd25519_create,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_static_function
@@ -162,6 +194,14 @@ void _exports_KeyPairEd25519Ex_inst::GetMembers(
     "getDerivationType",
       StaticMethod("getDerivationType",
         &_exports_KeyPairEd25519_templ::_wrap_KeyPairEd25519_getDerivationType,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_static_function
+  staticMembers.erase("normalizeBytesForce3rd");
+  staticMembers.insert({
+    "normalizeBytesForce3rd",
+      StaticMethod("normalizeBytesForce3rd",
+        &_exports_KeyPairEd25519_templ::_wrap_KeyPairEd25519_normalizeBytesForce3rd,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

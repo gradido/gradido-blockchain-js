@@ -12,7 +12,7 @@ import {
   TimestampSeconds
 } from '../../'
 import { confirmedAt, createdAt, targetDate, timeout, versionString } from '../helper/const'
-import { generateKeyPairs, KeyPair } from '../helper/keyPairs'
+import { generateKeyPairs, KeyPair, verify } from '../helper/keyPairs'
 import { 
   communityFriendsUpdateBase64,
   communityRootTransactionBase64,
@@ -277,10 +277,8 @@ describe('Deserialize Gradido Transaction Test', () => {
     const firstSignature = gradidoTransaction?.getSignatureMap().getSignaturePairs().get(0).getSignature() as MemoryBlock;
 	  const bodyBytes = gradidoTransaction?.getBodyBytes();
     expect(bodyBytes).not.toBeNull()
-    const keyPair = new KeyPairEd25519(keyPairs[0].publicKey, keyPairs[0].privateKey)
-    expect(keyPair.verify(bodyBytes!, firstSignature)).toBeTruthy()
-    const keyPair2 = new KeyPairEd25519(keyPairs[2].publicKey, keyPairs[2].privateKey)
-    expect(keyPair2.verify(bodyBytes!, firstSignature)).toBeFalsy()
+    expect(verify(firstSignature, bodyBytes!, keyPairs[0])).toBeTruthy()
+    expect(verify(firstSignature, bodyBytes!, keyPairs[2])).toBeFalsy()
 
     const body = gradidoTransaction?.getTransactionBody()
     expect(body).not.toBeNull()

@@ -8,7 +8,7 @@ import {
 } from '../../'
 
 import { confirmedAt } from '../helper/const'
-import { generateKeyPairs, KeyPair } from '../helper/keyPairs'
+import { generateKeyPairs, KeyPair, simpleSign } from '../helper/keyPairs'
 import {
   communityRootTransactionBase64,
   creationTransactionBase64,
@@ -57,8 +57,8 @@ describe('tests with empty in-memory blockchain', () => {
       const bodyBytes = MemoryBlock.fromBase64(registeAddressTransactionBase64)
       const transaction = builder
         .setTransactionBody(bodyBytes)
-        .sign(new KeyPairEd25519(keyPairs[0].publicKey, keyPairs[0].privateKey))
-        .sign(new KeyPairEd25519(keyPairs[4].publicKey, keyPairs[4].privateKey))
+        .addSignaturePair(keyPairs[0].publicKey, simpleSign(bodyBytes, keyPairs[0]))
+        .addSignaturePair(keyPairs[4].publicKey, simpleSign(bodyBytes, keyPairs[4]))
         .build()
       expect(() => blockchain.addGradidoTransaction(transaction, null, confirmedAt))
         .toThrow('cannot find community root transaction before register address')
@@ -68,7 +68,7 @@ describe('tests with empty in-memory blockchain', () => {
       const bodyBytes = MemoryBlock.fromBase64(creationTransactionBase64)
       const transaction = builder
         .setTransactionBody(bodyBytes)
-        .sign(new KeyPairEd25519(keyPairs[3].publicKey, keyPairs[3].privateKey))
+        .addSignaturePair(keyPairs[3].publicKey, simpleSign(bodyBytes, keyPairs[3]))
         .build()
       expect(() => blockchain.addGradidoTransaction(transaction, null, confirmedAt))
         .toThrow("signer for creation doesn't have a community human account")
@@ -78,7 +78,7 @@ describe('tests with empty in-memory blockchain', () => {
       const bodyBytes = MemoryBlock.fromBase64(transferTransactionBase64)
       const transaction = builder
         .setTransactionBody(bodyBytes)
-        .sign(new KeyPairEd25519(keyPairs[4].publicKey, keyPairs[4].privateKey))
+        .addSignaturePair(keyPairs[4].publicKey, simpleSign(bodyBytes, keyPairs[4]))
         .build()
       expect(() => blockchain.addGradidoTransaction(transaction, null, confirmedAt))
         .toThrow('not enough gdd for transfer or deferred transfer')
@@ -88,7 +88,7 @@ describe('tests with empty in-memory blockchain', () => {
       const bodyBytes = MemoryBlock.fromBase64(deferredTransferTransactionBase64)
       const transaction = builder
         .setTransactionBody(bodyBytes)
-        .sign(new KeyPairEd25519(keyPairs[4].publicKey, keyPairs[4].privateKey))
+        .addSignaturePair(keyPairs[4].publicKey, simpleSign(bodyBytes, keyPairs[4]))
         .build()
       expect(() => blockchain.addGradidoTransaction(transaction, null, confirmedAt))
         .toThrow('not enough gdd for transfer or deferred transfer')
