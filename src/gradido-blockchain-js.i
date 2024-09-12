@@ -6,7 +6,20 @@
 
 %{
 #include "gradido_blockchain/const.h"
+
+#include <magic_enum/magic_enum.hpp>
+#include <string>
+
+template <typename E>
+std::string enum_to_string(E value) {
+  return std::string(magic_enum::enum_name(value));
+}
 %}
+%inline %{
+template <typename E>
+std::string enum_to_string(E value);
+%}
+
 
 // operator remapping with names because no operator overloading in javascript 
 %rename(call) operator();
@@ -50,6 +63,11 @@
 %typemap(ts) gradido::data::AddressType "AddressType";
 %typemap(ts) gradido::data::CrossGroupType "CrossGroupType";
 %typemap(ts) gradido::data::TransactionType "TransactionType";
+
+%template(addressTypeToString) enum_to_string<gradido::data::AddressType>;
+%template(crossGroupTypeToString) enum_to_string<gradido::data::CrossGroupType>;
+%template(transactionTypeToString) enum_to_string<gradido::data::TransactionType>;
+
 // base types
 %include "MemoryBlock.i"
 // crypto types

@@ -19,5 +19,5 @@
 
 %include "gradido_blockchain/interaction/deserialize/Type.h"
 %typemap(ts) gradido::interaction::deserialize::Type "DeserializeType";
-
+%template(deserializeTypeToString) enum_to_string<gradido::interaction::deserialize::Type>;
 %include "gradido_blockchain/interaction/deserialize/Context.h"

@@ -10,6 +10,168 @@
 
 
 // js_global_function
+Napi::Value _wrap_addressTypeToString(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::AddressType arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  std::string result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_addressTypeToString.");
+    }
+    
+    ecode1 = SWIG_AsVal_int(info[0], &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "addressTypeToString" "', argument " "1"" of type '" "gradido::data::AddressType""'");
+    } 
+    arg1 = static_cast< gradido::data::AddressType >(val1);
+    
+    
+    
+    
+    {
+      try {
+        result = enum_to_string< gradido::data::AddressType >(arg1);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_function
+Napi::Value _wrap_crossGroupTypeToString(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::CrossGroupType arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  std::string result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_crossGroupTypeToString.");
+    }
+    
+    ecode1 = SWIG_AsVal_int(info[0], &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "crossGroupTypeToString" "', argument " "1"" of type '" "gradido::data::CrossGroupType""'");
+    } 
+    arg1 = static_cast< gradido::data::CrossGroupType >(val1);
+    
+    
+    
+    
+    {
+      try {
+        result = enum_to_string< gradido::data::CrossGroupType >(arg1);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_function
+Napi::Value _wrap_transactionTypeToString(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::TransactionType arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  std::string result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_transactionTypeToString.");
+    }
+    
+    ecode1 = SWIG_AsVal_int(info[0], &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "transactionTypeToString" "', argument " "1"" of type '" "gradido::data::TransactionType""'");
+    } 
+    arg1 = static_cast< gradido::data::TransactionType >(val1);
+    
+    
+    
+    
+    {
+      try {
+        result = enum_to_string< gradido::data::TransactionType >(arg1);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_function
 Napi::Value _wrap_loadCryptoKeys(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
@@ -61,6 +223,81 @@ Napi::Value _wrap_loadCryptoKeys(const Napi::CallbackInfo &info) {
     
     
     jsresult = env.Undefined();
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_function
+Napi::Value _wrap_ed25519DerivationTypeToString(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  Ed25519DerivationType arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  std::string result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_ed25519DerivationTypeToString.");
+    }
+    
+    ecode1 = SWIG_AsVal_int(info[0], &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "ed25519DerivationTypeToString" "', argument " "1"" of type '" "Ed25519DerivationType""'");
+    } 
+    arg1 = static_cast< Ed25519DerivationType >(val1);
+    
+    
+    
+    
+    {
+      try {
+        result = enum_to_string< Ed25519DerivationType >(arg1);
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
     
     
     return jsresult;
@@ -361,6 +598,257 @@ Napi::Value _wrap_SealedBoxes__wrap_SealedBoxDecrypt(const Napi::CallbackInfo &i
 #ifndef NAPI_CPP_EXCEPTIONS
   goto fail;
 fail:
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_function
+Napi::Value _wrap_deserializeTypeToString(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::interaction::deserialize::Type arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  std::string result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_deserializeTypeToString.");
+    }
+    
+    ecode1 = SWIG_AsVal_int(info[0], &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "deserializeTypeToString" "', argument " "1"" of type '" "gradido::interaction::deserialize::Type""'");
+    } 
+    arg1 = static_cast< gradido::interaction::deserialize::Type >(val1);
+    
+    
+    
+    
+    {
+      try {
+        result = enum_to_string< gradido::interaction::deserialize::Type >(arg1);
+      } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_function
+Napi::Value _wrap_searchDirectionToString(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::SearchDirection arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  std::string result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_searchDirectionToString.");
+    }
+    
+    ecode1 = SWIG_AsVal_int(info[0], &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "searchDirectionToString" "', argument " "1"" of type '" "gradido::blockchain::SearchDirection""'");
+    } 
+    arg1 = static_cast< gradido::blockchain::SearchDirection >(val1);
+    
+    
+    
+    
+    {
+      try {
+        result = enum_to_string< gradido::blockchain::SearchDirection >(arg1);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_function
+Napi::Value _wrap_bodyBytesTypeToString(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::interaction::toJson::BodyBytesType arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  std::string result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_bodyBytesTypeToString.");
+    }
+    
+    ecode1 = SWIG_AsVal_int(info[0], &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "bodyBytesTypeToString" "', argument " "1"" of type '" "gradido::interaction::toJson::BodyBytesType""'");
+    } 
+    arg1 = static_cast< gradido::interaction::toJson::BodyBytesType >(val1);
+    
+    
+    
+    
+    {
+      try {
+        result = enum_to_string< gradido::interaction::toJson::BodyBytesType >(arg1);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_function
+Napi::Value _wrap_validateTypeToString(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::interaction::validate::Type arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  std::string result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_validateTypeToString.");
+    }
+    
+    ecode1 = SWIG_AsVal_int(info[0], &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "validateTypeToString" "', argument " "1"" of type '" "gradido::interaction::validate::Type""'");
+    } 
+    arg1 = static_cast< gradido::interaction::validate::Type >(val1);
+    
+    
+    
+    
+    {
+      try {
+        result = enum_to_string< gradido::interaction::validate::Type >(arg1);
+      } catch (const gradido::interaction::validate::WrongAddressTypeException& e) {
+        std::string message = "WrongAddressTypeException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const gradido::interaction::validate::InvalidCreationException& e) {
+        std::string message = "InvalidCreationException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const InsufficientBalanceException& e) {
+        std::string message = "InsufficientBalanceException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const gradido::interaction::validate::AddressAlreadyExistException& e) {
+        std::string message = "AddressAlreadyExistException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const gradido::interaction::validate::PairingTransactionNotMatchException& e) {
+        std::string message = "PairingTransactionNotMatchException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const gradido::interaction::validate::TransactionValidationRequiredSignMissingException& e) {
+        std::string message = "TransactionValidationRequiredSignMissingException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());        
+      } catch (const gradido::interaction::validate::TransactionValidationMissingSignException& e) {
+        std::string message = "TransactionValidationMissingSignException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const gradido::interaction::validate::TransactionValidationForbiddenSignException& e) {
+        std::string message = "TransactionValidationForbiddenSignException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const gradido::interaction::validate::TransactionValidationInvalidSignatureException& e) {
+        std::string message = "TransactionValidationInvalidSignatureException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const gradido::interaction::validate::TransactionValidationInvalidInputException& e) {
+        std::string message = "TransactionValidationInvalidInputException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const gradido::interaction::validate::TransactionValidationException& e) {
+        std::string message = "TransactionValidationException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
 #endif
   return Napi::Value();
 }

@@ -44,6 +44,7 @@
 %rename("$ignore") KeyPairEd25519::operator!=(const unsigned char* b) const;
 %ignore KeyPairEd25519::operator!= (const unsigned char* b) const;
 %typemap(ts) Ed25519DerivationType "Ed25519DerivationType";
+%template(ed25519DerivationTypeToString) enum_to_string<Ed25519DerivationType>;
 %typemap(ts) std::shared_ptr<KeyPairEd25519Ex> "KeyPairEd25519Ex";
 %rename("$ignore") isNormalized(const memory::Block& key);
 //%rename(createFromPassphrase) create(const std::shared_ptr<Passphrase> passphrase);

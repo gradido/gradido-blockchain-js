@@ -52,5 +52,6 @@ namespace gradido::blockchain {
 %include "gradido_blockchain/blockchain/Pagination.h"
 %include "gradido_blockchain/blockchain/SearchDirection.h"
 %typemap(ts) gradido::blockchain::SearchDirection "SearchDirection";
+%template(searchDirectionToString) enum_to_string<gradido::blockchain::SearchDirection>;
 %include "gradido_blockchain/blockchain/Filter.h"
 %include "gradido_blockchain/blockchain/FilterBuilder.h"

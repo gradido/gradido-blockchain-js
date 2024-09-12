@@ -88,6 +88,12 @@ export const TransactionType_COMMUNITY_ROOT: TransactionType;
 
 export type TransactionType = number & { readonly [_SWIG_enum_tag]: 'TransactionType'; };
 
+export function addressTypeToString(value: AddressType): string;
+
+export function crossGroupTypeToString(value: CrossGroupType): string;
+
+export function transactionTypeToString(value: TransactionType): string;
+
 export  class MemoryBlocks {
 
   constructor();
@@ -199,6 +205,8 @@ export  class SecretKeyCryptography {
 
   decrypt(encryptedMessage: MemoryBlock): MemoryBlock;
 }
+
+export function ed25519DerivationTypeToString(value: Ed25519DerivationType): string;
 
 export const Ed25519DerivationType_SOFT: Ed25519DerivationType;
 
@@ -763,6 +771,8 @@ export const DeserializeType_MAX: DeserializeType;
 
 export type DeserializeType = number & { readonly [_SWIG_enum_tag]: 'DeserializeType'; };
 
+export function deserializeTypeToString(value: DeserializeType): string;
+
 export  class InteractionDeserialize {
 
   constructor(rawData: MemoryBlock|null, hint: DeserializeType);
@@ -895,6 +905,8 @@ export const SearchDirection_ASC: SearchDirection;
 export const SearchDirection_DESC: SearchDirection;
 
 export type SearchDirection = number & { readonly [_SWIG_enum_tag]: 'SearchDirection'; };
+
+export function searchDirectionToString(value: SearchDirection): string;
 
 export  class Filter {
 
@@ -1034,6 +1046,8 @@ export const BodyBytesType_JSON: BodyBytesType;
 
 export type BodyBytesType = number & { readonly [_SWIG_enum_tag]: 'BodyBytesType'; };
 
+export function bodyBytesTypeToString(value: BodyBytesType): string;
+
 export  class InteractionToJson {
 
   constructor(body: TransactionBody);
@@ -1081,6 +1095,8 @@ export const ValidateType_CONNECTED_GROUP: ValidateType;
 export const ValidateType_CONNECTED_BLOCKCHAIN: ValidateType;
 
 export type ValidateType = number & { readonly [_SWIG_enum_tag]: 'ValidateType'; };
+
+export function validateTypeToString(value: ValidateType): string;
 
 export  class InteractionValidate {
 

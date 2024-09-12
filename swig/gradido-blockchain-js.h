@@ -1044,6 +1044,18 @@ Napi::Object Init(Napi::Env env, Napi::Object exports);
 
 #include "gradido_blockchain/const.h"
 
+#include <magic_enum/magic_enum.hpp>
+#include <string>
+
+template <typename E>
+std::string enum_to_string(E value) {
+  return std::string(magic_enum::enum_name(value));
+}
+
+
+template <typename E>
+std::string enum_to_string(E value);
+
 
 #include <string>
 
@@ -1108,6 +1120,16 @@ Napi::Value SWIG_From_int(Napi::Env env, int val)
 }
 
 
+SWIGINTERN
+int SWIG_AsVal_int (Napi::Value valRef, int* val);
+
+// js_global_declaration
+Napi::Value _wrap_addressTypeToString(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value _wrap_crossGroupTypeToString(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value _wrap_transactionTypeToString(const Napi::CallbackInfo &info);
+
 #include "gradido_blockchain/memory/Block.h"
 
 
@@ -1165,10 +1187,6 @@ struct SWIG_null_deleter {
 #define SWIG_NO_NULL_DELETER_1
 #define SWIG_NO_NULL_DELETER_SWIG_POINTER_NEW
 #define SWIG_NO_NULL_DELETER_SWIG_POINTER_OWN
-
-
-SWIGINTERN
-int SWIG_AsVal_int (Napi::Value valRef, int* val);
 
 SWIGINTERNINLINE std::vector< std::shared_ptr< memory::Block > >::const_reference std_vector_Sl_std_shared_ptr_Sl_memory_Block_Sg__Sg__get(std::vector< std::shared_ptr< memory::Block > > *self,int i){
                 int size = int(self->size());
@@ -1229,6 +1247,8 @@ Napi::Value _wrap_loadCryptoKeys(const Napi::CallbackInfo &info);
 //using namespace gradido;
 #include "gradido_blockchain/crypto/SecretKeyCryptography.h"
 
+// js_global_declaration
+Napi::Value _wrap_ed25519DerivationTypeToString(const Napi::CallbackInfo &info);
 
 #include "gradido_blockchain/crypto/KeyPairEd25519.h"
 #include "gradido_blockchain/crypto/KeyPairEd25519Ex.h"
@@ -1317,6 +1337,8 @@ Napi::Value SWIG_From_unsigned_SS_long_SS_long(Napi::Env env, unsigned long long
 #include "gradido_blockchain/interaction/deserialize/Exceptions.h"
 #include "gradido_blockchain/interaction/deserialize/Context.h"
 
+// js_global_declaration
+Napi::Value _wrap_deserializeTypeToString(const Napi::CallbackInfo &info);
 
 #include "gradido_blockchain/interaction/serialize/Exceptions.h"
 #include "gradido_blockchain/interaction/serialize/Context.h"
@@ -1345,6 +1367,8 @@ SWIGINTERNINLINE void std_vector_Sl_std_shared_ptr_Sl_gradido_blockchain_Transac
 #include "gradido_blockchain/blockchain/Filter.h"
 #include "gradido_blockchain/blockchain/FilterBuilder.h"
 
+// js_global_declaration
+Napi::Value _wrap_searchDirectionToString(const Napi::CallbackInfo &info);
 
 #include "gradido_blockchain/blockchain/InMemory.h"
 
@@ -1357,6 +1381,8 @@ SWIGINTERNINLINE std::shared_ptr< gradido::blockchain::InMemory > gradido_blockc
 
 #include "gradido_blockchain/interaction/toJson/Context.h"
 
+// js_global_declaration
+Napi::Value _wrap_bodyBytesTypeToString(const Napi::CallbackInfo &info);
 
 #include "gradido_blockchain/interaction/calculateAccountBalance/Context.h"
 
@@ -1365,6 +1391,8 @@ SWIGINTERNINLINE std::shared_ptr< gradido::blockchain::InMemory > gradido_blockc
 #include "gradido_blockchain/interaction/validate/Exceptions.h"
 #include "gradido_blockchain/interaction/validate/Context.h"
 
+// js_global_declaration
+Napi::Value _wrap_validateTypeToString(const Napi::CallbackInfo &info);
 
 #define SWIG_NAPI_INIT gradido_initialize
 

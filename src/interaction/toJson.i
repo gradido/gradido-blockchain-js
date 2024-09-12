@@ -14,7 +14,7 @@
 
 %include "gradido_blockchain/interaction/toJson/BodyBytesType.h"
 %typemap(ts) gradido::interaction::toJson::BodyBytesType "BodyBytesType";
-
+%template(bodyBytesTypeToString) enum_to_string<gradido::interaction::toJson::BodyBytesType>;
 %include "gradido_blockchain/interaction/toJson/Context.h"
 
 
