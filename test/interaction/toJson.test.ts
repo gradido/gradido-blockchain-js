@@ -1,15 +1,28 @@
-import { crypto_generichash_BYTES, crypto_sign_BYTES, crypto_sign_detached } from 'sodium-native'
-import { AddressType_COMMUNITY_HUMAN, ConfirmedTransaction, GradidoTransaction, GradidoTransactionBuilder, GradidoTransfer, InteractionToJson, KeyPairEd25519, MemoryBlock, SignatureMap, SignaturePair, TransactionBody, TransactionBodyBuilder, TransferAmount } from '../..'
+import { crypto_generichash_BYTES } from 'sodium-native'
+import { 
+  AddressType_COMMUNITY_HUMAN, 
+  ConfirmedTransaction, 
+  GradidoTransaction, 
+  GradidoTransactionBuilder, 
+  GradidoTransfer, 
+  InteractionToJson, 
+  KeyPairEd25519, 
+  MemoryBlock, 
+  SignatureMap, 
+  SignaturePair, 
+  TransactionBody,
+  TransferAmount 
+} from '../..'
 import { confirmedAt, createdAt, versionString } from '../helper/const'
-import { generateKeyPairs, KeyPair } from '../helper/keyPairs'
+import { generateKeyPairs } from '../helper/keyPairs'
 import { invalidBodyTestPayload } from '../helper/serializedTransactions'
 
 function toJson(body: TransactionBody) {
   return JSON.parse(new InteractionToJson(body).run())
 }
 
-let keyPairs: KeyPair[]
-const builder = new TransactionBodyBuilder()
+let keyPairs: KeyPairEd25519[]
+const builder = new GradidoTransactionBuilder()
 
 describe('test interaction to Json', () => {
   beforeAll(() => {
@@ -44,62 +57,74 @@ describe('test interaction to Json', () => {
   })
 
   it('community root body', () => {
-    const body = builder
+    const transaction = builder
       .setCommunityRoot(
-        keyPairs[0].publicKey,
-        keyPairs[1].publicKey,
-        keyPairs[2].publicKey
+        keyPairs[0].getPublicKey(),
+        keyPairs[1].getPublicKey(),
+        keyPairs[2].getPublicKey()
       )
+      .sign(keyPairs[0])
       .build()
-    expect(body.isCommunityRoot())
-    expect(toJson(body)).toMatchObject({
+
+    const body = transaction.getTransactionBody()
+    expect(body).not.toBeNull()
+    expect(body?.isCommunityRoot())
+    expect(toJson(body!)).toMatchObject({
       memo: '',
       createdAt: '2021-01-01 00:00:00.0000',
       versionNumber: '3.3',
       type: 'LOCAL',
       communityRoot: {
-        pubkey: '643c438776fc2634faf887df8485b9ed580729c2099e00e4d4d53cd74626a0d6',
-        gmwPubkey: '51f9b1e8d984763add4d90cc6422f1fd4a09c677b98e4b198c055bc29420f58e',
-        aufPubkey: 'bb994a1d62e7b3ca7b9f3a7e92a8ed6112a53f76c49595b517cc7450a50b7a5a'
+        pubkey: '81670329946988edf451f4c424691d83cf5a90439042882d5bb72243ef551ef4',
+        gmwPubkey: 'd7e3a8a090aa44873246f5c6acfc17ff74ee174f56e7bd2a55ffb81041f6db1d',
+        aufPubkey: '946f583630d89c77cc1fc61d46726a3adeacb91ccab166c08a44ca0a0a0255c4'
       }
     })
   })
 
   it('register address transaction body', () => {
-    const body = builder
+    const transaction = builder
       .setRegisterAddress(
-        keyPairs[3].publicKey,
+        keyPairs[3].getPublicKey(),
         AddressType_COMMUNITY_HUMAN,
         null,
-        keyPairs[4].publicKey	
+        keyPairs[4].getPublicKey()	
       )
+      .sign(keyPairs[0])
+      .sign(keyPairs[4])
       .build()
-    expect(body.isRegisterAddress())
-    expect(toJson(body)).toMatchObject({
+
+    const body = transaction.getTransactionBody()
+    expect(body).not.toBeNull()
+    expect(body?.isRegisterAddress())
+    expect(toJson(body!)).toMatchObject({
       memo: '',
       createdAt: '2021-01-01 00:00:00.0000',
       versionNumber: '3.3',
       type: 'LOCAL',
       registerAddress: {
-        userPubkey: '25971aa0e7422144dcc244887e29ef160d5479b1219e9817ca6ece38b09f37c0',
+        userPubkey: 'f4dd3989f7554b7ab32e3dd0b7f9e11afce90a1811e9d1f677169eb44bf44272',
         addressType: 'COMMUNITY_HUMAN',
-        accountPubkey: '8a8c93293cb97e8784178da8ae588144f7c982f4658bfd35101a1e2b479c3e57',
+        accountPubkey: 'db0ed6125a14f030abed1bfc831e0a218cf9fabfcee7ecd581c0c0e788f017c7',
         derivationIndex: 1
       }
     })
   })
 
   it('gradido creation transaction body', () => {
-    const body = builder
+    const transaction = builder
       .setTransactionCreation(
-        new TransferAmount(keyPairs[4].publicKey, '1000.00'),
+        new TransferAmount(keyPairs[4].getPublicKey(), '1000.00'),
         new Date(1609459000000)
       )
       .setMemo('Deine erste Schoepfung ;)')
+      .sign(keyPairs[6])
       .build()
-    
-    expect(body.isCreation()).toBeTruthy()
-    expect(toJson(body)).toMatchObject(
+
+    const body = transaction.getTransactionBody()
+    expect(body).not.toBeNull()
+    expect(body?.isCreation()).toBeTruthy()
+    expect(toJson(body!)).toMatchObject(
       {
         memo: 'Deine erste Schoepfung ;)',
         createdAt: '2021-01-01 00:00:00.0000',
@@ -107,7 +132,7 @@ describe('test interaction to Json', () => {
         type: 'LOCAL',
         creation: {
           recipient: {
-            pubkey: '8a8c93293cb97e8784178da8ae588144f7c982f4658bfd35101a1e2b479c3e57',
+            pubkey: 'db0ed6125a14f030abed1bfc831e0a218cf9fabfcee7ecd581c0c0e788f017c7',
             amount: '1000.0000'
           },
           targetDate: '2020-12-31 23:56:40.0000'
@@ -117,15 +142,19 @@ describe('test interaction to Json', () => {
   })
 
   it('gradido transfer transaction body', () => {
-    const body = builder
+    const transaction = builder
       .setTransactionTransfer(
-        new TransferAmount(keyPairs[4].publicKey, '500.55'),
-        keyPairs[5].publicKey
+        new TransferAmount(keyPairs[4].getPublicKey(), '500.55'),
+        keyPairs[5].getPublicKey()
       )
       .setMemo('Ich teile mit dir')
+      .sign(keyPairs[4])
       .build()
-    expect(body.isTransfer()).toBeTruthy()
-    expect(toJson(body)).toMatchObject(
+
+    const body = transaction.getTransactionBody()
+    expect(body).not.toBeNull()
+    expect(body?.isTransfer()).toBeTruthy()
+    expect(toJson(body!)).toMatchObject(
       {
         memo: 'Ich teile mit dir',
         createdAt: '2021-01-01 00:00:00.0000',
@@ -133,28 +162,31 @@ describe('test interaction to Json', () => {
         type: 'LOCAL',
         transfer: {
           sender: {
-            pubkey: '8a8c93293cb97e8784178da8ae588144f7c982f4658bfd35101a1e2b479c3e57',
+            pubkey: 'db0ed6125a14f030abed1bfc831e0a218cf9fabfcee7ecd581c0c0e788f017c7',
             amount: '500.5500'
           },
-          recipient: 'd1a95824c8485900279b92a60175fc676f8914c61d7399c66c2d0cb6fa9ec576'
+          recipient: '244d28d7cc5be8fe8fb0d8e1d1b90de7603386082d793ce8874f6357e6e532ad'
         }
       }
     )
   })
 
   it('gradido deferred transfer transaction body', () => {
-    const body = builder
+    const transaction = builder
       .setDeferredTransfer(
         new GradidoTransfer(
-          new TransferAmount(keyPairs[4].publicKey, '555.55'),
-          keyPairs[5].publicKey
+          new TransferAmount(keyPairs[4].getPublicKey(), '555.55'),
+          keyPairs[5].getPublicKey()
         ), new Date(1609465000000)
       )
       .setMemo('Link zum einloesen')
+      .sign(keyPairs[4])
       .build()
 
-    expect(body.isDeferredTransfer()).toBeTruthy()
-    expect(toJson(body)).toMatchObject(
+    const body = transaction.getTransactionBody()
+    expect(body).not.toBeNull()
+    expect(body?.isDeferredTransfer()).toBeTruthy()
+    expect(toJson(body!)).toMatchObject(
       {
         memo: 'Link zum einloesen',
         createdAt: '2021-01-01 00:00:00.0000',
@@ -164,9 +196,9 @@ describe('test interaction to Json', () => {
           transfer: {
             sender: {
               amount: '555.5500',
-              pubkey: '8a8c93293cb97e8784178da8ae588144f7c982f4658bfd35101a1e2b479c3e57',
+              pubkey: 'db0ed6125a14f030abed1bfc831e0a218cf9fabfcee7ecd581c0c0e788f017c7',
             },
-            recipient: 'd1a95824c8485900279b92a60175fc676f8914c61d7399c66c2d0cb6fa9ec576'
+            recipient: '244d28d7cc5be8fe8fb0d8e1d1b90de7603386082d793ce8874f6357e6e532ad'
           },
           timeout: '2021-01-01 01:36:40.0000'
         }
@@ -175,12 +207,15 @@ describe('test interaction to Json', () => {
   })
 
   it('community friends update transaction body', () => {
-    const body = builder
+    const transaction = builder
       .setCommunityFriendsUpdate(true)
+      .sign(keyPairs[0])
       .build()
     
-    expect(body.isCommunityFriendsUpdate()).toBeTruthy()
-    expect(toJson(body)).toMatchObject(
+    const body = transaction.getTransactionBody()
+    expect(body).not.toBeNull()
+    expect(body?.isCommunityFriendsUpdate()).toBeTruthy()
+    expect(toJson(body!)).toMatchObject(
       {
         memo: '',
         createdAt: '2021-01-01 00:00:00.0000',
@@ -193,20 +228,16 @@ describe('test interaction to Json', () => {
 
   it('gradido transaction with signature', () => {
     const bodyBytes = new MemoryBlock(invalidBodyTestPayload)
-    const sign = Buffer.alloc(crypto_sign_BYTES)
-    crypto_sign_detached(sign, bodyBytes.data(), keyPairs[3].privateKey.data())
+    const signatures = new SignatureMap
+    signatures.push(new SignaturePair(keyPairs[3].getPublicKey(), keyPairs[3].sign(bodyBytes)))
 
-    const gradidoTransaction = new GradidoTransaction(
-      new SignatureMap(
-        new SignaturePair(keyPairs[3].publicKey, new MemoryBlock(sign))
-      ), bodyBytes
-    )
+    const gradidoTransaction = new GradidoTransaction(signatures, bodyBytes)
     expect(JSON.parse(new InteractionToJson(gradidoTransaction).run())).toMatchObject(
       {
         signatureMap: [
           {
-            pubkey: '25971aa0e7422144dcc244887e29ef160d5479b1219e9817ca6ece38b09f37c0',
-            signature: 'd9d80d166694a921bc489e6bf7118aac2bd9b1312e5910c5c6f08c3617cb79c2dc68229fb268bacf258bd80b7d0a67517f45ce1adba8e88c12f42a562b0d1d05'
+            pubkey: 'f4dd3989f7554b7ab32e3dd0b7f9e11afce90a1811e9d1f677169eb44bf44272',
+            signature: 'b4c8d994c7c08a6b13685d33767fc843061a6bcfa0d3c415335567610c0deeaa45efce6e038ca7c1d21bcfba98b0f6fa9ed6c75f9cda6ce186db400120c09a02'
           }
         ],
         bodyBytes: { json: 'cannot deserialize from body bytes' }
@@ -227,7 +258,7 @@ describe('test interaction to Json', () => {
     expect(JSON.parse(new InteractionToJson(confirmedTransaction).run())).toMatchObject(
       {
         id: 7,
-        gradidoTransaction: { signatureMap: [], bodyBytes: { json: 'mData is empty' } },
+        gradidoTransaction: { signatureMap: [], bodyBytes: { json: 'body bytes missing' } },
         confirmedAt: '2021-01-01 01:22:10.0000',
         versionNumber: '3.3',
         runningHash: '0000000000000000000000000000000000000000000000000000000000000000',
@@ -239,20 +270,18 @@ describe('test interaction to Json', () => {
 
   it('complete confirmed transaction', () => {
     const memo = 'Danke fuer dein Sein!'
-    const transactionBody = builder
+    const builder = new GradidoTransactionBuilder
+    const gradidoTransaction = builder
+      .setCreatedAt(createdAt)
       .setTransactionTransfer(
         new TransferAmount(
-          keyPairs[4].publicKey,
+          keyPairs[4].getPublicKey(),
           '100.251621'
-        ), keyPairs[5].publicKey
+        ), keyPairs[5].getPublicKey()
       )
       .setMemo(memo)
+      .sign(keyPairs[0])
       .build()
-    const builder2 = new GradidoTransactionBuilder
-    const gradidoTransaction = builder2
-     .setTransactionBody(transactionBody)
-     .sign(new KeyPairEd25519(keyPairs[0].publicKey, keyPairs[0].privateKey))
-     .build()
 
      const confirmedTransaction = new ConfirmedTransaction(
       7,
@@ -268,18 +297,18 @@ describe('test interaction to Json', () => {
         id: 7,
         gradidoTransaction: { 
           signatureMap: [{
-            pubkey: '643c438776fc2634faf887df8485b9ed580729c2099e00e4d4d53cd74626a0d6',
-            signature: '2d9ab75e055a4853ce3cf69b8a121b052b32a50332b87ee540c6e1cfd5914ef914dca858eab8ed7c212dde5a69ee0087208ac4cbd7a884f95bb320a4d43e6002'
+            pubkey: '81670329946988edf451f4c424691d83cf5a90439042882d5bb72243ef551ef4',
+            signature: '04e0d0f6c4bbd2d87dc879fc5f72be48dbf682c888757fd5d3d6da0af4026fec35e9221fbf52f66769e086e3b665fead1cf73da934748c88dec4f14304521b09'
           }], 
           bodyBytes: { 
             json: {
               createdAt: '2021-01-01 00:00:00.0000',
               memo: 'Danke fuer dein Sein!',
               transfer: {
-                recipient: 'd1a95824c8485900279b92a60175fc676f8914c61d7399c66c2d0cb6fa9ec576',
+                recipient: '244d28d7cc5be8fe8fb0d8e1d1b90de7603386082d793ce8874f6357e6e532ad',
                 sender: {
                   amount: '100.2516',
-                  pubkey: '8a8c93293cb97e8784178da8ae588144f7c982f4658bfd35101a1e2b479c3e57',
+                  pubkey: 'db0ed6125a14f030abed1bfc831e0a218cf9fabfcee7ecd581c0c0e788f017c7',
                },
              },
              type: 'LOCAL',
@@ -289,7 +318,7 @@ describe('test interaction to Json', () => {
         },
         confirmedAt: '2021-01-01 01:22:10.0000',
         versionNumber: '3.3',
-        runningHash: '7c8173198853521bf017bc47e8925d999b594b85a3c9635f4e2e46063ee7f8d1',
+        runningHash: '02c718c2d4154829e6e64ed4cb0aeebb5df4cb4f285f49cc299cb286da242afd',
         messageId: '0000000000000000000000000000000000000000000000000000000000000000',
         accountBalance: '899.7484'
       }

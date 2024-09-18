@@ -43,6 +43,14 @@ void _exports_SignatureMap_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("clear");
+  members.insert({
+    "clear",
+      _exports_SignatureMap_templ::InstanceMethod("clear",
+        &_exports_SignatureMap_templ::_wrap_SignatureMap_clear,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getSignaturePairs");
   members.insert({
     "getSignaturePairs",

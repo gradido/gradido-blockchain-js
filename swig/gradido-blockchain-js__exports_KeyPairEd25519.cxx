@@ -149,6 +149,14 @@ void _exports_KeyPairEd25519_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_static_function
+  staticMembers.erase("validatePublicKey");
+  staticMembers.insert({
+    "validatePublicKey",
+      StaticMethod("validatePublicKey",
+        &_exports_KeyPairEd25519_templ::_wrap_KeyPairEd25519_validatePublicKey,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_static_function
   staticMembers.erase("getDerivationType");
   staticMembers.insert({
     "getDerivationType",

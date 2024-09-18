@@ -1,7 +1,6 @@
 import { 
   TransactionBody,
   InteractionSerialize,
-  TransactionBodyBuilder,
   MemoryBlock,
   AddressType_COMMUNITY_HUMAN,
   TransferAmount,
@@ -11,7 +10,8 @@ import {
   GradidoTransaction,
   ConfirmedTransaction,
   GradidoTransactionBuilder,
-  KeyPairEd25519
+  KeyPairEd25519,
+  CrossGroupType_LOCAL
 } from '../../'
 import { confirmedAt, createdAt, timeout, versionString } from '../helper/const'
 import { 
@@ -25,15 +25,15 @@ import {
   gradidoTransactionSignedInvalidBody,
   invalidBodyTestPayload,
   minimalConfirmedTransaction,
-  registeAddressTransactionBase64,
+  registerAddressTransactionBase64,
   transferTransactionBase64
 } from '../helper/serializedTransactions'
-import { generateKeyPairs, KeyPair, simpleSign } from '../helper/keyPairs'
+import { generateKeyPairs } from '../helper/keyPairs'
 import { crypto_generichash_BYTES, crypto_sign_BYTES, crypto_sign_detached } from 'sodium-native'
 
-let keyPairs: KeyPair[]
+let keyPairs: KeyPairEd25519[]
 
-const builder = new TransactionBodyBuilder()
+const builder = new GradidoTransactionBuilder()
 
 describe('Serialize Gradido Transactions Tests', () => {
   beforeAll(() => {
@@ -60,100 +60,119 @@ describe('Serialize Gradido Transactions Tests', () => {
   })
 
   it('community root transaction body', () => {
-    const body = builder
-     .setCommunityRoot(
-      keyPairs[0].publicKey,
-      keyPairs[1].publicKey,
-      keyPairs[2].publicKey
-     )
-     .build()
+    const transaction = builder
+      .setCreatedAt(createdAt)
+		  .setVersionNumber(versionString)
+      .setCommunityRoot(
+        keyPairs[0].getPublicKey(),
+        keyPairs[1].getPublicKey(),
+        keyPairs[2].getPublicKey()
+      )
+      .sign(keyPairs[0])
+      .build()
 
-    expect(body.isCommunityRoot()).toBeTruthy()
-    const serialized = new InteractionSerialize(body).run()
+    const body = transaction.getTransactionBody()
+    expect(body).not.toBeNull()
+    expect(body?.isCommunityRoot()).toBeTruthy()
+    expect(body?.getType()).toEqual(CrossGroupType_LOCAL)
+
+    const serialized = new InteractionSerialize(transaction).run()
     expect(serialized?.convertToBase64()).toEqual(communityRootTransactionBase64)
   })
 
   it('register address transaction body', () => {
-    const body = builder
+    const transaction = builder
       .setRegisterAddress(
-			  keyPairs[3].publicKey,
+			  keyPairs[3].getPublicKey(),
 			  AddressType_COMMUNITY_HUMAN,
 			  null,
-			  keyPairs[4].publicKey
+			  keyPairs[4].getPublicKey()
 		  )
+      .sign(keyPairs[0])
+      .sign(keyPairs[4])
       .build()
     
-    expect(body.isRegisterAddress()).toBeTruthy()
-    const serialized = new InteractionSerialize(body).run()
-    expect(serialized?.convertToBase64()).toEqual(registeAddressTransactionBase64)
+    const body = transaction.getTransactionBody()
+    expect(body).not.toBeNull()
+    expect(body?.isRegisterAddress()).toBeTruthy()
+    const serialized = new InteractionSerialize(transaction).run()
+    expect(serialized?.convertToBase64()).toEqual(registerAddressTransactionBase64)
   })
 
   it('gradido creation transaction body', () => {
-    const body = builder
+    const transaction = builder
       .setMemo('Deine erste Schoepfung ;)')
       .setTransactionCreation(
-        new TransferAmount(keyPairs[4].publicKey, "1000.00"),
+        new TransferAmount(keyPairs[4].getPublicKey(), "1000.00"),
         new Date(1609459000000)
       )
+      .sign(keyPairs[6])
       .build()
-    
-    expect(body.isCreation()).toBeTruthy()
-    const serialized = new InteractionSerialize(body).run()
+
+    const body = transaction.getTransactionBody()
+    expect(body).not.toBeNull()
+    expect(body?.isCreation()).toBeTruthy()
+    const serialized = new InteractionSerialize(transaction).run()
     expect(serialized?.convertToBase64()).toEqual(creationTransactionBase64)
   })
 
   it('gradido transfer transaction body', () => {
-    const body = builder
+    const transaction = builder
       .setMemo('Ich teile mit dir')
       .setTransactionTransfer(
-        new TransferAmount(keyPairs[4].publicKey, "500.55"),
-        keyPairs[5].publicKey
+        new TransferAmount(keyPairs[4].getPublicKey(), "500.55"),
+        keyPairs[5].getPublicKey()
       )
+      .sign(keyPairs[4])
       .build()
-    
-    expect(body.isTransfer()).toBeTruthy()
-    const serialized = new InteractionSerialize(body).run()
+
+    const body = transaction.getTransactionBody()
+    expect(body).not.toBeNull()
+    expect(body?.isTransfer()).toBeTruthy()
+    const serialized = new InteractionSerialize(transaction).run()
     expect(serialized?.convertToBase64()).toEqual(transferTransactionBase64)
   })
 
   it('gradido deferred transfer transaction body', () => {
-    const body = builder
+    const transaction = builder
       .setMemo('Link zum einloesen')
       .setDeferredTransfer(
         new GradidoTransfer(
-          new TransferAmount(keyPairs[4].publicKey, "555.55"),
-          keyPairs[5].publicKey
+          new TransferAmount(keyPairs[4].getPublicKey(), "555.55"),
+          keyPairs[5].getPublicKey()
         ), timeout
       )
+      .sign(keyPairs[4])
       .build()
     
-    expect(body.isDeferredTransfer()).toBeTruthy()
-    const serialized = new InteractionSerialize(body).run()
+    const body = transaction.getTransactionBody()
+    expect(body).not.toBeNull()
+    expect(body?.isDeferredTransfer()).toBeTruthy()
+    const serialized = new InteractionSerialize(transaction).run()
     expect(serialized?.convertToBase64()).toEqual(deferredTransferTransactionBase64)
   })
 
   it('gradido community friends update transaction body', () => {
-    const body = builder
+    const transaction = builder
       .setCommunityFriendsUpdate(true)
+      .sign(keyPairs[0])
       .build()
     
-    expect(body.isCommunityFriendsUpdate()).toBeTruthy()
-    const serialized = new InteractionSerialize(body).run()
+    const body = transaction.getTransactionBody()
+    expect(body).not.toBeNull()
+    expect(body?.isCommunityFriendsUpdate()).toBeTruthy()
+    const serialized = new InteractionSerialize(transaction).run()
     expect(serialized?.convertToBase64()).toEqual(communityFriendsUpdateBase64)
   })
 
   it('gradido transaction with signature', () => {
     const bodyBytes = new MemoryBlock(invalidBodyTestPayload)
-    const sign = Buffer.alloc(crypto_sign_BYTES)
-    crypto_sign_detached(sign, bodyBytes.data(), keyPairs[3].privateKey.data())
+    const signatureMap = new SignatureMap
+    signatureMap.push(new SignaturePair(keyPairs[3].getPublicKey(), keyPairs[3].sign(bodyBytes)))
 
-    const gradidoTransaction = new GradidoTransaction(
-      new SignatureMap(
-        new SignaturePair(keyPairs[3].publicKey, new MemoryBlock(sign))
-      ), bodyBytes
-    )
+    const transaction = new GradidoTransaction(signatureMap, bodyBytes)
 
-    const serialized = new InteractionSerialize(gradidoTransaction).run()
+    const serialized = new InteractionSerialize(transaction).run()
     expect(serialized?.convertToBase64()).toEqual(gradidoTransactionSignedInvalidBody)
   })
 
@@ -161,15 +180,13 @@ describe('Serialize Gradido Transactions Tests', () => {
     const message = new MemoryBlock(
       'Human nature is a complex interplay of light and shadow, where our greatest strengths often emerge from our deepest vulnerabilities. To be human is to strive for connection, seek meaning, and continuously evolve through both triumphs and trials.'
     )
-    const sign = Buffer.alloc(crypto_sign_BYTES)
     const signatureMap = new SignatureMap
     for(let i = 0; i < 2; i++) {      
-      crypto_sign_detached(sign, message.data(), keyPairs[i].privateKey.data())
-      signatureMap.push(new SignaturePair(keyPairs[i].publicKey, new MemoryBlock(sign)))
+      signatureMap.push(new SignaturePair(keyPairs[i].getPublicKey(), keyPairs[i].sign(message)))
     }
     const serialized = new InteractionSerialize(signatureMap).run()
     expect(serialized?.convertToBase64()).toEqual(
-      'CmQKIGQ8Q4d2/CY0+viH34SFue1YBynCCZ4A5NTVPNdGJqDWEkD2NqoGVja1mXQoKEneXryWf7flL8JpiBMwRN3sbSTcncJXQqrZ8/5yb83u8EPPJRL7zXj660DD1z6RQDw3ekIJCmQKIFH5sejZhHY63U2QzGQi8f1KCcZ3uY5LGYwFW8KUIPWOEkDkQn2qJW38uEFO8YnX8U/1/OSrI/DYSeTqTaecDDe4SyM/yKsPqcLZ54Lzv1Nba/ckiImrDBseH8d/EJTi57IH'
+      'CmQKIIFnAymUaYjt9FH0xCRpHYPPWpBDkEKILVu3IkPvVR70EkAE4ND2xLvS2H3Iefxfcr5I2/aCyIh1f9XT1toK9AJv7Mfu5U7ftL87CuOGbn+VfdemtvbIBr9amXNo4HI+BIYICmQKINfjqKCQqkSHMkb1xqz8F/907hdPVue9KlX/uBBB9tsdEkD82U+ofaXHmbiWJUf/cYiyb7xKW9MrNAjPlelL7a5+2WjM4mBPneSPn7iCK3ewWQXbN/OF6As/gWqQI7Mq7RAF'
     )
   })
 
@@ -189,22 +206,18 @@ describe('Serialize Gradido Transactions Tests', () => {
 
   it('complete confirmed transaction', () => {
     const memo = 'Danke fuer dein Sein!'
-    const transactionBody = builder
+    const builder = new GradidoTransactionBuilder
+    const gradidoTransaction = builder
       .setTransactionTransfer(
         new TransferAmount(
-          keyPairs[4].publicKey,
+          keyPairs[4].getPublicKey(),
           '100.251621'
-        ), keyPairs[5].publicKey
+        ),  keyPairs[5].getPublicKey()
       )
+      .setCreatedAt(createdAt)
       .setMemo(memo)
+      .sign(keyPairs[0])
       .build()
-    const builder2 = new GradidoTransactionBuilder
-    const bodyBytes = new InteractionSerialize(transactionBody).run()
-    expect(bodyBytes).not.toBeNull()
-    const gradidoTransaction = builder2
-     .setTransactionBody(bodyBytes)
-     .addSignaturePair(keyPairs[0].publicKey, simpleSign(bodyBytes!, keyPairs[0]))
-     .build()
 
      const confirmedTransaction = new ConfirmedTransaction(
       7,

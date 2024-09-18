@@ -230,6 +230,8 @@ export  class KeyPairEd25519 {
 
  static calculatePublicKey(privateKey: MemoryBlock): MemoryBlock;
 
+ static validatePublicKey(publicKey: MemoryBlock|null): void;
+
   deriveChild(index: number): KeyPairEd25519Ex;
 
  static getDerivationType(index: number): Ed25519DerivationType;
@@ -479,6 +481,8 @@ export  class SignatureMap {
 
   push(signaturePair: SignaturePair): void;
 
+  clear(): void;
+
   getSignaturePairs(): SignaturePairs;
 }
 
@@ -693,53 +697,6 @@ export  class ConfirmedTransaction {
   getAccountBalance(): GradidoUnit;
 }
 
-export  class TransactionBodyBuilder {
-
-  constructor();
-
-  reset(): void;
-
-  build(): TransactionBody;
-
-  setDeferredTransfer(transactionTransfer: GradidoTransfer, timeout: Date): TransactionBodyBuilder;
-
-  setDeferredTransfer(deferredTransfer: GradidoDeferredTransfer): TransactionBodyBuilder;
-
-  setCommunityFriendsUpdate(colorFusion: boolean): TransactionBodyBuilder;
-
-  setCommunityFriendsUpdate(communityFriendsUpdate: CommunityFriendsUpdate): TransactionBodyBuilder;
-
-  setRegisterAddress(userPubkey: MemoryBlock|null, type: AddressType, nameHash: MemoryBlock|null, accountPubkey: MemoryBlock|null): TransactionBodyBuilder;
-
-  setRegisterAddress(userPubkey: MemoryBlock|null, type: AddressType, nameHash: MemoryBlock|null): TransactionBodyBuilder;
-
-  setRegisterAddress(userPubkey: MemoryBlock|null, type: AddressType): TransactionBodyBuilder;
-
-  setRegisterAddress(registerAddress: RegisterAddress): TransactionBodyBuilder;
-
-  setTransactionCreation(recipient: TransferAmount, targetDate: Date): TransactionBodyBuilder;
-
-  setTransactionCreation(creation: GradidoCreation): TransactionBodyBuilder;
-
-  setTransactionTransfer(sender: TransferAmount, recipientPubkey: MemoryBlock|null): TransactionBodyBuilder;
-
-  setTransactionTransfer(transfer: GradidoTransfer): TransactionBodyBuilder;
-
-  setCommunityRoot(pubkey: MemoryBlock|null, gmwPubkey: MemoryBlock|null, aufPubkey: MemoryBlock|null): TransactionBodyBuilder;
-
-  setCommunityRoot(communityRoot: CommunityRoot): TransactionBodyBuilder;
-
-  setCreatedAt(createdAt: Date): TransactionBodyBuilder;
-
-  setMemo(memo: string): TransactionBodyBuilder;
-
-  setVersionNumber(versionNumber: string): TransactionBodyBuilder;
-
-  setCrossGroupType(type: CrossGroupType): TransactionBodyBuilder;
-
-  setOtherGroup(otherGroup: string): TransactionBodyBuilder;
-}
-
 export  class GradidoTransactionBuilder {
 
   constructor();
@@ -748,15 +705,63 @@ export  class GradidoTransactionBuilder {
 
   build(): GradidoTransaction;
 
+  buildOutbound(): GradidoTransaction;
+
+  buildInbound(): GradidoTransaction;
+
+  setDeferredTransfer(transactionTransfer: GradidoTransfer, timeout: Date): GradidoTransactionBuilder;
+
+  setDeferredTransfer(deferredTransfer: GradidoDeferredTransfer): GradidoTransactionBuilder;
+
+  setCommunityFriendsUpdate(colorFusion: boolean): GradidoTransactionBuilder;
+
+  setCommunityFriendsUpdate(communityFriendsUpdate: CommunityFriendsUpdate): GradidoTransactionBuilder;
+
+  setRegisterAddress(userPubkey: MemoryBlock|null, type: AddressType, nameHash: MemoryBlock|null, accountPubkey: MemoryBlock|null): GradidoTransactionBuilder;
+
+  setRegisterAddress(userPubkey: MemoryBlock|null, type: AddressType, nameHash: MemoryBlock|null): GradidoTransactionBuilder;
+
+  setRegisterAddress(userPubkey: MemoryBlock|null, type: AddressType): GradidoTransactionBuilder;
+
+  setRegisterAddress(registerAddress: RegisterAddress): GradidoTransactionBuilder;
+
+  setTransactionCreation(recipient: TransferAmount, targetDate: Date): GradidoTransactionBuilder;
+
+  setTransactionCreation(creation: GradidoCreation): GradidoTransactionBuilder;
+
+  setTransactionTransfer(sender: TransferAmount, recipientPubkey: MemoryBlock|null): GradidoTransactionBuilder;
+
+  setTransactionTransfer(transfer: GradidoTransfer): GradidoTransactionBuilder;
+
+  setCommunityRoot(pubkey: MemoryBlock|null, gmwPubkey: MemoryBlock|null, aufPubkey: MemoryBlock|null): GradidoTransactionBuilder;
+
+  setCommunityRoot(communityRoot: CommunityRoot): GradidoTransactionBuilder;
+
+  setCreatedAt(createdAt: Date): GradidoTransactionBuilder;
+
+  setMemo(memo: string): GradidoTransactionBuilder;
+
+  setVersionNumber(versionNumber: string): GradidoTransactionBuilder;
+
   setTransactionBody(body: TransactionBody): GradidoTransactionBuilder;
 
   setTransactionBody(bodyBytes: MemoryBlock|null): GradidoTransactionBuilder;
 
-  addSignaturePair(publicKey: MemoryBlock|null, signature: MemoryBlock|null): GradidoTransactionBuilder;
+  setSenderCommunity(senderCommunity: string): GradidoTransactionBuilder;
+
+  setRecipientCommunity(recipientCommunity: string): GradidoTransactionBuilder;
 
   sign(keyPair: KeyPairEd25519|null): GradidoTransactionBuilder;
 
   setParentMessageId(paringMessageId: MemoryBlock|null): GradidoTransactionBuilder;
+
+  isCrossCommunityTransaction(): boolean;
+
+  isBodyBuildingState(): boolean;
+
+  isCrossCommunityBuildingState(): boolean;
+
+  isLocalCommunityBuildingState(): boolean;
 }
 
 export const DeserializeType_UNKNOWN: DeserializeType;

@@ -1,7 +1,7 @@
 import { GradidoTransactionBuilder, KeyPairEd25519, TransactionBody } from '../'
-import { generateKeyPairs, KeyPair } from './helper/keyPairs'
+import { generateKeyPairs } from './helper/keyPairs'
 
-let keyPairs: KeyPair[]
+let keyPairs: KeyPairEd25519[]
 
 describe('gradido transaction builder test', () => {
   beforeAll(() => {
@@ -9,7 +9,8 @@ describe('gradido transaction builder test', () => {
   })
   it('sign transaction', () => {
     const body = new TransactionBody('', new Date(1609459200000), '3.3')
-    const keyPair = new KeyPairEd25519(keyPairs[0].publicKey, keyPairs[0].privateKey)
+    const keyPair = keyPairs[0]
+    expect(keyPair).not.toBeNull()
     const builder = new GradidoTransactionBuilder
     const gradidoTransaction = builder 
       .setTransactionBody(body)
@@ -18,11 +19,11 @@ describe('gradido transaction builder test', () => {
 
     expect(gradidoTransaction.getBodyBytes()?.convertToBase64()).toEqual('CgASCAiAzLn/BRAAGgMzLjMgAA==')
     const signaturePairs = gradidoTransaction.getSignatureMap().getSignaturePairs()
-    expect(keyPairs[0].publicKey.convertToHex()).toEqual('643c438776fc2634faf887df8485b9ed580729c2099e00e4d4d53cd74626a0d6')
+    expect(keyPair.getPublicKey()?.convertToHex()).toEqual('81670329946988edf451f4c424691d83cf5a90439042882d5bb72243ef551ef4')
     const firstSignature = signaturePairs.get(0).getSignature()
     expect(firstSignature).not.toBeNull()
     expect(firstSignature!.convertToHex()).toEqual(
-      '2d9ab75e055a4853ce3cf69b8a121b052b32a50332b87ee540c6e1cfd5914ef9e485366d779478f104a39eee79d907b3a9aae64b95878c812562b2cd4ae71504'
+      '04e0d0f6c4bbd2d87dc879fc5f72be48dbf682c888757fd5d3d6da0af4026fecc25edf7aeba19ced1e5f481d2619d4d62bf3bc357e93a053dde942a05584e400'
     )
     
   })

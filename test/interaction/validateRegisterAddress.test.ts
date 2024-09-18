@@ -6,15 +6,16 @@ import {
   AddressType_NONE,
   InteractionValidate,
   MemoryBlock,
-  TransactionBodyBuilder,
-  ValidateType_SINGLE
+  GradidoTransactionBuilder,
+  ValidateType_SINGLE,
+  KeyPairEd25519
 } from '../../'
 import { createdAt, versionString } from '../helper/const'
-import { generateKeyPairs, KeyPair } from '../helper/keyPairs'
+import { generateKeyPairs } from '../helper/keyPairs'
 
-let keyPairs: KeyPair[]
+let keyPairs: KeyPairEd25519[]
 
-const builder = new TransactionBodyBuilder()
+const builder = new GradidoTransactionBuilder()
 
 describe('validate Register Address Transactions', () => {
   beforeAll(() => {
@@ -28,154 +29,138 @@ describe('validate Register Address Transactions', () => {
   })
 
   it('valid', () => {
-    const body = builder
+    const transaction = builder
       .setRegisterAddress(
-        keyPairs[3].publicKey,
+        keyPairs[3].getPublicKey(),
         AddressType_COMMUNITY_HUMAN,
         null,
-        keyPairs[4].publicKey
+        keyPairs[4].getPublicKey()
       )
+      .sign(keyPairs[0])
+      .sign(keyPairs[4])
       .build()
-    expect(body.isRegisterAddress()).toBeTruthy()
-    const validator = new InteractionValidate(body)
+
+    const body = transaction.getTransactionBody()
+    expect(body).not.toBeNull()
+    expect(body?.isRegisterAddress()).toBeTruthy()
+    const validator = new InteractionValidate(body!)
     expect(() => validator.run(ValidateType_SINGLE, '')).not.toThrow()
   })
 
   describe('invalid', () => {
     describe('invalid address type', () => {
       it('GMW', () => {
-        const body = builder
+        const transaction = builder
           .setRegisterAddress(
-            keyPairs[3].publicKey,
+            keyPairs[3].getPublicKey(),
             AddressType_COMMUNITY_GMW,
             null,
-            keyPairs[4].publicKey
+            keyPairs[4].getPublicKey()
           )
+          .sign(keyPairs[0])
+          .sign(keyPairs[4])
           .build()
-        expect(body.isRegisterAddress()).toBeTruthy()
-        const validator = new InteractionValidate(body)
+
+        const body = transaction.getTransactionBody()
+        expect(body).not.toBeNull()
+        expect(body?.isRegisterAddress()).toBeTruthy()
+        const validator = new InteractionValidate(body!)
         expect(() => validator.run(ValidateType_SINGLE, ''))
-          .toThrow('WrongAddressTypeException: register address transaction not allowed with community auf or gmw account or None, address type: COMMUNITY_GMW, pubkey: 25971aa0e7422144dcc244887e29ef160d5479b1219e9817ca6ece38b09f37c0')
+          .toThrow('WrongAddressTypeException: register address transaction not allowed with community auf or gmw account or None, address type: COMMUNITY_GMW, pubkey: f4dd3989f7554b7ab32e3dd0b7f9e11afce90a1811e9d1f677169eb44bf44272')
       })
 
       it('AUF', () => {
-        const body = builder
+        const transaction = builder
           .setRegisterAddress(
-            keyPairs[3].publicKey,
+            keyPairs[3].getPublicKey(),
             AddressType_COMMUNITY_AUF,
             null,
-            keyPairs[4].publicKey
+            keyPairs[4].getPublicKey()
           )
+          .sign(keyPairs[0])
+          .sign(keyPairs[4])
           .build()
-        expect(body.isRegisterAddress()).toBeTruthy()
-        const validator = new InteractionValidate(body)
+
+        const body = transaction.getTransactionBody()
+        expect(body).not.toBeNull()
+        expect(body?.isRegisterAddress()).toBeTruthy()
+        const validator = new InteractionValidate(body!)
         expect(() => validator.run(ValidateType_SINGLE, ''))
-          .toThrow('WrongAddressTypeException: register address transaction not allowed with community auf or gmw account or None, address type: COMMUNITY_AUF, pubkey: 25971aa0e7422144dcc244887e29ef160d5479b1219e9817ca6ece38b09f37c0')
+          .toThrow('WrongAddressTypeException: register address transaction not allowed with community auf or gmw account or None, address type: COMMUNITY_AUF, pubkey: f4dd3989f7554b7ab32e3dd0b7f9e11afce90a1811e9d1f677169eb44bf44272')
       })
 
       it('None', () => {
-        const body = builder
+        const transaction = builder
           .setRegisterAddress(
-            keyPairs[3].publicKey,
+            keyPairs[3].getPublicKey(),
             AddressType_NONE,
             null,
-            keyPairs[4].publicKey
+            keyPairs[4].getPublicKey()
           )
+          .sign(keyPairs[0])
+          .sign(keyPairs[4])
           .build()
-        expect(body.isRegisterAddress()).toBeTruthy()
-        const validator = new InteractionValidate(body)
+
+        const body = transaction.getTransactionBody()
+        expect(body).not.toBeNull()
+        expect(body?.isRegisterAddress()).toBeTruthy()
+        const validator = new InteractionValidate(body!)
         expect(() => validator.run(ValidateType_SINGLE, ''))
-          .toThrow('WrongAddressTypeException: register address transaction not allowed with community auf or gmw account or None, address type: NONE, pubkey: 25971aa0e7422144dcc244887e29ef160d5479b1219e9817ca6ece38b09f37c0')
+          .toThrow('WrongAddressTypeException: register address transaction not allowed with community auf or gmw account or None, address type: NONE, pubkey: f4dd3989f7554b7ab32e3dd0b7f9e11afce90a1811e9d1f677169eb44bf44272')
       })
     })
     it('user and account public key are the same', () => {
-      const body = builder
-        .setRegisterAddress(
-          keyPairs[3].publicKey,
-          AddressType_COMMUNITY_HUMAN,
-          null,
-          keyPairs[3].publicKey
-        )
-        .build()
-      expect(body.isRegisterAddress()).toBeTruthy()
-      const validator = new InteractionValidate(body)
-      expect(() => validator.run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationException: accountPubkey and userPubkey are the same')
+      expect(() => builder.setRegisterAddress(
+        keyPairs[3].getPublicKey(),
+        AddressType_COMMUNITY_HUMAN,
+        null,
+        keyPairs[3].getPublicKey()
+      )).toThrow('accountPubkey and userPubkey are the same')
     })
     describe('user or account public key', () => {
       it('both public key null', () => {
-        const body = builder
-          .setRegisterAddress(
-            null,
-            AddressType_COMMUNITY_HUMAN,
-            null,
-            null
-          )
-          .build()
-        expect(body.isRegisterAddress()).toBeTruthy()
-        const validator = new InteractionValidate(body)
-        expect(() => validator.run(ValidateType_SINGLE, ''))
-          .toThrow('TransactionValidationException: accountPubkey and userPubkey are both empty, at least one is needed')
+        expect(() => builder.setRegisterAddress(
+          null,
+          AddressType_COMMUNITY_HUMAN,
+          null,
+          null
+        )).toThrow('accountPubkey and userPubkey are both nullptr, at least one is needed')
       })
 
       it('user public key: empty', () => {
-        const body = builder
-          .setRegisterAddress(
-            new MemoryBlock(Buffer.alloc(crypto_sign_PUBLICKEYBYTES)),
-            AddressType_COMMUNITY_HUMAN,
-            null,
-            keyPairs[4].publicKey
-          )
-          .build()
-        expect(body.isRegisterAddress()).toBeTruthy()
-        const validator = new InteractionValidate(body)
-        expect(() => validator.run(ValidateType_SINGLE, ''))
-          .toThrow('TransactionValidationInvalidInputException: empty with userPubkey: public key')
+        expect(() => builder.setRegisterAddress(
+          new MemoryBlock(Buffer.alloc(crypto_sign_PUBLICKEYBYTES)),
+          AddressType_COMMUNITY_HUMAN,
+          null,
+          keyPairs[4].getPublicKey()
+        )).toThrow('pubkey cannot be empty')
       }) 
 
       it('account public key: empty', () => {
-        const body = builder
-          .setRegisterAddress(
-            keyPairs[3].publicKey,
-            AddressType_COMMUNITY_HUMAN,
-            null,
-            new MemoryBlock(Buffer.alloc(crypto_sign_PUBLICKEYBYTES))
-          )
-          .build()
-        expect(body.isRegisterAddress()).toBeTruthy()
-        const validator = new InteractionValidate(body)
-        expect(() => validator.run(ValidateType_SINGLE, ''))
-          .toThrow('TransactionValidationInvalidInputException: empty with accountPubkey: public key')
+        expect(() => builder.setRegisterAddress(
+          keyPairs[3].getPublicKey(),
+          AddressType_COMMUNITY_HUMAN,
+          null,
+          new MemoryBlock(Buffer.alloc(crypto_sign_PUBLICKEYBYTES))
+        )).toThrow('pubkey cannot be empty')
       })  
 
       it('user public key: invalid', () => {
-        const body = builder
-          .setRegisterAddress(
-            new MemoryBlock(Buffer.alloc(10)),
-            AddressType_COMMUNITY_HUMAN,
-            null,
-            keyPairs[4].publicKey
-          )
-          .build()
-        expect(body.isRegisterAddress()).toBeTruthy()
-        const validator = new InteractionValidate(body)
-        expect(() => validator.run(ValidateType_SINGLE, ''))
-          .toThrow('TransactionValidationInvalidInputException: invalid size with userPubkey: public key')
+        expect(() => builder.setRegisterAddress(
+          MemoryBlock.fromHex('9a3b4c5d6e7f8c9b0a'),
+          AddressType_COMMUNITY_HUMAN,
+          null,
+          keyPairs[4].getPublicKey()
+        )).toThrow('invalid key size for public key')
       }) 
 
       it('account public key: invalid', () => {
-        const body = builder
-          .setRegisterAddress(
-            keyPairs[3].publicKey,
-            AddressType_COMMUNITY_HUMAN,
-            null,
-            new MemoryBlock(Buffer.alloc(10))
-          )
-          .build()
-        expect(body.isRegisterAddress()).toBeTruthy()
-        const validator = new InteractionValidate(body)
-        expect(() => validator.run(ValidateType_SINGLE, ''))
-          .toThrow('TransactionValidationInvalidInputException: invalid size with accountPubkey: public key')
+        expect(() => builder.setRegisterAddress(
+          keyPairs[3].getPublicKey(),
+          AddressType_COMMUNITY_HUMAN,
+          null,
+          MemoryBlock.fromHex('9a3b4c5d6e7f8c9b0a')
+        )).toThrow('invalid key size for public key')
       })  
     })
   })

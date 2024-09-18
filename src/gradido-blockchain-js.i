@@ -84,7 +84,6 @@ std::string enum_to_string(E value);
 %include "data.i"
 
 // advanced types
-%include "TransactionBodyBuilder.i"
 %include "GradidoTransactionBuilder.i"
 
 // interactions

@@ -1,30 +1,10 @@
 /**
  * generate key pair for tests
  */
-import { 
-  crypto_hash_sha512,
-  crypto_sign_seed_keypair,
-  crypto_sign_SEEDBYTES, 
-  crypto_hash_sha512_BYTES,
-  crypto_sign_PUBLICKEYBYTES, 
-  crypto_sign_SECRETKEYBYTES, 
-  crypto_sign_BYTES, 
-  crypto_sign_detached, 
-  crypto_sign_verify_detached
-} from 'sodium-native'
-import { GradidoTransaction, MemoryBlock, SignaturePair } from '../../'
+import { KeyPairEd25519, MemoryBlock } from '../../'
 
-class KeyPair {
-  constructor(publicKey: Buffer, privateKey: Buffer) {
-    this.publicKey = new MemoryBlock(publicKey)
-    this.privateKey = new MemoryBlock(privateKey)
-  }
-  publicKey: MemoryBlock
-  privateKey: MemoryBlock
-}
-function generateKeyPairs(): KeyPair[] {
-  const keyPairs: KeyPair[] = []
-  var hash = Buffer.alloc(crypto_hash_sha512_BYTES)
+function generateKeyPairs(): KeyPairEd25519[] {
+  const keyPairs: KeyPairEd25519[] = []
   const seeds = [
     "A medium of exchange for the people",
     "Love and health",
@@ -50,50 +30,15 @@ function generateKeyPairs(): KeyPair[] {
 
   for (let i = 0; i < seeds.length; i++)
   {
-		const seed = Buffer.from(seeds[i])    
-		crypto_hash_sha512(hash, seed);
-    const publicKeyBuffer = Buffer.alloc(crypto_sign_PUBLICKEYBYTES)
-    const privateKeyBuffer = Buffer.alloc(crypto_sign_SECRETKEYBYTES)
-		crypto_sign_seed_keypair(publicKeyBuffer, privateKeyBuffer, hash.subarray(0, crypto_sign_SEEDBYTES));
-		keyPairs.push(new KeyPair(publicKeyBuffer, privateKeyBuffer))
+		const seed = new MemoryBlock(Buffer.from(seeds[i]))
+    const keyPair = KeyPairEd25519.create(seed.calculateHash())
+    if(!keyPair) {
+      throw Error('error creating Ed25519 KeyPair from seed: ' + seeds[i])
+    }
+		keyPairs.push(keyPair)
 	}
 
   return keyPairs
 }
 
-function simpleSign(bodyBytes: MemoryBlock, keyPair: KeyPair): MemoryBlock
-{
-  const signBuffer = Buffer.alloc(crypto_sign_BYTES)
-  crypto_sign_detached(
-    signBuffer, 
-    Buffer.from(bodyBytes.data()), 
-    Buffer.from(keyPair.privateKey.data())
-  )
-  return new MemoryBlock(signBuffer)
-}
-
-function verify(signature: MemoryBlock, bodyBytes: MemoryBlock, keyPair: KeyPair): boolean
-{
-  return crypto_sign_verify_detached(
-    Buffer.from(signature.data()), 
-    Buffer.from(bodyBytes.data()), 
-    Buffer.from(keyPair.publicKey.data())
-  )
-}
-
-function sign(transaction: GradidoTransaction, keyPair: KeyPair)
-{
-    const signBuffer = Buffer.alloc(crypto_sign_BYTES)
-    const bodyBytes = transaction.getBodyBytes()
-    if(!bodyBytes) {
-      throw Error('transaction has empty body bytes, cannot sign without payload')
-    }
-    crypto_sign_detached(
-      signBuffer, 
-      Buffer.from(bodyBytes.data()), 
-      Buffer.from(keyPair.privateKey.data())
-    )
-    transaction.getSignatureMap().push(new SignaturePair(keyPair.publicKey, new MemoryBlock(signBuffer)));
-}
-
-export { generateKeyPairs, sign, simpleSign, verify, KeyPair }
+export { generateKeyPairs }

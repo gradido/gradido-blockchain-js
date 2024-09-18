@@ -2,34 +2,32 @@ import { crypto_generichash_BYTES } from 'sodium-native'
 import { 
   InteractionValidate,
   MemoryBlock,
-  GradidoTransactionBuilder,
   ValidateType_SINGLE,
-  KeyPairEd25519,
-  ConfirmedTransaction 
+  ConfirmedTransaction, 
+  InteractionDeserialize,  
+  GradidoTransaction,
+  DeserializeType_GRADIDO_TRANSACTION
 } from '../../'
 import { confirmedAt, createdAt, versionString } from '../helper/const'
-import { generateKeyPairs, KeyPair, simpleSign } from '../helper/keyPairs'
 import { communityRootTransactionBase64 } from '../helper/serializedTransactions'
 
-let keyPairs: KeyPair[]
-
-const builder = new GradidoTransactionBuilder()
+let gradidoTransaction: GradidoTransaction
 
 describe('validate Confirmed Transactions', () => {
   beforeAll(() => {
-    keyPairs = generateKeyPairs()
+    const gradidoTransactionRaw = MemoryBlock.fromBase64(communityRootTransactionBase64)
+    const deserializer = new InteractionDeserialize(gradidoTransactionRaw, DeserializeType_GRADIDO_TRANSACTION)
+    deserializer.run()
+    expect(deserializer.isGradidoTransaction()).toBeTruthy()
+    gradidoTransaction = deserializer.getGradidoTransaction()!
   })
   beforeEach(() => {
-    builder.reset()
-    const bodyBytes = MemoryBlock.fromBase64(communityRootTransactionBase64)
-    builder
-      .setTransactionBody(bodyBytes)
-      .addSignaturePair(keyPairs[0].publicKey, simpleSign(bodyBytes, keyPairs[0]))
+    
   })
   it('valid', () => { 
     const confirmedTransaction = new ConfirmedTransaction(
       7,
-      builder.build(),
+      gradidoTransaction,
       confirmedAt,
       versionString,
       new MemoryBlock(Buffer.alloc(crypto_generichash_BYTES)),
@@ -42,7 +40,7 @@ describe('validate Confirmed Transactions', () => {
   it('invalid, wrong version', () => { 
     const confirmedTransaction = new ConfirmedTransaction(
       7,
-      builder.build(),
+      gradidoTransaction,
       confirmedAt,
       "1",
       new MemoryBlock(Buffer.alloc(crypto_generichash_BYTES)),
@@ -56,7 +54,7 @@ describe('validate Confirmed Transactions', () => {
   it('invalid, invalid message id', () => { 
     const confirmedTransaction = new ConfirmedTransaction(
       7,
-      builder.build(),
+      gradidoTransaction,
       confirmedAt,
       versionString,
       new MemoryBlock(Buffer.alloc(10)),
@@ -70,7 +68,7 @@ describe('validate Confirmed Transactions', () => {
   it('invalid, confirmed before created', () => { 
     const confirmedTransaction = new ConfirmedTransaction(
       7,
-      builder.build(),
+      gradidoTransaction,
       new Date(createdAt.getTime() - 1000),
       versionString,
       new MemoryBlock(Buffer.alloc(crypto_generichash_BYTES)),

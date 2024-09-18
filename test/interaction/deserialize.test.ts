@@ -1,4 +1,4 @@
-import { crypto_generichash_BYTES, crypto_sign_verify_detached } from 'sodium-native'
+import { crypto_generichash_BYTES } from 'sodium-native'
 import { 
   AddressType_COMMUNITY_HUMAN,
   CrossGroupType_LOCAL,
@@ -8,11 +8,9 @@ import {
   InteractionDeserialize,
   KeyPairEd25519,
   MemoryBlock,
-  Timestamp,
-  TimestampSeconds
 } from '../../'
 import { confirmedAt, createdAt, targetDate, timeout, versionString } from '../helper/const'
-import { generateKeyPairs, KeyPair, verify } from '../helper/keyPairs'
+import { generateKeyPairs } from '../helper/keyPairs'
 import { 
   communityFriendsUpdateBase64,
   communityRootTransactionBase64,
@@ -22,11 +20,11 @@ import {
   gradidoTransactionSignedInvalidBody,
   invalidBodyTestPayload,
   minimalConfirmedTransaction,
-  registeAddressTransactionBase64,
+  registerAddressTransactionBase64,
   transferTransactionBase64 
 } from '../helper/serializedTransactions'
 
-let keyPairs: KeyPair[]
+let keyPairs: KeyPairEd25519[]
 
 describe('Deserialize Gradido Transaction Test', () => {
   beforeAll(() => {
@@ -35,13 +33,14 @@ describe('Deserialize Gradido Transaction Test', () => {
   
   it('community root transaction body', () => {
     const rawData = MemoryBlock.fromBase64(communityRootTransactionBase64)
-    const deserializer = new InteractionDeserialize(rawData, DeserializeType_TRANSACTION_BODY)
+    const deserializer = new InteractionDeserialize(rawData, DeserializeType_GRADIDO_TRANSACTION)
     deserializer.run()
-    expect(deserializer.isTransactionBody()).toBeTruthy()
+    expect(deserializer.isTransactionBody()).toBeFalsy()
     expect(deserializer.isConfirmedTransaction()).toBeFalsy()
-    expect(deserializer.isGradidoTransaction()).toBeFalsy()
+    expect(deserializer.isGradidoTransaction()).toBeTruthy()
 
-    const body = deserializer.getTransactionBody()
+    const transaction = deserializer.getGradidoTransaction()
+    const body = transaction?.getTransactionBody()
     expect(body).not.toBeNull()
     expect(body?.getVersionNumber()).toEqual(versionString)
     expect(body?.getCreatedAt().getDate()).toEqual(createdAt)
@@ -56,20 +55,21 @@ describe('Deserialize Gradido Transaction Test', () => {
 
     const communityRoot = body?.getCommunityRoot()
     expect(communityRoot).not.toBeNull()
-    expect(communityRoot?.getPubkey()?.equal(keyPairs[0].publicKey)).toBeTruthy()
-    expect(communityRoot?.getGmwPubkey()?.equal(keyPairs[1].publicKey)).toBeTruthy()
-    expect(communityRoot?.getAufPubkey()?.equal(keyPairs[2].publicKey)).toBeTruthy()
+    expect(communityRoot?.getPubkey()?.equal(keyPairs[0].getPublicKey()!)).toBeTruthy()
+    expect(communityRoot?.getGmwPubkey()?.equal(keyPairs[1].getPublicKey()!)).toBeTruthy()
+    expect(communityRoot?.getAufPubkey()?.equal(keyPairs[2].getPublicKey()!)).toBeTruthy()
   })
 
   it('register address transaction body', () => {
-    const rawData = MemoryBlock.fromBase64(registeAddressTransactionBase64)
-    const deserializer = new InteractionDeserialize(rawData, DeserializeType_TRANSACTION_BODY)
+    const rawData = MemoryBlock.fromBase64(registerAddressTransactionBase64)
+    const deserializer = new InteractionDeserialize(rawData, DeserializeType_GRADIDO_TRANSACTION)
     deserializer.run()
-    expect(deserializer.isTransactionBody()).toBeTruthy()
+    expect(deserializer.isTransactionBody()).toBeFalsy()
     expect(deserializer.isConfirmedTransaction()).toBeFalsy()
-    expect(deserializer.isGradidoTransaction()).toBeFalsy()
+    expect(deserializer.isGradidoTransaction()).toBeTruthy()
 
-    const body = deserializer.getTransactionBody()
+    const transaction = deserializer.getGradidoTransaction()
+    const body = transaction?.getTransactionBody()
     expect(body).not.toBeNull()
     expect(body?.getVersionNumber()).toEqual(versionString)
     expect(body?.getCreatedAt().getDate()).toEqual(createdAt)
@@ -86,21 +86,22 @@ describe('Deserialize Gradido Transaction Test', () => {
     expect(registerAddress).not.toBeNull()
     expect(registerAddress?.getAddressType()).toEqual(AddressType_COMMUNITY_HUMAN)
     expect(registerAddress?.getDerivationIndex()).toEqual(1)
-    expect(registerAddress?.getUserPublicKey()?.equal(keyPairs[3].publicKey)).toBeTruthy()
+    expect(registerAddress?.getUserPublicKey()?.equal(keyPairs[3].getPublicKey()!)).toBeTruthy()
     expect(registerAddress?.getNameHash()).toBeNull()
-    expect(registerAddress?.getAccountPublicKey()?.equal(keyPairs[4].publicKey)).toBeTruthy()
+    expect(registerAddress?.getAccountPublicKey()?.equal(keyPairs[4].getPublicKey()!)).toBeTruthy()
 
   })
 
   it('gradido creation transaction body', () => {
     const rawData = MemoryBlock.fromBase64(creationTransactionBase64)
-    const deserializer = new InteractionDeserialize(rawData, DeserializeType_TRANSACTION_BODY)
+    const deserializer = new InteractionDeserialize(rawData, DeserializeType_GRADIDO_TRANSACTION)
     deserializer.run()
-    expect(deserializer.isTransactionBody()).toBeTruthy()
+    expect(deserializer.isTransactionBody()).toBeFalsy()
     expect(deserializer.isConfirmedTransaction()).toBeFalsy()
-    expect(deserializer.isGradidoTransaction()).toBeFalsy()
+    expect(deserializer.isGradidoTransaction()).toBeTruthy()
 
-    const body = deserializer.getTransactionBody()
+    const transaction = deserializer.getGradidoTransaction()
+    const body = transaction?.getTransactionBody()
     expect(body).not.toBeNull()
     expect(body?.getVersionNumber()).toEqual(versionString)
     expect(body?.getCreatedAt().getDate()).toEqual(createdAt)
@@ -118,19 +119,20 @@ describe('Deserialize Gradido Transaction Test', () => {
     const recipient = creation?.getRecipient()
     expect(recipient).not.toBeNull()
     expect(recipient?.getAmount().toString()).toEqual('1000.0000')
-    expect(recipient?.getPubkey()?.equal(keyPairs[4].publicKey)).toBeTruthy()
+    expect(recipient?.getPubkey()?.equal(keyPairs[4].getPublicKey()!)).toBeTruthy()
     expect(creation?.getTargetDate().getDate()).toEqual(targetDate)
   })
   
   it('gradido transfer transaction body', () => {
     const rawData = MemoryBlock.fromBase64(transferTransactionBase64)
-    const deserializer = new InteractionDeserialize(rawData, DeserializeType_TRANSACTION_BODY)
+    const deserializer = new InteractionDeserialize(rawData, DeserializeType_GRADIDO_TRANSACTION)
     deserializer.run()
-    expect(deserializer.isTransactionBody()).toBeTruthy()
+    expect(deserializer.isTransactionBody()).toBeFalsy()
     expect(deserializer.isConfirmedTransaction()).toBeFalsy()
-    expect(deserializer.isGradidoTransaction()).toBeFalsy()
+    expect(deserializer.isGradidoTransaction()).toBeTruthy()
 
-    const body = deserializer.getTransactionBody()
+    const transaction = deserializer.getGradidoTransaction()
+    const body = transaction?.getTransactionBody()
     expect(body).not.toBeNull()
     expect(body?.getVersionNumber()).toEqual(versionString)
     expect(body?.getCreatedAt().getDate()).toEqual(createdAt)
@@ -148,19 +150,20 @@ describe('Deserialize Gradido Transaction Test', () => {
     const sender = transfer?.getSender()
     expect(sender).not.toBeNull()
     expect(sender?.getAmount().toString()).toEqual('500.5500')
-    expect(sender?.getPubkey()?.equal(keyPairs[4].publicKey)).toBeTruthy()
-    expect(transfer?.getRecipient()?.equal(keyPairs[5].publicKey)).toBeTruthy()
+    expect(sender?.getPubkey()?.equal(keyPairs[4].getPublicKey()!)).toBeTruthy()
+    expect(transfer?.getRecipient()?.equal(keyPairs[5].getPublicKey()!)).toBeTruthy()
   })
 
   it('gradido deferred transfer transaction body', () => {
     const rawData = MemoryBlock.fromBase64(deferredTransferTransactionBase64)
-    const deserializer = new InteractionDeserialize(rawData, DeserializeType_TRANSACTION_BODY)
+    const deserializer = new InteractionDeserialize(rawData, DeserializeType_GRADIDO_TRANSACTION)
     deserializer.run()
-    expect(deserializer.isTransactionBody()).toBeTruthy()
+    expect(deserializer.isTransactionBody()).toBeFalsy()
     expect(deserializer.isConfirmedTransaction()).toBeFalsy()
-    expect(deserializer.isGradidoTransaction()).toBeFalsy()
+    expect(deserializer.isGradidoTransaction()).toBeTruthy()
 
-    const body = deserializer.getTransactionBody()
+    const transaction = deserializer.getGradidoTransaction()
+    const body = transaction?.getTransactionBody()
     expect(body).not.toBeNull()
     expect(body?.getVersionNumber()).toEqual(versionString)
     expect(body?.getCreatedAt().getDate()).toEqual(createdAt)
@@ -180,20 +183,21 @@ describe('Deserialize Gradido Transaction Test', () => {
     const sender = transfer?.getSender()
     expect(sender).not.toBeNull()
     expect(sender?.getAmount().toString()).toEqual('555.5500')
-    expect(sender?.getPubkey()?.equal(keyPairs[4].publicKey)).toBeTruthy()
-    expect(transfer?.getRecipient()?.equal(keyPairs[5].publicKey)).toBeTruthy()
+    expect(sender?.getPubkey()?.equal(keyPairs[4].getPublicKey()!)).toBeTruthy()
+    expect(transfer?.getRecipient()?.equal(keyPairs[5].getPublicKey()!)).toBeTruthy()
     expect(deferredTransfer?.getTimeout().getDate()).toEqual(timeout)
   })
 
   it('community friends update transaction body', () => {
     const rawData = MemoryBlock.fromBase64(communityFriendsUpdateBase64)
-    const deserializer = new InteractionDeserialize(rawData, DeserializeType_TRANSACTION_BODY)
+    const deserializer = new InteractionDeserialize(rawData, DeserializeType_GRADIDO_TRANSACTION)
     deserializer.run()
-    expect(deserializer.isTransactionBody()).toBeTruthy()
+    expect(deserializer.isTransactionBody()).toBeFalsy()
     expect(deserializer.isConfirmedTransaction()).toBeFalsy()
-    expect(deserializer.isGradidoTransaction()).toBeFalsy()
+    expect(deserializer.isGradidoTransaction()).toBeTruthy()
 
-    const body = deserializer.getTransactionBody()
+    const transaction = deserializer.getGradidoTransaction()
+    const body = transaction?.getTransactionBody()
     expect(body).not.toBeNull()
     expect(body?.getVersionNumber()).toEqual(versionString)
     expect(body?.getCreatedAt().getDate()).toEqual(createdAt)
@@ -225,11 +229,7 @@ describe('Deserialize Gradido Transaction Test', () => {
     expect(gradidoTransaction?.getBodyBytes()?.equal(bodyBytes)).toBeTruthy()
     const firstSignature = gradidoTransaction?.getSignatureMap().getSignaturePairs().get(0).getSignature()
     expect(firstSignature).not.toBeNull()    
-    expect(crypto_sign_verify_detached(
-      firstSignature!.data(),
-      bodyBytes.data(),
-      keyPairs[3].publicKey.data()
-    )).toBeTruthy()
+    expect(keyPairs[3].verify(bodyBytes, firstSignature!)).toBeTruthy()
   })
 
   it('minimal confirmed transaction', () => {
@@ -270,15 +270,15 @@ describe('Deserialize Gradido Transaction Test', () => {
     expect(confirmedTransaction?.getAccountBalance().toString()).toEqual('899.7484')
     expect(confirmedTransaction?.getRunningHash()?.size()).toEqual(crypto_generichash_BYTES)
     expect(confirmedTransaction?.getRunningHash()?.convertToHex())
-      .toEqual('882700c5d5acc7381a9da4861edb90adbbabc7d642869fdd572b345e5665d85a')
+      .toEqual('02c718c2d4154829e6e64ed4cb0aeebb5df4cb4f285f49cc299cb286da242afd')
 
     const gradidoTransaction = confirmedTransaction?.getGradidoTransaction()
     expect(gradidoTransaction).not.toBeNull()
     const firstSignature = gradidoTransaction?.getSignatureMap().getSignaturePairs().get(0).getSignature() as MemoryBlock;
 	  const bodyBytes = gradidoTransaction?.getBodyBytes();
     expect(bodyBytes).not.toBeNull()
-    expect(verify(firstSignature, bodyBytes!, keyPairs[0])).toBeTruthy()
-    expect(verify(firstSignature, bodyBytes!, keyPairs[2])).toBeFalsy()
+    expect(keyPairs[0].verify(bodyBytes!, firstSignature)).toBeTruthy()
+    expect(keyPairs[2].verify(bodyBytes!, firstSignature)).toBeFalsy()
 
     const body = gradidoTransaction?.getTransactionBody()
     expect(body).not.toBeNull()
@@ -291,7 +291,7 @@ describe('Deserialize Gradido Transaction Test', () => {
     const sender = transfer?.getSender()
     expect(sender).not.toBeNull()
     expect(sender?.getAmount().toString()).toEqual('100.2516')
-    expect(sender?.getPubkey()?.equal(keyPairs[4].publicKey))
-    expect(transfer?.getRecipient()?.equal(keyPairs[5].publicKey))
+    expect(sender?.getPubkey()?.equal(keyPairs[4].getPublicKey()!))
+    expect(transfer?.getRecipient()?.equal(keyPairs[5].getPublicKey()!))
   })
 })

@@ -51,6 +51,94 @@ void _exports_GradidoTransactionBuilder_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("buildOutbound");
+  members.insert({
+    "buildOutbound",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("buildOutbound",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder_buildOutbound,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("buildInbound");
+  members.insert({
+    "buildInbound",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("buildInbound",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder_buildInbound,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("setDeferredTransfer");
+  members.insert({
+    "setDeferredTransfer",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("setDeferredTransfer",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder__wrap_GradidoTransactionBuilder_setDeferredTransfer,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("setCommunityFriendsUpdate");
+  members.insert({
+    "setCommunityFriendsUpdate",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("setCommunityFriendsUpdate",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder__wrap_GradidoTransactionBuilder_setCommunityFriendsUpdate,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("setRegisterAddress");
+  members.insert({
+    "setRegisterAddress",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("setRegisterAddress",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder__wrap_GradidoTransactionBuilder_setRegisterAddress,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("setTransactionCreation");
+  members.insert({
+    "setTransactionCreation",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("setTransactionCreation",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder__wrap_GradidoTransactionBuilder_setTransactionCreation,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("setTransactionTransfer");
+  members.insert({
+    "setTransactionTransfer",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("setTransactionTransfer",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder__wrap_GradidoTransactionBuilder_setTransactionTransfer,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("setCommunityRoot");
+  members.insert({
+    "setCommunityRoot",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("setCommunityRoot",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder__wrap_GradidoTransactionBuilder_setCommunityRoot,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("setCreatedAt");
+  members.insert({
+    "setCreatedAt",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("setCreatedAt",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder_setCreatedAt,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("setMemo");
+  members.insert({
+    "setMemo",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("setMemo",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder_setMemo,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("setVersionNumber");
+  members.insert({
+    "setVersionNumber",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("setVersionNumber",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder_setVersionNumber,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("setTransactionBody");
   members.insert({
     "setTransactionBody",
@@ -59,11 +147,19 @@ void _exports_GradidoTransactionBuilder_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("addSignaturePair");
+  members.erase("setSenderCommunity");
   members.insert({
-    "addSignaturePair",
-      _exports_GradidoTransactionBuilder_templ::InstanceMethod("addSignaturePair",
-        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder_addSignaturePair,
+    "setSenderCommunity",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("setSenderCommunity",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder_setSenderCommunity,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("setRecipientCommunity");
+  members.insert({
+    "setRecipientCommunity",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("setRecipientCommunity",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder_setRecipientCommunity,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -80,6 +176,38 @@ void _exports_GradidoTransactionBuilder_inst::GetMembers(
     "setParentMessageId",
       _exports_GradidoTransactionBuilder_templ::InstanceMethod("setParentMessageId",
         &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder_setParentMessageId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isCrossCommunityTransaction");
+  members.insert({
+    "isCrossCommunityTransaction",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("isCrossCommunityTransaction",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder_isCrossCommunityTransaction,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isBodyBuildingState");
+  members.insert({
+    "isBodyBuildingState",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("isBodyBuildingState",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder_isBodyBuildingState,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isCrossCommunityBuildingState");
+  members.insert({
+    "isCrossCommunityBuildingState",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("isCrossCommunityBuildingState",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder_isCrossCommunityBuildingState,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isLocalCommunityBuildingState");
+  members.insert({
+    "isLocalCommunityBuildingState",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("isLocalCommunityBuildingState",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder_isLocalCommunityBuildingState,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
