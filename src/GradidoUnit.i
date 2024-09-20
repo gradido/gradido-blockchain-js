@@ -20,6 +20,7 @@
 /* TODO: specifiy that is only for GradidoUnit */
 %rename(value) operator double;
 %rename(calculateDecayDirect) GradidoUnit::calculateDecay(int64_t gradidoCent, int64_t seconds);
+%rename(calculateCompoundInterestDirect) GradidoUnit::calculateCompoundInterest(int64_t gradidoCent, int64_t seconds);
 %ignore operator std::string;
 %ignore GradidoUnit::GradidoUnit(int64_t gddCent);
 

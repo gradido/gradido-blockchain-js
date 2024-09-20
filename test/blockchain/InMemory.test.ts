@@ -408,7 +408,7 @@ describe('InMemoryBlockchain', () => {
 
       // transfer
       expect(() => createGradidoTransfer(6, 4, '500.10', generateNewCreatedAt()))
-        .toThrow('not enough gdd for transfer or deferred transfer, needed: 500.1000, exist: 0.0000')
+        .toThrow('not enough gdd, needed: 500.1000, exist: 0.0000')
 
       expect(getBalance(4, lastConfirmedAt).toString()).toEqual(new GradidoUnit(0).toString())
       expect(getBalance(6, lastConfirmedAt).toString()).toEqual(new GradidoUnit(0).toString())
@@ -433,16 +433,46 @@ describe('InMemoryBlockchain', () => {
       keyPairCursor++
       expect(() => createGradidoDeferredTransfer(6, recipientKeyPairIndex, '500.10', createdAt, timeout)).not.toThrow()
 
-      // check account
-      const deferredTransferBalance = getBalance(recipientKeyPairIndex, lastConfirmedAt)
+      // check account  
+      let blockedDeferredTransferBalance = new GradidoUnit(500.1).calculateCompoundInterest(createdAt, timeout)
+      let deferredTransferBalance = getBalance(recipientKeyPairIndex, lastConfirmedAt)
+      const userBalanceAtDeferredTransferTime = getBalance(6, createdAt).calculateDecay(createdAt, lastConfirmedAt)
       const userBalance = getBalance(6, lastConfirmedAt)
-      expect(userBalance.equal(new GradidoUnit(499.1095))).toBeTruthy()
-      logBlockchain()
-      console.log("user balance: ", userBalance.toString())
-      console.log("deferred Transfer balance: ", deferredTransferBalance.toString())
-      console.log("summe, sollte <= 1000 sein", userBalance.add(deferredTransferBalance).toString())
+      const lastUserBalanceDate = lastConfirmedAt
+      expect(userBalance.equal(new GradidoUnit(464.6647))).toBeTruthy()      
+
+      const diff = userBalance.minus(userBalanceAtDeferredTransferTime.minus(blockedDeferredTransferBalance))
+      expect(Math.abs(diff.getGradidoCent())).toBeLessThanOrEqual(1)
+      expect(userBalance.plus(deferredTransferBalance).getGradidoCent()).toBeLessThan(new GradidoUnit(1000.0).getGradidoCent())
+
+      // deferred transfer from deferred transfer account recipientKeyPairIndex to a new account
+      createdAt = new Date(lastConfirmedAt.getTime() + 36 * 60 * 60 * 1000)
+      lastCreatedAt = createdAt
+      const secondTimeout = new Date(createdAt.getTime() + 24 * 30 * 60 * 60 * 1000)
+      const newRecipientKeyPairIndex = keyPairCursor
+      keyPairCursor++
+      const balanceWhenSecondsDeferredTransferStart = getBalance(recipientKeyPairIndex, createdAt)
+      expect(balanceWhenSecondsDeferredTransferStart.getGradidoCent()).toEqual(new GradidoUnit(500.10).getGradidoCent())
+
+      expect(createGradidoDeferredTransfer(recipientKeyPairIndex, newRecipientKeyPairIndex, '483.0', createdAt, secondTimeout))
+        .toBeTruthy()
       
-      expect(() => createGradidoTransfer(recipientKeyPairIndex, 4, '500', generateNewCreatedAt())).not.toThrow()
+      // check accounts
+      blockedDeferredTransferBalance = new GradidoUnit(483.0).calculateCompoundInterest(createdAt, secondTimeout)
+      const timeoutPlusOneHour = new Date(timeout.getTime() + 60 * 60 * 1000)
+      deferredTransferBalance = getBalance(recipientKeyPairIndex, timeoutPlusOneHour)
+      const newDeferredTransferBalance = getBalance(newRecipientKeyPairIndex, lastConfirmedAt);
+	    const userBalanceWithChange = getBalance(6, timeoutPlusOneHour);
+	    const decayedUserBalance = userBalance.calculateDecay(lastUserBalanceDate, timeoutPlusOneHour);
+      expect(userBalanceWithChange.getGradidoCent()).toBeGreaterThan(decayedUserBalance.getGradidoCent())
+      expect(newDeferredTransferBalance.getGradidoCent()).toEqual(new GradidoUnit(483.0).getGradidoCent())
+
+      createdAt = generateNewCreatedAt();
+      deferredTransferBalance = getBalance(recipientKeyPairIndex, createdAt)
+      // console.log('deferred transfer: ', deferredTransferBalance.toString())
+	    const thirdTimeout = new Date(createdAt.getTime() + 30 * 24 * 60 * 60 * 1000)
+	    expect(() => createGradidoDeferredTransfer(recipientKeyPairIndex, 6, '400.0', createdAt, thirdTimeout))
+        .toThrow('not enough gdd, needed: 413.5458, exist: ' + deferredTransferBalance.toString())
     })
   })
 })

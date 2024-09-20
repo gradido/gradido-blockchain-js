@@ -343,6 +343,12 @@ export  class GradidoUnit {
 
   mul(other: GradidoUnit): GradidoUnit;
 
+  plus(other: GradidoUnit): GradidoUnit;
+
+  minus(other: GradidoUnit): GradidoUnit;
+
+  times(other: GradidoUnit): GradidoUnit;
+
   gt(other: GradidoUnit): boolean;
 
   gte(other: GradidoUnit): boolean;
@@ -356,6 +362,12 @@ export  class GradidoUnit {
   notEqual(other: GradidoUnit): boolean;
 
  static calculateDecayDirect(gradidoCent: number, seconds: number): number;
+
+ static calculateCompoundInterestDirect(gradidoCent: number, seconds: number): number;
+
+  calculateCompoundInterest(duration: number): GradidoUnit;
+
+  calculateCompoundInterest(startTime: Date, endTime: Date): GradidoUnit;
 
   calculateDecay(duration: number): GradidoUnit;
 

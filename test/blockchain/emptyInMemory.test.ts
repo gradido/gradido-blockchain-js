@@ -61,7 +61,7 @@ describe('tests with empty in-memory blockchain', () => {
       deserializer.run()
       expect(deserializer.isGradidoTransaction()).toBeTruthy()
       expect(() => blockchain.addGradidoTransaction(deserializer.getGradidoTransaction(), null, confirmedAt))
-        .toThrow('not enough gdd for transfer or deferred transfer')
+        .toThrow('not enough gdd, needed: 500.5500, exist: 0.0000')
     })
 
     it('gradido deferred transfer as first', () => {
@@ -70,7 +70,7 @@ describe('tests with empty in-memory blockchain', () => {
       deserializer.run()
       expect(deserializer.isGradidoTransaction()).toBeTruthy()
       expect(() => blockchain.addGradidoTransaction(deserializer.getGradidoTransaction(), null, confirmedAt))
-        .toThrow('not enough gdd for transfer or deferred transfer')
+        .toThrow('not enough gdd, needed: 555.5500, exist: 0.0000')
     })
   })
 })

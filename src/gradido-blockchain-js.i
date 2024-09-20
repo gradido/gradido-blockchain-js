@@ -34,10 +34,10 @@ std::string enum_to_string(E value);
 %rename(sub) operator-=;
 %rename(mul) operator*=;
 %rename(div) operator/=;
-%ignore operator+;
-%ignore operator-;
-%ignore operator*;
-%ignore operator/;
+%rename(plus) operator+;
+%rename(minus) operator-;
+%rename(times) operator*;
+%rename(divide) operator/;
 %ignore operator|;
 %ignore operator&;
 
