@@ -1044,6 +1044,7 @@ Napi::Object Init(Napi::Env env, Napi::Object exports);
 
 
 #include "gradido_blockchain/const.h"
+#include "gradido_blockchain/GradidoBlockchainException.h"
 
 #include <magic_enum/magic_enum.hpp>
 #include <string>
@@ -1053,9 +1054,22 @@ std::string enum_to_string(E value) {
   return std::string(magic_enum::enum_name(value));
 }
 
+template <typename E>
+E string_to_enum(const std::string& name) {
+  auto result = magic_enum::enum_cast<E>(name);
+  if(result.has_value()) {
+    return result.value();
+  }
+  auto firstEnumValue = magic_enum::enum_value<E>(0);
+  auto typeName = magic_enum::enum_type_name<decltype(firstEnumValue)>();
+  throw GradidoUnknownEnumException("cannot convert to enum", typeName.data(), name.data());
+}
+
 
 template <typename E>
 std::string enum_to_string(E value);
+template <typename E>
+E string_to_enum(const std::string& name);
 
 
 #include <string>
@@ -1126,10 +1140,37 @@ int SWIG_AsVal_int (Napi::Value valRef, int* val);
 
 // js_global_declaration
 Napi::Value _wrap_addressTypeToString(const Napi::CallbackInfo &info);
+
+SWIGINTERNINLINE swig_type_info*
+SWIG_pchar_descriptor(void)
+{
+  static int init = 0;
+  static swig_type_info* info = 0;
+  if (!init) {
+    info = SWIG_TypeQuery("_p_char");
+    init = 1;
+  }
+  return info;
+}
+
+
+SWIGINTERN int
+SWIG_AsCharPtrAndSize(Napi::Value valRef, char** cptr, size_t* psize, int *alloc);
+
+
+SWIGCLINKAGE int
+SWIG_AsPtr_std_string (Napi::Value obj, std::string **val);
+
+// js_global_declaration
+Napi::Value _wrap_stringToAddressType(const Napi::CallbackInfo &info);
 // js_global_declaration
 Napi::Value _wrap_crossGroupTypeToString(const Napi::CallbackInfo &info);
 // js_global_declaration
+Napi::Value _wrap_stringToCrossGroupType(const Napi::CallbackInfo &info);
+// js_global_declaration
 Napi::Value _wrap_transactionTypeToString(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value _wrap_stringToTransactionType(const Napi::CallbackInfo &info);
 
 #include "gradido_blockchain/memory/Block.h"
 
@@ -1203,27 +1244,6 @@ SWIGINTERNINLINE void std_vector_Sl_std_shared_ptr_Sl_memory_Block_Sg__Sg__set(s
                 else
                     throw std::out_of_range("vector index out of range");
             }
-
-SWIGINTERNINLINE swig_type_info*
-SWIG_pchar_descriptor(void)
-{
-  static int init = 0;
-  static swig_type_info* info = 0;
-  if (!init) {
-    info = SWIG_TypeQuery("_p_char");
-    init = 1;
-  }
-  return info;
-}
-
-
-SWIGINTERN int
-SWIG_AsCharPtrAndSize(Napi::Value valRef, char** cptr, size_t* psize, int *alloc);
-
-
-SWIGCLINKAGE int
-SWIG_AsPtr_std_string (Napi::Value obj, std::string **val);
-
 
 #include "gradido_blockchain/crypto/CryptoConfig.h"
 
@@ -1335,8 +1355,11 @@ Napi::Value SWIG_From_unsigned_SS_long_SS_long(Napi::Env env, unsigned long long
 #include "gradido_blockchain/interaction/deserialize/Exceptions.h"
 #include "gradido_blockchain/interaction/deserialize/Context.h"
 
+
 // js_global_declaration
 Napi::Value _wrap_deserializeTypeToString(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value _wrap_stringToDeserializeType(const Napi::CallbackInfo &info);
 
 #include "gradido_blockchain/interaction/serialize/Exceptions.h"
 #include "gradido_blockchain/interaction/serialize/Context.h"
@@ -1367,6 +1390,8 @@ SWIGINTERNINLINE void std_vector_Sl_std_shared_ptr_Sl_gradido_blockchain_Transac
 
 // js_global_declaration
 Napi::Value _wrap_searchDirectionToString(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value _wrap_stringToSearchDirection(const Napi::CallbackInfo &info);
 
 #include "gradido_blockchain/blockchain/InMemory.h"
 
@@ -1381,6 +1406,8 @@ SWIGINTERNINLINE std::shared_ptr< gradido::blockchain::InMemory > gradido_blockc
 
 // js_global_declaration
 Napi::Value _wrap_bodyBytesTypeToString(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value _wrap_stringToBodyBytesType(const Napi::CallbackInfo &info);
 
 #include "gradido_blockchain/interaction/calculateAccountBalance/Context.h"
 
@@ -1391,6 +1418,8 @@ Napi::Value _wrap_bodyBytesTypeToString(const Napi::CallbackInfo &info);
 
 // js_global_declaration
 Napi::Value _wrap_validateTypeToString(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value _wrap_stringToValidateType(const Napi::CallbackInfo &info);
 
 #define SWIG_NAPI_INIT gradido_initialize
 
@@ -28466,6 +28495,8 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_new_Inte
         result = (gradido::interaction::deserialize::Context *)new gradido::interaction::deserialize::Context(SWIG_STD_MOVE(arg1),arg2);
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28517,6 +28548,8 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_new_Inte
         result = (gradido::interaction::deserialize::Context *)new gradido::interaction::deserialize::Context(SWIG_STD_MOVE(arg1));
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28691,6 +28724,8 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_Interact
         (arg1)->run();
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28748,6 +28783,8 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_Interact
         result = (bool)((gradido::interaction::deserialize::Context const *)arg1)->isGradidoTransaction();
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28805,6 +28842,8 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_Interact
         result = (bool)((gradido::interaction::deserialize::Context const *)arg1)->isTransactionBody();
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28862,6 +28901,8 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_Interact
         result = (bool)((gradido::interaction::deserialize::Context const *)arg1)->isConfirmedTransaction();
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28919,6 +28960,8 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_Interact
         result = (gradido::interaction::deserialize::Type)((gradido::interaction::deserialize::Context const *)arg1)->getType();
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28976,6 +29019,8 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_Interact
         result = (arg1)->getTransactionBody();
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -29044,6 +29089,8 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_Interact
         result = (arg1)->getGradidoTransaction();
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -29112,6 +29159,8 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_Interact
         result = (arg1)->getConfirmedTransaction();
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -33901,6 +33950,8 @@ _exports_FilterBuilder_templ<SWIG_OBJ_WRAP>::_exports_FilterBuilder_templ(const 
       } catch (const gradido::interaction::validate::TransactionValidationException& e) {
         std::string message = "TransactionValidationException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -37229,6 +37280,8 @@ Napi::Value _exports_InteractionToJson_templ<SWIG_OBJ_WRAP>::_wrap_new_Interacti
     arg1 = reinterpret_cast< gradido::data::TransactionBody * >(argp1);{
       try {
         result = (gradido::interaction::toJson::Context *)new gradido::interaction::toJson::Context((gradido::data::TransactionBody const &)*arg1);
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -37284,6 +37337,8 @@ Napi::Value _exports_InteractionToJson_templ<SWIG_OBJ_WRAP>::_wrap_new_Interacti
     arg2 = static_cast< gradido::interaction::toJson::BodyBytesType >(val2);{
       try {
         result = (gradido::interaction::toJson::Context *)new gradido::interaction::toJson::Context((gradido::data::GradidoTransaction const &)*arg1,arg2);
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -37332,6 +37387,8 @@ Napi::Value _exports_InteractionToJson_templ<SWIG_OBJ_WRAP>::_wrap_new_Interacti
     arg1 = reinterpret_cast< gradido::data::GradidoTransaction * >(argp1);{
       try {
         result = (gradido::interaction::toJson::Context *)new gradido::interaction::toJson::Context((gradido::data::GradidoTransaction const &)*arg1);
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -37387,6 +37444,8 @@ Napi::Value _exports_InteractionToJson_templ<SWIG_OBJ_WRAP>::_wrap_new_Interacti
     arg2 = static_cast< gradido::interaction::toJson::BodyBytesType >(val2);{
       try {
         result = (gradido::interaction::toJson::Context *)new gradido::interaction::toJson::Context((gradido::data::ConfirmedTransaction const &)*arg1,arg2);
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -37435,6 +37494,8 @@ Napi::Value _exports_InteractionToJson_templ<SWIG_OBJ_WRAP>::_wrap_new_Interacti
     arg1 = reinterpret_cast< gradido::data::ConfirmedTransaction * >(argp1);{
       try {
         result = (gradido::interaction::toJson::Context *)new gradido::interaction::toJson::Context((gradido::data::ConfirmedTransaction const &)*arg1);
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -37483,6 +37544,8 @@ Napi::Value _exports_InteractionToJson_templ<SWIG_OBJ_WRAP>::_wrap_new_Interacti
     arg1 = reinterpret_cast< gradido::blockchain::Filter * >(argp1);{
       try {
         result = (gradido::interaction::toJson::Context *)new gradido::interaction::toJson::Context((gradido::blockchain::Filter const &)*arg1);
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -37790,6 +37853,8 @@ Napi::Value _exports_InteractionToJson_templ<SWIG_OBJ_WRAP>::_wrap_InteractionTo
     {
       try {
         result = (arg1)->run(arg2);
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -37840,6 +37905,8 @@ Napi::Value _exports_InteractionToJson_templ<SWIG_OBJ_WRAP>::_wrap_InteractionTo
     {
       try {
         result = (arg1)->run();
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -38582,6 +38649,8 @@ Napi::Value _exports_InteractionValidate_templ<SWIG_OBJ_WRAP>::_wrap_new_Interac
       } catch (const gradido::interaction::validate::TransactionValidationException& e) {
         std::string message = "TransactionValidationException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -38663,6 +38732,8 @@ Napi::Value _exports_InteractionValidate_templ<SWIG_OBJ_WRAP>::_wrap_new_Interac
       } catch (const gradido::interaction::validate::TransactionValidationException& e) {
         std::string message = "TransactionValidationException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -38744,6 +38815,8 @@ Napi::Value _exports_InteractionValidate_templ<SWIG_OBJ_WRAP>::_wrap_new_Interac
       } catch (const gradido::interaction::validate::TransactionValidationException& e) {
         std::string message = "TransactionValidationException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -38994,6 +39067,8 @@ Napi::Value _exports_InteractionValidate_templ<SWIG_OBJ_WRAP>::_wrap_Interaction
       } catch (const gradido::interaction::validate::TransactionValidationException& e) {
         std::string message = "TransactionValidationException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -39095,6 +39170,8 @@ Napi::Value _exports_InteractionValidate_templ<SWIG_OBJ_WRAP>::_wrap_Interaction
       } catch (const gradido::interaction::validate::TransactionValidationException& e) {
         std::string message = "TransactionValidationException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -39184,6 +39261,8 @@ Napi::Value _exports_InteractionValidate_templ<SWIG_OBJ_WRAP>::_wrap_Interaction
       } catch (const gradido::interaction::validate::TransactionValidationException& e) {
         std::string message = "TransactionValidationException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -39266,6 +39345,8 @@ Napi::Value _exports_InteractionValidate_templ<SWIG_OBJ_WRAP>::_wrap_Interaction
       } catch (const gradido::interaction::validate::TransactionValidationException& e) {
         std::string message = "TransactionValidationException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -39523,6 +39604,8 @@ Napi::Value _exports_InteractionValidate_templ<SWIG_OBJ_WRAP>::_wrap_Interaction
       } catch (const gradido::interaction::validate::TransactionValidationException& e) {
         std::string message = "TransactionValidationException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -39621,6 +39704,8 @@ Napi::Value _exports_InteractionValidate_templ<SWIG_OBJ_WRAP>::_wrap_Interaction
       } catch (const gradido::interaction::validate::TransactionValidationException& e) {
         std::string message = "TransactionValidationException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }

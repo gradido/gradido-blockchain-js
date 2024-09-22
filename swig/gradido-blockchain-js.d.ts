@@ -90,9 +90,15 @@ export type TransactionType = number & { readonly [_SWIG_enum_tag]: 'Transaction
 
 export function addressTypeToString(value: AddressType): string;
 
+export function stringToAddressType(name: string): AddressType;
+
 export function crossGroupTypeToString(value: CrossGroupType): string;
 
+export function stringToCrossGroupType(name: string): CrossGroupType;
+
 export function transactionTypeToString(value: TransactionType): string;
+
+export function stringToTransactionType(name: string): TransactionType;
 
 export  class MemoryBlocks {
 
@@ -790,6 +796,8 @@ export type DeserializeType = number & { readonly [_SWIG_enum_tag]: 'Deserialize
 
 export function deserializeTypeToString(value: DeserializeType): string;
 
+export function stringToDeserializeType(name: string): DeserializeType;
+
 export  class InteractionDeserialize {
 
   constructor(rawData: MemoryBlock|null, hint: DeserializeType);
@@ -924,6 +932,8 @@ export const SearchDirection_DESC: SearchDirection;
 export type SearchDirection = number & { readonly [_SWIG_enum_tag]: 'SearchDirection'; };
 
 export function searchDirectionToString(value: SearchDirection): string;
+
+export function stringToSearchDirection(name: string): SearchDirection;
 
 export  class Filter {
 
@@ -1065,6 +1075,8 @@ export type BodyBytesType = number & { readonly [_SWIG_enum_tag]: 'BodyBytesType
 
 export function bodyBytesTypeToString(value: BodyBytesType): string;
 
+export function stringToBodyBytesType(name: string): BodyBytesType;
+
 export  class InteractionToJson {
 
   constructor(body: TransactionBody);
@@ -1114,6 +1126,8 @@ export const ValidateType_CONNECTED_BLOCKCHAIN: ValidateType;
 export type ValidateType = number & { readonly [_SWIG_enum_tag]: 'ValidateType'; };
 
 export function validateTypeToString(value: ValidateType): string;
+
+export function stringToValidateType(name: string): ValidateType;
 
 export  class InteractionValidate {
 

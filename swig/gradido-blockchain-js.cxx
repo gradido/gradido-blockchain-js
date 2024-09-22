@@ -1330,50 +1330,6 @@ fail:
 }
 
 
-SWIGINTERN
-int SWIG_AsVal_unsigned_SS_long (Napi::Value obj, unsigned long *val)
-{
-  if(!obj.IsNumber()) {
-    return SWIG_TypeError;
-  }
-  if (val) {
-    Napi::Number num;
-    NAPI_CHECK_RESULT(obj.ToNumber(), num);
-    if (num.Int64Value() < 0) {
-      return SWIG_TypeError;
-    }
-    *val = static_cast<unsigned long>(num.Int64Value());
-  }
-  return SWIG_OK;
-  goto fail;
-fail:
-  return SWIG_ERROR;
-}
-
-
-#ifdef SWIG_LONG_LONG_AVAILABLE
-SWIGINTERN
-int SWIG_AsVal_unsigned_SS_long_SS_long (Napi::Value obj, unsigned long long *val)
-{
-  if(!obj.IsNumber()) {
-    return SWIG_TypeError;
-  }
-  if (obj.ToNumber().Int64Value() < 0) {
-    return SWIG_TypeError;
-  }
-  if (val) {
-    Napi::Number num;
-    NAPI_CHECK_RESULT(obj.ToNumber(), num);
-    *val = static_cast<unsigned long long>(num.Int64Value());
-  }
-  return SWIG_OK;
-  goto fail;
-fail:
-  return SWIG_ERROR;
-}
-#endif
-
-
 SWIGINTERN int
 SWIG_AsCharPtrAndSize(Napi::Value valRef, char** cptr, size_t* psize, int *alloc)
 {
@@ -1446,6 +1402,50 @@ SWIG_AsPtr_std_string (Napi::Value obj, std::string **val)
   }
   return SWIG_ERROR;
 }
+
+
+SWIGINTERN
+int SWIG_AsVal_unsigned_SS_long (Napi::Value obj, unsigned long *val)
+{
+  if(!obj.IsNumber()) {
+    return SWIG_TypeError;
+  }
+  if (val) {
+    Napi::Number num;
+    NAPI_CHECK_RESULT(obj.ToNumber(), num);
+    if (num.Int64Value() < 0) {
+      return SWIG_TypeError;
+    }
+    *val = static_cast<unsigned long>(num.Int64Value());
+  }
+  return SWIG_OK;
+  goto fail;
+fail:
+  return SWIG_ERROR;
+}
+
+
+#ifdef SWIG_LONG_LONG_AVAILABLE
+SWIGINTERN
+int SWIG_AsVal_unsigned_SS_long_SS_long (Napi::Value obj, unsigned long long *val)
+{
+  if(!obj.IsNumber()) {
+    return SWIG_TypeError;
+  }
+  if (obj.ToNumber().Int64Value() < 0) {
+    return SWIG_TypeError;
+  }
+  if (val) {
+    Napi::Number num;
+    NAPI_CHECK_RESULT(obj.ToNumber(), num);
+    *val = static_cast<unsigned long long>(num.Int64Value());
+  }
+  return SWIG_OK;
+  goto fail;
+fail:
+  return SWIG_ERROR;
+}
+#endif
 
 
 // js_global_getter
@@ -3817,13 +3817,31 @@ do {
 } while (0);
 // jsnapi_register_global_function
 do {
+  Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Function("stringToAddressType", _wrap_stringToAddressType,
+    static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
+  NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
+} while (0);
+// jsnapi_register_global_function
+do {
   Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Function("crossGroupTypeToString", _wrap_crossGroupTypeToString,
     static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
   NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
 } while (0);
 // jsnapi_register_global_function
 do {
+  Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Function("stringToCrossGroupType", _wrap_stringToCrossGroupType,
+    static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
+  NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
+} while (0);
+// jsnapi_register_global_function
+do {
   Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Function("transactionTypeToString", _wrap_transactionTypeToString,
+    static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
+  NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
+} while (0);
+// jsnapi_register_global_function
+do {
+  Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Function("stringToTransactionType", _wrap_stringToTransactionType,
     static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
   NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
 } while (0);
@@ -3965,6 +3983,12 @@ do {
     static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
   NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
 } while (0);
+// jsnapi_register_global_function
+do {
+  Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Function("stringToDeserializeType", _wrap_stringToDeserializeType,
+    static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
+  NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
+} while (0);
 // jsnapi_register_global_constant
 do {
   Napi::Function f = Napi::Function::New(env, exports_FilterResult_USE_get);
@@ -4016,6 +4040,12 @@ do {
     static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
   NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
 } while (0);
+// jsnapi_register_global_function
+do {
+  Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Function("stringToSearchDirection", _wrap_stringToSearchDirection,
+    static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
+  NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
+} while (0);
 // jsnapi_register_global_constant
 do {
   Napi::Function f = Napi::Function::New(env, exports_BodyBytesType_BASE64_get);
@@ -4046,6 +4076,12 @@ do {
 // jsnapi_register_global_function
 do {
   Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Function("bodyBytesTypeToString", _wrap_bodyBytesTypeToString,
+    static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
+  NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
+} while (0);
+// jsnapi_register_global_function
+do {
+  Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Function("stringToBodyBytesType", _wrap_stringToBodyBytesType,
     static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
   NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
 } while (0);
@@ -4115,6 +4151,12 @@ do {
 // jsnapi_register_global_function
 do {
   Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Function("validateTypeToString", _wrap_validateTypeToString,
+    static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
+  NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
+} while (0);
+// jsnapi_register_global_function
+do {
+  Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Function("stringToValidateType", _wrap_stringToValidateType,
     static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
   NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
 } while (0);

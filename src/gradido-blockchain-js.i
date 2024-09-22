@@ -6,6 +6,7 @@
 
 %{
 #include "gradido_blockchain/const.h"
+#include "gradido_blockchain/GradidoBlockchainException.h"
 
 #include <magic_enum/magic_enum.hpp>
 #include <string>
@@ -14,10 +15,23 @@ template <typename E>
 std::string enum_to_string(E value) {
   return std::string(magic_enum::enum_name(value));
 }
+
+template <typename E>
+E string_to_enum(const std::string& name) {
+  auto result = magic_enum::enum_cast<E>(name);
+  if(result.has_value()) {
+    return result.value();
+  }
+  auto firstEnumValue = magic_enum::enum_value<E>(0);
+  auto typeName = magic_enum::enum_type_name<decltype(firstEnumValue)>();
+  throw GradidoUnknownEnumException("cannot convert to enum", typeName.data(), name.data());
+}
 %}
 %inline %{
 template <typename E>
 std::string enum_to_string(E value);
+template <typename E>
+E string_to_enum(const std::string& name);
 %}
 
 
@@ -64,9 +78,23 @@ std::string enum_to_string(E value);
 %typemap(ts) gradido::data::CrossGroupType "CrossGroupType";
 %typemap(ts) gradido::data::TransactionType "TransactionType";
 
+// needed for string_to_enum to get more infos on exception
+%exception {
+    try {
+        $function
+    } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+    } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+    }
+}
+
 %template(addressTypeToString) enum_to_string<gradido::data::AddressType>;
+%template(stringToAddressType) string_to_enum<gradido::data::AddressType>;
 %template(crossGroupTypeToString) enum_to_string<gradido::data::CrossGroupType>;
+%template(stringToCrossGroupType) string_to_enum<gradido::data::CrossGroupType>;
 %template(transactionTypeToString) enum_to_string<gradido::data::TransactionType>;
+%template(stringToTransactionType) string_to_enum<gradido::data::TransactionType>;
 
 // base types
 %include "MemoryBlock.i"

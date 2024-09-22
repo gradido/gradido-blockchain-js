@@ -34,6 +34,8 @@
     } catch (const gradido::interaction::validate::TransactionValidationException& e) {
         std::string message = "TransactionValidationException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
+    } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
     } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
     }
@@ -52,4 +54,5 @@
 %include "gradido_blockchain/interaction/validate/Type.h"
 %typemap(ts) gradido::interaction::validate::Type "ValidateType";
 %template(validateTypeToString) enum_to_string<gradido::interaction::validate::Type>;
+%template(stringToValidateType) string_to_enum<gradido::interaction::validate::Type>;
 %include "gradido_blockchain/interaction/validate/Context.h"
