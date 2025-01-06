@@ -1,14 +1,15 @@
-import { crypto_sign_PUBLICKEYBYTES } from 'sodium-native'
 import { 
   GradidoTransactionBuilder,
   GradidoTransfer, 
+  GradidoUnit, 
+  InMemoryBlockchain, 
+  InMemoryBlockchainProvider, 
   InteractionValidate, 
   KeyPairEd25519, 
-  MemoryBlock, 
   TransferAmount, 
   ValidateType_SINGLE 
 } from '../../'
-import { createdAt, timeout, versionString } from '../helper/const'
+import { aFilledMemo, createdAt, deferredTransferMemo, hallMemo, timeoutDuration, versionString } from '../helper/const'
 import { generateKeyPairs } from '../helper/keyPairs'
 
 let keyPairs: KeyPairEd25519[]
@@ -22,7 +23,7 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
   beforeEach(() => {
     builder.reset()
     builder
-      .setMemo('Link zum einloesen')
+      .addMemo(deferredTransferMemo)
       .setCreatedAt(createdAt)
       .setVersionNumber(versionString)
   })
@@ -30,9 +31,9 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
     const transaction = builder
       .setDeferredTransfer(
         new GradidoTransfer(
-          new TransferAmount(keyPairs[4].getPublicKey(), '500.55'),
+          new TransferAmount(keyPairs[4].getPublicKey(), GradidoUnit.fromGradidoCent(5005500)),
           keyPairs[5].getPublicKey()
-        ), timeout
+        ), timeoutDuration
       )
       .sign(keyPairs[4])
       .build()
@@ -40,18 +41,20 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
     const body = transaction.getTransactionBody()
     expect(body).not.toBeNull()
     expect(body?.isDeferredTransfer()).toBeTruthy()
-    expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE, '')).not.toThrow()
+    expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE)).not.toThrow()
   })
 
   describe('invalid memo', () => {
     it('empty memo', () => {
+      builder.reset()
       const transaction = builder
-        .setMemo('')
+        .setCreatedAt(createdAt)
+        .setVersionNumber(versionString)
         .setDeferredTransfer(
           new GradidoTransfer(
-            new TransferAmount(keyPairs[4].getPublicKey(), '500.55'),
+            new TransferAmount(keyPairs[4].getPublicKey(), GradidoUnit.fromGradidoCent(5005500)),
             keyPairs[5].getPublicKey()
-          ), timeout
+          ), timeoutDuration
         )
         .sign(keyPairs[4])
         .build()
@@ -59,18 +62,21 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
       const body = transaction.getTransactionBody()
       expect(body).not.toBeNull()
       expect(body?.isDeferredTransfer()).toBeTruthy()
-      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: not in expected range [5;450] with memo: string')
+      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE))
+        .toThrow('TransactionValidationInvalidInputException: no memo with memo: EncryptedMemo, expected: >= 1')
     })
 
     it('memo to short', () => {
+      builder.reset()
       const transaction = builder
-        .setMemo('hall')
+        .addMemo(hallMemo)
+        .setCreatedAt(createdAt)
+        .setVersionNumber(versionString)
         .setDeferredTransfer(
           new GradidoTransfer(
-            new TransferAmount(keyPairs[4].getPublicKey(), '500.55'),
+            new TransferAmount(keyPairs[4].getPublicKey(), GradidoUnit.fromGradidoCent(5005500)),
             keyPairs[5].getPublicKey()
-          ), timeout
+          ), timeoutDuration
         )
         .sign(keyPairs[4])
         .build()
@@ -78,18 +84,21 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
       const body = transaction.getTransactionBody()
       expect(body).not.toBeNull()
       expect(body?.isDeferredTransfer()).toBeTruthy()
-      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE, ''))
+      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE))
         .toThrow('TransactionValidationInvalidInputException: not in expected range [5;450] with memo: hall and  with memo: string, expected: >= 5 && <= 450, actual: 4')
     })
 
     it('memo to big', () => {
+      builder.reset()
       const transaction = builder
-        .setMemo('a'.repeat(451))
+        .addMemo(aFilledMemo) 
+        .setCreatedAt(createdAt)
+        .setVersionNumber(versionString)
         .setDeferredTransfer(
           new GradidoTransfer(
-            new TransferAmount(keyPairs[4].getPublicKey(), '500.55'),
+            new TransferAmount(keyPairs[4].getPublicKey(), GradidoUnit.fromGradidoCent(5005500)),
             keyPairs[5].getPublicKey()
-          ), timeout
+          ), timeoutDuration
         )
         .sign(keyPairs[4])
         .build()
@@ -97,7 +106,7 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
       const body = transaction.getTransactionBody()
       expect(body).not.toBeNull()
       expect(body?.isDeferredTransfer()).toBeTruthy()
-      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE, ''))
+      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE))
         .toThrow('TransactionValidationInvalidInputException: not in expected range [5;450] with memo: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa and  with memo: string, expected: >= 5 && <= 450, actual: 451')
     })
   })
@@ -107,9 +116,9 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
       const transaction = builder
         .setDeferredTransfer(
           new GradidoTransfer(
-            new TransferAmount(keyPairs[4].getPublicKey(), '0'),
+            new TransferAmount(keyPairs[4].getPublicKey(), GradidoUnit.zero()),
             keyPairs[5].getPublicKey()
-          ), timeout
+          ), timeoutDuration
         )
         .sign(keyPairs[4])
         .build()
@@ -117,7 +126,7 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
       const body = transaction.getTransactionBody()
       expect(body).not.toBeNull()
       expect(body?.isDeferredTransfer()).toBeTruthy()
-      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE, ''))
+      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE))
         .toThrow('TransactionValidationInvalidInputException: zero or negative amount with memo: Link zum einloesen and  with amount: string')
     })
 
@@ -125,9 +134,9 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
       const transaction = builder
         .setDeferredTransfer(
           new GradidoTransfer(
-            new TransferAmount(keyPairs[4].getPublicKey(), '-100.00'),
+            new TransferAmount(keyPairs[4].getPublicKey(), GradidoUnit.fromGradidoCent(1000000).negate()),
             keyPairs[5].getPublicKey()
-          ), timeout
+          ), timeoutDuration
         )
         .sign(keyPairs[4])
         .build()
@@ -135,7 +144,7 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
       const body = transaction.getTransactionBody()
       expect(body).not.toBeNull()
       expect(body?.isDeferredTransfer()).toBeTruthy()
-      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE, ''))
+      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE))
         .toThrow('TransactionValidationInvalidInputException: zero or negative amount with memo: Link zum einloesen and  with amount: string')
     })
   }) 
@@ -146,9 +155,9 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
       const transaction = builder
         .setDeferredTransfer(
           new GradidoTransfer(
-            new TransferAmount(keyPairs[4].getPublicKey(), '500.55', communityId),
+            new TransferAmount(keyPairs[4].getPublicKey(), GradidoUnit.fromGradidoCent(5005500), communityId),
             keyPairs[5].getPublicKey()
-          ), timeout
+          ), timeoutDuration
         )
         .sign(keyPairs[4])
         .build()
@@ -156,7 +165,8 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
       const body = transaction.getTransactionBody()
       expect(body).not.toBeNull()
       expect(body?.isDeferredTransfer()).toBeTruthy()
-      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE, communityId))
+      const blockchain = InMemoryBlockchainProvider.getInstance().findBlockchain(communityId)      
+      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE, blockchain))
         .toThrow("TransactionValidationInvalidInputException: coin communityId shouldn't be set if it is the same as blockchain communityId with memo: Link zum einloesen and  with community_id: string, expected: != test-group, actual: test-group")
     })
 
@@ -164,9 +174,9 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
       const transaction = builder
         .setDeferredTransfer(
           new GradidoTransfer(
-            new TransferAmount(keyPairs[4].getPublicKey(), '500.55', '<script>'),
+            new TransferAmount(keyPairs[4].getPublicKey(), GradidoUnit.fromGradidoCent(5005500), '<script>'),
             keyPairs[5].getPublicKey()
-          ), timeout
+          ), timeoutDuration
         )
         .sign(keyPairs[4])
         .build()
@@ -174,7 +184,7 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
       const body = transaction.getTransactionBody()
       expect(body).not.toBeNull()
       expect(body?.isDeferredTransfer()).toBeTruthy()
-      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE, ''))
+      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE))
         .toThrow('TransactionValidationInvalidInputException: invalid character, only lowercase english latin letter, numbers and - with memo: Link zum einloesen and  with community_id: string, expected: ^[a-z0-9-]{3,120}$, actual: <script>')
     })
   })
@@ -183,9 +193,9 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
     const transaction = builder
       .setDeferredTransfer(
         new GradidoTransfer(
-          new TransferAmount(keyPairs[4].getPublicKey(), '500.55'),
+          new TransferAmount(keyPairs[4].getPublicKey(), GradidoUnit.fromGradidoCent(5005500)),
           keyPairs[4].getPublicKey()
-        ), timeout
+        ), timeoutDuration
       )
       .sign(keyPairs[4])
       .build()
@@ -193,7 +203,7 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
     const body = transaction.getTransactionBody()
     expect(body).not.toBeNull()
     expect(body?.isDeferredTransfer()).toBeTruthy()
-    expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE, ''))
+    expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE))
       .toThrow('TransactionValidationException: sender and recipient are the same')
   })
 
@@ -202,9 +212,9 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
       const transaction = builder
         .setDeferredTransfer(
           new GradidoTransfer(
-            new TransferAmount(keyPairs[4].getPublicKey(), '500.55'),
+            new TransferAmount(keyPairs[4].getPublicKey(), GradidoUnit.fromGradidoCent(5005500)),
             keyPairs[5].getPublicKey()
-          ), new Date(createdAt.getTime() + 7962400000)
+          ), 7962400
         )
         .sign(keyPairs[4])
         .build()
@@ -212,17 +222,17 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
       const body = transaction.getTransactionBody()
       expect(body).not.toBeNull()
       expect(body?.isDeferredTransfer()).toBeTruthy()
-      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: timeout is to far away from confirmed date with memo: Link zum einloesen and  with timeout: TimestampSeconds, expected: <= 2021-01-01 00:02:00.0000 + 91 days 7 hours 27 minutes 18 seconds , actual: 2021-04-03 03:46:40.0000')
+      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE))
+        .toThrow('TransactionValidationInvalidInputException: timeoutDuration is to long with memo: Link zum einloesen and  with timeout_duration: uint32, expected: 92 days 3 hours 46 minutes 40 seconds  <= 91 days 7 hours 27 minutes 18 seconds , actual: 92 days 3 hours 46 minutes 40 seconds ')
     })
 
     it('timeout identical to createdAt', () => {
       const transaction = builder
         .setDeferredTransfer(
           new GradidoTransfer(
-            new TransferAmount(keyPairs[4].getPublicKey(), '500.55'),
+            new TransferAmount(keyPairs[4].getPublicKey(), GradidoUnit.fromGradidoCent(5005500)),
             keyPairs[5].getPublicKey()
-          ), createdAt
+          ), 0
         )
         .sign(keyPairs[4])
         .build()
@@ -230,17 +240,17 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
       const body = transaction.getTransactionBody()
       expect(body).not.toBeNull()
       expect(body?.isDeferredTransfer()).toBeTruthy()
-      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: already reached with memo: Link zum einloesen and  with timeout: TimestampSeconds, expected: > 2021-01-01 00:00:00.0000, actual: 2021-01-01 00:00:00.0000')
+      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE))
+        .toThrow('TransactionValidationInvalidInputException: timeoutDuration is to short with memo: Link zum einloesen and  with timeout_duration: uint32, expected:  >= 1 hours ')
     })
 
     it('timeout before createdAt', () => {
       const transaction = builder
         .setDeferredTransfer(
           new GradidoTransfer(
-            new TransferAmount(keyPairs[4].getPublicKey(), '500.55'),
+            new TransferAmount(keyPairs[4].getPublicKey(), GradidoUnit.fromGradidoCent(5005500)),
             keyPairs[5].getPublicKey()
-          ), new Date(createdAt.getTime() - 10000)
+          ), -1
         )
         .sign(keyPairs[4])
         .build()
@@ -248,8 +258,8 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
       const body = transaction.getTransactionBody()
       expect(body).not.toBeNull()
       expect(body?.isDeferredTransfer()).toBeTruthy()
-      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE, ''))
-        .toThrow('TransactionValidationInvalidInputException: already reached with memo: Link zum einloesen and  with timeout: TimestampSeconds, expected: > 2021-01-01 00:00:00.0000, actual: 2020-12-31 23:59:50.0000')
+      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE))
+        .toThrow('TransactionValidationInvalidInputException: timeoutDuration is to long with memo: Link zum einloesen and  with timeout_duration: uint32, expected: 49710 days 6 hours 28 minutes 15 seconds  <= 91 days 7 hours 27 minutes 18 seconds , actual: 49710 days 6 hours 28 minutes 15 seconds ')
     })
   })
 })

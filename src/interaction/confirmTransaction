@@ -1,0 +1,21 @@
+%exception {
+    try {
+        $function
+    } catch (const GradidoUnhandledEnum& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+    } catch (const BlockchainOrderException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+    } catch (const GradidoNullPointerException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+    } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+    }
+}
+
+%rename(InteractionConfirmTransaction) gradido::interaction::confirmTransaction::Context;
+
+%{
+#include "gradido_blockchain/interaction/confirmTransaction/Context.h"
+%}
+
+%include "gradido_blockchain/interaction/confirmTransaction/Context.h"

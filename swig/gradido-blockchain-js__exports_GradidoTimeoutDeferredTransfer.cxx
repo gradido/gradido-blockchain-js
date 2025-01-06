@@ -8,25 +8,25 @@
 
 #include "swig/gradido-blockchain-js.h"
 
-/* Class: InteractionCalculateAccountBalance (_exports_InteractionCalculateAccountBalance) */
+/* Class: GradidoTimeoutDeferredTransfer (_exports_GradidoTimeoutDeferredTransfer) */
 // jsnapi_getclass
-Napi::Function _exports_InteractionCalculateAccountBalance_inst::GetClass(Napi::Env env) {
-  std::map<std::string, _exports_InteractionCalculateAccountBalance_templ::PropertyDescriptor> members, staticMembers;
+Napi::Function _exports_GradidoTimeoutDeferredTransfer_inst::GetClass(Napi::Env env) {
+  std::map<std::string, _exports_GradidoTimeoutDeferredTransfer_templ::PropertyDescriptor> members, staticMembers;
   GetMembers(env, members, staticMembers);
   
-  std::vector<_exports_InteractionCalculateAccountBalance_inst::PropertyDescriptor> symbolTable;
+  std::vector<_exports_GradidoTimeoutDeferredTransfer_inst::PropertyDescriptor> symbolTable;
   for (auto it = members.begin(); it != members.end(); it++)
   symbolTable.push_back(it->second);
   for (auto it = staticMembers.begin(); it != staticMembers.end(); it++)
   symbolTable.push_back(it->second);
   
-  return Napi::ObjectWrap<_exports_InteractionCalculateAccountBalance_inst>::DefineClass(env, "InteractionCalculateAccountBalance", symbolTable);
+  return Napi::ObjectWrap<_exports_GradidoTimeoutDeferredTransfer_inst>::DefineClass(env, "GradidoTimeoutDeferredTransfer", symbolTable);
 }
 
-void _exports_InteractionCalculateAccountBalance_inst::GetMembers(
+void _exports_GradidoTimeoutDeferredTransfer_inst::GetMembers(
   Napi::Env env,
-  std::map<std::string, _exports_InteractionCalculateAccountBalance_templ::PropertyDescriptor> &members,
-  std::map<std::string, _exports_InteractionCalculateAccountBalance_templ::PropertyDescriptor> &staticMembers
+  std::map<std::string, _exports_GradidoTimeoutDeferredTransfer_templ::PropertyDescriptor> &members,
+  std::map<std::string, _exports_GradidoTimeoutDeferredTransfer_templ::PropertyDescriptor> &staticMembers
   ) {
   std::map<std::string, SWIG_NAPI_ObjectWrap_templ<SWIG_NAPI_ObjectWrap_inst>::PropertyDescriptor> baseMembers, baseStaticMembers;
   SWIG_NAPI_ObjectWrap_inst::GetMembers(env, baseMembers, baseStaticMembers);
@@ -35,19 +35,19 @@ void _exports_InteractionCalculateAccountBalance_inst::GetMembers(
   
   /* register wrapper functions */
   // jsnapi_register_member_function
-  members.erase("fromBegin");
+  members.erase("equal");
   members.insert({
-    "fromBegin",
-      _exports_InteractionCalculateAccountBalance_templ::InstanceMethod("fromBegin",
-        &_exports_InteractionCalculateAccountBalance_templ::_wrap_InteractionCalculateAccountBalance_fromBegin,
+    "equal",
+      _exports_GradidoTimeoutDeferredTransfer_templ::InstanceMethod("equal",
+        &_exports_GradidoTimeoutDeferredTransfer_templ::_wrap_GradidoTimeoutDeferredTransfer_equal,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("fromEnd");
+  members.erase("getDeferredTransferTransactionNr");
   members.insert({
-    "fromEnd",
-      _exports_InteractionCalculateAccountBalance_templ::InstanceMethod("fromEnd",
-        &_exports_InteractionCalculateAccountBalance_templ::_wrap_InteractionCalculateAccountBalance__wrap_InteractionCalculateAccountBalance_fromEnd,
+    "getDeferredTransferTransactionNr",
+      _exports_GradidoTimeoutDeferredTransfer_templ::InstanceMethod("getDeferredTransferTransactionNr",
+        &_exports_GradidoTimeoutDeferredTransfer_templ::_wrap_GradidoTimeoutDeferredTransfer_getDeferredTransferTransactionNr,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

@@ -73,10 +73,12 @@ E string_to_enum(const std::string& name);
 %include "gradido_blockchain/data/AddressType.h"
 %include "gradido_blockchain/data/CrossGroupType.h"
 %include "gradido_blockchain/data/TransactionType.h"
+%include "gradido_blockchain/data/MemoKeyType.h"
 
 %typemap(ts) gradido::data::AddressType "AddressType";
 %typemap(ts) gradido::data::CrossGroupType "CrossGroupType";
 %typemap(ts) gradido::data::TransactionType "TransactionType";
+%typemap(ts) gradido::data::MemoKeyType "MemoKeyType";
 
 // needed for string_to_enum to get more infos on exception
 %exception {
@@ -95,6 +97,8 @@ E string_to_enum(const std::string& name);
 %template(stringToCrossGroupType) string_to_enum<gradido::data::CrossGroupType>;
 %template(transactionTypeToString) enum_to_string<gradido::data::TransactionType>;
 %template(stringToTransactionType) string_to_enum<gradido::data::TransactionType>;
+%template(memoKeyTypeToString) enum_to_string<gradido::data::MemoKeyType>;
+%template(stringToMemoKeyType) string_to_enum<gradido::data::MemoKeyType>;
 
 // base types
 %include "MemoryBlock.i"

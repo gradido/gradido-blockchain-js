@@ -14,11 +14,17 @@ export  class TimepointInterval {
 
   constructor(startDate: Date, endDate: Date);
 
+  constructor(startDate: any, endDate: any);
+
   constructor(date: Date);
 
   getStartDate(): Date;
 
   getEndDate(): Date;
+
+  setStartDate(startDate: Date): void;
+
+  setEndDate(endDate: Date): void;
 
   isEmpty(): boolean;
 
@@ -60,6 +66,8 @@ export const AddressType_SUBACCOUNT: AddressType;
 
 export const AddressType_CRYPTO_ACCOUNT: AddressType;
 
+export const AddressType_DEFERRED_TRANSFER: AddressType;
+
 export type AddressType = number & { readonly [_SWIG_enum_tag]: 'AddressType'; };
 
 export const CrossGroupType_LOCAL: CrossGroupType;
@@ -86,7 +94,21 @@ export const TransactionType_DEFERRED_TRANSFER: TransactionType;
 
 export const TransactionType_COMMUNITY_ROOT: TransactionType;
 
+export const TransactionType_REDEEM_DEFERRED_TRANSFER: TransactionType;
+
+export const TransactionType_TIMEOUT_DEFERRED_TRANSFER: TransactionType;
+
+export const TransactionType_MAX_VALUE: TransactionType;
+
 export type TransactionType = number & { readonly [_SWIG_enum_tag]: 'TransactionType'; };
+
+export const MemoKeyType_SHARED_SECRET: MemoKeyType;
+
+export const MemoKeyType_COMMUNITY_SECRET: MemoKeyType;
+
+export const MemoKeyType_PLAIN: MemoKeyType;
+
+export type MemoKeyType = number & { readonly [_SWIG_enum_tag]: 'MemoKeyType'; };
 
 export function addressTypeToString(value: AddressType): string;
 
@@ -99,6 +121,10 @@ export function stringToCrossGroupType(name: string): CrossGroupType;
 export function transactionTypeToString(value: TransactionType): string;
 
 export function stringToTransactionType(name: string): TransactionType;
+
+export function memoKeyTypeToString(value: MemoKeyType): string;
+
+export function stringToMemoKeyType(name: string): MemoKeyType;
 
 export  class MemoryBlocks {
 
@@ -146,6 +172,8 @@ export  class MemoryBlock {
   copyAsString(): string;
 
   calculateHash(): MemoryBlock;
+
+ static fromHex(hex: string): MemoryBlock;
 
  static fromHex(hex: string): MemoryBlock;
 
@@ -314,7 +342,7 @@ export  class AuthenticatedEncryption {
 
   removePrecalculatedSharedSecret(index: number): boolean;
 
-  mPubkey: MemoryBlock|null;
+  mPublicKey: MemoryBlock|null;
 
   getPublicKey(): MemoryBlock|null;
 
@@ -323,9 +351,9 @@ export  class AuthenticatedEncryption {
   hasPrivateKey(): boolean;
 }
 
-export function SealedBoxEncrypt(keys: AuthenticatedEncryption, message: string): MemoryBlock;
+export function encrypt(keys: AuthenticatedEncryption, message: string): MemoryBlock;
 
-export function SealedBoxDecrypt(keys: AuthenticatedEncryption, encryptedMessage: MemoryBlock): string;
+export function decrypt(keys: AuthenticatedEncryption, encryptedMessage: MemoryBlock): string;
 
 export function SealedBoxDecrypt(privateKey: MemoryBlock|null, encryptedMessage: MemoryBlock): string;
 
@@ -336,6 +364,10 @@ export  class GradidoUnit {
   constructor(gdd: number);
 
   constructor(stringAmount: string);
+
+ static fromString(stringAmount: string): GradidoUnit;
+
+ static fromGradidoCent(gddCent: number): GradidoUnit;
 
   toString(): string;
 
@@ -367,17 +399,19 @@ export  class GradidoUnit {
 
   notEqual(other: GradidoUnit): boolean;
 
- static calculateDecayDirect(gradidoCent: number, seconds: number): number;
+  negate(): GradidoUnit;
 
- static calculateCompoundInterestDirect(gradidoCent: number, seconds: number): number;
+  negated(): GradidoUnit;
 
-  calculateCompoundInterest(duration: number): GradidoUnit;
-
-  calculateCompoundInterest(startTime: Date, endTime: Date): GradidoUnit;
+  calculateDecay(seconds: number): GradidoUnit;
 
   calculateDecay(duration: number): GradidoUnit;
 
   calculateDecay(startTime: Date, endTime: Date): GradidoUnit;
+
+  calculateCompoundInterest(duration: number): GradidoUnit;
+
+  calculateCompoundInterest(startTime: Date, endTime: Date): GradidoUnit;
 
  static calculateDecayDurationSeconds(startTime: Date, endTime: Date): number;
 
@@ -411,13 +445,13 @@ export  class SignaturePairs {
 
 export  class TransferAmount {
 
-  constructor(pubkeyPtr: MemoryBlock|null, amountString: string, communityId: string);
+  constructor(pubkeyPtr: MemoryBlock|null, amount: GradidoUnit, communityId: string);
 
-  constructor(pubkeyPtr: MemoryBlock|null, amountString: string);
+  constructor(pubkeyPtr: MemoryBlock|null, amount: GradidoUnit);
 
   equal(other: TransferAmount): boolean;
 
-  getPubkey(): MemoryBlock|null;
+  getPublicKey(): MemoryBlock|null;
 
   getAmount(): GradidoUnit;
 
@@ -482,7 +516,7 @@ export  class SignaturePair {
 
   equal(other: SignaturePair): boolean;
 
-  getPubkey(): MemoryBlock|null;
+  getPublicKey(): MemoryBlock|null;
 
   getSignature(): MemoryBlock|null;
 }
@@ -504,6 +538,32 @@ export  class SignatureMap {
   getSignaturePairs(): SignaturePairs;
 }
 
+export  class EncryptedMemo {
+
+  constructor();
+
+  constructor(keyType: MemoKeyType, memo: MemoryBlock|null);
+
+  constructor(keyType: MemoKeyType, memo: string, firstKeyPair: AuthenticatedEncryption, secondKeyPair: AuthenticatedEncryption);
+
+  getKeyType(): MemoKeyType;
+
+  getMemo(): MemoryBlock|null;
+
+  equal(other: EncryptedMemo): boolean;
+
+  decrypt(firstKeyPair: AuthenticatedEncryption, secondKeyPair: AuthenticatedEncryption): string;
+}
+
+export  class AccountBalance {
+
+  constructor(publicKey: MemoryBlock|null, balance: GradidoUnit);
+
+  getPublicKey(): MemoryBlock|null;
+
+  getBalance(): GradidoUnit;
+}
+
 export  class CommunityFriendsUpdate {
 
   constructor(colorFusion: boolean);
@@ -519,9 +579,9 @@ export  class CommunityRoot {
 
   getInvolvedAddresses(): MemoryBlocks;
 
-  isInvolved(publicKey: MemoryBlock|null): boolean;
+  isInvolved(publicKey: MemoryBlock): boolean;
 
-  getPubkey(): MemoryBlock|null;
+  getPublicKey(): MemoryBlock|null;
 
   getGmwPubkey(): MemoryBlock|null;
 
@@ -534,7 +594,7 @@ export  class GradidoCreation {
 
   getInvolvedAddresses(): MemoryBlocks;
 
-  isInvolved(publicKey: MemoryBlock|null): boolean;
+  isInvolved(publicKey: MemoryBlock): boolean;
 
   getRecipient(): TransferAmount;
 
@@ -549,7 +609,7 @@ export  class GradidoTransfer {
 
   getInvolvedAddresses(): MemoryBlocks;
 
-  isInvolved(publicKey: MemoryBlock|null): boolean;
+  isInvolved(publicKey: MemoryBlock): boolean;
 
   getSender(): TransferAmount;
 
@@ -558,11 +618,11 @@ export  class GradidoTransfer {
 
 export  class GradidoDeferredTransfer {
 
-  constructor(transfer: GradidoTransfer, timeout: Date);
+  constructor(transfer: GradidoTransfer, timeoutDuration: number);
 
   getInvolvedAddresses(): MemoryBlocks;
 
-  isInvolved(publicKey: MemoryBlock|null): boolean;
+  isInvolved(publicKey: MemoryBlock): boolean;
 
   getSenderPublicKey(): MemoryBlock|null;
 
@@ -570,7 +630,39 @@ export  class GradidoDeferredTransfer {
 
   getTransfer(): GradidoTransfer;
 
-  getTimeout(): TimestampSeconds;
+  getTimeoutDuration(): any;
+
+  calculateUseableAmount(): GradidoUnit;
+
+  equal(other: GradidoDeferredTransfer): boolean;
+}
+
+export  class GradidoRedeemDeferredTransfer {
+
+  constructor(deferredTransferTransactionNr: number, transfer: GradidoTransfer);
+
+  equal(other: GradidoRedeemDeferredTransfer): boolean;
+
+  getInvolvedAddresses(): MemoryBlocks;
+
+  isInvolved(publicKey: MemoryBlock): boolean;
+
+  getSenderPublicKey(): MemoryBlock|null;
+
+  getRecipientPublicKey(): MemoryBlock|null;
+
+  getDeferredTransferTransactionNr(): number;
+
+  getTransfer(): GradidoTransfer;
+}
+
+export  class GradidoTimeoutDeferredTransfer {
+
+  constructor(deferredTransferTransactionNr: number);
+
+  equal(other: GradidoTimeoutDeferredTransfer): boolean;
+
+  getDeferredTransferTransactionNr(): number;
 }
 
 export  class RegisterAddress {
@@ -589,7 +681,7 @@ export  class RegisterAddress {
 
   getInvolvedAddresses(): MemoryBlocks;
 
-  isInvolved(publicKey: MemoryBlock|null): boolean;
+  isInvolved(publicKey: MemoryBlock): boolean;
 
   getUserPublicKey(): MemoryBlock|null;
 
@@ -606,11 +698,11 @@ export  class TransactionBody {
 
   constructor();
 
-  constructor(_memo: string, _createdAt: Date, _versionNumber: string, _type: CrossGroupType, _otherGroup: string);
+  constructor(_createdAt: Date, _versionNumber: string, _type: CrossGroupType, _otherGroup: string);
 
-  constructor(_memo: string, _createdAt: Date, _versionNumber: string, _type: CrossGroupType);
+  constructor(_createdAt: Date, _versionNumber: string, _type: CrossGroupType);
 
-  constructor(_memo: string, _createdAt: Date, _versionNumber: string);
+  constructor(_createdAt: Date, _versionNumber: string);
 
   isTransfer(): boolean;
 
@@ -624,17 +716,21 @@ export  class TransactionBody {
 
   isCommunityRoot(): boolean;
 
+  isRedeemDeferredTransfer(): boolean;
+
+  isTimeoutDeferredTransfer(): boolean;
+
   getTransactionType(): TransactionType;
 
   isPairing(other: TransactionBody): boolean;
 
-  isInvolved(publicKey: MemoryBlock|null): boolean;
+  isInvolved(publicKey: MemoryBlock): boolean;
 
   getTransferAmount(): TransferAmount;
 
   getInvolvedAddresses(): MemoryBlocks;
 
-  getMemo(): string;
+  getMemos(): any;
 
   getCreatedAt(): Timestamp;
 
@@ -655,6 +751,10 @@ export  class TransactionBody {
   getDeferredTransfer(): GradidoDeferredTransfer|null;
 
   getCommunityRoot(): CommunityRoot|null;
+
+  getRedeemDeferredTransfer(): GradidoRedeemDeferredTransfer|null;
+
+  getTimeoutDeferredTransfer(): GradidoTimeoutDeferredTransfer|null;
 }
 
 export  class GradidoTransaction {
@@ -671,7 +771,7 @@ export  class GradidoTransaction {
 
   isPairing(other: GradidoTransaction): boolean;
 
-  isInvolved(publicKey: MemoryBlock|null): boolean;
+  isInvolved(publicKey: MemoryBlock): boolean;
 
   getInvolvedAddresses(): MemoryBlocks;
 
@@ -690,11 +790,11 @@ export  class GradidoTransaction {
 
 export  class ConfirmedTransaction {
 
-  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Date, versionNumber: string, messageId: MemoryBlock|null, accountBalanceString: string, previousConfirmedTransaction: ConfirmedTransaction|null);
+  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Date, versionNumber: string, messageId: MemoryBlock|null, accountBalances: any, previousConfirmedTransaction: ConfirmedTransaction|null);
 
-  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Date, versionNumber: string, messageId: MemoryBlock|null, accountBalanceString: string);
+  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Date, versionNumber: string, messageId: MemoryBlock|null, accountBalances: any);
 
-  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Date, versionNumber: string, runningHash: MemoryBlock|null, messageId: MemoryBlock|null, accountBalanceString: string);
+  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Date, versionNumber: string, runningHash: MemoryBlock|null, messageId: MemoryBlock|null, accountBalances: any);
 
   calculateRunningHash(previousConfirmedTransaction: ConfirmedTransaction|null): MemoryBlock|null;
 
@@ -712,7 +812,19 @@ export  class ConfirmedTransaction {
 
   getMessageId(): MemoryBlock|null;
 
-  getAccountBalance(): GradidoUnit;
+  getAccountBalances(): any;
+
+  hasAccountBalance(publicKey: MemoryBlock): boolean;
+
+  getAccountBalance(publicKey: MemoryBlock|null): AccountBalance;
+
+  getDecayedAccountBalance(publicKey: MemoryBlock|null, endDate: Date): GradidoUnit;
+
+  getDecayedAccountBalance(publicKey: MemoryBlock|null): GradidoUnit;
+
+  isInvolved(publicKey: MemoryBlock): boolean;
+
+  getInvolvedAddresses(): MemoryBlocks;
 }
 
 export  class GradidoTransactionBuilder {
@@ -727,7 +839,7 @@ export  class GradidoTransactionBuilder {
 
   buildInbound(): GradidoTransaction;
 
-  setDeferredTransfer(transactionTransfer: GradidoTransfer, timeout: Date): GradidoTransactionBuilder;
+  setDeferredTransfer(transactionTransfer: GradidoTransfer, timeoutDuration: number): GradidoTransactionBuilder;
 
   setDeferredTransfer(deferredTransfer: GradidoDeferredTransfer): GradidoTransactionBuilder;
 
@@ -755,9 +867,17 @@ export  class GradidoTransactionBuilder {
 
   setCommunityRoot(communityRoot: CommunityRoot): GradidoTransactionBuilder;
 
+  setRedeemDeferredTransfer(deferredTransferTransactionNr: number, transactionTransfer: GradidoTransfer): GradidoTransactionBuilder;
+
+  setRedeemDeferredTransfer(redeemDeferredTransfer: GradidoRedeemDeferredTransfer): GradidoTransactionBuilder;
+
+  setTimeoutDeferredTransfer(deferredTransferTransactionNr: number): GradidoTransactionBuilder;
+
+  setTimeoutDeferredTransfer(timeoutDeferredTransfer: GradidoTimeoutDeferredTransfer): GradidoTransactionBuilder;
+
   setCreatedAt(createdAt: Date): GradidoTransactionBuilder;
 
-  setMemo(memo: string): GradidoTransactionBuilder;
+  addMemo(memo: EncryptedMemo): GradidoTransactionBuilder;
 
   setVersionNumber(versionNumber: string): GradidoTransactionBuilder;
 
@@ -790,6 +910,8 @@ export const DeserializeType_GRADIDO_TRANSACTION: DeserializeType;
 
 export const DeserializeType_CONFIRMED_TRANSACTION: DeserializeType;
 
+export const DeserializeType_TRANSACTION_TRIGGER_EVENT: DeserializeType;
+
 export const DeserializeType_MAX: DeserializeType;
 
 export type DeserializeType = number & { readonly [_SWIG_enum_tag]: 'DeserializeType'; };
@@ -812,6 +934,8 @@ export  class InteractionDeserialize {
 
   isConfirmedTransaction(): boolean;
 
+  isTransactionTriggerEvent(): boolean;
+
   getType(): DeserializeType;
 
   getTransactionBody(): TransactionBody|null;
@@ -819,17 +943,21 @@ export  class InteractionDeserialize {
   getGradidoTransaction(): GradidoTransaction|null;
 
   getConfirmedTransaction(): ConfirmedTransaction|null;
+
+  getTransactionTriggerEvent(): any;
 }
 
 export  class InteractionSerialize {
 
-  constructor(body: TransactionBody);
+  constructor(confirmed: ConfirmedTransaction);
 
   constructor(transaction: GradidoTransaction);
 
-  constructor(confirmed: ConfirmedTransaction);
-
   constructor(signatureMap: SignatureMap);
+
+  constructor(body: TransactionBody);
+
+  constructor(body: any);
 
   run(): MemoryBlock|null;
 }
@@ -900,6 +1028,10 @@ export  class TransactionEntry {
   isDeferredTransfer(): boolean;
 
   isCommunityRoot(): boolean;
+
+  isRedeemDeferredTransfer(): boolean;
+
+  isTimeoutDeferredTransfer(): boolean;
 }
 
 export const FilterResult_USE: FilterResult;
@@ -957,6 +1089,8 @@ export  class Filter {
 
  static LAST_TRANSACTION: Filter;
 
+ static FIRST_TRANSACTION: Filter;
+
  static ALL_TRANSACTIONS: Filter;
 }
 
@@ -1002,7 +1136,15 @@ export  class DeferredRedeemedTransferPair {
 
 export abstract class Abstract {
 
-  addGradidoTransaction(gradidoTransaction: GradidoTransaction|null, messageId: MemoryBlock|null, confirmedAt: Date): boolean;
+  createAndAddConfirmedTransaction(gradidoTransaction: GradidoTransaction|null, messageId: MemoryBlock|null, confirmedAt: Date): boolean;
+
+  addTransactionTriggerEvent(transactionTriggerEvent: any): void;
+
+  removeTransactionTriggerEvent(transactionTriggerEvent: any): void;
+
+  isTransactionExist(gradidoTransaction: GradidoTransaction|null): boolean;
+
+  findTransactionTriggerEventsInRange(range: TimepointInterval): any;
 
   findAll(filter: Filter): TransactionEntries;
 
@@ -1011,10 +1153,6 @@ export abstract class Abstract {
   findOne(filter: Filter): TransactionEntry|null;
 
   findOne(): TransactionEntry|null;
-
-  findTimeoutedDeferredTransfersInRange(senderPublicKey: MemoryBlock|null, timepointInterval: TimepointInterval, maxTransactionNr: number): TransactionEntries;
-
-  findRedeemedDeferredTransfersInRange(senderPublicKey: MemoryBlock|null, timepointInterval: TimepointInterval, maxTransactionNr: number): any;
 
   getAddressType(filter: Filter): AddressType;
 
@@ -1037,17 +1175,21 @@ export  class InMemoryBlockchain extends Abstract {
 
   exit(): void;
 
-  addGradidoTransaction(gradidoTransaction: GradidoTransaction|null, messageId: MemoryBlock|null, confirmedAt: Date): boolean;
+  createAndAddConfirmedTransaction(gradidoTransaction: GradidoTransaction|null, messageId: MemoryBlock|null, confirmedAt: Date): boolean;
+
+  addTransactionTriggerEvent(transactionTriggerEvent: any): void;
+
+  removeTransactionTriggerEvent(transactionTriggerEvent: any): void;
+
+  isTransactionExist(gradidoTransaction: GradidoTransaction|null): boolean;
+
+  findTransactionTriggerEventsInRange(range: TimepointInterval): any;
 
   getSortedTransactions(): TransactionEntries;
 
   findAll(filter: Filter): TransactionEntries;
 
   findAll(): TransactionEntries;
-
-  findTimeoutedDeferredTransfersInRange(senderPublicKey: MemoryBlock|null, timepointInterval: TimepointInterval, maxTransactionNr: number): TransactionEntries;
-
-  findRedeemedDeferredTransfersInRange(senderPublicKey: MemoryBlock|null, timepointInterval: TimepointInterval, maxTransactionNr: number): any;
 
   getTransactionForId(transactionId: number): TransactionEntry|null;
 
@@ -1098,15 +1240,13 @@ export  class InteractionToJson {
 
 export  class InteractionCalculateAccountBalance {
 
-  constructor(blockchain: Abstract | InMemoryBlockchain);
+  constructor(blockchain: Abstract|null);
 
-  run(gradidoTransaction: GradidoTransaction|null, confirmedAt: Date, id: number): GradidoUnit;
+  fromBegin(startTransactionNr: number, publicKey: MemoryBlock|null, endDate: Date): GradidoUnit;
 
-  run(publicKey: MemoryBlock|null, balanceDate: Date, maxTransactionNr: number, coinCommunityId: string): GradidoUnit;
+  fromEnd(publicKey: MemoryBlock|null, endDate: Date, maxTransactionNr: number): GradidoUnit;
 
-  run(publicKey: MemoryBlock|null, balanceDate: Date, maxTransactionNr: number): GradidoUnit;
-
-  run(publicKey: MemoryBlock|null, balanceDate: Date): GradidoUnit;
+  fromEnd(publicKey: MemoryBlock|null, endDate: Date): GradidoUnit;
 }
 
 export const ValidateType_SINGLE: ValidateType;
@@ -1125,6 +1265,8 @@ export const ValidateType_CONNECTED_BLOCKCHAIN: ValidateType;
 
 export type ValidateType = number & { readonly [_SWIG_enum_tag]: 'ValidateType'; };
 
+export function minus(lhs: any, rhs: any): any;
+
 export function validateTypeToString(value: ValidateType): string;
 
 export function stringToValidateType(name: string): ValidateType;
@@ -1137,9 +1279,7 @@ export  class InteractionValidate {
 
   constructor(body: ConfirmedTransaction);
 
-  run(type: ValidateType, communityId: string, blockchainProvider: AbstractBlockchainProvider | InMemoryBlockchainProvider): void;
-
-  run(type: ValidateType, communityId: string): void;
+  run(type: ValidateType, blockchain: Abstract|null): void;
 
   run(type: ValidateType): void;
 

@@ -179,7 +179,7 @@ describe('test interaction to Json', () => {
           keyPairs[5].getPublicKey()
         ), new Date(1609465000000)
       )
-      .setMemo('Link zum einloesen')
+      .addMemo(deferredTransferMemo)
       .sign(keyPairs[4])
       .build()
 

@@ -200,7 +200,7 @@ describe('validate Gradido Transaction', () => {
   describe('Gradido Deferred Transfer Transaction', () => {
     it('valid', () => {
       const transaction = builder
-        .setMemo('Link zum einloesen')
+        .addMemo(deferredTransferMemo)
         .setDeferredTransfer(
           new GradidoTransfer(
             new TransferAmount(keyPairs[4].getPublicKey(), "555.55"),
@@ -219,7 +219,7 @@ describe('validate Gradido Transaction', () => {
     describe('invalid', () => {
       it('wrong signature', () => {
         const transaction = builder
-          .setMemo('Link zum einloesen')
+          .addMemo(deferredTransferMemo)
           .setDeferredTransfer(
             new GradidoTransfer(
               new TransferAmount(keyPairs[4].getPublicKey(), "555.55"),

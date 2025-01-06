@@ -5,7 +5,7 @@ import {
   ValidateType_SINGLE,
   KeyPairEd25519
 } from '../../'
-import { createdAt, versionString } from '../helper/const'
+import { aFilledMemo, createdAt, hallMemo, versionString } from '../helper/const'
 import { generateKeyPairs } from '../helper/keyPairs'
 
 let keyPairs: KeyPairEd25519[]
@@ -42,7 +42,6 @@ describe('validate Gradido Creation Transactions', () => {
   describe('invalid memo', () => {
     it('memo empty', () => {
       const transaction = builder
-        .setMemo('')
         .setTransactionCreation(
           new TransferAmount(keyPairs[4].getPublicKey(), '1000.00'),
           new Date(1609459000000)
@@ -59,7 +58,7 @@ describe('validate Gradido Creation Transactions', () => {
 
     it('memo to short', () => {
       const transaction = builder
-        .setMemo('hall')
+        .addMemo(hallMemo)
         .setTransactionCreation(
           new TransferAmount(keyPairs[4].getPublicKey(), '1000.00'),
           new Date(1609459000000)
@@ -76,7 +75,7 @@ describe('validate Gradido Creation Transactions', () => {
 
     it('memo to big', () => {
       const transaction = builder
-        .setMemo('a'.repeat(451))
+        .addMemo(aFilledMemo) 
         .setTransactionCreation(
           new TransferAmount(keyPairs[4].getPublicKey(), '1000.00'),
           new Date(1609459000000)

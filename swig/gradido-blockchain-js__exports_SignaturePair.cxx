@@ -43,11 +43,11 @@ void _exports_SignaturePair_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getPubkey");
+  members.erase("getPublicKey");
   members.insert({
-    "getPubkey",
-      _exports_SignaturePair_templ::InstanceMethod("getPubkey",
-        &_exports_SignaturePair_templ::_wrap_SignaturePair_getPubkey,
+    "getPublicKey",
+      _exports_SignaturePair_templ::InstanceMethod("getPublicKey",
+        &_exports_SignaturePair_templ::_wrap_SignaturePair_getPublicKey,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

@@ -6,21 +6,29 @@
     }
 }
 
+%unique_ptr(gradido::data::EncryptedMemo)
+%unique_ptr(gradido::data::AccountBalance)
 %unique_ptr(gradido::data::GradidoTransfer)
 %unique_ptr(gradido::data::GradidoCreation)
 %unique_ptr(gradido::data::CommunityFriendsUpdate)
 %unique_ptr(gradido::data::RegisterAddress)
 %unique_ptr(gradido::data::GradidoDeferredTransfer)
+%unique_ptr(gradido::data::GradidoRedeemDeferredTransfer)
+%unique_ptr(gradido::data::GradidoTimeoutDeferredTransfer)
 %unique_ptr(gradido::data::CommunityRoot)
 %unique_ptr(gradido::data::TransactionBody)
 %unique_ptr(gradido::data::GradidoTransaction)
 %unique_ptr(gradido::data::ConfirmedTransaction)
 
+%shared_ptr(gradido::data::EncryptedMemo)
+%shared_ptr(gradido::data::AccountBalance)
 %shared_ptr(gradido::data::GradidoTransfer)
 %shared_ptr(gradido::data::GradidoCreation)
 %shared_ptr(gradido::data::CommunityFriendsUpdate)
 %shared_ptr(gradido::data::RegisterAddress)
 %shared_ptr(gradido::data::GradidoDeferredTransfer)
+%shared_ptr(gradido::data::GradidoRedeemDeferredTransfer)
+%shared_ptr(gradido::data::GradidoTimeoutDeferredTransfer)
 %shared_ptr(gradido::data::CommunityRoot)
 %shared_ptr(gradido::data::TransactionBody)
 %shared_ptr(gradido::data::GradidoTransaction)
@@ -53,11 +61,15 @@
 %include "gradido_blockchain/data/Timestamp.h"
 %include "gradido_blockchain/data/SignaturePair.h"
 %include "gradido_blockchain/data/SignatureMap.h"
+%include "gradido_blockchain/data/EncryptedMemo.h"
+%include "gradido_blockchain/data/AccountBalance.h"
 %include "gradido_blockchain/data/CommunityFriendsUpdate.h"
 %include "gradido_blockchain/data/CommunityRoot.h"
 %include "gradido_blockchain/data/GradidoCreation.h"
 %include "gradido_blockchain/data/GradidoTransfer.h"
 %include "gradido_blockchain/data/GradidoDeferredTransfer.h"
+%include "gradido_blockchain/data/GradidoRedeemDeferredTransfer.h"
+%include "gradido_blockchain/data/GradidoTimeoutDeferredTransfer.h"
 %include "gradido_blockchain/data/RegisterAddress.h"
 %include "gradido_blockchain/data/TransactionBody.h"
 %include "gradido_blockchain/data/GradidoTransaction.h"

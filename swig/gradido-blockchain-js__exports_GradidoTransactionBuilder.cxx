@@ -115,6 +115,22 @@ void _exports_GradidoTransactionBuilder_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("setRedeemDeferredTransfer");
+  members.insert({
+    "setRedeemDeferredTransfer",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("setRedeemDeferredTransfer",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder__wrap_GradidoTransactionBuilder_setRedeemDeferredTransfer,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("setTimeoutDeferredTransfer");
+  members.insert({
+    "setTimeoutDeferredTransfer",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("setTimeoutDeferredTransfer",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder__wrap_GradidoTransactionBuilder_setTimeoutDeferredTransfer,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("setCreatedAt");
   members.insert({
     "setCreatedAt",
@@ -123,11 +139,11 @@ void _exports_GradidoTransactionBuilder_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("setMemo");
+  members.erase("addMemo");
   members.insert({
-    "setMemo",
-      _exports_GradidoTransactionBuilder_templ::InstanceMethod("setMemo",
-        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder_setMemo,
+    "addMemo",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("addMemo",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder_addMemo,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

@@ -24,19 +24,30 @@ describe('Gradido Unit Test', () => {
   })
 
   it('calculate decay with many different durations', () => {
-    let prevValue = 0
-    let prevDistance = 0
+    let prevValue = GradidoUnit.zero()
+    let prevDistance = GradidoUnit.zero()
+    
     for(let i = 0; i < 31556952 / 32; i += 32) {
-      const decayed = GradidoUnit.calculateDecayDirect(1000000, i)
-      if (prevValue) {
-        expect(prevValue).toBeGreaterThanOrEqual(decayed)
-        const distance = prevValue - decayed
-        if (prevDistance) {
-          expect(prevDistance).toBeGreaterThanOrEqual(distance)
+      // const percent = Math.round(i / (31556952 * 2) * 100)
+      // process.stdout.write("\r" + percent + "%")
+      const decayed = GradidoUnit.fromGradidoCent(100000000).calculateDecay(i)
+      if (prevValue.gt(GradidoUnit.zero())) {
+        expect(prevValue.getGradidoCent()).toBeGreaterThanOrEqual(decayed.getGradidoCent())
+        const distance = prevValue.sub(decayed)
+        if (prevDistance.gt(GradidoUnit.zero())) {
+          expect(prevDistance.sub(distance).getGradidoCent()).toBeLessThanOrEqual(1)
         }
         prevDistance = distance
       }
       prevValue = decayed
     }
   })
+  it('test reverse decay', () => {
+    const startValue = GradidoUnit.fromGradidoCent(1000000);
+    for (let i = 1; i < 31556952 / 32; i += 32) {
+      const valueWithDecay = startValue.calculateDecay(-i);
+      const decay = valueWithDecay.calculateDecay(i);
+      expect(Math.abs(startValue.sub(decay).getGradidoCent())).toBeLessThanOrEqual(1);
+    }
+  });  
 })

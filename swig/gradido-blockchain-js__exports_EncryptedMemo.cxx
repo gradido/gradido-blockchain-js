@@ -8,25 +8,25 @@
 
 #include "swig/gradido-blockchain-js.h"
 
-/* Class: CommunityRoot (_exports_CommunityRoot) */
+/* Class: EncryptedMemo (_exports_EncryptedMemo) */
 // jsnapi_getclass
-Napi::Function _exports_CommunityRoot_inst::GetClass(Napi::Env env) {
-  std::map<std::string, _exports_CommunityRoot_templ::PropertyDescriptor> members, staticMembers;
+Napi::Function _exports_EncryptedMemo_inst::GetClass(Napi::Env env) {
+  std::map<std::string, _exports_EncryptedMemo_templ::PropertyDescriptor> members, staticMembers;
   GetMembers(env, members, staticMembers);
   
-  std::vector<_exports_CommunityRoot_inst::PropertyDescriptor> symbolTable;
+  std::vector<_exports_EncryptedMemo_inst::PropertyDescriptor> symbolTable;
   for (auto it = members.begin(); it != members.end(); it++)
   symbolTable.push_back(it->second);
   for (auto it = staticMembers.begin(); it != staticMembers.end(); it++)
   symbolTable.push_back(it->second);
   
-  return Napi::ObjectWrap<_exports_CommunityRoot_inst>::DefineClass(env, "CommunityRoot", symbolTable);
+  return Napi::ObjectWrap<_exports_EncryptedMemo_inst>::DefineClass(env, "EncryptedMemo", symbolTable);
 }
 
-void _exports_CommunityRoot_inst::GetMembers(
+void _exports_EncryptedMemo_inst::GetMembers(
   Napi::Env env,
-  std::map<std::string, _exports_CommunityRoot_templ::PropertyDescriptor> &members,
-  std::map<std::string, _exports_CommunityRoot_templ::PropertyDescriptor> &staticMembers
+  std::map<std::string, _exports_EncryptedMemo_templ::PropertyDescriptor> &members,
+  std::map<std::string, _exports_EncryptedMemo_templ::PropertyDescriptor> &staticMembers
   ) {
   std::map<std::string, SWIG_NAPI_ObjectWrap_templ<SWIG_NAPI_ObjectWrap_inst>::PropertyDescriptor> baseMembers, baseStaticMembers;
   SWIG_NAPI_ObjectWrap_inst::GetMembers(env, baseMembers, baseStaticMembers);
@@ -35,43 +35,35 @@ void _exports_CommunityRoot_inst::GetMembers(
   
   /* register wrapper functions */
   // jsnapi_register_member_function
-  members.erase("getInvolvedAddresses");
+  members.erase("getKeyType");
   members.insert({
-    "getInvolvedAddresses",
-      _exports_CommunityRoot_templ::InstanceMethod("getInvolvedAddresses",
-        &_exports_CommunityRoot_templ::_wrap_CommunityRoot_getInvolvedAddresses,
+    "getKeyType",
+      _exports_EncryptedMemo_templ::InstanceMethod("getKeyType",
+        &_exports_EncryptedMemo_templ::_wrap_EncryptedMemo_getKeyType,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("isInvolved");
+  members.erase("getMemo");
   members.insert({
-    "isInvolved",
-      _exports_CommunityRoot_templ::InstanceMethod("isInvolved",
-        &_exports_CommunityRoot_templ::_wrap_CommunityRoot_isInvolved,
+    "getMemo",
+      _exports_EncryptedMemo_templ::InstanceMethod("getMemo",
+        &_exports_EncryptedMemo_templ::_wrap_EncryptedMemo_getMemo,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getPublicKey");
+  members.erase("equal");
   members.insert({
-    "getPublicKey",
-      _exports_CommunityRoot_templ::InstanceMethod("getPublicKey",
-        &_exports_CommunityRoot_templ::_wrap_CommunityRoot_getPublicKey,
+    "equal",
+      _exports_EncryptedMemo_templ::InstanceMethod("equal",
+        &_exports_EncryptedMemo_templ::_wrap_EncryptedMemo_equal,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getGmwPubkey");
+  members.erase("decrypt");
   members.insert({
-    "getGmwPubkey",
-      _exports_CommunityRoot_templ::InstanceMethod("getGmwPubkey",
-        &_exports_CommunityRoot_templ::_wrap_CommunityRoot_getGmwPubkey,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("getAufPubkey");
-  members.insert({
-    "getAufPubkey",
-      _exports_CommunityRoot_templ::InstanceMethod("getAufPubkey",
-        &_exports_CommunityRoot_templ::_wrap_CommunityRoot_getAufPubkey,
+    "decrypt",
+      _exports_EncryptedMemo_templ::InstanceMethod("decrypt",
+        &_exports_EncryptedMemo_templ::_wrap_EncryptedMemo_decrypt,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

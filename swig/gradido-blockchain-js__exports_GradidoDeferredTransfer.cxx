@@ -75,11 +75,27 @@ void _exports_GradidoDeferredTransfer_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getTimeout");
+  members.erase("getTimeoutDuration");
   members.insert({
-    "getTimeout",
-      _exports_GradidoDeferredTransfer_templ::InstanceMethod("getTimeout",
-        &_exports_GradidoDeferredTransfer_templ::_wrap_GradidoDeferredTransfer_getTimeout,
+    "getTimeoutDuration",
+      _exports_GradidoDeferredTransfer_templ::InstanceMethod("getTimeoutDuration",
+        &_exports_GradidoDeferredTransfer_templ::_wrap_GradidoDeferredTransfer_getTimeoutDuration,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("calculateUseableAmount");
+  members.insert({
+    "calculateUseableAmount",
+      _exports_GradidoDeferredTransfer_templ::InstanceMethod("calculateUseableAmount",
+        &_exports_GradidoDeferredTransfer_templ::_wrap_GradidoDeferredTransfer_calculateUseableAmount,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("equal");
+  members.insert({
+    "equal",
+      _exports_GradidoDeferredTransfer_templ::InstanceMethod("equal",
+        &_exports_GradidoDeferredTransfer_templ::_wrap_GradidoDeferredTransfer_equal,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

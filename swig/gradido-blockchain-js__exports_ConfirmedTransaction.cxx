@@ -91,11 +91,51 @@ void _exports_ConfirmedTransaction_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("getAccountBalances");
+  members.insert({
+    "getAccountBalances",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("getAccountBalances",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_getAccountBalances,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("hasAccountBalance");
+  members.insert({
+    "hasAccountBalance",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("hasAccountBalance",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_hasAccountBalance,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getAccountBalance");
   members.insert({
     "getAccountBalance",
       _exports_ConfirmedTransaction_templ::InstanceMethod("getAccountBalance",
         &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_getAccountBalance,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getDecayedAccountBalance");
+  members.insert({
+    "getDecayedAccountBalance",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("getDecayedAccountBalance",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction__wrap_ConfirmedTransaction_getDecayedAccountBalance,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isInvolved");
+  members.insert({
+    "isInvolved",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("isInvolved",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_isInvolved,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getInvolvedAddresses");
+  members.insert({
+    "getInvolvedAddresses",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("getInvolvedAddresses",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_getInvolvedAddresses,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

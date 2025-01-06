@@ -118,6 +118,15 @@ void _exports_Filter_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
     });
   // jsnapi_register_static_constant
+  staticMembers.erase("FIRST_TRANSACTION");
+  staticMembers.insert({
+    "FIRST_TRANSACTION",
+      StaticAccessor("FIRST_TRANSACTION",
+        &_exports_Filter_templ::_wrap_Filter_FIRST_TRANSACTION_get,
+        &JS_veto_set_static_variable,
+        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    });
+  // jsnapi_register_static_constant
   staticMembers.erase("ALL_TRANSACTIONS");
   staticMembers.insert({
     "ALL_TRANSACTIONS",

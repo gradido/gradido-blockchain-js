@@ -51,6 +51,22 @@ void _exports_TimepointInterval_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("setStartDate");
+  members.insert({
+    "setStartDate",
+      _exports_TimepointInterval_templ::InstanceMethod("setStartDate",
+        &_exports_TimepointInterval_templ::_wrap_TimepointInterval_setStartDate,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("setEndDate");
+  members.insert({
+    "setEndDate",
+      _exports_TimepointInterval_templ::InstanceMethod("setEndDate",
+        &_exports_TimepointInterval_templ::_wrap_TimepointInterval_setEndDate,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("isEmpty");
   members.insert({
     "isEmpty",

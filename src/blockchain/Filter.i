@@ -1,11 +1,12 @@
 %exception {
     try {
         $function
+    } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
     } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
     }
 }
-
 
 %{
 #include "gradido_blockchain/blockchain/FilterResult.h"   
@@ -13,11 +14,12 @@
 #include "gradido_blockchain/blockchain/SearchDirection.h"    
 #include "gradido_blockchain/blockchain/Filter.h"
 #include "gradido_blockchain/blockchain/FilterBuilder.h"
+#include "gradido_blockchain/blockchain/FilterCriteria.h"
 %}
 
 
 namespace gradido::blockchain {
-    %ignore Filter::matches(std::shared_ptr<TransactionEntry> entry, FilterCriteria type, std::string_view communityId) const;
+    %ignore Filter::matches(std::shared_ptr<const TransactionEntry> entry, FilterCriteria type, std::string_view communityId) const;
     //%ignore Filter::Filter();   
     %ignore Filter::Filter(
       uint64_t _minTransactionNr,

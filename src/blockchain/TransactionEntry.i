@@ -18,28 +18,28 @@
     $1 = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::duration<uint32_t>($input.As<Napi::Number>().Uint32Value()));
 }
 */
-%typemap(out) gradido::blockchain::TransactionEntries (std::vector<std::shared_ptr<gradido::blockchain::TransactionEntry>> transactionEntriesVector) {
+%typemap(out) gradido::blockchain::TransactionEntries (std::vector<std::shared_ptr<const gradido::blockchain::TransactionEntry>> transactionEntriesVector) {
     transactionEntriesVector.reserve($1.size());
     auto& transactionsList = *(&$1);
     for(auto v: transactionsList) {
         transactionEntriesVector.push_back(v);
     }
     $result = SWIG_NewPointerObj(
-        (new std::vector<std::shared_ptr<gradido::blockchain::TransactionEntry>>(transactionEntriesVector)),
+        (new std::vector<std::shared_ptr<const gradido::blockchain::TransactionEntry>>(transactionEntriesVector)),
         SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t, 
         SWIG_POINTER_OWN |  0 
     );
 }
 
 %typemap(ts) const gradido::blockchain::TransactionEntries& "TransactionEntries";
-%typemap(out) const gradido::blockchain::TransactionEntries& (std::vector<std::shared_ptr<gradido::blockchain::TransactionEntry>> transactionEntriesVector) {
+%typemap(out) const gradido::blockchain::TransactionEntries& (std::vector<std::shared_ptr<const gradido::blockchain::TransactionEntry>> transactionEntriesVector) {
     transactionEntriesVector.reserve($1->size());
     auto& transactionsList = *$1;
     for(auto v: transactionsList) {
         transactionEntriesVector.push_back(v);
     }
     $result = SWIG_NewPointerObj(
-        (new std::vector<std::shared_ptr<gradido::blockchain::TransactionEntry>>(transactionEntriesVector)),
+        (new std::vector<std::shared_ptr<const gradido::blockchain::TransactionEntry>>(transactionEntriesVector)),
         SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t, 
         SWIG_POINTER_OWN |  0 
     );

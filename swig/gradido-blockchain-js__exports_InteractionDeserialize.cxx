@@ -67,6 +67,14 @@ void _exports_InteractionDeserialize_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("isTransactionTriggerEvent");
+  members.insert({
+    "isTransactionTriggerEvent",
+      _exports_InteractionDeserialize_templ::InstanceMethod("isTransactionTriggerEvent",
+        &_exports_InteractionDeserialize_templ::_wrap_InteractionDeserialize_isTransactionTriggerEvent,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getType");
   members.insert({
     "getType",
@@ -96,6 +104,14 @@ void _exports_InteractionDeserialize_inst::GetMembers(
     "getConfirmedTransaction",
       _exports_InteractionDeserialize_templ::InstanceMethod("getConfirmedTransaction",
         &_exports_InteractionDeserialize_templ::_wrap_InteractionDeserialize_getConfirmedTransaction,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getTransactionTriggerEvent");
+  members.insert({
+    "getTransactionTriggerEvent",
+      _exports_InteractionDeserialize_templ::InstanceMethod("getTransactionTriggerEvent",
+        &_exports_InteractionDeserialize_templ::_wrap_InteractionDeserialize_getTransactionTriggerEvent,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

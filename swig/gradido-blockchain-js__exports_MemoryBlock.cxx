@@ -121,7 +121,7 @@ void _exports_MemoryBlock_inst::GetMembers(
   staticMembers.insert({
     "fromHex",
       StaticMethod("fromHex",
-        &_exports_MemoryBlock_templ::_wrap_MemoryBlock_fromHex,
+        &_exports_MemoryBlock_templ::_wrap_MemoryBlock__wrap_MemoryBlock_fromHex,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_static_function

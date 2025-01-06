@@ -67,12 +67,12 @@ void _exports_AuthenticatedEncryption_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_variable
-  members.erase("mPubkey");
+  members.erase("mPublicKey");
   members.insert({
-    "mPubkey",
-      _exports_AuthenticatedEncryption_templ::InstanceAccessor("mPubkey",
-        &_exports_AuthenticatedEncryption_templ::_wrap_AuthenticatedEncryption_mPubkey_get,
-        &_exports_AuthenticatedEncryption_templ::_wrap_AuthenticatedEncryption_mPubkey_set,
+    "mPublicKey",
+      _exports_AuthenticatedEncryption_templ::InstanceAccessor("mPublicKey",
+        &_exports_AuthenticatedEncryption_templ::_wrap_AuthenticatedEncryption_mPublicKey_get,
+        &_exports_AuthenticatedEncryption_templ::_wrap_AuthenticatedEncryption_mPublicKey_set,
         static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
     });
   // jsnapi_register_member_function

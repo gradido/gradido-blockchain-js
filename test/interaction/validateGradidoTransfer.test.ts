@@ -53,7 +53,7 @@ describe('validate Gradido Transfer Transactions', () => {
 
     it('memo to short', () => {
       const transaction = builder
-        .setMemo('hall')
+        .addMemo(hallMemo)
         .setTransactionTransfer(
           new TransferAmount(keyPairs[4].getPublicKey(), '500.55'),
           keyPairs[5].getPublicKey()
@@ -70,7 +70,7 @@ describe('validate Gradido Transfer Transactions', () => {
 
     it('memo to big', () => {
       const transaction = builder
-        .setMemo('a'.repeat(451))
+        .addMemo(aFilledMemo) 
         .setTransactionTransfer(
           new TransferAmount(keyPairs[4].getPublicKey(), '500.55'),
           keyPairs[5].getPublicKey()

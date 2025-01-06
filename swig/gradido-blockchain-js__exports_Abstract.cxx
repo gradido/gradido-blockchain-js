@@ -35,11 +35,43 @@ void _exports_Abstract_inst::GetMembers(
   
   /* register wrapper functions */
   // jsnapi_register_member_function
-  members.erase("addGradidoTransaction");
+  members.erase("createAndAddConfirmedTransaction");
   members.insert({
-    "addGradidoTransaction",
-      _exports_Abstract_templ::InstanceMethod("addGradidoTransaction",
-        &_exports_Abstract_templ::_wrap_Abstract_addGradidoTransaction,
+    "createAndAddConfirmedTransaction",
+      _exports_Abstract_templ::InstanceMethod("createAndAddConfirmedTransaction",
+        &_exports_Abstract_templ::_wrap_Abstract_createAndAddConfirmedTransaction,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("addTransactionTriggerEvent");
+  members.insert({
+    "addTransactionTriggerEvent",
+      _exports_Abstract_templ::InstanceMethod("addTransactionTriggerEvent",
+        &_exports_Abstract_templ::_wrap_Abstract_addTransactionTriggerEvent,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("removeTransactionTriggerEvent");
+  members.insert({
+    "removeTransactionTriggerEvent",
+      _exports_Abstract_templ::InstanceMethod("removeTransactionTriggerEvent",
+        &_exports_Abstract_templ::_wrap_Abstract_removeTransactionTriggerEvent,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isTransactionExist");
+  members.insert({
+    "isTransactionExist",
+      _exports_Abstract_templ::InstanceMethod("isTransactionExist",
+        &_exports_Abstract_templ::_wrap_Abstract_isTransactionExist,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("findTransactionTriggerEventsInRange");
+  members.insert({
+    "findTransactionTriggerEventsInRange",
+      _exports_Abstract_templ::InstanceMethod("findTransactionTriggerEventsInRange",
+        &_exports_Abstract_templ::_wrap_Abstract_findTransactionTriggerEventsInRange,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -56,22 +88,6 @@ void _exports_Abstract_inst::GetMembers(
     "findOne",
       _exports_Abstract_templ::InstanceMethod("findOne",
         &_exports_Abstract_templ::_wrap_Abstract__wrap_Abstract_findOne,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("findTimeoutedDeferredTransfersInRange");
-  members.insert({
-    "findTimeoutedDeferredTransfersInRange",
-      _exports_Abstract_templ::InstanceMethod("findTimeoutedDeferredTransfersInRange",
-        &_exports_Abstract_templ::_wrap_Abstract_findTimeoutedDeferredTransfersInRange,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("findRedeemedDeferredTransfersInRange");
-  members.insert({
-    "findRedeemedDeferredTransfersInRange",
-      _exports_Abstract_templ::InstanceMethod("findRedeemedDeferredTransfersInRange",
-        &_exports_Abstract_templ::_wrap_Abstract_findRedeemedDeferredTransfersInRange,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

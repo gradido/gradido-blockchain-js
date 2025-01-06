@@ -83,6 +83,22 @@ void _exports_TransactionBody_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("isRedeemDeferredTransfer");
+  members.insert({
+    "isRedeemDeferredTransfer",
+      _exports_TransactionBody_templ::InstanceMethod("isRedeemDeferredTransfer",
+        &_exports_TransactionBody_templ::_wrap_TransactionBody_isRedeemDeferredTransfer,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isTimeoutDeferredTransfer");
+  members.insert({
+    "isTimeoutDeferredTransfer",
+      _exports_TransactionBody_templ::InstanceMethod("isTimeoutDeferredTransfer",
+        &_exports_TransactionBody_templ::_wrap_TransactionBody_isTimeoutDeferredTransfer,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getTransactionType");
   members.insert({
     "getTransactionType",
@@ -123,11 +139,11 @@ void _exports_TransactionBody_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getMemo");
+  members.erase("getMemos");
   members.insert({
-    "getMemo",
-      _exports_TransactionBody_templ::InstanceMethod("getMemo",
-        &_exports_TransactionBody_templ::_wrap_TransactionBody_getMemo,
+    "getMemos",
+      _exports_TransactionBody_templ::InstanceMethod("getMemos",
+        &_exports_TransactionBody_templ::_wrap_TransactionBody_getMemos,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -208,6 +224,22 @@ void _exports_TransactionBody_inst::GetMembers(
     "getCommunityRoot",
       _exports_TransactionBody_templ::InstanceMethod("getCommunityRoot",
         &_exports_TransactionBody_templ::_wrap_TransactionBody_getCommunityRoot,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getRedeemDeferredTransfer");
+  members.insert({
+    "getRedeemDeferredTransfer",
+      _exports_TransactionBody_templ::InstanceMethod("getRedeemDeferredTransfer",
+        &_exports_TransactionBody_templ::_wrap_TransactionBody_getRedeemDeferredTransfer,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getTimeoutDeferredTransfer");
+  members.insert({
+    "getTimeoutDeferredTransfer",
+      _exports_TransactionBody_templ::InstanceMethod("getTimeoutDeferredTransfer",
+        &_exports_TransactionBody_templ::_wrap_TransactionBody_getTimeoutDeferredTransfer,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

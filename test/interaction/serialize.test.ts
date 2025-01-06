@@ -135,7 +135,7 @@ describe('Serialize Gradido Transactions Tests', () => {
 
   it('gradido deferred transfer transaction body', () => {
     const transaction = builder
-      .setMemo('Link zum einloesen')
+      .addMemo(deferredTransferMemo)
       .setDeferredTransfer(
         new GradidoTransfer(
           new TransferAmount(keyPairs[4].getPublicKey(), "555.55"),

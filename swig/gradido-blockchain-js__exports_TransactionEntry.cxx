@@ -162,6 +162,22 @@ void _exports_TransactionEntry_inst::GetMembers(
         &_exports_TransactionEntry_templ::_wrap_TransactionEntry_isCommunityRoot,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("isRedeemDeferredTransfer");
+  members.insert({
+    "isRedeemDeferredTransfer",
+      _exports_TransactionEntry_templ::InstanceMethod("isRedeemDeferredTransfer",
+        &_exports_TransactionEntry_templ::_wrap_TransactionEntry_isRedeemDeferredTransfer,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isTimeoutDeferredTransfer");
+  members.insert({
+    "isTimeoutDeferredTransfer",
+      _exports_TransactionEntry_templ::InstanceMethod("isTimeoutDeferredTransfer",
+        &_exports_TransactionEntry_templ::_wrap_TransactionEntry_isTimeoutDeferredTransfer,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   

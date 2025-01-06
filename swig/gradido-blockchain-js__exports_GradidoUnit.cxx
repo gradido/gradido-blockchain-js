@@ -155,11 +155,19 @@ void _exports_GradidoUnit_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("calculateCompoundInterest");
+  members.erase("negate");
   members.insert({
-    "calculateCompoundInterest",
-      _exports_GradidoUnit_templ::InstanceMethod("calculateCompoundInterest",
-        &_exports_GradidoUnit_templ::_wrap_GradidoUnit__wrap_GradidoUnit_calculateCompoundInterest,
+    "negate",
+      _exports_GradidoUnit_templ::InstanceMethod("negate",
+        &_exports_GradidoUnit_templ::_wrap_GradidoUnit_negate,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("negated");
+  members.insert({
+    "negated",
+      _exports_GradidoUnit_templ::InstanceMethod("negated",
+        &_exports_GradidoUnit_templ::_wrap_GradidoUnit_negated,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -170,22 +178,30 @@ void _exports_GradidoUnit_inst::GetMembers(
         &_exports_GradidoUnit_templ::_wrap_GradidoUnit__wrap_GradidoUnit_calculateDecay,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("calculateCompoundInterest");
+  members.insert({
+    "calculateCompoundInterest",
+      _exports_GradidoUnit_templ::InstanceMethod("calculateCompoundInterest",
+        &_exports_GradidoUnit_templ::_wrap_GradidoUnit__wrap_GradidoUnit_calculateCompoundInterest,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   // jsnapi_register_static_function
-  staticMembers.erase("calculateDecayDirect");
+  staticMembers.erase("fromString");
   staticMembers.insert({
-    "calculateDecayDirect",
-      StaticMethod("calculateDecayDirect",
-        &_exports_GradidoUnit_templ::_wrap_GradidoUnit_calculateDecayDirect,
+    "fromString",
+      StaticMethod("fromString",
+        &_exports_GradidoUnit_templ::_wrap_GradidoUnit_fromString,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_static_function
-  staticMembers.erase("calculateCompoundInterestDirect");
+  staticMembers.erase("fromGradidoCent");
   staticMembers.insert({
-    "calculateCompoundInterestDirect",
-      StaticMethod("calculateCompoundInterestDirect",
-        &_exports_GradidoUnit_templ::_wrap_GradidoUnit_calculateCompoundInterestDirect,
+    "fromGradidoCent",
+      StaticMethod("fromGradidoCent",
+        &_exports_GradidoUnit_templ::_wrap_GradidoUnit_fromGradidoCent,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_static_function
