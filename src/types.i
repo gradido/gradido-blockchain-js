@@ -28,6 +28,7 @@ typedef std::chrono::system_clock::duration Duration;
 // Typemap for Duration -> JavaScript number in seconds
 %typemap(cstype) Duration "Duration";
 %typemap(ts) Duration "number";
+%typemap(ts) const Duration& "number";
 %typemap(in) Duration {
     if(!$input.IsNumber()) {
         SWIG_exception_fail(SWIG_TypeError, "Expected a number");

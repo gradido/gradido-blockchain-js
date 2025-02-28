@@ -9,6 +9,7 @@
 %ignore TimepointInterval::MonthYearIterator;
 %ignore TimepointInterval::begin();
 %ignore TimepointInterval::end();
+%ignore TimepointInterval::TimepointInterval(const date::year_month& startDate, const date::year_month& endDate);
 
 %{
   #include "gradido_blockchain/lib/TimepointInterval.h"

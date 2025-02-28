@@ -63,7 +63,7 @@ void _exports_EncryptedMemo_inst::GetMembers(
   members.insert({
     "decrypt",
       _exports_EncryptedMemo_templ::InstanceMethod("decrypt",
-        &_exports_EncryptedMemo_templ::_wrap_EncryptedMemo_decrypt,
+        &_exports_EncryptedMemo_templ::_wrap_EncryptedMemo__wrap_EncryptedMemo_decrypt,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
