@@ -39,7 +39,7 @@ void _exports_GradidoUnit_inst::GetMembers(
   members.insert({
     "toString",
       _exports_GradidoUnit_templ::InstanceMethod("toString",
-        &_exports_GradidoUnit_templ::_wrap_GradidoUnit_toString,
+        &_exports_GradidoUnit_templ::_wrap_GradidoUnit__wrap_GradidoUnit_toString,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

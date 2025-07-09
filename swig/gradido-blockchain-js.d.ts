@@ -377,6 +377,8 @@ export  class GradidoUnit {
 
  static fromGradidoCent(gddCent: number): GradidoUnit;
 
+  toString(precision: number): string;
+
   toString(): string;
 
   getGradidoCent(): number;
