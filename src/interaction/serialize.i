@@ -8,6 +8,7 @@
     }
 }
 
+%ignore gradido::interaction::serialize::Context::operator=;
 %rename(InteractionSerialize) gradido::interaction::serialize::Context;
 
 %{

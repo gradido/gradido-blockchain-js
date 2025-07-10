@@ -43,6 +43,7 @@
 
 %ignore operator|;
 %ignore operator&;
+%ignore gradido::interaction::validate::Context::operator=;
 %rename(InteractionValidate) gradido::interaction::validate::Context;
 %rename(ValidateType) gradido::interaction::validate::Type;
 

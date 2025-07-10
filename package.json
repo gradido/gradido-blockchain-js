@@ -29,6 +29,10 @@
     "target": "gradido-blockchain-js",
     "runtime": "napi"
   },
+  "engines": {
+    "node": ">=18"
+  },
+
   "author": "Dario Rekowski <dario.rekowski@gmx.de>",
   "license": "Apache-2.0",
   "bugs": {

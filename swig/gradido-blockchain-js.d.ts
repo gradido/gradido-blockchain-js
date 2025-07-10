@@ -1069,6 +1069,8 @@ export  class InteractionSerialize {
 
   constructor(transactionTriggerEvent: TransactionTriggerEvent);
 
+  constructor(arg0: InteractionSerialize);
+
   run(): MemoryBlock|null;
 }
 
@@ -1343,6 +1345,8 @@ export  class InteractionToJson {
 
   constructor(filter: Filter);
 
+  constructor(arg0: InteractionToJson);
+
   run(pretty: boolean): string;
 
   run(): string;
@@ -1388,6 +1392,8 @@ export  class InteractionValidate {
   constructor(body: GradidoTransaction);
 
   constructor(body: ConfirmedTransaction);
+
+  constructor(arg0: InteractionValidate);
 
   run(type: ValidateType, blockchain: Abstract|null): void;
 

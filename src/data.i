@@ -36,6 +36,7 @@
 %shared_ptr(gradido::data::GradidoTransaction)
 %shared_ptr(gradido::data::ConfirmedTransaction)
 
+%ignore gradido::data::DurationSeconds::operator Duration;
 %rename(getDate) getAsTimepoint;
 
 //ConstTransactionBodyPtr

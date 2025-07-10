@@ -9,6 +9,7 @@
 }
 
 %ignore gradido::interaction::toJson::Context::run(rapidjson::Document& rootJson) const;
+%ignore gradido::interaction::toJson::Context::operator=;
 %rename(InteractionToJson) gradido::interaction::toJson::Context;
 
 %{
