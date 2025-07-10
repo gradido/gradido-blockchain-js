@@ -1,0 +1,42 @@
+name: Build Native Addon Prebuilds
+
+on:
+  push:
+    #tags:
+    # - 'v*'  # Trigger nur bei Versionstags wie v1.0.0
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        target: [x64, arm64]
+        os: [linux, win]
+    name: Build for ${{ matrix.os }}-${{ matrix.target }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.20.7
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build prebuild binary
+        uses: cross-platform-actions/action@v1
+        with:
+          target: ${{ matrix.target }}
+          os: ${{ matrix.os }}
+          command: |
+            npm install -g prebuildify
+            prebuildify -t 20.0.0 --napi --strip
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: prebuild-${{ matrix.os }}-${{ matrix.target }}
+          path: prebuilds/**
