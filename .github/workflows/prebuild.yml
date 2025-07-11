@@ -11,9 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        target: [x64, arm64]
-        os: [linux, win]
-    name: Build for ${{ matrix.os }}-${{ matrix.target }}
+        platform: ["linux/amd64", "linux/arm64", "windows/amd64", "windows/arm64", "darwin/amd64", "darwin/arm64", "alpine/amd64"]
+    name: Build for ${{ matrix.platform }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -32,12 +31,11 @@ jobs:
       - name: Build prebuild binary
         uses: cross-platform-actions/action@v0.28.0
         with:
-          target: ${{ matrix.target }}
-          os: ${{ matrix.os }}
+          target: ${{ matrix.platform }}
           command: bun buildify
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: prebuild-${{ matrix.os }}-${{ matrix.target }}
+          name: prebuild-${{ matrix.platform }}
           path: prebuilds/**
