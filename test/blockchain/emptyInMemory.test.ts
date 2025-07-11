@@ -32,7 +32,7 @@ describe('tests with empty in-memory blockchain', () => {
       const deserializer = new InteractionDeserialize(communityRootRaw, DeserializeType_GRADIDO_TRANSACTION)
       deserializer.run()
       expect(deserializer.isGradidoTransaction()).toBeTruthy()
-      expect(() => blockchain.addGradidoTransaction(deserializer.getGradidoTransaction(), null, confirmedAt))
+      expect(() => blockchain.createAndAddConfirmedTransaction(deserializer.getGradidoTransaction(), null, confirmedAt))
     })
   })
 
@@ -42,7 +42,7 @@ describe('tests with empty in-memory blockchain', () => {
       const deserializer = new InteractionDeserialize(registerAddressRaw, DeserializeType_GRADIDO_TRANSACTION)
       deserializer.run()
       expect(deserializer.isGradidoTransaction()).toBeTruthy()
-      expect(() => blockchain.addGradidoTransaction(deserializer.getGradidoTransaction(), null, confirmedAt))
+      expect(() => blockchain.createAndAddConfirmedTransaction(deserializer.getGradidoTransaction(), null, confirmedAt))
         .toThrow('cannot find community root transaction before register address')
     })
 
@@ -51,7 +51,7 @@ describe('tests with empty in-memory blockchain', () => {
       const deserializer = new InteractionDeserialize(creationRaw, DeserializeType_GRADIDO_TRANSACTION)
       deserializer.run()
       expect(deserializer.isGradidoTransaction()).toBeTruthy()
-      expect(() => blockchain.addGradidoTransaction(deserializer.getGradidoTransaction(), null, confirmedAt))
+      expect(() => blockchain.createAndAddConfirmedTransaction(deserializer.getGradidoTransaction(), null, confirmedAt))
         .toThrow("signer for creation doesn't have a community human account")
     })
 
@@ -60,7 +60,7 @@ describe('tests with empty in-memory blockchain', () => {
       const deserializer = new InteractionDeserialize(transferRaw, DeserializeType_GRADIDO_TRANSACTION)
       deserializer.run()
       expect(deserializer.isGradidoTransaction()).toBeTruthy()
-      expect(() => blockchain.addGradidoTransaction(deserializer.getGradidoTransaction(), null, confirmedAt))
+      expect(() => blockchain.createAndAddConfirmedTransaction(deserializer.getGradidoTransaction(), null, confirmedAt))
         .toThrow('not enough gdd, needed: 500.5500, exist: 0.0000')
     })
 
@@ -69,7 +69,7 @@ describe('tests with empty in-memory blockchain', () => {
       const deserializer = new InteractionDeserialize(deferredTransferRaw, DeserializeType_GRADIDO_TRANSACTION)
       deserializer.run()
       expect(deserializer.isGradidoTransaction()).toBeTruthy()
-      expect(() => blockchain.addGradidoTransaction(deserializer.getGradidoTransaction(), null, confirmedAt))
+      expect(() => blockchain.createAndAddConfirmedTransaction(deserializer.getGradidoTransaction(), null, confirmedAt))
         .toThrow('not enough gdd, needed: 555.5500, exist: 0.0000')
     })
   })

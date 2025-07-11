@@ -23,17 +23,18 @@ jobs:
         with:
           node-version: 18.20.7
 
+      - name: install bun 
+        uses: oven-sh/setup-bun@v2
+
       - name: Install dependencies
-        run: npm install
+        run: bun install
 
       - name: Build prebuild binary
-        uses: cross-platform-actions/action@v1
+        uses: cross-platform-actions/action@v4
         with:
           target: ${{ matrix.target }}
           os: ${{ matrix.os }}
-          command: |
-            npm install -g prebuildify
-            prebuildify -t 20.0.0 --napi --strip
+          command: bun buildify
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
