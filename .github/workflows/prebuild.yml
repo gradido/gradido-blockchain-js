@@ -8,11 +8,8 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        platform: ["linux/amd64", "linux/arm64", "windows/amd64", "windows/arm64", "darwin/amd64", "darwin/arm64", "alpine/amd64"]
-    name: Build for ${{ matrix.platform }}
+    runs-on: ubuntu-22.04
+    name: Build for linux x64
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -29,13 +26,10 @@ jobs:
         run: bun install
 
       - name: Build prebuild binary
-        uses: cross-platform-actions/action@v0.28.0
-        with:
-          target: ${{ matrix.platform }}
-          command: bun buildify
+        run: bun scripts/prebuild.js
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: prebuild-${{ matrix.platform }}
-          path: prebuilds/**
+          name: prebuild-linux-x64
+          path: prebuilds/linux-x64

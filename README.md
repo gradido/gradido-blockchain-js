@@ -7,7 +7,6 @@ Gradido Blockchain c++ lib as nodejs module
 # Dependencies
 - nodejs
 - npm
-Please install with bun, this project is currently not compatible with npm or yarn
 
 ## Build
 - cmake
