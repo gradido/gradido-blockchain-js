@@ -6,7 +6,7 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-#include "swig\gradido-blockchain-js.h"
+#include "swig/gradido-blockchain-js.h"
 
 /* Class: Filter (_exports_Filter) */
 // jsnapi_getclass

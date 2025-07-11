@@ -7,7 +7,7 @@
   "scripts": {
     "swig": "tsx scripts/swig.ts",
     "build": "tsx scripts/build.ts",
-    "buildify": "tsx scripts/prebuild_old.ts",
+    "buildify": "node scripts/prebuild.js",
     "test": "jest"
   },
   "keywords": [

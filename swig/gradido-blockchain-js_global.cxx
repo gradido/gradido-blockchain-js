@@ -6,7 +6,7 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-#include "swig\gradido-blockchain-js.h"
+#include "swig/gradido-blockchain-js.h"
 
 
 // js_global_function
@@ -38,7 +38,7 @@ Napi::Value _wrap_addressTypeToString(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = enum_to_string< gradido::data::AddressType >(arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -102,7 +102,7 @@ Napi::Value _wrap_stringToAddressType(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = (gradido::data::AddressType)string_to_enum< gradido::data::AddressType >((std::string const &)*arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -162,7 +162,7 @@ Napi::Value _wrap_crossGroupTypeToString(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = enum_to_string< gradido::data::CrossGroupType >(arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -226,7 +226,7 @@ Napi::Value _wrap_stringToCrossGroupType(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = (gradido::data::CrossGroupType)string_to_enum< gradido::data::CrossGroupType >((std::string const &)*arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -286,7 +286,7 @@ Napi::Value _wrap_transactionTypeToString(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = enum_to_string< gradido::data::TransactionType >(arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -350,7 +350,7 @@ Napi::Value _wrap_stringToTransactionType(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = (gradido::data::TransactionType)string_to_enum< gradido::data::TransactionType >((std::string const &)*arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -410,7 +410,7 @@ Napi::Value _wrap_memoKeyTypeToString(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = enum_to_string< gradido::data::MemoKeyType >(arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -474,7 +474,7 @@ Napi::Value _wrap_stringToMemoKeyType(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = (gradido::data::MemoKeyType)string_to_enum< gradido::data::MemoKeyType >((std::string const &)*arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -534,7 +534,7 @@ Napi::Value _wrap_transactionTriggerEventTypeToString(const Napi::CallbackInfo &
     
     {
       try {
-        $function
+        result = enum_to_string< gradido::data::TransactionTriggerEventType >(arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -598,7 +598,7 @@ Napi::Value _wrap_stringToTransactionTriggerEventType(const Napi::CallbackInfo &
     
     {
       try {
-        $function
+        result = (gradido::data::TransactionTriggerEventType)string_to_enum< gradido::data::TransactionTriggerEventType >((std::string const &)*arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -672,7 +672,7 @@ Napi::Value _wrap_loadCryptoKeys(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        loadCryptoKeys(SWIG_STD_MOVE(arg1),SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -726,7 +726,7 @@ Napi::Value _wrap_ed25519DerivationTypeToString(const Napi::CallbackInfo &info) 
     
     {
       try {
-        $function
+        result = enum_to_string< Ed25519DerivationType >(arg1);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -819,7 +819,7 @@ Napi::Value _wrap_encrypt(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = SealedBoxes::encrypt((AuthenticatedEncryption const &)*arg1,(std::string const &)*arg2);
       } catch (const SealedBoxes::DecryptException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -892,7 +892,7 @@ Napi::Value _wrap_decrypt(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = SealedBoxes::decrypt((AuthenticatedEncryption const &)*arg1,(memory::Block const &)*arg2);
       } catch (const SealedBoxes::DecryptException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -962,7 +962,7 @@ Napi::Value _wrap_SealedBoxDecrypt(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = SealedBoxes::decrypt(SWIG_STD_MOVE(arg1),(memory::Block const &)*arg2);
       } catch (const SealedBoxes::DecryptException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -1018,7 +1018,7 @@ Napi::Value _wrap_deserializeTypeToString(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = enum_to_string< gradido::interaction::deserialize::Type >(arg1);
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoBlockchainException& e) {
@@ -1084,7 +1084,7 @@ Napi::Value _wrap_stringToDeserializeType(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = (gradido::interaction::deserialize::Type)string_to_enum< gradido::interaction::deserialize::Type >((std::string const &)*arg1);
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoBlockchainException& e) {
@@ -1146,7 +1146,7 @@ Napi::Value _wrap_searchDirectionToString(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = enum_to_string< gradido::blockchain::SearchDirection >(arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -1210,7 +1210,7 @@ Napi::Value _wrap_stringToSearchDirection(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = (gradido::blockchain::SearchDirection)string_to_enum< gradido::blockchain::SearchDirection >((std::string const &)*arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -1270,7 +1270,7 @@ Napi::Value _wrap_bodyBytesTypeToString(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = enum_to_string< gradido::interaction::toJson::BodyBytesType >(arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -1334,7 +1334,7 @@ Napi::Value _wrap_stringToBodyBytesType(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = (gradido::interaction::toJson::BodyBytesType)string_to_enum< gradido::interaction::toJson::BodyBytesType >((std::string const &)*arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -1401,7 +1401,7 @@ Napi::Value _wrap_minus(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = (gradido::interaction::validate::Type)gradido::interaction::validate::operator -(arg1,arg2);
       } catch (const gradido::interaction::validate::WrongAddressTypeException& e) {
         std::string message = "WrongAddressTypeException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -1490,7 +1490,7 @@ Napi::Value _wrap_validateTypeToString(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = enum_to_string< gradido::interaction::validate::Type >(arg1);
       } catch (const gradido::interaction::validate::WrongAddressTypeException& e) {
         std::string message = "WrongAddressTypeException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -1587,7 +1587,7 @@ Napi::Value _wrap_stringToValidateType(const Napi::CallbackInfo &info) {
     
     {
       try {
-        $function
+        result = (gradido::interaction::validate::Type)string_to_enum< gradido::interaction::validate::Type >((std::string const &)*arg1);
       } catch (const gradido::interaction::validate::WrongAddressTypeException& e) {
         std::string message = "WrongAddressTypeException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());

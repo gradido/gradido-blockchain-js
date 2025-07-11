@@ -6,7 +6,7 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-#include "swig\gradido-blockchain-js.h"
+#include "swig/gradido-blockchain-js.h"
 
 /* Class: SecretKeyCryptography (_exports_SecretKeyCryptography) */
 // jsnapi_getclass

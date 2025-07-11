@@ -6,7 +6,7 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-#include "swig\gradido-blockchain-js.h"
+#include "swig/gradido-blockchain-js.h"
 
 /* Class: KeyPairEd25519Ex (_exports_KeyPairEd25519Ex) */
 // jsnapi_getclass

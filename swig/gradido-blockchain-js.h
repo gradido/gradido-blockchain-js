@@ -3776,7 +3776,7 @@ Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_new_Timepoint
     }
     {
       try {
-        $function
+        result = (TimepointInterval *)new TimepointInterval();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -3832,7 +3832,7 @@ Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_new_Timepoint
     }
     {
       try {
-        $function
+        result = (TimepointInterval *)new TimepointInterval(SWIG_STD_MOVE(arg1),SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -3879,7 +3879,7 @@ Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_new_Timepoint
     }
     {
       try {
-        $function
+        result = (TimepointInterval *)new TimepointInterval(SWIG_STD_MOVE(arg1));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -4076,7 +4076,7 @@ Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInte
     
     {
       try {
-        $function
+        result = ((TimepointInterval const *)arg1)->getStartDate();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -4134,7 +4134,7 @@ Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInte
     
     {
       try {
-        $function
+        result = ((TimepointInterval const *)arg1)->getEndDate();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -4200,7 +4200,7 @@ Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInte
     
     {
       try {
-        $function
+        (arg1)->setStartDate(SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -4263,7 +4263,7 @@ Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInte
     
     {
       try {
-        $function
+        (arg1)->setEndDate(SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -4318,7 +4318,7 @@ Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInte
     
     {
       try {
-        $function
+        result = (bool)((TimepointInterval const *)arg1)->isEmpty();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -4386,7 +4386,7 @@ Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInte
     
     {
       try {
-        $function
+        result = (bool)((TimepointInterval const *)arg1)->isInsideInterval(SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -4445,7 +4445,7 @@ Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInte
     
     {
       try {
-        $function
+        result = (bool)((TimepointInterval const *)arg1)->isInsideInterval(SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -4585,7 +4585,7 @@ Napi::Value _exports_Profiler_templ<SWIG_OBJ_WRAP>::_wrap_new_Profiler__SWIG_0(c
     }
     {
       try {
-        $function
+        result = (Profiler *)new Profiler();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -4633,7 +4633,7 @@ Napi::Value _exports_Profiler_templ<SWIG_OBJ_WRAP>::_wrap_new_Profiler__SWIG_1(c
     }
     arg1 = reinterpret_cast< Profiler * >(argp1);{
       try {
-        $function
+        result = (Profiler *)new Profiler((Profiler const &)*arg1);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -4805,7 +4805,7 @@ Napi::Value _exports_Profiler_templ<SWIG_OBJ_WRAP>::_wrap_Profiler_reset(const N
     
     {
       try {
-        $function
+        (arg1)->reset();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -4860,7 +4860,7 @@ Napi::Value _exports_Profiler_templ<SWIG_OBJ_WRAP>::_wrap_Profiler_millis(const 
     
     {
       try {
-        $function
+        result = (double)((Profiler const *)arg1)->millis();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -4915,7 +4915,7 @@ Napi::Value _exports_Profiler_templ<SWIG_OBJ_WRAP>::_wrap_Profiler_micros(const 
     
     {
       try {
-        $function
+        result = (double)((Profiler const *)arg1)->micros();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -4970,7 +4970,7 @@ Napi::Value _exports_Profiler_templ<SWIG_OBJ_WRAP>::_wrap_Profiler_nanos(const N
     
     {
       try {
-        $function
+        result = (double)((Profiler const *)arg1)->nanos();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -5025,7 +5025,7 @@ Napi::Value _exports_Profiler_templ<SWIG_OBJ_WRAP>::_wrap_Profiler_seconds(const
     
     {
       try {
-        $function
+        result = (double)((Profiler const *)arg1)->seconds();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -5080,7 +5080,7 @@ Napi::Value _exports_Profiler_templ<SWIG_OBJ_WRAP>::_wrap_Profiler_string(const 
     
     {
       try {
-        $function
+        result = ((Profiler const *)arg1)->string();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -5121,7 +5121,7 @@ Napi::Value _exports_MemoryBlocks_templ<SWIG_OBJ_WRAP>::_wrap_new_MemoryBlocks__
     }
     {
       try {
-        $function    
+        result = (std::vector< std::shared_ptr< memory::Block > > *)new std::vector< std::shared_ptr< memory::Block > >();    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -5172,7 +5172,7 @@ Napi::Value _exports_MemoryBlocks_templ<SWIG_OBJ_WRAP>::_wrap_new_MemoryBlocks__
     }
     {
       try {
-        $function    
+        result = (std::vector< std::shared_ptr< memory::Block > > *)new std::vector< std::shared_ptr< memory::Block > >(SWIG_STD_MOVE(arg1));    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -5224,7 +5224,7 @@ Napi::Value _exports_MemoryBlocks_templ<SWIG_OBJ_WRAP>::_wrap_new_MemoryBlocks__
     }
     arg1 = reinterpret_cast< std::vector< std::shared_ptr< memory::Block > > * >(argp1);{
       try {
-        $function    
+        result = (std::vector< std::shared_ptr< memory::Block > > *)new std::vector< std::shared_ptr< memory::Block > >((std::vector< std::shared_ptr< memory::Block > > const &)*arg1);    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -5425,7 +5425,7 @@ Napi::Value _exports_MemoryBlocks_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlocks_size(
     
     {
       try {
-        $function    
+        result = ((std::vector< std::shared_ptr< memory::Block > > const *)arg1)->size();    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -5486,7 +5486,7 @@ Napi::Value _exports_MemoryBlocks_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlocks_capac
     
     {
       try {
-        $function    
+        result = ((std::vector< std::shared_ptr< memory::Block > > const *)arg1)->capacity();    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -5555,7 +5555,7 @@ Napi::Value _exports_MemoryBlocks_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlocks_reser
     
     {
       try {
-        $function    
+        (arg1)->reserve(SWIG_STD_MOVE(arg2));    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -5614,7 +5614,7 @@ Napi::Value _exports_MemoryBlocks_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlocks_isEmp
     
     {
       try {
-        $function    
+        result = (bool)((std::vector< std::shared_ptr< memory::Block > > const *)arg1)->empty();    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -5672,7 +5672,7 @@ Napi::Value _exports_MemoryBlocks_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlocks_clear
     
     {
       try {
-        $function    
+        (arg1)->clear();    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -5741,7 +5741,7 @@ Napi::Value _exports_MemoryBlocks_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlocks_add(c
     
     {
       try {
-        $function    
+        (arg1)->push_back((std::vector< std::shared_ptr< memory::Block > >::value_type const &)*arg2);    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -5817,7 +5817,7 @@ Napi::Value _exports_MemoryBlocks_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlocks_get(c
     try {
       {
         try {
-          $function    
+          result = (std::vector< std::shared_ptr< memory::Block > >::value_type *) &std_vector_Sl_std_shared_ptr_Sl_memory_Block_Sg__Sg__get(arg1,arg2);    
         } catch (const GradidoInvalidHexException& e) {
           SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
         } catch (const GradidoInvalidBase64Exception& e) {
@@ -5906,7 +5906,7 @@ Napi::Value _exports_MemoryBlocks_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlocks_set(c
     try {
       {
         try {
-          $function    
+          std_vector_Sl_std_shared_ptr_Sl_memory_Block_Sg__Sg__set(arg1,arg2,(std::shared_ptr< memory::Block > const &)*arg3);    
         } catch (const GradidoInvalidHexException& e) {
           SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
         } catch (const GradidoInvalidBase64Exception& e) {
@@ -5988,7 +5988,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_new_MemoryBlock__SW
     }
     {
       try {
-        $function    
+        result = (memory::Block *)new memory::Block(SWIG_STD_MOVE(arg1),(unsigned char const *)arg2);    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -6045,7 +6045,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_new_MemoryBlock__SW
     }
     {
       try {
-        $function    
+        result = (memory::Block *)new memory::Block((std::string const &)*arg1);    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -6100,7 +6100,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_new_MemoryBlock__SW
     }
     arg1 = reinterpret_cast< memory::Block * >(argp1);{
       try {
-        $function    
+        result = (memory::Block *)new memory::Block(*arg1);    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -6313,7 +6313,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlock_size(co
     
     {
       try {
-        $function    
+        result = ((memory::Block const *)arg1)->size();    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -6374,7 +6374,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlock_data(co
     
     {
       try {
-        $function    
+        result = (uint8_t *)(arg1)->data();    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -6435,7 +6435,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlock_convert
     
     {
       try {
-        $function    
+        result = ((memory::Block const *)arg1)->convertToHex();    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -6496,7 +6496,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlock_convert
     
     {
       try {
-        $function    
+        result = ((memory::Block const *)arg1)->convertToBase64(arg2);    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -6550,7 +6550,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlock_convert
     
     {
       try {
-        $function    
+        result = ((memory::Block const *)arg1)->convertToBase64();    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -6696,7 +6696,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlock_copyAsS
     
     {
       try {
-        $function    
+        result = ((memory::Block const *)arg1)->copyAsString();    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -6755,7 +6755,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlock_calcula
     
     {
       try {
-        $function    
+        result = ((memory::Block const *)arg1)->calculateHash();    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -6817,7 +6817,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlock_fromHex
     
     {
       try {
-        $function    
+        result = memory::Block::fromHex((std::string const &)*arg1);    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -6880,7 +6880,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlock_fromHex
     
     {
       try {
-        $function    
+        result = memory::Block::fromHex(SWIG_STD_MOVE(arg1));    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -7036,7 +7036,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlock_fromBas
     
     {
       try {
-        $function    
+        result = memory::Block::fromBase64((std::string const &)*arg1,arg2);    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -7102,7 +7102,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlock_fromBas
     
     {
       try {
-        $function    
+        result = memory::Block::fromBase64((std::string const &)*arg1);    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -7252,7 +7252,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlock_isEmpty
     
     {
       try {
-        $function    
+        result = (bool)((memory::Block const *)arg1)->isEmpty();    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -7321,7 +7321,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlock_equal(c
     
     {
       try {
-        $function    
+        result = (bool)((memory::Block const *)arg1)->operator ==((memory::Block const &)*arg2);    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -7390,7 +7390,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlock_notEqua
     
     {
       try {
-        $function    
+        result = (bool)((memory::Block const *)arg1)->operator !=((memory::Block const &)*arg2);    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -7459,7 +7459,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlock_lt(cons
     
     {
       try {
-        $function    
+        result = (bool)((memory::Block const *)arg1)->operator <((memory::Block const &)*arg2);    
       } catch (const GradidoInvalidHexException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoInvalidBase64Exception& e) {
@@ -7536,7 +7536,7 @@ _exports_Passphrase_templ<SWIG_OBJ_WRAP>::_exports_Passphrase_templ(const Napi::
     } 
     arg2 = static_cast< MnemonicType >(val2);{
       try {
-        $function
+        result = (Passphrase *)new Passphrase((std::string const &)*arg1,arg2);
       } catch (const PassphraseEmptyWordSourceException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -7601,7 +7601,7 @@ Napi::Value _exports_Passphrase_templ<SWIG_OBJ_WRAP>::_wrap_Passphrase_generate(
     
     {
       try {
-        $function
+        result = Passphrase::generate(arg1);
       } catch (const PassphraseEmptyWordSourceException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -7684,7 +7684,7 @@ Napi::Value _exports_Passphrase_templ<SWIG_OBJ_WRAP>::_wrap_Passphrase_detectMne
     
     {
       try {
-        $function
+        result = (MnemonicType)Passphrase::detectMnemonic((std::string const &)*arg1,(KeyPairEd25519 const *)arg2);
       } catch (const PassphraseEmptyWordSourceException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -7753,7 +7753,7 @@ Napi::Value _exports_Passphrase_templ<SWIG_OBJ_WRAP>::_wrap_Passphrase_detectMne
     
     {
       try {
-        $function
+        result = (MnemonicType)Passphrase::detectMnemonic((std::string const &)*arg1);
       } catch (const PassphraseEmptyWordSourceException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -7821,7 +7821,7 @@ Napi::Value _exports_Passphrase_templ<SWIG_OBJ_WRAP>::_wrap_Passphrase_transform
     
     {
       try {
-        $function
+        result = (arg1)->transform(arg2);
       } catch (const PassphraseEmptyWordSourceException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -7889,7 +7889,7 @@ Napi::Value _exports_Passphrase_templ<SWIG_OBJ_WRAP>::_wrap_Passphrase_createCle
     
     {
       try {
-        $function
+        result = ((Passphrase const *)arg1)->createClearPassphrase();
       } catch (const PassphraseEmptyWordSourceException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -7954,7 +7954,7 @@ Napi::Value _exports_Passphrase_templ<SWIG_OBJ_WRAP>::_wrap_Passphrase_filter(co
     
     {
       try {
-        $function
+        result = Passphrase::filter((std::string const &)*arg1);
       } catch (const PassphraseEmptyWordSourceException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -8015,7 +8015,7 @@ Napi::Value _exports_Passphrase_templ<SWIG_OBJ_WRAP>::_wrap_Passphrase_checkIfVa
     
     {
       try {
-        $function
+        result = (bool)(arg1)->checkIfValid();
       } catch (const PassphraseEmptyWordSourceException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -8072,7 +8072,7 @@ Napi::Value _exports_Passphrase_templ<SWIG_OBJ_WRAP>::_wrap_Passphrase_getString
     
     {
       try {
-        $function
+        result = (std::string *) &((Passphrase const *)arg1)->getString();
       } catch (const PassphraseEmptyWordSourceException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -8127,7 +8127,7 @@ Napi::Value _exports_SecretKeyCryptography_templ<SWIG_OBJ_WRAP>::_wrap_new_Secre
     }
     {
       try {
-        $function
+        result = (SecretKeyCryptography *)new SecretKeyCryptography();
       } catch(const CryptoConfig::MissingKeyException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const MissingEncryptionException& e) {
@@ -8200,7 +8200,7 @@ Napi::Value _exports_SecretKeyCryptography_templ<SWIG_OBJ_WRAP>::_wrap_new_Secre
     } 
     arg3 = static_cast< int >(val3);{
       try {
-        $function
+        result = (SecretKeyCryptography *)new SecretKeyCryptography(arg1,SWIG_STD_MOVE(arg2),arg3);
       } catch(const CryptoConfig::MissingKeyException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const MissingEncryptionException& e) {
@@ -8396,7 +8396,7 @@ Napi::Value _exports_SecretKeyCryptography_templ<SWIG_OBJ_WRAP>::_wrap_SecretKey
     
     {
       try {
-        $function
+        result = (bool)((SecretKeyCryptography const *)arg1)->operator ==((std::shared_ptr< SecretKeyCryptography > const &)*arg2);
       } catch(const CryptoConfig::MissingKeyException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const MissingEncryptionException& e) {
@@ -8473,7 +8473,7 @@ Napi::Value _exports_SecretKeyCryptography_templ<SWIG_OBJ_WRAP>::_wrap_SecretKey
     
     {
       try {
-        $function
+        result = (bool)((SecretKeyCryptography const *)arg1)->hasKey();
       } catch(const CryptoConfig::MissingKeyException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const MissingEncryptionException& e) {
@@ -8569,7 +8569,7 @@ Napi::Value _exports_SecretKeyCryptography_templ<SWIG_OBJ_WRAP>::_wrap_SecretKey
     
     {
       try {
-        $function
+        (arg1)->createKey((std::string const &)*arg2,(std::string const &)*arg3);
       } catch(const CryptoConfig::MissingKeyException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const MissingEncryptionException& e) {
@@ -8653,7 +8653,7 @@ Napi::Value _exports_SecretKeyCryptography_templ<SWIG_OBJ_WRAP>::_wrap_SecretKey
     
     {
       try {
-        $function
+        result = ((SecretKeyCryptography const *)arg1)->encrypt((memory::Block const &)*arg2);
       } catch(const CryptoConfig::MissingKeyException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const MissingEncryptionException& e) {
@@ -8730,7 +8730,7 @@ Napi::Value _exports_SecretKeyCryptography_templ<SWIG_OBJ_WRAP>::_wrap_SecretKey
     
     {
       try {
-        $function
+        result = ((SecretKeyCryptography const *)arg1)->decrypt((memory::Block const &)*arg2);
       } catch(const CryptoConfig::MissingKeyException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const MissingEncryptionException& e) {
@@ -8816,7 +8816,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_new_KeyPairEd255
     }
     {
       try {
-        $function
+        result = (KeyPairEd25519 *)new KeyPairEd25519(SWIG_STD_MOVE(arg1),SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -8897,7 +8897,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_new_KeyPairEd255
     }
     {
       try {
-        $function
+        result = (KeyPairEd25519 *)new KeyPairEd25519(SWIG_STD_MOVE(arg1),SWIG_STD_MOVE(arg2));
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -8967,7 +8967,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_new_KeyPairEd255
     }
     {
       try {
-        $function
+        result = (KeyPairEd25519 *)new KeyPairEd25519(SWIG_STD_MOVE(arg1));
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -9196,7 +9196,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_c
     
     {
       try {
-        $function
+        result = KeyPairEd25519::create(SWIG_STD_MOVE(arg1));
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -9281,7 +9281,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_c
     
     {
       try {
-        $function
+        result = KeyPairEd25519::create((memory::Block const &)*arg1);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -9458,7 +9458,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_c
     
     {
       try {
-        $function
+        result = KeyPairEd25519::calculatePublicKey((memory::Block const &)*arg1);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -9537,7 +9537,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_v
     
     {
       try {
-        $function
+        KeyPairEd25519::validatePublicKey(SWIG_STD_MOVE(arg1));
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -9620,7 +9620,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_d
     
     {
       try {
-        $function
+        result = ((KeyPairEd25519 const *)arg1)->deriveChild(arg2);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -9707,7 +9707,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_g
     
     {
       try {
-        $function
+        result = (Ed25519DerivationType)KeyPairEd25519::getDerivationType(arg1);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -9788,7 +9788,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_s
     
     {
       try {
-        $function
+        result = ((KeyPairEd25519 const *)arg1)->sign((memory::Block const &)*arg2);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -9874,7 +9874,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_s
     
     {
       try {
-        $function
+        result = ((KeyPairEd25519 const *)arg1)->sign((std::string const &)*arg2);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -9962,7 +9962,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_s
     
     {
       try {
-        $function
+        result = ((KeyPairEd25519 const *)arg1)->sign((unsigned char const *)arg2,SWIG_STD_MOVE(arg3));
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -10186,7 +10186,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_v
     
     {
       try {
-        $function
+        result = (bool)((KeyPairEd25519 const *)arg1)->verify((std::string const &)*arg2,(std::string const &)*arg3);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -10284,7 +10284,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_v
     
     {
       try {
-        $function
+        result = (bool)((KeyPairEd25519 const *)arg1)->verify((memory::Block const &)*arg2,(memory::Block const &)*arg3);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -10447,7 +10447,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_i
     
     {
       try {
-        $function
+        result = (bool)((KeyPairEd25519 const *)arg1)->is3rdHighestBitClear();
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -10523,7 +10523,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_g
     
     {
       try {
-        $function
+        result = ((KeyPairEd25519 const *)arg1)->getPublicKey();
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -10610,7 +10610,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_g
     
     {
       try {
-        $function
+        result = ((KeyPairEd25519 const *)arg1)->getChainCode();
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -10702,7 +10702,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_i
     
     {
       try {
-        $function
+        result = (bool)((KeyPairEd25519 const *)arg1)->isTheSame((KeyPairEd25519 const &)*arg2);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -10784,7 +10784,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_i
     
     {
       try {
-        $function
+        result = (int)((KeyPairEd25519 const *)arg1)->isTheSame(SWIG_STD_MOVE(arg2));
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -10957,7 +10957,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_e
     
     {
       try {
-        $function
+        result = (bool)((KeyPairEd25519 const *)arg1)->operator ==((KeyPairEd25519 const &)*arg2);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -11043,7 +11043,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_n
     
     {
       try {
-        $function
+        result = (bool)((KeyPairEd25519 const *)arg1)->operator !=((KeyPairEd25519 const &)*arg2);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -11119,7 +11119,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_h
     
     {
       try {
-        $function
+        result = (bool)((KeyPairEd25519 const *)arg1)->hasPrivateKey();
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -11205,7 +11205,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_g
     
     {
       try {
-        $function
+        result = ((KeyPairEd25519 const *)arg1)->getCryptedPrivKey((SecretKeyCryptography const &)*arg2);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -11283,7 +11283,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_n
     
     {
       try {
-        $function
+        KeyPairEd25519::normalizeBytesForce3rd(*arg1);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -11359,7 +11359,7 @@ Napi::Value _exports_KeyPairEd25519_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519_i
     
     {
       try {
-        $function
+        result = (bool)(arg1)->isNormalized();
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -11471,7 +11471,7 @@ _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_exports_KeyPairEd25519Ex_templ(
     } 
     arg4 = static_cast< uint32_t >(val4);{
       try {
-        $function
+        result = (KeyPairEd25519Ex *)new KeyPairEd25519Ex(SWIG_STD_MOVE(arg1),SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3),arg4);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -11570,7 +11570,7 @@ Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519
     
     {
       try {
-        $function
+        result = (bool)(arg1)->isChildOf(arg2);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -11646,7 +11646,7 @@ Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519
     
     {
       try {
-        $function
+        result = (uint32_t)((KeyPairEd25519Ex const *)arg1)->getDerivationIndex();
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -11722,7 +11722,7 @@ Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519
     
     {
       try {
-        $function
+        result = (Ed25519DerivationType)((KeyPairEd25519Ex const *)arg1)->getDerivationType();
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -11798,7 +11798,7 @@ Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519
     
     {
       try {
-        $function
+        result = (bool)((KeyPairEd25519Ex const *)arg1)->isSoftDerivated();
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -11874,7 +11874,7 @@ Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519
     
     {
       try {
-        $function
+        result = (bool)((KeyPairEd25519Ex const *)arg1)->isHardDerivated();
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -11936,7 +11936,7 @@ Napi::Value _exports_AuthenticatedEncryption_templ<SWIG_OBJ_WRAP>::_wrap_new_Aut
     }
     {
       try {
-        $function
+        result = (AuthenticatedEncryption *)new AuthenticatedEncryption();
       } catch (const AuthenticatedEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const AuthenticatedDecryptionException& e) {
@@ -11992,7 +11992,7 @@ Napi::Value _exports_AuthenticatedEncryption_templ<SWIG_OBJ_WRAP>::_wrap_new_Aut
     }
     arg1 = reinterpret_cast< KeyPairEd25519 * >(argp1);{
       try {
-        $function
+        result = (AuthenticatedEncryption *)new AuthenticatedEncryption((KeyPairEd25519 const &)*arg1);
       } catch (const AuthenticatedEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const AuthenticatedDecryptionException& e) {
@@ -12049,7 +12049,7 @@ Napi::Value _exports_AuthenticatedEncryption_templ<SWIG_OBJ_WRAP>::_wrap_new_Aut
     }
     {
       try {
-        $function
+        result = (AuthenticatedEncryption *)new AuthenticatedEncryption(SWIG_STD_MOVE(arg1));
       } catch (const AuthenticatedEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const AuthenticatedDecryptionException& e) {
@@ -12284,7 +12284,7 @@ Napi::Value _exports_AuthenticatedEncryption_templ<SWIG_OBJ_WRAP>::_wrap_Authent
     
     {
       try {
-        $function
+        result = ((AuthenticatedEncryption const *)arg1)->encrypt((unsigned char const *)arg2,SWIG_STD_MOVE(arg3),(AuthenticatedEncryption const &)*arg4);
       } catch (const AuthenticatedEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const AuthenticatedDecryptionException& e) {
@@ -12362,7 +12362,7 @@ Napi::Value _exports_AuthenticatedEncryption_templ<SWIG_OBJ_WRAP>::_wrap_Authent
     
     {
       try {
-        $function
+        result = ((AuthenticatedEncryption const *)arg1)->encrypt((memory::Block const &)*arg2,(AuthenticatedEncryption const &)*arg3);
       } catch (const AuthenticatedEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const AuthenticatedDecryptionException& e) {
@@ -12445,7 +12445,7 @@ Napi::Value _exports_AuthenticatedEncryption_templ<SWIG_OBJ_WRAP>::_wrap_Authent
     
     {
       try {
-        $function
+        result = ((AuthenticatedEncryption const *)arg1)->encrypt((std::string const &)*arg2,(AuthenticatedEncryption const &)*arg3);
       } catch (const AuthenticatedEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const AuthenticatedDecryptionException& e) {
@@ -12524,7 +12524,7 @@ Napi::Value _exports_AuthenticatedEncryption_templ<SWIG_OBJ_WRAP>::_wrap_Authent
     
     {
       try {
-        $function
+        result = (arg1)->encrypt((memory::Block const &)*arg2,arg3);
       } catch (const AuthenticatedEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const AuthenticatedDecryptionException& e) {
@@ -12761,7 +12761,7 @@ Napi::Value _exports_AuthenticatedEncryption_templ<SWIG_OBJ_WRAP>::_wrap_Authent
     
     {
       try {
-        $function
+        result = ((AuthenticatedEncryption const *)arg1)->decrypt((memory::Block const &)*arg2,(AuthenticatedEncryption const &)*arg3);
       } catch (const AuthenticatedEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const AuthenticatedDecryptionException& e) {
@@ -12836,7 +12836,7 @@ Napi::Value _exports_AuthenticatedEncryption_templ<SWIG_OBJ_WRAP>::_wrap_Authent
     
     {
       try {
-        $function
+        result = (arg1)->decrypt((memory::Block const &)*arg2,arg3);
       } catch (const AuthenticatedEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const AuthenticatedDecryptionException& e) {
@@ -12996,7 +12996,7 @@ Napi::Value _exports_AuthenticatedEncryption_templ<SWIG_OBJ_WRAP>::_wrap_Authent
     
     {
       try {
-        $function
+        result = (int)(arg1)->precalculateSharedSecret((AuthenticatedEncryption const &)*arg2);
       } catch (const AuthenticatedEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const AuthenticatedDecryptionException& e) {
@@ -13066,7 +13066,7 @@ Napi::Value _exports_AuthenticatedEncryption_templ<SWIG_OBJ_WRAP>::_wrap_Authent
     
     {
       try {
-        $function
+        result = (bool)(arg1)->removePrecalculatedSharedSecret(arg2);
       } catch (const AuthenticatedEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const AuthenticatedDecryptionException& e) {
@@ -13225,7 +13225,7 @@ Napi::Value _exports_AuthenticatedEncryption_templ<SWIG_OBJ_WRAP>::_wrap_Authent
     
     {
       try {
-        $function
+        result = ((AuthenticatedEncryption const *)arg1)->getPublicKey();
       } catch (const AuthenticatedEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const AuthenticatedDecryptionException& e) {
@@ -13299,7 +13299,7 @@ Napi::Value _exports_AuthenticatedEncryption_templ<SWIG_OBJ_WRAP>::_wrap_Authent
     
     {
       try {
-        $function
+        result = ((AuthenticatedEncryption const *)arg1)->getPrivateKey();
       } catch (const AuthenticatedEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const AuthenticatedDecryptionException& e) {
@@ -13373,7 +13373,7 @@ Napi::Value _exports_AuthenticatedEncryption_templ<SWIG_OBJ_WRAP>::_wrap_Authent
     
     {
       try {
-        $function
+        result = (bool)((AuthenticatedEncryption const *)arg1)->hasPrivateKey();
       } catch (const AuthenticatedEncryptionException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const AuthenticatedDecryptionException& e) {
@@ -13422,7 +13422,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_new_GradidoUnit__SW
     }
     {
       try {
-        $function
+        result = (GradidoUnit *)new GradidoUnit();
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -13469,7 +13469,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_new_GradidoUnit__SW
     } 
     arg1 = static_cast< double >(val1);{
       try {
-        $function
+        result = (GradidoUnit *)new GradidoUnit(arg1);
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -13524,7 +13524,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_new_GradidoUnit__SW
     }
     {
       try {
-        $function
+        result = (GradidoUnit *)new GradidoUnit((std::string const &)*arg1);
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -13746,7 +13746,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_fromStr
     
     {
       try {
-        $function
+        result = GradidoUnit::fromString((std::string const &)*arg1);
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -13807,7 +13807,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_fromGra
     
     {
       try {
-        $function
+        result = GradidoUnit::fromGradidoCent(arg1);
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -13866,7 +13866,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_toStrin
     
     {
       try {
-        $function
+        result = ((GradidoUnit const *)arg1)->toString(arg2);
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -13918,7 +13918,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_toStrin
     
     {
       try {
-        $function
+        result = ((GradidoUnit const *)arg1)->toString();
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -14062,7 +14062,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_getGrad
     
     {
       try {
-        $function
+        result = (int64_t)((GradidoUnit const *)arg1)->getGradidoCent();
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -14119,7 +14119,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_value(c
     
     {
       try {
-        $function
+        result = (double)((GradidoUnit const *)arg1)->operator double();
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -14186,7 +14186,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_add(con
     
     {
       try {
-        $function
+        result = (GradidoUnit *) &(arg1)->operator +=((GradidoUnit const &)*arg2);
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -14253,7 +14253,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_sub(con
     
     {
       try {
-        $function
+        result = (GradidoUnit *) &(arg1)->operator -=((GradidoUnit const &)*arg2);
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -14320,7 +14320,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_mul(con
     
     {
       try {
-        $function
+        result = (GradidoUnit *) &(arg1)->operator *=((GradidoUnit const &)*arg2);
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -14387,7 +14387,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_plus(co
     
     {
       try {
-        $function
+        result = ((GradidoUnit const *)arg1)->operator +((GradidoUnit const &)*arg2);
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -14454,7 +14454,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_minus(c
     
     {
       try {
-        $function
+        result = ((GradidoUnit const *)arg1)->operator -((GradidoUnit const &)*arg2);
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -14521,7 +14521,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_times(c
     
     {
       try {
-        $function
+        result = ((GradidoUnit const *)arg1)->operator *((GradidoUnit const &)*arg2);
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -14588,7 +14588,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_gt(cons
     
     {
       try {
-        $function
+        result = (bool)((GradidoUnit const *)arg1)->operator >((GradidoUnit const &)*arg2);
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -14655,7 +14655,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_gte(con
     
     {
       try {
-        $function
+        result = (bool)((GradidoUnit const *)arg1)->operator >=((GradidoUnit const &)*arg2);
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -14722,7 +14722,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_lt(cons
     
     {
       try {
-        $function
+        result = (bool)((GradidoUnit const *)arg1)->operator <((GradidoUnit const &)*arg2);
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -14789,7 +14789,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_lte(con
     
     {
       try {
-        $function
+        result = (bool)((GradidoUnit const *)arg1)->operator <=((GradidoUnit const &)*arg2);
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -14856,7 +14856,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_equal(c
     
     {
       try {
-        $function
+        result = (bool)((GradidoUnit const *)arg1)->operator ==((GradidoUnit const &)*arg2);
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -14923,7 +14923,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_notEqua
     
     {
       try {
-        $function
+        result = (bool)((GradidoUnit const *)arg1)->operator !=((GradidoUnit const &)*arg2);
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -14980,7 +14980,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_negate(
     
     {
       try {
-        $function
+        result = (GradidoUnit *) &(arg1)->negate();
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -15037,7 +15037,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_negated
     
     {
       try {
-        $function
+        result = ((GradidoUnit const *)arg1)->negated();
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -15096,7 +15096,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_calcula
     
     {
       try {
-        $function
+        result = ((GradidoUnit const *)arg1)->calculateDecay(arg2);
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -15157,7 +15157,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_calcula
     
     {
       try {
-        $function
+        result = ((GradidoUnit const *)arg1)->calculateDecay(SWIG_STD_MOVE(arg2));
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -15227,7 +15227,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_calcula
     
     {
       try {
-        $function
+        result = ((GradidoUnit const *)arg1)->calculateDecay(SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -15411,7 +15411,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_calcula
     
     {
       try {
-        $function
+        result = ((GradidoUnit const *)arg1)->calculateCompoundInterest(SWIG_STD_MOVE(arg2));
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -15481,7 +15481,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_calcula
     
     {
       try {
-        $function
+        result = ((GradidoUnit const *)arg1)->calculateCompoundInterest(SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -15636,7 +15636,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_calcula
     
     {
       try {
-        $function
+        result = GradidoUnit::calculateDecayDurationSeconds(SWIG_STD_MOVE(arg1),SWIG_STD_MOVE(arg2));
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -15689,7 +15689,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_zero(co
     
     {
       try {
-        $function
+        result = GradidoUnit::zero();
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -15732,7 +15732,7 @@ Napi::Value _exports_SignaturePairs_templ<SWIG_OBJ_WRAP>::_wrap_new_SignaturePai
     }
     {
       try {
-        $function
+        result = (std::vector< gradido::data::SignaturePair > *)new std::vector< gradido::data::SignaturePair >();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -15779,7 +15779,7 @@ Napi::Value _exports_SignaturePairs_templ<SWIG_OBJ_WRAP>::_wrap_new_SignaturePai
     }
     {
       try {
-        $function
+        result = (std::vector< gradido::data::SignaturePair > *)new std::vector< gradido::data::SignaturePair >(SWIG_STD_MOVE(arg1));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -15827,7 +15827,7 @@ Napi::Value _exports_SignaturePairs_templ<SWIG_OBJ_WRAP>::_wrap_new_SignaturePai
     }
     arg1 = reinterpret_cast< std::vector< gradido::data::SignaturePair > * >(argp1);{
       try {
-        $function
+        result = (std::vector< gradido::data::SignaturePair > *)new std::vector< gradido::data::SignaturePair >((std::vector< gradido::data::SignaturePair > const &)*arg1);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -16024,7 +16024,7 @@ Napi::Value _exports_SignaturePairs_templ<SWIG_OBJ_WRAP>::_wrap_SignaturePairs_s
     
     {
       try {
-        $function
+        result = ((std::vector< gradido::data::SignaturePair > const *)arg1)->size();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -16081,7 +16081,7 @@ Napi::Value _exports_SignaturePairs_templ<SWIG_OBJ_WRAP>::_wrap_SignaturePairs_c
     
     {
       try {
-        $function
+        result = ((std::vector< gradido::data::SignaturePair > const *)arg1)->capacity();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -16146,7 +16146,7 @@ Napi::Value _exports_SignaturePairs_templ<SWIG_OBJ_WRAP>::_wrap_SignaturePairs_r
     
     {
       try {
-        $function
+        (arg1)->reserve(SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -16201,7 +16201,7 @@ Napi::Value _exports_SignaturePairs_templ<SWIG_OBJ_WRAP>::_wrap_SignaturePairs_i
     
     {
       try {
-        $function
+        result = (bool)((std::vector< gradido::data::SignaturePair > const *)arg1)->empty();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -16255,7 +16255,7 @@ Napi::Value _exports_SignaturePairs_templ<SWIG_OBJ_WRAP>::_wrap_SignaturePairs_c
     
     {
       try {
-        $function
+        (arg1)->clear();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -16319,7 +16319,7 @@ Napi::Value _exports_SignaturePairs_templ<SWIG_OBJ_WRAP>::_wrap_SignaturePairs_a
     
     {
       try {
-        $function
+        (arg1)->push_back((std::vector< gradido::data::SignaturePair >::value_type const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -16381,7 +16381,7 @@ Napi::Value _exports_SignaturePairs_templ<SWIG_OBJ_WRAP>::_wrap_SignaturePairs_g
     try {
       {
         try {
-          $function
+          result = (std::vector< gradido::data::SignaturePair >::value_type *) &std_vector_Sl_gradido_data_SignaturePair_Sg__get(arg1,arg2);
         } catch (const std::exception& e) {
           SWIG_exception(SWIG_RuntimeError, e.what());
         }
@@ -16454,7 +16454,7 @@ Napi::Value _exports_SignaturePairs_templ<SWIG_OBJ_WRAP>::_wrap_SignaturePairs_s
     try {
       {
         try {
-          $function
+          std_vector_Sl_gradido_data_SignaturePair_Sg__set(arg1,arg2,(gradido::data::SignaturePair const &)*arg3);
         } catch (const std::exception& e) {
           SWIG_exception(SWIG_RuntimeError, e.what());
         }
@@ -16509,7 +16509,7 @@ Napi::Value _exports_EncryptedMemos_templ<SWIG_OBJ_WRAP>::_wrap_new_EncryptedMem
     }
     {
       try {
-        $function
+        result = (std::vector< gradido::data::EncryptedMemo > *)new std::vector< gradido::data::EncryptedMemo >();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -16556,7 +16556,7 @@ Napi::Value _exports_EncryptedMemos_templ<SWIG_OBJ_WRAP>::_wrap_new_EncryptedMem
     }
     {
       try {
-        $function
+        result = (std::vector< gradido::data::EncryptedMemo > *)new std::vector< gradido::data::EncryptedMemo >(SWIG_STD_MOVE(arg1));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -16604,7 +16604,7 @@ Napi::Value _exports_EncryptedMemos_templ<SWIG_OBJ_WRAP>::_wrap_new_EncryptedMem
     }
     arg1 = reinterpret_cast< std::vector< gradido::data::EncryptedMemo > * >(argp1);{
       try {
-        $function
+        result = (std::vector< gradido::data::EncryptedMemo > *)new std::vector< gradido::data::EncryptedMemo >((std::vector< gradido::data::EncryptedMemo > const &)*arg1);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -16801,7 +16801,7 @@ Napi::Value _exports_EncryptedMemos_templ<SWIG_OBJ_WRAP>::_wrap_EncryptedMemos_s
     
     {
       try {
-        $function
+        result = ((std::vector< gradido::data::EncryptedMemo > const *)arg1)->size();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -16858,7 +16858,7 @@ Napi::Value _exports_EncryptedMemos_templ<SWIG_OBJ_WRAP>::_wrap_EncryptedMemos_c
     
     {
       try {
-        $function
+        result = ((std::vector< gradido::data::EncryptedMemo > const *)arg1)->capacity();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -16923,7 +16923,7 @@ Napi::Value _exports_EncryptedMemos_templ<SWIG_OBJ_WRAP>::_wrap_EncryptedMemos_r
     
     {
       try {
-        $function
+        (arg1)->reserve(SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -16978,7 +16978,7 @@ Napi::Value _exports_EncryptedMemos_templ<SWIG_OBJ_WRAP>::_wrap_EncryptedMemos_i
     
     {
       try {
-        $function
+        result = (bool)((std::vector< gradido::data::EncryptedMemo > const *)arg1)->empty();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -17032,7 +17032,7 @@ Napi::Value _exports_EncryptedMemos_templ<SWIG_OBJ_WRAP>::_wrap_EncryptedMemos_c
     
     {
       try {
-        $function
+        (arg1)->clear();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -17096,7 +17096,7 @@ Napi::Value _exports_EncryptedMemos_templ<SWIG_OBJ_WRAP>::_wrap_EncryptedMemos_a
     
     {
       try {
-        $function
+        (arg1)->push_back((std::vector< gradido::data::EncryptedMemo >::value_type const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -17158,7 +17158,7 @@ Napi::Value _exports_EncryptedMemos_templ<SWIG_OBJ_WRAP>::_wrap_EncryptedMemos_g
     try {
       {
         try {
-          $function
+          result = (std::vector< gradido::data::EncryptedMemo >::value_type *) &std_vector_Sl_gradido_data_EncryptedMemo_Sg__get(arg1,arg2);
         } catch (const std::exception& e) {
           SWIG_exception(SWIG_RuntimeError, e.what());
         }
@@ -17231,7 +17231,7 @@ Napi::Value _exports_EncryptedMemos_templ<SWIG_OBJ_WRAP>::_wrap_EncryptedMemos_s
     try {
       {
         try {
-          $function
+          std_vector_Sl_gradido_data_EncryptedMemo_Sg__set(arg1,arg2,(gradido::data::EncryptedMemo const &)*arg3);
         } catch (const std::exception& e) {
           SWIG_exception(SWIG_RuntimeError, e.what());
         }
@@ -17286,7 +17286,7 @@ Napi::Value _exports_AccountBalances_templ<SWIG_OBJ_WRAP>::_wrap_new_AccountBala
     }
     {
       try {
-        $function
+        result = (std::vector< gradido::data::AccountBalance > *)new std::vector< gradido::data::AccountBalance >();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -17333,7 +17333,7 @@ Napi::Value _exports_AccountBalances_templ<SWIG_OBJ_WRAP>::_wrap_new_AccountBala
     }
     {
       try {
-        $function
+        result = (std::vector< gradido::data::AccountBalance > *)new std::vector< gradido::data::AccountBalance >(SWIG_STD_MOVE(arg1));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -17381,7 +17381,7 @@ Napi::Value _exports_AccountBalances_templ<SWIG_OBJ_WRAP>::_wrap_new_AccountBala
     }
     arg1 = reinterpret_cast< std::vector< gradido::data::AccountBalance > * >(argp1);{
       try {
-        $function
+        result = (std::vector< gradido::data::AccountBalance > *)new std::vector< gradido::data::AccountBalance >((std::vector< gradido::data::AccountBalance > const &)*arg1);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -17578,7 +17578,7 @@ Napi::Value _exports_AccountBalances_templ<SWIG_OBJ_WRAP>::_wrap_AccountBalances
     
     {
       try {
-        $function
+        result = ((std::vector< gradido::data::AccountBalance > const *)arg1)->size();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -17635,7 +17635,7 @@ Napi::Value _exports_AccountBalances_templ<SWIG_OBJ_WRAP>::_wrap_AccountBalances
     
     {
       try {
-        $function
+        result = ((std::vector< gradido::data::AccountBalance > const *)arg1)->capacity();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -17700,7 +17700,7 @@ Napi::Value _exports_AccountBalances_templ<SWIG_OBJ_WRAP>::_wrap_AccountBalances
     
     {
       try {
-        $function
+        (arg1)->reserve(SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -17755,7 +17755,7 @@ Napi::Value _exports_AccountBalances_templ<SWIG_OBJ_WRAP>::_wrap_AccountBalances
     
     {
       try {
-        $function
+        result = (bool)((std::vector< gradido::data::AccountBalance > const *)arg1)->empty();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -17809,7 +17809,7 @@ Napi::Value _exports_AccountBalances_templ<SWIG_OBJ_WRAP>::_wrap_AccountBalances
     
     {
       try {
-        $function
+        (arg1)->clear();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -17873,7 +17873,7 @@ Napi::Value _exports_AccountBalances_templ<SWIG_OBJ_WRAP>::_wrap_AccountBalances
     
     {
       try {
-        $function
+        (arg1)->push_back((std::vector< gradido::data::AccountBalance >::value_type const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -17935,7 +17935,7 @@ Napi::Value _exports_AccountBalances_templ<SWIG_OBJ_WRAP>::_wrap_AccountBalances
     try {
       {
         try {
-          $function
+          result = (std::vector< gradido::data::AccountBalance >::value_type *) &std_vector_Sl_gradido_data_AccountBalance_Sg__get(arg1,arg2);
         } catch (const std::exception& e) {
           SWIG_exception(SWIG_RuntimeError, e.what());
         }
@@ -18008,7 +18008,7 @@ Napi::Value _exports_AccountBalances_templ<SWIG_OBJ_WRAP>::_wrap_AccountBalances
     try {
       {
         try {
-          $function
+          std_vector_Sl_gradido_data_AccountBalance_Sg__set(arg1,arg2,(gradido::data::AccountBalance const &)*arg3);
         } catch (const std::exception& e) {
           SWIG_exception(SWIG_RuntimeError, e.what());
         }
@@ -18063,7 +18063,7 @@ Napi::Value _exports_DurationSeconds_templ<SWIG_OBJ_WRAP>::_wrap_new_DurationSec
     }
     {
       try {
-        $function
+        result = (gradido::data::DurationSeconds *)new gradido::data::DurationSeconds();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -18111,7 +18111,7 @@ Napi::Value _exports_DurationSeconds_templ<SWIG_OBJ_WRAP>::_wrap_new_DurationSec
     }
     arg1 = reinterpret_cast< Duration * >(argp1);{
       try {
-        $function
+        result = (gradido::data::DurationSeconds *)new gradido::data::DurationSeconds((Duration const &)*arg1);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -18156,7 +18156,7 @@ Napi::Value _exports_DurationSeconds_templ<SWIG_OBJ_WRAP>::_wrap_new_DurationSec
     } 
     arg1 = static_cast< uint32_t >(val1);{
       try {
-        $function
+        result = (gradido::data::DurationSeconds *)new gradido::data::DurationSeconds(arg1);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -18353,7 +18353,7 @@ Napi::Value _exports_DurationSeconds_templ<SWIG_OBJ_WRAP>::_wrap_DurationSeconds
     
     {
       try {
-        $function
+        result = ((gradido::data::DurationSeconds const *)arg1)->getAsDuration();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -18411,7 +18411,7 @@ Napi::Value _exports_DurationSeconds_templ<SWIG_OBJ_WRAP>::_wrap_DurationSeconds
     
     {
       try {
-        $function
+        result = (uint32_t)((gradido::data::DurationSeconds const *)arg1)->getSeconds();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -18476,7 +18476,7 @@ Napi::Value _exports_DurationSeconds_templ<SWIG_OBJ_WRAP>::_wrap_DurationSeconds
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::DurationSeconds const *)arg1)->operator ==((gradido::data::DurationSeconds const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -18541,7 +18541,7 @@ Napi::Value _exports_DurationSeconds_templ<SWIG_OBJ_WRAP>::_wrap_DurationSeconds
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::DurationSeconds const *)arg1)->operator !=((gradido::data::DurationSeconds const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -18606,7 +18606,7 @@ Napi::Value _exports_DurationSeconds_templ<SWIG_OBJ_WRAP>::_wrap_DurationSeconds
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::DurationSeconds const *)arg1)->operator <((gradido::data::DurationSeconds const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -18671,7 +18671,7 @@ Napi::Value _exports_DurationSeconds_templ<SWIG_OBJ_WRAP>::_wrap_DurationSeconds
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::DurationSeconds const *)arg1)->operator <=((gradido::data::DurationSeconds const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -18736,7 +18736,7 @@ Napi::Value _exports_DurationSeconds_templ<SWIG_OBJ_WRAP>::_wrap_DurationSeconds
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::DurationSeconds const *)arg1)->operator >((gradido::data::DurationSeconds const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -18801,7 +18801,7 @@ Napi::Value _exports_DurationSeconds_templ<SWIG_OBJ_WRAP>::_wrap_DurationSeconds
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::DurationSeconds const *)arg1)->operator >=((gradido::data::DurationSeconds const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -18890,7 +18890,7 @@ Napi::Value _exports_TransferAmount_templ<SWIG_OBJ_WRAP>::_wrap_new_TransferAmou
     }
     {
       try {
-        $function
+        result = (gradido::data::TransferAmount *)new gradido::data::TransferAmount(SWIG_STD_MOVE(arg1),(GradidoUnit const &)*arg2,(std::string const &)*arg3);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -18952,7 +18952,7 @@ Napi::Value _exports_TransferAmount_templ<SWIG_OBJ_WRAP>::_wrap_new_TransferAmou
     }
     arg2 = reinterpret_cast< GradidoUnit * >(argp2);{
       try {
-        $function
+        result = (gradido::data::TransferAmount *)new gradido::data::TransferAmount(SWIG_STD_MOVE(arg1),(GradidoUnit const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -19135,7 +19135,7 @@ Napi::Value _exports_TransferAmount_templ<SWIG_OBJ_WRAP>::_wrap_TransferAmount_e
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::TransferAmount const *)arg1)->operator ==((gradido::data::TransferAmount const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -19190,7 +19190,7 @@ Napi::Value _exports_TransferAmount_templ<SWIG_OBJ_WRAP>::_wrap_TransferAmount_g
     
     {
       try {
-        $function
+        result = ((gradido::data::TransferAmount const *)arg1)->getPublicKey();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -19256,7 +19256,7 @@ Napi::Value _exports_TransferAmount_templ<SWIG_OBJ_WRAP>::_wrap_TransferAmount_g
     
     {
       try {
-        $function
+        result = ((gradido::data::TransferAmount const *)arg1)->getAmount();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -19311,7 +19311,7 @@ Napi::Value _exports_TransferAmount_templ<SWIG_OBJ_WRAP>::_wrap_TransferAmount_g
     
     {
       try {
-        $function
+        result = (std::string *) &((gradido::data::TransferAmount const *)arg1)->getCommunityId();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -19352,7 +19352,7 @@ Napi::Value _exports_TimestampSeconds_templ<SWIG_OBJ_WRAP>::_wrap_new_TimestampS
     }
     {
       try {
-        $function
+        result = (gradido::data::TimestampSeconds *)new gradido::data::TimestampSeconds();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -19401,7 +19401,7 @@ Napi::Value _exports_TimestampSeconds_templ<SWIG_OBJ_WRAP>::_wrap_new_TimestampS
     }
     {
       try {
-        $function
+        result = (gradido::data::TimestampSeconds *)new gradido::data::TimestampSeconds((Timepoint const &)*arg1);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -19446,7 +19446,7 @@ Napi::Value _exports_TimestampSeconds_templ<SWIG_OBJ_WRAP>::_wrap_new_TimestampS
     } 
     arg1 = static_cast< int64_t >(val1);{
       try {
-        $function
+        result = (gradido::data::TimestampSeconds *)new gradido::data::TimestampSeconds(arg1);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -19643,7 +19643,7 @@ Napi::Value _exports_TimestampSeconds_templ<SWIG_OBJ_WRAP>::_wrap_TimestampSecon
     
     {
       try {
-        $function
+        result = ((gradido::data::TimestampSeconds const *)arg1)->getAsTimepoint();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -19701,7 +19701,7 @@ Napi::Value _exports_TimestampSeconds_templ<SWIG_OBJ_WRAP>::_wrap_TimestampSecon
     
     {
       try {
-        $function
+        result = (int64_t)((gradido::data::TimestampSeconds const *)arg1)->getSeconds();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -19766,7 +19766,7 @@ Napi::Value _exports_TimestampSeconds_templ<SWIG_OBJ_WRAP>::_wrap_TimestampSecon
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::TimestampSeconds const *)arg1)->operator ==((gradido::data::TimestampSeconds const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -19831,7 +19831,7 @@ Napi::Value _exports_TimestampSeconds_templ<SWIG_OBJ_WRAP>::_wrap_TimestampSecon
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::TimestampSeconds const *)arg1)->operator !=((gradido::data::TimestampSeconds const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -19896,7 +19896,7 @@ Napi::Value _exports_TimestampSeconds_templ<SWIG_OBJ_WRAP>::_wrap_TimestampSecon
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::TimestampSeconds const *)arg1)->operator <((gradido::data::TimestampSeconds const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -19961,7 +19961,7 @@ Napi::Value _exports_TimestampSeconds_templ<SWIG_OBJ_WRAP>::_wrap_TimestampSecon
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::TimestampSeconds const *)arg1)->operator <=((gradido::data::TimestampSeconds const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -20026,7 +20026,7 @@ Napi::Value _exports_TimestampSeconds_templ<SWIG_OBJ_WRAP>::_wrap_TimestampSecon
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::TimestampSeconds const *)arg1)->operator >((gradido::data::TimestampSeconds const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -20091,7 +20091,7 @@ Napi::Value _exports_TimestampSeconds_templ<SWIG_OBJ_WRAP>::_wrap_TimestampSecon
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::TimestampSeconds const *)arg1)->operator >=((gradido::data::TimestampSeconds const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -20144,7 +20144,7 @@ Napi::Value _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_wrap_new_Timestamp__SWIG_0
     }
     {
       try {
-        $function
+        result = (gradido::data::Timestamp *)new gradido::data::Timestamp();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -20193,7 +20193,7 @@ Napi::Value _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_wrap_new_Timestamp__SWIG_1
     }
     {
       try {
-        $function
+        result = (gradido::data::Timestamp *)new gradido::data::Timestamp((Timepoint const &)*arg1);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -20245,7 +20245,7 @@ Napi::Value _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_wrap_new_Timestamp__SWIG_2
     } 
     arg2 = static_cast< int32_t >(val2);{
       try {
-        $function
+        result = (gradido::data::Timestamp *)new gradido::data::Timestamp(arg1,arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -20442,7 +20442,7 @@ Napi::Value _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_wrap_Timestamp_getDate(con
     
     {
       try {
-        $function
+        result = ((gradido::data::Timestamp const *)arg1)->getAsTimepoint();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -20500,7 +20500,7 @@ Napi::Value _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_wrap_Timestamp_getSeconds(
     
     {
       try {
-        $function
+        result = (int64_t)((gradido::data::Timestamp const *)arg1)->getSeconds();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -20555,7 +20555,7 @@ Napi::Value _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_wrap_Timestamp_getNanos(co
     
     {
       try {
-        $function
+        result = (int32_t)((gradido::data::Timestamp const *)arg1)->getNanos();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -20620,7 +20620,7 @@ Napi::Value _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_wrap_Timestamp_equal(const
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::Timestamp const *)arg1)->operator ==((gradido::data::Timestamp const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -20680,7 +20680,7 @@ Napi::Value _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_wrap_Timestamp_lt__SWIG_0(
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::Timestamp const *)arg1)->operator <((gradido::data::Timestamp const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -20740,7 +20740,7 @@ Napi::Value _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_wrap_Timestamp_gt__SWIG_0(
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::Timestamp const *)arg1)->operator >((gradido::data::Timestamp const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -20800,7 +20800,7 @@ Napi::Value _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_wrap_Timestamp_lt__SWIG_1(
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::Timestamp const *)arg1)->operator <((gradido::data::TimestampSeconds const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -20947,7 +20947,7 @@ Napi::Value _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_wrap_Timestamp_gt__SWIG_1(
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::Timestamp const *)arg1)->operator >((gradido::data::TimestampSeconds const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -21087,7 +21087,7 @@ Napi::Value _exports_SignaturePair_templ<SWIG_OBJ_WRAP>::_wrap_new_SignaturePair
     }
     {
       try {
-        $function
+        result = (gradido::data::SignaturePair *)new gradido::data::SignaturePair();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -21147,7 +21147,7 @@ Napi::Value _exports_SignaturePair_templ<SWIG_OBJ_WRAP>::_wrap_new_SignaturePair
     }
     {
       try {
-        $function
+        result = (gradido::data::SignaturePair *)new gradido::data::SignaturePair(SWIG_STD_MOVE(arg1),SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -21318,7 +21318,7 @@ Napi::Value _exports_SignaturePair_templ<SWIG_OBJ_WRAP>::_wrap_SignaturePair_equ
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::SignaturePair const *)arg1)->operator ==((gradido::data::SignaturePair const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -21373,7 +21373,7 @@ Napi::Value _exports_SignaturePair_templ<SWIG_OBJ_WRAP>::_wrap_SignaturePair_get
     
     {
       try {
-        $function
+        result = ((gradido::data::SignaturePair const *)arg1)->getPublicKey();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -21439,7 +21439,7 @@ Napi::Value _exports_SignaturePair_templ<SWIG_OBJ_WRAP>::_wrap_SignaturePair_get
     
     {
       try {
-        $function
+        result = ((gradido::data::SignaturePair const *)arg1)->getSignature();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -21512,7 +21512,7 @@ Napi::Value _exports_SignatureMap_templ<SWIG_OBJ_WRAP>::_wrap_new_SignatureMap__
     }
     {
       try {
-        $function
+        result = (gradido::data::SignatureMap *)new gradido::data::SignatureMap(SWIG_STD_MOVE(arg1));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -21550,7 +21550,7 @@ Napi::Value _exports_SignatureMap_templ<SWIG_OBJ_WRAP>::_wrap_new_SignatureMap__
     }
     {
       try {
-        $function
+        result = (gradido::data::SignatureMap *)new gradido::data::SignatureMap();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -21613,7 +21613,7 @@ Napi::Value _exports_SignatureMap_templ<SWIG_OBJ_WRAP>::_wrap_new_SignatureMap__
     }
     {
       try {
-        $function
+        result = (gradido::data::SignatureMap *)new gradido::data::SignatureMap(SWIG_STD_MOVE(arg1),SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -21667,7 +21667,7 @@ Napi::Value _exports_SignatureMap_templ<SWIG_OBJ_WRAP>::_wrap_new_SignatureMap__
     }
     {
       try {
-        $function
+        result = (gradido::data::SignatureMap *)new gradido::data::SignatureMap(SWIG_STD_MOVE(arg1));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -21909,7 +21909,7 @@ Napi::Value _exports_SignatureMap_templ<SWIG_OBJ_WRAP>::_wrap_SignatureMap_push(
     
     {
       try {
-        $function
+        (arg1)->push((gradido::data::SignaturePair const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -21963,7 +21963,7 @@ Napi::Value _exports_SignatureMap_templ<SWIG_OBJ_WRAP>::_wrap_SignatureMap_clear
     
     {
       try {
-        $function
+        (arg1)->clear();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -22018,7 +22018,7 @@ Napi::Value _exports_SignatureMap_templ<SWIG_OBJ_WRAP>::_wrap_SignatureMap_getSi
     
     {
       try {
-        $function
+        result = (std::vector< gradido::data::SignaturePair > *) &((gradido::data::SignatureMap const *)arg1)->getSignaturePairs();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -22071,7 +22071,7 @@ Napi::Value _exports_EncryptedMemo_templ<SWIG_OBJ_WRAP>::_wrap_new_EncryptedMemo
     }
     {
       try {
-        $function
+        result = (gradido::data::EncryptedMemo *)new gradido::data::EncryptedMemo();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -22124,7 +22124,7 @@ Napi::Value _exports_EncryptedMemo_templ<SWIG_OBJ_WRAP>::_wrap_new_EncryptedMemo
     }
     {
       try {
-        $function
+        result = (gradido::data::EncryptedMemo *)new gradido::data::EncryptedMemo((std::string const &)*arg1);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -22183,7 +22183,7 @@ Napi::Value _exports_EncryptedMemo_templ<SWIG_OBJ_WRAP>::_wrap_new_EncryptedMemo
     }
     {
       try {
-        $function
+        result = (gradido::data::EncryptedMemo *)new gradido::data::EncryptedMemo(arg1,SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -22243,7 +22243,7 @@ Napi::Value _exports_EncryptedMemo_templ<SWIG_OBJ_WRAP>::_wrap_new_EncryptedMemo
     }
     arg2 = reinterpret_cast< AuthenticatedEncryption * >(argp2);{
       try {
-        $function
+        result = (gradido::data::EncryptedMemo *)new gradido::data::EncryptedMemo(SWIG_STD_MOVE(arg1),(AuthenticatedEncryption const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -22313,7 +22313,7 @@ Napi::Value _exports_EncryptedMemo_templ<SWIG_OBJ_WRAP>::_wrap_new_EncryptedMemo
     }
     arg3 = reinterpret_cast< AuthenticatedEncryption * >(argp3);{
       try {
-        $function
+        result = (gradido::data::EncryptedMemo *)new gradido::data::EncryptedMemo(SWIG_STD_MOVE(arg1),(AuthenticatedEncryption const &)*arg2,(AuthenticatedEncryption const &)*arg3);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -22594,7 +22594,7 @@ Napi::Value _exports_EncryptedMemo_templ<SWIG_OBJ_WRAP>::_wrap_EncryptedMemo_get
     
     {
       try {
-        $function
+        result = (gradido::data::MemoKeyType)((gradido::data::EncryptedMemo const *)arg1)->getKeyType();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -22649,7 +22649,7 @@ Napi::Value _exports_EncryptedMemo_templ<SWIG_OBJ_WRAP>::_wrap_EncryptedMemo_get
     
     {
       try {
-        $function
+        result = ((gradido::data::EncryptedMemo const *)arg1)->getMemo();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -22725,7 +22725,7 @@ Napi::Value _exports_EncryptedMemo_templ<SWIG_OBJ_WRAP>::_wrap_EncryptedMemo_equ
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::EncryptedMemo const *)arg1)->operator ==((gradido::data::EncryptedMemo const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -22785,7 +22785,7 @@ Napi::Value _exports_EncryptedMemo_templ<SWIG_OBJ_WRAP>::_wrap_EncryptedMemo_dec
     
     {
       try {
-        $function
+        result = ((gradido::data::EncryptedMemo const *)arg1)->decrypt((AuthenticatedEncryption const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -22855,7 +22855,7 @@ Napi::Value _exports_EncryptedMemo_templ<SWIG_OBJ_WRAP>::_wrap_EncryptedMemo_dec
     
     {
       try {
-        $function
+        result = ((gradido::data::EncryptedMemo const *)arg1)->decrypt((AuthenticatedEncryption const &)*arg2,(AuthenticatedEncryption const &)*arg3);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -22983,7 +22983,7 @@ Napi::Value _exports_AccountBalance_templ<SWIG_OBJ_WRAP>::_wrap_new_AccountBalan
     }
     {
       try {
-        $function
+        result = (gradido::data::AccountBalance *)new gradido::data::AccountBalance();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -23048,7 +23048,7 @@ Napi::Value _exports_AccountBalance_templ<SWIG_OBJ_WRAP>::_wrap_new_AccountBalan
     }
     {
       try {
-        $function
+        result = (gradido::data::AccountBalance *)new gradido::data::AccountBalance(SWIG_STD_MOVE(arg1),SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -23221,7 +23221,7 @@ Napi::Value _exports_AccountBalance_templ<SWIG_OBJ_WRAP>::_wrap_AccountBalance_g
     
     {
       try {
-        $function
+        result = ((gradido::data::AccountBalance const *)arg1)->getPublicKey();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -23287,7 +23287,7 @@ Napi::Value _exports_AccountBalance_templ<SWIG_OBJ_WRAP>::_wrap_AccountBalance_g
     
     {
       try {
-        $function
+        result = ((gradido::data::AccountBalance const *)arg1)->getBalance();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -23345,7 +23345,7 @@ _exports_CommunityFriendsUpdate_templ<SWIG_OBJ_WRAP>::_exports_CommunityFriendsU
     } 
     arg1 = static_cast< bool >(val1);{
       try {
-        $function
+        result = (gradido::data::CommunityFriendsUpdate *)new gradido::data::CommunityFriendsUpdate(arg1);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -23414,7 +23414,7 @@ Napi::Value _exports_CommunityFriendsUpdate_templ<SWIG_OBJ_WRAP>::_wrap_Communit
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::CommunityFriendsUpdate const *)arg1)->operator ==((gradido::data::CommunityFriendsUpdate const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -23469,7 +23469,7 @@ Napi::Value _exports_CommunityFriendsUpdate_templ<SWIG_OBJ_WRAP>::_wrap_Communit
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::CommunityFriendsUpdate const *)arg1)->getColorFusion();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -23565,7 +23565,7 @@ _exports_CommunityRoot_templ<SWIG_OBJ_WRAP>::_exports_CommunityRoot_templ(const 
     }
     {
       try {
-        $function
+        result = (gradido::data::CommunityRoot *)new gradido::data::CommunityRoot(SWIG_STD_MOVE(arg1),SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -23624,7 +23624,7 @@ Napi::Value _exports_CommunityRoot_templ<SWIG_OBJ_WRAP>::_wrap_CommunityRoot_get
     
     {
       try {
-        $function
+        result = ((gradido::data::CommunityRoot const *)arg1)->getInvolvedAddresses();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -23689,7 +23689,7 @@ Napi::Value _exports_CommunityRoot_templ<SWIG_OBJ_WRAP>::_wrap_CommunityRoot_isI
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::CommunityRoot const *)arg1)->isInvolved((memory::Block const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -23744,7 +23744,7 @@ Napi::Value _exports_CommunityRoot_templ<SWIG_OBJ_WRAP>::_wrap_CommunityRoot_get
     
     {
       try {
-        $function
+        result = ((gradido::data::CommunityRoot const *)arg1)->getPublicKey();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -23810,7 +23810,7 @@ Napi::Value _exports_CommunityRoot_templ<SWIG_OBJ_WRAP>::_wrap_CommunityRoot_get
     
     {
       try {
-        $function
+        result = ((gradido::data::CommunityRoot const *)arg1)->getGmwPubkey();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -23876,7 +23876,7 @@ Napi::Value _exports_CommunityRoot_templ<SWIG_OBJ_WRAP>::_wrap_CommunityRoot_get
     
     {
       try {
-        $function
+        result = ((gradido::data::CommunityRoot const *)arg1)->getAufPubkey();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -23969,7 +23969,7 @@ _exports_GradidoCreation_templ<SWIG_OBJ_WRAP>::_exports_GradidoCreation_templ(co
     }
     {
       try {
-        $function
+        result = (gradido::data::GradidoCreation *)new gradido::data::GradidoCreation((gradido::data::TransferAmount const &)*arg1,SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -24040,7 +24040,7 @@ Napi::Value _exports_GradidoCreation_templ<SWIG_OBJ_WRAP>::_wrap_GradidoCreation
     
     {
       try {
-        $function
+        result = ((gradido::data::GradidoCreation const *)arg1)->getInvolvedAddresses();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -24105,7 +24105,7 @@ Napi::Value _exports_GradidoCreation_templ<SWIG_OBJ_WRAP>::_wrap_GradidoCreation
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::GradidoCreation const *)arg1)->isInvolved((memory::Block const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -24160,7 +24160,7 @@ Napi::Value _exports_GradidoCreation_templ<SWIG_OBJ_WRAP>::_wrap_GradidoCreation
     
     {
       try {
-        $function
+        result = (gradido::data::TransferAmount *) &((gradido::data::GradidoCreation const *)arg1)->getRecipient();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -24215,7 +24215,7 @@ Napi::Value _exports_GradidoCreation_templ<SWIG_OBJ_WRAP>::_wrap_GradidoCreation
     
     {
       try {
-        $function
+        result = ((gradido::data::GradidoCreation const *)arg1)->getTargetDate();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -24287,7 +24287,7 @@ _exports_GradidoTransfer_templ<SWIG_OBJ_WRAP>::_exports_GradidoTransfer_templ(co
     }
     {
       try {
-        $function
+        result = (gradido::data::GradidoTransfer *)new gradido::data::GradidoTransfer((gradido::data::TransferAmount const &)*arg1,SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -24368,7 +24368,7 @@ Napi::Value _exports_GradidoTransfer_templ<SWIG_OBJ_WRAP>::_wrap_GradidoTransfer
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::GradidoTransfer const *)arg1)->operator ==((gradido::data::GradidoTransfer const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -24423,7 +24423,7 @@ Napi::Value _exports_GradidoTransfer_templ<SWIG_OBJ_WRAP>::_wrap_GradidoTransfer
     
     {
       try {
-        $function
+        result = ((gradido::data::GradidoTransfer const *)arg1)->getInvolvedAddresses();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -24488,7 +24488,7 @@ Napi::Value _exports_GradidoTransfer_templ<SWIG_OBJ_WRAP>::_wrap_GradidoTransfer
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::GradidoTransfer const *)arg1)->isInvolved((memory::Block const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -24543,7 +24543,7 @@ Napi::Value _exports_GradidoTransfer_templ<SWIG_OBJ_WRAP>::_wrap_GradidoTransfer
     
     {
       try {
-        $function
+        result = (gradido::data::TransferAmount *) &((gradido::data::GradidoTransfer const *)arg1)->getSender();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -24598,7 +24598,7 @@ Napi::Value _exports_GradidoTransfer_templ<SWIG_OBJ_WRAP>::_wrap_GradidoTransfer
     
     {
       try {
-        $function
+        result = ((gradido::data::GradidoTransfer const *)arg1)->getRecipient();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -24686,7 +24686,7 @@ _exports_GradidoDeferredTransfer_templ<SWIG_OBJ_WRAP>::_exports_GradidoDeferredT
     }
     {
       try {
-        $function
+        result = (gradido::data::GradidoDeferredTransfer *)new gradido::data::GradidoDeferredTransfer((gradido::data::GradidoTransfer const &)*arg1,SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -24757,7 +24757,7 @@ Napi::Value _exports_GradidoDeferredTransfer_templ<SWIG_OBJ_WRAP>::_wrap_Gradido
     
     {
       try {
-        $function
+        result = ((gradido::data::GradidoDeferredTransfer const *)arg1)->getInvolvedAddresses();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -24822,7 +24822,7 @@ Napi::Value _exports_GradidoDeferredTransfer_templ<SWIG_OBJ_WRAP>::_wrap_Gradido
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::GradidoDeferredTransfer const *)arg1)->isInvolved((memory::Block const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -24877,7 +24877,7 @@ Napi::Value _exports_GradidoDeferredTransfer_templ<SWIG_OBJ_WRAP>::_wrap_Gradido
     
     {
       try {
-        $function
+        result = ((gradido::data::GradidoDeferredTransfer const *)arg1)->getSenderPublicKey();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -24943,7 +24943,7 @@ Napi::Value _exports_GradidoDeferredTransfer_templ<SWIG_OBJ_WRAP>::_wrap_Gradido
     
     {
       try {
-        $function
+        result = ((gradido::data::GradidoDeferredTransfer const *)arg1)->getRecipientPublicKey();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -25009,7 +25009,7 @@ Napi::Value _exports_GradidoDeferredTransfer_templ<SWIG_OBJ_WRAP>::_wrap_Gradido
     
     {
       try {
-        $function
+        result = (gradido::data::GradidoTransfer *) &((gradido::data::GradidoDeferredTransfer const *)arg1)->getTransfer();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -25064,7 +25064,7 @@ Napi::Value _exports_GradidoDeferredTransfer_templ<SWIG_OBJ_WRAP>::_wrap_Gradido
     
     {
       try {
-        $function
+        result = ((gradido::data::GradidoDeferredTransfer const *)arg1)->getTimeoutDuration();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -25119,7 +25119,7 @@ Napi::Value _exports_GradidoDeferredTransfer_templ<SWIG_OBJ_WRAP>::_wrap_Gradido
     
     {
       try {
-        $function
+        result = ((gradido::data::GradidoDeferredTransfer const *)arg1)->calculateUseableAmount();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -25184,7 +25184,7 @@ Napi::Value _exports_GradidoDeferredTransfer_templ<SWIG_OBJ_WRAP>::_wrap_Gradido
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::GradidoDeferredTransfer const *)arg1)->operator ==((gradido::data::GradidoDeferredTransfer const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -25252,7 +25252,7 @@ _exports_GradidoRedeemDeferredTransfer_templ<SWIG_OBJ_WRAP>::_exports_GradidoRed
     }
     arg2 = reinterpret_cast< gradido::data::GradidoTransfer * >(argp2);{
       try {
-        $function
+        result = (gradido::data::GradidoRedeemDeferredTransfer *)new gradido::data::GradidoRedeemDeferredTransfer(arg1,(gradido::data::GradidoTransfer const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -25333,7 +25333,7 @@ Napi::Value _exports_GradidoRedeemDeferredTransfer_templ<SWIG_OBJ_WRAP>::_wrap_G
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::GradidoRedeemDeferredTransfer const *)arg1)->operator ==((gradido::data::GradidoRedeemDeferredTransfer const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -25388,7 +25388,7 @@ Napi::Value _exports_GradidoRedeemDeferredTransfer_templ<SWIG_OBJ_WRAP>::_wrap_G
     
     {
       try {
-        $function
+        result = ((gradido::data::GradidoRedeemDeferredTransfer const *)arg1)->getInvolvedAddresses();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -25453,7 +25453,7 @@ Napi::Value _exports_GradidoRedeemDeferredTransfer_templ<SWIG_OBJ_WRAP>::_wrap_G
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::GradidoRedeemDeferredTransfer const *)arg1)->isInvolved((memory::Block const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -25508,7 +25508,7 @@ Napi::Value _exports_GradidoRedeemDeferredTransfer_templ<SWIG_OBJ_WRAP>::_wrap_G
     
     {
       try {
-        $function
+        result = ((gradido::data::GradidoRedeemDeferredTransfer const *)arg1)->getSenderPublicKey();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -25574,7 +25574,7 @@ Napi::Value _exports_GradidoRedeemDeferredTransfer_templ<SWIG_OBJ_WRAP>::_wrap_G
     
     {
       try {
-        $function
+        result = ((gradido::data::GradidoRedeemDeferredTransfer const *)arg1)->getRecipientPublicKey();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -25640,7 +25640,7 @@ Napi::Value _exports_GradidoRedeemDeferredTransfer_templ<SWIG_OBJ_WRAP>::_wrap_G
     
     {
       try {
-        $function
+        result = (uint64_t)((gradido::data::GradidoRedeemDeferredTransfer const *)arg1)->getDeferredTransferTransactionNr();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -25695,7 +25695,7 @@ Napi::Value _exports_GradidoRedeemDeferredTransfer_templ<SWIG_OBJ_WRAP>::_wrap_G
     
     {
       try {
-        $function
+        result = (gradido::data::GradidoTransfer *) &((gradido::data::GradidoRedeemDeferredTransfer const *)arg1)->getTransfer();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -25753,7 +25753,7 @@ _exports_GradidoTimeoutDeferredTransfer_templ<SWIG_OBJ_WRAP>::_exports_GradidoTi
     } 
     arg1 = static_cast< uint64_t >(val1);{
       try {
-        $function
+        result = (gradido::data::GradidoTimeoutDeferredTransfer *)new gradido::data::GradidoTimeoutDeferredTransfer(arg1);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -25834,7 +25834,7 @@ Napi::Value _exports_GradidoTimeoutDeferredTransfer_templ<SWIG_OBJ_WRAP>::_wrap_
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::GradidoTimeoutDeferredTransfer const *)arg1)->operator ==((gradido::data::GradidoTimeoutDeferredTransfer const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -25889,7 +25889,7 @@ Napi::Value _exports_GradidoTimeoutDeferredTransfer_templ<SWIG_OBJ_WRAP>::_wrap_
     
     {
       try {
-        $function
+        result = (uint64_t)((gradido::data::GradidoTimeoutDeferredTransfer const *)arg1)->getDeferredTransferTransactionNr();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -25977,7 +25977,7 @@ Napi::Value _exports_RegisterAddress_templ<SWIG_OBJ_WRAP>::_wrap_new_RegisterAdd
     }
     {
       try {
-        $function
+        result = (gradido::data::RegisterAddress *)new gradido::data::RegisterAddress(arg1,arg2,SWIG_STD_MOVE(arg3),SWIG_STD_MOVE(arg4),SWIG_STD_MOVE(arg5));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -26051,7 +26051,7 @@ Napi::Value _exports_RegisterAddress_templ<SWIG_OBJ_WRAP>::_wrap_new_RegisterAdd
     }
     {
       try {
-        $function
+        result = (gradido::data::RegisterAddress *)new gradido::data::RegisterAddress(arg1,arg2,SWIG_STD_MOVE(arg3),SWIG_STD_MOVE(arg4));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -26114,7 +26114,7 @@ Napi::Value _exports_RegisterAddress_templ<SWIG_OBJ_WRAP>::_wrap_new_RegisterAdd
     }
     {
       try {
-        $function
+        result = (gradido::data::RegisterAddress *)new gradido::data::RegisterAddress(arg1,arg2,SWIG_STD_MOVE(arg3));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -26166,7 +26166,7 @@ Napi::Value _exports_RegisterAddress_templ<SWIG_OBJ_WRAP>::_wrap_new_RegisterAdd
     } 
     arg2 = static_cast< uint32_t >(val2);{
       try {
-        $function
+        result = (gradido::data::RegisterAddress *)new gradido::data::RegisterAddress(arg1,arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -26211,7 +26211,7 @@ Napi::Value _exports_RegisterAddress_templ<SWIG_OBJ_WRAP>::_wrap_new_RegisterAdd
     } 
     arg1 = static_cast< gradido::data::AddressType >(val1);{
       try {
-        $function
+        result = (gradido::data::RegisterAddress *)new gradido::data::RegisterAddress(arg1);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -26502,7 +26502,7 @@ Napi::Value _exports_RegisterAddress_templ<SWIG_OBJ_WRAP>::_wrap_RegisterAddress
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::RegisterAddress const *)arg1)->operator ==((gradido::data::RegisterAddress const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -26557,7 +26557,7 @@ Napi::Value _exports_RegisterAddress_templ<SWIG_OBJ_WRAP>::_wrap_RegisterAddress
     
     {
       try {
-        $function
+        result = ((gradido::data::RegisterAddress const *)arg1)->getInvolvedAddresses();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -26622,7 +26622,7 @@ Napi::Value _exports_RegisterAddress_templ<SWIG_OBJ_WRAP>::_wrap_RegisterAddress
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::RegisterAddress const *)arg1)->isInvolved((memory::Block const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -26677,7 +26677,7 @@ Napi::Value _exports_RegisterAddress_templ<SWIG_OBJ_WRAP>::_wrap_RegisterAddress
     
     {
       try {
-        $function
+        result = ((gradido::data::RegisterAddress const *)arg1)->getUserPublicKey();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -26743,7 +26743,7 @@ Napi::Value _exports_RegisterAddress_templ<SWIG_OBJ_WRAP>::_wrap_RegisterAddress
     
     {
       try {
-        $function
+        result = (gradido::data::AddressType)((gradido::data::RegisterAddress const *)arg1)->getAddressType();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -26798,7 +26798,7 @@ Napi::Value _exports_RegisterAddress_templ<SWIG_OBJ_WRAP>::_wrap_RegisterAddress
     
     {
       try {
-        $function
+        result = ((gradido::data::RegisterAddress const *)arg1)->getNameHash();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -26864,7 +26864,7 @@ Napi::Value _exports_RegisterAddress_templ<SWIG_OBJ_WRAP>::_wrap_RegisterAddress
     
     {
       try {
-        $function
+        result = ((gradido::data::RegisterAddress const *)arg1)->getAccountPublicKey();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -26930,7 +26930,7 @@ Napi::Value _exports_RegisterAddress_templ<SWIG_OBJ_WRAP>::_wrap_RegisterAddress
     
     {
       try {
-        $function
+        result = (uint32_t)((gradido::data::RegisterAddress const *)arg1)->getDerivationIndex();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -26971,7 +26971,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_new_Transaction
     }
     {
       try {
-        $function
+        result = (gradido::data::TransactionBody *)new gradido::data::TransactionBody();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -27055,7 +27055,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_new_Transaction
     }
     {
       try {
-        $function
+        result = (gradido::data::TransactionBody *)new gradido::data::TransactionBody(SWIG_STD_MOVE(arg1),(std::string const &)*arg2,arg3,(std::string const &)*arg4);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -27129,7 +27129,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_new_Transaction
     } 
     arg3 = static_cast< gradido::data::CrossGroupType >(val3);{
       try {
-        $function
+        result = (gradido::data::TransactionBody *)new gradido::data::TransactionBody(SWIG_STD_MOVE(arg1),(std::string const &)*arg2,arg3);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -27194,7 +27194,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_new_Transaction
     }
     {
       try {
-        $function
+        result = (gradido::data::TransactionBody *)new gradido::data::TransactionBody(SWIG_STD_MOVE(arg1),(std::string const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -27442,7 +27442,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::TransactionBody const *)arg1)->isTransfer();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -27497,7 +27497,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::TransactionBody const *)arg1)->isCreation();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -27552,7 +27552,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::TransactionBody const *)arg1)->isCommunityFriendsUpdate();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -27607,7 +27607,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::TransactionBody const *)arg1)->isRegisterAddress();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -27662,7 +27662,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::TransactionBody const *)arg1)->isDeferredTransfer();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -27717,7 +27717,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::TransactionBody const *)arg1)->isCommunityRoot();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -27772,7 +27772,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::TransactionBody const *)arg1)->isRedeemDeferredTransfer();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -27827,7 +27827,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::TransactionBody const *)arg1)->isTimeoutDeferredTransfer();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -27882,7 +27882,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = (gradido::data::TransactionType)((gradido::data::TransactionBody const *)arg1)->getTransactionType();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -27947,7 +27947,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::TransactionBody const *)arg1)->isPairing((gradido::data::TransactionBody const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28012,7 +28012,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::TransactionBody const *)arg1)->isInvolved((memory::Block const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28067,7 +28067,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = (gradido::data::TransferAmount *) &((gradido::data::TransactionBody const *)arg1)->getTransferAmount();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28122,7 +28122,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = ((gradido::data::TransactionBody const *)arg1)->getInvolvedAddresses();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28177,7 +28177,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = (std::vector< gradido::data::EncryptedMemo > *) &((gradido::data::TransactionBody const *)arg1)->getMemos();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28232,7 +28232,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = ((gradido::data::TransactionBody const *)arg1)->getCreatedAt();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28287,7 +28287,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = (std::string *) &((gradido::data::TransactionBody const *)arg1)->getVersionNumber();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28342,7 +28342,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = (gradido::data::CrossGroupType)((gradido::data::TransactionBody const *)arg1)->getType();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28397,7 +28397,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = (std::string *) &((gradido::data::TransactionBody const *)arg1)->getOtherGroup();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28452,7 +28452,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = ((gradido::data::TransactionBody const *)arg1)->getTransfer();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28518,7 +28518,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = ((gradido::data::TransactionBody const *)arg1)->getCreation();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28584,7 +28584,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = ((gradido::data::TransactionBody const *)arg1)->getCommunityFriendsUpdate();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28650,7 +28650,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = ((gradido::data::TransactionBody const *)arg1)->getRegisterAddress();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28716,7 +28716,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = ((gradido::data::TransactionBody const *)arg1)->getDeferredTransfer();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28782,7 +28782,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = ((gradido::data::TransactionBody const *)arg1)->getCommunityRoot();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28848,7 +28848,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = ((gradido::data::TransactionBody const *)arg1)->getRedeemDeferredTransfer();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28914,7 +28914,7 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     {
       try {
-        $function
+        result = ((gradido::data::TransactionBody const *)arg1)->getTimeoutDeferredTransfer();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -28966,7 +28966,7 @@ Napi::Value _exports_TransactionTriggerEvent_templ<SWIG_OBJ_WRAP>::_wrap_new_Tra
     }
     {
       try {
-        $function
+        result = (gradido::data::TransactionTriggerEvent *)new gradido::data::TransactionTriggerEvent();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -29027,7 +29027,7 @@ Napi::Value _exports_TransactionTriggerEvent_templ<SWIG_OBJ_WRAP>::_wrap_new_Tra
     } 
     arg3 = static_cast< gradido::data::TransactionTriggerEventType >(val3);{
       try {
-        $function
+        result = (gradido::data::TransactionTriggerEvent *)new gradido::data::TransactionTriggerEvent(arg1,SWIG_STD_MOVE(arg2),arg3);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -29200,7 +29200,7 @@ Napi::Value _exports_TransactionTriggerEvent_templ<SWIG_OBJ_WRAP>::_wrap_Transac
     
     {
       try {
-        $function
+        result = (uint64_t)((gradido::data::TransactionTriggerEvent const *)arg1)->getLinkedTransactionId();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -29255,7 +29255,7 @@ Napi::Value _exports_TransactionTriggerEvent_templ<SWIG_OBJ_WRAP>::_wrap_Transac
     
     {
       try {
-        $function
+        result = (gradido::data::TransactionTriggerEventType)((gradido::data::TransactionTriggerEvent const *)arg1)->getType();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -29310,7 +29310,7 @@ Napi::Value _exports_TransactionTriggerEvent_templ<SWIG_OBJ_WRAP>::_wrap_Transac
     
     {
       try {
-        $function
+        result = ((gradido::data::TransactionTriggerEvent const *)arg1)->getTargetDate();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -29378,7 +29378,7 @@ Napi::Value _exports_TransactionTriggerEvent_templ<SWIG_OBJ_WRAP>::_wrap_Transac
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::TransactionTriggerEvent const *)arg1)->operator ==((gradido::data::TransactionTriggerEvent const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -29444,7 +29444,7 @@ Napi::Value _exports_TransactionTriggerEvent_templ<SWIG_OBJ_WRAP>::_wrap_Transac
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::TransactionTriggerEvent const *)arg1)->isTheSame(SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -29485,7 +29485,7 @@ Napi::Value _exports_GradidoTransaction_templ<SWIG_OBJ_WRAP>::_wrap_new_GradidoT
     }
     {
       try {
-        $function
+        result = (gradido::data::GradidoTransaction *)new gradido::data::GradidoTransaction();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -29555,7 +29555,7 @@ Napi::Value _exports_GradidoTransaction_templ<SWIG_OBJ_WRAP>::_wrap_new_GradidoT
     }
     {
       try {
-        $function
+        result = (gradido::data::GradidoTransaction *)new gradido::data::GradidoTransaction((gradido::data::SignatureMap const &)*arg1,SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -29614,7 +29614,7 @@ Napi::Value _exports_GradidoTransaction_templ<SWIG_OBJ_WRAP>::_wrap_new_GradidoT
     }
     {
       try {
-        $function
+        result = (gradido::data::GradidoTransaction *)new gradido::data::GradidoTransaction((gradido::data::SignatureMap const &)*arg1,SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -29662,7 +29662,7 @@ Napi::Value _exports_GradidoTransaction_templ<SWIG_OBJ_WRAP>::_wrap_new_GradidoT
     }
     arg1 = reinterpret_cast< gradido::data::GradidoTransaction * >(argp1);{
       try {
-        $function
+        result = (gradido::data::GradidoTransaction *)new gradido::data::GradidoTransaction((gradido::data::GradidoTransaction const &)*arg1);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -29907,7 +29907,7 @@ Napi::Value _exports_GradidoTransaction_templ<SWIG_OBJ_WRAP>::_wrap_GradidoTrans
     
     {
       try {
-        $function
+        result = ((gradido::data::GradidoTransaction const *)arg1)->getTransactionBody();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -29983,7 +29983,7 @@ Napi::Value _exports_GradidoTransaction_templ<SWIG_OBJ_WRAP>::_wrap_GradidoTrans
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::GradidoTransaction const *)arg1)->isPairing((gradido::data::GradidoTransaction const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -30048,7 +30048,7 @@ Napi::Value _exports_GradidoTransaction_templ<SWIG_OBJ_WRAP>::_wrap_GradidoTrans
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::GradidoTransaction const *)arg1)->isInvolved((memory::Block const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -30103,7 +30103,7 @@ Napi::Value _exports_GradidoTransaction_templ<SWIG_OBJ_WRAP>::_wrap_GradidoTrans
     
     {
       try {
-        $function
+        result = ((gradido::data::GradidoTransaction const *)arg1)->getInvolvedAddresses();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -30158,7 +30158,7 @@ Napi::Value _exports_GradidoTransaction_templ<SWIG_OBJ_WRAP>::_wrap_GradidoTrans
     
     {
       try {
-        $function
+        result = ((gradido::data::GradidoTransaction const *)arg1)->getSerializedTransaction();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -30224,7 +30224,7 @@ Napi::Value _exports_GradidoTransaction_templ<SWIG_OBJ_WRAP>::_wrap_GradidoTrans
     
     {
       try {
-        $function
+        result = ((gradido::data::GradidoTransaction const *)arg1)->getFingerprint();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -30285,7 +30285,7 @@ Napi::Value _exports_GradidoTransaction_templ<SWIG_OBJ_WRAP>::_wrap_GradidoTrans
     
     {
       try {
-        $function
+        result = (gradido::data::SignatureMap *) &((gradido::data::GradidoTransaction const *)arg1)->getSignatureMap();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -30335,7 +30335,7 @@ Napi::Value _exports_GradidoTransaction_templ<SWIG_OBJ_WRAP>::_wrap_GradidoTrans
     
     {
       try {
-        $function
+        result = (gradido::data::SignatureMap *) &(arg1)->getSignatureMap();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -30477,7 +30477,7 @@ Napi::Value _exports_GradidoTransaction_templ<SWIG_OBJ_WRAP>::_wrap_GradidoTrans
     
     {
       try {
-        $function
+        result = ((gradido::data::GradidoTransaction const *)arg1)->getBodyBytes();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -30543,7 +30543,7 @@ Napi::Value _exports_GradidoTransaction_templ<SWIG_OBJ_WRAP>::_wrap_GradidoTrans
     
     {
       try {
-        $function
+        result = ((gradido::data::GradidoTransaction const *)arg1)->getParingMessageId();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -30675,7 +30675,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_new_Confir
     }
     {
       try {
-        $function
+        result = (gradido::data::ConfirmedTransaction *)new gradido::data::ConfirmedTransaction(arg1,SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3),(std::string const &)*arg4,SWIG_STD_MOVE(arg5),SWIG_STD_MOVE(arg6),SWIG_STD_MOVE(arg7));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -30785,7 +30785,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_new_Confir
     }
     {
       try {
-        $function
+        result = (gradido::data::ConfirmedTransaction *)new gradido::data::ConfirmedTransaction(arg1,SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3),(std::string const &)*arg4,SWIG_STD_MOVE(arg5),SWIG_STD_MOVE(arg6));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -30906,7 +30906,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_new_Confir
     }
     {
       try {
-        $function
+        result = (gradido::data::ConfirmedTransaction *)new gradido::data::ConfirmedTransaction(arg1,SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3),(std::string const &)*arg4,SWIG_STD_MOVE(arg5),SWIG_STD_MOVE(arg6),SWIG_STD_MOVE(arg7));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -31124,7 +31124,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedT
     
     {
       try {
-        $function
+        result = ((gradido::data::ConfirmedTransaction const *)arg1)->calculateRunningHash(SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -31185,7 +31185,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedT
     
     {
       try {
-        $function
+        result = ((gradido::data::ConfirmedTransaction const *)arg1)->calculateRunningHash();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -31338,7 +31338,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedT
     
     {
       try {
-        $function
+        result = (uint64_t)((gradido::data::ConfirmedTransaction const *)arg1)->getId();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -31393,7 +31393,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedT
     
     {
       try {
-        $function
+        result = ((gradido::data::ConfirmedTransaction const *)arg1)->getGradidoTransaction();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -31459,7 +31459,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedT
     
     {
       try {
-        $function
+        result = ((gradido::data::ConfirmedTransaction const *)arg1)->getConfirmedAt();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -31514,7 +31514,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedT
     
     {
       try {
-        $function
+        result = (std::string *) &((gradido::data::ConfirmedTransaction const *)arg1)->getVersionNumber();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -31569,7 +31569,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedT
     
     {
       try {
-        $function
+        result = ((gradido::data::ConfirmedTransaction const *)arg1)->getRunningHash();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -31635,7 +31635,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedT
     
     {
       try {
-        $function
+        result = ((gradido::data::ConfirmedTransaction const *)arg1)->getMessageId();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -31701,7 +31701,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedT
     
     {
       try {
-        $function
+        result = (std::vector< gradido::data::AccountBalance > *) &((gradido::data::ConfirmedTransaction const *)arg1)->getAccountBalances();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -31766,7 +31766,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedT
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::ConfirmedTransaction const *)arg1)->hasAccountBalance((memory::Block const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -31832,7 +31832,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedT
     
     {
       try {
-        $function
+        result = ((gradido::data::ConfirmedTransaction const *)arg1)->getAccountBalance(SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -31902,7 +31902,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedT
     
     {
       try {
-        $function
+        result = ((gradido::data::ConfirmedTransaction const *)arg1)->getDecayedAccountBalance(SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -31963,7 +31963,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedT
     
     {
       try {
-        $function
+        result = ((gradido::data::ConfirmedTransaction const *)arg1)->getDecayedAccountBalance(SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -32115,7 +32115,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedT
     
     {
       try {
-        $function
+        result = (bool)((gradido::data::ConfirmedTransaction const *)arg1)->isInvolved((memory::Block const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -32170,7 +32170,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedT
     
     {
       try {
-        $function
+        result = ((gradido::data::ConfirmedTransaction const *)arg1)->getInvolvedAddresses();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -32221,7 +32221,7 @@ _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_exports_GradidoTransac
     }
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *)new gradido::GradidoTransactionBuilder();
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -32296,7 +32296,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        (arg1)->reset();
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -32356,7 +32356,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (arg1)->build();
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -32418,7 +32418,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (arg1)->buildOutbound();
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -32480,7 +32480,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (arg1)->buildInbound();
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -32569,7 +32569,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setDeferredTransfer(SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -32635,7 +32635,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setDeferredTransfer(SWIG_STD_MOVE(arg2));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -32784,7 +32784,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setCommunityFriendsUpdate(arg2);
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -32850,7 +32850,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setCommunityFriendsUpdate(SWIG_STD_MOVE(arg2));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -33032,7 +33032,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setRegisterAddress(SWIG_STD_MOVE(arg2),arg3,SWIG_STD_MOVE(arg4),SWIG_STD_MOVE(arg5));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -33116,7 +33116,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setRegisterAddress(SWIG_STD_MOVE(arg2),arg3,SWIG_STD_MOVE(arg4));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -33189,7 +33189,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setRegisterAddress(SWIG_STD_MOVE(arg2),arg3);
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -33255,7 +33255,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setRegisterAddress(SWIG_STD_MOVE(arg2));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -33488,7 +33488,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setTransactionCreation((gradido::data::TransferAmount const &)*arg2,SWIG_STD_MOVE(arg3));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -33554,7 +33554,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setTransactionCreation(SWIG_STD_MOVE(arg2));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -33717,7 +33717,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setTransactionTransfer((gradido::data::TransferAmount const &)*arg2,SWIG_STD_MOVE(arg3));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -33783,7 +33783,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setTransactionTransfer(SWIG_STD_MOVE(arg2));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -33958,7 +33958,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setCommunityRoot(SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3),SWIG_STD_MOVE(arg4));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -34024,7 +34024,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setCommunityRoot(SWIG_STD_MOVE(arg2));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -34189,7 +34189,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setRedeemDeferredTransfer(arg2,SWIG_STD_MOVE(arg3));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -34255,7 +34255,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setRedeemDeferredTransfer(SWIG_STD_MOVE(arg2));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -34404,7 +34404,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setTimeoutDeferredTransfer(arg2);
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -34470,7 +34470,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setTimeoutDeferredTransfer(SWIG_STD_MOVE(arg2));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -34626,7 +34626,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setCreatedAt(SWIG_STD_MOVE(arg2));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -34696,7 +34696,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->addMemo((gradido::data::EncryptedMemo const &)*arg2);
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -34768,7 +34768,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setVersionNumber(SWIG_STD_MOVE(arg2));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -34834,7 +34834,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setTransactionBody(SWIG_STD_MOVE(arg2));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -34900,7 +34900,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setTransactionBody(SWIG_STD_MOVE(arg2));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -35062,7 +35062,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setSenderCommunity((std::string const &)*arg2);
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -35141,7 +35141,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setRecipientCommunity((std::string const &)*arg2);
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -35216,7 +35216,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->sign(SWIG_STD_MOVE(arg2));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -35287,7 +35287,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (gradido::GradidoTransactionBuilder *) &(arg1)->setParentMessageId(SWIG_STD_MOVE(arg2));
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -35347,7 +35347,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (bool)((gradido::GradidoTransactionBuilder const *)arg1)->isCrossCommunityTransaction();
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -35407,7 +35407,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (bool)((gradido::GradidoTransactionBuilder const *)arg1)->isBodyBuildingState();
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -35467,7 +35467,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (bool)((gradido::GradidoTransactionBuilder const *)arg1)->isCrossCommunityBuildingState();
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -35527,7 +35527,7 @@ Napi::Value _exports_GradidoTransactionBuilder_templ<SWIG_OBJ_WRAP>::_wrap_Gradi
     
     {
       try {
-        $function
+        result = (bool)((gradido::GradidoTransactionBuilder const *)arg1)->isLocalCommunityBuildingState();
       } catch(const gradido::GradidoTransactionWrongBuildingStateBuilderException& e) {
         std::string message = "call methods in correct order. " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());    
@@ -35591,7 +35591,7 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_new_Inte
     } 
     arg2 = static_cast< gradido::interaction::deserialize::Type >(val2);{
       try {
-        $function
+        result = (gradido::interaction::deserialize::Context *)new gradido::interaction::deserialize::Context(SWIG_STD_MOVE(arg1),arg2);
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoBlockchainException& e) {
@@ -35644,7 +35644,7 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_new_Inte
     }
     {
       try {
-        $function
+        result = (gradido::interaction::deserialize::Context *)new gradido::interaction::deserialize::Context(SWIG_STD_MOVE(arg1));
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoBlockchainException& e) {
@@ -35820,7 +35820,7 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_Interact
     
     {
       try {
-        $function
+        (arg1)->run();
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoBlockchainException& e) {
@@ -35879,7 +35879,7 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_Interact
     
     {
       try {
-        $function
+        result = (bool)((gradido::interaction::deserialize::Context const *)arg1)->isGradidoTransaction();
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoBlockchainException& e) {
@@ -35938,7 +35938,7 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_Interact
     
     {
       try {
-        $function
+        result = (bool)((gradido::interaction::deserialize::Context const *)arg1)->isTransactionBody();
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoBlockchainException& e) {
@@ -35997,7 +35997,7 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_Interact
     
     {
       try {
-        $function
+        result = (bool)((gradido::interaction::deserialize::Context const *)arg1)->isConfirmedTransaction();
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoBlockchainException& e) {
@@ -36056,7 +36056,7 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_Interact
     
     {
       try {
-        $function
+        result = (bool)((gradido::interaction::deserialize::Context const *)arg1)->isTransactionTriggerEvent();
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoBlockchainException& e) {
@@ -36115,7 +36115,7 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_Interact
     
     {
       try {
-        $function
+        result = (gradido::interaction::deserialize::Type)((gradido::interaction::deserialize::Context const *)arg1)->getType();
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoBlockchainException& e) {
@@ -36174,7 +36174,7 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_Interact
     
     {
       try {
-        $function
+        result = (arg1)->getTransactionBody();
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoBlockchainException& e) {
@@ -36244,7 +36244,7 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_Interact
     
     {
       try {
-        $function
+        result = (arg1)->getGradidoTransaction();
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoBlockchainException& e) {
@@ -36314,7 +36314,7 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_Interact
     
     {
       try {
-        $function
+        result = (arg1)->getConfirmedTransaction();
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoBlockchainException& e) {
@@ -36384,7 +36384,7 @@ Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_Interact
     
     {
       try {
-        $function
+        result = (arg1)->getTransactionTriggerEvent();
       } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const GradidoBlockchainException& e) {
@@ -36439,7 +36439,7 @@ Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_Intera
     }
     arg1 = reinterpret_cast< gradido::data::ConfirmedTransaction * >(argp1);{
       try {
-        $function
+        result = (gradido::interaction::serialize::Context *)new gradido::interaction::serialize::Context((gradido::data::ConfirmedTransaction const &)*arg1);
       } catch (const gradido::interaction::serialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -36489,7 +36489,7 @@ Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_Intera
     }
     arg1 = reinterpret_cast< gradido::data::GradidoTransaction * >(argp1);{
       try {
-        $function
+        result = (gradido::interaction::serialize::Context *)new gradido::interaction::serialize::Context((gradido::data::GradidoTransaction const &)*arg1);
       } catch (const gradido::interaction::serialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -36539,7 +36539,7 @@ Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_Intera
     }
     arg1 = reinterpret_cast< gradido::data::SignatureMap * >(argp1);{
       try {
-        $function
+        result = (gradido::interaction::serialize::Context *)new gradido::interaction::serialize::Context((gradido::data::SignatureMap const &)*arg1);
       } catch (const gradido::interaction::serialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -36589,7 +36589,7 @@ Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_Intera
     }
     arg1 = reinterpret_cast< gradido::data::TransactionBody * >(argp1);{
       try {
-        $function
+        result = (gradido::interaction::serialize::Context *)new gradido::interaction::serialize::Context((gradido::data::TransactionBody const &)*arg1);
       } catch (const gradido::interaction::serialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -36639,7 +36639,7 @@ Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_Intera
     }
     arg1 = reinterpret_cast< gradido::data::TransactionTriggerEvent * >(argp1);{
       try {
-        $function
+        result = (gradido::interaction::serialize::Context *)new gradido::interaction::serialize::Context((gradido::data::TransactionTriggerEvent const &)*arg1);
       } catch (const gradido::interaction::serialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -36695,7 +36695,7 @@ Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_Intera
     arg1 = reinterpret_cast< gradido::interaction::serialize::Context * >(argp1);
     rvrdeleter1.reset(arg1);{
       try {
-        $function
+        result = (gradido::interaction::serialize::Context *)new gradido::interaction::serialize::Context((gradido::interaction::serialize::Context &&)*arg1);
       } catch (const gradido::interaction::serialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -37014,7 +37014,7 @@ Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_Interactio
     
     {
       try {
-        $function
+        result = (arg1)->run();
       } catch (const gradido::interaction::serialize::MissingMemberException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -37068,7 +37068,7 @@ Napi::Value _exports_TransactionEntries_templ<SWIG_OBJ_WRAP>::_wrap_new_Transact
     }
     {
       try {
-        $function
+        result = (std::vector< std::shared_ptr< gradido::blockchain::TransactionEntry > > *)new std::vector< std::shared_ptr< gradido::blockchain::TransactionEntry > >();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -37117,7 +37117,7 @@ Napi::Value _exports_TransactionEntries_templ<SWIG_OBJ_WRAP>::_wrap_new_Transact
     }
     {
       try {
-        $function
+        result = (std::vector< std::shared_ptr< gradido::blockchain::TransactionEntry > > *)new std::vector< std::shared_ptr< gradido::blockchain::TransactionEntry > >(SWIG_STD_MOVE(arg1));
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -37167,7 +37167,7 @@ Napi::Value _exports_TransactionEntries_templ<SWIG_OBJ_WRAP>::_wrap_new_Transact
     }
     arg1 = reinterpret_cast< std::vector< std::shared_ptr< gradido::blockchain::TransactionEntry > > * >(argp1);{
       try {
-        $function
+        result = (std::vector< std::shared_ptr< gradido::blockchain::TransactionEntry > > *)new std::vector< std::shared_ptr< gradido::blockchain::TransactionEntry > >((std::vector< std::shared_ptr< gradido::blockchain::TransactionEntry > > const &)*arg1);
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -37366,7 +37366,7 @@ Napi::Value _exports_TransactionEntries_templ<SWIG_OBJ_WRAP>::_wrap_TransactionE
     
     {
       try {
-        $function
+        result = ((std::vector< std::shared_ptr< gradido::blockchain::TransactionEntry > > const *)arg1)->size();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -37425,7 +37425,7 @@ Napi::Value _exports_TransactionEntries_templ<SWIG_OBJ_WRAP>::_wrap_TransactionE
     
     {
       try {
-        $function
+        result = ((std::vector< std::shared_ptr< gradido::blockchain::TransactionEntry > > const *)arg1)->capacity();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -37492,7 +37492,7 @@ Napi::Value _exports_TransactionEntries_templ<SWIG_OBJ_WRAP>::_wrap_TransactionE
     
     {
       try {
-        $function
+        (arg1)->reserve(SWIG_STD_MOVE(arg2));
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -37549,7 +37549,7 @@ Napi::Value _exports_TransactionEntries_templ<SWIG_OBJ_WRAP>::_wrap_TransactionE
     
     {
       try {
-        $function
+        result = (bool)((std::vector< std::shared_ptr< gradido::blockchain::TransactionEntry > > const *)arg1)->empty();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -37605,7 +37605,7 @@ Napi::Value _exports_TransactionEntries_templ<SWIG_OBJ_WRAP>::_wrap_TransactionE
     
     {
       try {
-        $function
+        (arg1)->clear();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -37672,7 +37672,7 @@ Napi::Value _exports_TransactionEntries_templ<SWIG_OBJ_WRAP>::_wrap_TransactionE
     
     {
       try {
-        $function
+        (arg1)->push_back((std::vector< std::shared_ptr< gradido::blockchain::TransactionEntry > >::value_type const &)*arg2);
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -37746,7 +37746,7 @@ Napi::Value _exports_TransactionEntries_templ<SWIG_OBJ_WRAP>::_wrap_TransactionE
     try {
       {
         try {
-          $function
+          result = (std::vector< std::shared_ptr< gradido::blockchain::TransactionEntry > >::value_type *) &std_vector_Sl_std_shared_ptr_Sl_gradido_blockchain_TransactionEntry_Sg__Sg__get(arg1,arg2);
         } catch(const InvalidGradidoTransaction& e) {
           SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
         } catch (const std::exception& e) {
@@ -37833,7 +37833,7 @@ Napi::Value _exports_TransactionEntries_templ<SWIG_OBJ_WRAP>::_wrap_TransactionE
     try {
       {
         try {
-          $function
+          std_vector_Sl_std_shared_ptr_Sl_gradido_blockchain_TransactionEntry_Sg__Sg__set(arg1,arg2,(std::shared_ptr< gradido::blockchain::TransactionEntry > const &)*arg3);
         } catch(const InvalidGradidoTransaction& e) {
           SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
         } catch (const std::exception& e) {
@@ -37900,7 +37900,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_new_Transactio
     }
     {
       try {
-        $function
+        result = (gradido::blockchain::TransactionEntry *)new gradido::blockchain::TransactionEntry();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -37951,7 +37951,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_new_Transactio
     }
     {
       try {
-        $function
+        result = (gradido::blockchain::TransactionEntry *)new gradido::blockchain::TransactionEntry(SWIG_STD_MOVE(arg1));
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -38002,7 +38002,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_new_Transactio
     }
     {
       try {
-        $function
+        result = (gradido::blockchain::TransactionEntry *)new gradido::blockchain::TransactionEntry(SWIG_STD_MOVE(arg1));
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -38086,7 +38086,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_new_Transactio
     }
     {
       try {
-        $function
+        result = (gradido::blockchain::TransactionEntry *)new gradido::blockchain::TransactionEntry(arg1,SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3),arg4,SWIG_STD_MOVE(arg5));
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -38343,7 +38343,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_TransactionEnt
     
     {
       try {
-        $function
+        result = (bool)((gradido::blockchain::TransactionEntry const *)arg1)->operator <((gradido::blockchain::TransactionEntry const &)*arg2);
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -38410,7 +38410,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_TransactionEnt
     
     {
       try {
-        $function
+        result = (bool)((gradido::blockchain::TransactionEntry const *)arg1)->operator >((gradido::blockchain::TransactionEntry const &)*arg2);
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -38467,7 +38467,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_TransactionEnt
     
     {
       try {
-        $function
+        result = (uint64_t)((gradido::blockchain::TransactionEntry const *)arg1)->getTransactionNr();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -38524,7 +38524,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_TransactionEnt
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::TransactionEntry const *)arg1)->getSerializedTransaction();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -38592,7 +38592,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_TransactionEnt
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::TransactionEntry const *)arg1)->getConfirmedTransaction();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -38660,7 +38660,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_TransactionEnt
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::TransactionEntry const *)arg1)->getMonth();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -38719,7 +38719,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_TransactionEnt
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::TransactionEntry const *)arg1)->getYear();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -38778,7 +38778,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_TransactionEnt
     
     {
       try {
-        $function
+        result = (gradido::data::TransactionType)((gradido::blockchain::TransactionEntry const *)arg1)->getTransactionType();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -38835,7 +38835,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_TransactionEnt
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::TransactionEntry const *)arg1)->getCoinCommunityId();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -38894,7 +38894,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_TransactionEnt
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::TransactionEntry const *)arg1)->getTransactionBody();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -38962,7 +38962,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_TransactionEnt
     
     {
       try {
-        $function
+        result = (bool)((gradido::blockchain::TransactionEntry const *)arg1)->isTransfer();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -39019,7 +39019,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_TransactionEnt
     
     {
       try {
-        $function
+        result = (bool)((gradido::blockchain::TransactionEntry const *)arg1)->isCreation();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -39076,7 +39076,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_TransactionEnt
     
     {
       try {
-        $function
+        result = (bool)((gradido::blockchain::TransactionEntry const *)arg1)->isCommunityFriendsUpdate();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -39133,7 +39133,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_TransactionEnt
     
     {
       try {
-        $function
+        result = (bool)((gradido::blockchain::TransactionEntry const *)arg1)->isRegisterAddress();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -39190,7 +39190,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_TransactionEnt
     
     {
       try {
-        $function
+        result = (bool)((gradido::blockchain::TransactionEntry const *)arg1)->isDeferredTransfer();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -39247,7 +39247,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_TransactionEnt
     
     {
       try {
-        $function
+        result = (bool)((gradido::blockchain::TransactionEntry const *)arg1)->isCommunityRoot();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -39304,7 +39304,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_TransactionEnt
     
     {
       try {
-        $function
+        result = (bool)((gradido::blockchain::TransactionEntry const *)arg1)->isRedeemDeferredTransfer();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -39361,7 +39361,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_TransactionEnt
     
     {
       try {
-        $function
+        result = (bool)((gradido::blockchain::TransactionEntry const *)arg1)->isTimeoutDeferredTransfer();
       } catch(const InvalidGradidoTransaction& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -39404,7 +39404,7 @@ Napi::Value _exports_Pagination_templ<SWIG_OBJ_WRAP>::_wrap_new_Pagination__SWIG
     }
     {
       try {
-        $function
+        result = (gradido::blockchain::Pagination *)new gradido::blockchain::Pagination();
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -39451,7 +39451,7 @@ Napi::Value _exports_Pagination_templ<SWIG_OBJ_WRAP>::_wrap_new_Pagination__SWIG
     } 
     arg1 = static_cast< unsigned int >(val1);{
       try {
-        $function
+        result = (gradido::blockchain::Pagination *)new gradido::blockchain::Pagination(arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -39505,7 +39505,7 @@ Napi::Value _exports_Pagination_templ<SWIG_OBJ_WRAP>::_wrap_new_Pagination__SWIG
     } 
     arg2 = static_cast< unsigned int >(val2);{
       try {
-        $function
+        result = (gradido::blockchain::Pagination *)new gradido::blockchain::Pagination(arg1,arg2);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -39868,7 +39868,7 @@ Napi::Value _exports_Pagination_templ<SWIG_OBJ_WRAP>::_wrap_Pagination_skipEntri
     
     {
       try {
-        $function
+        result = (unsigned int)((gradido::blockchain::Pagination const *)arg1)->skipEntriesCount();
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -39933,7 +39933,7 @@ _exports_Filter_templ<SWIG_OBJ_WRAP>::_exports_Filter_templ(const Napi::Callback
     }
     {
       try {
-        $function
+        result = (gradido::blockchain::Filter *)new gradido::blockchain::Filter();
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -40783,7 +40783,7 @@ Napi::Value _exports_FilterBuilder_templ<SWIG_OBJ_WRAP>::_wrap_FilterBuilder_res
     
     {
       try {
-        $function
+        (arg1)->reset();
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -40847,7 +40847,7 @@ Napi::Value _exports_FilterBuilder_templ<SWIG_OBJ_WRAP>::_wrap_FilterBuilder_set
     
     {
       try {
-        $function
+        result = (gradido::blockchain::FilterBuilder *) &(arg1)->setMinTransactionNr(arg2);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -40911,7 +40911,7 @@ Napi::Value _exports_FilterBuilder_templ<SWIG_OBJ_WRAP>::_wrap_FilterBuilder_set
     
     {
       try {
-        $function
+        result = (gradido::blockchain::FilterBuilder *) &(arg1)->setMaxTransactionNr(arg2);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -40979,7 +40979,7 @@ Napi::Value _exports_FilterBuilder_templ<SWIG_OBJ_WRAP>::_wrap_FilterBuilder_set
     
     {
       try {
-        $function
+        result = (gradido::blockchain::FilterBuilder *) &(arg1)->setInvolvedPublicKey(SWIG_STD_MOVE(arg2));
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -41043,7 +41043,7 @@ Napi::Value _exports_FilterBuilder_templ<SWIG_OBJ_WRAP>::_wrap_FilterBuilder_set
     
     {
       try {
-        $function
+        result = (gradido::blockchain::FilterBuilder *) &(arg1)->setSearchDirection(arg2);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -41116,7 +41116,7 @@ Napi::Value _exports_FilterBuilder_templ<SWIG_OBJ_WRAP>::_wrap_FilterBuilder_set
     
     {
       try {
-        $function
+        result = (gradido::blockchain::FilterBuilder *) &(arg1)->setPagination(SWIG_STD_MOVE(arg2));
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -41185,7 +41185,7 @@ Napi::Value _exports_FilterBuilder_templ<SWIG_OBJ_WRAP>::_wrap_FilterBuilder_set
     
     {
       try {
-        $function
+        result = (gradido::blockchain::FilterBuilder *) &(arg1)->setCoinCommunityId(SWIG_STD_MOVE(arg2));
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -41258,7 +41258,7 @@ Napi::Value _exports_FilterBuilder_templ<SWIG_OBJ_WRAP>::_wrap_FilterBuilder_set
     
     {
       try {
-        $function
+        result = (gradido::blockchain::FilterBuilder *) &(arg1)->setTimepointInterval(SWIG_STD_MOVE(arg2));
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -41322,7 +41322,7 @@ Napi::Value _exports_FilterBuilder_templ<SWIG_OBJ_WRAP>::_wrap_FilterBuilder_set
     
     {
       try {
-        $function
+        result = (gradido::blockchain::FilterBuilder *) &(arg1)->setTransactionType(arg2);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -41379,7 +41379,7 @@ Napi::Value _exports_FilterBuilder_templ<SWIG_OBJ_WRAP>::_wrap_FilterBuilder_bui
     
     {
       try {
-        $function
+        result = (arg1)->build();
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -41436,7 +41436,7 @@ Napi::Value _exports_FilterBuilder_templ<SWIG_OBJ_WRAP>::_wrap_FilterBuilder_get
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::FilterBuilder const *)arg1)->getFilter();
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -41489,7 +41489,7 @@ _exports_FilterBuilder_templ<SWIG_OBJ_WRAP>::_exports_FilterBuilder_templ(const 
     }
     {
       try {
-        $function
+        result = (gradido::blockchain::FilterBuilder *)new gradido::blockchain::FilterBuilder();
       } catch (const gradido::interaction::validate::WrongAddressTypeException& e) {
         std::string message = "WrongAddressTypeException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -41581,7 +41581,7 @@ Napi::Value _exports_DeferredRedeemedTransferPair_templ<SWIG_OBJ_WRAP>::_wrap_ne
     }
     {
       try {
-        $function
+        result = (std::pair< std::shared_ptr< gradido::blockchain::TransactionEntry >,std::shared_ptr< gradido::blockchain::TransactionEntry > > *)new std::pair< std::shared_ptr< gradido::blockchain::TransactionEntry >,std::shared_ptr< gradido::blockchain::TransactionEntry > >();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -41641,7 +41641,7 @@ Napi::Value _exports_DeferredRedeemedTransferPair_templ<SWIG_OBJ_WRAP>::_wrap_ne
     }
     {
       try {
-        $function
+        result = (std::pair< std::shared_ptr< gradido::blockchain::TransactionEntry >,std::shared_ptr< gradido::blockchain::TransactionEntry > > *)new std::pair< std::shared_ptr< gradido::blockchain::TransactionEntry >,std::shared_ptr< gradido::blockchain::TransactionEntry > >(SWIG_STD_MOVE(arg1),SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -41689,7 +41689,7 @@ Napi::Value _exports_DeferredRedeemedTransferPair_templ<SWIG_OBJ_WRAP>::_wrap_ne
     }
     arg1 = reinterpret_cast< std::pair< std::shared_ptr< gradido::blockchain::TransactionEntry >,std::shared_ptr< gradido::blockchain::TransactionEntry > > * >(argp1);{
       try {
-        $function
+        result = (std::pair< std::shared_ptr< gradido::blockchain::TransactionEntry >,std::shared_ptr< gradido::blockchain::TransactionEntry > > *)new std::pair< std::shared_ptr< gradido::blockchain::TransactionEntry >,std::shared_ptr< gradido::blockchain::TransactionEntry > >((std::pair< std::shared_ptr< gradido::blockchain::TransactionEntry >,std::shared_ptr< gradido::blockchain::TransactionEntry > > const &)*arg1);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -42133,7 +42133,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_createAndAddC
     
     {
       try {
-        $function
+        result = (bool)(arg1)->createAndAddConfirmedTransaction(SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3),SWIG_STD_MOVE(arg4));
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -42204,7 +42204,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_addTransactio
     
     {
       try {
-        $function
+        (arg1)->addTransactionTriggerEvent(SWIG_STD_MOVE(arg2));
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -42274,7 +42274,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_removeTransac
     
     {
       try {
-        $function
+        (arg1)->removeTransactionTriggerEvent((gradido::data::TransactionTriggerEvent const &)*arg2);
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -42346,7 +42346,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_isTransaction
     
     {
       try {
-        $function
+        result = (bool)((gradido::blockchain::Abstract const *)arg1)->isTransactionExist(SWIG_STD_MOVE(arg2));
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -42423,7 +42423,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_findTransacti
     
     {
       try {
-        $function
+        result = (arg1)->findTransactionTriggerEventsInRange(SWIG_STD_MOVE(arg2));
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -42490,7 +42490,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_findAll__SWIG
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::Abstract const *)arg1)->findAll((gradido::blockchain::Filter const &)*arg2);
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -42558,7 +42558,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_findAll__SWIG
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::Abstract const *)arg1)->findAll();
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -42722,7 +42722,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_findOne__SWIG
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::Abstract const *)arg1)->findOne((gradido::blockchain::Filter const &)*arg2);
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -42789,7 +42789,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_findOne__SWIG
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::Abstract const *)arg1)->findOne();
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -42953,7 +42953,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_getAddressTyp
     
     {
       try {
-        $function
+        result = (gradido::data::AddressType)((gradido::blockchain::Abstract const *)arg1)->getAddressType((gradido::blockchain::Filter const &)*arg2);
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -43009,7 +43009,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_getAddressTyp
     
     {
       try {
-        $function
+        result = (gradido::data::AddressType)((gradido::blockchain::Abstract const *)arg1)->getAddressType();
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -43164,7 +43164,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_getTransactio
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::Abstract const *)arg1)->getTransactionForId(arg2);
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -43252,7 +43252,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_findByMessage
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::Abstract const *)arg1)->findByMessageId(SWIG_STD_MOVE(arg2),(gradido::blockchain::Filter const &)*arg3);
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -43330,7 +43330,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_findByMessage
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::Abstract const *)arg1)->findByMessageId(SWIG_STD_MOVE(arg2));
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -43489,7 +43489,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_getCommunityI
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::Abstract const *)arg1)->getCommunityId();
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -43552,7 +43552,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_getStartDate(
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::Abstract const *)arg1)->getStartDate();
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -43655,7 +43655,7 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
     
     {
       try {
-        $function
+        (arg1)->clear();
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -43715,7 +43715,7 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
     
     {
       try {
-        $function
+        (arg1)->exit();
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -43807,7 +43807,7 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
     
     {
       try {
-        $function
+        result = (bool)(arg1)->createAndAddConfirmedTransaction(SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3),SWIG_STD_MOVE(arg4));
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -43878,7 +43878,7 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
     
     {
       try {
-        $function
+        (arg1)->addTransactionTriggerEvent(SWIG_STD_MOVE(arg2));
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -43948,7 +43948,7 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
     
     {
       try {
-        $function
+        (arg1)->removeTransactionTriggerEvent((gradido::data::TransactionTriggerEvent const &)*arg2);
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -44020,7 +44020,7 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
     
     {
       try {
-        $function
+        result = (bool)((gradido::blockchain::InMemory const *)arg1)->isTransactionExist(SWIG_STD_MOVE(arg2));
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -44097,7 +44097,7 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
     
     {
       try {
-        $function
+        result = (arg1)->findTransactionTriggerEventsInRange(SWIG_STD_MOVE(arg2));
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -44159,7 +44159,7 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
     
     {
       try {
-        $function
+        result = (gradido::blockchain::TransactionEntries *) &(arg1)->getSortedTransactions();
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -44237,7 +44237,7 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::InMemory const *)arg1)->findAll((gradido::blockchain::Filter const &)*arg2);
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -44305,7 +44305,7 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::InMemory const *)arg1)->findAll();
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -44471,7 +44471,7 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::InMemory const *)arg1)->getTransactionForId(arg2);
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -44559,7 +44559,7 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::InMemory const *)arg1)->findByMessageId(SWIG_STD_MOVE(arg2),(gradido::blockchain::Filter const &)*arg3);
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -44637,7 +44637,7 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
     
     {
       try {
-        $function
+        result = ((gradido::blockchain::InMemory const *)arg1)->findByMessageId(SWIG_STD_MOVE(arg2));
       } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const CryptoConfig::MissingKeyException& e) {
@@ -44817,7 +44817,7 @@ Napi::Value _exports_InMemoryBlockchainProvider_templ<SWIG_OBJ_WRAP>::_wrap_InMe
     
     {
       try {
-        $function
+        result = (gradido::blockchain::InMemoryProvider *)gradido::blockchain::InMemoryProvider::getInstance();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -44871,7 +44871,7 @@ Napi::Value _exports_InMemoryBlockchainProvider_templ<SWIG_OBJ_WRAP>::_wrap_InMe
     
     {
       try {
-        $function
+        (arg1)->clear();
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -44938,7 +44938,7 @@ Napi::Value _exports_InMemoryBlockchainProvider_templ<SWIG_OBJ_WRAP>::_wrap_InMe
     
     {
       try {
-        $function
+        result = gradido_blockchain_InMemoryProvider_getBlockchain(arg1,SWIG_STD_MOVE(arg2));
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -45028,7 +45028,7 @@ Napi::Value _exports_InteractionToJson_templ<SWIG_OBJ_WRAP>::_wrap_new_Interacti
     }
     arg1 = reinterpret_cast< gradido::data::TransactionBody * >(argp1);{
       try {
-        $function
+        result = (gradido::interaction::toJson::Context *)new gradido::interaction::toJson::Context((gradido::data::TransactionBody const &)*arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -45085,7 +45085,7 @@ Napi::Value _exports_InteractionToJson_templ<SWIG_OBJ_WRAP>::_wrap_new_Interacti
     } 
     arg2 = static_cast< gradido::interaction::toJson::BodyBytesType >(val2);{
       try {
-        $function
+        result = (gradido::interaction::toJson::Context *)new gradido::interaction::toJson::Context((gradido::data::GradidoTransaction const &)*arg1,arg2);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -45135,7 +45135,7 @@ Napi::Value _exports_InteractionToJson_templ<SWIG_OBJ_WRAP>::_wrap_new_Interacti
     }
     arg1 = reinterpret_cast< gradido::data::GradidoTransaction * >(argp1);{
       try {
-        $function
+        result = (gradido::interaction::toJson::Context *)new gradido::interaction::toJson::Context((gradido::data::GradidoTransaction const &)*arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -45192,7 +45192,7 @@ Napi::Value _exports_InteractionToJson_templ<SWIG_OBJ_WRAP>::_wrap_new_Interacti
     } 
     arg2 = static_cast< gradido::interaction::toJson::BodyBytesType >(val2);{
       try {
-        $function
+        result = (gradido::interaction::toJson::Context *)new gradido::interaction::toJson::Context((gradido::data::ConfirmedTransaction const &)*arg1,arg2);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -45242,7 +45242,7 @@ Napi::Value _exports_InteractionToJson_templ<SWIG_OBJ_WRAP>::_wrap_new_Interacti
     }
     arg1 = reinterpret_cast< gradido::data::ConfirmedTransaction * >(argp1);{
       try {
-        $function
+        result = (gradido::interaction::toJson::Context *)new gradido::interaction::toJson::Context((gradido::data::ConfirmedTransaction const &)*arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -45292,7 +45292,7 @@ Napi::Value _exports_InteractionToJson_templ<SWIG_OBJ_WRAP>::_wrap_new_Interacti
     }
     arg1 = reinterpret_cast< gradido::blockchain::Filter * >(argp1);{
       try {
-        $function
+        result = (gradido::interaction::toJson::Context *)new gradido::interaction::toJson::Context((gradido::blockchain::Filter const &)*arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -45348,7 +45348,7 @@ Napi::Value _exports_InteractionToJson_templ<SWIG_OBJ_WRAP>::_wrap_new_Interacti
     arg1 = reinterpret_cast< gradido::interaction::toJson::Context * >(argp1);
     rvrdeleter1.reset(arg1);{
       try {
-        $function
+        result = (gradido::interaction::toJson::Context *)new gradido::interaction::toJson::Context((gradido::interaction::toJson::Context &&)*arg1);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -45693,7 +45693,7 @@ Napi::Value _exports_InteractionToJson_templ<SWIG_OBJ_WRAP>::_wrap_InteractionTo
     
     {
       try {
-        $function
+        result = ((gradido::interaction::toJson::Context const *)arg1)->run(arg2);
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -45745,7 +45745,7 @@ Napi::Value _exports_InteractionToJson_templ<SWIG_OBJ_WRAP>::_wrap_InteractionTo
     
     {
       try {
-        $function
+        result = ((gradido::interaction::toJson::Context const *)arg1)->run();
       } catch (const GradidoBlockchainException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
       } catch (const std::exception& e) {
@@ -45908,7 +45908,7 @@ _exports_InteractionCalculateAccountBalance_templ<SWIG_OBJ_WRAP>::_exports_Inter
     }
     {
       try {
-        $function
+        result = (gradido::interaction::calculateAccountBalance::Context *)new gradido::interaction::calculateAccountBalance::Context(SWIG_STD_MOVE(arg1));
       } catch (const InsufficientBalanceException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -45996,7 +45996,7 @@ Napi::Value _exports_InteractionCalculateAccountBalance_templ<SWIG_OBJ_WRAP>::_w
     
     {
       try {
-        $function
+        result = ((gradido::interaction::calculateAccountBalance::Context const *)arg1)->fromBegin(arg2,SWIG_STD_MOVE(arg3),SWIG_STD_MOVE(arg4));
       } catch (const InsufficientBalanceException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -46075,7 +46075,7 @@ Napi::Value _exports_InteractionCalculateAccountBalance_templ<SWIG_OBJ_WRAP>::_w
     
     {
       try {
-        $function
+        result = ((gradido::interaction::calculateAccountBalance::Context const *)arg1)->fromEnd(SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3),arg4);
       } catch (const InsufficientBalanceException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -46147,7 +46147,7 @@ Napi::Value _exports_InteractionCalculateAccountBalance_templ<SWIG_OBJ_WRAP>::_w
     
     {
       try {
-        $function
+        result = ((gradido::interaction::calculateAccountBalance::Context const *)arg1)->fromEnd(SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
       } catch (const InsufficientBalanceException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -46299,7 +46299,7 @@ Napi::Value _exports_InteractionValidate_templ<SWIG_OBJ_WRAP>::_wrap_new_Interac
     }
     arg1 = reinterpret_cast< gradido::data::TransactionBody * >(argp1);{
       try {
-        $function
+        result = (gradido::interaction::validate::Context *)new gradido::interaction::validate::Context((gradido::data::TransactionBody const &)*arg1);
       } catch (const gradido::interaction::validate::WrongAddressTypeException& e) {
         std::string message = "WrongAddressTypeException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -46382,7 +46382,7 @@ Napi::Value _exports_InteractionValidate_templ<SWIG_OBJ_WRAP>::_wrap_new_Interac
     }
     arg1 = reinterpret_cast< gradido::data::GradidoTransaction * >(argp1);{
       try {
-        $function
+        result = (gradido::interaction::validate::Context *)new gradido::interaction::validate::Context((gradido::data::GradidoTransaction const &)*arg1);
       } catch (const gradido::interaction::validate::WrongAddressTypeException& e) {
         std::string message = "WrongAddressTypeException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -46465,7 +46465,7 @@ Napi::Value _exports_InteractionValidate_templ<SWIG_OBJ_WRAP>::_wrap_new_Interac
     }
     arg1 = reinterpret_cast< gradido::data::ConfirmedTransaction * >(argp1);{
       try {
-        $function
+        result = (gradido::interaction::validate::Context *)new gradido::interaction::validate::Context((gradido::data::ConfirmedTransaction const &)*arg1);
       } catch (const gradido::interaction::validate::WrongAddressTypeException& e) {
         std::string message = "WrongAddressTypeException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -46566,7 +46566,7 @@ Napi::Value _exports_InteractionValidate_templ<SWIG_OBJ_WRAP>::_wrap_new_Interac
     arg1 = reinterpret_cast< gradido::interaction::validate::Context * >(argp1);
     rvrdeleter1.reset(arg1);{
       try {
-        $function
+        result = (gradido::interaction::validate::Context *)new gradido::interaction::validate::Context((gradido::interaction::validate::Context &&)*arg1);
       } catch (const gradido::interaction::validate::WrongAddressTypeException& e) {
         std::string message = "WrongAddressTypeException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -46846,7 +46846,7 @@ Napi::Value _exports_InteractionValidate_templ<SWIG_OBJ_WRAP>::_wrap_Interaction
     
     {
       try {
-        $function
+        (arg1)->run(arg2,SWIG_STD_MOVE(arg3));
       } catch (const gradido::interaction::validate::WrongAddressTypeException& e) {
         std::string message = "WrongAddressTypeException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -46937,7 +46937,7 @@ Napi::Value _exports_InteractionValidate_templ<SWIG_OBJ_WRAP>::_wrap_Interaction
     
     {
       try {
-        $function
+        (arg1)->run(arg2);
       } catch (const gradido::interaction::validate::WrongAddressTypeException& e) {
         std::string message = "WrongAddressTypeException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -47021,7 +47021,7 @@ Napi::Value _exports_InteractionValidate_templ<SWIG_OBJ_WRAP>::_wrap_Interaction
     
     {
       try {
-        $function
+        (arg1)->run();
       } catch (const gradido::interaction::validate::WrongAddressTypeException& e) {
         std::string message = "WrongAddressTypeException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -47244,7 +47244,7 @@ Napi::Value _exports_InteractionValidate_templ<SWIG_OBJ_WRAP>::_wrap_Interaction
     
     {
       try {
-        $function
+        (arg1)->setSenderPreviousConfirmedTransaction(SWIG_STD_MOVE(arg2));
       } catch (const gradido::interaction::validate::WrongAddressTypeException& e) {
         std::string message = "WrongAddressTypeException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -47344,7 +47344,7 @@ Napi::Value _exports_InteractionValidate_templ<SWIG_OBJ_WRAP>::_wrap_Interaction
     
     {
       try {
-        $function
+        (arg1)->setRecipientPreviousConfirmedTransaction(SWIG_STD_MOVE(arg2));
       } catch (const gradido::interaction::validate::WrongAddressTypeException& e) {
         std::string message = "WrongAddressTypeException: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());

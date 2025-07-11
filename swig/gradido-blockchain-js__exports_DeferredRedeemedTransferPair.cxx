@@ -6,7 +6,7 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-#include "swig\gradido-blockchain-js.h"
+#include "swig/gradido-blockchain-js.h"
 
 /* Class: DeferredRedeemedTransferPair (_exports_DeferredRedeemedTransferPair) */
 // jsnapi_getclass

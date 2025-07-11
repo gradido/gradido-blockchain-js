@@ -30,7 +30,7 @@ jobs:
         run: bun install
 
       - name: Build prebuild binary
-        uses: cross-platform-actions/action@v4
+        uses: actions/cross-platform-actions@v4
         with:
           target: ${{ matrix.target }}
           os: ${{ matrix.os }}

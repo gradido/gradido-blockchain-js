@@ -20,19 +20,22 @@ if(DEFINED ENV{NVM_DIR})
 endif()
 include_directories(${CMAKE_JS_INC})
 
-include(FetchContent)
+if(MSVC)
+	include(FetchContent)
 
-FetchContent_Declare(
-  libuv
-  GIT_REPOSITORY https://github.com/libuv/libuv.git
-  GIT_TAG        v1.51.0  # oder z.B. master — aber bleib lieber bei einem Release
-)
+	FetchContent_Declare(
+		libuv
+		GIT_REPOSITORY https://github.com/libuv/libuv.git
+		GIT_TAG        v1.51.0  # oder z.B. master — aber bleib lieber bei einem Release
+	)
 
-# Falls Submodule nötig (libuv nutzt z. B. gyp):
-#set(FETCHCONTENT_SOURCE_DIR_LIBUV "${CMAKE_BINARY_DIR}/_deps/libuv-src")
-#set(FETCHCONTENT_UPDATES_DISCONNECTED TRUE)
+	# Falls Submodule nötig (libuv nutzt z. B. gyp):
+	#set(FETCHCONTENT_SOURCE_DIR_LIBUV "${CMAKE_BINARY_DIR}/_deps/libuv-src")
+	#set(FETCHCONTENT_UPDATES_DISCONNECTED TRUE)
 
-FetchContent_MakeAvailable(libuv)
+	FetchContent_MakeAvailable(libuv)
+	include_directories("${libuv_SOURCE_DIR}/include")
+endif()
 
 # gradido blockchain dependencies
 include_directories(
@@ -45,13 +48,7 @@ include_directories(
 	"deps/gradido_blockchain/dependencies/cpp-httplib"
 	"deps/gradido_blockchain/dependencies/date/include"
 	"deps/gradido_blockchain/dependencies/ed25519_bip32_c_interface/include"	
-	"${libuv_SOURCE_DIR}/include"
 )
-#if(MSVC)
-	# needed for date
-	add_definitions(-D_HAS_AUTO_PTR_ETC=1)
-	add_definitions(-DDISABLE_DATE_PARSING)
-#endif()
 
 FILE(GLOB SWIG_GENERATED_INTERFACE "swig/*.cxx" "swig/*.h")
 
@@ -62,7 +59,10 @@ set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "" SUFFIX ".node")
 
 # Essential library files to link to a node addon,
 # you should add this line in every CMake.js based project.
-target_link_libraries(${PROJECT_NAME} ${CMAKE_JS_LIB} GradidoBlockchain sodium ${libuv_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${CMAKE_JS_LIB} GradidoBlockchain sodium)
+if(MSVC)
+	target_link_libraries(${PROJECT_NAME} ${libuv_LIBRARIES})
+endif()
 
 execute_process(COMMAND node -p "require('node-addon-api').include"
   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
