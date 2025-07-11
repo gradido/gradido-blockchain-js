@@ -44,7 +44,7 @@
     "nan": "^2.20.0",
     "node-addon-api": "^7.1.1",
     "node-gyp-build": "^4.8.1",
-    "prebuildify": "git+https://github.com/einhornimmond/prebuildify#cmake_js"
+    "prebuildify": "git+https://github.com/einhornimmond/prebuildify#65d94455fab86b902c0d59bb9c06ac70470e56b2"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",

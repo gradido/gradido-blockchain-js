@@ -62,6 +62,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "" SUFFIX ".node")
 target_link_libraries(${PROJECT_NAME} ${CMAKE_JS_LIB} GradidoBlockchain sodium)
 if(MSVC)
 	target_link_libraries(${PROJECT_NAME} ${libuv_LIBRARIES})
+	target_compile_definitions(${PROJECT_NAME} PRIVATE NOMINMAX)
 endif()
 
 execute_process(COMMAND node -p "require('node-addon-api').include"

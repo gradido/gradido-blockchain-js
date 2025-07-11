@@ -8,7 +8,7 @@
         "nan": "^2.20.0",
         "node-addon-api": "^7.1.1",
         "node-gyp-build": "^4.8.1",
-        "prebuildify": "git+https://github.com/einhornimmond/prebuildify#cmake_js",
+        "prebuildify": "git+https://github.com/einhornimmond/prebuildify#65d94455fab86b902c0d59bb9c06ac70470e56b2",
       },
       "devDependencies": {
         "@types/jest": "^29.5.12",
@@ -652,7 +652,7 @@
 
     "pkg-dir": ["pkg-dir@4.2.0", "", { "dependencies": { "find-up": "^4.0.0" } }, "sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ=="],
 
-    "prebuildify": ["prebuildify@github:einhornimmond/prebuildify#91f4e76", { "dependencies": { "cmake-js": "^7.2.1", "execspawn": "^1.0.1", "minimist": "^1.2.5", "mkdirp-classic": "^0.5.3", "node-abi": "^3.3.0", "npm-run-path": "^3.1.0", "npm-which": "^3.0.1", "pump": "^3.0.0", "tar-fs": "^2.1.0" }, "bin": { "prebuildify": "./bin.js" } }, "einhornimmond-prebuildify-91f4e76"],
+    "prebuildify": ["prebuildify@github:einhornimmond/prebuildify#65d9445", { "dependencies": { "cmake-js": "^7.2.1", "execspawn": "^1.0.1", "minimist": "^1.2.5", "mkdirp-classic": "^0.5.3", "node-abi": "^3.3.0", "npm-run-path": "^3.1.0", "npm-which": "^3.0.1", "pump": "^3.0.0", "tar-fs": "^2.1.0" }, "bin": { "prebuildify": "./bin.js" } }, "einhornimmond-prebuildify-65d9445"],
 
     "pretty-format": ["pretty-format@29.7.0", "", { "dependencies": { "@jest/schemas": "^29.6.3", "ansi-styles": "^5.0.0", "react-is": "^18.0.0" } }, "sha512-Pdlw/oPxN+aXdmM9R00JVC9WVFoCLTKJvDVLgmJ+qAffBMxsV85l/Lu7sNx4zSzPyoL2euImuEwHhOXdEgNFZQ=="],
 
