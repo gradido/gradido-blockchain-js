@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 project(gradido-blockchain-js)
 IF(WIN32)
-	set(CMAKE_CXX_FLAGS         "/MP /EHsc /std:c++20 /Zc:__cplusplus")
+	set(CMAKE_CXX_FLAGS         "/MP /EHsc /std:c++20 /permissive- /Zc:__cplusplus")
 	set(BUILD_SHARED_LIBS ON)
 ELSE()
 	SET(CMAKE_CXX_FLAGS "-std=c++20" )# -fPIC" )
@@ -20,6 +20,20 @@ if(DEFINED ENV{NVM_DIR})
 endif()
 include_directories(${CMAKE_JS_INC})
 
+include(FetchContent)
+
+FetchContent_Declare(
+  libuv
+  GIT_REPOSITORY https://github.com/libuv/libuv.git
+  GIT_TAG        v1.51.0  # oder z.B. master — aber bleib lieber bei einem Release
+)
+
+# Falls Submodule nötig (libuv nutzt z. B. gyp):
+#set(FETCHCONTENT_SOURCE_DIR_LIBUV "${CMAKE_BINARY_DIR}/_deps/libuv-src")
+#set(FETCHCONTENT_UPDATES_DISCONNECTED TRUE)
+
+FetchContent_MakeAvailable(libuv)
+
 # gradido blockchain dependencies
 include_directories(
 	"deps/gradido_blockchain/dependencies"
@@ -31,14 +45,13 @@ include_directories(
 	"deps/gradido_blockchain/dependencies/cpp-httplib"
 	"deps/gradido_blockchain/dependencies/date/include"
 	"deps/gradido_blockchain/dependencies/ed25519_bip32_c_interface/include"	
+	"${libuv_SOURCE_DIR}/include"
 )
-
-#swig_add_library(
- # GradidoUnit
-  #LANGUAGE javascript
-  #SOURCES src/main.cpp src/GradidoUnit.cpp swig/GradidoUnit.i
-#)
-#GENERATE_EXPORT_HEADER(GradidoUnit)
+#if(MSVC)
+	# needed for date
+	add_definitions(-D_HAS_AUTO_PTR_ETC=1)
+	add_definitions(-DDISABLE_DATE_PARSING)
+#endif()
 
 FILE(GLOB SWIG_GENERATED_INTERFACE "swig/*.cxx" "swig/*.h")
 
@@ -49,7 +62,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "" SUFFIX ".node")
 
 # Essential library files to link to a node addon,
 # you should add this line in every CMake.js based project.
-target_link_libraries(${PROJECT_NAME} ${CMAKE_JS_LIB} GradidoBlockchain sodium)
+target_link_libraries(${PROJECT_NAME} ${CMAKE_JS_LIB} GradidoBlockchain sodium ${libuv_LIBRARIES})
 
 execute_process(COMMAND node -p "require('node-addon-api').include"
   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
