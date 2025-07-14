@@ -55,7 +55,7 @@ describe('test passphrases code', () => {
   it('detect mnemonic with public key', () => {
     passphrases.forEach((passphrase) => {
       const pubkey = MemoryBlock.fromHex(passphrase.pubkeyHex)
-      const keyPair = new KeyPairEd25519(pubkey)
+      const keyPair = new KeyPairEd25519(MemoryBlock.createPtr(pubkey))
       expect(Passphrase.detectMnemonicWithKeyPair(passphrase.germanRandomOrder, keyPair))
       .toEqual(MnemonicType_GRADIDO_BOOK_GERMAN_RANDOM_ORDER)
       expect(Passphrase.detectMnemonicWithKeyPair(passphrase.germanRandomOrderFixedCases, keyPair))

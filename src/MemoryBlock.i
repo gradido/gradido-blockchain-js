@@ -1,12 +1,12 @@
 %include "arraybuffer.i"
 %rename(MemoryBlock) memory::Block;
-%shared_ptr(memory::Block)
+%rename(MemoryBlockPtr) memory::BlockPtrWrapper;
 
 namespace memory {
   %ignore Block::Block(size_t size);
   %ignore Block::Block(const std::vector<unsigned char>& data);
   %ignore Block::Block(std::span<std::byte> data);
-  %ignore Block::data() const;
+  %ignore Block::data();
   %ignore Block::span() const;
   %ignore Block::operator uint8_t*();
   %ignore Block::operator const uint8_t* () const;
@@ -22,7 +22,16 @@ namespace memory {
   %ignore Block::operator=;
   %ignore ConstBlockPtrComparator;
   %ignore Block::isTheSame;
+  %ignore BlockPtrWrapper::operator ConstBlockPtr;
+  %ignore BlockPtrWrapper::BlockPtrWrapper();
+  %ignore BlockPtrWrapper::BlockPtrWrapper(const ConstBlockPtr& block);
+  %ignore BlockPtrWrapper::BlockPtrWrapper(const BlockPtrWrapper& block);
+}
 
+%extend memory::Block {
+  static memory::BlockPtrWrapper createPtr(const memory::Block& block) {
+    return memory::BlockPtrWrapper(block);
+  }
 }
 
 %exception {
@@ -38,20 +47,19 @@ namespace memory {
 }
 
 %{
-#include "gradido_blockchain/memory/Block.h"
+// #include "gradido_blockchain/memory/Block.h"
+#include "memory/BlockPtrWrapper.h"
+
 %}
-/*
-%extend memory::Block {
-  static memory::BlockPtr empty() {
-    return memory::Block(0);
-  }
-}
-*/
-%typemap(ts) std::vector<std::shared_ptr<memory::Block>> "MemoryBlocks";
-%typemap(ts) const std::vector<std::shared_ptr<memory::Block>>& "MemoryBlocks";
+
+%typemap(ts) const memory::Block& "MemoryBlock"
+%typemap(ts) const memory::BlockPtrWrapper& "MemoryBlockPtr"
+%typemap(ts) memory::Block const "MemoryBlock"
+%typemap(ts) std::vector<memory::BlockPtrWrapper> "MemoryBlocks";
+%typemap(ts) const std::vector<memory::BlockPtrWrapper>& "MemoryBlocks";
 %typemap(ts) std::vector<memory::ConstBlockPtr> "MemoryBlocks";
-%typemap(ts) const std::shared_ptr<memory::Block>& "MemoryBlock";
-%template(MemoryBlocks) std::vector<std::shared_ptr<memory::Block>>;
+%typemap(ts) const std::vector<memory::ConstBlockPtr>& "MemoryBlocks";
+%template(MemoryBlocks) std::vector<memory::BlockPtrWrapper>;
 
 // define a typemap to convert Buffer into unsigned char* 
 %typemap(ts) (size_t size, const unsigned char* data) "Buffer";
@@ -66,13 +74,51 @@ namespace memory {
   } 
 }
 
-%typemap(ts) uint8_t* "Buffer";
-%typemap(out) uint8_t* {
+%typemap(in) memory::ConstBlockPtr {
+  void* argp = nullptr;
+  int res = SWIG_ConvertPtr($input, &argp, SWIGTYPE_p_memory__BlockPtrWrapper, 0);
+  if (!SWIG_IsOK(res)) {
+    SWIG_exception_fail(SWIG_ArgError(res), "Expected BlockPtrWrapper");
+  }
+  if (argp) {
+    memory::BlockPtrWrapper* wrapper = reinterpret_cast<memory::BlockPtrWrapper*>(argp);
+    $1 = *wrapper;
+  } else {
+    $1 = nullptr;
+  }
+}
+// swig generate direct setter and getter always with pointer
+%typemap(in) memory::ConstBlockPtr* {
+  void* argp = nullptr;
+  int res = SWIG_ConvertPtr($input, &argp, SWIGTYPE_p_memory__BlockPtrWrapper, 0);
+  if (!SWIG_IsOK(res)) {
+    SWIG_exception_fail(SWIG_ArgError(res), "Expected BlockPtrWrapper");
+  }
+  if (argp) {
+    memory::BlockPtrWrapper* wrapper = reinterpret_cast<memory::BlockPtrWrapper*>(argp);
+    $1 = &wrapper->mBlock;
+  } else {
+    $1 = nullptr;
+  }
+}
+
+%typemap(out) memory::ConstBlockPtr {
+  $result = SWIG_NewPointerObj((new memory::BlockPtrWrapper($1)), SWIGTYPE_p_memory__BlockPtrWrapper, SWIG_POINTER_OWN |  0 );
+}
+
+%typemap(out) memory::ConstBlockPtr* {
+  $result = SWIG_NewPointerObj((new memory::BlockPtrWrapper(*$1)), SWIGTYPE_p_memory__BlockPtrWrapper, SWIG_POINTER_OWN |  0 );
+}
+
+%typemap(ts) const uint8_t* "Buffer";
+%typemap(out) const uint8_t*  {
   $result = Napi::Buffer<uint8_t>::Copy(info.Env(), arg1->data(), arg1->size());
 }
 
 // define typemaps for returning actually null if memoryBlock is empty
-%typemap(ts) memory::ConstBlockPtr "MemoryBlock|null"
-%typemap(ts) memory::BlockPtr "MemoryBlock|null"
+%typemap(ts) memory::BlockPtrWrapper "MemoryBlockPtr"
+%typemap(ts) memory::ConstBlockPtr "MemoryBlockPtr|null"
+
 %include "gradido_blockchain/memory/Block.h"
+%include "memory/BlockPtrWrapper.h"
 

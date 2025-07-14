@@ -43,11 +43,43 @@ void _exports_EncryptedMemo_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("isPlain");
+  members.insert({
+    "isPlain",
+      _exports_EncryptedMemo_templ::InstanceMethod("isPlain",
+        &_exports_EncryptedMemo_templ::_wrap_EncryptedMemo_isPlain,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isCommunitySecret");
+  members.insert({
+    "isCommunitySecret",
+      _exports_EncryptedMemo_templ::InstanceMethod("isCommunitySecret",
+        &_exports_EncryptedMemo_templ::_wrap_EncryptedMemo_isCommunitySecret,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isSharedSecret");
+  members.insert({
+    "isSharedSecret",
+      _exports_EncryptedMemo_templ::InstanceMethod("isSharedSecret",
+        &_exports_EncryptedMemo_templ::_wrap_EncryptedMemo_isSharedSecret,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getMemo");
   members.insert({
     "getMemo",
       _exports_EncryptedMemo_templ::InstanceMethod("getMemo",
         &_exports_EncryptedMemo_templ::_wrap_EncryptedMemo_getMemo,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getMemoPtr");
+  members.insert({
+    "getMemoPtr",
+      _exports_EncryptedMemo_templ::InstanceMethod("getMemoPtr",
+        &_exports_EncryptedMemo_templ::_wrap_EncryptedMemo_getMemoPtr,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

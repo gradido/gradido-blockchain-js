@@ -1,15 +1,22 @@
 import { 
   GradidoTransactionBuilder,
   GradidoTransfer, 
-  GradidoUnit, 
-  InMemoryBlockchain, 
+  GradidoUnit,  
+  DurationSeconds,
   InMemoryBlockchainProvider, 
   InteractionValidate, 
   KeyPairEd25519, 
   TransferAmount, 
-  ValidateType_SINGLE 
+  ValidateType_SINGLE, 
 } from '../../'
-import { aFilledMemo, createdAt, deferredTransferMemo, hallMemo, timeoutDuration, versionString } from '../helper/const'
+import { 
+  aFilledMemo, 
+  createdAt, 
+  deferredTransferMemo, 
+  hallMemo, 
+  timeoutDuration, 
+  versionString 
+} from '../helper/const'
 import { generateKeyPairs } from '../helper/keyPairs'
 
 let keyPairs: KeyPairEd25519[]
@@ -165,7 +172,7 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
       const body = transaction.getTransactionBody()
       expect(body).not.toBeNull()
       expect(body?.isDeferredTransfer()).toBeTruthy()
-      const blockchain = InMemoryBlockchainProvider.getInstance().findBlockchain(communityId)      
+      const blockchain = InMemoryBlockchainProvider.getInstance().findBlockchain(communityId)
       expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE, blockchain))
         .toThrow("TransactionValidationInvalidInputException: coin communityId shouldn't be set if it is the same as blockchain communityId with memo: Link zum einloesen and  with community_id: string, expected: != test-group, actual: test-group")
     })
@@ -214,7 +221,7 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
           new GradidoTransfer(
             new TransferAmount(keyPairs[4].getPublicKey(), GradidoUnit.fromGradidoCent(5005500)),
             keyPairs[5].getPublicKey()
-          ), 7962400
+          ), new DurationSeconds(7962400)
         )
         .sign(keyPairs[4])
         .build()
@@ -222,8 +229,9 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
       const body = transaction.getTransactionBody()
       expect(body).not.toBeNull()
       expect(body?.isDeferredTransfer()).toBeTruthy()
-      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE))
-        .toThrow('TransactionValidationInvalidInputException: timeoutDuration is to long with memo: Link zum einloesen and  with timeout_duration: uint32, expected: 92 days 3 hours 46 minutes 40 seconds  <= 91 days 7 hours 27 minutes 18 seconds , actual: 92 days 3 hours 46 minutes 40 seconds ')
+      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE)).toThrow(
+          'TransactionValidationInvalidInputException: timeoutDuration is to long with memo: Link zum einloesen and  with timeout_duration: uint32, expected: 92 days 3 hours 46 minutes 40 seconds <= 91 days 7 hours 27 minutes 18 seconds, actual: 92 days 3 hours 46 minutes 40 seconds'
+        )
     })
 
     it('timeout identical to createdAt', () => {
@@ -232,7 +240,7 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
           new GradidoTransfer(
             new TransferAmount(keyPairs[4].getPublicKey(), GradidoUnit.fromGradidoCent(5005500)),
             keyPairs[5].getPublicKey()
-          ), 0
+          ), new DurationSeconds(0)
         )
         .sign(keyPairs[4])
         .build()
@@ -240,17 +248,20 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
       const body = transaction.getTransactionBody()
       expect(body).not.toBeNull()
       expect(body?.isDeferredTransfer()).toBeTruthy()
-      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE))
-        .toThrow('TransactionValidationInvalidInputException: timeoutDuration is to short with memo: Link zum einloesen and  with timeout_duration: uint32, expected:  >= 1 hours ')
+      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE)).toThrow(
+        'TransactionValidationInvalidInputException: timeoutDuration is to short with memo: Link zum einloesen and  with timeout_duration: uint32, expected:  >= 1 hours'
+      )
     })
 
     it('timeout before createdAt', () => {
-      const transaction = builder
+      expect(() => new DurationSeconds(-1)).toThrow('Illegal arguments for construction of _exports_DurationSeconds')
+      // copied from GradidoBlockchain C++ Test
+      /*const transaction = builder
         .setDeferredTransfer(
           new GradidoTransfer(
             new TransferAmount(keyPairs[4].getPublicKey(), GradidoUnit.fromGradidoCent(5005500)),
             keyPairs[5].getPublicKey()
-          ), -1
+          ), new DurationSeconds(-1)
         )
         .sign(keyPairs[4])
         .build()
@@ -258,8 +269,9 @@ describe('validate Gradido Deferred Transfer Transactions', () => {
       const body = transaction.getTransactionBody()
       expect(body).not.toBeNull()
       expect(body?.isDeferredTransfer()).toBeTruthy()
-      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE))
-        .toThrow('TransactionValidationInvalidInputException: timeoutDuration is to long with memo: Link zum einloesen and  with timeout_duration: uint32, expected: 49710 days 6 hours 28 minutes 15 seconds  <= 91 days 7 hours 27 minutes 18 seconds , actual: 49710 days 6 hours 28 minutes 15 seconds ')
-    })
+      expect(() => new InteractionValidate(body!).run(ValidateType_SINGLE)).toThrow(
+        'TransactionValidationInvalidInputException: timeoutDuration is to long with memo: Link zum einloesen and  with timeout_duration: uint32, expected: 49710 days 6 hours 28 minutes 15 seconds  <= 91 days 7 hours 27 minutes 18 seconds , actual: 49710 days 6 hours 28 minutes 15 seconds ')
+      */
+    })    
   })
 })

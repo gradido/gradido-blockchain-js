@@ -6,7 +6,9 @@ import {
   ConfirmedTransaction, 
   InteractionDeserialize,  
   GradidoTransaction,
-  DeserializeType_GRADIDO_TRANSACTION
+  DeserializeType_GRADIDO_TRANSACTION,
+  GradidoUnit,
+  AccountBalances
 } from '../../'
 import { confirmedAt, createdAt, versionString } from '../helper/const'
 import { communityRootTransactionBase64 } from '../helper/serializedTransactions'
@@ -15,7 +17,7 @@ let gradidoTransaction: GradidoTransaction
 
 describe('validate Confirmed Transactions', () => {
   beforeAll(() => {
-    const gradidoTransactionRaw = MemoryBlock.fromBase64(communityRootTransactionBase64)
+    const gradidoTransactionRaw = MemoryBlock.createPtr(MemoryBlock.fromBase64(communityRootTransactionBase64))
     const deserializer = new InteractionDeserialize(gradidoTransactionRaw, DeserializeType_GRADIDO_TRANSACTION)
     deserializer.run()
     expect(deserializer.isGradidoTransaction()).toBeTruthy()
@@ -30,10 +32,10 @@ describe('validate Confirmed Transactions', () => {
       gradidoTransaction,
       confirmedAt,
       versionString,
-      new MemoryBlock(Buffer.alloc(crypto_generichash_BYTES)),
-      '899.748379'
+      MemoryBlock.createPtr(new MemoryBlock(Buffer.alloc(crypto_generichash_BYTES))),
+      new AccountBalances()
     )
-    expect(() => new InteractionValidate(confirmedTransaction).run(ValidateType_SINGLE, '')).not.toThrow()
+    expect(() => new InteractionValidate(confirmedTransaction).run(ValidateType_SINGLE)).not.toThrow()
 
   })
 
@@ -43,11 +45,11 @@ describe('validate Confirmed Transactions', () => {
       gradidoTransaction,
       confirmedAt,
       "1",
-      new MemoryBlock(Buffer.alloc(crypto_generichash_BYTES)),
-      '899.748379'
+      MemoryBlock.createPtr(new MemoryBlock(Buffer.alloc(crypto_generichash_BYTES))),
+      new AccountBalances()
     )
-    expect(() => new InteractionValidate(confirmedTransaction).run(ValidateType_SINGLE, ''))
-      .toThrow('TransactionValidationInvalidInputException: wrong version with version_number: string, expected: 3.3, actual: 1')
+    expect(() => new InteractionValidate(confirmedTransaction).run(ValidateType_SINGLE))
+      .toThrow('TransactionValidationInvalidInputException: wrong version with version_number: string, expected: 3.4, actual: 1')
 
   })
 
@@ -57,10 +59,10 @@ describe('validate Confirmed Transactions', () => {
       gradidoTransaction,
       confirmedAt,
       versionString,
-      new MemoryBlock(Buffer.alloc(10)),
-      '899.748379'
+      MemoryBlock.createPtr(new MemoryBlock(Buffer.alloc(10))),
+      new AccountBalances()
     )
-    expect(() => new InteractionValidate(confirmedTransaction).run(ValidateType_SINGLE, ''))
+    expect(() => new InteractionValidate(confirmedTransaction).run(ValidateType_SINGLE))
       .toThrow('TransactionValidationInvalidInputException: wrong size with message_id: bytes, expected: 32, actual: 10')
 
   })
@@ -71,10 +73,10 @@ describe('validate Confirmed Transactions', () => {
       gradidoTransaction,
       new Date(createdAt.getTime() - 1000),
       versionString,
-      new MemoryBlock(Buffer.alloc(crypto_generichash_BYTES)),
-      '899.748379'
+      MemoryBlock.createPtr(new MemoryBlock(Buffer.alloc(crypto_generichash_BYTES))),
+      new AccountBalances()
     )
-    expect(() => new InteractionValidate(confirmedTransaction).run(ValidateType_SINGLE, ''))
+    expect(() => new InteractionValidate(confirmedTransaction).run(ValidateType_SINGLE))
       .toThrow('TransactionValidationInvalidInputException: timespan between created and received are negative with confirmed_at: TimestampSeconds, expected: >= 2021-01-01 00:00:00.0000, actual: 2020-12-31 23:59:59.0000')
   })
 })

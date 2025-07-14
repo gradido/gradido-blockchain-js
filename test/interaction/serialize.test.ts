@@ -13,13 +13,22 @@ import {
   KeyPairEd25519,
   CrossGroupType_LOCAL,
   GradidoUnit,
-  DurationSeconds,
   AccountBalances,
   EncryptedMemo,
-  MemoKeyType_PLAIN,
   AccountBalance,
+  MemoryBlockPtr,
 } from '../../'
-import { confirmedAt, createdAt, creationMemo, deferredTransferMemo, targetDate, timeoutDuration, transferMemo, versionString } from '../helper/const'
+import { 
+  autoCompleteTransactionMemoString, 
+  confirmedAt, 
+  createdAt, 
+  creationMemo, 
+  deferredTransferMemo, 
+  targetDate, 
+  timeoutDuration, 
+  transferMemo, 
+  versionString 
+} from '../helper/const'
 import { 
   communityFriendsUpdateBase64,
   communityRootTransactionBase64,
@@ -116,7 +125,7 @@ describe('Serialize Gradido Transactions Tests', () => {
   })
 
   it('gradido transfer transaction body', () => {
-    const memo = new EncryptedMemo(MemoKeyType_PLAIN, new MemoryBlock('Ich teile mit dir'))
+    const memo = transferMemo
     const transaction = builder
       .addMemo(memo)
       .setTransactionTransfer(
@@ -140,7 +149,7 @@ describe('Serialize Gradido Transactions Tests', () => {
         new GradidoTransfer(
           new TransferAmount(keyPairs[4].getPublicKey(), new GradidoUnit("555.55")),
           keyPairs[5].getPublicKey()
-        ), new DurationSeconds(timeoutDuration)
+        ), timeoutDuration
       )
       .sign(keyPairs[4])
       .build()
@@ -168,9 +177,9 @@ describe('Serialize Gradido Transactions Tests', () => {
   it('gradido transaction with signature', () => {
     const bodyBytes = new MemoryBlock(invalidBodyTestPayload)
     const signatureMap = new SignatureMap
-    signatureMap.push(new SignaturePair(keyPairs[3].getPublicKey(), keyPairs[3].sign(bodyBytes)))
+    signatureMap.push(new SignaturePair(keyPairs[3].getPublicKey(), new MemoryBlockPtr(keyPairs[3].sign(bodyBytes))))
 
-    const transaction = new GradidoTransaction(signatureMap, bodyBytes)
+    const transaction = new GradidoTransaction(signatureMap, new MemoryBlockPtr(bodyBytes))
 
     const serialized = new InteractionSerialize(transaction).run()
     expect(serialized?.convertToBase64()).toEqual(gradidoTransactionSignedInvalidBody)
@@ -182,7 +191,7 @@ describe('Serialize Gradido Transactions Tests', () => {
     )
     const signatureMap = new SignatureMap
     for(let i = 0; i < 2; i++) {      
-      signatureMap.push(new SignaturePair(keyPairs[i].getPublicKey(), keyPairs[i].sign(message)))
+      signatureMap.push(new SignaturePair(keyPairs[i].getPublicKey(), new MemoryBlockPtr(keyPairs[i].sign(message))))
     }
     const serialized = new InteractionSerialize(signatureMap).run()
     expect(serialized?.convertToBase64()).toEqual(
@@ -196,8 +205,8 @@ describe('Serialize Gradido Transactions Tests', () => {
       new GradidoTransaction,
       confirmedAt,
       versionString,
-      new MemoryBlock(Buffer.alloc(crypto_generichash_BYTES)),
-      new MemoryBlock(Buffer.alloc(32)),
+      new MemoryBlockPtr(new MemoryBlock(Buffer.alloc(crypto_generichash_BYTES))),
+      new MemoryBlockPtr(new MemoryBlock(Buffer.alloc(32))),
       new AccountBalances()
     )
     const serialized = new InteractionSerialize(confirmedTransaction).run()
@@ -205,7 +214,7 @@ describe('Serialize Gradido Transactions Tests', () => {
   })
 
   it('complete confirmed transaction', () => {
-    const memo = new EncryptedMemo(MemoKeyType_PLAIN, new MemoryBlock('Danke fuer dein Sein!'))
+    const memo = new EncryptedMemo(autoCompleteTransactionMemoString)
     const builder = new GradidoTransactionBuilder
     const gradidoTransaction = builder
       .setTransactionTransfer(
@@ -227,7 +236,7 @@ describe('Serialize Gradido Transactions Tests', () => {
       gradidoTransaction,
       confirmedAt,
       versionString,
-      new MemoryBlock(Buffer.alloc(32)),
+      new MemoryBlockPtr(new MemoryBlock(Buffer.alloc(32))),
       accountBalances,
     )
 

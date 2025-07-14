@@ -17,6 +17,7 @@ const swigArgs = [
   '-exports', '../index.js',
   '-Ideps/gradido_blockchain/src',
   '-Ideps/gradido_blockchain/include',
+  '-Isrc/cpp',
   '-o', 'swig/gradido-blockchain-js.cxx',
   '-outdir', 'swig',
   'src/gradido-blockchain-js.i'

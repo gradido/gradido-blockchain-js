@@ -32,7 +32,7 @@ describe('validate Community Root Transactions', () => {
     expect(body).not.toBeNull()
     expect(body?.isCommunityRoot()).toBeTruthy()
     const validator = new InteractionValidate(body!)
-    expect(() => validator.run(ValidateType_SINGLE, '')).not.toThrow()
+    expect(() => validator.run(ValidateType_SINGLE)).not.toThrow()
   })
 
   describe('Invalid', () => {
@@ -70,7 +70,7 @@ describe('validate Community Root Transactions', () => {
     describe('empy key', () => {
       it('public key', () => {
         expect(() => new CommunityRoot(
-          new MemoryBlock(Buffer.alloc(crypto_sign_PUBLICKEYBYTES)),
+          MemoryBlock.createPtr(new MemoryBlock(Buffer.alloc(crypto_sign_PUBLICKEYBYTES))),
           keyPairs[1].getPublicKey(),
           keyPairs[2].getPublicKey()
         )).toThrow('pubkey cannot be empty')
@@ -79,7 +79,7 @@ describe('validate Community Root Transactions', () => {
       it('gmw key', () => {
         expect(() => new CommunityRoot(
           keyPairs[0].getPublicKey(),
-          new MemoryBlock(Buffer.alloc(crypto_sign_PUBLICKEYBYTES)),
+          MemoryBlock.createPtr(new MemoryBlock(Buffer.alloc(crypto_sign_PUBLICKEYBYTES))),
           keyPairs[2].getPublicKey()
         )).toThrow('pubkey cannot be empty')
       })
@@ -88,7 +88,7 @@ describe('validate Community Root Transactions', () => {
         expect(() => new CommunityRoot(
           keyPairs[0].getPublicKey(),
           keyPairs[1].getPublicKey(),
-          new MemoryBlock(Buffer.alloc(crypto_sign_PUBLICKEYBYTES))
+          MemoryBlock.createPtr(new MemoryBlock(Buffer.alloc(crypto_sign_PUBLICKEYBYTES)))
         )).toThrow('pubkey cannot be empty')
       })
     })
@@ -96,7 +96,7 @@ describe('validate Community Root Transactions', () => {
     describe('invalid key', () => {
       it('public key', () => {
         expect(() => new CommunityRoot(
-          MemoryBlock.fromHex('9a3b4c5d6e7f8c9b0a'),
+          MemoryBlock.createPtr(MemoryBlock.fromHex('9a3b4c5d6e7f8c9b0a')),
           keyPairs[1].getPublicKey(),
           keyPairs[2].getPublicKey()
         )).toThrow('invalid key size for public key')
@@ -105,7 +105,7 @@ describe('validate Community Root Transactions', () => {
       it('gmw key', () => {
         expect(() => new CommunityRoot(
           keyPairs[0].getPublicKey(),
-          MemoryBlock.fromHex('9a3b4c5d6e7f8c9b0a'),
+          MemoryBlock.createPtr(MemoryBlock.fromHex('9a3b4c5d6e7f8c9b0a')),
           keyPairs[2].getPublicKey()
         )).toThrow('invalid key size for public key')
       })
@@ -114,7 +114,7 @@ describe('validate Community Root Transactions', () => {
         expect(() => new CommunityRoot(
           keyPairs[0].getPublicKey(),
           keyPairs[1].getPublicKey(),
-          MemoryBlock.fromHex('9a3b4c5d6e7f8c9b0a')
+          MemoryBlock.createPtr(MemoryBlock.fromHex('9a3b4c5d6e7f8c9b0a'))
         )).toThrow('invalid key size for public key')
       })
     })

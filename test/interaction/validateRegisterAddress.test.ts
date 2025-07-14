@@ -44,7 +44,7 @@ describe('validate Register Address Transactions', () => {
     expect(body).not.toBeNull()
     expect(body?.isRegisterAddress()).toBeTruthy()
     const validator = new InteractionValidate(body!)
-    expect(() => validator.run(ValidateType_SINGLE, '')).not.toThrow()
+    expect(() => validator.run(ValidateType_SINGLE)).not.toThrow()
   })
 
   describe('invalid', () => {
@@ -65,7 +65,7 @@ describe('validate Register Address Transactions', () => {
         expect(body).not.toBeNull()
         expect(body?.isRegisterAddress()).toBeTruthy()
         const validator = new InteractionValidate(body!)
-        expect(() => validator.run(ValidateType_SINGLE, ''))
+        expect(() => validator.run(ValidateType_SINGLE))
           .toThrow('WrongAddressTypeException: register address transaction not allowed with community auf or gmw account or None, address type: COMMUNITY_GMW, pubkey: f4dd3989f7554b7ab32e3dd0b7f9e11afce90a1811e9d1f677169eb44bf44272')
       })
 
@@ -85,7 +85,7 @@ describe('validate Register Address Transactions', () => {
         expect(body).not.toBeNull()
         expect(body?.isRegisterAddress()).toBeTruthy()
         const validator = new InteractionValidate(body!)
-        expect(() => validator.run(ValidateType_SINGLE, ''))
+        expect(() => validator.run(ValidateType_SINGLE))
           .toThrow('WrongAddressTypeException: register address transaction not allowed with community auf or gmw account or None, address type: COMMUNITY_AUF, pubkey: f4dd3989f7554b7ab32e3dd0b7f9e11afce90a1811e9d1f677169eb44bf44272')
       })
 
@@ -105,7 +105,7 @@ describe('validate Register Address Transactions', () => {
         expect(body).not.toBeNull()
         expect(body?.isRegisterAddress()).toBeTruthy()
         const validator = new InteractionValidate(body!)
-        expect(() => validator.run(ValidateType_SINGLE, ''))
+        expect(() => validator.run(ValidateType_SINGLE))
           .toThrow('WrongAddressTypeException: register address transaction not allowed with community auf or gmw account or None, address type: NONE, pubkey: f4dd3989f7554b7ab32e3dd0b7f9e11afce90a1811e9d1f677169eb44bf44272')
       })
     })
@@ -129,7 +129,7 @@ describe('validate Register Address Transactions', () => {
 
       it('user public key: empty', () => {
         expect(() => builder.setRegisterAddress(
-          new MemoryBlock(Buffer.alloc(crypto_sign_PUBLICKEYBYTES)),
+          MemoryBlock.createPtr(new MemoryBlock(Buffer.alloc(crypto_sign_PUBLICKEYBYTES))),
           AddressType_COMMUNITY_HUMAN,
           null,
           keyPairs[4].getPublicKey()
@@ -141,13 +141,13 @@ describe('validate Register Address Transactions', () => {
           keyPairs[3].getPublicKey(),
           AddressType_COMMUNITY_HUMAN,
           null,
-          new MemoryBlock(Buffer.alloc(crypto_sign_PUBLICKEYBYTES))
+          MemoryBlock.createPtr(new MemoryBlock(Buffer.alloc(crypto_sign_PUBLICKEYBYTES)))
         )).toThrow('pubkey cannot be empty')
       })  
 
       it('user public key: invalid', () => {
         expect(() => builder.setRegisterAddress(
-          MemoryBlock.fromHex('9a3b4c5d6e7f8c9b0a'),
+          MemoryBlock.createPtr(MemoryBlock.fromHex('9a3b4c5d6e7f8c9b0a')),
           AddressType_COMMUNITY_HUMAN,
           null,
           keyPairs[4].getPublicKey()
@@ -159,7 +159,7 @@ describe('validate Register Address Transactions', () => {
           keyPairs[3].getPublicKey(),
           AddressType_COMMUNITY_HUMAN,
           null,
-          MemoryBlock.fromHex('9a3b4c5d6e7f8c9b0a')
+          MemoryBlock.createPtr(MemoryBlock.fromHex('9a3b4c5d6e7f8c9b0a'))
         )).toThrow('invalid key size for public key')
       })  
     })

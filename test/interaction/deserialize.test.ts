@@ -7,8 +7,16 @@ import {
   InteractionDeserialize,
   KeyPairEd25519,
   MemoryBlock,
+  MemoryBlockPtr,
 } from '../../'
-import { confirmedAt, createdAt, targetDate, timeoutDuration, versionString } from '../helper/const'
+import { 
+  confirmedAt, 
+  createdAt, 
+  deferredTransferMemo, 
+  targetDate, 
+  timeoutDuration, 
+  versionString 
+} from '../helper/const'
 import { generateKeyPairs } from '../helper/keyPairs'
 import { 
   communityFriendsUpdateBase64,
@@ -31,7 +39,7 @@ describe('Deserialize Gradido Transaction Test', () => {
   })
   
   it('community root transaction body', () => {
-    const rawData = MemoryBlock.fromBase64(communityRootTransactionBase64)
+    const rawData = MemoryBlock.createPtr(MemoryBlock.fromBase64(communityRootTransactionBase64))
     const deserializer = new InteractionDeserialize(rawData, DeserializeType_GRADIDO_TRANSACTION)
     deserializer.run()
     expect(deserializer.isTransactionBody()).toBeFalsy()
@@ -60,7 +68,7 @@ describe('Deserialize Gradido Transaction Test', () => {
   })
 
   it('register address transaction body', () => {
-    const rawData = MemoryBlock.fromBase64(registerAddressTransactionBase64)
+    const rawData = MemoryBlock.createPtr(MemoryBlock.fromBase64(registerAddressTransactionBase64))
     const deserializer = new InteractionDeserialize(rawData, DeserializeType_GRADIDO_TRANSACTION)
     deserializer.run()
     expect(deserializer.isTransactionBody()).toBeFalsy()
@@ -86,13 +94,13 @@ describe('Deserialize Gradido Transaction Test', () => {
     expect(registerAddress?.getAddressType()).toEqual(AddressType_COMMUNITY_HUMAN)
     expect(registerAddress?.getDerivationIndex()).toEqual(1)
     expect(registerAddress?.getUserPublicKey()?.equal(keyPairs[3].getPublicKey()!)).toBeTruthy()
-    expect(registerAddress?.getNameHash()).toBeNull()
+    expect(registerAddress?.getNameHash()?.isNull()).toBeTruthy()
     expect(registerAddress?.getAccountPublicKey()?.equal(keyPairs[4].getPublicKey()!)).toBeTruthy()
 
   })
 
   it('gradido creation transaction body', () => {
-    const rawData = MemoryBlock.fromBase64(creationTransactionBase64)
+    const rawData = MemoryBlock.createPtr(MemoryBlock.fromBase64(creationTransactionBase64))
     const deserializer = new InteractionDeserialize(rawData, DeserializeType_GRADIDO_TRANSACTION)
     deserializer.run()
     expect(deserializer.isTransactionBody()).toBeFalsy()
@@ -123,7 +131,7 @@ describe('Deserialize Gradido Transaction Test', () => {
   })
   
   it('gradido transfer transaction body', () => {
-    const rawData = MemoryBlock.fromBase64(transferTransactionBase64)
+    const rawData = MemoryBlock.createPtr(MemoryBlock.fromBase64(transferTransactionBase64))
     const deserializer = new InteractionDeserialize(rawData, DeserializeType_GRADIDO_TRANSACTION)
     deserializer.run()
     expect(deserializer.isTransactionBody()).toBeFalsy()
@@ -154,20 +162,24 @@ describe('Deserialize Gradido Transaction Test', () => {
   })
 
   it('gradido deferred transfer transaction body', () => {
-    const rawData = MemoryBlock.fromBase64(deferredTransferTransactionBase64)
+    const rawData = MemoryBlock.createPtr(MemoryBlock.fromBase64(deferredTransferTransactionBase64))
     const deserializer = new InteractionDeserialize(rawData, DeserializeType_GRADIDO_TRANSACTION)
     deserializer.run()
     expect(deserializer.isTransactionBody()).toBeFalsy()
     expect(deserializer.isConfirmedTransaction()).toBeFalsy()
     expect(deserializer.isGradidoTransaction()).toBeTruthy()
+    expect(deserializer.isTransactionTriggerEvent()).toBeFalsy()
 
     const transaction = deserializer.getGradidoTransaction()
+    expect(transaction).not.toBeNull()
     const body = transaction?.getTransactionBody()
     expect(body).not.toBeNull()
     expect(body?.getVersionNumber()).toEqual(versionString)
     expect(body?.getCreatedAt().getDate()).toEqual(createdAt)
     expect(body?.getType()).toEqual(CrossGroupType_LOCAL)
-
+    const memos = body?.getMemos()
+    expect(memos?.size()).toBeGreaterThanOrEqual(1)
+    expect(memos?.get(0).getMemo()?.copyAsString()).toEqual(deferredTransferMemo.getMemo().copyAsString())
     expect(body?.isCommunityFriendsUpdate()).toBeFalsy()
     expect(body?.isCommunityRoot()).toBeFalsy()
     expect(body?.isCreation()).toBeFalsy()
@@ -184,11 +196,11 @@ describe('Deserialize Gradido Transaction Test', () => {
     expect(sender?.getAmount().toString()).toEqual('555.5500')
     expect(sender?.getPublicKey()?.equal(keyPairs[4].getPublicKey()!)).toBeTruthy()
     expect(transfer?.getRecipient()?.equal(keyPairs[5].getPublicKey()!)).toBeTruthy()
-    expect(deferredTransfer?.getTimeoutDuration().getSeconds()).toEqual(timeoutDuration)
+    expect(deferredTransfer?.getTimeoutDuration().getSeconds()).toEqual(timeoutDuration.getSeconds())
   })
 
   it('community friends update transaction body', () => {
-    const rawData = MemoryBlock.fromBase64(communityFriendsUpdateBase64)
+    const rawData = MemoryBlock.createPtr(MemoryBlock.fromBase64(communityFriendsUpdateBase64))
     const deserializer = new InteractionDeserialize(rawData, DeserializeType_GRADIDO_TRANSACTION)
     deserializer.run()
     expect(deserializer.isTransactionBody()).toBeFalsy()
@@ -215,7 +227,7 @@ describe('Deserialize Gradido Transaction Test', () => {
   })
 
   it('gradido transaction', () => {
-    const rawData = MemoryBlock.fromBase64(gradidoTransactionSignedInvalidBody)
+    const rawData = MemoryBlock.createPtr(MemoryBlock.fromBase64(gradidoTransactionSignedInvalidBody))
     const deserializer = new InteractionDeserialize(rawData, DeserializeType_GRADIDO_TRANSACTION)
     deserializer.run()
     expect(deserializer.isTransactionBody()).toBeFalsy()
@@ -228,11 +240,11 @@ describe('Deserialize Gradido Transaction Test', () => {
     expect(gradidoTransaction?.getBodyBytes()?.equal(bodyBytes)).toBeTruthy()
     const firstSignature = gradidoTransaction?.getSignatureMap().getSignaturePairs().get(0).getSignature()
     expect(firstSignature).not.toBeNull()    
-    expect(keyPairs[3].verify(bodyBytes, firstSignature!)).toBeTruthy()
+    expect(keyPairs[3].verify(bodyBytes, firstSignature?.get()!)).toBeTruthy()
   })
 
   it('minimal confirmed transaction', () => {
-    const rawData = MemoryBlock.fromBase64(minimalConfirmedTransaction)
+    const rawData = MemoryBlock.createPtr(MemoryBlock.fromBase64(minimalConfirmedTransaction))
     const deserializer = new InteractionDeserialize(rawData, DeserializeType_CONFIRMED_TRANSACTION)
     deserializer.run()
     expect(deserializer.isTransactionBody()).toBeFalsy()
@@ -249,12 +261,12 @@ describe('Deserialize Gradido Transaction Test', () => {
 
     const gradidoTransaction = confirmedTransaction?.getGradidoTransaction()
     expect(gradidoTransaction).not.toBeNull()
-    expect(gradidoTransaction?.getBodyBytes()).toBeNull()
+    expect(gradidoTransaction?.getBodyBytes()?.isNull()).toBeTruthy()
     expect(gradidoTransaction?.getSignatureMap().getSignaturePairs().size()).toEqual(0)
   })
 
   it('complete confirmed transaction', () => {
-    const rawData = MemoryBlock.fromBase64(completeConfirmedTransaction)
+    const rawData = MemoryBlock.createPtr(MemoryBlock.fromBase64(completeConfirmedTransaction))
     const deserializer = new InteractionDeserialize(rawData, DeserializeType_CONFIRMED_TRANSACTION)
     deserializer.run()
     expect(deserializer.isTransactionBody()).toBeFalsy()
@@ -274,11 +286,11 @@ describe('Deserialize Gradido Transaction Test', () => {
 
     const gradidoTransaction = confirmedTransaction?.getGradidoTransaction()
     expect(gradidoTransaction).not.toBeNull()
-    const firstSignature = gradidoTransaction?.getSignatureMap().getSignaturePairs().get(0).getSignature() as MemoryBlock;
+    const firstSignature = gradidoTransaction?.getSignatureMap().getSignaturePairs().get(0).getSignature() as MemoryBlockPtr;
 	  const bodyBytes = gradidoTransaction?.getBodyBytes();
     expect(bodyBytes).not.toBeNull()
-    expect(keyPairs[0].verify(bodyBytes!, firstSignature)).toBeTruthy()
-    expect(keyPairs[2].verify(bodyBytes!, firstSignature)).toBeFalsy()
+    expect(keyPairs[0].verify(bodyBytes!.get(), firstSignature!.get())).toBeTruthy()
+    expect(keyPairs[2].verify(bodyBytes!.get(), firstSignature!.get())).toBeFalsy()
 
     const body = gradidoTransaction?.getTransactionBody()
     const memos = body?.getMemos()

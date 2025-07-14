@@ -39,6 +39,7 @@ endif()
 
 # gradido blockchain dependencies
 include_directories(
+	"src/cpp"
 	"deps/gradido_blockchain/dependencies"
 	"deps/gradido_blockchain/dependencies/tinf/src/" 
 	"deps/gradido_blockchain/dependencies/protopuf/include"
@@ -50,7 +51,7 @@ include_directories(
 	"deps/gradido_blockchain/dependencies/ed25519_bip32_c_interface/include"	
 )
 
-FILE(GLOB SWIG_GENERATED_INTERFACE "swig/*.cxx" "swig/*.h")
+FILE(GLOB_RECURSE SWIG_GENERATED_INTERFACE "swig/*.cxx" "swig/*.h" "src/cpp/*.h" "src/cpp/*.cpp")
 
 add_library(${PROJECT_NAME} SHARED ${SWIG_GENERATED_INTERFACE} ${CMAKE_JS_SRC})
 

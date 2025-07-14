@@ -218,6 +218,38 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
         &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain__wrap_InMemoryBlockchain_findByMessageId,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("findOne");
+  members.insert({
+    "findOne",
+      _exports_InMemoryBlockchain_templ::InstanceMethod("findOne",
+        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain__wrap_InMemoryBlockchain_findOne,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getAddressType");
+  members.insert({
+    "getAddressType",
+      _exports_InMemoryBlockchain_templ::InstanceMethod("getAddressType",
+        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain__wrap_InMemoryBlockchain_getAddressType,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getCommunityId");
+  members.insert({
+    "getCommunityId",
+      _exports_InMemoryBlockchain_templ::InstanceMethod("getCommunityId",
+        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_getCommunityId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getStartDate");
+  members.insert({
+    "getStartDate",
+      _exports_InMemoryBlockchain_templ::InstanceMethod("getStartDate",
+        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_getStartDate,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   

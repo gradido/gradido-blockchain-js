@@ -26,16 +26,19 @@ namespace CryptoConfig {
 // helper for initalizing Crypto Keys
 //! \param appSecret app secret as app wide salt for generating encryption key for password encryption
 //! \param serverCryptoKey server shorthash, exactly 16 Bytes long, 32 Character in Hex Format, used for shorthash as salt, for example password encryption key hash
-static void loadCryptoKeys(memory::BlockPtr cryptoAppSecret, memory::BlockPtr serverCryptoKey) {
-  CryptoConfig::g_CryptoAppSecret = cryptoAppSecret;
-  if (!serverCryptoKey || serverCryptoKey->size() != crypto_shorthash_KEYBYTES) {
+static void loadCryptoKeys(memory::Block cryptoAppSecret, memory::Block serverCryptoKey) {
+  if (!cryptoAppSecret) {
+    throw std::runtime_error("crypto.app_secret is null");
+  }
+  CryptoConfig::g_CryptoAppSecret = std::make_shared<memory::Block>(cryptoAppSecret);
+  if (!serverCryptoKey || serverCryptoKey.size() != crypto_shorthash_KEYBYTES) {
     throw std::runtime_error("crypto.server_key hasn't correct size or isn't valid hex");
   }
-  CryptoConfig::g_ServerCryptoKey = serverCryptoKey;
+  CryptoConfig::g_ServerCryptoKey = std::make_shared<memory::Block>(serverCryptoKey);
 }
 %}
 
-static void loadCryptoKeys(memory::BlockPtr cryptoAppSecret, memory::BlockPtr serverCryptoKey);
+static void loadCryptoKeys(memory::Block cryptoAppSecret, memory::Block serverCryptoKey);
 
 %init %{
 CryptoConfig::loadMnemonicWordLists();

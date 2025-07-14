@@ -28,7 +28,7 @@ describe('tests with empty in-memory blockchain', () => {
   
   describe('valid', () => {
     it('add community root as first', () => {
-      const communityRootRaw = MemoryBlock.fromBase64(communityRootTransactionBase64)
+      const communityRootRaw = MemoryBlock.createPtr(MemoryBlock.fromBase64(communityRootTransactionBase64))
       const deserializer = new InteractionDeserialize(communityRootRaw, DeserializeType_GRADIDO_TRANSACTION)
       deserializer.run()
       expect(deserializer.isGradidoTransaction()).toBeTruthy()
@@ -38,7 +38,7 @@ describe('tests with empty in-memory blockchain', () => {
 
   describe('invalid', () => {
     it('register address as first', () => {
-      const registerAddressRaw = MemoryBlock.fromBase64(registerAddressTransactionBase64)
+      const registerAddressRaw = MemoryBlock.createPtr(MemoryBlock.fromBase64(registerAddressTransactionBase64))
       const deserializer = new InteractionDeserialize(registerAddressRaw, DeserializeType_GRADIDO_TRANSACTION)
       deserializer.run()
       expect(deserializer.isGradidoTransaction()).toBeTruthy()
@@ -47,7 +47,7 @@ describe('tests with empty in-memory blockchain', () => {
     })
 
     it('gradido creation as first', () => {
-      const creationRaw = MemoryBlock.fromBase64(creationTransactionBase64)
+      const creationRaw = MemoryBlock.createPtr(MemoryBlock.fromBase64(creationTransactionBase64))
       const deserializer = new InteractionDeserialize(creationRaw, DeserializeType_GRADIDO_TRANSACTION)
       deserializer.run()
       expect(deserializer.isGradidoTransaction()).toBeTruthy()
@@ -56,21 +56,21 @@ describe('tests with empty in-memory blockchain', () => {
     })
 
     it('gradido transfer as first', () => {
-      const transferRaw = MemoryBlock.fromBase64(transferTransactionBase64)
+      const transferRaw = MemoryBlock.createPtr(MemoryBlock.fromBase64(transferTransactionBase64))
       const deserializer = new InteractionDeserialize(transferRaw, DeserializeType_GRADIDO_TRANSACTION)
       deserializer.run()
       expect(deserializer.isGradidoTransaction()).toBeTruthy()
       expect(() => blockchain.createAndAddConfirmedTransaction(deserializer.getGradidoTransaction(), null, confirmedAt))
-        .toThrow('not enough gdd, needed: 500.5500, exist: 0.0000')
+        .toThrow('transfer transaction not allowed as first transaction on sender blockchain')
     })
 
     it('gradido deferred transfer as first', () => {
-      const deferredTransferRaw = MemoryBlock.fromBase64(deferredTransferTransactionBase64)
+      const deferredTransferRaw = MemoryBlock.createPtr(MemoryBlock.fromBase64(deferredTransferTransactionBase64))
       const deserializer = new InteractionDeserialize(deferredTransferRaw, DeserializeType_GRADIDO_TRANSACTION)
       deserializer.run()
       expect(deserializer.isGradidoTransaction()).toBeTruthy()
       expect(() => blockchain.createAndAddConfirmedTransaction(deserializer.getGradidoTransaction(), null, confirmedAt))
-        .toThrow('not enough gdd, needed: 555.5500, exist: 0.0000')
+        .toThrow('deferred transfer transaction not allowed as first transaction on sender blockchain')
     })
   })
 })

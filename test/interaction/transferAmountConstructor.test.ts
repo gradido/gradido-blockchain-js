@@ -7,12 +7,12 @@ describe('transfer amount constructor', () => {
   })
 
   it('public key empty', () => {
-    expect(() => new TransferAmount(new MemoryBlock(Buffer.alloc(crypto_sign_PUBLICKEYBYTES)), GradidoUnit.fromGradidoCent(10000000)))
+    expect(() => new TransferAmount(MemoryBlock.createPtr(new MemoryBlock(Buffer.alloc(crypto_sign_PUBLICKEYBYTES))), GradidoUnit.fromGradidoCent(10000000)))
       .toThrow('pubkey cannot be empty')
   })
 
   it('public key invalid', () => {
-    expect(() => new TransferAmount(MemoryBlock.fromHex('9a3b4c5d6e7f8c9b0a'), GradidoUnit.fromGradidoCent(10000000)))
+    expect(() => new TransferAmount(MemoryBlock.createPtr(MemoryBlock.fromHex('9a3b4c5d6e7f8c9b0a')), GradidoUnit.fromGradidoCent(10000000)))
       .toThrow('invalid key size for public key')
   })
 })

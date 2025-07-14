@@ -60,6 +60,15 @@
 %typemap(ts) const std::vector<gradido::data::EncryptedMemo>& "EncryptedMemos";
 %template(EncryptedMemos) std::vector<gradido::data::EncryptedMemo>;
 
+namespace gradido::data {
+    %ignore EncryptedMemo::EncryptedMemo(const char*);
+    %ignore EncryptedMemo::EncryptedMemo(const char*, const AuthenticatedEncryption&);
+    %ignore EncryptedMemo::EncryptedMemo(const char*, const AuthenticatedEncryption&, const AuthenticatedEncryption&);
+    %ignore EncryptedMemo::EncryptedMemo(MemoKeyType, memory::Block&&);
+    %ignore EncryptedMemo::EncryptedMemo(EncryptedMemo&&);
+    %ignore EncryptedMemo::EncryptedMemo(const EncryptedMemo&);
+}
+
 // Account Balances vector
 %typemap(ts) std::vector<gradido::data::AccountBalance> "AccountBalances";
 %typemap(ts) const gradido::data::AccountBalance& "AccountBalance";

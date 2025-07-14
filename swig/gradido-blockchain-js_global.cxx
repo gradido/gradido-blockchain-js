@@ -633,8 +633,12 @@ fail:
 Napi::Value _wrap_loadCryptoKeys(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
-  memory::BlockPtr arg1 ;
-  memory::BlockPtr arg2 ;
+  SwigValueWrapper< memory::Block > arg1 ;
+  SwigValueWrapper< memory::Block > arg2 ;
+  void *argp1 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
   
   
 #ifdef NAPI_CPP_EXCEPTIONS
@@ -647,22 +651,28 @@ Napi::Value _wrap_loadCryptoKeys(const Napi::CallbackInfo &info) {
     
     {
       {
-        memory::Block *plain_ptr;
-        int res = SWIG_ConvertPtr(info[0], reinterpret_cast<void**>(&plain_ptr), SWIGTYPE_p_memory__Block,  0 );
-        if (!SWIG_IsOK(res)) {
-          SWIG_exception_fail(SWIG_ArgError(res), "in method '" "loadCryptoKeys" "', argument " "1"" of type '" "memory::Block""'");
+        res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_memory__Block,  0 );
+        if (!SWIG_IsOK(res1)) {
+          SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "loadCryptoKeys" "', argument " "1"" of type '" "memory::Block""'"); 
+        }  
+        if (!argp1) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "loadCryptoKeys" "', argument " "1"" of type '" "memory::Block""'");
+        } else {
+          arg1 = *(reinterpret_cast< memory::Block * >(argp1));
         }
-        arg1 = std::shared_ptr< memory::Block>(plain_ptr, SWIG_null_deleter());
       }
     }
     {
       {
-        memory::Block *plain_ptr;
-        int res = SWIG_ConvertPtr(info[1], reinterpret_cast<void**>(&plain_ptr), SWIGTYPE_p_memory__Block,  0 );
-        if (!SWIG_IsOK(res)) {
-          SWIG_exception_fail(SWIG_ArgError(res), "in method '" "loadCryptoKeys" "', argument " "2"" of type '" "memory::Block""'");
+        res2 = SWIG_ConvertPtr(info[1], &argp2, SWIGTYPE_p_memory__Block,  0 );
+        if (!SWIG_IsOK(res2)) {
+          SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "loadCryptoKeys" "', argument " "2"" of type '" "memory::Block""'"); 
+        }  
+        if (!argp2) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "loadCryptoKeys" "', argument " "2"" of type '" "memory::Block""'");
+        } else {
+          arg2 = *(reinterpret_cast< memory::Block * >(argp2));
         }
-        arg2 = std::shared_ptr< memory::Block>(plain_ptr, SWIG_null_deleter());
       }
     }
     
@@ -923,7 +933,7 @@ fail:
 Napi::Value _wrap_SealedBoxDecrypt(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
-  memory::ConstBlockPtr arg1 ;
+  SwigValueWrapper< std::shared_ptr< memory::Block const > > arg1 ;
   memory::Block *arg2 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
@@ -940,12 +950,17 @@ Napi::Value _wrap_SealedBoxDecrypt(const Napi::CallbackInfo &info) {
     
     {
       {
-        memory::Block *plain_ptr;
-        int res = SWIG_ConvertPtr(info[0], reinterpret_cast<void**>(&plain_ptr), SWIGTYPE_p_memory__Block,  0 );
+        void* argp = nullptr;
+        int res = SWIG_ConvertPtr(info[0], &argp, SWIGTYPE_p_memory__BlockPtrWrapper, 0);
         if (!SWIG_IsOK(res)) {
-          SWIG_exception_fail(SWIG_ArgError(res), "in method '" "SealedBoxDecrypt" "', argument " "1"" of type '" "memory::Block""'");
+          SWIG_exception_fail(SWIG_ArgError(res), "Expected BlockPtrWrapper");
         }
-        arg1 = std::shared_ptr<const memory::Block>(plain_ptr, SWIG_null_deleter());
+        if (argp) {
+          memory::BlockPtrWrapper* wrapper = reinterpret_cast<memory::BlockPtrWrapper*>(argp);
+          arg1 = *wrapper;
+        } else {
+          arg1 = nullptr;
+        }
       }
     }
     res2 = SWIG_ConvertPtr(info[1], &argp2, SWIGTYPE_p_memory__Block,  0 );
@@ -1366,102 +1381,6 @@ fail:
 
 
 // js_global_function
-Napi::Value _wrap_minus(const Napi::CallbackInfo &info) {
-  Napi::Env env = info.Env();
-  Napi::Value jsresult;
-  gradido::interaction::validate::Type arg1 ;
-  gradido::interaction::validate::Type arg2 ;
-  int val1 ;
-  int ecode1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  gradido::interaction::validate::Type result;
-  
-  
-#ifdef NAPI_CPP_EXCEPTIONS
-  try {
-#endif
-    
-    if(static_cast<int>(info.Length()) < 2 || static_cast<int>(info.Length()) > 2) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_minus.");
-    }
-    
-    ecode1 = SWIG_AsVal_int(info[0], &val1);
-    if (!SWIG_IsOK(ecode1)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "minus" "', argument " "1"" of type '" "gradido::interaction::validate::Type""'");
-    } 
-    arg1 = static_cast< gradido::interaction::validate::Type >(val1);ecode2 = SWIG_AsVal_int(info[1], &val2);
-    if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "minus" "', argument " "2"" of type '" "gradido::interaction::validate::Type""'");
-    } 
-    arg2 = static_cast< gradido::interaction::validate::Type >(val2);
-    
-    
-    
-    
-    {
-      try {
-        result = (gradido::interaction::validate::Type)gradido::interaction::validate::operator -(arg1,arg2);
-      } catch (const gradido::interaction::validate::WrongAddressTypeException& e) {
-        std::string message = "WrongAddressTypeException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const gradido::interaction::validate::InvalidCreationException& e) {
-        std::string message = "InvalidCreationException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const InsufficientBalanceException& e) {
-        std::string message = "InsufficientBalanceException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const gradido::interaction::validate::AddressAlreadyExistException& e) {
-        std::string message = "AddressAlreadyExistException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const gradido::interaction::validate::PairingTransactionNotMatchException& e) {
-        std::string message = "PairingTransactionNotMatchException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const gradido::interaction::validate::TransactionValidationRequiredSignMissingException& e) {
-        std::string message = "TransactionValidationRequiredSignMissingException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());        
-      } catch (const gradido::interaction::validate::TransactionValidationMissingSignException& e) {
-        std::string message = "TransactionValidationMissingSignException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const gradido::interaction::validate::TransactionValidationForbiddenSignException& e) {
-        std::string message = "TransactionValidationForbiddenSignException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const gradido::interaction::validate::TransactionValidationInvalidSignatureException& e) {
-        std::string message = "TransactionValidationInvalidSignatureException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const gradido::interaction::validate::TransactionValidationInvalidInputException& e) {
-        std::string message = "TransactionValidationInvalidInputException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const gradido::interaction::validate::TransactionValidationException& e) {
-        std::string message = "TransactionValidationException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const GradidoBlockchainException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
-      } catch (const std::exception& e) {
-        SWIG_exception(SWIG_RuntimeError, e.what());
-      }
-    }
-    
-    
-    
-    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(result));
-    
-    
-    return jsresult;
-#ifdef NAPI_CPP_EXCEPTIONS
-  } catch (...) {
-    std::rethrow_exception(std::current_exception());
-  }
-#else
-  goto fail;
-fail:
-  
-#endif
-  return Napi::Value();
-}
-
-
-// js_global_function
 Napi::Value _wrap_validateTypeToString(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
@@ -1742,6 +1661,7 @@ SWIGINTERN swig_type_info _swigt__p_gradido__interaction__validate__Context = {"
 SWIGINTERN swig_type_info _swigt__p_int = {"_p_int", "int32_t *|int_fast16_t *|int_fast32_t *|int_least32_t *|intptr_t *|int *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_long_long = {"_p_long_long", "int64_t *|int_fast64_t *|int_least64_t *|intmax_t *|long long *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_memory__Block = {"_p_memory__Block", "MemoryBin *|p_memory__Block|memory::Block *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_memory__BlockPtrWrapper = {"_p_memory__BlockPtrWrapper", "p_memory__BlockPtrWrapper|std::vector< memory::BlockPtrWrapper >::value_type *|memory::BlockPtrWrapper *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_second_type = {"_p_second_type", "second_type *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_short = {"_p_short", "int16_t *|int_least16_t *|short *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_signed_char = {"_p_signed_char", "int8_t *|int_fast8_t *|int_least8_t *|signed char *", 0, 0, (void*)0, 0};
@@ -1763,14 +1683,14 @@ SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_gradido__data__GradidoTrans
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_gradido__data__TransactionBody_const_t = {"_p_std__shared_ptrT_gradido__data__TransactionBody_const_t", "gradido::data::ConstTransactionBodyPtr *|std::shared_ptr< gradido::data::TransactionBody const > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t = {"_p_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t", "std::shared_ptr< gradido::data::TransactionTriggerEvent const > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_memory__Block_const_t = {"_p_std__shared_ptrT_memory__Block_const_t", "memory::ConstBlockPtr *|std::shared_ptr< memory::Block const > *", 0, 0, (void*)0, 0};
-SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_memory__Block_t = {"_p_std__shared_ptrT_memory__Block_t", "memory::BlockPtr *|std::vector< std::shared_ptr< memory::Block > >::value_type *|std::shared_ptr< memory::Block > *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_memory__Block_t = {"_p_std__shared_ptrT_memory__Block_t", "memory::BlockPtr *|std::shared_ptr< memory::Block > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_gradido__data__AccountBalance_t = {"_p_std__vectorT_gradido__data__AccountBalance_t", "p_std__vectorT_gradido__data__AccountBalance_t|std::vector< gradido::data::AccountBalance > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_gradido__data__EncryptedMemo_t = {"_p_std__vectorT_gradido__data__EncryptedMemo_t", "std::vector< gradido::data::EncryptedMemo > *|p_std__vectorT_gradido__data__EncryptedMemo_t", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_gradido__data__SignaturePair_t = {"_p_std__vectorT_gradido__data__SignaturePair_t", "std::vector< gradido::data::SignaturePair > *|p_std__vectorT_gradido__data__SignaturePair_t", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_std__vectorT_memory__BlockPtrWrapper_t = {"_p_std__vectorT_memory__BlockPtrWrapper_t", "p_std__vectorT_memory__BlockPtrWrapper_t|std::vector< memory::BlockPtrWrapper > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t = {"_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t", "std::vector< std::shared_ptr< gradido::blockchain::TransactionEntry > > *|p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t = {"_p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t", "std::vector< std::shared_ptr< gradido::data::TransactionTriggerEvent const > > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t = {"_p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t", "std::vector< memory::ConstBlockPtr > *|std::vector< std::shared_ptr< memory::Block const > > *", 0, 0, (void*)0, 0};
-SWIGINTERN swig_type_info _swigt__p_std__vectorT_std__shared_ptrT_memory__Block_t_t = {"_p_std__vectorT_std__shared_ptrT_memory__Block_t_t", "p_std__vectorT_std__shared_ptrT_memory__Block_t_t|std::vector< std::shared_ptr< memory::Block > > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "uint8_t *|uint_fast8_t *|uint_least8_t *|unsigned char *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_unsigned_int = {"_p_unsigned_int", "uint32_t *|uint_fast16_t *|uint_fast32_t *|uint_least32_t *|uintptr_t *|unsigned int *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_unsigned_long_long = {"_p_unsigned_long_long", "KeyHashed *|uint64_t *|uint_fast64_t *|uint_least64_t *|uintmax_t *|unsigned long long *", 0, 0, (void*)0, 0};
@@ -1838,6 +1758,7 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_int,
   &_swigt__p_long_long,
   &_swigt__p_memory__Block,
+  &_swigt__p_memory__BlockPtrWrapper,
   &_swigt__p_second_type,
   &_swigt__p_short,
   &_swigt__p_signed_char,
@@ -1863,10 +1784,10 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_std__vectorT_gradido__data__AccountBalance_t,
   &_swigt__p_std__vectorT_gradido__data__EncryptedMemo_t,
   &_swigt__p_std__vectorT_gradido__data__SignaturePair_t,
+  &_swigt__p_std__vectorT_memory__BlockPtrWrapper_t,
   &_swigt__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t,
   &_swigt__p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t,
   &_swigt__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t,
-  &_swigt__p_std__vectorT_std__shared_ptrT_memory__Block_t_t,
   &_swigt__p_unsigned_char,
   &_swigt__p_unsigned_int,
   &_swigt__p_unsigned_long_long,
@@ -1931,6 +1852,7 @@ SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__validate__Context[] = 
 SWIGINTERN swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_long_long[] = {  {&_swigt__p_long_long, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_memory__Block[] = {  {&_swigt__p_memory__Block, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_memory__BlockPtrWrapper[] = {  {&_swigt__p_memory__BlockPtrWrapper, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_second_type[] = {  {&_swigt__p_second_type, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_short[] = {  {&_swigt__p_short, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_signed_char[] = {  {&_swigt__p_signed_char, 0, 0, 0},{0, 0, 0, 0}};
@@ -1956,10 +1878,10 @@ SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_memory__Block_t[] = {  {&_s
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_gradido__data__AccountBalance_t[] = {  {&_swigt__p_std__vectorT_gradido__data__AccountBalance_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_gradido__data__EncryptedMemo_t[] = {  {&_swigt__p_std__vectorT_gradido__data__EncryptedMemo_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_gradido__data__SignaturePair_t[] = {  {&_swigt__p_std__vectorT_gradido__data__SignaturePair_t, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_std__vectorT_memory__BlockPtrWrapper_t[] = {  {&_swigt__p_std__vectorT_memory__BlockPtrWrapper_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t[] = {  {&_swigt__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t[] = {  {&_swigt__p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t[] = {  {&_swigt__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t, 0, 0, 0},{0, 0, 0, 0}};
-SWIGINTERN swig_cast_info _swigc__p_std__vectorT_std__shared_ptrT_memory__Block_t_t[] = {  {&_swigt__p_std__vectorT_std__shared_ptrT_memory__Block_t_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_unsigned_char[] = {  {&_swigt__p_unsigned_char, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_unsigned_int[] = {  {&_swigt__p_unsigned_int, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_unsigned_long_long[] = {  {&_swigt__p_unsigned_long_long, 0, 0, 0},{0, 0, 0, 0}};
@@ -2024,6 +1946,7 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_int,
   _swigc__p_long_long,
   _swigc__p_memory__Block,
+  _swigc__p_memory__BlockPtrWrapper,
   _swigc__p_second_type,
   _swigc__p_short,
   _swigc__p_signed_char,
@@ -2049,10 +1972,10 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_std__vectorT_gradido__data__AccountBalance_t,
   _swigc__p_std__vectorT_gradido__data__EncryptedMemo_t,
   _swigc__p_std__vectorT_gradido__data__SignaturePair_t,
+  _swigc__p_std__vectorT_memory__BlockPtrWrapper_t,
   _swigc__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t,
   _swigc__p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t,
   _swigc__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t,
-  _swigc__p_std__vectorT_std__shared_ptrT_memory__Block_t_t,
   _swigc__p_unsigned_char,
   _swigc__p_unsigned_int,
   _swigc__p_unsigned_long_long,
@@ -2063,6 +1986,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
 
-SWIGINTERN swig_type_info *swig_types[92];
-SWIGINTERN swig_module_info swig_module = {swig_types, 91, 0, 0, 0, 0};
+SWIGINTERN swig_type_info *swig_types[93];
+SWIGINTERN swig_module_info swig_module = {swig_types, 92, 0, 0, 0, 0};
 
