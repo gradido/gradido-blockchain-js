@@ -3,7 +3,6 @@
 
 #include "gradido_blockchain/memory/Block.h"
 #include "gradido_blockchain/GradidoBlockchainException.h"
-#include "gradido_blockchain/export.h"
 
 namespace memory {
     /**
@@ -17,7 +16,7 @@ namespace memory {
      * @author einhornimmond
      * @date 2025-07-13
      */
-    class GRADIDOBLOCKCHAIN_EXPORT BlockPtrWrapper {
+    class BlockPtrWrapper {
       public:
         BlockPtrWrapper() : mBlock(std::make_shared<memory::Block>(0)) {}
         BlockPtrWrapper(const Block& block) : mBlock(std::make_shared<memory::Block>(block)) {}
