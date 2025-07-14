@@ -213,7 +213,7 @@ function createGradidoRedeemDeferredTransfer(
   if(recipientKeyPairIndex <= 0  || recipientKeyPairIndex >= keyPairs.length) {
     throw new Error('recipientKeyPairIndex out of bounds')
   }
-    
+
   builder
     .addMemo(memo)  
     .setCreatedAt(createdAt)
@@ -501,9 +501,9 @@ describe('InMemoryBlockchain', () => {
         .toThrow(`sender address is deferred transfer, please use redeemDeferredTransferTransaction for that, address type: DEFERRED_TRANSFER, pubkey: ${recipientPublicKeyHex}`)
       expect(createGradidoRedeemDeferredTransfer(recipientKeyPairIndex, secondRecipientKeyPairIndex, new GradidoUnit(483.0), createdAt, 6))
         .toBeTruthy()
-      return
-      const lastTransactionEntry = blockchain.findOne(Filter.LAST_TRANSACTION)
-      const confirmedTransaction = lastTransactionEntry?.getConfirmedTransaction()
+      
+      let lastTransactionEntry = blockchain.findOne(Filter.LAST_TRANSACTION)
+      let confirmedTransaction = lastTransactionEntry?.getConfirmedTransaction()
       expect(confirmedTransaction).not.toBeNull()
       expect(confirmedTransaction?.getAccountBalances().size()).toEqual(2)
       expect(confirmedTransaction?.getAccountBalance(keyPairs[secondRecipientKeyPairIndex].getPublicKey()).getBalance()).toEqual(new GradidoUnit(996.3677))
@@ -513,20 +513,41 @@ describe('InMemoryBlockchain', () => {
       blockedDeferredTransferBalance = new GradidoUnit(483.0).calculateCompoundInterest(createdAt, new Date(createdAt.getTime() + secondTimeoutDuration.getSeconds() * 1000))
       const timeoutPlusOneHour = new Date(firstDeferredTransferCreatedAt.getTime() + 60 * 60 * 1000)
       deferredTransferBalance = getBalance(recipientKeyPairIndex, timeoutPlusOneHour)
-      const newDeferredTransferBalance = getBalance(secondRecipientKeyPairIndex, lastConfirmedAt);
-	    const userBalanceWithChange = getBalance(6, timeoutPlusOneHour);
-	    const decayedUserBalance = userBalance.calculateDecay(lastUserBalanceDate, timeoutPlusOneHour);
-      const timeBetween = GradidoUnit.calculateDecayDurationSeconds(lastUserBalanceDate, timeoutPlusOneHour);
-      expect(userBalanceWithChange.getGradidoCent()).toBeGreaterThan(decayedUserBalance.getGradidoCent())
-      expect(newDeferredTransferBalance.getGradidoCent()).toEqual(new GradidoUnit(483.0).getGradidoCent())
-      expect(timeBetween).toEqual(60 * 60 * 1000)
+      const newDeferredTransferBalance = getBalance(secondRecipientKeyPairIndex, lastConfirmedAt)
+	    const userBalanceWithChange = getBalance(6, timeoutPlusOneHour)
+	    const decayedUserBalance = userBalance.calculateDecay(lastUserBalanceDate, timeoutPlusOneHour)
+      const timeBetween = GradidoUnit.calculateDecayDurationSeconds(lastUserBalanceDate, timeoutPlusOneHour)
+      expect(userBalanceWithChange.getGradidoCent()).toEqual(decayedUserBalance.getGradidoCent())
+      expect(newDeferredTransferBalance.getGradidoCent()).toEqual(new GradidoUnit(996.3677).getGradidoCent())
+      expect(timeBetween).toEqual(60 * 60 - 60)
 
       createdAt = generateNewCreatedAt();
-      deferredTransferBalance = getBalance(recipientKeyPairIndex, createdAt)
-      // console.log('deferred transfer: ', deferredTransferBalance.toString())
-	    const thirdTimeout = new Date(createdAt.getTime() + 30 * 24 * 60 * 60 * 1000)
-	    expect(() => createGradidoDeferredTransfer(recipientKeyPairIndex, 6, '400.0', createdAt, thirdTimeout))
-        .toThrow('not enough gdd, needed: 413.5458, exist: ' + deferredTransferBalance.toString())
+      // 30 days
+      const thirdTimeoutDuration = new DurationSeconds(30 * 24 * 60 * 60)
+      const thirdRecipientKeyPairIndex = 10
+      let originalSenderBalance = getBalance(6, new Date(createdAt.getTime() + 60 * 60 * 1000))
+      let deferredFullBalance = new GradidoUnit(400.0).calculateCompoundInterest(thirdTimeoutDuration.getSeconds())
+      expect(() => createGradidoDeferredTransfer(6, thirdRecipientKeyPairIndex, deferredFullBalance, createdAt, thirdTimeoutDuration)).not.toThrow()
+      originalSenderBalance = originalSenderBalance.minus(deferredFullBalance)
+      lastTransactionEntry = blockchain.findOne(Filter.LAST_TRANSACTION)
+      confirmedTransaction = lastTransactionEntry?.getConfirmedTransaction()
+      expect(confirmedTransaction).not.toBeNull()
+      expect(confirmedTransaction?.getAccountBalances().size()).toEqual(2)
+      expect(confirmedTransaction?.getAccountBalance(keyPairs[6].getPublicKey()).getBalance()).toEqual(originalSenderBalance)
+      expect(confirmedTransaction?.getAccountBalance(keyPairs[thirdRecipientKeyPairIndex].getPublicKey()).getBalance()).toEqual(deferredFullBalance)      
+
+      // redeem second deferred transfer
+      const previousCreatedAt = createdAt;
+      createdAt = generateNewCreatedAt();
+      originalSenderBalance = originalSenderBalance.calculateDecay(previousCreatedAt, createdAt);
+      deferredFullBalance = deferredFullBalance.calculateDecay(previousCreatedAt, createdAt);
+      expect(() => createGradidoRedeemDeferredTransfer(thirdRecipientKeyPairIndex, 8, new GradidoUnit(400.0), createdAt, 8)).not.toThrow()
+      lastTransactionEntry = blockchain.findOne(Filter.LAST_TRANSACTION)
+      confirmedTransaction = lastTransactionEntry?.getConfirmedTransaction()
+      expect(confirmedTransaction?.getAccountBalances().size()).toEqual(3)
+      expect(confirmedTransaction?.getAccountBalance(keyPairs[secondRecipientKeyPairIndex].getPublicKey()).getBalance()).toEqual(originalSenderBalance.plus(deferredFullBalance).minus(new GradidoUnit(400.0)))
+      expect(confirmedTransaction?.getAccountBalance(keyPairs[thirdRecipientKeyPairIndex].getPublicKey()).getBalance()).toEqual(GradidoUnit.zero())
+      expect(confirmedTransaction?.getAccountBalance(keyPairs[8].getPublicKey()).getBalance()).toEqual(new GradidoUnit(400.0))	
     })
   })
 })
