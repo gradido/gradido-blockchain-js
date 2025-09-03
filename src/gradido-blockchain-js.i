@@ -54,6 +54,7 @@ E string_to_enum(const std::string& name);
 %rename(divide) operator/;
 %ignore operator|;
 %ignore operator&;
+%ignore operator=;
 
 // std libs 
 %include <std_string.i>
@@ -118,6 +119,7 @@ E string_to_enum(const std::string& name);
 // base types
 %include "GradidoUnit.i"
 %include "data.i"
+%include "data_hiero.i"
 
 // advanced types
 %include "GradidoTransactionBuilder.i"
