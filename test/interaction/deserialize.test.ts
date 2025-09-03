@@ -8,6 +8,8 @@ import {
   KeyPairEd25519,
   MemoryBlock,
   MemoryBlockPtr,
+  HieroTransactionId,
+  DeserializeType_HIERO_TRANSACTION_ID,
 } from '../../'
 import { 
   confirmedAt, 
@@ -25,6 +27,7 @@ import {
   creationTransactionBase64,
   deferredTransferTransactionBase64,
   gradidoTransactionSignedInvalidBody,
+  hieroTransactionIdBase64,
   invalidBodyTestPayload,
   minimalConfirmedTransaction,
   registerAddressTransactionBase64,
@@ -38,6 +41,18 @@ describe('Deserialize Gradido Transaction Test', () => {
     keyPairs = generateKeyPairs()
   })
   
+  it('hiero transaction id', () => {
+    const rawData = MemoryBlock.createPtr(MemoryBlock.fromBase64(hieroTransactionIdBase64))
+    const deserializer = new InteractionDeserialize(rawData, DeserializeType_HIERO_TRANSACTION_ID)
+    deserializer.run()  
+    expect(deserializer.isHieroTransactionId()).toBeTruthy()
+    const hieroTransactionId = deserializer.getHieroTransactionId()
+    expect(hieroTransactionId.getAccountId().toString()).toEqual('0.0.256009')
+    expect(hieroTransactionId.getAccountId().getAccountNum()).toEqual(256009)
+    expect(hieroTransactionId.getTransactionValidStart().getSeconds()).toEqual(1755503343)
+    expect(hieroTransactionId.getTransactionValidStart().getNanos()).toEqual(736000193)
+  })
+
   it('community root transaction body', () => {
     const rawData = MemoryBlock.createPtr(MemoryBlock.fromBase64(communityRootTransactionBase64))
     const deserializer = new InteractionDeserialize(rawData, DeserializeType_GRADIDO_TRANSACTION)
@@ -282,7 +297,7 @@ describe('Deserialize Gradido Transaction Test', () => {
     expect(confirmedTransaction?.getAccountBalances().get(1).getBalance().toString()).toEqual('899.7483')    
     expect(confirmedTransaction?.getRunningHash()?.size()).toEqual(crypto_generichash_BYTES)
     expect(confirmedTransaction?.getRunningHash()?.convertToHex())
-      .toEqual('1203c5aa94a724a49f10d00db79b8261e3fcb210588087d4a696a99c7a6c7103')
+      .toEqual('28a58de12318789f59ee15373a1ef8337da0e2cd66f266bf756590ffb5447ecc')
 
     const gradidoTransaction = confirmedTransaction?.getGradidoTransaction()
     expect(gradidoTransaction).not.toBeNull()

@@ -8,25 +8,25 @@
 
 #include "swig/gradido-blockchain-js.h"
 
-/* Class: TimestampSeconds (_exports_TimestampSeconds) */
+/* Class: HieroTransactionId (_exports_HieroTransactionId) */
 // jsnapi_getclass
-Napi::Function _exports_TimestampSeconds_inst::GetClass(Napi::Env env) {
-  std::map<std::string, _exports_TimestampSeconds_templ::PropertyDescriptor> members, staticMembers;
+Napi::Function _exports_HieroTransactionId_inst::GetClass(Napi::Env env) {
+  std::map<std::string, _exports_HieroTransactionId_templ::PropertyDescriptor> members, staticMembers;
   GetMembers(env, members, staticMembers);
   
-  std::vector<_exports_TimestampSeconds_inst::PropertyDescriptor> symbolTable;
+  std::vector<_exports_HieroTransactionId_inst::PropertyDescriptor> symbolTable;
   for (auto it = members.begin(); it != members.end(); it++)
   symbolTable.push_back(it->second);
   for (auto it = staticMembers.begin(); it != staticMembers.end(); it++)
   symbolTable.push_back(it->second);
   
-  return Napi::ObjectWrap<_exports_TimestampSeconds_inst>::DefineClass(env, "TimestampSeconds", symbolTable);
+  return Napi::ObjectWrap<_exports_HieroTransactionId_inst>::DefineClass(env, "HieroTransactionId", symbolTable);
 }
 
-void _exports_TimestampSeconds_inst::GetMembers(
+void _exports_HieroTransactionId_inst::GetMembers(
   Napi::Env env,
-  std::map<std::string, _exports_TimestampSeconds_templ::PropertyDescriptor> &members,
-  std::map<std::string, _exports_TimestampSeconds_templ::PropertyDescriptor> &staticMembers
+  std::map<std::string, _exports_HieroTransactionId_templ::PropertyDescriptor> &members,
+  std::map<std::string, _exports_HieroTransactionId_templ::PropertyDescriptor> &staticMembers
   ) {
   std::map<std::string, SWIG_NAPI_ObjectWrap_templ<SWIG_NAPI_ObjectWrap_inst>::PropertyDescriptor> baseMembers, baseStaticMembers;
   SWIG_NAPI_ObjectWrap_inst::GetMembers(env, baseMembers, baseStaticMembers);
@@ -35,75 +35,75 @@ void _exports_TimestampSeconds_inst::GetMembers(
   
   /* register wrapper functions */
   // jsnapi_register_member_function
-  members.erase("getDate");
+  members.erase("setScheduled");
   members.insert({
-    "getDate",
-      _exports_TimestampSeconds_templ::InstanceMethod("getDate",
-        &_exports_TimestampSeconds_templ::_wrap_TimestampSeconds_getDate,
+    "setScheduled",
+      _exports_HieroTransactionId_templ::InstanceMethod("setScheduled",
+        &_exports_HieroTransactionId_templ::_wrap_HieroTransactionId_setScheduled,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getSeconds");
+  members.erase("setNonce");
   members.insert({
-    "getSeconds",
-      _exports_TimestampSeconds_templ::InstanceMethod("getSeconds",
-        &_exports_TimestampSeconds_templ::_wrap_TimestampSeconds_getSeconds,
+    "setNonce",
+      _exports_HieroTransactionId_templ::InstanceMethod("setNonce",
+        &_exports_HieroTransactionId_templ::_wrap_HieroTransactionId_setNonce,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("equal");
+  members.erase("getTransactionValidStart");
   members.insert({
-    "equal",
-      _exports_TimestampSeconds_templ::InstanceMethod("equal",
-        &_exports_TimestampSeconds_templ::_wrap_TimestampSeconds_equal,
+    "getTransactionValidStart",
+      _exports_HieroTransactionId_templ::InstanceMethod("getTransactionValidStart",
+        &_exports_HieroTransactionId_templ::_wrap_HieroTransactionId_getTransactionValidStart,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("notEqual");
+  members.erase("getAccountId");
   members.insert({
-    "notEqual",
-      _exports_TimestampSeconds_templ::InstanceMethod("notEqual",
-        &_exports_TimestampSeconds_templ::_wrap_TimestampSeconds_notEqual,
+    "getAccountId",
+      _exports_HieroTransactionId_templ::InstanceMethod("getAccountId",
+        &_exports_HieroTransactionId_templ::_wrap_HieroTransactionId_getAccountId,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("lt");
+  members.erase("isScheduled");
   members.insert({
-    "lt",
-      _exports_TimestampSeconds_templ::InstanceMethod("lt",
-        &_exports_TimestampSeconds_templ::_wrap_TimestampSeconds_lt,
+    "isScheduled",
+      _exports_HieroTransactionId_templ::InstanceMethod("isScheduled",
+        &_exports_HieroTransactionId_templ::_wrap_HieroTransactionId_isScheduled,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("lte");
+  members.erase("getNonce");
   members.insert({
-    "lte",
-      _exports_TimestampSeconds_templ::InstanceMethod("lte",
-        &_exports_TimestampSeconds_templ::_wrap_TimestampSeconds_lte,
+    "getNonce",
+      _exports_HieroTransactionId_templ::InstanceMethod("getNonce",
+        &_exports_HieroTransactionId_templ::_wrap_HieroTransactionId_getNonce,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("gt");
+  members.erase("toString");
   members.insert({
-    "gt",
-      _exports_TimestampSeconds_templ::InstanceMethod("gt",
-        &_exports_TimestampSeconds_templ::_wrap_TimestampSeconds_gt,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("gte");
-  members.insert({
-    "gte",
-      _exports_TimestampSeconds_templ::InstanceMethod("gte",
-        &_exports_TimestampSeconds_templ::_wrap_TimestampSeconds_gte,
+    "toString",
+      _exports_HieroTransactionId_templ::InstanceMethod("toString",
+        &_exports_HieroTransactionId_templ::_wrap_HieroTransactionId_toString,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
   members.erase("empty");
   members.insert({
     "empty",
-      _exports_TimestampSeconds_templ::InstanceMethod("empty",
-        &_exports_TimestampSeconds_templ::_wrap_TimestampSeconds_empty,
+      _exports_HieroTransactionId_templ::InstanceMethod("empty",
+        &_exports_HieroTransactionId_templ::_wrap_HieroTransactionId_empty,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("equal");
+  members.insert({
+    "equal",
+      _exports_HieroTransactionId_templ::InstanceMethod("equal",
+        &_exports_HieroTransactionId_templ::_wrap_HieroTransactionId_equal,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

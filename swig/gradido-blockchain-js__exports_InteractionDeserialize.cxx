@@ -75,6 +75,30 @@ void _exports_InteractionDeserialize_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("isHieroAccountId");
+  members.insert({
+    "isHieroAccountId",
+      _exports_InteractionDeserialize_templ::InstanceMethod("isHieroAccountId",
+        &_exports_InteractionDeserialize_templ::_wrap_InteractionDeserialize_isHieroAccountId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isHieroTopicId");
+  members.insert({
+    "isHieroTopicId",
+      _exports_InteractionDeserialize_templ::InstanceMethod("isHieroTopicId",
+        &_exports_InteractionDeserialize_templ::_wrap_InteractionDeserialize_isHieroTopicId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isHieroTransactionId");
+  members.insert({
+    "isHieroTransactionId",
+      _exports_InteractionDeserialize_templ::InstanceMethod("isHieroTransactionId",
+        &_exports_InteractionDeserialize_templ::_wrap_InteractionDeserialize_isHieroTransactionId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getType");
   members.insert({
     "getType",
@@ -104,6 +128,30 @@ void _exports_InteractionDeserialize_inst::GetMembers(
     "getConfirmedTransaction",
       _exports_InteractionDeserialize_templ::InstanceMethod("getConfirmedTransaction",
         &_exports_InteractionDeserialize_templ::_wrap_InteractionDeserialize_getConfirmedTransaction,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getHieroAccountId");
+  members.insert({
+    "getHieroAccountId",
+      _exports_InteractionDeserialize_templ::InstanceMethod("getHieroAccountId",
+        &_exports_InteractionDeserialize_templ::_wrap_InteractionDeserialize_getHieroAccountId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getHieroTransactionId");
+  members.insert({
+    "getHieroTransactionId",
+      _exports_InteractionDeserialize_templ::InstanceMethod("getHieroTransactionId",
+        &_exports_InteractionDeserialize_templ::_wrap_InteractionDeserialize_getHieroTransactionId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getHieroTopicId");
+  members.insert({
+    "getHieroTopicId",
+      _exports_InteractionDeserialize_templ::InstanceMethod("getHieroTopicId",
+        &_exports_InteractionDeserialize_templ::_wrap_InteractionDeserialize_getHieroTopicId,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

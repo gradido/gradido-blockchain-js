@@ -1,3 +1,7 @@
+%rename(HieroAccountId) hiero::AccountId;
+%rename(HieroTopicId) hiero::TopicId;
+%rename(HieroTransactionId) hiero::TransactionId;
+
 %exception {
     try {
         $function

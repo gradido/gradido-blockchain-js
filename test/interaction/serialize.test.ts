@@ -17,6 +17,7 @@ import {
   EncryptedMemo,
   AccountBalance,
   MemoryBlockPtr,
+  HieroTransactionId,
 } from '../../'
 import { 
   autoCompleteTransactionMemoString, 
@@ -36,6 +37,7 @@ import {
   creationTransactionBase64,
   deferredTransferTransactionBase64,
   emptyTransactionBodyBase64,
+  hieroTransactionIdBase64,
   gradidoTransactionSignedInvalidBody,
   invalidBodyTestPayload,
   minimalConfirmedTransaction,
@@ -58,6 +60,12 @@ describe('Serialize Gradido Transactions Tests', () => {
     builder
       .setCreatedAt(createdAt)
       .setVersionNumber(versionString)
+  })
+
+  it('hiero transaction id', () => {
+    const transactionId = new HieroTransactionId("0.0.256009@1755503343.736000193");
+    const serialized = new InteractionSerialize(transactionId).run()
+    expect(serialized?.convertToBase64()).toEqual(hieroTransactionIdBase64)
   })
 
   it('transaction body without memo', () => {

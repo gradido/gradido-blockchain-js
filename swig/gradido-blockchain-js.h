@@ -980,44 +980,47 @@ SWIGCLINKAGE SWIGINTERN swig_cast_info *swig_cast_initial[];
 #define SWIGTYPE_p_gradido__interaction__serialize__Context swig_types[51]
 #define SWIGTYPE_p_gradido__interaction__toJson__Context swig_types[52]
 #define SWIGTYPE_p_gradido__interaction__validate__Context swig_types[53]
-#define SWIGTYPE_p_int swig_types[54]
-#define SWIGTYPE_p_long_long swig_types[55]
-#define SWIGTYPE_p_memory__Block swig_types[56]
-#define SWIGTYPE_p_memory__BlockPtrWrapper swig_types[57]
-#define SWIGTYPE_p_second_type swig_types[58]
-#define SWIGTYPE_p_short swig_types[59]
-#define SWIGTYPE_p_signed_char swig_types[60]
-#define SWIGTYPE_p_size_type swig_types[61]
-#define SWIGTYPE_p_std__chrono__system_clock__duration swig_types[62]
-#define SWIGTYPE_p_std__chrono__time_pointT_std__chrono__system_clock_t swig_types[63]
-#define SWIGTYPE_p_std__listT_std__shared_ptrT_gradido__blockchain__TransactionEntry_const_t_t swig_types[64]
-#define SWIGTYPE_p_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t swig_types[65]
-#define SWIGTYPE_p_std__shared_ptrT_KeyPairEd25519Ex_t swig_types[66]
-#define SWIGTYPE_p_std__shared_ptrT_KeyPairEd25519_t swig_types[67]
-#define SWIGTYPE_p_std__shared_ptrT_Passphrase_t swig_types[68]
-#define SWIGTYPE_p_std__shared_ptrT_SecretKeyCryptography_t swig_types[69]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__Abstract_t swig_types[70]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__InMemory_t swig_types[71]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__TransactionEntry_t swig_types[72]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t swig_types[73]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t swig_types[74]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t swig_types[75]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__TransactionBody_const_t swig_types[76]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t swig_types[77]
-#define SWIGTYPE_p_std__shared_ptrT_memory__Block_const_t swig_types[78]
-#define SWIGTYPE_p_std__shared_ptrT_memory__Block_t swig_types[79]
-#define SWIGTYPE_p_std__vectorT_gradido__data__AccountBalance_t swig_types[80]
-#define SWIGTYPE_p_std__vectorT_gradido__data__EncryptedMemo_t swig_types[81]
-#define SWIGTYPE_p_std__vectorT_gradido__data__SignaturePair_t swig_types[82]
-#define SWIGTYPE_p_std__vectorT_memory__BlockPtrWrapper_t swig_types[83]
-#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t swig_types[84]
-#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t swig_types[85]
-#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t swig_types[86]
-#define SWIGTYPE_p_unsigned_char swig_types[87]
-#define SWIGTYPE_p_unsigned_int swig_types[88]
-#define SWIGTYPE_p_unsigned_long_long swig_types[89]
-#define SWIGTYPE_p_unsigned_short swig_types[90]
-#define SWIGTYPE_p_value_type swig_types[91]
+#define SWIGTYPE_p_hiero__AccountId swig_types[54]
+#define SWIGTYPE_p_hiero__TopicId swig_types[55]
+#define SWIGTYPE_p_hiero__TransactionId swig_types[56]
+#define SWIGTYPE_p_int swig_types[57]
+#define SWIGTYPE_p_long_long swig_types[58]
+#define SWIGTYPE_p_memory__Block swig_types[59]
+#define SWIGTYPE_p_memory__BlockPtrWrapper swig_types[60]
+#define SWIGTYPE_p_second_type swig_types[61]
+#define SWIGTYPE_p_short swig_types[62]
+#define SWIGTYPE_p_signed_char swig_types[63]
+#define SWIGTYPE_p_size_type swig_types[64]
+#define SWIGTYPE_p_std__chrono__system_clock__duration swig_types[65]
+#define SWIGTYPE_p_std__chrono__time_pointT_std__chrono__system_clock_t swig_types[66]
+#define SWIGTYPE_p_std__listT_std__shared_ptrT_gradido__blockchain__TransactionEntry_const_t_t swig_types[67]
+#define SWIGTYPE_p_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t swig_types[68]
+#define SWIGTYPE_p_std__shared_ptrT_KeyPairEd25519Ex_t swig_types[69]
+#define SWIGTYPE_p_std__shared_ptrT_KeyPairEd25519_t swig_types[70]
+#define SWIGTYPE_p_std__shared_ptrT_Passphrase_t swig_types[71]
+#define SWIGTYPE_p_std__shared_ptrT_SecretKeyCryptography_t swig_types[72]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__Abstract_t swig_types[73]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__InMemory_t swig_types[74]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__TransactionEntry_t swig_types[75]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t swig_types[76]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t swig_types[77]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t swig_types[78]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__TransactionBody_const_t swig_types[79]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t swig_types[80]
+#define SWIGTYPE_p_std__shared_ptrT_memory__Block_const_t swig_types[81]
+#define SWIGTYPE_p_std__shared_ptrT_memory__Block_t swig_types[82]
+#define SWIGTYPE_p_std__vectorT_gradido__data__AccountBalance_t swig_types[83]
+#define SWIGTYPE_p_std__vectorT_gradido__data__EncryptedMemo_t swig_types[84]
+#define SWIGTYPE_p_std__vectorT_gradido__data__SignaturePair_t swig_types[85]
+#define SWIGTYPE_p_std__vectorT_memory__BlockPtrWrapper_t swig_types[86]
+#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t swig_types[87]
+#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t swig_types[88]
+#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t swig_types[89]
+#define SWIGTYPE_p_unsigned_char swig_types[90]
+#define SWIGTYPE_p_unsigned_int swig_types[91]
+#define SWIGTYPE_p_unsigned_long_long swig_types[92]
+#define SWIGTYPE_p_unsigned_short swig_types[93]
+#define SWIGTYPE_p_value_type swig_types[94]
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 SWIGCLINKAGE SWIGINTERN swig_type_info *swig_types[];
@@ -1406,6 +1409,11 @@ Napi::Value SWIG_From_unsigned_SS_long_SS_long(Napi::Env env, unsigned long long
 #endif
 
 
+#include <memory>
+
+// js_global_declaration
+Napi::Value _wrap_lt(const Napi::CallbackInfo &info);
+
 #include "gradido_blockchain/GradidoTransactionBuilder.h"
 
 
@@ -1421,9 +1429,6 @@ Napi::Value _wrap_stringToDeserializeType(const Napi::CallbackInfo &info);
 
 #include "gradido_blockchain/interaction/serialize/Exceptions.h"
 #include "gradido_blockchain/interaction/serialize/Context.h"
-
-
-#include <memory>
 
 
 #include "gradido_blockchain/blockchain/TransactionEntry.h"
@@ -2359,6 +2364,8 @@ Napi::Value _wrap_TimestampSeconds_lte(const Napi::CallbackInfo &);
 Napi::Value _wrap_TimestampSeconds_gt(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_TimestampSeconds_gte(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_TimestampSeconds_empty(const Napi::CallbackInfo &);
 virtual ~_exports_TimestampSeconds_templ();
 // jsnapi_class_epilogue_template
 };
@@ -2406,6 +2413,8 @@ Napi::Value _wrap_Timestamp__wrap_Timestamp_lt(const Napi::CallbackInfo &);
 Napi::Value _wrap_Timestamp_gt__SWIG_1(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_Timestamp__wrap_Timestamp_gt(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_Timestamp_empty(const Napi::CallbackInfo &);
 virtual ~_exports_Timestamp_templ();
 // jsnapi_class_epilogue_template
 };
@@ -3069,6 +3078,143 @@ public:
 };
 // jsnapi_class_prologue_template
 template <typename SWIG_OBJ_WRAP>
+class _exports_HieroAccountId_templ : public SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP> {
+public:
+  _exports_HieroAccountId_templ(const Napi::CallbackInfo &);
+_exports_HieroAccountId_templ(bool, const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_HieroAccountId__SWIG_0(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_HieroAccountId__SWIG_1(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_HieroAccountId__SWIG_2(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_HieroAccountId__SWIG_3(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_HieroAccountId__SWIG_4(const Napi::CallbackInfo &);
+virtual ~_exports_HieroAccountId_templ();
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_HieroAccountId__SWIG_5(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_HieroAccountId__SWIG_6(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroAccountId_getShardNum(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroAccountId_getRealmNum(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroAccountId_getAccountNum(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroAccountId_getAlias(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroAccountId_toString(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroAccountId_empty(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroAccountId_equal(const Napi::CallbackInfo &);
+// jsnapi_class_epilogue_template
+};
+// jsnapi_class_instance
+class _exports_HieroAccountId_inst : public _exports_HieroAccountId_templ<_exports_HieroAccountId_inst> {
+public:
+  using _exports_HieroAccountId_templ::_exports_HieroAccountId_templ;
+  virtual ~_exports_HieroAccountId_inst() = default;
+  static void GetMembers(
+    Napi::Env,
+    std::map<std::string, _exports_HieroAccountId_templ::PropertyDescriptor> &,
+    std::map<std::string, _exports_HieroAccountId_templ::PropertyDescriptor> &
+    );
+  static Napi::Function GetClass(Napi::Env);
+};
+// jsnapi_class_prologue_template
+template <typename SWIG_OBJ_WRAP>
+class _exports_HieroTopicId_templ : public SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP> {
+public:
+  _exports_HieroTopicId_templ(const Napi::CallbackInfo &);
+_exports_HieroTopicId_templ(bool, const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_HieroTopicId__SWIG_0(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_HieroTopicId__SWIG_1(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_HieroTopicId__SWIG_2(const Napi::CallbackInfo &);
+virtual ~_exports_HieroTopicId_templ();
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_HieroTopicId__SWIG_3(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_HieroTopicId__SWIG_4(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroTopicId_getShardNum(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroTopicId_getRealmNum(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroTopicId_getTopicNum(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroTopicId_toString(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroTopicId_equal(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroTopicId_empty(const Napi::CallbackInfo &);
+// jsnapi_class_epilogue_template
+};
+// jsnapi_class_instance
+class _exports_HieroTopicId_inst : public _exports_HieroTopicId_templ<_exports_HieroTopicId_inst> {
+public:
+  using _exports_HieroTopicId_templ::_exports_HieroTopicId_templ;
+  virtual ~_exports_HieroTopicId_inst() = default;
+  static void GetMembers(
+    Napi::Env,
+    std::map<std::string, _exports_HieroTopicId_templ::PropertyDescriptor> &,
+    std::map<std::string, _exports_HieroTopicId_templ::PropertyDescriptor> &
+    );
+  static Napi::Function GetClass(Napi::Env);
+};
+// jsnapi_class_prologue_template
+template <typename SWIG_OBJ_WRAP>
+class _exports_HieroTransactionId_templ : public SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP> {
+public:
+  _exports_HieroTransactionId_templ(const Napi::CallbackInfo &);
+_exports_HieroTransactionId_templ(bool, const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_HieroTransactionId__SWIG_0(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_HieroTransactionId__SWIG_1(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_HieroTransactionId__SWIG_2(const Napi::CallbackInfo &);
+virtual ~_exports_HieroTransactionId_templ();
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroTransactionId_setScheduled(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroTransactionId_setNonce(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroTransactionId_getTransactionValidStart(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroTransactionId_getAccountId(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroTransactionId_isScheduled(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroTransactionId_getNonce(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroTransactionId_toString(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroTransactionId_empty(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroTransactionId_equal(const Napi::CallbackInfo &);
+// jsnapi_class_epilogue_template
+};
+// jsnapi_class_instance
+class _exports_HieroTransactionId_inst : public _exports_HieroTransactionId_templ<_exports_HieroTransactionId_inst> {
+public:
+  using _exports_HieroTransactionId_templ::_exports_HieroTransactionId_templ;
+  virtual ~_exports_HieroTransactionId_inst() = default;
+  static void GetMembers(
+    Napi::Env,
+    std::map<std::string, _exports_HieroTransactionId_templ::PropertyDescriptor> &,
+    std::map<std::string, _exports_HieroTransactionId_templ::PropertyDescriptor> &
+    );
+  static Napi::Function GetClass(Napi::Env);
+};
+// jsnapi_class_prologue_template
+template <typename SWIG_OBJ_WRAP>
 class _exports_GradidoTransactionBuilder_templ : public SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP> {
 public:
   _exports_GradidoTransactionBuilder_templ(const Napi::CallbackInfo &);
@@ -3189,6 +3335,12 @@ Napi::Value exports_DeserializeType_CONFIRMED_TRANSACTION_get(const Napi::Callba
 // js_global_declaration
 Napi::Value exports_DeserializeType_TRANSACTION_TRIGGER_EVENT_get(const Napi::CallbackInfo &info);
 // js_global_declaration
+Napi::Value exports_DeserializeType_HIERO_ACCOUNT_ID_get(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value exports_DeserializeType_HIERO_TOPIC_ID_get(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value exports_DeserializeType_HIERO_TRANSACTION_ID_get(const Napi::CallbackInfo &info);
+// js_global_declaration
 Napi::Value exports_DeserializeType_MAX_get(const Napi::CallbackInfo &info);
 // jsnapi_class_prologue_template
 template <typename SWIG_OBJ_WRAP>
@@ -3212,6 +3364,12 @@ Napi::Value _wrap_InteractionDeserialize_isConfirmedTransaction(const Napi::Call
 // jsnapi_class_method_declaration
 Napi::Value _wrap_InteractionDeserialize_isTransactionTriggerEvent(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
+Napi::Value _wrap_InteractionDeserialize_isHieroAccountId(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_InteractionDeserialize_isHieroTopicId(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_InteractionDeserialize_isHieroTransactionId(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
 Napi::Value _wrap_InteractionDeserialize_getType(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_InteractionDeserialize_getTransactionBody(const Napi::CallbackInfo &);
@@ -3219,6 +3377,12 @@ Napi::Value _wrap_InteractionDeserialize_getTransactionBody(const Napi::Callback
 Napi::Value _wrap_InteractionDeserialize_getGradidoTransaction(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_InteractionDeserialize_getConfirmedTransaction(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_InteractionDeserialize_getHieroAccountId(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_InteractionDeserialize_getHieroTransactionId(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_InteractionDeserialize_getHieroTopicId(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_InteractionDeserialize_getTransactionTriggerEvent(const Napi::CallbackInfo &);
 // jsnapi_class_epilogue_template
@@ -3253,6 +3417,12 @@ Napi::Value _wrap_new_InteractionSerialize__SWIG_3(const Napi::CallbackInfo &);
 Napi::Value _wrap_new_InteractionSerialize__SWIG_4(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_new_InteractionSerialize__SWIG_5(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_InteractionSerialize__SWIG_6(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_InteractionSerialize__SWIG_7(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_InteractionSerialize__SWIG_8(const Napi::CallbackInfo &);
 virtual ~_exports_InteractionSerialize_templ();
 // jsnapi_class_method_declaration
 Napi::Value _wrap_InteractionSerialize_run(const Napi::CallbackInfo &);
@@ -21555,6 +21725,61 @@ fail:
 }
 
 
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_TimestampSeconds_templ<SWIG_OBJ_WRAP>::_wrap_TimestampSeconds_empty(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::TimestampSeconds *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_TimestampSeconds_empty.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__data__TimestampSeconds, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TimestampSeconds_empty" "', argument " "1"" of type '" "gradido::data::TimestampSeconds const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::data::TimestampSeconds * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)((gradido::data::TimestampSeconds const *)arg1)->empty();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
 // js_dtoroverride
 template <typename SWIG_OBJ_WRAP>
 _exports_TimestampSeconds_templ<SWIG_OBJ_WRAP>::~_exports_TimestampSeconds_templ() {
@@ -22493,6 +22718,61 @@ Napi::Value _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_wrap_Timestamp__wrap_Times
 #ifndef NAPI_CPP_EXCEPTIONS
   goto fail;
 fail:
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_wrap_Timestamp_empty(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::Timestamp *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_Timestamp_empty.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__data__Timestamp, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Timestamp_empty" "', argument " "1"" of type '" "gradido::data::Timestamp const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::data::Timestamp * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)((gradido::data::Timestamp const *)arg1)->empty();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
 #endif
   return Napi::Value();
 }
@@ -32927,7 +33207,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedT
   gradido::data::ConfirmedTransaction *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  gradido::data::TimestampSeconds result;
+  gradido::data::Timestamp result;
   
   
 #ifdef NAPI_CPP_EXCEPTIONS
@@ -32957,7 +33237,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedT
     
     
     
-    jsresult = SWIG_NewPointerObj((new gradido::data::TimestampSeconds(result)), SWIGTYPE_p_gradido__data__TimestampSeconds, SWIG_POINTER_OWN |  0 );
+    jsresult = SWIG_NewPointerObj((new gradido::data::Timestamp(result)), SWIGTYPE_p_gradido__data__Timestamp, SWIG_POINTER_OWN |  0 );
     
     
     return jsresult;
@@ -33666,6 +33946,2730 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedT
     
     
     jsresult = SWIG_NewPointerObj((new std::vector< memory::ConstBlockPtr >(result)), SWIGTYPE_p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroAccountId__SWIG_0(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  hiero::AccountId *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroAccountId__SWIG_0.");
+    }
+    {
+      try {
+        result = (hiero::AccountId *)new hiero::AccountId();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroAccountId__SWIG_1(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  int64_t arg1 ;
+  int64_t arg2 ;
+  int64_t arg3 ;
+  long long val1 ;
+  int ecode1 = 0 ;
+  long long val2 ;
+  int ecode2 = 0 ;
+  long long val3 ;
+  int ecode3 = 0 ;
+  hiero::AccountId *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 3 || static_cast<int>(info.Length()) > 3) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroAccountId__SWIG_1.");
+    }
+    ecode1 = SWIG_AsVal_long_SS_long(info[0], &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_HieroAccountId" "', argument " "1"" of type '" "int64_t""'");
+    } 
+    arg1 = static_cast< int64_t >(val1);ecode2 = SWIG_AsVal_long_SS_long(info[1], &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_HieroAccountId" "', argument " "2"" of type '" "int64_t""'");
+    } 
+    arg2 = static_cast< int64_t >(val2);ecode3 = SWIG_AsVal_long_SS_long(info[2], &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_HieroAccountId" "', argument " "3"" of type '" "int64_t""'");
+    } 
+    arg3 = static_cast< int64_t >(val3);{
+      try {
+        result = (hiero::AccountId *)new hiero::AccountId(arg1,arg2,arg3);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroAccountId__SWIG_2(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  int64_t arg1 ;
+  int64_t arg2 ;
+  memory::Block *arg3 = 0 ;
+  long long val1 ;
+  int ecode1 = 0 ;
+  long long val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  hiero::AccountId *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 3 || static_cast<int>(info.Length()) > 3) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroAccountId__SWIG_2.");
+    }
+    ecode1 = SWIG_AsVal_long_SS_long(info[0], &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_HieroAccountId" "', argument " "1"" of type '" "int64_t""'");
+    } 
+    arg1 = static_cast< int64_t >(val1);ecode2 = SWIG_AsVal_long_SS_long(info[1], &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_HieroAccountId" "', argument " "2"" of type '" "int64_t""'");
+    } 
+    arg2 = static_cast< int64_t >(val2);res3 = SWIG_ConvertPtr(info[2], &argp3, SWIGTYPE_p_memory__Block,  0 );
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_HieroAccountId" "', argument " "3"" of type '" "memory::Block const &""'"); 
+    }
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_HieroAccountId" "', argument " "3"" of type '" "memory::Block const &""'"); 
+    }
+    arg3 = reinterpret_cast< memory::Block * >(argp3);{
+      try {
+        result = (hiero::AccountId *)new hiero::AccountId(arg1,arg2,(memory::Block const &)*arg3);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroAccountId__SWIG_3(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  int64_t arg1 ;
+  int64_t arg2 ;
+  memory::Block *arg3 = 0 ;
+  long long val1 ;
+  int ecode1 = 0 ;
+  long long val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  std::unique_ptr< memory::Block > rvrdeleter3 ;
+  hiero::AccountId *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 3 || static_cast<int>(info.Length()) > 3) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroAccountId__SWIG_3.");
+    }
+    ecode1 = SWIG_AsVal_long_SS_long(info[0], &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_HieroAccountId" "', argument " "1"" of type '" "int64_t""'");
+    } 
+    arg1 = static_cast< int64_t >(val1);ecode2 = SWIG_AsVal_long_SS_long(info[1], &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_HieroAccountId" "', argument " "2"" of type '" "int64_t""'");
+    } 
+    arg2 = static_cast< int64_t >(val2);res3 = SWIG_ConvertPtr(info[2], &argp3, SWIGTYPE_p_memory__Block, SWIG_POINTER_RELEASE |  0 );
+    if (!SWIG_IsOK(res3)) {
+      if (res3 == SWIG_ERROR_RELEASE_NOT_OWNED) {
+        SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_HieroAccountId" "', cannot release ownership as memory is not owned for argument " "3"" of type '" "memory::Block &&""'");
+      } else {
+        SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_HieroAccountId" "', argument " "3"" of type '" "memory::Block &&""'"); 
+      }
+    }
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_HieroAccountId" "', argument " "3"" of type '" "memory::Block &&""'"); 
+    }
+    arg3 = reinterpret_cast< memory::Block * >(argp3);
+    rvrdeleter3.reset(arg3);{
+      try {
+        result = (hiero::AccountId *)new hiero::AccountId(arg1,arg2,(memory::Block &&)*arg3);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroAccountId__SWIG_4(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  std::string *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  hiero::AccountId *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroAccountId__SWIG_4.");
+    }
+    {
+      {
+        std::string *ptr = (std::string *)0;
+        res1 = SWIG_AsPtr_std_string(info[0], &ptr);
+        if (!SWIG_IsOK(res1)) {
+          SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_HieroAccountId" "', argument " "1"" of type '" "std::string const &""'"); 
+        }
+        if (!ptr) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_HieroAccountId" "', argument " "1"" of type '" "std::string const &""'"); 
+        }
+        arg1 = ptr;
+      }
+    }
+    {
+      try {
+        result = (hiero::AccountId *)new hiero::AccountId((std::string const &)*arg1);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    if (SWIG_IsNewObj(res1)) delete arg1;
+    
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  
+  return Napi::Value();
+}
+
+
+// js_dtoroverride
+template <typename SWIG_OBJ_WRAP>
+_exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::~_exports_HieroAccountId_templ() {
+  this->SWIG_Finalize();
+  auto arg1 = reinterpret_cast<hiero::AccountId *>(this->self);
+  if (this->owned && arg1) {
+    delete arg1;
+    this->self = SWIG_NULLPTR;
+  }
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroAccountId__SWIG_5(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  hiero::AccountId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  hiero::AccountId *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroAccountId__SWIG_5.");
+    }
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_hiero__AccountId,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_HieroAccountId" "', argument " "1"" of type '" "hiero::AccountId const &""'"); 
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_HieroAccountId" "', argument " "1"" of type '" "hiero::AccountId const &""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::AccountId * >(argp1);{
+      try {
+        result = (hiero::AccountId *)new hiero::AccountId((hiero::AccountId const &)*arg1);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroAccountId__SWIG_6(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  hiero::AccountId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::unique_ptr< hiero::AccountId > rvrdeleter1 ;
+  hiero::AccountId *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroAccountId__SWIG_6.");
+    }
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_hiero__AccountId, SWIG_POINTER_RELEASE |  0 );
+    if (!SWIG_IsOK(res1)) {
+      if (res1 == SWIG_ERROR_RELEASE_NOT_OWNED) {
+        SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_HieroAccountId" "', cannot release ownership as memory is not owned for argument " "1"" of type '" "hiero::AccountId &&""'");
+      } else {
+        SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_HieroAccountId" "', argument " "1"" of type '" "hiero::AccountId &&""'"); 
+      }
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_HieroAccountId" "', argument " "1"" of type '" "hiero::AccountId &&""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::AccountId * >(argp1);
+    rvrdeleter1.reset(arg1);{
+      try {
+        result = (hiero::AccountId *)new hiero::AccountId((hiero::AccountId &&)*arg1);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_ctor_dispatcher
+template <typename SWIG_OBJ_WRAP>
+_exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_exports_HieroAccountId_templ(const Napi::CallbackInfo &info)
+:SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP>(true, info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  NAPI_CHECK_RESULT(info.This().ToObject(), self);
+  this->info = SWIGTYPE_p_hiero__AccountId;
+  if (info.Length() == 1 && info[0].IsExternal()) {
+    // This constructor has been called internally from C++/SWIG
+    // to wrap an already existing C++ object in JS
+    this->self = info[0].As<Napi::External<void>>().Data();
+    this->owned = false;
+    return;
+  }
+  
+  // switch all cases by means of series of if-returns.
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 0 && static_cast<int>(info.Length()) <= 0) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_HieroAccountId__SWIG_0(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_HieroAccountId__SWIG_0(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 3 && static_cast<int>(info.Length()) <= 3) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_HieroAccountId__SWIG_1(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_HieroAccountId__SWIG_1(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 3 && static_cast<int>(info.Length()) <= 3) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_HieroAccountId__SWIG_2(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_HieroAccountId__SWIG_2(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 3 && static_cast<int>(info.Length()) <= 3) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_HieroAccountId__SWIG_3(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_HieroAccountId__SWIG_3(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_HieroAccountId__SWIG_4(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_HieroAccountId__SWIG_4(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_HieroAccountId__SWIG_5(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_HieroAccountId__SWIG_5(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_HieroAccountId__SWIG_6(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_HieroAccountId__SWIG_6(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  
+  // default:
+  SWIG_Error(SWIG_ERROR, "Illegal arguments for construction of _exports_HieroAccountId");
+  
+#ifndef NAPI_CPP_EXCEPTIONS
+  goto fail;
+fail:
+  return;
+#endif
+}
+
+// This is the extendable constructor to be used from child classes
+template <typename SWIG_OBJ_WRAP>
+_exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_exports_HieroAccountId_templ(bool, const Napi::CallbackInfo &info)
+:SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP>(true, info) {
+  
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_HieroAccountId_getShardNum(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::AccountId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int64_t result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroAccountId_getShardNum.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__AccountId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroAccountId_getShardNum" "', argument " "1"" of type '" "hiero::AccountId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::AccountId * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (int64_t)((hiero::AccountId const *)arg1)->getShardNum();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< long long >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_HieroAccountId_getRealmNum(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::AccountId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int64_t result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroAccountId_getRealmNum.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__AccountId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroAccountId_getRealmNum" "', argument " "1"" of type '" "hiero::AccountId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::AccountId * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (int64_t)((hiero::AccountId const *)arg1)->getRealmNum();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< long long >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_HieroAccountId_getAccountNum(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::AccountId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int64_t result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroAccountId_getAccountNum.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__AccountId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroAccountId_getAccountNum" "', argument " "1"" of type '" "hiero::AccountId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::AccountId * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (int64_t)((hiero::AccountId const *)arg1)->getAccountNum();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< long long >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_HieroAccountId_getAlias(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::AccountId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  memory::Block *result = 0 ;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroAccountId_getAlias.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__AccountId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroAccountId_getAlias" "', argument " "1"" of type '" "hiero::AccountId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::AccountId * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (memory::Block *) &((hiero::AccountId const *)arg1)->getAlias();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_memory__Block, 0 |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_HieroAccountId_toString(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::AccountId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::string result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroAccountId_toString.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__AccountId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroAccountId_toString" "', argument " "1"" of type '" "hiero::AccountId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::AccountId * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = ((hiero::AccountId const *)arg1)->toString();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_HieroAccountId_empty(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::AccountId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroAccountId_empty.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__AccountId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroAccountId_empty" "', argument " "1"" of type '" "hiero::AccountId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::AccountId * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)((hiero::AccountId const *)arg1)->empty();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_HieroAccountId_equal(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::AccountId *arg1 = 0 ;
+  hiero::AccountId *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroAccountId_equal.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__AccountId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroAccountId_equal" "', argument " "1"" of type '" "hiero::AccountId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::AccountId * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_hiero__AccountId,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HieroAccountId_equal" "', argument " "2"" of type '" "hiero::AccountId const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "HieroAccountId_equal" "', argument " "2"" of type '" "hiero::AccountId const &""'"); 
+    }
+    arg2 = reinterpret_cast< hiero::AccountId * >(argp2);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)((hiero::AccountId const *)arg1)->operator ==((hiero::AccountId const &)*arg2);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTopicId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroTopicId__SWIG_0(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  hiero::TopicId *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroTopicId__SWIG_0.");
+    }
+    {
+      try {
+        result = (hiero::TopicId *)new hiero::TopicId();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTopicId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroTopicId__SWIG_1(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  int64_t arg1 ;
+  int64_t arg2 ;
+  int64_t arg3 ;
+  long long val1 ;
+  int ecode1 = 0 ;
+  long long val2 ;
+  int ecode2 = 0 ;
+  long long val3 ;
+  int ecode3 = 0 ;
+  hiero::TopicId *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 3 || static_cast<int>(info.Length()) > 3) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroTopicId__SWIG_1.");
+    }
+    ecode1 = SWIG_AsVal_long_SS_long(info[0], &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_HieroTopicId" "', argument " "1"" of type '" "int64_t""'");
+    } 
+    arg1 = static_cast< int64_t >(val1);ecode2 = SWIG_AsVal_long_SS_long(info[1], &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_HieroTopicId" "', argument " "2"" of type '" "int64_t""'");
+    } 
+    arg2 = static_cast< int64_t >(val2);ecode3 = SWIG_AsVal_long_SS_long(info[2], &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_HieroTopicId" "', argument " "3"" of type '" "int64_t""'");
+    } 
+    arg3 = static_cast< int64_t >(val3);{
+      try {
+        result = (hiero::TopicId *)new hiero::TopicId(arg1,arg2,arg3);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTopicId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroTopicId__SWIG_2(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  std::string *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  hiero::TopicId *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroTopicId__SWIG_2.");
+    }
+    {
+      {
+        std::string *ptr = (std::string *)0;
+        res1 = SWIG_AsPtr_std_string(info[0], &ptr);
+        if (!SWIG_IsOK(res1)) {
+          SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_HieroTopicId" "', argument " "1"" of type '" "std::string const &""'"); 
+        }
+        if (!ptr) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_HieroTopicId" "', argument " "1"" of type '" "std::string const &""'"); 
+        }
+        arg1 = ptr;
+      }
+    }
+    {
+      try {
+        result = (hiero::TopicId *)new hiero::TopicId((std::string const &)*arg1);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    if (SWIG_IsNewObj(res1)) delete arg1;
+    
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  
+  return Napi::Value();
+}
+
+
+// js_dtoroverride
+template <typename SWIG_OBJ_WRAP>
+_exports_HieroTopicId_templ<SWIG_OBJ_WRAP>::~_exports_HieroTopicId_templ() {
+  this->SWIG_Finalize();
+  auto arg1 = reinterpret_cast<hiero::TopicId *>(this->self);
+  if (this->owned && arg1) {
+    delete arg1;
+    this->self = SWIG_NULLPTR;
+  }
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTopicId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroTopicId__SWIG_3(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  hiero::TopicId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  hiero::TopicId *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroTopicId__SWIG_3.");
+    }
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_hiero__TopicId,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_HieroTopicId" "', argument " "1"" of type '" "hiero::TopicId const &""'"); 
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_HieroTopicId" "', argument " "1"" of type '" "hiero::TopicId const &""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::TopicId * >(argp1);{
+      try {
+        result = (hiero::TopicId *)new hiero::TopicId((hiero::TopicId const &)*arg1);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTopicId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroTopicId__SWIG_4(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  hiero::TopicId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::unique_ptr< hiero::TopicId > rvrdeleter1 ;
+  hiero::TopicId *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroTopicId__SWIG_4.");
+    }
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_hiero__TopicId, SWIG_POINTER_RELEASE |  0 );
+    if (!SWIG_IsOK(res1)) {
+      if (res1 == SWIG_ERROR_RELEASE_NOT_OWNED) {
+        SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_HieroTopicId" "', cannot release ownership as memory is not owned for argument " "1"" of type '" "hiero::TopicId &&""'");
+      } else {
+        SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_HieroTopicId" "', argument " "1"" of type '" "hiero::TopicId &&""'"); 
+      }
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_HieroTopicId" "', argument " "1"" of type '" "hiero::TopicId &&""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::TopicId * >(argp1);
+    rvrdeleter1.reset(arg1);{
+      try {
+        result = (hiero::TopicId *)new hiero::TopicId((hiero::TopicId &&)*arg1);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_ctor_dispatcher
+template <typename SWIG_OBJ_WRAP>
+_exports_HieroTopicId_templ<SWIG_OBJ_WRAP>::_exports_HieroTopicId_templ(const Napi::CallbackInfo &info)
+:SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP>(true, info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  NAPI_CHECK_RESULT(info.This().ToObject(), self);
+  this->info = SWIGTYPE_p_hiero__TopicId;
+  if (info.Length() == 1 && info[0].IsExternal()) {
+    // This constructor has been called internally from C++/SWIG
+    // to wrap an already existing C++ object in JS
+    this->self = info[0].As<Napi::External<void>>().Data();
+    this->owned = false;
+    return;
+  }
+  
+  // switch all cases by means of series of if-returns.
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 0 && static_cast<int>(info.Length()) <= 0) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_HieroTopicId__SWIG_0(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_HieroTopicId__SWIG_0(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 3 && static_cast<int>(info.Length()) <= 3) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_HieroTopicId__SWIG_1(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_HieroTopicId__SWIG_1(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_HieroTopicId__SWIG_2(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_HieroTopicId__SWIG_2(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_HieroTopicId__SWIG_3(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_HieroTopicId__SWIG_3(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_HieroTopicId__SWIG_4(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_HieroTopicId__SWIG_4(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  
+  // default:
+  SWIG_Error(SWIG_ERROR, "Illegal arguments for construction of _exports_HieroTopicId");
+  
+#ifndef NAPI_CPP_EXCEPTIONS
+  goto fail;
+fail:
+  return;
+#endif
+}
+
+// This is the extendable constructor to be used from child classes
+template <typename SWIG_OBJ_WRAP>
+_exports_HieroTopicId_templ<SWIG_OBJ_WRAP>::_exports_HieroTopicId_templ(bool, const Napi::CallbackInfo &info)
+:SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP>(true, info) {
+  
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTopicId_templ<SWIG_OBJ_WRAP>::_wrap_HieroTopicId_getShardNum(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::TopicId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int64_t result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroTopicId_getShardNum.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__TopicId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTopicId_getShardNum" "', argument " "1"" of type '" "hiero::TopicId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::TopicId * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (int64_t)((hiero::TopicId const *)arg1)->getShardNum();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< long long >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTopicId_templ<SWIG_OBJ_WRAP>::_wrap_HieroTopicId_getRealmNum(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::TopicId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int64_t result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroTopicId_getRealmNum.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__TopicId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTopicId_getRealmNum" "', argument " "1"" of type '" "hiero::TopicId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::TopicId * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (int64_t)((hiero::TopicId const *)arg1)->getRealmNum();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< long long >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTopicId_templ<SWIG_OBJ_WRAP>::_wrap_HieroTopicId_getTopicNum(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::TopicId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int64_t result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroTopicId_getTopicNum.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__TopicId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTopicId_getTopicNum" "', argument " "1"" of type '" "hiero::TopicId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::TopicId * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (int64_t)((hiero::TopicId const *)arg1)->getTopicNum();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< long long >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTopicId_templ<SWIG_OBJ_WRAP>::_wrap_HieroTopicId_toString(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::TopicId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::string result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroTopicId_toString.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__TopicId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTopicId_toString" "', argument " "1"" of type '" "hiero::TopicId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::TopicId * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = ((hiero::TopicId const *)arg1)->toString();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTopicId_templ<SWIG_OBJ_WRAP>::_wrap_HieroTopicId_equal(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::TopicId *arg1 = 0 ;
+  hiero::TopicId *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroTopicId_equal.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__TopicId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTopicId_equal" "', argument " "1"" of type '" "hiero::TopicId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::TopicId * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_hiero__TopicId,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HieroTopicId_equal" "', argument " "2"" of type '" "hiero::TopicId const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "HieroTopicId_equal" "', argument " "2"" of type '" "hiero::TopicId const &""'"); 
+    }
+    arg2 = reinterpret_cast< hiero::TopicId * >(argp2);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)((hiero::TopicId const *)arg1)->operator ==((hiero::TopicId const &)*arg2);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTopicId_templ<SWIG_OBJ_WRAP>::_wrap_HieroTopicId_empty(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::TopicId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroTopicId_empty.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__TopicId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTopicId_empty" "', argument " "1"" of type '" "hiero::TopicId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::TopicId * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)((hiero::TopicId const *)arg1)->empty();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTransactionId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroTransactionId__SWIG_0(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  hiero::TransactionId *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroTransactionId__SWIG_0.");
+    }
+    {
+      try {
+        result = (hiero::TransactionId *)new hiero::TransactionId();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTransactionId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroTransactionId__SWIG_1(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  gradido::data::Timestamp *arg1 = 0 ;
+  hiero::AccountId *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  hiero::TransactionId *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 2 || static_cast<int>(info.Length()) > 2) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroTransactionId__SWIG_1.");
+    }
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_gradido__data__Timestamp,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_HieroTransactionId" "', argument " "1"" of type '" "gradido::data::Timestamp const &""'"); 
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_HieroTransactionId" "', argument " "1"" of type '" "gradido::data::Timestamp const &""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::data::Timestamp * >(argp1);res2 = SWIG_ConvertPtr(info[1], &argp2, SWIGTYPE_p_hiero__AccountId,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_HieroTransactionId" "', argument " "2"" of type '" "hiero::AccountId const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_HieroTransactionId" "', argument " "2"" of type '" "hiero::AccountId const &""'"); 
+    }
+    arg2 = reinterpret_cast< hiero::AccountId * >(argp2);{
+      try {
+        result = (hiero::TransactionId *)new hiero::TransactionId((gradido::data::Timestamp const &)*arg1,(hiero::AccountId const &)*arg2);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTransactionId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroTransactionId__SWIG_2(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  std::string *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  hiero::TransactionId *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroTransactionId__SWIG_2.");
+    }
+    {
+      {
+        std::string *ptr = (std::string *)0;
+        res1 = SWIG_AsPtr_std_string(info[0], &ptr);
+        if (!SWIG_IsOK(res1)) {
+          SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_HieroTransactionId" "', argument " "1"" of type '" "std::string const &""'"); 
+        }
+        if (!ptr) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_HieroTransactionId" "', argument " "1"" of type '" "std::string const &""'"); 
+        }
+        arg1 = ptr;
+      }
+    }
+    {
+      try {
+        result = (hiero::TransactionId *)new hiero::TransactionId((std::string const &)*arg1);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    if (SWIG_IsNewObj(res1)) delete arg1;
+    
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  
+  return Napi::Value();
+}
+
+
+// js_ctor_dispatcher
+template <typename SWIG_OBJ_WRAP>
+_exports_HieroTransactionId_templ<SWIG_OBJ_WRAP>::_exports_HieroTransactionId_templ(const Napi::CallbackInfo &info)
+:SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP>(true, info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  NAPI_CHECK_RESULT(info.This().ToObject(), self);
+  this->info = SWIGTYPE_p_hiero__TransactionId;
+  if (info.Length() == 1 && info[0].IsExternal()) {
+    // This constructor has been called internally from C++/SWIG
+    // to wrap an already existing C++ object in JS
+    this->self = info[0].As<Napi::External<void>>().Data();
+    this->owned = false;
+    return;
+  }
+  
+  // switch all cases by means of series of if-returns.
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 0 && static_cast<int>(info.Length()) <= 0) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_HieroTransactionId__SWIG_0(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_HieroTransactionId__SWIG_0(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 2 && static_cast<int>(info.Length()) <= 2) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_HieroTransactionId__SWIG_1(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_HieroTransactionId__SWIG_1(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_HieroTransactionId__SWIG_2(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_HieroTransactionId__SWIG_2(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  
+  // default:
+  SWIG_Error(SWIG_ERROR, "Illegal arguments for construction of _exports_HieroTransactionId");
+  
+#ifndef NAPI_CPP_EXCEPTIONS
+  goto fail;
+fail:
+  return;
+#endif
+}
+
+// This is the extendable constructor to be used from child classes
+template <typename SWIG_OBJ_WRAP>
+_exports_HieroTransactionId_templ<SWIG_OBJ_WRAP>::_exports_HieroTransactionId_templ(bool, const Napi::CallbackInfo &info)
+:SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP>(true, info) {
+  
+}
+
+
+// js_dtoroverride
+template <typename SWIG_OBJ_WRAP>
+_exports_HieroTransactionId_templ<SWIG_OBJ_WRAP>::~_exports_HieroTransactionId_templ() {
+  this->SWIG_Finalize();
+  auto arg1 = reinterpret_cast<hiero::TransactionId *>(this->self);
+  if (this->owned && arg1) {
+    delete arg1;
+    this->self = SWIG_NULLPTR;
+  }
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTransactionId_templ<SWIG_OBJ_WRAP>::_wrap_HieroTransactionId_setScheduled(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::TransactionId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroTransactionId_setScheduled.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__TransactionId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTransactionId_setScheduled" "', argument " "1"" of type '" "hiero::TransactionId *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::TransactionId * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        (arg1)->setScheduled();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = env.Undefined();
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTransactionId_templ<SWIG_OBJ_WRAP>::_wrap_HieroTransactionId_setNonce(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::TransactionId *arg1 = 0 ;
+  int32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroTransactionId_setNonce.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__TransactionId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTransactionId_setNonce" "', argument " "1"" of type '" "hiero::TransactionId *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::TransactionId * >(argp1);ecode2 = SWIG_AsVal_int(info[0], &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "HieroTransactionId_setNonce" "', argument " "2"" of type '" "int32_t""'");
+    } 
+    arg2 = static_cast< int32_t >(val2);
+    
+    
+    
+    
+    {
+      try {
+        (arg1)->setNonce(arg2);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = env.Undefined();
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTransactionId_templ<SWIG_OBJ_WRAP>::_wrap_HieroTransactionId_getTransactionValidStart(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::TransactionId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  gradido::data::Timestamp *result = 0 ;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroTransactionId_getTransactionValidStart.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__TransactionId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTransactionId_getTransactionValidStart" "', argument " "1"" of type '" "hiero::TransactionId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::TransactionId * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (gradido::data::Timestamp *) &((hiero::TransactionId const *)arg1)->getTransactionValidStart();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_gradido__data__Timestamp, 0 |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTransactionId_templ<SWIG_OBJ_WRAP>::_wrap_HieroTransactionId_getAccountId(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::TransactionId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  hiero::AccountId *result = 0 ;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroTransactionId_getAccountId.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__TransactionId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTransactionId_getAccountId" "', argument " "1"" of type '" "hiero::TransactionId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::TransactionId * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (hiero::AccountId *) &((hiero::TransactionId const *)arg1)->getAccountId();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_hiero__AccountId, 0 |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTransactionId_templ<SWIG_OBJ_WRAP>::_wrap_HieroTransactionId_isScheduled(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::TransactionId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroTransactionId_isScheduled.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__TransactionId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTransactionId_isScheduled" "', argument " "1"" of type '" "hiero::TransactionId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::TransactionId * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)((hiero::TransactionId const *)arg1)->isScheduled();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTransactionId_templ<SWIG_OBJ_WRAP>::_wrap_HieroTransactionId_getNonce(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::TransactionId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int32_t result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroTransactionId_getNonce.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__TransactionId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTransactionId_getNonce" "', argument " "1"" of type '" "hiero::TransactionId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::TransactionId * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (int32_t)((hiero::TransactionId const *)arg1)->getNonce();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTransactionId_templ<SWIG_OBJ_WRAP>::_wrap_HieroTransactionId_toString(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::TransactionId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::string result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroTransactionId_toString.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__TransactionId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTransactionId_toString" "', argument " "1"" of type '" "hiero::TransactionId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::TransactionId * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = ((hiero::TransactionId const *)arg1)->toString();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTransactionId_templ<SWIG_OBJ_WRAP>::_wrap_HieroTransactionId_empty(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::TransactionId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroTransactionId_empty.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__TransactionId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTransactionId_empty" "', argument " "1"" of type '" "hiero::TransactionId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::TransactionId * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)((hiero::TransactionId const *)arg1)->empty();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTransactionId_templ<SWIG_OBJ_WRAP>::_wrap_HieroTransactionId_equal(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::TransactionId *arg1 = 0 ;
+  hiero::TransactionId *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroTransactionId_equal.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_hiero__TransactionId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTransactionId_equal" "', argument " "1"" of type '" "hiero::TransactionId const *""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::TransactionId * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_hiero__TransactionId,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HieroTransactionId_equal" "', argument " "2"" of type '" "hiero::TransactionId const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "HieroTransactionId_equal" "', argument " "2"" of type '" "hiero::TransactionId const &""'"); 
+    }
+    arg2 = reinterpret_cast< hiero::TransactionId * >(argp2);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)((hiero::TransactionId const *)arg1)->operator ==((hiero::TransactionId const &)*arg2);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
     
     
     return jsresult;
@@ -37644,6 +40648,183 @@ fail:
 
 // js_function
 template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_InteractionDeserialize_isHieroAccountId(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::interaction::deserialize::Context *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_InteractionDeserialize_isHieroAccountId.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__interaction__deserialize__Context, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "InteractionDeserialize_isHieroAccountId" "', argument " "1"" of type '" "gradido::interaction::deserialize::Context const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::interaction::deserialize::Context * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)((gradido::interaction::deserialize::Context const *)arg1)->isHieroAccountId();
+      } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_InteractionDeserialize_isHieroTopicId(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::interaction::deserialize::Context *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_InteractionDeserialize_isHieroTopicId.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__interaction__deserialize__Context, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "InteractionDeserialize_isHieroTopicId" "', argument " "1"" of type '" "gradido::interaction::deserialize::Context const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::interaction::deserialize::Context * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)((gradido::interaction::deserialize::Context const *)arg1)->isHieroTopicId();
+      } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_InteractionDeserialize_isHieroTransactionId(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::interaction::deserialize::Context *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_InteractionDeserialize_isHieroTransactionId.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__interaction__deserialize__Context, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "InteractionDeserialize_isHieroTransactionId" "', argument " "1"" of type '" "gradido::interaction::deserialize::Context const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::interaction::deserialize::Context * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)((gradido::interaction::deserialize::Context const *)arg1)->isHieroTransactionId();
+      } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_InteractionDeserialize_getType(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
@@ -37913,6 +41094,183 @@ fail:
 
 // js_function
 template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_InteractionDeserialize_getHieroAccountId(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::interaction::deserialize::Context *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  hiero::AccountId result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_InteractionDeserialize_getHieroAccountId.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__interaction__deserialize__Context, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "InteractionDeserialize_getHieroAccountId" "', argument " "1"" of type '" "gradido::interaction::deserialize::Context *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::interaction::deserialize::Context * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (arg1)->getHieroAccountId();
+      } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new hiero::AccountId(result)), SWIGTYPE_p_hiero__AccountId, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_InteractionDeserialize_getHieroTransactionId(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::interaction::deserialize::Context *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  hiero::TransactionId result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_InteractionDeserialize_getHieroTransactionId.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__interaction__deserialize__Context, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "InteractionDeserialize_getHieroTransactionId" "', argument " "1"" of type '" "gradido::interaction::deserialize::Context *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::interaction::deserialize::Context * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (arg1)->getHieroTransactionId();
+      } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new hiero::TransactionId(result)), SWIGTYPE_p_hiero__TransactionId, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_InteractionDeserialize_getHieroTopicId(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::interaction::deserialize::Context *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  hiero::TopicId result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_InteractionDeserialize_getHieroTopicId.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__interaction__deserialize__Context, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "InteractionDeserialize_getHieroTopicId" "', argument " "1"" of type '" "gradido::interaction::deserialize::Context *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::interaction::deserialize::Context * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (arg1)->getHieroTopicId();
+      } catch (const gradido::interaction::deserialize::MissingMemberException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new hiero::TopicId(result)), SWIGTYPE_p_hiero__TopicId, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_InteractionDeserialize_templ<SWIG_OBJ_WRAP>::_wrap_InteractionDeserialize_getTransactionTriggerEvent(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
@@ -38075,7 +41433,7 @@ template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_InteractionSerialize__SWIG_2(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Object self;
-  gradido::data::SignatureMap *arg1 = 0 ;
+  hiero::AccountId *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   gradido::interaction::serialize::Context *result;
@@ -38086,6 +41444,156 @@ Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_Intera
     this->owned = true;
     if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
       SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_InteractionSerialize__SWIG_2.");
+    }
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_hiero__AccountId,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_InteractionSerialize" "', argument " "1"" of type '" "hiero::AccountId const &""'"); 
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_InteractionSerialize" "', argument " "1"" of type '" "hiero::AccountId const &""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::AccountId * >(argp1);{
+      try {
+        result = (gradido::interaction::serialize::Context *)new gradido::interaction::serialize::Context((hiero::AccountId const &)*arg1);
+      } catch (const gradido::interaction::serialize::MissingMemberException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_InteractionSerialize__SWIG_3(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  hiero::TopicId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  gradido::interaction::serialize::Context *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_InteractionSerialize__SWIG_3.");
+    }
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_hiero__TopicId,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_InteractionSerialize" "', argument " "1"" of type '" "hiero::TopicId const &""'"); 
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_InteractionSerialize" "', argument " "1"" of type '" "hiero::TopicId const &""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::TopicId * >(argp1);{
+      try {
+        result = (gradido::interaction::serialize::Context *)new gradido::interaction::serialize::Context((hiero::TopicId const &)*arg1);
+      } catch (const gradido::interaction::serialize::MissingMemberException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_InteractionSerialize__SWIG_4(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  hiero::TransactionId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  gradido::interaction::serialize::Context *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_InteractionSerialize__SWIG_4.");
+    }
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_hiero__TransactionId,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_InteractionSerialize" "', argument " "1"" of type '" "hiero::TransactionId const &""'"); 
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_InteractionSerialize" "', argument " "1"" of type '" "hiero::TransactionId const &""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::TransactionId * >(argp1);{
+      try {
+        result = (gradido::interaction::serialize::Context *)new gradido::interaction::serialize::Context((hiero::TransactionId const &)*arg1);
+      } catch (const gradido::interaction::serialize::MissingMemberException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_InteractionSerialize__SWIG_5(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  gradido::data::SignatureMap *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  gradido::interaction::serialize::Context *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_InteractionSerialize__SWIG_5.");
     }
     res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_gradido__data__SignatureMap,  0 );
     if (!SWIG_IsOK(res1)) {
@@ -38122,7 +41630,7 @@ fail:
 
 // js_overloaded_ctor
 template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_InteractionSerialize__SWIG_3(const Napi::CallbackInfo &info) {
+Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_InteractionSerialize__SWIG_6(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Object self;
   gradido::data::TransactionBody *arg1 = 0 ;
@@ -38135,7 +41643,7 @@ Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_Intera
     NAPI_CHECK_RESULT(info.This().ToObject(), self);
     this->owned = true;
     if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_InteractionSerialize__SWIG_3.");
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_InteractionSerialize__SWIG_6.");
     }
     res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_gradido__data__TransactionBody,  0 );
     if (!SWIG_IsOK(res1)) {
@@ -38172,7 +41680,7 @@ fail:
 
 // js_overloaded_ctor
 template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_InteractionSerialize__SWIG_4(const Napi::CallbackInfo &info) {
+Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_InteractionSerialize__SWIG_7(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Object self;
   gradido::data::TransactionTriggerEvent *arg1 = 0 ;
@@ -38185,7 +41693,7 @@ Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_Intera
     NAPI_CHECK_RESULT(info.This().ToObject(), self);
     this->owned = true;
     if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_InteractionSerialize__SWIG_4.");
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_InteractionSerialize__SWIG_7.");
     }
     res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_gradido__data__TransactionTriggerEvent,  0 );
     if (!SWIG_IsOK(res1)) {
@@ -38222,7 +41730,7 @@ fail:
 
 // js_overloaded_ctor
 template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_InteractionSerialize__SWIG_5(const Napi::CallbackInfo &info) {
+Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_InteractionSerialize__SWIG_8(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Object self;
   gradido::interaction::serialize::Context *arg1 = 0 ;
@@ -38236,7 +41744,7 @@ Napi::Value _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_wrap_new_Intera
     NAPI_CHECK_RESULT(info.This().ToObject(), self);
     this->owned = true;
     if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_InteractionSerialize__SWIG_5.");
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_InteractionSerialize__SWIG_8.");
     }
     res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_gradido__interaction__serialize__Context, SWIG_POINTER_RELEASE |  0 );
     if (!SWIG_IsOK(res1)) {
@@ -38489,6 +41997,114 @@ _exports_InteractionSerialize_templ<SWIG_OBJ_WRAP>::_exports_InteractionSerializ
     return;
 #else
     _wrap_new_InteractionSerialize__SWIG_5(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_InteractionSerialize__SWIG_6(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_InteractionSerialize__SWIG_6(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_InteractionSerialize__SWIG_7(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_InteractionSerialize__SWIG_7(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_InteractionSerialize__SWIG_8(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_InteractionSerialize__SWIG_8(info);
     if (env.IsExceptionPending()) {
       Napi::Error e = env.GetAndClearPendingException();
       Napi::Value typeErrorValue;

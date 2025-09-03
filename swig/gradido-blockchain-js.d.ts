@@ -605,6 +605,8 @@ export  class TimestampSeconds {
   gt(other: TimestampSeconds): boolean;
 
   gte(other: TimestampSeconds): boolean;
+
+  empty(): boolean;
 }
 
 export  class Timestamp {
@@ -630,6 +632,8 @@ export  class Timestamp {
   lt(other: TimestampSeconds): boolean;
 
   gt(other: TimestampSeconds): boolean;
+
+  empty(): boolean;
 }
 
 export  class SignaturePair {
@@ -959,7 +963,7 @@ export  class ConfirmedTransaction {
 
   getGradidoTransaction(): GradidoTransaction|null;
 
-  getConfirmedAt(): TimestampSeconds;
+  getConfirmedAt(): Timestamp;
 
   getVersionNumber(): string;
 
@@ -980,6 +984,91 @@ export  class ConfirmedTransaction {
   isInvolved(publicKey: MemoryBlock): boolean;
 
   getInvolvedAddresses(): MemoryBlocks;
+}
+
+export  class HieroAccountId {
+
+  constructor();
+
+  constructor(shardNum: number, realmNum: number, accountNum: number);
+
+  constructor(shardNum: number, realmNum: number, alias: MemoryBlock);
+
+  constructor(shardNum: number, realmNum: number, alias: MemoryBlock);
+
+  constructor(accountIdString: string);
+
+  constructor(other: HieroAccountId);
+
+  constructor(other: HieroAccountId);
+
+  getShardNum(): number;
+
+  getRealmNum(): number;
+
+  getAccountNum(): number;
+
+  getAlias(): MemoryBlock;
+
+  toString(): string;
+
+  empty(): boolean;
+
+  equal(other: HieroAccountId): boolean;
+}
+
+export function lt(lhs: HieroAccountId, rhs: HieroAccountId): boolean;
+
+export  class HieroTopicId {
+
+  constructor();
+
+  constructor(shardNum: number, realmNum: number, topicNum: number);
+
+  constructor(topicIdString: string);
+
+  constructor(other: HieroTopicId);
+
+  constructor(other: HieroTopicId);
+
+  getShardNum(): number;
+
+  getRealmNum(): number;
+
+  getTopicNum(): number;
+
+  toString(): string;
+
+  equal(other: HieroTopicId): boolean;
+
+  empty(): boolean;
+}
+
+export  class HieroTransactionId {
+
+  constructor();
+
+  constructor(transactionValidStart: Timestamp, accountId: HieroAccountId);
+
+  constructor(transactionIdString: string);
+
+  setScheduled(): void;
+
+  setNonce(nonce: number): void;
+
+  getTransactionValidStart(): Timestamp;
+
+  getAccountId(): HieroAccountId;
+
+  isScheduled(): boolean;
+
+  getNonce(): number;
+
+  toString(): string;
+
+  empty(): boolean;
+
+  equal(other: HieroTransactionId): boolean;
 }
 
 export  class GradidoTransactionBuilder {
@@ -1067,6 +1156,12 @@ export const DeserializeType_CONFIRMED_TRANSACTION: DeserializeType;
 
 export const DeserializeType_TRANSACTION_TRIGGER_EVENT: DeserializeType;
 
+export const DeserializeType_HIERO_ACCOUNT_ID: DeserializeType;
+
+export const DeserializeType_HIERO_TOPIC_ID: DeserializeType;
+
+export const DeserializeType_HIERO_TRANSACTION_ID: DeserializeType;
+
 export const DeserializeType_MAX: DeserializeType;
 
 export type DeserializeType = number & { readonly [_SWIG_type_tag]: 'DeserializeType'; };
@@ -1091,6 +1186,12 @@ export  class InteractionDeserialize {
 
   isTransactionTriggerEvent(): boolean;
 
+  isHieroAccountId(): boolean;
+
+  isHieroTopicId(): boolean;
+
+  isHieroTransactionId(): boolean;
+
   getType(): DeserializeType;
 
   getTransactionBody(): TransactionBody|null;
@@ -1098,6 +1199,12 @@ export  class InteractionDeserialize {
   getGradidoTransaction(): GradidoTransaction|null;
 
   getConfirmedTransaction(): ConfirmedTransaction|null;
+
+  getHieroAccountId(): HieroAccountId;
+
+  getHieroTransactionId(): HieroTransactionId;
+
+  getHieroTopicId(): HieroTopicId;
 
   getTransactionTriggerEvent(): TransactionTriggerEvent;
 }
@@ -1107,6 +1214,12 @@ export  class InteractionSerialize {
   constructor(confirmed: ConfirmedTransaction);
 
   constructor(transaction: GradidoTransaction);
+
+  constructor(accountId: HieroAccountId);
+
+  constructor(topicId: HieroTopicId);
+
+  constructor(transactionId: HieroTransactionId);
 
   constructor(signatureMap: SignatureMap);
 
@@ -1477,4 +1590,6 @@ export type TransactionTriggerEvent = (unknown & { readonly [_SWIG_type_tag]: 'T
 export type AuthenticatedEncryption = (unknown & { readonly [_SWIG_type_tag]: 'AuthenticatedEncryption'; }) | null;
 
 export type GradidoTransaction = (unknown & { readonly [_SWIG_type_tag]: 'GradidoTransaction'; }) | null;
+
+export type HieroTransactionId = (unknown & { readonly [_SWIG_type_tag]: 'HieroTransactionId'; }) | null;
 

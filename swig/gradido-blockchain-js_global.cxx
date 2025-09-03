@@ -1005,6 +1005,73 @@ fail:
 
 
 // js_global_function
+Napi::Value _wrap_lt(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  hiero::AccountId *arg1 = 0 ;
+  hiero::AccountId *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 2 || static_cast<int>(info.Length()) > 2) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_lt.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_hiero__AccountId,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "lt" "', argument " "1"" of type '" "hiero::AccountId const &""'"); 
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "lt" "', argument " "1"" of type '" "hiero::AccountId const &""'"); 
+    }
+    arg1 = reinterpret_cast< hiero::AccountId * >(argp1);res2 = SWIG_ConvertPtr(info[1], &argp2, SWIGTYPE_p_hiero__AccountId,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "lt" "', argument " "2"" of type '" "hiero::AccountId const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "lt" "', argument " "2"" of type '" "hiero::AccountId const &""'"); 
+    }
+    arg2 = reinterpret_cast< hiero::AccountId * >(argp2);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)hiero::operator <((hiero::AccountId const &)*arg1,(hiero::AccountId const &)*arg2);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_function
 Napi::Value _wrap_deserializeTypeToString(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
@@ -1658,6 +1725,9 @@ SWIGINTERN swig_type_info _swigt__p_gradido__interaction__deserialize__Context =
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__serialize__Context = {"_p_gradido__interaction__serialize__Context", "gradido::interaction::serialize::Context *|p_gradido__interaction__serialize__Context", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__toJson__Context = {"_p_gradido__interaction__toJson__Context", "p_gradido__interaction__toJson__Context|gradido::interaction::toJson::Context *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__validate__Context = {"_p_gradido__interaction__validate__Context", "p_gradido__interaction__validate__Context|gradido::interaction::validate::Context *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_hiero__AccountId = {"_p_hiero__AccountId", "hiero::AccountId *|p_hiero__AccountId", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_hiero__TopicId = {"_p_hiero__TopicId", "hiero::TopicId *|p_hiero__TopicId", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_hiero__TransactionId = {"_p_hiero__TransactionId", "p_hiero__TransactionId|hiero::TransactionId *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_int = {"_p_int", "int32_t *|int_fast16_t *|int_fast32_t *|int_least32_t *|intptr_t *|int *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_long_long = {"_p_long_long", "int64_t *|int_fast64_t *|int_least64_t *|intmax_t *|long long *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_memory__Block = {"_p_memory__Block", "MemoryBin *|p_memory__Block|memory::Block *", 0, 0, (void*)0, 0};
@@ -1755,6 +1825,9 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_gradido__interaction__serialize__Context,
   &_swigt__p_gradido__interaction__toJson__Context,
   &_swigt__p_gradido__interaction__validate__Context,
+  &_swigt__p_hiero__AccountId,
+  &_swigt__p_hiero__TopicId,
+  &_swigt__p_hiero__TransactionId,
   &_swigt__p_int,
   &_swigt__p_long_long,
   &_swigt__p_memory__Block,
@@ -1849,6 +1922,9 @@ SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__deserialize__Context[]
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__serialize__Context[] = {  {&_swigt__p_gradido__interaction__serialize__Context, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__toJson__Context[] = {  {&_swigt__p_gradido__interaction__toJson__Context, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__validate__Context[] = {  {&_swigt__p_gradido__interaction__validate__Context, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_hiero__AccountId[] = {  {&_swigt__p_hiero__AccountId, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_hiero__TopicId[] = {  {&_swigt__p_hiero__TopicId, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_hiero__TransactionId[] = {  {&_swigt__p_hiero__TransactionId, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_long_long[] = {  {&_swigt__p_long_long, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_memory__Block[] = {  {&_swigt__p_memory__Block, 0, 0, 0},{0, 0, 0, 0}};
@@ -1943,6 +2019,9 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_gradido__interaction__serialize__Context,
   _swigc__p_gradido__interaction__toJson__Context,
   _swigc__p_gradido__interaction__validate__Context,
+  _swigc__p_hiero__AccountId,
+  _swigc__p_hiero__TopicId,
+  _swigc__p_hiero__TransactionId,
   _swigc__p_int,
   _swigc__p_long_long,
   _swigc__p_memory__Block,
@@ -1986,6 +2065,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
 
-SWIGINTERN swig_type_info *swig_types[93];
-SWIGINTERN swig_module_info swig_module = {swig_types, 92, 0, 0, 0, 0};
+SWIGINTERN swig_type_info *swig_types[96];
+SWIGINTERN swig_module_info swig_module = {swig_types, 95, 0, 0, 0, 0};
 

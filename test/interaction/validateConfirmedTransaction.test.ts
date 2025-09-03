@@ -49,7 +49,7 @@ describe('validate Confirmed Transactions', () => {
       new AccountBalances()
     )
     expect(() => new InteractionValidate(confirmedTransaction).run(ValidateType_SINGLE))
-      .toThrow('TransactionValidationInvalidInputException: wrong version with version_number: string, expected: 3.4, actual: 1')
+      .toThrow('TransactionValidationInvalidInputException: wrong version with version_number: string, expected: 3.5, actual: 1')
 
   })
 

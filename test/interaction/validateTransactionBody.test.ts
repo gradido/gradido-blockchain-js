@@ -16,7 +16,7 @@ describe('validate transaction body', () => {
   it('invalid version', () => {
     const body = new TransactionBody(createdAt, '3.2')
     expect(() => new InteractionValidate(body).run(ValidateType_SINGLE))
-      .toThrow('TransactionValidationInvalidInputException: wrong version with version_number: string, expected: 3.4, actual: 3.2')
+      .toThrow('TransactionValidationInvalidInputException: wrong version with version_number: string, expected: 3.5, actual: 3.2')
   })
 
   it('invalid other group', () => {

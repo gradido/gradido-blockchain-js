@@ -1,6 +1,6 @@
 import { DurationSeconds, EncryptedMemo } from "../../"
 
-export const versionString = '3.4'
+export const versionString = '3.5'
 export const createdAt = new Date(1609459200000)
 export const confirmedAt = new Date(1609464130000)
 export const targetDate = new Date(1609459000000)
