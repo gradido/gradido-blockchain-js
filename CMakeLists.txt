@@ -15,7 +15,7 @@ add_subdirectory(deps/gradido_blockchain)
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 
 include_directories(. swig)
-if(DEFINED ENV{NVM_DIR})
+if(DEFINED ENV{NVM_DIR} AND DEFINED ENV{NVM_INC})
   include_directories("$ENV{NVM_INC}")
 endif()
 include_directories(${CMAKE_JS_INC})
