@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-22.04
     name: Build for linux x64
     steps:
-      - name: Checkout code
+      - name: Checkout submodules
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
