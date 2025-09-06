@@ -1356,7 +1356,7 @@ SWIGINTERN std::shared_ptr< KeyPairEd25519 > KeyPairEd25519Ex_create__SWIG_0(std
 SWIGINTERN std::shared_ptr< KeyPairEd25519 > KeyPairEd25519Ex_create__SWIG_1(memory::Block const &seed);
 SWIGINTERN memory::Block KeyPairEd25519Ex_calculatePublicKey(memory::Block const &privateKey);
 SWIGINTERN void KeyPairEd25519Ex_validatePublicKey(memory::ConstBlockPtr publicKey);
-SWIGINTERN std::shared_ptr< KeyPairEd25519 > KeyPairEd25519Ex_deriveChild(KeyPairEd25519Ex const *self,uint32_t index);
+SWIGINTERN std::shared_ptr< KeyPairEd25519Ex > KeyPairEd25519Ex_deriveChild(KeyPairEd25519Ex const *self,uint32_t index);
 SWIGINTERN memory::Block KeyPairEd25519Ex_sign__SWIG_0(KeyPairEd25519Ex const *self,memory::Block const &message);
 SWIGINTERN memory::Block KeyPairEd25519Ex_sign__SWIG_1(KeyPairEd25519Ex const *self,std::string const &bodyBytes);
 SWIGINTERN memory::Block KeyPairEd25519Ex_sign__SWIG_2(KeyPairEd25519Ex const *self,unsigned char const *message,size_t messageSize);
@@ -14050,7 +14050,7 @@ Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519
   int res1 = 0 ;
   unsigned int val2 ;
   int ecode2 = 0 ;
-  std::shared_ptr< KeyPairEd25519 > result;
+  std::shared_ptr< KeyPairEd25519Ex > result;
   
   
 #ifdef NAPI_CPP_EXCEPTIONS
@@ -14109,8 +14109,8 @@ Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519
       if(!result) {
         jsresult = env.Null();
       } else {
-        jsresult = SWIG_NewPointerObj(const_cast<KeyPairEd25519 *>((&result)->get()), SWIGTYPE_p_KeyPairEd25519, SWIG_POINTER_OWN |  0 );
-        auto *owner = new std::shared_ptr< KeyPairEd25519>(*&result);
+        jsresult = SWIG_NewPointerObj(const_cast<KeyPairEd25519Ex *>((&result)->get()), SWIGTYPE_p_KeyPairEd25519Ex, SWIG_POINTER_OWN |  0 );
+        auto *owner = new std::shared_ptr< KeyPairEd25519Ex>(*&result);
         auto finalizer = new SWIG_NAPI_Finalizer([owner](){
           delete owner;
           });

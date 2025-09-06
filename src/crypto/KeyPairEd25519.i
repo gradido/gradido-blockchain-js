@@ -45,7 +45,7 @@
 %ignore KeyPairEd25519::operator!= (const unsigned char* b) const;
 %typemap(ts) Ed25519DerivationType "Ed25519DerivationType";
 %template(ed25519DerivationTypeToString) enum_to_string<Ed25519DerivationType>;
-%typemap(ts) std::shared_ptr<KeyPairEd25519Ex> "KeyPairEd25519Ex";
+// %typemap(ts) std::shared_ptr<KeyPairEd25519Ex> "KeyPairEd25519Ex";
 %rename("$ignore") isNormalized(const memory::Block& key);
 //%rename(createFromPassphrase) create(const std::shared_ptr<Passphrase> passphrase);
 //%rename(createFromSeed) create(const memory::Block& seed);
@@ -78,7 +78,7 @@
     KeyPairEd25519::validatePublicKey(publicKey);
   }
 
-  inline std::shared_ptr<KeyPairEd25519> deriveChild(uint32_t index) const {
+  inline std::shared_ptr<KeyPairEd25519Ex> deriveChild(uint32_t index) const {
     return KeyPairEd25519::deriveChild(index);
   }
 

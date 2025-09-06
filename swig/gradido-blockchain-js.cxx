@@ -2060,7 +2060,7 @@ SWIGINTERN memory::Block KeyPairEd25519Ex_calculatePublicKey(memory::Block const
 SWIGINTERN void KeyPairEd25519Ex_validatePublicKey(memory::ConstBlockPtr publicKey){
     KeyPairEd25519::validatePublicKey(publicKey);
   }
-SWIGINTERN std::shared_ptr< KeyPairEd25519 > KeyPairEd25519Ex_deriveChild(KeyPairEd25519Ex const *self,uint32_t index){
+SWIGINTERN std::shared_ptr< KeyPairEd25519Ex > KeyPairEd25519Ex_deriveChild(KeyPairEd25519Ex const *self,uint32_t index){
     return KeyPairEd25519::deriveChild(index);
   }
 SWIGINTERN memory::Block KeyPairEd25519Ex_sign__SWIG_0(KeyPairEd25519Ex const *self,memory::Block const &message){

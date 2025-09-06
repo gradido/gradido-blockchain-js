@@ -313,7 +313,7 @@ export  class KeyPairEd25519 {
 
  static validatePublicKey(publicKey: MemoryBlockPtr|null): void;
 
-  deriveChild(index: number): KeyPairEd25519Ex;
+  deriveChild(index: number): KeyPairEd25519Ex|null;
 
  static getDerivationType(index: number): Ed25519DerivationType;
 
@@ -372,7 +372,7 @@ export  class KeyPairEd25519Ex extends KeyPairEd25519 {
 
  static validatePublicKey(publicKey: MemoryBlockPtr|null): void;
 
-  deriveChild(index: number): KeyPairEd25519|null;
+  deriveChild(index: number): KeyPairEd25519Ex|null;
 
   sign(message: MemoryBlock): MemoryBlock;
 
