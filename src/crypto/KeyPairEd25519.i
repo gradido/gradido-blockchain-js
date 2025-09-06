@@ -62,28 +62,68 @@
 }
 
 %extend KeyPairEd25519Ex {
-  inline std::shared_ptr<KeyPairEd25519> create(const memory::Block& seed) {
+  static std::shared_ptr<KeyPairEd25519> create(const std::shared_ptr<Passphrase> passphrase) {
+    return KeyPairEd25519::create(passphrase);
+  }
+
+  static std::shared_ptr<KeyPairEd25519> create(const memory::Block& seed) {
     return KeyPairEd25519::create(seed);
+  }  
+
+  static memory::Block calculatePublicKey(const memory::Block& privateKey) {
+    return KeyPairEd25519::calculatePublicKey(privateKey);
+  }
+
+  static void validatePublicKey(memory::ConstBlockPtr publicKey) {
+    KeyPairEd25519::validatePublicKey(publicKey);
   }
 
   inline std::shared_ptr<KeyPairEd25519> deriveChild(uint32_t index) const {
     return KeyPairEd25519::deriveChild(index);
   }
 
-  inline memory::ConstBlockPtr getPublicKey() const {
-    return KeyPairEd25519::getPublicKey();
+  inline memory::Block sign(const memory::Block& message) const {
+    return KeyPairEd25519::sign(message);
   }
 
-  inline memory::ConstBlockPtr getPrivateKey() const {
-    return KeyPairEd25519::getPrivateKey();
+  inline memory::Block sign(const std::string& bodyBytes) const {
+    return KeyPairEd25519::sign(bodyBytes);
+  }
+
+  inline memory::Block sign(const unsigned char* message, size_t messageSize) const {
+    return KeyPairEd25519::sign(message, messageSize);
+  }
+
+  bool verify(const std::string& message, const std::string& signature) const {
+    return KeyPairEd25519::verify(message, signature);
+  }
+
+  bool verify(const memory::Block& message, const memory::Block& signature) const {
+    return KeyPairEd25519::verify(message, signature);
+  }
+
+  bool is3rdHighestBitClear() const {
+    return KeyPairEd25519::is3rdHighestBitClear();
+  }
+
+  inline memory::ConstBlockPtr getPublicKey() const {
+    return KeyPairEd25519::getPublicKey();
   }
 
   inline memory::ConstBlockPtr getChainCode() const {
     return KeyPairEd25519::getChainCode();
   }
 
-  inline std::shared_ptr<KeyPairEd25519> deriveChild(uint32_t index, Ed25519DerivationType type) const {
-    return KeyPairEd25519::deriveChild(index, type);
+  inline bool isTheSame(const KeyPairEd25519& b) const {
+    return KeyPairEd25519::isTheSame(b);
+  }
+
+  inline bool isTheSame(const unsigned char* pubkey) const {
+    return KeyPairEd25519::isTheSame(pubkey);
+  }
+
+  inline int isTheSame(memory::ConstBlockPtr privkey) const {
+    return KeyPairEd25519::isTheSame(privkey);
   }
 
   inline bool operator==(const KeyPairEd25519& b) const {
@@ -92,6 +132,22 @@
 
   inline bool operator!=(const KeyPairEd25519& b) const {
     return KeyPairEd25519::operator!=(b);
+  }
+
+  inline bool hasPrivateKey() const {
+    return KeyPairEd25519::hasPrivateKey();
+  }
+
+  memory::Block getCryptedPrivKey(const SecretKeyCryptography& password) const {
+    return KeyPairEd25519::getCryptedPrivKey(password);
+  }
+
+  static void normalizeBytesForce3rd(memory::Block& key) {
+    KeyPairEd25519::normalizeBytesForce3rd(key);
+  }
+
+  inline bool isNormalized() const {
+    return KeyPairEd25519::isNormalized();
   }
 }
 

@@ -1352,14 +1352,28 @@ Napi::Value SWIG_From_unsigned_SS_int(Napi::Env env, unsigned int val)
   return Napi::Number::New(env, val);
 }
 
-SWIGINTERN std::shared_ptr< KeyPairEd25519 > KeyPairEd25519Ex_create(KeyPairEd25519Ex *self,memory::Block const &seed);
-SWIGINTERN std::shared_ptr< KeyPairEd25519 > KeyPairEd25519Ex_deriveChild__SWIG_0(KeyPairEd25519Ex const *self,uint32_t index);
+SWIGINTERN std::shared_ptr< KeyPairEd25519 > KeyPairEd25519Ex_create__SWIG_0(std::shared_ptr< Passphrase > const passphrase);
+SWIGINTERN std::shared_ptr< KeyPairEd25519 > KeyPairEd25519Ex_create__SWIG_1(memory::Block const &seed);
+SWIGINTERN memory::Block KeyPairEd25519Ex_calculatePublicKey(memory::Block const &privateKey);
+SWIGINTERN void KeyPairEd25519Ex_validatePublicKey(memory::ConstBlockPtr publicKey);
+SWIGINTERN std::shared_ptr< KeyPairEd25519 > KeyPairEd25519Ex_deriveChild(KeyPairEd25519Ex const *self,uint32_t index);
+SWIGINTERN memory::Block KeyPairEd25519Ex_sign__SWIG_0(KeyPairEd25519Ex const *self,memory::Block const &message);
+SWIGINTERN memory::Block KeyPairEd25519Ex_sign__SWIG_1(KeyPairEd25519Ex const *self,std::string const &bodyBytes);
+SWIGINTERN memory::Block KeyPairEd25519Ex_sign__SWIG_2(KeyPairEd25519Ex const *self,unsigned char const *message,size_t messageSize);
+SWIGINTERN bool KeyPairEd25519Ex_verify__SWIG_0(KeyPairEd25519Ex const *self,std::string const &message,std::string const &signature);
+SWIGINTERN bool KeyPairEd25519Ex_verify__SWIG_1(KeyPairEd25519Ex const *self,memory::Block const &message,memory::Block const &signature);
+SWIGINTERN bool KeyPairEd25519Ex_is3rdHighestBitClear(KeyPairEd25519Ex const *self);
 SWIGINTERN memory::ConstBlockPtr KeyPairEd25519Ex_getPublicKey(KeyPairEd25519Ex const *self);
-SWIGINTERN memory::ConstBlockPtr KeyPairEd25519Ex_getPrivateKey(KeyPairEd25519Ex const *self);
 SWIGINTERN memory::ConstBlockPtr KeyPairEd25519Ex_getChainCode(KeyPairEd25519Ex const *self);
-SWIGINTERN std::shared_ptr< KeyPairEd25519 > KeyPairEd25519Ex_deriveChild__SWIG_1(KeyPairEd25519Ex const *self,uint32_t index,Ed25519DerivationType type);
+SWIGINTERN bool KeyPairEd25519Ex_isTheSame__SWIG_0(KeyPairEd25519Ex const *self,KeyPairEd25519 const &b);
+SWIGINTERN bool KeyPairEd25519Ex_isTheSame__SWIG_1(KeyPairEd25519Ex const *self,unsigned char const *pubkey);
+SWIGINTERN int KeyPairEd25519Ex_isTheSame__SWIG_2(KeyPairEd25519Ex const *self,memory::ConstBlockPtr privkey);
 SWIGINTERN bool KeyPairEd25519Ex_operator_Se__Se_(KeyPairEd25519Ex const *self,KeyPairEd25519 const &b);
 SWIGINTERN bool KeyPairEd25519Ex_operator_SN__Se_(KeyPairEd25519Ex const *self,KeyPairEd25519 const &b);
+SWIGINTERN bool KeyPairEd25519Ex_hasPrivateKey(KeyPairEd25519Ex const *self);
+SWIGINTERN memory::Block KeyPairEd25519Ex_getCryptedPrivKey(KeyPairEd25519Ex const *self,SecretKeyCryptography const &password);
+SWIGINTERN void KeyPairEd25519Ex_normalizeBytesForce3rd(memory::Block &key);
+SWIGINTERN bool KeyPairEd25519Ex_isNormalized(KeyPairEd25519Ex const *self);
 
 #include "gradido_blockchain/crypto/AuthenticatedEncryption.h"
 
@@ -1982,23 +1996,57 @@ Napi::Value _wrap_KeyPairEd25519Ex_isSoftDerivated(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_KeyPairEd25519Ex_isHardDerivated(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
-Napi::Value _wrap_KeyPairEd25519Ex_create(const Napi::CallbackInfo &);
+static Napi::Value _wrap_KeyPairEd25519Ex_create__SWIG_0(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
-Napi::Value _wrap_KeyPairEd25519Ex_deriveChild__SWIG_0(const Napi::CallbackInfo &);
+static Napi::Value _wrap_KeyPairEd25519Ex_create__SWIG_1(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+static Napi::Value _wrap_KeyPairEd25519Ex__wrap_KeyPairEd25519Ex_create(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+static Napi::Value _wrap_KeyPairEd25519Ex_calculatePublicKey(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+static Napi::Value _wrap_KeyPairEd25519Ex_validatePublicKey(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_KeyPairEd25519Ex_deriveChild(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_KeyPairEd25519Ex_sign__SWIG_0(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_KeyPairEd25519Ex_sign__SWIG_1(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_KeyPairEd25519Ex_sign__SWIG_2(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_KeyPairEd25519Ex__wrap_KeyPairEd25519Ex_sign(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_KeyPairEd25519Ex_verify__SWIG_0(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_KeyPairEd25519Ex_verify__SWIG_1(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_KeyPairEd25519Ex__wrap_KeyPairEd25519Ex_verify(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_KeyPairEd25519Ex_is3rdHighestBitClear(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_KeyPairEd25519Ex_getPublicKey(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
-Napi::Value _wrap_KeyPairEd25519Ex_getPrivateKey(const Napi::CallbackInfo &);
-// jsnapi_class_method_declaration
 Napi::Value _wrap_KeyPairEd25519Ex_getChainCode(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
-Napi::Value _wrap_KeyPairEd25519Ex_deriveChild__SWIG_1(const Napi::CallbackInfo &);
+Napi::Value _wrap_KeyPairEd25519Ex_isTheSame__SWIG_0(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
-Napi::Value _wrap_KeyPairEd25519Ex__wrap_KeyPairEd25519Ex_deriveChild(const Napi::CallbackInfo &);
+Napi::Value _wrap_KeyPairEd25519Ex_isTheSame__SWIG_1(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_KeyPairEd25519Ex_isTheSame__SWIG_2(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_KeyPairEd25519Ex__wrap_KeyPairEd25519Ex_isTheSame(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_KeyPairEd25519Ex_equal(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_KeyPairEd25519Ex_notEqual(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_KeyPairEd25519Ex_hasPrivateKey(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_KeyPairEd25519Ex_getCryptedPrivKey(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+static Napi::Value _wrap_KeyPairEd25519Ex_normalizeBytesForce3rd(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_KeyPairEd25519Ex_isNormalized(const Napi::CallbackInfo &);
 // jsnapi_class_epilogue_template
 };
 // jsnapi_class_instance
@@ -13570,47 +13618,36 @@ fail:
 }
 
 
-// js_function
+// js_overloaded_function
 template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_create(const Napi::CallbackInfo &info) {
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_create__SWIG_0(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
-  KeyPairEd25519Ex *arg1 = 0 ;
-  memory::Block *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  std::shared_ptr< Passphrase > arg1 ;
   std::shared_ptr< KeyPairEd25519 > result;
-  
   
 #ifdef NAPI_CPP_EXCEPTIONS
   try {
 #endif
     
-    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_KeyPairEd25519Ex_create.");
+    {
+      {
+        Passphrase *plain_ptr;
+        int res = SWIG_ConvertPtr(info[0], reinterpret_cast<void**>(&plain_ptr), SWIGTYPE_p_Passphrase,  0 );
+        if (!SWIG_IsOK(res)) {
+          SWIG_exception_fail(SWIG_ArgError(res), "in method '" "KeyPairEd25519Ex_create" "', argument " "1"" of type '" "Passphrase""'");
+        }
+        arg1 = std::shared_ptr< Passphrase>(plain_ptr, SWIG_null_deleter());
+      }
     }
     
-    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_create" "', argument " "1"" of type '" "KeyPairEd25519Ex *""'"); 
-    }
-    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_memory__Block,  0 );
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "KeyPairEd25519Ex_create" "', argument " "2"" of type '" "memory::Block const &""'"); 
-    }
-    if (!argp2) {
-      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "KeyPairEd25519Ex_create" "', argument " "2"" of type '" "memory::Block const &""'"); 
-    }
-    arg2 = reinterpret_cast< memory::Block * >(argp2);
     
     
     
     
     {
       try {
-        result = KeyPairEd25519Ex_create(arg1,(memory::Block const &)*arg2);
+        result = KeyPairEd25519Ex_create__SWIG_0(SWIG_STD_MOVE(arg1));
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -13669,37 +13706,33 @@ fail:
 
 // js_overloaded_function
 template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_deriveChild__SWIG_0(const Napi::CallbackInfo &info) {
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_create__SWIG_1(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
-  KeyPairEd25519Ex *arg1 = 0 ;
-  uint32_t arg2 ;
+  memory::Block *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned int val2 ;
-  int ecode2 = 0 ;
   std::shared_ptr< KeyPairEd25519 > result;
   
 #ifdef NAPI_CPP_EXCEPTIONS
   try {
 #endif
     
-    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_memory__Block,  0 );
     if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_deriveChild" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_create" "', argument " "1"" of type '" "memory::Block const &""'"); 
     }
-    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);ecode2 = SWIG_AsVal_unsigned_SS_int(info[0], &val2);
-    if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "KeyPairEd25519Ex_deriveChild" "', argument " "2"" of type '" "uint32_t""'");
-    } 
-    arg2 = static_cast< uint32_t >(val2);
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "KeyPairEd25519Ex_create" "', argument " "1"" of type '" "memory::Block const &""'"); 
+    }
+    arg1 = reinterpret_cast< memory::Block * >(argp1);
     
     
     
     
     {
       try {
-        result = KeyPairEd25519Ex_deriveChild__SWIG_0((KeyPairEd25519Ex const *)arg1,arg2);
+        result = KeyPairEd25519Ex_create__SWIG_1((memory::Block const &)*arg1);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -13756,6 +13789,1090 @@ fail:
 }
 
 
+// js_function_dispatcher
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex__wrap_KeyPairEd25519Ex_create(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_KeyPairEd25519Ex_create__SWIG_0(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_KeyPairEd25519Ex_create__SWIG_0(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_KeyPairEd25519Ex_create__SWIG_1(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_KeyPairEd25519Ex_create__SWIG_1(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  SWIG_Error(SWIG_ERROR, "Illegal arguments for function create.");
+#ifndef NAPI_CPP_EXCEPTIONS
+  goto fail;
+fail:
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_calculatePublicKey(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  memory::Block *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  SwigValueWrapper< memory::Block > result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_KeyPairEd25519Ex_calculatePublicKey.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_memory__Block,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_calculatePublicKey" "', argument " "1"" of type '" "memory::Block const &""'"); 
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "KeyPairEd25519Ex_calculatePublicKey" "', argument " "1"" of type '" "memory::Block const &""'"); 
+    }
+    arg1 = reinterpret_cast< memory::Block * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = KeyPairEd25519Ex_calculatePublicKey((memory::Block const &)*arg1);
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new memory::Block(result)), SWIGTYPE_p_memory__Block, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_validatePublicKey(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  SwigValueWrapper< std::shared_ptr< memory::Block const > > arg1 ;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_KeyPairEd25519Ex_validatePublicKey.");
+    }
+    
+    {
+      {
+        void* argp = nullptr;
+        int res = SWIG_ConvertPtr(info[0], &argp, SWIGTYPE_p_memory__BlockPtrWrapper, 0);
+        if (!SWIG_IsOK(res)) {
+          SWIG_exception_fail(SWIG_ArgError(res), "Expected BlockPtrWrapper");
+        }
+        if (argp) {
+          memory::BlockPtrWrapper* wrapper = reinterpret_cast<memory::BlockPtrWrapper*>(argp);
+          arg1 = *wrapper;
+        } else {
+          arg1 = nullptr;
+        }
+      }
+    }
+    
+    
+    
+    
+    
+    {
+      try {
+        KeyPairEd25519Ex_validatePublicKey(SWIG_STD_MOVE(arg1));
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = env.Undefined();
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_deriveChild(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  KeyPairEd25519Ex *arg1 = 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  std::shared_ptr< KeyPairEd25519 > result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_KeyPairEd25519Ex_deriveChild.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_deriveChild" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
+    }
+    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);ecode2 = SWIG_AsVal_unsigned_SS_int(info[0], &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "KeyPairEd25519Ex_deriveChild" "', argument " "2"" of type '" "uint32_t""'");
+    } 
+    arg2 = static_cast< uint32_t >(val2);
+    
+    
+    
+    
+    {
+      try {
+        result = KeyPairEd25519Ex_deriveChild((KeyPairEd25519Ex const *)arg1,arg2);
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    {
+      if(!result) {
+        jsresult = env.Null();
+      } else {
+        jsresult = SWIG_NewPointerObj(const_cast<KeyPairEd25519 *>((&result)->get()), SWIGTYPE_p_KeyPairEd25519, SWIG_POINTER_OWN |  0 );
+        auto *owner = new std::shared_ptr< KeyPairEd25519>(*&result);
+        auto finalizer = new SWIG_NAPI_Finalizer([owner](){
+          delete owner;
+          });
+        SWIG_NAPI_SetFinalizer(env, jsresult, finalizer);
+      }
+    }
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_overloaded_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_sign__SWIG_0(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  KeyPairEd25519Ex *arg1 = 0 ;
+  memory::Block *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  SwigValueWrapper< memory::Block > result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_sign" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
+    }
+    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_memory__Block,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "KeyPairEd25519Ex_sign" "', argument " "2"" of type '" "memory::Block const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "KeyPairEd25519Ex_sign" "', argument " "2"" of type '" "memory::Block const &""'"); 
+    }
+    arg2 = reinterpret_cast< memory::Block * >(argp2);
+    
+    
+    
+    
+    {
+      try {
+        result = KeyPairEd25519Ex_sign__SWIG_0((KeyPairEd25519Ex const *)arg1,(memory::Block const &)*arg2);
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new memory::Block(result)), SWIGTYPE_p_memory__Block, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_overloaded_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_sign__SWIG_1(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  KeyPairEd25519Ex *arg1 = 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  SwigValueWrapper< memory::Block > result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_sign" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
+    }
+    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);{
+      {
+        std::string *ptr = (std::string *)0;
+        res2 = SWIG_AsPtr_std_string(info[0], &ptr);
+        if (!SWIG_IsOK(res2)) {
+          SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "KeyPairEd25519Ex_sign" "', argument " "2"" of type '" "std::string const &""'"); 
+        }
+        if (!ptr) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "KeyPairEd25519Ex_sign" "', argument " "2"" of type '" "std::string const &""'"); 
+        }
+        arg2 = ptr;
+      }
+    }
+    
+    
+    
+    
+    
+    {
+      try {
+        result = KeyPairEd25519Ex_sign__SWIG_1((KeyPairEd25519Ex const *)arg1,(std::string const &)*arg2);
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new memory::Block(result)), SWIGTYPE_p_memory__Block, SWIG_POINTER_OWN |  0 );
+    
+    if (SWIG_IsNewObj(res2)) delete arg2;
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    if (SWIG_IsNewObj(res2)) delete arg2;
+    
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_overloaded_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_sign__SWIG_2(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  KeyPairEd25519Ex *arg1 = 0 ;
+  unsigned char *arg2 = 0 ;
+  size_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  SwigValueWrapper< memory::Block > result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_sign" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
+    }
+    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);{
+      {
+        if (!info[1].IsTypedArray()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a Uint8Array as input");
+        }
+        
+        Napi::Uint8Array array = info[1].As<Napi::Uint8Array>();
+        arg2 = array.Data();  
+        arg3 = array.ByteLength();
+      }
+    }
+    
+    
+    
+    
+    
+    {
+      try {
+        result = KeyPairEd25519Ex_sign__SWIG_2((KeyPairEd25519Ex const *)arg1,(unsigned char const *)arg2,SWIG_STD_MOVE(arg3));
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new memory::Block(result)), SWIGTYPE_p_memory__Block, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function_dispatcher
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex__wrap_KeyPairEd25519Ex_sign(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_KeyPairEd25519Ex_sign__SWIG_0(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_KeyPairEd25519Ex_sign__SWIG_0(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_KeyPairEd25519Ex_sign__SWIG_1(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_KeyPairEd25519Ex_sign__SWIG_1(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_KeyPairEd25519Ex_sign__SWIG_2(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_KeyPairEd25519Ex_sign__SWIG_2(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  SWIG_Error(SWIG_ERROR, "Illegal arguments for function sign.");
+#ifndef NAPI_CPP_EXCEPTIONS
+  goto fail;
+fail:
+#endif
+  return Napi::Value();
+}
+
+
+// js_overloaded_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_verify__SWIG_0(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  KeyPairEd25519Ex *arg1 = 0 ;
+  std::string *arg2 = 0 ;
+  std::string *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  int res3 = SWIG_OLDOBJ ;
+  bool result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_verify" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
+    }
+    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);{
+      {
+        std::string *ptr = (std::string *)0;
+        res2 = SWIG_AsPtr_std_string(info[0], &ptr);
+        if (!SWIG_IsOK(res2)) {
+          SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "KeyPairEd25519Ex_verify" "', argument " "2"" of type '" "std::string const &""'"); 
+        }
+        if (!ptr) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "KeyPairEd25519Ex_verify" "', argument " "2"" of type '" "std::string const &""'"); 
+        }
+        arg2 = ptr;
+      }
+    }
+    {
+      {
+        std::string *ptr = (std::string *)0;
+        res3 = SWIG_AsPtr_std_string(info[1], &ptr);
+        if (!SWIG_IsOK(res3)) {
+          SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "KeyPairEd25519Ex_verify" "', argument " "3"" of type '" "std::string const &""'"); 
+        }
+        if (!ptr) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "KeyPairEd25519Ex_verify" "', argument " "3"" of type '" "std::string const &""'"); 
+        }
+        arg3 = ptr;
+      }
+    }
+    
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)KeyPairEd25519Ex_verify__SWIG_0((KeyPairEd25519Ex const *)arg1,(std::string const &)*arg2,(std::string const &)*arg3);
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    if (SWIG_IsNewObj(res2)) delete arg2;
+    if (SWIG_IsNewObj(res3)) delete arg3;
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    if (SWIG_IsNewObj(res2)) delete arg2;
+    if (SWIG_IsNewObj(res3)) delete arg3;
+    
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_overloaded_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_verify__SWIG_1(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  KeyPairEd25519Ex *arg1 = 0 ;
+  memory::Block *arg2 = 0 ;
+  memory::Block *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  bool result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_verify" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
+    }
+    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_memory__Block,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "KeyPairEd25519Ex_verify" "', argument " "2"" of type '" "memory::Block const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "KeyPairEd25519Ex_verify" "', argument " "2"" of type '" "memory::Block const &""'"); 
+    }
+    arg2 = reinterpret_cast< memory::Block * >(argp2);res3 = SWIG_ConvertPtr(info[1], &argp3, SWIGTYPE_p_memory__Block,  0 );
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "KeyPairEd25519Ex_verify" "', argument " "3"" of type '" "memory::Block const &""'"); 
+    }
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "KeyPairEd25519Ex_verify" "', argument " "3"" of type '" "memory::Block const &""'"); 
+    }
+    arg3 = reinterpret_cast< memory::Block * >(argp3);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)KeyPairEd25519Ex_verify__SWIG_1((KeyPairEd25519Ex const *)arg1,(memory::Block const &)*arg2,(memory::Block const &)*arg3);
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function_dispatcher
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex__wrap_KeyPairEd25519Ex_verify(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 2 && static_cast<int>(info.Length()) <= 2) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_KeyPairEd25519Ex_verify__SWIG_0(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_KeyPairEd25519Ex_verify__SWIG_0(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 2 && static_cast<int>(info.Length()) <= 2) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_KeyPairEd25519Ex_verify__SWIG_1(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_KeyPairEd25519Ex_verify__SWIG_1(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  SWIG_Error(SWIG_ERROR, "Illegal arguments for function verify.");
+#ifndef NAPI_CPP_EXCEPTIONS
+  goto fail;
+fail:
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_is3rdHighestBitClear(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  KeyPairEd25519Ex *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_KeyPairEd25519Ex_is3rdHighestBitClear.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_is3rdHighestBitClear" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
+    }
+    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)KeyPairEd25519Ex_is3rdHighestBitClear((KeyPairEd25519Ex const *)arg1);
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
 // js_function
 template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_getPublicKey(const Napi::CallbackInfo &info) {
@@ -13787,84 +14904,6 @@ Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519
     {
       try {
         result = KeyPairEd25519Ex_getPublicKey((KeyPairEd25519Ex const *)arg1);
-      } catch (const Ed25519SignException& e) {
-        std::string message = "sign exception: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const Ed25519VerifyException& e) {
-        std::string message = "verify exception: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const Ed25519DeriveException& e) {
-        std::string message = "derive exception: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const Ed25519InvalidKeyException& e) {
-        std::string message = "invalid key exception: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const Ed25519MissingKeyException& e) {
-        std::string message = "missing key exception: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
-        std::string message = "invalid secret key for public key: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const Ed25519InvalidSeedException& e) {
-        std::string message = "seed exception: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const std::exception& e) {
-        SWIG_exception(SWIG_RuntimeError, e.what());
-      }
-    }
-    
-    
-    
-    {
-      jsresult = SWIG_NewPointerObj((new memory::BlockPtrWrapper(result)), SWIGTYPE_p_memory__BlockPtrWrapper, SWIG_POINTER_OWN |  0 );
-    }
-    
-    
-    return jsresult;
-#ifdef NAPI_CPP_EXCEPTIONS
-  } catch (...) {
-    std::rethrow_exception(std::current_exception());
-  }
-#else
-  goto fail;
-fail:
-  
-#endif
-  return Napi::Value();
-}
-
-
-// js_function
-template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_getPrivateKey(const Napi::CallbackInfo &info) {
-  Napi::Env env = info.Env();
-  Napi::Value jsresult;
-  KeyPairEd25519Ex *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  SwigValueWrapper< std::shared_ptr< memory::Block const > > result;
-  
-  
-#ifdef NAPI_CPP_EXCEPTIONS
-  try {
-#endif
-    
-    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_KeyPairEd25519Ex_getPrivateKey.");
-    }
-    
-    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_getPrivateKey" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
-    }
-    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);
-    
-    
-    
-    
-    {
-      try {
-        result = KeyPairEd25519Ex_getPrivateKey((KeyPairEd25519Ex const *)arg1);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -13992,19 +15031,16 @@ fail:
 
 // js_overloaded_function
 template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_deriveChild__SWIG_1(const Napi::CallbackInfo &info) {
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_isTheSame__SWIG_0(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
   KeyPairEd25519Ex *arg1 = 0 ;
-  uint32_t arg2 ;
-  Ed25519DerivationType arg3 ;
+  KeyPairEd25519 *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
-  std::shared_ptr< KeyPairEd25519 > result;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  bool result;
   
 #ifdef NAPI_CPP_EXCEPTIONS
   try {
@@ -14012,24 +15048,23 @@ Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519
     
     res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
     if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_deriveChild" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_isTheSame" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
     }
-    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);ecode2 = SWIG_AsVal_unsigned_SS_int(info[0], &val2);
-    if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "KeyPairEd25519Ex_deriveChild" "', argument " "2"" of type '" "uint32_t""'");
-    } 
-    arg2 = static_cast< uint32_t >(val2);ecode3 = SWIG_AsVal_int(info[1], &val3);
-    if (!SWIG_IsOK(ecode3)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "KeyPairEd25519Ex_deriveChild" "', argument " "3"" of type '" "Ed25519DerivationType""'");
-    } 
-    arg3 = static_cast< Ed25519DerivationType >(val3);
+    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_KeyPairEd25519,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "KeyPairEd25519Ex_isTheSame" "', argument " "2"" of type '" "KeyPairEd25519 const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "KeyPairEd25519Ex_isTheSame" "', argument " "2"" of type '" "KeyPairEd25519 const &""'"); 
+    }
+    arg2 = reinterpret_cast< KeyPairEd25519 * >(argp2);
     
     
     
     
     {
       try {
-        result = KeyPairEd25519Ex_deriveChild__SWIG_1((KeyPairEd25519Ex const *)arg1,arg2,arg3);
+        result = (bool)KeyPairEd25519Ex_isTheSame__SWIG_0((KeyPairEd25519Ex const *)arg1,(KeyPairEd25519 const &)*arg2);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());
@@ -14058,18 +15093,172 @@ Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519
     
     
     
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_overloaded_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_isTheSame__SWIG_1(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  KeyPairEd25519Ex *arg1 = 0 ;
+  unsigned char *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  bool result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_isTheSame" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
+    }
+    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2,SWIGTYPE_p_unsigned_char, 0 |  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "KeyPairEd25519Ex_isTheSame" "', argument " "2"" of type '" "unsigned char const *""'"); 
+    }
+    arg2 = reinterpret_cast< unsigned char * >(argp2);
+    
+    
+    
+    
     {
-      if(!result) {
-        jsresult = env.Null();
-      } else {
-        jsresult = SWIG_NewPointerObj(const_cast<KeyPairEd25519 *>((&result)->get()), SWIGTYPE_p_KeyPairEd25519, SWIG_POINTER_OWN |  0 );
-        auto *owner = new std::shared_ptr< KeyPairEd25519>(*&result);
-        auto finalizer = new SWIG_NAPI_Finalizer([owner](){
-          delete owner;
-          });
-        SWIG_NAPI_SetFinalizer(env, jsresult, finalizer);
+      try {
+        result = (bool)KeyPairEd25519Ex_isTheSame__SWIG_1((KeyPairEd25519Ex const *)arg1,(unsigned char const *)arg2);
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
       }
     }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_overloaded_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_isTheSame__SWIG_2(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  KeyPairEd25519Ex *arg1 = 0 ;
+  SwigValueWrapper< std::shared_ptr< memory::Block const > > arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_isTheSame" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
+    }
+    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);{
+      {
+        void* argp = nullptr;
+        int res = SWIG_ConvertPtr(info[0], &argp, SWIGTYPE_p_memory__BlockPtrWrapper, 0);
+        if (!SWIG_IsOK(res)) {
+          SWIG_exception_fail(SWIG_ArgError(res), "Expected BlockPtrWrapper");
+        }
+        if (argp) {
+          memory::BlockPtrWrapper* wrapper = reinterpret_cast<memory::BlockPtrWrapper*>(argp);
+          arg2 = *wrapper;
+        } else {
+          arg2 = nullptr;
+        }
+      }
+    }
+    
+    
+    
+    
+    
+    {
+      try {
+        result = (int)KeyPairEd25519Ex_isTheSame__SWIG_2((KeyPairEd25519Ex const *)arg1,SWIG_STD_MOVE(arg2));
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(result));
     
     
     return jsresult;
@@ -14088,7 +15277,7 @@ fail:
 
 // js_function_dispatcher
 template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex__wrap_KeyPairEd25519Ex_deriveChild(const Napi::CallbackInfo &info) {
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex__wrap_KeyPairEd25519Ex_isTheSame(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
   
@@ -14097,7 +15286,7 @@ Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519
 #ifdef NAPI_CPP_EXCEPTIONS
     bool tryNext = false;
     try {
-      jsresult = _wrap_KeyPairEd25519Ex_deriveChild__SWIG_0(info);
+      jsresult = _wrap_KeyPairEd25519Ex_isTheSame__SWIG_0(info);
     } catch (const Napi::TypeError &) {
       tryNext = true;
     } catch (const Napi::Error &e) {
@@ -14106,7 +15295,7 @@ Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519
     if (!tryNext)
     return jsresult;
 #else
-    _wrap_KeyPairEd25519Ex_deriveChild__SWIG_0(info);
+    _wrap_KeyPairEd25519Ex_isTheSame__SWIG_0(info);
     if (env.IsExceptionPending()) {
       Napi::Error e = env.GetAndClearPendingException();
       Napi::Value typeErrorValue;
@@ -14129,11 +15318,11 @@ Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519
   }
   
   // js_function_dispatch_case
-  if(static_cast<int>(info.Length()) >= 2 && static_cast<int>(info.Length()) <= 2) {
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
 #ifdef NAPI_CPP_EXCEPTIONS
     bool tryNext = false;
     try {
-      jsresult = _wrap_KeyPairEd25519Ex_deriveChild__SWIG_1(info);
+      jsresult = _wrap_KeyPairEd25519Ex_isTheSame__SWIG_1(info);
     } catch (const Napi::TypeError &) {
       tryNext = true;
     } catch (const Napi::Error &e) {
@@ -14142,7 +15331,7 @@ Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519
     if (!tryNext)
     return jsresult;
 #else
-    _wrap_KeyPairEd25519Ex_deriveChild__SWIG_1(info);
+    _wrap_KeyPairEd25519Ex_isTheSame__SWIG_1(info);
     if (env.IsExceptionPending()) {
       Napi::Error e = env.GetAndClearPendingException();
       Napi::Value typeErrorValue;
@@ -14164,7 +15353,43 @@ Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519
 #endif
   }
   
-  SWIG_Error(SWIG_ERROR, "Illegal arguments for function deriveChild.");
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_KeyPairEd25519Ex_isTheSame__SWIG_2(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_KeyPairEd25519Ex_isTheSame__SWIG_2(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  SWIG_Error(SWIG_ERROR, "Illegal arguments for function isTheSame.");
 #ifndef NAPI_CPP_EXCEPTIONS
   goto fail;
 fail:
@@ -14300,6 +15525,322 @@ Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519
     {
       try {
         result = (bool)KeyPairEd25519Ex_operator_SN__Se_((KeyPairEd25519Ex const *)arg1,(KeyPairEd25519 const &)*arg2);
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_hasPrivateKey(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  KeyPairEd25519Ex *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_KeyPairEd25519Ex_hasPrivateKey.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_hasPrivateKey" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
+    }
+    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)KeyPairEd25519Ex_hasPrivateKey((KeyPairEd25519Ex const *)arg1);
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_getCryptedPrivKey(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  KeyPairEd25519Ex *arg1 = 0 ;
+  SecretKeyCryptography *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  SwigValueWrapper< memory::Block > result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_KeyPairEd25519Ex_getCryptedPrivKey.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_getCryptedPrivKey" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
+    }
+    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_SecretKeyCryptography,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "KeyPairEd25519Ex_getCryptedPrivKey" "', argument " "2"" of type '" "SecretKeyCryptography const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "KeyPairEd25519Ex_getCryptedPrivKey" "', argument " "2"" of type '" "SecretKeyCryptography const &""'"); 
+    }
+    arg2 = reinterpret_cast< SecretKeyCryptography * >(argp2);
+    
+    
+    
+    
+    {
+      try {
+        result = KeyPairEd25519Ex_getCryptedPrivKey((KeyPairEd25519Ex const *)arg1,(SecretKeyCryptography const &)*arg2);
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new memory::Block(result)), SWIGTYPE_p_memory__Block, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_normalizeBytesForce3rd(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  memory::Block *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_KeyPairEd25519Ex_normalizeBytesForce3rd.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_memory__Block,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_normalizeBytesForce3rd" "', argument " "1"" of type '" "memory::Block &""'"); 
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "KeyPairEd25519Ex_normalizeBytesForce3rd" "', argument " "1"" of type '" "memory::Block &""'"); 
+    }
+    arg1 = reinterpret_cast< memory::Block * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        KeyPairEd25519Ex_normalizeBytesForce3rd(*arg1);
+      } catch (const Ed25519SignException& e) {
+        std::string message = "sign exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519VerifyException& e) {
+        std::string message = "verify exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519DeriveException& e) {
+        std::string message = "derive exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidKeyException& e) {
+        std::string message = "invalid key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519MissingKeyException& e) {
+        std::string message = "missing key exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const ED25519InvalidPrivateKeyForPublicKey& e) {
+        std::string message = "invalid secret key for public key: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const Ed25519InvalidSeedException& e) {
+        std::string message = "seed exception: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = env.Undefined();
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_KeyPairEd25519Ex_templ<SWIG_OBJ_WRAP>::_wrap_KeyPairEd25519Ex_isNormalized(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  KeyPairEd25519Ex *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_KeyPairEd25519Ex_isNormalized.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_KeyPairEd25519Ex, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyPairEd25519Ex_isNormalized" "', argument " "1"" of type '" "KeyPairEd25519Ex const *""'"); 
+    }
+    arg1 = reinterpret_cast< KeyPairEd25519Ex * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)KeyPairEd25519Ex_isNormalized((KeyPairEd25519Ex const *)arg1);
       } catch (const Ed25519SignException& e) {
         std::string message = "sign exception: " + e.getFullString();
         SWIG_exception(SWIG_RuntimeError, message.data());

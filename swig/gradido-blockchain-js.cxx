@@ -2048,29 +2048,71 @@ fail:
   return SWIG_ERROR;
 }
 
-SWIGINTERN std::shared_ptr< KeyPairEd25519 > KeyPairEd25519Ex_create(KeyPairEd25519Ex *self,memory::Block const &seed){
+SWIGINTERN std::shared_ptr< KeyPairEd25519 > KeyPairEd25519Ex_create__SWIG_0(std::shared_ptr< Passphrase > const passphrase){
+    return KeyPairEd25519::create(passphrase);
+  }
+SWIGINTERN std::shared_ptr< KeyPairEd25519 > KeyPairEd25519Ex_create__SWIG_1(memory::Block const &seed){
     return KeyPairEd25519::create(seed);
   }
-SWIGINTERN std::shared_ptr< KeyPairEd25519 > KeyPairEd25519Ex_deriveChild__SWIG_0(KeyPairEd25519Ex const *self,uint32_t index){
+SWIGINTERN memory::Block KeyPairEd25519Ex_calculatePublicKey(memory::Block const &privateKey){
+    return KeyPairEd25519::calculatePublicKey(privateKey);
+  }
+SWIGINTERN void KeyPairEd25519Ex_validatePublicKey(memory::ConstBlockPtr publicKey){
+    KeyPairEd25519::validatePublicKey(publicKey);
+  }
+SWIGINTERN std::shared_ptr< KeyPairEd25519 > KeyPairEd25519Ex_deriveChild(KeyPairEd25519Ex const *self,uint32_t index){
     return KeyPairEd25519::deriveChild(index);
+  }
+SWIGINTERN memory::Block KeyPairEd25519Ex_sign__SWIG_0(KeyPairEd25519Ex const *self,memory::Block const &message){
+    return KeyPairEd25519::sign(message);
+  }
+SWIGINTERN memory::Block KeyPairEd25519Ex_sign__SWIG_1(KeyPairEd25519Ex const *self,std::string const &bodyBytes){
+    return KeyPairEd25519::sign(bodyBytes);
+  }
+SWIGINTERN memory::Block KeyPairEd25519Ex_sign__SWIG_2(KeyPairEd25519Ex const *self,unsigned char const *message,size_t messageSize){
+    return KeyPairEd25519::sign(message, messageSize);
+  }
+SWIGINTERN bool KeyPairEd25519Ex_verify__SWIG_0(KeyPairEd25519Ex const *self,std::string const &message,std::string const &signature){
+    return KeyPairEd25519::verify(message, signature);
+  }
+SWIGINTERN bool KeyPairEd25519Ex_verify__SWIG_1(KeyPairEd25519Ex const *self,memory::Block const &message,memory::Block const &signature){
+    return KeyPairEd25519::verify(message, signature);
+  }
+SWIGINTERN bool KeyPairEd25519Ex_is3rdHighestBitClear(KeyPairEd25519Ex const *self){
+    return KeyPairEd25519::is3rdHighestBitClear();
   }
 SWIGINTERN memory::ConstBlockPtr KeyPairEd25519Ex_getPublicKey(KeyPairEd25519Ex const *self){
     return KeyPairEd25519::getPublicKey();
   }
-SWIGINTERN memory::ConstBlockPtr KeyPairEd25519Ex_getPrivateKey(KeyPairEd25519Ex const *self){
-    return KeyPairEd25519::getPrivateKey();
-  }
 SWIGINTERN memory::ConstBlockPtr KeyPairEd25519Ex_getChainCode(KeyPairEd25519Ex const *self){
     return KeyPairEd25519::getChainCode();
   }
-SWIGINTERN std::shared_ptr< KeyPairEd25519 > KeyPairEd25519Ex_deriveChild__SWIG_1(KeyPairEd25519Ex const *self,uint32_t index,Ed25519DerivationType type){
-    return KeyPairEd25519::deriveChild(index, type);
+SWIGINTERN bool KeyPairEd25519Ex_isTheSame__SWIG_0(KeyPairEd25519Ex const *self,KeyPairEd25519 const &b){
+    return KeyPairEd25519::isTheSame(b);
+  }
+SWIGINTERN bool KeyPairEd25519Ex_isTheSame__SWIG_1(KeyPairEd25519Ex const *self,unsigned char const *pubkey){
+    return KeyPairEd25519::isTheSame(pubkey);
+  }
+SWIGINTERN int KeyPairEd25519Ex_isTheSame__SWIG_2(KeyPairEd25519Ex const *self,memory::ConstBlockPtr privkey){
+    return KeyPairEd25519::isTheSame(privkey);
   }
 SWIGINTERN bool KeyPairEd25519Ex_operator_Se__Se_(KeyPairEd25519Ex const *self,KeyPairEd25519 const &b){
     return KeyPairEd25519::operator==(b);
   }
 SWIGINTERN bool KeyPairEd25519Ex_operator_SN__Se_(KeyPairEd25519Ex const *self,KeyPairEd25519 const &b){
     return KeyPairEd25519::operator!=(b);
+  }
+SWIGINTERN bool KeyPairEd25519Ex_hasPrivateKey(KeyPairEd25519Ex const *self){
+    return KeyPairEd25519::hasPrivateKey();
+  }
+SWIGINTERN memory::Block KeyPairEd25519Ex_getCryptedPrivKey(KeyPairEd25519Ex const *self,SecretKeyCryptography const &password){
+    return KeyPairEd25519::getCryptedPrivKey(password);
+  }
+SWIGINTERN void KeyPairEd25519Ex_normalizeBytesForce3rd(memory::Block &key){
+    KeyPairEd25519::normalizeBytesForce3rd(key);
+  }
+SWIGINTERN bool KeyPairEd25519Ex_isNormalized(KeyPairEd25519Ex const *self){
+    return KeyPairEd25519::isNormalized();
   }
 
 SWIGINTERN

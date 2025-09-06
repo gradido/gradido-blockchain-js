@@ -171,11 +171,35 @@ void _exports_KeyPairEd25519Ex_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("create");
+  members.erase("deriveChild");
   members.insert({
-    "create",
-      _exports_KeyPairEd25519Ex_templ::InstanceMethod("create",
-        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_create,
+    "deriveChild",
+      _exports_KeyPairEd25519Ex_templ::InstanceMethod("deriveChild",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_deriveChild,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("sign");
+  members.insert({
+    "sign",
+      _exports_KeyPairEd25519Ex_templ::InstanceMethod("sign",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex__wrap_KeyPairEd25519Ex_sign,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("verify");
+  members.insert({
+    "verify",
+      _exports_KeyPairEd25519Ex_templ::InstanceMethod("verify",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex__wrap_KeyPairEd25519Ex_verify,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("is3rdHighestBitClear");
+  members.insert({
+    "is3rdHighestBitClear",
+      _exports_KeyPairEd25519Ex_templ::InstanceMethod("is3rdHighestBitClear",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_is3rdHighestBitClear,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -187,14 +211,6 @@ void _exports_KeyPairEd25519Ex_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getPrivateKey");
-  members.insert({
-    "getPrivateKey",
-      _exports_KeyPairEd25519Ex_templ::InstanceMethod("getPrivateKey",
-        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_getPrivateKey,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("getChainCode");
   members.insert({
     "getChainCode",
@@ -203,11 +219,11 @@ void _exports_KeyPairEd25519Ex_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("deriveChild");
+  members.erase("isTheSame");
   members.insert({
-    "deriveChild",
-      _exports_KeyPairEd25519Ex_templ::InstanceMethod("deriveChild",
-        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex__wrap_KeyPairEd25519Ex_deriveChild,
+    "isTheSame",
+      _exports_KeyPairEd25519Ex_templ::InstanceMethod("isTheSame",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex__wrap_KeyPairEd25519Ex_isTheSame,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -224,6 +240,30 @@ void _exports_KeyPairEd25519Ex_inst::GetMembers(
     "notEqual",
       _exports_KeyPairEd25519Ex_templ::InstanceMethod("notEqual",
         &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_notEqual,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("hasPrivateKey");
+  members.insert({
+    "hasPrivateKey",
+      _exports_KeyPairEd25519Ex_templ::InstanceMethod("hasPrivateKey",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_hasPrivateKey,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getCryptedPrivKey");
+  members.insert({
+    "getCryptedPrivKey",
+      _exports_KeyPairEd25519Ex_templ::InstanceMethod("getCryptedPrivKey",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_getCryptedPrivKey,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isNormalized");
+  members.insert({
+    "isNormalized",
+      _exports_KeyPairEd25519Ex_templ::InstanceMethod("isNormalized",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_isNormalized,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
@@ -266,6 +306,38 @@ void _exports_KeyPairEd25519Ex_inst::GetMembers(
     "normalizeBytesForce3rd",
       StaticMethod("normalizeBytesForce3rd",
         &_exports_KeyPairEd25519_templ::_wrap_KeyPairEd25519_normalizeBytesForce3rd,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_static_function
+  staticMembers.erase("create");
+  staticMembers.insert({
+    "create",
+      StaticMethod("create",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex__wrap_KeyPairEd25519Ex_create,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_static_function
+  staticMembers.erase("calculatePublicKey");
+  staticMembers.insert({
+    "calculatePublicKey",
+      StaticMethod("calculatePublicKey",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_calculatePublicKey,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_static_function
+  staticMembers.erase("validatePublicKey");
+  staticMembers.insert({
+    "validatePublicKey",
+      StaticMethod("validatePublicKey",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_validatePublicKey,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_static_function
+  staticMembers.erase("normalizeBytesForce3rd");
+  staticMembers.insert({
+    "normalizeBytesForce3rd",
+      StaticMethod("normalizeBytesForce3rd",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_normalizeBytesForce3rd,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

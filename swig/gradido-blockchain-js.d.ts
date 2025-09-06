@@ -364,21 +364,49 @@ export  class KeyPairEd25519Ex extends KeyPairEd25519 {
 
   isHardDerivated(): boolean;
 
-  create(seed: MemoryBlock): KeyPairEd25519|null;
+ static create(passphrase: Passphrase|null): KeyPairEd25519|null;
+
+ static create(seed: MemoryBlock): KeyPairEd25519|null;
+
+ static calculatePublicKey(privateKey: MemoryBlock): MemoryBlock;
+
+ static validatePublicKey(publicKey: MemoryBlockPtr|null): void;
 
   deriveChild(index: number): KeyPairEd25519|null;
 
-  getPublicKey(): MemoryBlockPtr|null;
+  sign(message: MemoryBlock): MemoryBlock;
 
-  getPrivateKey(): MemoryBlockPtr|null;
+  sign(bodyBytes: string): MemoryBlock;
+
+  sign(message: Uint8Array): MemoryBlock;
+
+  verify(message: string, signature: string): boolean;
+
+  verify(message: MemoryBlock, signature: MemoryBlock): boolean;
+
+  is3rdHighestBitClear(): boolean;
+
+  getPublicKey(): MemoryBlockPtr|null;
 
   getChainCode(): MemoryBlockPtr|null;
 
-  deriveChild(index: number, type: Ed25519DerivationType): KeyPairEd25519|null;
+  isTheSame(b: KeyPairEd25519 | KeyPairEd25519Ex): boolean;
+
+  isTheSame(pubkey: any): boolean;
+
+  isTheSame(privkey: MemoryBlockPtr|null): number;
 
   equal(b: KeyPairEd25519 | KeyPairEd25519Ex): boolean;
 
   notEqual(b: KeyPairEd25519 | KeyPairEd25519Ex): boolean;
+
+  hasPrivateKey(): boolean;
+
+  getCryptedPrivKey(password: SecretKeyCryptography): MemoryBlock;
+
+ static normalizeBytesForce3rd(key: MemoryBlock): void;
+
+  isNormalized(): boolean;
 }
 
 export  class AuthenticatedEncryption {
