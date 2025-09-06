@@ -61,6 +61,40 @@
   $2 = array.ByteLength();
 }
 
+%extend KeyPairEd25519Ex {
+  inline std::shared_ptr<KeyPairEd25519> create(const memory::Block& seed) {
+    return KeyPairEd25519::create(seed);
+  }
+
+  inline std::shared_ptr<KeyPairEd25519> deriveChild(uint32_t index) const {
+    return KeyPairEd25519::deriveChild(index);
+  }
+
+  inline memory::ConstBlockPtr getPublicKey() const {
+    return KeyPairEd25519::getPublicKey();
+  }
+
+  inline memory::ConstBlockPtr getPrivateKey() const {
+    return KeyPairEd25519::getPrivateKey();
+  }
+
+  inline memory::ConstBlockPtr getChainCode() const {
+    return KeyPairEd25519::getChainCode();
+  }
+
+  inline std::shared_ptr<KeyPairEd25519> deriveChild(uint32_t index, Ed25519DerivationType type) const {
+    return KeyPairEd25519::deriveChild(index, type);
+  }
+
+  inline bool operator==(const KeyPairEd25519& b) const {
+    return KeyPairEd25519::operator==(b);
+  }
+
+  inline bool operator!=(const KeyPairEd25519& b) const {
+    return KeyPairEd25519::operator!=(b);
+  }
+}
+
 
 %{
 #include "gradido_blockchain/crypto/KeyPairEd25519.h"

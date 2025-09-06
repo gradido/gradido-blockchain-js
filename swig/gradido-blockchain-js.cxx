@@ -2048,6 +2048,30 @@ fail:
   return SWIG_ERROR;
 }
 
+SWIGINTERN std::shared_ptr< KeyPairEd25519 > KeyPairEd25519Ex_create(KeyPairEd25519Ex *self,memory::Block const &seed){
+    return KeyPairEd25519::create(seed);
+  }
+SWIGINTERN std::shared_ptr< KeyPairEd25519 > KeyPairEd25519Ex_deriveChild__SWIG_0(KeyPairEd25519Ex const *self,uint32_t index){
+    return KeyPairEd25519::deriveChild(index);
+  }
+SWIGINTERN memory::ConstBlockPtr KeyPairEd25519Ex_getPublicKey(KeyPairEd25519Ex const *self){
+    return KeyPairEd25519::getPublicKey();
+  }
+SWIGINTERN memory::ConstBlockPtr KeyPairEd25519Ex_getPrivateKey(KeyPairEd25519Ex const *self){
+    return KeyPairEd25519::getPrivateKey();
+  }
+SWIGINTERN memory::ConstBlockPtr KeyPairEd25519Ex_getChainCode(KeyPairEd25519Ex const *self){
+    return KeyPairEd25519::getChainCode();
+  }
+SWIGINTERN std::shared_ptr< KeyPairEd25519 > KeyPairEd25519Ex_deriveChild__SWIG_1(KeyPairEd25519Ex const *self,uint32_t index,Ed25519DerivationType type){
+    return KeyPairEd25519::deriveChild(index, type);
+  }
+SWIGINTERN bool KeyPairEd25519Ex_operator_Se__Se_(KeyPairEd25519Ex const *self,KeyPairEd25519 const &b){
+    return KeyPairEd25519::operator==(b);
+  }
+SWIGINTERN bool KeyPairEd25519Ex_operator_SN__Se_(KeyPairEd25519Ex const *self,KeyPairEd25519 const &b){
+    return KeyPairEd25519::operator!=(b);
+  }
 
 SWIGINTERN
 int SWIG_AsVal_double (Napi::Value obj, double *val)

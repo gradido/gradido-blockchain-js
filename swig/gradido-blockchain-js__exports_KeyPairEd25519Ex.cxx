@@ -170,6 +170,62 @@ void _exports_KeyPairEd25519Ex_inst::GetMembers(
         &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_isHardDerivated,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("create");
+  members.insert({
+    "create",
+      _exports_KeyPairEd25519Ex_templ::InstanceMethod("create",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_create,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getPublicKey");
+  members.insert({
+    "getPublicKey",
+      _exports_KeyPairEd25519Ex_templ::InstanceMethod("getPublicKey",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_getPublicKey,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getPrivateKey");
+  members.insert({
+    "getPrivateKey",
+      _exports_KeyPairEd25519Ex_templ::InstanceMethod("getPrivateKey",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_getPrivateKey,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getChainCode");
+  members.insert({
+    "getChainCode",
+      _exports_KeyPairEd25519Ex_templ::InstanceMethod("getChainCode",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_getChainCode,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("deriveChild");
+  members.insert({
+    "deriveChild",
+      _exports_KeyPairEd25519Ex_templ::InstanceMethod("deriveChild",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex__wrap_KeyPairEd25519Ex_deriveChild,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("equal");
+  members.insert({
+    "equal",
+      _exports_KeyPairEd25519Ex_templ::InstanceMethod("equal",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_equal,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("notEqual");
+  members.insert({
+    "notEqual",
+      _exports_KeyPairEd25519Ex_templ::InstanceMethod("notEqual",
+        &_exports_KeyPairEd25519Ex_templ::_wrap_KeyPairEd25519Ex_notEqual,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   // jsnapi_register_static_function

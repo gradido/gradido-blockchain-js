@@ -363,6 +363,22 @@ export  class KeyPairEd25519Ex extends KeyPairEd25519 {
   isSoftDerivated(): boolean;
 
   isHardDerivated(): boolean;
+
+  create(seed: MemoryBlock): KeyPairEd25519|null;
+
+  deriveChild(index: number): KeyPairEd25519|null;
+
+  getPublicKey(): MemoryBlockPtr|null;
+
+  getPrivateKey(): MemoryBlockPtr|null;
+
+  getChainCode(): MemoryBlockPtr|null;
+
+  deriveChild(index: number, type: Ed25519DerivationType): KeyPairEd25519|null;
+
+  equal(b: KeyPairEd25519 | KeyPairEd25519Ex): boolean;
+
+  notEqual(b: KeyPairEd25519 | KeyPairEd25519Ex): boolean;
 }
 
 export  class AuthenticatedEncryption {
