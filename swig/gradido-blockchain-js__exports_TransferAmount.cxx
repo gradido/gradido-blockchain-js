@@ -66,6 +66,14 @@ void _exports_TransferAmount_inst::GetMembers(
         &_exports_TransferAmount_templ::_wrap_TransferAmount_getCommunityId,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("toJson");
+  members.insert({
+    "toJson",
+      _exports_TransferAmount_templ::InstanceMethod("toJson",
+        &_exports_TransferAmount_templ::_wrap_TransferAmount__wrap_TransferAmount_toJson,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   

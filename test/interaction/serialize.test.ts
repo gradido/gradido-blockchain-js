@@ -18,10 +18,12 @@ import {
   AccountBalance,
   MemoryBlockPtr,
   HieroTransactionId,
+  Timestamp,
 } from '../../'
 import { 
   autoCompleteTransactionMemoString, 
   confirmedAt, 
+  confirmedTransactionVersionString, 
   createdAt, 
   creationMemo, 
   deferredTransferMemo, 
@@ -45,7 +47,6 @@ import {
   transferTransactionBase64
 } from '../helper/serializedTransactions'
 import { generateKeyPairs } from '../helper/keyPairs'
-import { crypto_generichash_BYTES } from 'sodium-native'
 
 let keyPairs: KeyPairEd25519[]
 
@@ -63,7 +64,7 @@ describe('Serialize Gradido Transactions Tests', () => {
   })
 
   it('hiero transaction id', () => {
-    const transactionId = new HieroTransactionId("0.0.256009@1755503343.736000193");
+    const transactionId = new HieroTransactionId("0.0.121212@172618921.29182");
     const serialized = new InteractionSerialize(transactionId).run()
     expect(serialized?.convertToBase64()).toEqual(hieroTransactionIdBase64)
   })
@@ -211,10 +212,10 @@ describe('Serialize Gradido Transactions Tests', () => {
     const confirmedTransaction = new ConfirmedTransaction(
       7,
       new GradidoTransaction,
-      confirmedAt,
-      versionString,
-      new MemoryBlockPtr(new MemoryBlock(Buffer.alloc(crypto_generichash_BYTES))),
+      new Timestamp(confirmedAt),
+      confirmedTransactionVersionString,
       new MemoryBlockPtr(new MemoryBlock(Buffer.alloc(32))),
+      MemoryBlock.createPtr(MemoryBlock.fromBase64(hieroTransactionIdBase64)),
       new AccountBalances()
     )
     const serialized = new InteractionSerialize(confirmedTransaction).run()
@@ -236,15 +237,16 @@ describe('Serialize Gradido Transactions Tests', () => {
       .sign(keyPairs[0])
       .build()
     const accountBalances = new AccountBalances()
-    accountBalances.add(new AccountBalance(keyPairs[4].getPublicKey(), GradidoUnit.fromGradidoCent(1000000)))
-    accountBalances.add(new AccountBalance(keyPairs[5].getPublicKey(), GradidoUnit.fromGradidoCent(8997483)))
+    accountBalances.add(new AccountBalance(keyPairs[4].getPublicKey(), GradidoUnit.fromGradidoCent(1000000), ''))
+    accountBalances.add(new AccountBalance(keyPairs[5].getPublicKey(), GradidoUnit.fromGradidoCent(8997483), ''))
       
     const confirmedTransaction = new ConfirmedTransaction(
       7,
       gradidoTransaction,
-      confirmedAt,
-      versionString,
+      new Timestamp(confirmedAt),
+      confirmedTransactionVersionString,
       new MemoryBlockPtr(new MemoryBlock(Buffer.alloc(32))),
+      MemoryBlock.createPtr(MemoryBlock.fromBase64(hieroTransactionIdBase64)),
       accountBalances,
     )
 

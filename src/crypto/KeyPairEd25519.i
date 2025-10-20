@@ -79,67 +79,68 @@
   }
 
   inline std::shared_ptr<KeyPairEd25519Ex> deriveChild(uint32_t index) const {
-    return KeyPairEd25519::deriveChild(index);
+
+    return self->deriveChild(index);
   }
 
   inline memory::Block sign(const memory::Block& message) const {
-    return KeyPairEd25519::sign(message);
+    return self->sign(message);
   }
 
   inline memory::Block sign(const std::string& bodyBytes) const {
-    return KeyPairEd25519::sign(bodyBytes);
+    return self->sign(bodyBytes);
   }
 
   inline memory::Block sign(const unsigned char* message, size_t messageSize) const {
-    return KeyPairEd25519::sign(message, messageSize);
+    return self->sign(message, messageSize);
   }
 
   bool verify(const std::string& message, const std::string& signature) const {
-    return KeyPairEd25519::verify(message, signature);
+    return self->verify(message, signature);
   }
 
   bool verify(const memory::Block& message, const memory::Block& signature) const {
-    return KeyPairEd25519::verify(message, signature);
+    return self->verify(message, signature);
   }
 
   bool is3rdHighestBitClear() const {
-    return KeyPairEd25519::is3rdHighestBitClear();
+    return self->is3rdHighestBitClear();
   }
 
   inline memory::ConstBlockPtr getPublicKey() const {
-    return KeyPairEd25519::getPublicKey();
+    return self->getPublicKey();
   }
 
   inline memory::ConstBlockPtr getChainCode() const {
-    return KeyPairEd25519::getChainCode();
+    return self->getChainCode();
   }
 
   inline bool isTheSame(const KeyPairEd25519& b) const {
-    return KeyPairEd25519::isTheSame(b);
+    return self->isTheSame(b);
   }
 
   inline bool isTheSame(const unsigned char* pubkey) const {
-    return KeyPairEd25519::isTheSame(pubkey);
+    return self->isTheSame(pubkey);
   }
 
   inline int isTheSame(memory::ConstBlockPtr privkey) const {
-    return KeyPairEd25519::isTheSame(privkey);
+    return self->isTheSame(privkey);
   }
 
   inline bool operator==(const KeyPairEd25519& b) const {
-    return KeyPairEd25519::operator==(b);
+    return self->operator==(b);
   }
 
   inline bool operator!=(const KeyPairEd25519& b) const {
-    return KeyPairEd25519::operator!=(b);
+    return self->operator!=(b);
   }
 
   inline bool hasPrivateKey() const {
-    return KeyPairEd25519::hasPrivateKey();
+    return self->hasPrivateKey();
   }
 
   memory::Block getCryptedPrivKey(const SecretKeyCryptography& password) const {
-    return KeyPairEd25519::getCryptedPrivKey(password);
+    return self->getCryptedPrivKey(password);
   }
 
   static void normalizeBytesForce3rd(memory::Block& key) {
@@ -147,7 +148,7 @@
   }
 
   inline bool isNormalized() const {
-    return KeyPairEd25519::isNormalized();
+    return self->isNormalized();
   }
 }
 

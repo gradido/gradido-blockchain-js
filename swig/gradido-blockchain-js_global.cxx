@@ -1324,130 +1324,6 @@ fail:
 
 
 // js_global_function
-Napi::Value _wrap_bodyBytesTypeToString(const Napi::CallbackInfo &info) {
-  Napi::Env env = info.Env();
-  Napi::Value jsresult;
-  gradido::interaction::toJson::BodyBytesType arg1 ;
-  int val1 ;
-  int ecode1 = 0 ;
-  std::string result;
-  
-  
-#ifdef NAPI_CPP_EXCEPTIONS
-  try {
-#endif
-    
-    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_bodyBytesTypeToString.");
-    }
-    
-    ecode1 = SWIG_AsVal_int(info[0], &val1);
-    if (!SWIG_IsOK(ecode1)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "bodyBytesTypeToString" "', argument " "1"" of type '" "gradido::interaction::toJson::BodyBytesType""'");
-    } 
-    arg1 = static_cast< gradido::interaction::toJson::BodyBytesType >(val1);
-    
-    
-    
-    
-    {
-      try {
-        result = enum_to_string< gradido::interaction::toJson::BodyBytesType >(arg1);
-      } catch (const GradidoBlockchainException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
-      } catch (const std::exception& e) {
-        SWIG_exception(SWIG_RuntimeError, e.what());
-      }
-    }
-    
-    
-    
-    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
-    
-    
-    return jsresult;
-#ifdef NAPI_CPP_EXCEPTIONS
-  } catch (...) {
-    std::rethrow_exception(std::current_exception());
-  }
-#else
-  goto fail;
-fail:
-  
-#endif
-  return Napi::Value();
-}
-
-
-// js_global_function
-Napi::Value _wrap_stringToBodyBytesType(const Napi::CallbackInfo &info) {
-  Napi::Env env = info.Env();
-  Napi::Value jsresult;
-  std::string *arg1 = 0 ;
-  int res1 = SWIG_OLDOBJ ;
-  gradido::interaction::toJson::BodyBytesType result;
-  
-  
-#ifdef NAPI_CPP_EXCEPTIONS
-  try {
-#endif
-    
-    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_stringToBodyBytesType.");
-    }
-    
-    {
-      {
-        std::string *ptr = (std::string *)0;
-        res1 = SWIG_AsPtr_std_string(info[0], &ptr);
-        if (!SWIG_IsOK(res1)) {
-          SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "stringToBodyBytesType" "', argument " "1"" of type '" "std::string const &""'"); 
-        }
-        if (!ptr) {
-          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "stringToBodyBytesType" "', argument " "1"" of type '" "std::string const &""'"); 
-        }
-        arg1 = ptr;
-      }
-    }
-    
-    
-    
-    
-    
-    {
-      try {
-        result = (gradido::interaction::toJson::BodyBytesType)string_to_enum< gradido::interaction::toJson::BodyBytesType >((std::string const &)*arg1);
-      } catch (const GradidoBlockchainException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
-      } catch (const std::exception& e) {
-        SWIG_exception(SWIG_RuntimeError, e.what());
-      }
-    }
-    
-    
-    
-    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(result));
-    
-    if (SWIG_IsNewObj(res1)) delete arg1;
-    
-    return jsresult;
-#ifdef NAPI_CPP_EXCEPTIONS
-  } catch (...) {
-    if (SWIG_IsNewObj(res1)) delete arg1;
-    
-    std::rethrow_exception(std::current_exception());
-  }
-#else
-  goto fail;
-fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
-  
-#endif
-  return Napi::Value();
-}
-
-
-// js_global_function
 Napi::Value _wrap_validateTypeToString(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
@@ -1684,6 +1560,7 @@ SWIGINTERN swig_type_info _swigt__p_EncryptionException = {"_p_EncryptionExcepti
 SWIGINTERN swig_type_info _swigt__p_EncryptionKeyException = {"_p_EncryptionKeyException", 0, 0, 0, 0, 0};
 SWIGINTERN swig_type_info _swigt__p_MissingEncryptionException = {"_p_MissingEncryptionException", 0, 0, 0, 0, 0};
 SWIGINTERN swig_type_info _swigt__p_TimepointInterval = {"_p_TimepointInterval", "TimepointInterval *|p_TimepointInterval", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_TimepointInterval__MonthYearIterator = {"_p_TimepointInterval__MonthYearIterator", "TimepointInterval::MonthYearIterator *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_date__month = {"_p_date__month", "date::month *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_date__year = {"_p_date__year", "date::year *", 0, 0, (void*)0, 0};
@@ -1723,11 +1600,11 @@ SWIGINTERN swig_type_info _swigt__p_gradido__data__TransferAmount = {"_p_gradido
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__calculateAccountBalance__Context = {"_p_gradido__interaction__calculateAccountBalance__Context", "p_gradido__interaction__calculateAccountBalance__Context|gradido::interaction::calculateAccountBalance::Context *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__deserialize__Context = {"_p_gradido__interaction__deserialize__Context", "p_gradido__interaction__deserialize__Context|gradido::interaction::deserialize::Context *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__serialize__Context = {"_p_gradido__interaction__serialize__Context", "gradido::interaction::serialize::Context *|p_gradido__interaction__serialize__Context", 0, 0, (void*)0, 0};
-SWIGINTERN swig_type_info _swigt__p_gradido__interaction__toJson__Context = {"_p_gradido__interaction__toJson__Context", "p_gradido__interaction__toJson__Context|gradido::interaction::toJson::Context *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__validate__Context = {"_p_gradido__interaction__validate__Context", "p_gradido__interaction__validate__Context|gradido::interaction::validate::Context *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_hiero__AccountId = {"_p_hiero__AccountId", "hiero::AccountId *|p_hiero__AccountId", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_hiero__TopicId = {"_p_hiero__TopicId", "hiero::TopicId *|p_hiero__TopicId", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_hiero__TransactionId = {"_p_hiero__TransactionId", "p_hiero__TransactionId|hiero::TransactionId *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_hiero__TransactionIdHasher = {"_p_hiero__TransactionIdHasher", "p_hiero__TransactionIdHasher|hiero::TransactionIdHasher *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_int = {"_p_int", "int32_t *|int_fast16_t *|int_fast32_t *|int_least32_t *|intptr_t *|int *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_long_long = {"_p_long_long", "int64_t *|int_fast64_t *|int_least64_t *|intmax_t *|long long *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_memory__Block = {"_p_memory__Block", "MemoryBin *|p_memory__Block|memory::Block *", 0, 0, (void*)0, 0};
@@ -1784,6 +1661,7 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_SecretKeyCryptography,
   &_swigt__p_SecretKeyCryptographyException,
   &_swigt__p_TimepointInterval,
+  &_swigt__p_TimepointInterval__MonthYearIterator,
   &_swigt__p_char,
   &_swigt__p_date__month,
   &_swigt__p_date__year,
@@ -1823,11 +1701,11 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_gradido__interaction__calculateAccountBalance__Context,
   &_swigt__p_gradido__interaction__deserialize__Context,
   &_swigt__p_gradido__interaction__serialize__Context,
-  &_swigt__p_gradido__interaction__toJson__Context,
   &_swigt__p_gradido__interaction__validate__Context,
   &_swigt__p_hiero__AccountId,
   &_swigt__p_hiero__TopicId,
   &_swigt__p_hiero__TransactionId,
+  &_swigt__p_hiero__TransactionIdHasher,
   &_swigt__p_int,
   &_swigt__p_long_long,
   &_swigt__p_memory__Block,
@@ -1881,6 +1759,7 @@ SWIGINTERN swig_cast_info _swigc__p_EncryptionKeyException[] = {{&_swigt__p_Encr
 SWIGINTERN swig_cast_info _swigc__p_MissingEncryptionException[] = {{&_swigt__p_MissingEncryptionException, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_SecretKeyCryptographyException[] = {  {&_swigt__p_SecretKeyCryptographyException, 0, 0, 0},  {&_swigt__p_DecryptionException, _p_DecryptionExceptionTo_p_SecretKeyCryptographyException, 0, 0},  {&_swigt__p_EncryptionException, _p_EncryptionExceptionTo_p_SecretKeyCryptographyException, 0, 0},  {&_swigt__p_EncryptionKeyException, _p_EncryptionKeyExceptionTo_p_SecretKeyCryptographyException, 0, 0},  {&_swigt__p_MissingEncryptionException, _p_MissingEncryptionExceptionTo_p_SecretKeyCryptographyException, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_TimepointInterval[] = {  {&_swigt__p_TimepointInterval, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_TimepointInterval__MonthYearIterator[] = {  {&_swigt__p_TimepointInterval__MonthYearIterator, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_date__month[] = {  {&_swigt__p_date__month, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_date__year[] = {  {&_swigt__p_date__year, 0, 0, 0},{0, 0, 0, 0}};
@@ -1920,11 +1799,11 @@ SWIGINTERN swig_cast_info _swigc__p_gradido__data__TransferAmount[] = {  {&_swig
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__calculateAccountBalance__Context[] = {  {&_swigt__p_gradido__interaction__calculateAccountBalance__Context, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__deserialize__Context[] = {  {&_swigt__p_gradido__interaction__deserialize__Context, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__serialize__Context[] = {  {&_swigt__p_gradido__interaction__serialize__Context, 0, 0, 0},{0, 0, 0, 0}};
-SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__toJson__Context[] = {  {&_swigt__p_gradido__interaction__toJson__Context, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__validate__Context[] = {  {&_swigt__p_gradido__interaction__validate__Context, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_hiero__AccountId[] = {  {&_swigt__p_hiero__AccountId, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_hiero__TopicId[] = {  {&_swigt__p_hiero__TopicId, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_hiero__TransactionId[] = {  {&_swigt__p_hiero__TransactionId, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_hiero__TransactionIdHasher[] = {  {&_swigt__p_hiero__TransactionIdHasher, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_long_long[] = {  {&_swigt__p_long_long, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_memory__Block[] = {  {&_swigt__p_memory__Block, 0, 0, 0},{0, 0, 0, 0}};
@@ -1978,6 +1857,7 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_SecretKeyCryptography,
   _swigc__p_SecretKeyCryptographyException,
   _swigc__p_TimepointInterval,
+  _swigc__p_TimepointInterval__MonthYearIterator,
   _swigc__p_char,
   _swigc__p_date__month,
   _swigc__p_date__year,
@@ -2017,11 +1897,11 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_gradido__interaction__calculateAccountBalance__Context,
   _swigc__p_gradido__interaction__deserialize__Context,
   _swigc__p_gradido__interaction__serialize__Context,
-  _swigc__p_gradido__interaction__toJson__Context,
   _swigc__p_gradido__interaction__validate__Context,
   _swigc__p_hiero__AccountId,
   _swigc__p_hiero__TopicId,
   _swigc__p_hiero__TransactionId,
+  _swigc__p_hiero__TransactionIdHasher,
   _swigc__p_int,
   _swigc__p_long_long,
   _swigc__p_memory__Block,
@@ -2065,6 +1945,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
 
-SWIGINTERN swig_type_info *swig_types[96];
-SWIGINTERN swig_module_info swig_module = {swig_types, 95, 0, 0, 0, 0};
+SWIGINTERN swig_type_info *swig_types[97];
+SWIGINTERN swig_module_info swig_module = {swig_types, 96, 0, 0, 0, 0};
 

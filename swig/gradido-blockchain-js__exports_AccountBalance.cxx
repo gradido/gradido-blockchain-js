@@ -50,6 +50,22 @@ void _exports_AccountBalance_inst::GetMembers(
         &_exports_AccountBalance_templ::_wrap_AccountBalance_getBalance,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("getCommunityId");
+  members.insert({
+    "getCommunityId",
+      _exports_AccountBalance_templ::InstanceMethod("getCommunityId",
+        &_exports_AccountBalance_templ::_wrap_AccountBalance_getCommunityId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("toJson");
+  members.insert({
+    "toJson",
+      _exports_AccountBalance_templ::InstanceMethod("toJson",
+        &_exports_AccountBalance_templ::_wrap_AccountBalance__wrap_AccountBalance_toJson,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   

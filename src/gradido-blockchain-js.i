@@ -116,6 +116,8 @@ E string_to_enum(const std::string& name);
 %include "crypto/KeyPairEd25519.i"
 %include "crypto/AuthenticatedEncryption.i"
 %include "crypto/SealedBoxes.i"
+// serialization
+%include "serialization/toJson.i"
 // base types
 %include "GradidoUnit.i"
 %include "data.i"
@@ -129,7 +131,7 @@ E string_to_enum(const std::string& name);
 %include "interaction/serialize.i"
 
 %include "blockchain/blockchain.i"
-%include "interaction/toJson.i"
+
 
 %include "interaction/calculateAccountBalance.i"
 %include "interaction/validate.i"

@@ -58,6 +58,14 @@ void _exports_SignaturePair_inst::GetMembers(
         &_exports_SignaturePair_templ::_wrap_SignaturePair_getSignature,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("toJson");
+  members.insert({
+    "toJson",
+      _exports_SignaturePair_templ::InstanceMethod("toJson",
+        &_exports_SignaturePair_templ::_wrap_SignaturePair__wrap_SignaturePair_toJson,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   

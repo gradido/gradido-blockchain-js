@@ -106,6 +106,14 @@ void _exports_TimestampSeconds_inst::GetMembers(
         &_exports_TimestampSeconds_templ::_wrap_TimestampSeconds_empty,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("toJson");
+  members.insert({
+    "toJson",
+      _exports_TimestampSeconds_templ::InstanceMethod("toJson",
+        &_exports_TimestampSeconds_templ::_wrap_TimestampSeconds__wrap_TimestampSeconds_toJson,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   

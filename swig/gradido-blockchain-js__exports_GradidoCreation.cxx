@@ -66,6 +66,14 @@ void _exports_GradidoCreation_inst::GetMembers(
         &_exports_GradidoCreation_templ::_wrap_GradidoCreation_getTargetDate,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("toJson");
+  members.insert({
+    "toJson",
+      _exports_GradidoCreation_templ::InstanceMethod("toJson",
+        &_exports_GradidoCreation_templ::_wrap_GradidoCreation__wrap_GradidoCreation_toJson,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   

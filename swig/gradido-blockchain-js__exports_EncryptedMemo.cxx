@@ -98,6 +98,14 @@ void _exports_EncryptedMemo_inst::GetMembers(
         &_exports_EncryptedMemo_templ::_wrap_EncryptedMemo__wrap_EncryptedMemo_decrypt,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("toJson");
+  members.insert({
+    "toJson",
+      _exports_EncryptedMemo_templ::InstanceMethod("toJson",
+        &_exports_EncryptedMemo_templ::_wrap_EncryptedMemo__wrap_EncryptedMemo_toJson,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   

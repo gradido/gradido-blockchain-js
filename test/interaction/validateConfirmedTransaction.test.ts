@@ -7,11 +7,11 @@ import {
   InteractionDeserialize,  
   GradidoTransaction,
   DeserializeType_GRADIDO_TRANSACTION,
-  GradidoUnit,
+  Timestamp,
   AccountBalances
 } from '../../'
-import { confirmedAt, createdAt, versionString } from '../helper/const'
-import { communityRootTransactionBase64 } from '../helper/serializedTransactions'
+import { confirmedAt, createdAt, confirmedTransactionVersionString } from '../helper/const'
+import { communityRootTransactionBase64, hieroTransactionIdBase64 } from '../helper/serializedTransactions'
 
 let gradidoTransaction: GradidoTransaction
 
@@ -30,9 +30,9 @@ describe('validate Confirmed Transactions', () => {
     const confirmedTransaction = new ConfirmedTransaction(
       7,
       gradidoTransaction,
-      confirmedAt,
-      versionString,
-      MemoryBlock.createPtr(new MemoryBlock(Buffer.alloc(crypto_generichash_BYTES))),
+      new Timestamp(confirmedAt),
+      confirmedTransactionVersionString,
+      MemoryBlock.createPtr(MemoryBlock.fromBase64(hieroTransactionIdBase64)),
       new AccountBalances()
     )
     expect(() => new InteractionValidate(confirmedTransaction).run(ValidateType_SINGLE)).not.toThrow()
@@ -43,13 +43,13 @@ describe('validate Confirmed Transactions', () => {
     const confirmedTransaction = new ConfirmedTransaction(
       7,
       gradidoTransaction,
-      confirmedAt,
+      new Timestamp(confirmedAt),
       "1",
-      MemoryBlock.createPtr(new MemoryBlock(Buffer.alloc(crypto_generichash_BYTES))),
+      MemoryBlock.createPtr(MemoryBlock.fromBase64(hieroTransactionIdBase64)),
       new AccountBalances()
     )
     expect(() => new InteractionValidate(confirmedTransaction).run(ValidateType_SINGLE))
-      .toThrow('TransactionValidationInvalidInputException: wrong version with version_number: string, expected: 3.5, actual: 1')
+      .toThrow('TransactionValidationInvalidInputException: wrong version with version_number: string, expected: 3.6, actual: 1')
 
   })
 
@@ -57,23 +57,24 @@ describe('validate Confirmed Transactions', () => {
     const confirmedTransaction = new ConfirmedTransaction(
       7,
       gradidoTransaction,
-      confirmedAt,
-      versionString,
+      new Timestamp(confirmedAt),
+      confirmedTransactionVersionString,
       MemoryBlock.createPtr(new MemoryBlock(Buffer.alloc(10))),
       new AccountBalances()
     )
     expect(() => new InteractionValidate(confirmedTransaction).run(ValidateType_SINGLE))
-      .toThrow('TransactionValidationInvalidInputException: wrong size with message_id: bytes, expected: 32, actual: 10')
+      .toThrow('TransactionValidationInvalidInputException: invalid with message_id: bytes, expected: hiero transaction id, actual: 00000000000000000000')
 
   })
 
-  it('invalid, confirmed before created', () => { 
+  // validation rules changed, hiero/hedera tends to create confirmation dates before created dates
+  it.skip('invalid, confirmed before created', () => { 
     const confirmedTransaction = new ConfirmedTransaction(
       7,
       gradidoTransaction,
-      new Date(createdAt.getTime() - 1000),
-      versionString,
-      MemoryBlock.createPtr(new MemoryBlock(Buffer.alloc(crypto_generichash_BYTES))),
+      new Timestamp(new Date(createdAt.getTime() - 1000)),
+      confirmedTransactionVersionString,
+      MemoryBlock.createPtr(MemoryBlock.fromBase64(hieroTransactionIdBase64)),
       new AccountBalances()
     )
     expect(() => new InteractionValidate(confirmedTransaction).run(ValidateType_SINGLE))

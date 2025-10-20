@@ -60,6 +60,14 @@ void _exports_Pagination_inst::GetMembers(
         &_exports_Pagination_templ::_wrap_Pagination_skipEntriesCount,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("hasCapacityLeft");
+  members.insert({
+    "hasCapacityLeft",
+      _exports_Pagination_templ::InstanceMethod("hasCapacityLeft",
+        &_exports_Pagination_templ::_wrap_Pagination_hasCapacityLeft,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   

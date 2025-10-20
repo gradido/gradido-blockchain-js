@@ -74,6 +74,14 @@ void _exports_TransactionTriggerEvent_inst::GetMembers(
         &_exports_TransactionTriggerEvent_templ::_wrap_TransactionTriggerEvent_isTheSame,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("toJson");
+  members.insert({
+    "toJson",
+      _exports_TransactionTriggerEvent_templ::InstanceMethod("toJson",
+        &_exports_TransactionTriggerEvent_templ::_wrap_TransactionTriggerEvent__wrap_TransactionTriggerEvent_toJson,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   

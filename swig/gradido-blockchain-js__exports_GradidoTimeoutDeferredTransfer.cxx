@@ -50,6 +50,14 @@ void _exports_GradidoTimeoutDeferredTransfer_inst::GetMembers(
         &_exports_GradidoTimeoutDeferredTransfer_templ::_wrap_GradidoTimeoutDeferredTransfer_getDeferredTransferTransactionNr,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("toJson");
+  members.insert({
+    "toJson",
+      _exports_GradidoTimeoutDeferredTransfer_templ::InstanceMethod("toJson",
+        &_exports_GradidoTimeoutDeferredTransfer_templ::_wrap_GradidoTimeoutDeferredTransfer__wrap_GradidoTimeoutDeferredTransfer_toJson,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   

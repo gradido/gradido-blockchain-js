@@ -46,6 +46,7 @@
 
 %{
 #include "gradido_blockchain/data/ConfirmedTransaction.h"
+#include "gradido_blockchain/data/TransactionTriggerEvent.h"
 %}
 
 // Signature Pairs vector
@@ -105,4 +106,106 @@ namespace gradido::data {
 %include "gradido_blockchain/data/TransactionTriggerEvent.h"
 %include "gradido_blockchain/data/GradidoTransaction.h"
 %include "gradido_blockchain/data/ConfirmedTransaction.h"
+%include "gradido_blockchain/serialization/toJsonString.h"
 
+// toJson for each data Object
+%extend gradido::data::DurationSeconds {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::data::TransferAmount {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::data::TimestampSeconds {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::data::Timestamp {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}   
+%extend gradido::data::SignaturePair {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::data::SignatureMap {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::data::EncryptedMemo {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::data::AccountBalance {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::data::CommunityFriendsUpdate {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::data::CommunityRoot {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::data::GradidoCreation {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::data::GradidoTransfer {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::data::GradidoDeferredTransfer {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::data::GradidoRedeemDeferredTransfer {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::data::GradidoTimeoutDeferredTransfer {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::data::RegisterAddress {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::data::TransactionBody {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::data::TransactionTriggerEvent {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::data::GradidoTransaction {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::data::ConfirmedTransaction {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}

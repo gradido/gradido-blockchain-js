@@ -59,6 +59,14 @@ void _exports_Timestamp_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("toString");
+  members.insert({
+    "toString",
+      _exports_Timestamp_templ::InstanceMethod("toString",
+        &_exports_Timestamp_templ::_wrap_Timestamp_toString,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("equal");
   members.insert({
     "equal",
@@ -88,6 +96,14 @@ void _exports_Timestamp_inst::GetMembers(
     "empty",
       _exports_Timestamp_templ::InstanceMethod("empty",
         &_exports_Timestamp_templ::_wrap_Timestamp_empty,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("toJson");
+  members.insert({
+    "toJson",
+      _exports_Timestamp_templ::InstanceMethod("toJson",
+        &_exports_Timestamp_templ::_wrap_Timestamp__wrap_Timestamp_toJson,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

@@ -242,6 +242,14 @@ void _exports_TransactionBody_inst::GetMembers(
         &_exports_TransactionBody_templ::_wrap_TransactionBody_getTimeoutDeferredTransfer,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("toJson");
+  members.insert({
+    "toJson",
+      _exports_TransactionBody_templ::InstanceMethod("toJson",
+        &_exports_TransactionBody_templ::_wrap_TransactionBody__wrap_TransactionBody_toJson,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   

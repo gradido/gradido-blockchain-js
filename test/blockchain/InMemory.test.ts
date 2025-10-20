@@ -4,19 +4,18 @@ import {
   DurationSeconds,
   EncryptedMemo,
   Filter,
-  GradidoRedeemDeferredTransfer,
   GradidoTransactionBuilder,
   GradidoTransfer,
   GradidoUnit,
   InMemoryBlockchain,
   InMemoryBlockchainProvider,
   InteractionCalculateAccountBalance,
-  InteractionToJson,
   KeyPairEd25519,
   loadCryptoKeys,
   MemoryBlock,
   MnemonicType_BIP0039_SORTED_ORDER,
   Passphrase,
+  Timestamp,
   TransactionType_COMMUNITY_ROOT,
   TransferAmount
 } from '../../'
@@ -76,7 +75,7 @@ function getBalance(keyPairIndex: number, date: Date): GradidoUnit
     throw new Error('keyPairIndex out of bounds')
   }
   const balanceCalculator = new InteractionCalculateAccountBalance(blockchain)
-  return balanceCalculator.fromEnd(keyPairs[keyPairIndex].getPublicKey(), date)
+  return balanceCalculator.fromEnd(keyPairs[keyPairIndex].getPublicKey(), date, '')
 }
 
 function logBlockchain(): void
@@ -92,8 +91,7 @@ function logBlockchain(): void
     if(!confirmedTransaction) {
       throw new Error('missing confirmed transaction')
     }
-    const toJson = new InteractionToJson(confirmedTransaction)
-    console.log(toJson.run(true))
+    console.log(confirmedTransaction.toJson(true))
   }
   console.log('------ log blockchain end ---------')
 }
@@ -117,7 +115,11 @@ function createRegisterAddress(keyPairIndexStart: number) {
     // sign with community root key
     .sign(keyPairs[0])
 
-  expect(blockchain.createAndAddConfirmedTransaction(builder.build(),null, generateNewConfirmedAt(lastCreatedAt))).toBeTruthy()
+  expect(blockchain.createAndAddConfirmedTransaction(
+    builder.build(),
+    null, 
+    new Timestamp(generateNewConfirmedAt(lastCreatedAt))
+  )).toBeTruthy()
 }
 
 function createGradidoCreation(
@@ -142,7 +144,7 @@ function createGradidoCreation(
       targetDate
     )
     .sign(keyPairs[signerKeyPairIndex])
-  return blockchain.createAndAddConfirmedTransaction(builder.build(), null, generateNewConfirmedAt(createdAt))
+  return blockchain.createAndAddConfirmedTransaction(builder.build(), null, new Timestamp(generateNewConfirmedAt(createdAt)))
 }
 
 function createGradidoTransfer(
@@ -167,7 +169,7 @@ function createGradidoTransfer(
     )
     .sign(keyPairs[senderKeyPairIndex])
 
-  return blockchain.createAndAddConfirmedTransaction(builder.build(), null, generateNewConfirmedAt(createdAt))
+  return blockchain.createAndAddConfirmedTransaction(builder.build(), null, new Timestamp(generateNewConfirmedAt(createdAt)))
 }
 
 
@@ -197,7 +199,7 @@ function createGradidoDeferredTransfer(
     )
     .sign(keyPairs[senderKeyPairIndex])
 
-  return blockchain.createAndAddConfirmedTransaction(builder.build(), null, generateNewConfirmedAt(createdAt))
+  return blockchain.createAndAddConfirmedTransaction(builder.build(), null, new Timestamp(generateNewConfirmedAt(createdAt)))
 }
 
 function createGradidoRedeemDeferredTransfer(
@@ -227,7 +229,7 @@ function createGradidoRedeemDeferredTransfer(
     )
     .sign(keyPairs[senderKeyPairIndex])
 
-  return blockchain.createAndAddConfirmedTransaction(builder.build(), null, generateNewConfirmedAt(createdAt))
+  return blockchain.createAndAddConfirmedTransaction(builder.build(), null, new Timestamp(generateNewConfirmedAt(createdAt)))
 }
 
 function createRegisterAddressCursor(): void {
@@ -257,7 +259,7 @@ describe('InMemoryBlockchain', () => {
       )
      .setCreatedAt(lastCreatedAt)
      .sign(keyPairs[0])
-    blockchain.createAndAddConfirmedTransaction(builder.build(), null, generateNewConfirmedAt(lastCreatedAt))
+    blockchain.createAndAddConfirmedTransaction(builder.build(), null, new Timestamp(generateNewConfirmedAt(lastCreatedAt)))
   })
   afterEach(() => {
     InMemoryBlockchainProvider.getInstance().clear()
@@ -506,8 +508,8 @@ describe('InMemoryBlockchain', () => {
       let confirmedTransaction = lastTransactionEntry?.getConfirmedTransaction()
       expect(confirmedTransaction).not.toBeNull()
       expect(confirmedTransaction?.getAccountBalances().size()).toEqual(2)
-      expect(confirmedTransaction?.getAccountBalance(keyPairs[secondRecipientKeyPairIndex].getPublicKey()).getBalance()).toEqual(new GradidoUnit(996.3677))
-      expect(confirmedTransaction?.getAccountBalance(keyPairs[recipientKeyPairIndex].getPublicKey()).getBalance()).toEqual(GradidoUnit.zero())
+      expect(confirmedTransaction?.getAccountBalance(keyPairs[secondRecipientKeyPairIndex].getPublicKey(), '').getBalance()).toEqual(new GradidoUnit(996.3677))
+      expect(confirmedTransaction?.getAccountBalance(keyPairs[recipientKeyPairIndex].getPublicKey(), '').getBalance()).toEqual(GradidoUnit.zero())
       
       // check accounts
       blockedDeferredTransferBalance = new GradidoUnit(483.0).calculateCompoundInterest(createdAt, new Date(createdAt.getTime() + secondTimeoutDuration.getSeconds() * 1000))
@@ -533,8 +535,8 @@ describe('InMemoryBlockchain', () => {
       confirmedTransaction = lastTransactionEntry?.getConfirmedTransaction()
       expect(confirmedTransaction).not.toBeNull()
       expect(confirmedTransaction?.getAccountBalances().size()).toEqual(2)
-      expect(confirmedTransaction?.getAccountBalance(keyPairs[6].getPublicKey()).getBalance()).toEqual(originalSenderBalance)
-      expect(confirmedTransaction?.getAccountBalance(keyPairs[thirdRecipientKeyPairIndex].getPublicKey()).getBalance()).toEqual(deferredFullBalance)      
+      expect(confirmedTransaction?.getAccountBalance(keyPairs[6].getPublicKey(), '').getBalance()).toEqual(originalSenderBalance)
+      expect(confirmedTransaction?.getAccountBalance(keyPairs[thirdRecipientKeyPairIndex].getPublicKey(), '').getBalance()).toEqual(deferredFullBalance)      
 
       // redeem second deferred transfer
       const previousCreatedAt = createdAt;
@@ -545,9 +547,9 @@ describe('InMemoryBlockchain', () => {
       lastTransactionEntry = blockchain.findOne(Filter.LAST_TRANSACTION)
       confirmedTransaction = lastTransactionEntry?.getConfirmedTransaction()
       expect(confirmedTransaction?.getAccountBalances().size()).toEqual(3)
-      expect(confirmedTransaction?.getAccountBalance(keyPairs[secondRecipientKeyPairIndex].getPublicKey()).getBalance()).toEqual(originalSenderBalance.plus(deferredFullBalance).minus(new GradidoUnit(400.0)))
-      expect(confirmedTransaction?.getAccountBalance(keyPairs[thirdRecipientKeyPairIndex].getPublicKey()).getBalance()).toEqual(GradidoUnit.zero())
-      expect(confirmedTransaction?.getAccountBalance(keyPairs[8].getPublicKey()).getBalance()).toEqual(new GradidoUnit(400.0))	
+      expect(confirmedTransaction?.getAccountBalance(keyPairs[secondRecipientKeyPairIndex].getPublicKey(), '').getBalance()).toEqual(originalSenderBalance.plus(deferredFullBalance).minus(new GradidoUnit(400.0)))
+      expect(confirmedTransaction?.getAccountBalance(keyPairs[thirdRecipientKeyPairIndex].getPublicKey(), '').getBalance()).toEqual(GradidoUnit.zero())
+      expect(confirmedTransaction?.getAccountBalance(keyPairs[8].getPublicKey(), '').getBalance()).toEqual(new GradidoUnit(400.0))	
     })
   })
 })

@@ -98,6 +98,14 @@ void _exports_DurationSeconds_inst::GetMembers(
         &_exports_DurationSeconds_templ::_wrap_DurationSeconds_gte,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("toJson");
+  members.insert({
+    "toJson",
+      _exports_DurationSeconds_templ::InstanceMethod("toJson",
+        &_exports_DurationSeconds_templ::_wrap_DurationSeconds__wrap_DurationSeconds_toJson,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   

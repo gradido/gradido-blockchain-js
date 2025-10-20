@@ -50,6 +50,14 @@ void _exports_CommunityFriendsUpdate_inst::GetMembers(
         &_exports_CommunityFriendsUpdate_templ::_wrap_CommunityFriendsUpdate_getColorFusion,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("toJson");
+  members.insert({
+    "toJson",
+      _exports_CommunityFriendsUpdate_templ::InstanceMethod("toJson",
+        &_exports_CommunityFriendsUpdate_templ::_wrap_CommunityFriendsUpdate__wrap_CommunityFriendsUpdate_toJson,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   

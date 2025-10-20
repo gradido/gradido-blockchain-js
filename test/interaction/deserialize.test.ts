@@ -8,11 +8,11 @@ import {
   KeyPairEd25519,
   MemoryBlock,
   MemoryBlockPtr,
-  HieroTransactionId,
   DeserializeType_HIERO_TRANSACTION_ID,
 } from '../../'
 import { 
   confirmedAt, 
+  confirmedTransactionVersionString, 
   createdAt, 
   deferredTransferMemo, 
   targetDate, 
@@ -47,10 +47,10 @@ describe('Deserialize Gradido Transaction Test', () => {
     deserializer.run()  
     expect(deserializer.isHieroTransactionId()).toBeTruthy()
     const hieroTransactionId = deserializer.getHieroTransactionId()
-    expect(hieroTransactionId.getAccountId().toString()).toEqual('0.0.256009')
-    expect(hieroTransactionId.getAccountId().getAccountNum()).toEqual(256009)
-    expect(hieroTransactionId.getTransactionValidStart().getSeconds()).toEqual(1755503343)
-    expect(hieroTransactionId.getTransactionValidStart().getNanos()).toEqual(736000193)
+    expect(hieroTransactionId.getAccountId().toString()).toEqual('0.0.121212')
+    expect(hieroTransactionId.getAccountId().getAccountNum()).toEqual(121212)
+    expect(hieroTransactionId.getTransactionValidStart().getSeconds()).toEqual(172618921)
+    expect(hieroTransactionId.getTransactionValidStart().getNanos()).toEqual(29182)
   })
 
   it('community root transaction body', () => {
@@ -270,7 +270,7 @@ describe('Deserialize Gradido Transaction Test', () => {
     expect(confirmedTransaction).not.toBeNull()
     expect(confirmedTransaction?.getId()).toEqual(7)
     expect(confirmedTransaction?.getConfirmedAt().getDate()).toEqual(confirmedAt)
-    expect(confirmedTransaction?.getVersionNumber()).toEqual(versionString)
+    expect(confirmedTransaction?.getVersionNumber()).toEqual(confirmedTransactionVersionString)
     expect(confirmedTransaction?.getAccountBalances().size()).toEqual(0)
     expect(confirmedTransaction?.getRunningHash()?.size()).toEqual(crypto_generichash_BYTES)
 
@@ -292,12 +292,12 @@ describe('Deserialize Gradido Transaction Test', () => {
     expect(confirmedTransaction).not.toBeNull()
     expect(confirmedTransaction?.getId()).toEqual(7)
     expect(confirmedTransaction?.getConfirmedAt().getDate()).toEqual(confirmedAt)
-    expect(confirmedTransaction?.getVersionNumber()).toEqual(versionString)
+    expect(confirmedTransaction?.getVersionNumber()).toEqual(confirmedTransactionVersionString)
     expect(confirmedTransaction?.getAccountBalances().get(0).getBalance().toString()).toEqual('100.0000')
     expect(confirmedTransaction?.getAccountBalances().get(1).getBalance().toString()).toEqual('899.7483')    
     expect(confirmedTransaction?.getRunningHash()?.size()).toEqual(crypto_generichash_BYTES)
     expect(confirmedTransaction?.getRunningHash()?.convertToHex())
-      .toEqual('28a58de12318789f59ee15373a1ef8337da0e2cd66f266bf756590ffb5447ecc')
+      .toEqual('0000000000000000000000000000000000000000000000000000000000000000')
 
     const gradidoTransaction = confirmedTransaction?.getGradidoTransaction()
     expect(gradidoTransaction).not.toBeNull()

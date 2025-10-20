@@ -138,6 +138,14 @@ void _exports_ConfirmedTransaction_inst::GetMembers(
         &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_getInvolvedAddresses,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("toJson");
+  members.insert({
+    "toJson",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("toJson",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction__wrap_ConfirmedTransaction_toJson,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   

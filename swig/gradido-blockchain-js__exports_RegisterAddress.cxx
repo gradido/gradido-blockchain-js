@@ -98,6 +98,14 @@ void _exports_RegisterAddress_inst::GetMembers(
         &_exports_RegisterAddress_templ::_wrap_RegisterAddress_getDerivationIndex,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("toJson");
+  members.insert({
+    "toJson",
+      _exports_RegisterAddress_templ::InstanceMethod("toJson",
+        &_exports_RegisterAddress_templ::_wrap_RegisterAddress__wrap_RegisterAddress_toJson,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   

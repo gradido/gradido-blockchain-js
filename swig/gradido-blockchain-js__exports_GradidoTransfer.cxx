@@ -74,6 +74,14 @@ void _exports_GradidoTransfer_inst::GetMembers(
         &_exports_GradidoTransfer_templ::_wrap_GradidoTransfer_getRecipient,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("toJson");
+  members.insert({
+    "toJson",
+      _exports_GradidoTransfer_templ::InstanceMethod("toJson",
+        &_exports_GradidoTransfer_templ::_wrap_GradidoTransfer__wrap_GradidoTransfer_toJson,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   
