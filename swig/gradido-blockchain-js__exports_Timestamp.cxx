@@ -99,6 +99,14 @@ void _exports_Timestamp_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("add");
+  members.insert({
+    "add",
+      _exports_Timestamp_templ::InstanceMethod("add",
+        &_exports_Timestamp_templ::_wrap_Timestamp_add,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("toJson");
   members.insert({
     "toJson",

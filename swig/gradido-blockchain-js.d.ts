@@ -35,6 +35,10 @@ export  class TimepointInterval {
   begin(): any;
 
   end(): any;
+
+  toJson(pretty: boolean): string;
+
+  toJson(): string;
 }
 
 export  class Profiler {
@@ -697,6 +701,8 @@ export  class Timestamp {
 
   empty(): boolean;
 
+  add(duration: DurationSeconds): Timestamp;
+
   toJson(pretty: boolean): string;
 
   toJson(): string;
@@ -1023,13 +1029,13 @@ export  class TransactionTriggerEvent {
 
   constructor();
 
-  constructor(linkedTransactionNr: number, targetDate: Date, type: TransactionTriggerEventType);
+  constructor(linkedTransactionNr: number, targetDate: Timestamp, type: TransactionTriggerEventType);
 
   getLinkedTransactionId(): number;
 
-  getType(): TransactionTriggerEventType;
+  getTargetDate(): Timestamp;
 
-  getTargetDate(): Date;
+  getType(): TransactionTriggerEventType;
 
   equal(other: TransactionTriggerEvent): boolean;
 
@@ -1468,6 +1474,10 @@ export  class Pagination {
   skipEntriesCount(): number;
 
   hasCapacityLeft(currentCount: number): boolean;
+
+  toJson(pretty: boolean): string;
+
+  toJson(): string;
 }
 
 export const SearchDirection_ASC: SearchDirection;
@@ -1505,6 +1515,10 @@ export  class Filter {
  static FIRST_TRANSACTION: Filter;
 
  static ALL_TRANSACTIONS: Filter;
+
+  toJson(pretty: boolean): string;
+
+  toJson(): string;
 }
 
 export  class FilterBuilder {

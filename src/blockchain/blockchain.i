@@ -19,3 +19,4 @@ namespace gradido::blockchain {
 
 %include "blockchain/InMemory.i"
 %include "blockchain/InMemoryProvider.i"
+

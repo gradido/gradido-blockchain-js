@@ -98,6 +98,14 @@ void _exports_TimepointInterval_inst::GetMembers(
         &_exports_TimepointInterval_templ::_wrap_TimepointInterval_end,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("toJson");
+  members.insert({
+    "toJson",
+      _exports_TimepointInterval_templ::InstanceMethod("toJson",
+        &_exports_TimepointInterval_templ::_wrap_TimepointInterval__wrap_TimepointInterval_toJson,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   

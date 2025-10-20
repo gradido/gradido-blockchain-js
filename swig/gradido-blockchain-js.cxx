@@ -891,6 +891,26 @@ Napi::Value SWIG_From_bool(Napi::Env env, bool val)
 }
 
 
+SWIGINTERN
+int SWIG_AsVal_bool (Napi::Value obj, bool *val)
+{
+  if(!obj.IsBoolean()) {
+    return SWIG_TypeError;
+  }
+
+  Napi::Boolean b;
+  NAPI_CHECK_RESULT(obj.ToBoolean(), b);
+  if (val) *val = b.Value();
+  return SWIG_OK;
+  goto fail;
+fail:
+  return SWIG_ERROR;
+}
+
+SWIGINTERN std::string TimepointInterval_toJson__SWIG_0(TimepointInterval const *self,bool pretty){
+        return serialization::toJsonString(*self, pretty);
+    }
+
 // js_global_getter
 Napi::Value exports_AddressType_NONE_get(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
@@ -2217,23 +2237,6 @@ SWIGINTERN void std_vector_Sl_gradido_data_AccountBalance_Sg__set(std::vector< g
                 else
                     throw std::out_of_range("vector index out of range");
             }
-
-SWIGINTERN
-int SWIG_AsVal_bool (Napi::Value obj, bool *val)
-{
-  if(!obj.IsBoolean()) {
-    return SWIG_TypeError;
-  }
-
-  Napi::Boolean b;
-  NAPI_CHECK_RESULT(obj.ToBoolean(), b);
-  if (val) *val = b.Value();
-  return SWIG_OK;
-  goto fail;
-fail:
-  return SWIG_ERROR;
-}
-
 SWIGINTERN std::string gradido_data_DurationSeconds_toJson__SWIG_0(gradido::data::DurationSeconds const *self,bool pretty){
         return serialization::toJsonString(*self, pretty);
     }
@@ -2656,6 +2659,9 @@ fail:
 #endif
 }
 
+SWIGINTERN std::string gradido_blockchain_Pagination_toJson__SWIG_0(gradido::blockchain::Pagination const *self,bool pretty){
+        return serialization::toJsonString(*self, pretty);
+    }
 
 // js_global_getter
 Napi::Value exports_SearchDirection_ASC_get(const Napi::CallbackInfo &info) {
@@ -2714,6 +2720,9 @@ fail:
 #endif
 }
 
+SWIGINTERN std::string gradido_blockchain_Filter_toJson__SWIG_0(gradido::blockchain::Filter const *self,bool pretty){
+        return serialization::toJsonString(*self, pretty);
+    }
 SWIGINTERN std::shared_ptr< gradido::blockchain::TransactionEntry const > gradido_blockchain_InMemory_findOne__SWIG_0(gradido::blockchain::InMemory const *self,gradido::blockchain::Filter const &filter){
             return static_cast<const gradido::blockchain::Abstract*>(self)->findOne(filter);
         }

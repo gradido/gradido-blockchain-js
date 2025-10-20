@@ -58,3 +58,17 @@ namespace gradido::blockchain {
 %template(stringToSearchDirection) string_to_enum<gradido::blockchain::SearchDirection>;
 %include "gradido_blockchain/blockchain/Filter.h"
 %include "gradido_blockchain/blockchain/FilterBuilder.h"
+%include "gradido_blockchain/serialization/toJsonString.h"
+
+// toJson for each data Object
+%extend gradido::blockchain::Filter {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::blockchain::Pagination {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+    

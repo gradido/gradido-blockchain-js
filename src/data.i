@@ -68,6 +68,7 @@ namespace gradido::data {
     %ignore EncryptedMemo::EncryptedMemo(MemoKeyType, memory::Block&&);
     %ignore EncryptedMemo::EncryptedMemo(EncryptedMemo&&);
     %ignore EncryptedMemo::EncryptedMemo(const EncryptedMemo&);
+    %ignore operator+(const Timestamp& timestamp, const DurationSeconds& duration);
 }
 
 // Account Balances vector

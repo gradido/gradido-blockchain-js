@@ -106,6 +106,14 @@ void _exports_Filter_inst::GetMembers(
         &_exports_Filter_templ::_wrap_Filter_transactionType_set,
         static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("toJson");
+  members.insert({
+    "toJson",
+      _exports_Filter_templ::InstanceMethod("toJson",
+        &_exports_Filter_templ::_wrap_Filter__wrap_Filter_toJson,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   // jsnapi_register_static_constant

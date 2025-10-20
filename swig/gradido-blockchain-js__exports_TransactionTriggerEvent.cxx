@@ -43,19 +43,19 @@ void _exports_TransactionTriggerEvent_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getType");
-  members.insert({
-    "getType",
-      _exports_TransactionTriggerEvent_templ::InstanceMethod("getType",
-        &_exports_TransactionTriggerEvent_templ::_wrap_TransactionTriggerEvent_getType,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("getTargetDate");
   members.insert({
     "getTargetDate",
       _exports_TransactionTriggerEvent_templ::InstanceMethod("getTargetDate",
         &_exports_TransactionTriggerEvent_templ::_wrap_TransactionTriggerEvent_getTargetDate,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getType");
+  members.insert({
+    "getType",
+      _exports_TransactionTriggerEvent_templ::InstanceMethod("getType",
+        &_exports_TransactionTriggerEvent_templ::_wrap_TransactionTriggerEvent_getType,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

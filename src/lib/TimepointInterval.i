@@ -16,3 +16,10 @@
 %}
 
 %include "gradido_blockchain/lib/TimepointInterval.h"
+%include "gradido_blockchain/serialization/toJsonString.h"
+
+%extend TimepointInterval {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
