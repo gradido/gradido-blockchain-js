@@ -1002,26 +1002,28 @@ SWIGCLINKAGE SWIGINTERN swig_cast_info *swig_cast_initial[];
 #define SWIGTYPE_p_std__shared_ptrT_SecretKeyCryptography_t swig_types[73]
 #define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__Abstract_t swig_types[74]
 #define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__InMemory_t swig_types[75]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__TransactionEntry_t swig_types[76]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t swig_types[77]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t swig_types[78]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t swig_types[79]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__TransactionBody_const_t swig_types[80]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t swig_types[81]
-#define SWIGTYPE_p_std__shared_ptrT_memory__Block_const_t swig_types[82]
-#define SWIGTYPE_p_std__shared_ptrT_memory__Block_t swig_types[83]
-#define SWIGTYPE_p_std__vectorT_gradido__data__AccountBalance_t swig_types[84]
-#define SWIGTYPE_p_std__vectorT_gradido__data__EncryptedMemo_t swig_types[85]
-#define SWIGTYPE_p_std__vectorT_gradido__data__SignaturePair_t swig_types[86]
-#define SWIGTYPE_p_std__vectorT_memory__BlockPtrWrapper_t swig_types[87]
-#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t swig_types[88]
-#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t swig_types[89]
-#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t swig_types[90]
-#define SWIGTYPE_p_unsigned_char swig_types[91]
-#define SWIGTYPE_p_unsigned_int swig_types[92]
-#define SWIGTYPE_p_unsigned_long_long swig_types[93]
-#define SWIGTYPE_p_unsigned_short swig_types[94]
-#define SWIGTYPE_p_value_type swig_types[95]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__TransactionEntry_const_t swig_types[76]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__TransactionEntry_t swig_types[77]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t swig_types[78]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t swig_types[79]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t swig_types[80]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__TransactionBody_const_t swig_types[81]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t swig_types[82]
+#define SWIGTYPE_p_std__shared_ptrT_memory__Block_const_t swig_types[83]
+#define SWIGTYPE_p_std__shared_ptrT_memory__Block_t swig_types[84]
+#define SWIGTYPE_p_std__unique_ptrT_gradido__data__GradidoTransaction_const_t swig_types[85]
+#define SWIGTYPE_p_std__vectorT_gradido__data__AccountBalance_t swig_types[86]
+#define SWIGTYPE_p_std__vectorT_gradido__data__EncryptedMemo_t swig_types[87]
+#define SWIGTYPE_p_std__vectorT_gradido__data__SignaturePair_t swig_types[88]
+#define SWIGTYPE_p_std__vectorT_memory__BlockPtrWrapper_t swig_types[89]
+#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t swig_types[90]
+#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t swig_types[91]
+#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t swig_types[92]
+#define SWIGTYPE_p_unsigned_char swig_types[93]
+#define SWIGTYPE_p_unsigned_int swig_types[94]
+#define SWIGTYPE_p_unsigned_long_long swig_types[95]
+#define SWIGTYPE_p_unsigned_short swig_types[96]
+#define SWIGTYPE_p_value_type swig_types[97]
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 SWIGCLINKAGE SWIGINTERN swig_type_info *swig_types[];
@@ -39056,7 +39058,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_new_Confir
   Napi::Env env = info.Env();
   Napi::Object self;
   uint64_t arg1 ;
-  std::shared_ptr< gradido::data::GradidoTransaction const > arg2 ;
+  SwigValueWrapper< std::unique_ptr< gradido::data::GradidoTransaction const > > arg2 ;
   gradido::data::Timestamp arg3 ;
   std::string *arg4 = 0 ;
   SwigValueWrapper< std::shared_ptr< memory::Block const > > arg5 ;
@@ -39064,6 +39066,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_new_Confir
   std::shared_ptr< gradido::data::ConfirmedTransaction const > arg7 ;
   unsigned long long val1 ;
   int ecode1 = 0 ;
+  std::unique_ptr< gradido::data::GradidoTransaction const > tmp2 ;
   void *argp3 ;
   int res3 = 0 ;
   int res4 = SWIG_OLDOBJ ;
@@ -39084,12 +39087,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_new_Confir
     } 
     arg1 = static_cast< uint64_t >(val1);{
       {
-        gradido::data::GradidoTransaction *plain_ptr;
-        int res = SWIG_ConvertPtr(info[1], reinterpret_cast<void**>(&plain_ptr), SWIGTYPE_p_gradido__data__GradidoTransaction,  0 );
-        if (!SWIG_IsOK(res)) {
-          SWIG_exception_fail(SWIG_ArgError(res), "in method '" "new_ConfirmedTransaction" "', argument " "2"" of type '" "gradido::data::GradidoTransaction""'");
-        }
-        arg2 = std::shared_ptr<const gradido::data::GradidoTransaction>(plain_ptr, SWIG_null_deleter());
+        arg2 = std::move(tmp2);
       }
     }
     {
@@ -39189,13 +39187,14 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_new_Confir
   Napi::Env env = info.Env();
   Napi::Object self;
   uint64_t arg1 ;
-  std::shared_ptr< gradido::data::GradidoTransaction const > arg2 ;
+  SwigValueWrapper< std::unique_ptr< gradido::data::GradidoTransaction const > > arg2 ;
   gradido::data::Timestamp arg3 ;
   std::string *arg4 = 0 ;
   SwigValueWrapper< std::shared_ptr< memory::Block const > > arg5 ;
   std::vector< gradido::data::AccountBalance > arg6 ;
   unsigned long long val1 ;
   int ecode1 = 0 ;
+  std::unique_ptr< gradido::data::GradidoTransaction const > tmp2 ;
   void *argp3 ;
   int res3 = 0 ;
   int res4 = SWIG_OLDOBJ ;
@@ -39216,12 +39215,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_new_Confir
     } 
     arg1 = static_cast< uint64_t >(val1);{
       {
-        gradido::data::GradidoTransaction *plain_ptr;
-        int res = SWIG_ConvertPtr(info[1], reinterpret_cast<void**>(&plain_ptr), SWIGTYPE_p_gradido__data__GradidoTransaction,  0 );
-        if (!SWIG_IsOK(res)) {
-          SWIG_exception_fail(SWIG_ArgError(res), "in method '" "new_ConfirmedTransaction" "', argument " "2"" of type '" "gradido::data::GradidoTransaction""'");
-        }
-        arg2 = std::shared_ptr<const gradido::data::GradidoTransaction>(plain_ptr, SWIG_null_deleter());
+        arg2 = std::move(tmp2);
       }
     }
     {
@@ -39311,7 +39305,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_new_Confir
   Napi::Env env = info.Env();
   Napi::Object self;
   uint64_t arg1 ;
-  std::shared_ptr< gradido::data::GradidoTransaction const > arg2 ;
+  SwigValueWrapper< std::unique_ptr< gradido::data::GradidoTransaction const > > arg2 ;
   gradido::data::Timestamp arg3 ;
   std::string *arg4 = 0 ;
   SwigValueWrapper< std::shared_ptr< memory::Block const > > arg5 ;
@@ -39319,6 +39313,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_new_Confir
   std::vector< gradido::data::AccountBalance > arg7 ;
   unsigned long long val1 ;
   int ecode1 = 0 ;
+  std::unique_ptr< gradido::data::GradidoTransaction const > tmp2 ;
   void *argp3 ;
   int res3 = 0 ;
   int res4 = SWIG_OLDOBJ ;
@@ -39339,12 +39334,7 @@ Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_new_Confir
     } 
     arg1 = static_cast< uint64_t >(val1);{
       {
-        gradido::data::GradidoTransaction *plain_ptr;
-        int res = SWIG_ConvertPtr(info[1], reinterpret_cast<void**>(&plain_ptr), SWIGTYPE_p_gradido__data__GradidoTransaction,  0 );
-        if (!SWIG_IsOK(res)) {
-          SWIG_exception_fail(SWIG_ArgError(res), "in method '" "new_ConfirmedTransaction" "', argument " "2"" of type '" "gradido::data::GradidoTransaction""'");
-        }
-        arg2 = std::shared_ptr<const gradido::data::GradidoTransaction>(plain_ptr, SWIG_null_deleter());
+        arg2 = std::move(tmp2);
       }
     }
     {

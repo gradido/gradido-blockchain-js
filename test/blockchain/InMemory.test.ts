@@ -550,6 +550,11 @@ describe('InMemoryBlockchain', () => {
       expect(confirmedTransaction?.getAccountBalance(keyPairs[secondRecipientKeyPairIndex].getPublicKey(), '').getBalance()).toEqual(originalSenderBalance.plus(deferredFullBalance).minus(new GradidoUnit(400.0)))
       expect(confirmedTransaction?.getAccountBalance(keyPairs[thirdRecipientKeyPairIndex].getPublicKey(), '').getBalance()).toEqual(GradidoUnit.zero())
       expect(confirmedTransaction?.getAccountBalance(keyPairs[8].getPublicKey(), '').getBalance()).toEqual(new GradidoUnit(400.0))	
+
+      const f = new Filter()
+      f.pagination.size = 0
+      const transactions = blockchain.findAll(f)
+      expect(transactions.size()).toEqual(9)
     })
   })
 })

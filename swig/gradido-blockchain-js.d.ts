@@ -1083,11 +1083,11 @@ export  class GradidoTransaction {
 
 export  class ConfirmedTransaction {
 
-  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, messageId: MemoryBlockPtr|null, accountBalances: AccountBalances, previousConfirmedTransaction: ConfirmedTransaction|null);
+  constructor(id: number, gradidoTransaction: any, confirmedAt: Timestamp, versionNumber: string, messageId: MemoryBlockPtr|null, accountBalances: AccountBalances, previousConfirmedTransaction: ConfirmedTransaction|null);
 
-  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, messageId: MemoryBlockPtr|null, accountBalances: AccountBalances);
+  constructor(id: number, gradidoTransaction: any, confirmedAt: Timestamp, versionNumber: string, messageId: MemoryBlockPtr|null, accountBalances: AccountBalances);
 
-  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, runningHash: MemoryBlockPtr|null, messageId: MemoryBlockPtr|null, accountBalances: AccountBalances);
+  constructor(id: number, gradidoTransaction: any, confirmedAt: Timestamp, versionNumber: string, runningHash: MemoryBlockPtr|null, messageId: MemoryBlockPtr|null, accountBalances: AccountBalances);
 
   calculateRunningHash(previousConfirmedTransaction: ConfirmedTransaction|null): MemoryBlockPtr|null;
 

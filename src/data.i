@@ -36,6 +36,12 @@
 %shared_ptr(gradido::data::GradidoTransaction)
 %shared_ptr(gradido::data::ConfirmedTransaction)
 
+// unique_ptr fix
+%typemap(in) std::unique_ptr<const gradido::data::GradidoTransaction> (std::unique_ptr<const gradido::data::GradidoTransaction> tmp) {
+    $1 = std::move(tmp);
+}
+
+
 %ignore gradido::data::DurationSeconds::operator Duration;
 %rename(getDate) getAsTimepoint;
 
