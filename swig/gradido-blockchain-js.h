@@ -1518,6 +1518,8 @@ SWIGINTERN void std_vector_Sl_std_shared_ptr_Sl_gradido_blockchain_TransactionEn
 
 SWIGINTERN std::string gradido_blockchain_Pagination_toJson__SWIG_0(gradido::blockchain::Pagination const *self,bool pretty=false);
 // js_global_declaration
+Napi::Value _wrap_minus(const Napi::CallbackInfo &info);
+// js_global_declaration
 Napi::Value _wrap_searchDirectionToString(const Napi::CallbackInfo &info);
 // js_global_declaration
 Napi::Value _wrap_stringToSearchDirection(const Napi::CallbackInfo &info);
@@ -3886,6 +3888,22 @@ public:
 Napi::Value exports_SearchDirection_ASC_get(const Napi::CallbackInfo &info);
 // js_global_declaration
 Napi::Value exports_SearchDirection_DESC_get(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value exports_FilterCriteria_NONE_get(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value exports_FilterCriteria_TRANSACTION_NR_get(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value exports_FilterCriteria_INVOLVED_PUBLIC_KEY_get(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value exports_FilterCriteria_COIN_COMMUNITY_get(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value exports_FilterCriteria_TIMEPOINT_INTERVAL_get(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value exports_FilterCriteria_FILTER_FUNCTION_get(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value exports_FilterCriteria_TRANSACTION_TYPE_get(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value exports_FilterCriteria_MAX_get(const Napi::CallbackInfo &info);
 // jsnapi_class_prologue_template
 template <typename SWIG_OBJ_WRAP>
 class _exports_Filter_templ : public SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP> {
@@ -3926,6 +3944,8 @@ void _wrap_Filter_timepointInterval_set(const Napi::CallbackInfo &, const Napi::
 Napi::Value _wrap_Filter_transactionType_get(const Napi::CallbackInfo &);
 // jsnapi_class_setter_declaration
 void _wrap_Filter_transactionType_set(const Napi::CallbackInfo &, const Napi::Value &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_Filter_matches(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 static Napi::Value _wrap_Filter_LAST_TRANSACTION_get(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
@@ -53244,6 +53264,81 @@ Napi::Value _exports_Filter_templ<SWIG_OBJ_WRAP>::_wrap_Filter_transactionType_g
     arg1 = reinterpret_cast< gradido::blockchain::Filter * >(argp1);
     
     result = (gradido::data::TransactionType) ((arg1)->transactionType);
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_Filter_templ<SWIG_OBJ_WRAP>::_wrap_Filter_matches(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::Filter *arg1 = 0 ;
+  std::shared_ptr< gradido::blockchain::TransactionEntry const > arg2 ;
+  gradido::blockchain::FilterCriteria arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  gradido::blockchain::FilterResult result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 2 || static_cast<int>(info.Length()) > 2) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_Filter_matches.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__Filter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Filter_matches" "', argument " "1"" of type '" "gradido::blockchain::Filter const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::Filter * >(argp1);{
+      {
+        gradido::blockchain::TransactionEntry *plain_ptr;
+        int res = SWIG_ConvertPtr(info[0], reinterpret_cast<void**>(&plain_ptr), SWIGTYPE_p_gradido__blockchain__TransactionEntry,  0 );
+        if (!SWIG_IsOK(res)) {
+          SWIG_exception_fail(SWIG_ArgError(res), "in method '" "Filter_matches" "', argument " "2"" of type '" "gradido::blockchain::TransactionEntry""'");
+        }
+        arg2 = std::shared_ptr<const gradido::blockchain::TransactionEntry>(plain_ptr, SWIG_null_deleter());
+      }
+    }
+    ecode3 = SWIG_AsVal_int(info[1], &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Filter_matches" "', argument " "3"" of type '" "gradido::blockchain::FilterCriteria""'");
+    } 
+    arg3 = static_cast< gradido::blockchain::FilterCriteria >(val3);
+    
+    
+    
+    
+    {
+      try {
+        result = (gradido::blockchain::FilterResult)((gradido::blockchain::Filter const *)arg1)->matches(SWIG_STD_MOVE(arg2),arg3);
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
     
     jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(result));
     

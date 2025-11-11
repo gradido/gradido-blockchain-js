@@ -19,7 +19,7 @@
 
 
 namespace gradido::blockchain {
-    %ignore Filter::matches(std::shared_ptr<const TransactionEntry> entry, FilterCriteria type, std::string_view communityId) const;
+    %ignore Filter::matches(std::shared_ptr<const TransactionEntry> entry, FilterCriteria type) const;
     //%ignore Filter::Filter();   
     %ignore Filter::Filter(
       uint64_t _minTransactionNr,
@@ -53,6 +53,7 @@ namespace gradido::blockchain {
 %include "gradido_blockchain/blockchain/FilterResult.h"
 %include "gradido_blockchain/blockchain/Pagination.h"
 %include "gradido_blockchain/blockchain/SearchDirection.h"
+%include "gradido_blockchain/blockchain/FilterCriteria.h"
 %typemap(ts) gradido::blockchain::SearchDirection "SearchDirection";
 %template(searchDirectionToString) enum_to_string<gradido::blockchain::SearchDirection>;
 %template(stringToSearchDirection) string_to_enum<gradido::blockchain::SearchDirection>;

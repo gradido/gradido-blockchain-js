@@ -1486,6 +1486,26 @@ export const SearchDirection_DESC: SearchDirection;
 
 export type SearchDirection = number & { readonly [_SWIG_type_tag]: 'SearchDirection'; };
 
+export const FilterCriteria_NONE: FilterCriteria;
+
+export const FilterCriteria_TRANSACTION_NR: FilterCriteria;
+
+export const FilterCriteria_INVOLVED_PUBLIC_KEY: FilterCriteria;
+
+export const FilterCriteria_COIN_COMMUNITY: FilterCriteria;
+
+export const FilterCriteria_TIMEPOINT_INTERVAL: FilterCriteria;
+
+export const FilterCriteria_FILTER_FUNCTION: FilterCriteria;
+
+export const FilterCriteria_TRANSACTION_TYPE: FilterCriteria;
+
+export const FilterCriteria_MAX: FilterCriteria;
+
+export type FilterCriteria = number & { readonly [_SWIG_type_tag]: 'FilterCriteria'; };
+
+export function minus(lhs: any, rhs: any): any;
+
 export function searchDirectionToString(value: SearchDirection): string;
 
 export function stringToSearchDirection(name: string): SearchDirection;
@@ -1509,6 +1529,8 @@ export  class Filter {
   timepointInterval: TimepointInterval;
 
   transactionType: TransactionType;
+
+  matches(entry: TransactionEntry|null, type: any): any;
 
  static LAST_TRANSACTION: Filter;
 
