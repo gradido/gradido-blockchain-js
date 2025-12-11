@@ -5661,6 +5661,12 @@ do {
 } while (0);
 // jsnapi_register_global_function
 do {
+  Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Function("hasFlag", _wrap_hasFlag,
+    static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
+  NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
+} while (0);
+// jsnapi_register_global_function
+do {
   Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Function("validateTypeToString", _wrap_validateTypeToString,
     static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
   NAPI_CHECK_MAYBE(exports.DefineProperty(pd));

@@ -75,6 +75,14 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("findNextTransactionTriggerEventInRange");
+  members.insert({
+    "findNextTransactionTriggerEventInRange",
+      _exports_Abstract_templ::InstanceMethod("findNextTransactionTriggerEventInRange",
+        &_exports_Abstract_templ::_wrap_Abstract_findNextTransactionTriggerEventInRange,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("findAll");
   members.insert({
     "findAll",
@@ -184,6 +192,14 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
     "findTransactionTriggerEventsInRange",
       _exports_InMemoryBlockchain_templ::InstanceMethod("findTransactionTriggerEventsInRange",
         &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_findTransactionTriggerEventsInRange,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("findNextTransactionTriggerEventInRange");
+  members.insert({
+    "findNextTransactionTriggerEventInRange",
+      _exports_InMemoryBlockchain_templ::InstanceMethod("findNextTransactionTriggerEventInRange",
+        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_findNextTransactionTriggerEventInRange,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

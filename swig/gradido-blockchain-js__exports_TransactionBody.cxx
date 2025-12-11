@@ -131,6 +131,14 @@ void _exports_TransactionBody_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("hasTransferAmount");
+  members.insert({
+    "hasTransferAmount",
+      _exports_TransactionBody_templ::InstanceMethod("hasTransferAmount",
+        &_exports_TransactionBody_templ::_wrap_TransactionBody_hasTransferAmount,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getInvolvedAddresses");
   members.insert({
     "getInvolvedAddresses",

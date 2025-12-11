@@ -181,6 +181,8 @@ export  class MemoryBlock {
 
   data(): Buffer;
 
+  hash(): any;
+
   convertToHex(): string;
 
   convertToBase64(variant: number): string;
@@ -737,6 +739,8 @@ export  class SignatureMap {
 
   push(signaturePair: SignaturePair): void;
 
+  reserve(sizeHint: number): void;
+
   clear(): void;
 
   getSignaturePairs(): SignaturePairs;
@@ -992,6 +996,8 @@ export  class TransactionBody {
 
   getTransferAmount(): TransferAmount;
 
+  hasTransferAmount(): boolean;
+
   getInvolvedAddresses(): MemoryBlocks;
 
   getMemos(): EncryptedMemos;
@@ -1083,11 +1089,11 @@ export  class GradidoTransaction {
 
 export  class ConfirmedTransaction {
 
-  constructor(id: number, gradidoTransaction: any, confirmedAt: Timestamp, versionNumber: string, messageId: MemoryBlockPtr|null, accountBalances: AccountBalances, previousConfirmedTransaction: ConfirmedTransaction|null);
+  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, messageId: MemoryBlockPtr|null, accountBalances: AccountBalances, previousConfirmedTransaction: ConfirmedTransaction|null);
 
-  constructor(id: number, gradidoTransaction: any, confirmedAt: Timestamp, versionNumber: string, messageId: MemoryBlockPtr|null, accountBalances: AccountBalances);
+  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, messageId: MemoryBlockPtr|null, accountBalances: AccountBalances);
 
-  constructor(id: number, gradidoTransaction: any, confirmedAt: Timestamp, versionNumber: string, runningHash: MemoryBlockPtr|null, messageId: MemoryBlockPtr|null, accountBalances: AccountBalances);
+  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, runningHash: MemoryBlockPtr|null, messageId: MemoryBlockPtr|null, accountBalances: AccountBalances);
 
   calculateRunningHash(previousConfirmedTransaction: ConfirmedTransaction|null): MemoryBlockPtr|null;
 
@@ -1530,8 +1536,6 @@ export  class Filter {
 
   transactionType: TransactionType;
 
-  matches(entry: TransactionEntry|null, type: any): any;
-
  static LAST_TRANSACTION: Filter;
 
  static FIRST_TRANSACTION: Filter;
@@ -1595,6 +1599,8 @@ export abstract class Abstract {
 
   findTransactionTriggerEventsInRange(range: TimepointInterval): TransactionTriggerEvents;
 
+  findNextTransactionTriggerEventInRange(range: TimepointInterval): TransactionTriggerEvent|null;
+
   findAll(filter: Filter): TransactionEntries;
 
   findAll(): TransactionEntries;
@@ -1633,6 +1639,8 @@ export  class InMemoryBlockchain extends Abstract {
   isTransactionExist(gradidoTransaction: GradidoTransaction|null): boolean;
 
   findTransactionTriggerEventsInRange(range: TimepointInterval): TransactionTriggerEvents;
+
+  findNextTransactionTriggerEventInRange(range: TimepointInterval): TransactionTriggerEvent|null;
 
   getSortedTransactions(): TransactionEntries;
 
@@ -1694,6 +1702,8 @@ export const ValidateType_CONNECTED_GROUP: ValidateType;
 export const ValidateType_CONNECTED_BLOCKCHAIN: ValidateType;
 
 export type ValidateType = number & { readonly [_SWIG_type_tag]: 'ValidateType'; };
+
+export function hasFlag(v: any, f: any): boolean;
 
 export function validateTypeToString(value: ValidateType): string;
 

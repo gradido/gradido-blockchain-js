@@ -75,6 +75,14 @@ void _exports_Abstract_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("findNextTransactionTriggerEventInRange");
+  members.insert({
+    "findNextTransactionTriggerEventInRange",
+      _exports_Abstract_templ::InstanceMethod("findNextTransactionTriggerEventInRange",
+        &_exports_Abstract_templ::_wrap_Abstract_findNextTransactionTriggerEventInRange,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("findAll");
   members.insert({
     "findAll",
