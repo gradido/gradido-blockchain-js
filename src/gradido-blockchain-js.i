@@ -72,6 +72,7 @@ E string_to_enum(const std::string& name);
 
 // enums
 %include "gradido_blockchain/data/AddressType.h"
+%include "gradido_blockchain/data/BalanceDerivationType.h"
 %include "gradido_blockchain/data/CrossGroupType.h"
 %include "gradido_blockchain/data/TransactionType.h"
 %include "gradido_blockchain/data/MemoKeyType.h"
@@ -104,6 +105,8 @@ E string_to_enum(const std::string& name);
 %template(stringToMemoKeyType) string_to_enum<gradido::data::MemoKeyType>;
 %template(transactionTriggerEventTypeToString) enum_to_string<gradido::data::TransactionTriggerEventType>;
 %template(stringToTransactionTriggerEventType) string_to_enum<gradido::data::TransactionTriggerEventType>;
+%template(balanceDerivationTypeToString) enum_to_string<gradido::data::BalanceDerivationType>;
+%template(stringToBalanceDerivationType) string_to_enum<gradido::data::BalanceDerivationType>;
 
 // base types
 %include "MemoryBlock.i"

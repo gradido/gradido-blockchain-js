@@ -108,6 +108,7 @@ namespace gradido::data {
 %include "gradido_blockchain/data/GradidoDeferredTransfer.h"
 %include "gradido_blockchain/data/GradidoRedeemDeferredTransfer.h"
 %include "gradido_blockchain/data/GradidoTimeoutDeferredTransfer.h"
+%include "gradido_blockchain/data/LedgerAnchor.h"
 %include "gradido_blockchain/data/RegisterAddress.h"
 %include "gradido_blockchain/data/TransactionBody.h"
 %include "gradido_blockchain/data/TransactionTriggerEvent.h"
@@ -187,6 +188,11 @@ namespace gradido::data {
     }
 }
 %extend gradido::data::GradidoTimeoutDeferredTransfer {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+%extend gradido::data::LedgerAnchor {
     std::string toJson(bool pretty = false) const {
         return serialization::toJsonString(*self, pretty);
     }

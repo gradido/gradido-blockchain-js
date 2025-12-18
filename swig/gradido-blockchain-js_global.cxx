@@ -630,6 +630,130 @@ fail:
 
 
 // js_global_function
+Napi::Value _wrap_balanceDerivationTypeToString(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::BalanceDerivationType arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  std::string result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_balanceDerivationTypeToString.");
+    }
+    
+    ecode1 = SWIG_AsVal_int(info[0], &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "balanceDerivationTypeToString" "', argument " "1"" of type '" "gradido::data::BalanceDerivationType""'");
+    } 
+    arg1 = static_cast< gradido::data::BalanceDerivationType >(val1);
+    
+    
+    
+    
+    {
+      try {
+        result = enum_to_string< gradido::data::BalanceDerivationType >(arg1);
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_function
+Napi::Value _wrap_stringToBalanceDerivationType(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  std::string *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  gradido::data::BalanceDerivationType result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_stringToBalanceDerivationType.");
+    }
+    
+    {
+      {
+        std::string *ptr = (std::string *)0;
+        res1 = SWIG_AsPtr_std_string(info[0], &ptr);
+        if (!SWIG_IsOK(res1)) {
+          SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "stringToBalanceDerivationType" "', argument " "1"" of type '" "std::string const &""'"); 
+        }
+        if (!ptr) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "stringToBalanceDerivationType" "', argument " "1"" of type '" "std::string const &""'"); 
+        }
+        arg1 = ptr;
+      }
+    }
+    
+    
+    
+    
+    
+    {
+      try {
+        result = (gradido::data::BalanceDerivationType)string_to_enum< gradido::data::BalanceDerivationType >((std::string const &)*arg1);
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(result));
+    
+    if (SWIG_IsNewObj(res1)) delete arg1;
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    if (SWIG_IsNewObj(res1)) delete arg1;
+    
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_function
 Napi::Value _wrap_loadCryptoKeys(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
@@ -1749,6 +1873,7 @@ SWIGINTERN swig_type_info _swigt__p_gradido__data__GradidoRedeemDeferredTransfer
 SWIGINTERN swig_type_info _swigt__p_gradido__data__GradidoTimeoutDeferredTransfer = {"_p_gradido__data__GradidoTimeoutDeferredTransfer", "p_gradido__data__GradidoTimeoutDeferredTransfer|gradido::data::GradidoTimeoutDeferredTransfer *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__GradidoTransaction = {"_p_gradido__data__GradidoTransaction", "p_gradido__data__GradidoTransaction|gradido::data::GradidoTransaction *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__GradidoTransfer = {"_p_gradido__data__GradidoTransfer", "gradido::data::GradidoTransfer *|p_gradido__data__GradidoTransfer", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_gradido__data__LedgerAnchor = {"_p_gradido__data__LedgerAnchor", "gradido::data::LedgerAnchor *|p_gradido__data__LedgerAnchor", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__RegisterAddress = {"_p_gradido__data__RegisterAddress", "gradido::data::RegisterAddress *|p_gradido__data__RegisterAddress", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__SignatureMap = {"_p_gradido__data__SignatureMap", "gradido::data::SignatureMap *|p_gradido__data__SignatureMap", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__SignaturePair = {"_p_gradido__data__SignaturePair", "p_gradido__data__SignaturePair|std::vector< gradido::data::SignaturePair >::value_type *|gradido::data::SignaturePair *", 0, 0, (void*)0, 0};
@@ -1852,6 +1977,7 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_gradido__data__GradidoTimeoutDeferredTransfer,
   &_swigt__p_gradido__data__GradidoTransaction,
   &_swigt__p_gradido__data__GradidoTransfer,
+  &_swigt__p_gradido__data__LedgerAnchor,
   &_swigt__p_gradido__data__RegisterAddress,
   &_swigt__p_gradido__data__SignatureMap,
   &_swigt__p_gradido__data__SignaturePair,
@@ -1952,6 +2078,7 @@ SWIGINTERN swig_cast_info _swigc__p_gradido__data__GradidoRedeemDeferredTransfer
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__GradidoTimeoutDeferredTransfer[] = {  {&_swigt__p_gradido__data__GradidoTimeoutDeferredTransfer, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__GradidoTransaction[] = {  {&_swigt__p_gradido__data__GradidoTransaction, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__GradidoTransfer[] = {  {&_swigt__p_gradido__data__GradidoTransfer, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_gradido__data__LedgerAnchor[] = {  {&_swigt__p_gradido__data__LedgerAnchor, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__RegisterAddress[] = {  {&_swigt__p_gradido__data__RegisterAddress, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__SignatureMap[] = {  {&_swigt__p_gradido__data__SignatureMap, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__SignaturePair[] = {  {&_swigt__p_gradido__data__SignaturePair, 0, 0, 0},{0, 0, 0, 0}};
@@ -2052,6 +2179,7 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_gradido__data__GradidoTimeoutDeferredTransfer,
   _swigc__p_gradido__data__GradidoTransaction,
   _swigc__p_gradido__data__GradidoTransfer,
+  _swigc__p_gradido__data__LedgerAnchor,
   _swigc__p_gradido__data__RegisterAddress,
   _swigc__p_gradido__data__SignatureMap,
   _swigc__p_gradido__data__SignaturePair,
@@ -2112,6 +2240,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
 
-SWIGINTERN swig_type_info *swig_types[99];
-SWIGINTERN swig_module_info swig_module = {swig_types, 98, 0, 0, 0, 0};
+SWIGINTERN swig_type_info *swig_types[100];
+SWIGINTERN swig_module_info swig_module = {swig_types, 99, 0, 0, 0, 0};
 

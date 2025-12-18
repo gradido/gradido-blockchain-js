@@ -83,6 +83,22 @@ void _exports_TimepointInterval_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("equal");
+  members.insert({
+    "equal",
+      _exports_TimepointInterval_templ::InstanceMethod("equal",
+        &_exports_TimepointInterval_templ::_wrap_TimepointInterval_equal,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("notEqual");
+  members.insert({
+    "notEqual",
+      _exports_TimepointInterval_templ::InstanceMethod("notEqual",
+        &_exports_TimepointInterval_templ::_wrap_TimepointInterval_notEqual,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("begin");
   members.insert({
     "begin",

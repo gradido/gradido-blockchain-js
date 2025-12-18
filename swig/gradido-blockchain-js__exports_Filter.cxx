@@ -107,6 +107,14 @@ void _exports_Filter_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("isTheSame");
+  members.insert({
+    "isTheSame",
+      _exports_Filter_templ::InstanceMethod("isTheSame",
+        &_exports_Filter_templ::_wrap_Filter_isTheSame,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("toJson");
   members.insert({
     "toJson",

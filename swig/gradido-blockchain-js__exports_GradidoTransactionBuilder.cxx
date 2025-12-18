@@ -187,11 +187,11 @@ void _exports_GradidoTransactionBuilder_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("setParentMessageId");
+  members.erase("setParentLedgerAnchor");
   members.insert({
-    "setParentMessageId",
-      _exports_GradidoTransactionBuilder_templ::InstanceMethod("setParentMessageId",
-        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder_setParentMessageId,
+    "setParentLedgerAnchor",
+      _exports_GradidoTransactionBuilder_templ::InstanceMethod("setParentLedgerAnchor",
+        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder_setParentLedgerAnchor,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

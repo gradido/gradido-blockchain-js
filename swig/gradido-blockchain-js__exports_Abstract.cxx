@@ -115,11 +115,11 @@ void _exports_Abstract_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("findByMessageId");
+  members.erase("findByLedgerAnchor");
   members.insert({
-    "findByMessageId",
-      _exports_Abstract_templ::InstanceMethod("findByMessageId",
-        &_exports_Abstract_templ::_wrap_Abstract__wrap_Abstract_findByMessageId,
+    "findByLedgerAnchor",
+      _exports_Abstract_templ::InstanceMethod("findByLedgerAnchor",
+        &_exports_Abstract_templ::_wrap_Abstract__wrap_Abstract_findByLedgerAnchor,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

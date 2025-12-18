@@ -115,11 +115,11 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("findByMessageId");
+  members.erase("findByLedgerAnchor");
   members.insert({
-    "findByMessageId",
-      _exports_Abstract_templ::InstanceMethod("findByMessageId",
-        &_exports_Abstract_templ::_wrap_Abstract__wrap_Abstract_findByMessageId,
+    "findByLedgerAnchor",
+      _exports_Abstract_templ::InstanceMethod("findByLedgerAnchor",
+        &_exports_Abstract_templ::_wrap_Abstract__wrap_Abstract_findByLedgerAnchor,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -160,6 +160,14 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
     "createAndAddConfirmedTransaction",
       _exports_InMemoryBlockchain_templ::InstanceMethod("createAndAddConfirmedTransaction",
         &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_createAndAddConfirmedTransaction,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("createAndAddConfirmedTransactionExtern");
+  members.insert({
+    "createAndAddConfirmedTransactionExtern",
+      _exports_InMemoryBlockchain_templ::InstanceMethod("createAndAddConfirmedTransactionExtern",
+        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_createAndAddConfirmedTransactionExtern,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -227,11 +235,11 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("findByMessageId");
+  members.erase("findByLedgerAnchor");
   members.insert({
-    "findByMessageId",
-      _exports_InMemoryBlockchain_templ::InstanceMethod("findByMessageId",
-        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain__wrap_InMemoryBlockchain_findByMessageId,
+    "findByLedgerAnchor",
+      _exports_InMemoryBlockchain_templ::InstanceMethod("findByLedgerAnchor",
+        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain__wrap_InMemoryBlockchain_findByLedgerAnchor,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

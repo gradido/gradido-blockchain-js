@@ -83,11 +83,11 @@ void _exports_ConfirmedTransaction_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getMessageId");
+  members.erase("getLedgerAnchor");
   members.insert({
-    "getMessageId",
-      _exports_ConfirmedTransaction_templ::InstanceMethod("getMessageId",
-        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_getMessageId,
+    "getLedgerAnchor",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("getLedgerAnchor",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_getLedgerAnchor,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -123,6 +123,30 @@ void _exports_ConfirmedTransaction_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("getBalanceDerivationType");
+  members.insert({
+    "getBalanceDerivationType",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("getBalanceDerivationType",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_getBalanceDerivationType,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isBalanceNodeComputed");
+  members.insert({
+    "isBalanceNodeComputed",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("isBalanceNodeComputed",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_isBalanceNodeComputed,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isBalanceExternComputed");
+  members.insert({
+    "isBalanceExternComputed",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("isBalanceExternComputed",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_isBalanceExternComputed,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("isInvolved");
   members.insert({
     "isInvolved",
@@ -136,6 +160,14 @@ void _exports_ConfirmedTransaction_inst::GetMembers(
     "getInvolvedAddresses",
       _exports_ConfirmedTransaction_templ::InstanceMethod("getInvolvedAddresses",
         &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_getInvolvedAddresses,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isTheSame");
+  members.insert({
+    "isTheSame",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("isTheSame",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_isTheSame,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

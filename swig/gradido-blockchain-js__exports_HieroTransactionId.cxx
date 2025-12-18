@@ -114,6 +114,14 @@ void _exports_HieroTransactionId_inst::GetMembers(
         &_exports_HieroTransactionId_templ::_wrap_HieroTransactionId_lt,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("toJson");
+  members.insert({
+    "toJson",
+      _exports_HieroTransactionId_templ::InstanceMethod("toJson",
+        &_exports_HieroTransactionId_templ::_wrap_HieroTransactionId__wrap_HieroTransactionId_toJson,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   

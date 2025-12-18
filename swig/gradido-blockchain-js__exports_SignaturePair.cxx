@@ -43,6 +43,14 @@ void _exports_SignaturePair_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("notEqual");
+  members.insert({
+    "notEqual",
+      _exports_SignaturePair_templ::InstanceMethod("notEqual",
+        &_exports_SignaturePair_templ::_wrap_SignaturePair_notEqual,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getPublicKey");
   members.insert({
     "getPublicKey",
@@ -56,6 +64,14 @@ void _exports_SignaturePair_inst::GetMembers(
     "getSignature",
       _exports_SignaturePair_templ::InstanceMethod("getSignature",
         &_exports_SignaturePair_templ::_wrap_SignaturePair_getSignature,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("hash");
+  members.insert({
+    "hash",
+      _exports_SignaturePair_templ::InstanceMethod("hash",
+        &_exports_SignaturePair_templ::_wrap_SignaturePair_hash,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

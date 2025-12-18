@@ -1,9 +1,12 @@
+#include <stdexcept>
 %shared_ptr(gradido::blockchain::InMemory)
 %shared_ptr(gradido::blockchain::Abstract)
 
 %exception {
     try {
         $function
+    } catch(const InsufficientBalanceException &e) {
+        SWIG_exception(SWIG_ValueError, e.getFullString().data());
     } catch(const BlockchainOrderException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
     } catch (const CryptoConfig::MissingKeyException& e) {
@@ -14,6 +17,8 @@
         SWIG_exception(SWIG_RuntimeError, e.what());
     }
 }
+
+
 
 namespace gradido::blockchain {
     // typescript don't understand parent functions belong also to child, even when not overridden

@@ -32,6 +32,10 @@ export  class TimepointInterval {
 
   isInsideInterval(date: Date): boolean;
 
+  equal(other: TimepointInterval): boolean;
+
+  notEqual(other: TimepointInterval): boolean;
+
   begin(): any;
 
   end(): any;
@@ -77,6 +81,14 @@ export const AddressType_CRYPTO_ACCOUNT: AddressType;
 export const AddressType_DEFERRED_TRANSFER: AddressType;
 
 export type AddressType = number & { readonly [_SWIG_type_tag]: 'AddressType'; };
+
+export const BalanceDerivationType_UNSPECIFIED: BalanceDerivationType;
+
+export const BalanceDerivationType_NODE: BalanceDerivationType;
+
+export const BalanceDerivationType_EXTERN: BalanceDerivationType;
+
+export type BalanceDerivationType = number & { readonly [_SWIG_type_tag]: 'BalanceDerivationType'; };
 
 export const CrossGroupType_LOCAL: CrossGroupType;
 
@@ -143,6 +155,10 @@ export function stringToMemoKeyType(name: string): MemoKeyType;
 export function transactionTriggerEventTypeToString(value: TransactionTriggerEventType): string;
 
 export function stringToTransactionTriggerEventType(name: string): TransactionTriggerEventType;
+
+export function balanceDerivationTypeToString(value: any): string;
+
+export function stringToBalanceDerivationType(name: string): any;
 
 export  class MemoryBlocks {
 
@@ -718,9 +734,13 @@ export  class SignaturePair {
 
   equal(other: SignaturePair): boolean;
 
+  notEqual(other: SignaturePair): boolean;
+
   getPublicKey(): MemoryBlockPtr|null;
 
   getSignature(): MemoryBlockPtr|null;
+
+  hash(): number;
 
   toJson(pretty: boolean): string;
 
@@ -744,6 +764,8 @@ export  class SignatureMap {
   clear(): void;
 
   getSignaturePairs(): SignaturePairs;
+
+  isTheSame(other: SignatureMap): boolean;
 
   toJson(pretty: boolean): string;
 
@@ -794,6 +816,8 @@ export  class AccountBalance {
   getBalance(): GradidoUnit;
 
   getCommunityId(): string;
+
+  isTheSame(other: AccountBalance): boolean;
 
   toJson(pretty: boolean): string;
 
@@ -929,6 +953,59 @@ export  class GradidoTimeoutDeferredTransfer {
   toJson(): string;
 }
 
+export type LedgerAnchor_Type = number & { readonly [_SWIG_type_tag]: 'LedgerAnchor_Type'; };
+
+export  class LedgerAnchor {
+
+ static readonly Type_UNSPECIFIED: LedgerAnchor_Type;
+
+ static readonly Type_IOTA_MESSAGE_ID: LedgerAnchor_Type;
+
+ static readonly Type_HIERO_TRANSACTION_ID: LedgerAnchor_Type;
+
+ static readonly Type_LEGACY_GRADIDO_DB_TRANSACTION_ID: LedgerAnchor_Type;
+
+ static readonly Type_NODE_TRIGGER_TRANSACTION_ID: LedgerAnchor_Type;
+
+  constructor();
+
+  constructor(iotaMessageId: MemoryBlock);
+
+  constructor(hieroTransactionId: any);
+
+  constructor(transactionId: number, type: any);
+
+  isIotaMessageId(): boolean;
+
+  isHieroTransactionId(): boolean;
+
+  isLegacyGradidoDbTransactionId(): boolean;
+
+  isNodeTriggeredTransactionId(): boolean;
+
+  getType(): any;
+
+  getIotaMessageId(): MemoryBlock;
+
+  getHieroTransactionId(): any;
+
+  getLegacyTransactionId(): number;
+
+  getNodeTriggeredTransactionId(): number;
+
+  isTheSame(other: LedgerAnchor): boolean;
+
+  toString(): string;
+
+  empty(): boolean;
+
+  equal(other: LedgerAnchor): boolean;
+
+  toJson(pretty: boolean): string;
+
+  toJson(): string;
+}
+
 export  class RegisterAddress {
 
   constructor(_addressType: AddressType, _derivationIndex: number, userPubkeyPtr: MemoryBlockPtr|null, nameHashPtr: MemoryBlockPtr|null, accountPubkeyPtr: MemoryBlockPtr|null);
@@ -1056,7 +1133,7 @@ export  class GradidoTransaction {
 
   constructor();
 
-  constructor(signatureMap: SignatureMap, bodyBytes: MemoryBlockPtr|null, paringMessageId: MemoryBlockPtr|null);
+  constructor(signatureMap: SignatureMap, bodyBytes: MemoryBlockPtr|null, pairingLedgerAnchor: LedgerAnchor);
 
   constructor(signatureMap: SignatureMap, bodyBytes: MemoryBlockPtr|null);
 
@@ -1074,13 +1151,15 @@ export  class GradidoTransaction {
 
   getFingerprint(): MemoryBlockPtr|null;
 
+  isTheSame(other: GradidoTransaction): boolean;
+
   getSignatureMap(): SignatureMap;
 
   getSignatureMap(): SignatureMap;
 
   getBodyBytes(): MemoryBlockPtr|null;
 
-  getParingMessageId(): MemoryBlockPtr|null;
+  getPairingLedgerAnchor(): LedgerAnchor;
 
   toJson(pretty: boolean): string;
 
@@ -1089,11 +1168,11 @@ export  class GradidoTransaction {
 
 export  class ConfirmedTransaction {
 
-  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, messageId: MemoryBlockPtr|null, accountBalances: AccountBalances, previousConfirmedTransaction: ConfirmedTransaction|null);
+  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances, balanceDerivationType: any, previousConfirmedTransaction: ConfirmedTransaction|null);
 
-  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, messageId: MemoryBlockPtr|null, accountBalances: AccountBalances);
+  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances, balanceDerivationType: any);
 
-  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, runningHash: MemoryBlockPtr|null, messageId: MemoryBlockPtr|null, accountBalances: AccountBalances);
+  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, runningHash: MemoryBlockPtr|null, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances, balanceDerivationType: any);
 
   calculateRunningHash(previousConfirmedTransaction: ConfirmedTransaction|null): MemoryBlockPtr|null;
 
@@ -1109,7 +1188,7 @@ export  class ConfirmedTransaction {
 
   getRunningHash(): MemoryBlockPtr|null;
 
-  getMessageId(): MemoryBlockPtr|null;
+  getLedgerAnchor(): LedgerAnchor;
 
   getAccountBalances(): AccountBalances;
 
@@ -1121,9 +1200,17 @@ export  class ConfirmedTransaction {
 
   getDecayedAccountBalance(publicKey: MemoryBlockPtr|null, communityId: string): GradidoUnit;
 
+  getBalanceDerivationType(): any;
+
+  isBalanceNodeComputed(): boolean;
+
+  isBalanceExternComputed(): boolean;
+
   isInvolved(publicKey: MemoryBlock): boolean;
 
   getInvolvedAddresses(): MemoryBlocks;
+
+  isTheSame(other: ConfirmedTransaction): boolean;
 
   toJson(pretty: boolean): string;
 
@@ -1159,6 +1246,10 @@ export  class HieroAccountId {
   empty(): boolean;
 
   equal(other: HieroAccountId): boolean;
+
+  toJson(pretty: boolean): string;
+
+  toJson(): string;
 }
 
 export function lt(lhs: HieroAccountId, rhs: HieroAccountId): boolean;
@@ -1215,6 +1306,10 @@ export  class HieroTransactionId {
   equal(other: HieroTransactionId): boolean;
 
   lt(other: HieroTransactionId): boolean;
+
+  toJson(pretty: boolean): string;
+
+  toJson(): string;
 }
 
 export  class TransactionIdHasher {
@@ -1288,7 +1383,7 @@ export  class GradidoTransactionBuilder {
 
   sign(keyPair: KeyPairEd25519|null): GradidoTransactionBuilder;
 
-  setParentMessageId(paringMessageId: MemoryBlockPtr|null): GradidoTransactionBuilder;
+  setParentLedgerAnchor(ledgerAnchor: LedgerAnchor): GradidoTransactionBuilder;
 
   isCrossCommunityTransaction(): boolean;
 
@@ -1481,6 +1576,10 @@ export  class Pagination {
 
   hasCapacityLeft(currentCount: number): boolean;
 
+  equal(other: Pagination): boolean;
+
+  notEqual(other: Pagination): boolean;
+
   toJson(pretty: boolean): string;
 
   toJson(): string;
@@ -1536,6 +1635,8 @@ export  class Filter {
 
   transactionType: TransactionType;
 
+  isTheSame(other: Filter): boolean;
+
  static LAST_TRANSACTION: Filter;
 
  static FIRST_TRANSACTION: Filter;
@@ -1589,7 +1690,7 @@ export  class DeferredRedeemedTransferPair {
 
 export abstract class Abstract {
 
-  createAndAddConfirmedTransaction(gradidoTransaction: GradidoTransaction|null, messageId: MemoryBlockPtr|null, confirmedAt: Timestamp): boolean;
+  createAndAddConfirmedTransaction(gradidoTransaction: GradidoTransaction|null, ledgerAnchor: LedgerAnchor, confirmedAt: Timestamp): boolean;
 
   addTransactionTriggerEvent(transactionTriggerEvent: TransactionTriggerEvent|null): void;
 
@@ -1615,9 +1716,9 @@ export abstract class Abstract {
 
   getTransactionForId(transactionId: number): TransactionEntry|null;
 
-  findByMessageId(messageId: MemoryBlockPtr|null, filter: Filter): TransactionEntry|null;
+  findByLedgerAnchor(ledgerAnchor: LedgerAnchor, filter: Filter): TransactionEntry|null;
 
-  findByMessageId(messageId: MemoryBlockPtr|null): TransactionEntry|null;
+  findByLedgerAnchor(ledgerAnchor: LedgerAnchor): TransactionEntry|null;
 
   getCommunityId(): string;
 
@@ -1630,7 +1731,9 @@ export  class InMemoryBlockchain extends Abstract {
 
   exit(): void;
 
-  createAndAddConfirmedTransaction(gradidoTransaction: GradidoTransaction|null, messageId: MemoryBlockPtr|null, confirmedAt: Timestamp): boolean;
+  createAndAddConfirmedTransaction(gradidoTransaction: GradidoTransaction|null, ledgerAnchor: LedgerAnchor, confirmedAt: Timestamp): boolean;
+
+  createAndAddConfirmedTransactionExtern(gradidoTransaction: GradidoTransaction|null, legacyTransactionNr: number, accountBalances: AccountBalances): boolean;
 
   addTransactionTriggerEvent(transactionTriggerEvent: TransactionTriggerEvent|null): void;
 
@@ -1650,9 +1753,9 @@ export  class InMemoryBlockchain extends Abstract {
 
   getTransactionForId(transactionId: number): TransactionEntry|null;
 
-  findByMessageId(messageId: MemoryBlockPtr|null, filter: Filter): TransactionEntry|null;
+  findByLedgerAnchor(ledgerAnchor: LedgerAnchor, filter: Filter): TransactionEntry|null;
 
-  findByMessageId(messageId: MemoryBlockPtr|null): TransactionEntry|null;
+  findByLedgerAnchor(ledgerAnchor: LedgerAnchor): TransactionEntry|null;
 
   findOne(filter: Filter): TransactionEntry|null;
 
@@ -1731,41 +1834,43 @@ export  class InteractionValidate {
 }
 
 
-export type Timestamp = (unknown & { readonly [_SWIG_type_tag]: 'Timestamp'; }) | null;
-
-export type ConfirmedTransaction = (unknown & { readonly [_SWIG_type_tag]: 'ConfirmedTransaction'; }) | null;
-
-export type GradidoDeferredTransfer = (unknown & { readonly [_SWIG_type_tag]: 'GradidoDeferredTransfer'; }) | null;
-
-export type GradidoCreation = (unknown & { readonly [_SWIG_type_tag]: 'GradidoCreation'; }) | null;
-
-export type Abstract = (unknown & { readonly [_SWIG_type_tag]: 'Abstract'; }) | null;
-
-export type DurationSeconds = (unknown & { readonly [_SWIG_type_tag]: 'DurationSeconds'; }) | null;
-
-export type KeyPairEd25519 = (unknown & { readonly [_SWIG_type_tag]: 'KeyPairEd25519'; }) | null;
-
-export type TransactionBody = (unknown & { readonly [_SWIG_type_tag]: 'TransactionBody'; }) | null;
-
-export type GradidoTimeoutDeferredTransfer = (unknown & { readonly [_SWIG_type_tag]: 'GradidoTimeoutDeferredTransfer'; }) | null;
-
-export type TransactionTriggerEvent = (unknown & { readonly [_SWIG_type_tag]: 'TransactionTriggerEvent'; }) | null;
-
 export type RegisterAddress = (unknown & { readonly [_SWIG_type_tag]: 'RegisterAddress'; }) | null;
 
 export type TransferAmount = (unknown & { readonly [_SWIG_type_tag]: 'TransferAmount'; }) | null;
+
+export type CommunityRoot = (unknown & { readonly [_SWIG_type_tag]: 'CommunityRoot'; }) | null;
+
+export type DurationSeconds = (unknown & { readonly [_SWIG_type_tag]: 'DurationSeconds'; }) | null;
+
+export type CommunityFriendsUpdate = (unknown & { readonly [_SWIG_type_tag]: 'CommunityFriendsUpdate'; }) | null;
+
+export type HieroTransactionId = (unknown & { readonly [_SWIG_type_tag]: 'HieroTransactionId'; }) | null;
+
+export type Timestamp = (unknown & { readonly [_SWIG_type_tag]: 'Timestamp'; }) | null;
+
+export type GradidoDeferredTransfer = (unknown & { readonly [_SWIG_type_tag]: 'GradidoDeferredTransfer'; }) | null;
+
+export type TransactionTriggerEvent = (unknown & { readonly [_SWIG_type_tag]: 'TransactionTriggerEvent'; }) | null;
+
+export type GradidoTransfer = (unknown & { readonly [_SWIG_type_tag]: 'GradidoTransfer'; }) | null;
+
+export type GradidoRedeemDeferredTransfer = (unknown & { readonly [_SWIG_type_tag]: 'GradidoRedeemDeferredTransfer'; }) | null;
+
+export type ConfirmedTransaction = (unknown & { readonly [_SWIG_type_tag]: 'ConfirmedTransaction'; }) | null;
+
+export type Abstract = (unknown & { readonly [_SWIG_type_tag]: 'Abstract'; }) | null;
+
+export type LedgerAnchor = (unknown & { readonly [_SWIG_type_tag]: 'LedgerAnchor'; }) | null;
+
+export type GradidoCreation = (unknown & { readonly [_SWIG_type_tag]: 'GradidoCreation'; }) | null;
 
 export type AuthenticatedEncryption = (unknown & { readonly [_SWIG_type_tag]: 'AuthenticatedEncryption'; }) | null;
 
 export type GradidoTransaction = (unknown & { readonly [_SWIG_type_tag]: 'GradidoTransaction'; }) | null;
 
-export type GradidoRedeemDeferredTransfer = (unknown & { readonly [_SWIG_type_tag]: 'GradidoRedeemDeferredTransfer'; }) | null;
+export type GradidoTimeoutDeferredTransfer = (unknown & { readonly [_SWIG_type_tag]: 'GradidoTimeoutDeferredTransfer'; }) | null;
 
-export type GradidoTransfer = (unknown & { readonly [_SWIG_type_tag]: 'GradidoTransfer'; }) | null;
+export type KeyPairEd25519 = (unknown & { readonly [_SWIG_type_tag]: 'KeyPairEd25519'; }) | null;
 
-export type CommunityRoot = (unknown & { readonly [_SWIG_type_tag]: 'CommunityRoot'; }) | null;
-
-export type HieroTransactionId = (unknown & { readonly [_SWIG_type_tag]: 'HieroTransactionId'; }) | null;
-
-export type CommunityFriendsUpdate = (unknown & { readonly [_SWIG_type_tag]: 'CommunityFriendsUpdate'; }) | null;
+export type TransactionBody = (unknown & { readonly [_SWIG_type_tag]: 'TransactionBody'; }) | null;
 
