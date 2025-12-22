@@ -186,6 +186,14 @@ void _exports_GradidoUnit_inst::GetMembers(
         &_exports_GradidoUnit_templ::_wrap_GradidoUnit__wrap_GradidoUnit_calculateCompoundInterest,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("toJSON");
+  members.insert({
+    "toJSON",
+      _exports_GradidoUnit_templ::InstanceMethod("toJSON",
+        &_exports_GradidoUnit_templ::_wrap_GradidoUnit_toJSON,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   // jsnapi_register_static_function

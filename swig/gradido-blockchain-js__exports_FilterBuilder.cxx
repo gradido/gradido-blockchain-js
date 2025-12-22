@@ -67,6 +67,14 @@ void _exports_FilterBuilder_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("setUpdatedBalancePublicKey");
+  members.insert({
+    "setUpdatedBalancePublicKey",
+      _exports_FilterBuilder_templ::InstanceMethod("setUpdatedBalancePublicKey",
+        &_exports_FilterBuilder_templ::_wrap_FilterBuilder_setUpdatedBalancePublicKey,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("setSearchDirection");
   members.insert({
     "setSearchDirection",

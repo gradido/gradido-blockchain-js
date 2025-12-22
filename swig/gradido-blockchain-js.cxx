@@ -2282,6 +2282,9 @@ fail:
 }
 #endif
 
+SWIGINTERN std::string GradidoUnit_toJSON(GradidoUnit *self,char const *key){ 
+        return self->toString(); 
+    }
 SWIGINTERN std::vector< gradido::data::SignaturePair >::const_reference std_vector_Sl_gradido_data_SignaturePair_Sg__get(std::vector< gradido::data::SignaturePair > *self,int i){
                 int size = int(self->size());
                 if (i>=0 && i<size)
@@ -3003,6 +3006,35 @@ Napi::Value exports_FilterCriteria_TRANSACTION_TYPE_get(const Napi::CallbackInfo
     
     
     jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(gradido::blockchain::FilterCriteria::TRANSACTION_TYPE));
+    
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return Napi::Value();
+#endif
+}
+
+
+// js_global_getter
+Napi::Value exports_FilterCriteria_UPDATED_BALANCED_PUBLIC_KEY_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(gradido::blockchain::FilterCriteria::UPDATED_BALANCED_PUBLIC_KEY));
     
     
     
@@ -5726,6 +5758,15 @@ do {
   Napi::Value value;
   NAPI_CHECK_RESULT(f.Call(0, SWIG_NULLPTR), value);
   Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Value("FilterCriteria_TRANSACTION_TYPE", value,
+    static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
+  NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
+} while (0);
+// jsnapi_register_global_constant
+do {
+  Napi::Function f = Napi::Function::New(env, exports_FilterCriteria_UPDATED_BALANCED_PUBLIC_KEY_get);
+  Napi::Value value;
+  NAPI_CHECK_RESULT(f.Call(0, SWIG_NULLPTR), value);
+  Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Value("FilterCriteria_UPDATED_BALANCED_PUBLIC_KEY", value,
     static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
   NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
 } while (0);

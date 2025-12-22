@@ -67,6 +67,38 @@ void _exports_LedgerAnchor_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("isLegacyGradidoDbCommunityId");
+  members.insert({
+    "isLegacyGradidoDbCommunityId",
+      _exports_LedgerAnchor_templ::InstanceMethod("isLegacyGradidoDbCommunityId",
+        &_exports_LedgerAnchor_templ::_wrap_LedgerAnchor_isLegacyGradidoDbCommunityId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isLegacyGradidoDbUserId");
+  members.insert({
+    "isLegacyGradidoDbUserId",
+      _exports_LedgerAnchor_templ::InstanceMethod("isLegacyGradidoDbUserId",
+        &_exports_LedgerAnchor_templ::_wrap_LedgerAnchor_isLegacyGradidoDbUserId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isLegacyGradidoDbContributionId");
+  members.insert({
+    "isLegacyGradidoDbContributionId",
+      _exports_LedgerAnchor_templ::InstanceMethod("isLegacyGradidoDbContributionId",
+        &_exports_LedgerAnchor_templ::_wrap_LedgerAnchor_isLegacyGradidoDbContributionId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isLegacyGradidoDbTransactionLinkId");
+  members.insert({
+    "isLegacyGradidoDbTransactionLinkId",
+      _exports_LedgerAnchor_templ::InstanceMethod("isLegacyGradidoDbTransactionLinkId",
+        &_exports_LedgerAnchor_templ::_wrap_LedgerAnchor_isLegacyGradidoDbTransactionLinkId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getType");
   members.insert({
     "getType",
@@ -190,6 +222,42 @@ void _exports_LedgerAnchor_inst::GetMembers(
     "Type_NODE_TRIGGER_TRANSACTION_ID",
       StaticAccessor("Type_NODE_TRIGGER_TRANSACTION_ID",
         &_exports_LedgerAnchor_templ::exports_LedgerAnchor_Type_NODE_TRIGGER_TRANSACTION_ID_get,
+        &JS_veto_set_static_variable,
+        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    });
+  // jsnapi_register_static_constant
+  staticMembers.erase("Type_LEGACY_GRADIDO_DB_COMMUNITY_ID");
+  staticMembers.insert({
+    "Type_LEGACY_GRADIDO_DB_COMMUNITY_ID",
+      StaticAccessor("Type_LEGACY_GRADIDO_DB_COMMUNITY_ID",
+        &_exports_LedgerAnchor_templ::exports_LedgerAnchor_Type_LEGACY_GRADIDO_DB_COMMUNITY_ID_get,
+        &JS_veto_set_static_variable,
+        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    });
+  // jsnapi_register_static_constant
+  staticMembers.erase("Type_LEGACY_GRADIDO_DB_USER_ID");
+  staticMembers.insert({
+    "Type_LEGACY_GRADIDO_DB_USER_ID",
+      StaticAccessor("Type_LEGACY_GRADIDO_DB_USER_ID",
+        &_exports_LedgerAnchor_templ::exports_LedgerAnchor_Type_LEGACY_GRADIDO_DB_USER_ID_get,
+        &JS_veto_set_static_variable,
+        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    });
+  // jsnapi_register_static_constant
+  staticMembers.erase("Type_LEGACY_GRADIDO_DB_CONTRIBUTION_ID");
+  staticMembers.insert({
+    "Type_LEGACY_GRADIDO_DB_CONTRIBUTION_ID",
+      StaticAccessor("Type_LEGACY_GRADIDO_DB_CONTRIBUTION_ID",
+        &_exports_LedgerAnchor_templ::exports_LedgerAnchor_Type_LEGACY_GRADIDO_DB_CONTRIBUTION_ID_get,
+        &JS_veto_set_static_variable,
+        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    });
+  // jsnapi_register_static_constant
+  staticMembers.erase("Type_LEGACY_GRADIDO_DB_TRANSACTION_LINK_ID");
+  staticMembers.insert({
+    "Type_LEGACY_GRADIDO_DB_TRANSACTION_LINK_ID",
+      StaticAccessor("Type_LEGACY_GRADIDO_DB_TRANSACTION_LINK_ID",
+        &_exports_LedgerAnchor_templ::exports_LedgerAnchor_Type_LEGACY_GRADIDO_DB_TRANSACTION_LINK_ID_get,
         &JS_veto_set_static_variable,
         static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
     });

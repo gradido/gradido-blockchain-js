@@ -25,4 +25,9 @@
 %ignore FixedPointedArithmetikOverflowException;
 %include "gradido_blockchain/GradidoUnit.h"
 
-
+%extend GradidoUnit { 
+    std::string toJSON(const char* key) 
+    { 
+        return self->toString(); 
+    } 
+}

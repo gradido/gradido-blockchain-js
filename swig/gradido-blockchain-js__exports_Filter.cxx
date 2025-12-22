@@ -62,12 +62,30 @@ void _exports_Filter_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
     });
   // jsnapi_register_member_variable
+  members.erase("updatedBalancePublicKey");
+  members.insert({
+    "updatedBalancePublicKey",
+      _exports_Filter_templ::InstanceAccessor("updatedBalancePublicKey",
+        &_exports_Filter_templ::_wrap_Filter_updatedBalancePublicKey_get,
+        &_exports_Filter_templ::_wrap_Filter_updatedBalancePublicKey_set,
+        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    });
+  // jsnapi_register_member_variable
   members.erase("searchDirection");
   members.insert({
     "searchDirection",
       _exports_Filter_templ::InstanceAccessor("searchDirection",
         &_exports_Filter_templ::_wrap_Filter_searchDirection_get,
         &_exports_Filter_templ::_wrap_Filter_searchDirection_set,
+        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    });
+  // jsnapi_register_member_variable
+  members.erase("transactionType");
+  members.insert({
+    "transactionType",
+      _exports_Filter_templ::InstanceAccessor("transactionType",
+        &_exports_Filter_templ::_wrap_Filter_transactionType_get,
+        &_exports_Filter_templ::_wrap_Filter_transactionType_set,
         static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
     });
   // jsnapi_register_member_variable
@@ -95,15 +113,6 @@ void _exports_Filter_inst::GetMembers(
       _exports_Filter_templ::InstanceAccessor("timepointInterval",
         &_exports_Filter_templ::_wrap_Filter_timepointInterval_get,
         &_exports_Filter_templ::_wrap_Filter_timepointInterval_set,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
-    });
-  // jsnapi_register_member_variable
-  members.erase("transactionType");
-  members.insert({
-    "transactionType",
-      _exports_Filter_templ::InstanceAccessor("transactionType",
-        &_exports_Filter_templ::_wrap_Filter_transactionType_get,
-        &_exports_Filter_templ::_wrap_Filter_transactionType_set,
         static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -150,6 +159,14 @@ void _exports_Filter_inst::GetMembers(
         &_exports_Filter_templ::_wrap_Filter_ALL_TRANSACTIONS_get,
         &JS_veto_set_static_variable,
         static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
+    });
+  // jsnapi_register_static_function
+  staticMembers.erase("lastBalanceFor");
+  staticMembers.insert({
+    "lastBalanceFor",
+      StaticMethod("lastBalanceFor",
+        &_exports_Filter_templ::_wrap_Filter_lastBalanceFor,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
   

@@ -155,6 +155,14 @@ void _exports_ConfirmedTransaction_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("isBalanceUpdated");
+  members.insert({
+    "isBalanceUpdated",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("isBalanceUpdated",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_isBalanceUpdated,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getInvolvedAddresses");
   members.insert({
     "getInvolvedAddresses",

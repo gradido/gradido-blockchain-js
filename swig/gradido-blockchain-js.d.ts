@@ -535,6 +535,8 @@ export  class GradidoUnit {
  static calculateDecayDurationSeconds(startTime: Date, endTime: Date): number;
 
  static zero(): GradidoUnit;
+
+  toJSON(key: string): string;
 }
 
 export  class SignaturePairs {
@@ -967,6 +969,14 @@ export  class LedgerAnchor {
 
  static readonly Type_NODE_TRIGGER_TRANSACTION_ID: LedgerAnchor_Type;
 
+ static readonly Type_LEGACY_GRADIDO_DB_COMMUNITY_ID: LedgerAnchor_Type;
+
+ static readonly Type_LEGACY_GRADIDO_DB_USER_ID: LedgerAnchor_Type;
+
+ static readonly Type_LEGACY_GRADIDO_DB_CONTRIBUTION_ID: LedgerAnchor_Type;
+
+ static readonly Type_LEGACY_GRADIDO_DB_TRANSACTION_LINK_ID: LedgerAnchor_Type;
+
   constructor();
 
   constructor(iotaMessageId: MemoryBlock);
@@ -982,6 +992,14 @@ export  class LedgerAnchor {
   isLegacyGradidoDbTransactionId(): boolean;
 
   isNodeTriggeredTransactionId(): boolean;
+
+  isLegacyGradidoDbCommunityId(): boolean;
+
+  isLegacyGradidoDbUserId(): boolean;
+
+  isLegacyGradidoDbContributionId(): boolean;
+
+  isLegacyGradidoDbTransactionLinkId(): boolean;
 
   getType(): any;
 
@@ -1207,6 +1225,8 @@ export  class ConfirmedTransaction {
   isBalanceExternComputed(): boolean;
 
   isInvolved(publicKey: MemoryBlock): boolean;
+
+  isBalanceUpdated(publicKey: MemoryBlock): boolean;
 
   getInvolvedAddresses(): MemoryBlocks;
 
@@ -1605,6 +1625,8 @@ export const FilterCriteria_FILTER_FUNCTION: FilterCriteria;
 
 export const FilterCriteria_TRANSACTION_TYPE: FilterCriteria;
 
+export const FilterCriteria_UPDATED_BALANCED_PUBLIC_KEY: FilterCriteria;
+
 export const FilterCriteria_MAX: FilterCriteria;
 
 export type FilterCriteria = number & { readonly [_SWIG_type_tag]: 'FilterCriteria'; };
@@ -1625,15 +1647,17 @@ export  class Filter {
 
   involvedPublicKey: MemoryBlockPtr|null;
 
+  updatedBalancePublicKey: MemoryBlockPtr|null;
+
   searchDirection: SearchDirection;
+
+  transactionType: TransactionType;
 
   pagination: Pagination;
 
   coinCommunityId: string;
 
   timepointInterval: TimepointInterval;
-
-  transactionType: TransactionType;
 
   isTheSame(other: Filter): boolean;
 
@@ -1642,6 +1666,8 @@ export  class Filter {
  static FIRST_TRANSACTION: Filter;
 
  static ALL_TRANSACTIONS: Filter;
+
+ static lastBalanceFor(updatedBalancePublicKey: MemoryBlockPtr|null): Filter;
 
   toJson(pretty: boolean): string;
 
@@ -1652,21 +1678,23 @@ export  class FilterBuilder {
 
   reset(): void;
 
-  setMinTransactionNr(_minTransactionNr: number): FilterBuilder;
+  setMinTransactionNr(minTransactionNr: number): FilterBuilder;
 
-  setMaxTransactionNr(_maxTransactionNr: number): FilterBuilder;
+  setMaxTransactionNr(maxTransactionNr: number): FilterBuilder;
 
-  setInvolvedPublicKey(_involvedPublicKey: MemoryBlockPtr|null): FilterBuilder;
+  setInvolvedPublicKey(involvedPublicKey: MemoryBlockPtr|null): FilterBuilder;
 
-  setSearchDirection(_searchDirection: SearchDirection): FilterBuilder;
+  setUpdatedBalancePublicKey(updatedBalancePublicKey: MemoryBlockPtr|null): FilterBuilder;
 
-  setPagination(_pagination: Pagination): FilterBuilder;
+  setSearchDirection(searchDirection: SearchDirection): FilterBuilder;
 
-  setCoinCommunityId(_coinCommunityId: string): FilterBuilder;
+  setPagination(pagination: Pagination): FilterBuilder;
 
-  setTimepointInterval(_timepointInterval: TimepointInterval): FilterBuilder;
+  setCoinCommunityId(coinCommunityId: string): FilterBuilder;
 
-  setTransactionType(_transactionType: TransactionType): FilterBuilder;
+  setTimepointInterval(timepointInterval: TimepointInterval): FilterBuilder;
+
+  setTransactionType(transactionType: TransactionType): FilterBuilder;
 
   build(): Filter;
 
