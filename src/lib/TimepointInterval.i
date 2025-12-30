@@ -7,8 +7,8 @@
 }
 
 %ignore TimepointInterval::MonthYearIterator;
-%ignore TimepointInterval::begin();
-%ignore TimepointInterval::end();
+%ignore TimepointInterval::begin() const;
+%ignore TimepointInterval::end() const;
 %ignore TimepointInterval::TimepointInterval(const date::year_month& startDate, const date::year_month& endDate);
 
 %{

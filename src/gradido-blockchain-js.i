@@ -79,6 +79,7 @@ E string_to_enum(const std::string& name);
 %include "gradido_blockchain/data/TransactionTriggerEventType.h"
 
 %typemap(ts) gradido::data::AddressType "AddressType";
+%typemap(ts) gradido::data::BalanceDerivationType "BalanceDerivationType";
 %typemap(ts) gradido::data::CrossGroupType "CrossGroupType";
 %typemap(ts) gradido::data::TransactionType "TransactionType";
 %typemap(ts) gradido::data::MemoKeyType "MemoKeyType";
@@ -97,6 +98,8 @@ E string_to_enum(const std::string& name);
 
 %template(addressTypeToString) enum_to_string<gradido::data::AddressType>;
 %template(stringToAddressType) string_to_enum<gradido::data::AddressType>;
+%template(balanceDerivationTypeToString) enum_to_string<gradido::data::BalanceDerivationType>;
+%template(stringToBalanceDerivationType) string_to_enum<gradido::data::BalanceDerivationType>;
 %template(crossGroupTypeToString) enum_to_string<gradido::data::CrossGroupType>;
 %template(stringToCrossGroupType) string_to_enum<gradido::data::CrossGroupType>;
 %template(transactionTypeToString) enum_to_string<gradido::data::TransactionType>;
@@ -105,10 +108,9 @@ E string_to_enum(const std::string& name);
 %template(stringToMemoKeyType) string_to_enum<gradido::data::MemoKeyType>;
 %template(transactionTriggerEventTypeToString) enum_to_string<gradido::data::TransactionTriggerEventType>;
 %template(stringToTransactionTriggerEventType) string_to_enum<gradido::data::TransactionTriggerEventType>;
-%template(balanceDerivationTypeToString) enum_to_string<gradido::data::BalanceDerivationType>;
-%template(stringToBalanceDerivationType) string_to_enum<gradido::data::BalanceDerivationType>;
 
 // base types
+%include "crypto/SignatureOctet.i"
 %include "MemoryBlock.i"
 // crypto types
 %include "gradido_blockchain/crypto/MnemonicType.h"
@@ -123,8 +125,8 @@ E string_to_enum(const std::string& name);
 %include "serialization/toJson.i"
 // base types
 %include "GradidoUnit.i"
-%include "data.i"
 %include "data_hiero.i"
+%include "data.i"
 
 // advanced types
 %include "GradidoTransactionBuilder.i"

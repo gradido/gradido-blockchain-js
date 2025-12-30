@@ -47,6 +47,7 @@
 
 %ignore gradido::interaction::validate::Context::operator=;
 %rename(InteractionValidate) gradido::interaction::validate::Context;
+%ignore gradido::interaction::validate::hasFlag;
 %rename(ValidateType) gradido::interaction::validate::Type;
 
 %{

@@ -18,6 +18,14 @@
 %shared_ptr(hiero::TopicId)
 %shared_ptr(hiero::TransactionId)
 
+%typemap(ts) const gradido::data::Timestamp& "Timestamp";
+%ignore hiero::TransactionIdHasher;
+
+%{
+#include "gradido_blockchain/data/hiero/AccountId.h"
+#include "gradido_blockchain/data/hiero/TopicId.h"
+#include "gradido_blockchain/data/hiero/TransactionId.h"
+%}
 
 %include "gradido_blockchain/data/hiero/AccountId.h"
 %include "gradido_blockchain/data/hiero/TopicId.h"
@@ -26,6 +34,12 @@
 
 // toJson for each data Object
 %extend hiero::AccountId {
+    std::string toJson(bool pretty = false) const {
+        return serialization::toJsonString(*self, pretty);
+    }
+}
+
+%extend hiero::TopicId {
     std::string toJson(bool pretty = false) const {
         return serialization::toJsonString(*self, pretty);
     }

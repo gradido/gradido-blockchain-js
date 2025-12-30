@@ -48,6 +48,7 @@ namespace gradido::blockchain {
     %ignore Filter::Filter(std::function<FilterResult(const TransactionEntry&)> _filterFunction);
     %ignore Filter::filterFunction;
     %ignore FilterBuilder::setFilterFunction;
+    %ignore operator -;
 }
 
 %include "gradido_blockchain/blockchain/FilterResult.h"

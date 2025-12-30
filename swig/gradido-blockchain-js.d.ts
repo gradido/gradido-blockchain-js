@@ -36,10 +36,6 @@ export  class TimepointInterval {
 
   notEqual(other: TimepointInterval): boolean;
 
-  begin(): any;
-
-  end(): any;
-
   toJson(pretty: boolean): string;
 
   toJson(): string;
@@ -140,6 +136,10 @@ export function addressTypeToString(value: AddressType): string;
 
 export function stringToAddressType(name: string): AddressType;
 
+export function balanceDerivationTypeToString(value: BalanceDerivationType): string;
+
+export function stringToBalanceDerivationType(name: string): BalanceDerivationType;
+
 export function crossGroupTypeToString(value: CrossGroupType): string;
 
 export function stringToCrossGroupType(name: string): CrossGroupType;
@@ -156,9 +156,26 @@ export function transactionTriggerEventTypeToString(value: TransactionTriggerEve
 
 export function stringToTransactionTriggerEventType(name: string): TransactionTriggerEventType;
 
-export function balanceDerivationTypeToString(value: any): string;
+export  class SignatureOctet {
 
-export function stringToBalanceDerivationType(name: string): any;
+  constructor();
+
+  constructor(signature: Block);
+
+  constructor(binString: string);
+
+  constructor(data: Buffer);
+
+  constructor(other: SignatureOctet);
+
+  lt(ob: SignatureOctet): boolean;
+
+  equal(ob: SignatureOctet): boolean;
+
+  empty(): boolean;
+
+  octet: number;
+}
 
 export  class MemoryBlocks {
 
@@ -197,7 +214,7 @@ export  class MemoryBlock {
 
   data(): Buffer;
 
-  hash(): any;
+  hash(): SignatureOctet;
 
   convertToHex(): string;
 
@@ -418,8 +435,6 @@ export  class KeyPairEd25519Ex extends KeyPairEd25519 {
 
   isTheSame(b: KeyPairEd25519 | KeyPairEd25519Ex): boolean;
 
-  isTheSame(pubkey: any): boolean;
-
   isTheSame(privkey: MemoryBlockPtr|null): number;
 
   equal(b: KeyPairEd25519 | KeyPairEd25519Ex): boolean;
@@ -539,6 +554,105 @@ export  class GradidoUnit {
   toJSON(key: string): string;
 }
 
+export  class HieroAccountId {
+
+  constructor();
+
+  constructor(shardNum: number, realmNum: number, accountNum: number);
+
+  constructor(shardNum: number, realmNum: number, alias: MemoryBlock);
+
+  constructor(shardNum: number, realmNum: number, alias: MemoryBlock);
+
+  constructor(accountIdString: string);
+
+  constructor(other: HieroAccountId);
+
+  constructor(other: HieroAccountId);
+
+  getShardNum(): number;
+
+  getRealmNum(): number;
+
+  getAccountNum(): number;
+
+  getAlias(): MemoryBlock;
+
+  toString(): string;
+
+  empty(): boolean;
+
+  equal(other: HieroAccountId): boolean;
+
+  toJson(pretty: boolean): string;
+
+  toJson(): string;
+}
+
+export function lt(lhs: HieroAccountId, rhs: HieroAccountId): boolean;
+
+export  class HieroTopicId {
+
+  constructor();
+
+  constructor(shardNum: number, realmNum: number, topicNum: number);
+
+  constructor(topicIdString: string);
+
+  constructor(other: HieroTopicId);
+
+  constructor(other: HieroTopicId);
+
+  getShardNum(): number;
+
+  getRealmNum(): number;
+
+  getTopicNum(): number;
+
+  toString(): string;
+
+  equal(other: HieroTopicId): boolean;
+
+  empty(): boolean;
+
+  toJson(pretty: boolean): string;
+
+  toJson(): string;
+}
+
+export  class HieroTransactionId {
+
+  constructor();
+
+  constructor(transactionValidStart: Timestamp, accountId: HieroAccountId);
+
+  constructor(transactionIdString: string);
+
+  setScheduled(): void;
+
+  setNonce(nonce: number): void;
+
+  getTransactionValidStart(): Timestamp;
+
+  getAccountId(): HieroAccountId;
+
+  isScheduled(): boolean;
+
+  getNonce(): number;
+
+  toString(): string;
+
+  empty(): boolean;
+
+  equal(other: HieroTransactionId): boolean;
+
+  lt(other: HieroTransactionId): boolean;
+
+  toJson(pretty: boolean): string;
+
+  toJson(): string;
+}
+
 export  class SignaturePairs {
 
   constructor();
@@ -613,6 +727,10 @@ export  class AccountBalances {
 
   set(i: number, val: AccountBalance): void;
 }
+
+export function ledgerAnchorTypeToString(value: LedgerAnchorType): string;
+
+export function stringToLedgerAnchorType(name: string): LedgerAnchorType;
 
 export  class DurationSeconds {
 
@@ -981,9 +1099,9 @@ export  class LedgerAnchor {
 
   constructor(iotaMessageId: MemoryBlock);
 
-  constructor(hieroTransactionId: any);
+  constructor(hieroTransactionId: HieroTransactionId);
 
-  constructor(transactionId: number, type: any);
+  constructor(transactionId: number, type: LedgerAnchorType);
 
   isIotaMessageId(): boolean;
 
@@ -1001,11 +1119,11 @@ export  class LedgerAnchor {
 
   isLegacyGradidoDbTransactionLinkId(): boolean;
 
-  getType(): any;
+  getType(): LedgerAnchorType;
 
   getIotaMessageId(): MemoryBlock;
 
-  getHieroTransactionId(): any;
+  getHieroTransactionId(): HieroTransactionId;
 
   getLegacyTransactionId(): number;
 
@@ -1186,11 +1304,11 @@ export  class GradidoTransaction {
 
 export  class ConfirmedTransaction {
 
-  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances, balanceDerivationType: any, previousConfirmedTransaction: ConfirmedTransaction|null);
+  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances, balanceDerivationType: BalanceDerivationType, previousConfirmedTransaction: ConfirmedTransaction|null);
 
-  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances, balanceDerivationType: any);
+  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances, balanceDerivationType: BalanceDerivationType);
 
-  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, runningHash: MemoryBlockPtr|null, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances, balanceDerivationType: any);
+  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, runningHash: MemoryBlockPtr|null, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances, balanceDerivationType: BalanceDerivationType);
 
   calculateRunningHash(previousConfirmedTransaction: ConfirmedTransaction|null): MemoryBlockPtr|null;
 
@@ -1218,7 +1336,7 @@ export  class ConfirmedTransaction {
 
   getDecayedAccountBalance(publicKey: MemoryBlockPtr|null, communityId: string): GradidoUnit;
 
-  getBalanceDerivationType(): any;
+  getBalanceDerivationType(): BalanceDerivationType;
 
   isBalanceNodeComputed(): boolean;
 
@@ -1235,108 +1353,6 @@ export  class ConfirmedTransaction {
   toJson(pretty: boolean): string;
 
   toJson(): string;
-}
-
-export  class HieroAccountId {
-
-  constructor();
-
-  constructor(shardNum: number, realmNum: number, accountNum: number);
-
-  constructor(shardNum: number, realmNum: number, alias: MemoryBlock);
-
-  constructor(shardNum: number, realmNum: number, alias: MemoryBlock);
-
-  constructor(accountIdString: string);
-
-  constructor(other: HieroAccountId);
-
-  constructor(other: HieroAccountId);
-
-  getShardNum(): number;
-
-  getRealmNum(): number;
-
-  getAccountNum(): number;
-
-  getAlias(): MemoryBlock;
-
-  toString(): string;
-
-  empty(): boolean;
-
-  equal(other: HieroAccountId): boolean;
-
-  toJson(pretty: boolean): string;
-
-  toJson(): string;
-}
-
-export function lt(lhs: HieroAccountId, rhs: HieroAccountId): boolean;
-
-export  class HieroTopicId {
-
-  constructor();
-
-  constructor(shardNum: number, realmNum: number, topicNum: number);
-
-  constructor(topicIdString: string);
-
-  constructor(other: HieroTopicId);
-
-  constructor(other: HieroTopicId);
-
-  getShardNum(): number;
-
-  getRealmNum(): number;
-
-  getTopicNum(): number;
-
-  toString(): string;
-
-  equal(other: HieroTopicId): boolean;
-
-  empty(): boolean;
-}
-
-export  class HieroTransactionId {
-
-  constructor();
-
-  constructor(transactionValidStart: Timestamp, accountId: HieroAccountId);
-
-  constructor(transactionIdString: string);
-
-  setScheduled(): void;
-
-  setNonce(nonce: number): void;
-
-  getTransactionValidStart(): Timestamp;
-
-  getAccountId(): HieroAccountId;
-
-  isScheduled(): boolean;
-
-  getNonce(): number;
-
-  toString(): string;
-
-  empty(): boolean;
-
-  equal(other: HieroTransactionId): boolean;
-
-  lt(other: HieroTransactionId): boolean;
-
-  toJson(pretty: boolean): string;
-
-  toJson(): string;
-}
-
-export  class TransactionIdHasher {
-
-  call(tid: HieroTransactionId): any;
-
-  constructor();
 }
 
 export  class GradidoTransactionBuilder {
@@ -1631,8 +1647,6 @@ export const FilterCriteria_MAX: FilterCriteria;
 
 export type FilterCriteria = number & { readonly [_SWIG_type_tag]: 'FilterCriteria'; };
 
-export function minus(lhs: any, rhs: any): any;
-
 export function searchDirectionToString(value: SearchDirection): string;
 
 export function stringToSearchDirection(name: string): SearchDirection;
@@ -1761,7 +1775,7 @@ export  class InMemoryBlockchain extends Abstract {
 
   createAndAddConfirmedTransaction(gradidoTransaction: GradidoTransaction|null, ledgerAnchor: LedgerAnchor, confirmedAt: Timestamp): boolean;
 
-  createAndAddConfirmedTransactionExtern(gradidoTransaction: GradidoTransaction|null, legacyTransactionNr: number, accountBalances: AccountBalances): boolean;
+  createAndAddConfirmedTransactionExtern(gradidoTransaction: GradidoTransaction|null, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances): boolean;
 
   addTransactionTriggerEvent(transactionTriggerEvent: TransactionTriggerEvent|null): void;
 
@@ -1822,6 +1836,8 @@ export const ValidateType_SINGLE: ValidateType;
 
 export const ValidateType_PREVIOUS: ValidateType;
 
+export const ValidateType_PREVIOUS_BALANCE: ValidateType;
+
 export const ValidateType_MONTH_RANGE: ValidateType;
 
 export const ValidateType_PAIRED: ValidateType;
@@ -1833,8 +1849,6 @@ export const ValidateType_CONNECTED_GROUP: ValidateType;
 export const ValidateType_CONNECTED_BLOCKCHAIN: ValidateType;
 
 export type ValidateType = number & { readonly [_SWIG_type_tag]: 'ValidateType'; };
-
-export function hasFlag(v: any, f: any): boolean;
 
 export function validateTypeToString(value: ValidateType): string;
 

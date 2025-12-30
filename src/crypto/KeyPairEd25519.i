@@ -119,10 +119,6 @@
     return self->isTheSame(b);
   }
 
-  inline bool isTheSame(const unsigned char* pubkey) const {
-    return self->isTheSame(pubkey);
-  }
-
   inline int isTheSame(memory::ConstBlockPtr privkey) const {
     return self->isTheSame(privkey);
   }

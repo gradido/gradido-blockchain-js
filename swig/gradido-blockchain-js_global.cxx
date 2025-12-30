@@ -134,6 +134,130 @@ fail:
 
 
 // js_global_function
+Napi::Value _wrap_balanceDerivationTypeToString(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::BalanceDerivationType arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  std::string result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_balanceDerivationTypeToString.");
+    }
+    
+    ecode1 = SWIG_AsVal_int(info[0], &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "balanceDerivationTypeToString" "', argument " "1"" of type '" "gradido::data::BalanceDerivationType""'");
+    } 
+    arg1 = static_cast< gradido::data::BalanceDerivationType >(val1);
+    
+    
+    
+    
+    {
+      try {
+        result = enum_to_string< gradido::data::BalanceDerivationType >(arg1);
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_function
+Napi::Value _wrap_stringToBalanceDerivationType(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  std::string *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  gradido::data::BalanceDerivationType result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_stringToBalanceDerivationType.");
+    }
+    
+    {
+      {
+        std::string *ptr = (std::string *)0;
+        res1 = SWIG_AsPtr_std_string(info[0], &ptr);
+        if (!SWIG_IsOK(res1)) {
+          SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "stringToBalanceDerivationType" "', argument " "1"" of type '" "std::string const &""'"); 
+        }
+        if (!ptr) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "stringToBalanceDerivationType" "', argument " "1"" of type '" "std::string const &""'"); 
+        }
+        arg1 = ptr;
+      }
+    }
+    
+    
+    
+    
+    
+    {
+      try {
+        result = (gradido::data::BalanceDerivationType)string_to_enum< gradido::data::BalanceDerivationType >((std::string const &)*arg1);
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(result));
+    
+    if (SWIG_IsNewObj(res1)) delete arg1;
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    if (SWIG_IsNewObj(res1)) delete arg1;
+    
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_function
 Napi::Value _wrap_crossGroupTypeToString(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
@@ -630,130 +754,6 @@ fail:
 
 
 // js_global_function
-Napi::Value _wrap_balanceDerivationTypeToString(const Napi::CallbackInfo &info) {
-  Napi::Env env = info.Env();
-  Napi::Value jsresult;
-  gradido::data::BalanceDerivationType arg1 ;
-  int val1 ;
-  int ecode1 = 0 ;
-  std::string result;
-  
-  
-#ifdef NAPI_CPP_EXCEPTIONS
-  try {
-#endif
-    
-    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_balanceDerivationTypeToString.");
-    }
-    
-    ecode1 = SWIG_AsVal_int(info[0], &val1);
-    if (!SWIG_IsOK(ecode1)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "balanceDerivationTypeToString" "', argument " "1"" of type '" "gradido::data::BalanceDerivationType""'");
-    } 
-    arg1 = static_cast< gradido::data::BalanceDerivationType >(val1);
-    
-    
-    
-    
-    {
-      try {
-        result = enum_to_string< gradido::data::BalanceDerivationType >(arg1);
-      } catch (const GradidoBlockchainException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
-      } catch (const std::exception& e) {
-        SWIG_exception(SWIG_RuntimeError, e.what());
-      }
-    }
-    
-    
-    
-    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
-    
-    
-    return jsresult;
-#ifdef NAPI_CPP_EXCEPTIONS
-  } catch (...) {
-    std::rethrow_exception(std::current_exception());
-  }
-#else
-  goto fail;
-fail:
-  
-#endif
-  return Napi::Value();
-}
-
-
-// js_global_function
-Napi::Value _wrap_stringToBalanceDerivationType(const Napi::CallbackInfo &info) {
-  Napi::Env env = info.Env();
-  Napi::Value jsresult;
-  std::string *arg1 = 0 ;
-  int res1 = SWIG_OLDOBJ ;
-  gradido::data::BalanceDerivationType result;
-  
-  
-#ifdef NAPI_CPP_EXCEPTIONS
-  try {
-#endif
-    
-    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_stringToBalanceDerivationType.");
-    }
-    
-    {
-      {
-        std::string *ptr = (std::string *)0;
-        res1 = SWIG_AsPtr_std_string(info[0], &ptr);
-        if (!SWIG_IsOK(res1)) {
-          SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "stringToBalanceDerivationType" "', argument " "1"" of type '" "std::string const &""'"); 
-        }
-        if (!ptr) {
-          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "stringToBalanceDerivationType" "', argument " "1"" of type '" "std::string const &""'"); 
-        }
-        arg1 = ptr;
-      }
-    }
-    
-    
-    
-    
-    
-    {
-      try {
-        result = (gradido::data::BalanceDerivationType)string_to_enum< gradido::data::BalanceDerivationType >((std::string const &)*arg1);
-      } catch (const GradidoBlockchainException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
-      } catch (const std::exception& e) {
-        SWIG_exception(SWIG_RuntimeError, e.what());
-      }
-    }
-    
-    
-    
-    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(result));
-    
-    if (SWIG_IsNewObj(res1)) delete arg1;
-    
-    return jsresult;
-#ifdef NAPI_CPP_EXCEPTIONS
-  } catch (...) {
-    if (SWIG_IsNewObj(res1)) delete arg1;
-    
-    std::rethrow_exception(std::current_exception());
-  }
-#else
-  goto fail;
-fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
-  
-#endif
-  return Napi::Value();
-}
-
-
-// js_global_function
 Napi::Value _wrap_loadCryptoKeys(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
@@ -1196,6 +1196,126 @@ fail:
 
 
 // js_global_function
+Napi::Value _wrap_ledgerAnchorTypeToString(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::LedgerAnchor::Type arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  std::string result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_ledgerAnchorTypeToString.");
+    }
+    
+    ecode1 = SWIG_AsVal_int(info[0], &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "ledgerAnchorTypeToString" "', argument " "1"" of type '" "gradido::data::LedgerAnchor::Type""'");
+    } 
+    arg1 = static_cast< gradido::data::LedgerAnchor::Type >(val1);
+    
+    
+    
+    
+    {
+      try {
+        result = enum_to_string< gradido::data::LedgerAnchor::Type >(arg1);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_function
+Napi::Value _wrap_stringToLedgerAnchorType(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  std::string *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  gradido::data::LedgerAnchor::Type result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_stringToLedgerAnchorType.");
+    }
+    
+    {
+      {
+        std::string *ptr = (std::string *)0;
+        res1 = SWIG_AsPtr_std_string(info[0], &ptr);
+        if (!SWIG_IsOK(res1)) {
+          SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "stringToLedgerAnchorType" "', argument " "1"" of type '" "std::string const &""'"); 
+        }
+        if (!ptr) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "stringToLedgerAnchorType" "', argument " "1"" of type '" "std::string const &""'"); 
+        }
+        arg1 = ptr;
+      }
+    }
+    
+    
+    
+    
+    
+    {
+      try {
+        result = (gradido::data::LedgerAnchor::Type)string_to_enum< gradido::data::LedgerAnchor::Type >((std::string const &)*arg1);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(result));
+    
+    if (SWIG_IsNewObj(res1)) delete arg1;
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    if (SWIG_IsNewObj(res1)) delete arg1;
+    
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_function
 Napi::Value _wrap_deserializeTypeToString(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
@@ -1324,69 +1444,6 @@ fail:
 
 
 // js_global_function
-Napi::Value _wrap_minus(const Napi::CallbackInfo &info) {
-  Napi::Env env = info.Env();
-  Napi::Value jsresult;
-  gradido::blockchain::FilterCriteria arg1 ;
-  gradido::blockchain::FilterCriteria arg2 ;
-  int val1 ;
-  int ecode1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  gradido::blockchain::FilterCriteria result;
-  
-  
-#ifdef NAPI_CPP_EXCEPTIONS
-  try {
-#endif
-    
-    if(static_cast<int>(info.Length()) < 2 || static_cast<int>(info.Length()) > 2) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_minus.");
-    }
-    
-    ecode1 = SWIG_AsVal_int(info[0], &val1);
-    if (!SWIG_IsOK(ecode1)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "minus" "', argument " "1"" of type '" "gradido::blockchain::FilterCriteria""'");
-    } 
-    arg1 = static_cast< gradido::blockchain::FilterCriteria >(val1);ecode2 = SWIG_AsVal_int(info[1], &val2);
-    if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "minus" "', argument " "2"" of type '" "gradido::blockchain::FilterCriteria""'");
-    } 
-    arg2 = static_cast< gradido::blockchain::FilterCriteria >(val2);
-    
-    
-    
-    
-    {
-      try {
-        result = (gradido::blockchain::FilterCriteria)gradido::blockchain::operator -(arg1,arg2);
-      } catch (const GradidoBlockchainException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
-      } catch (const std::exception& e) {
-        SWIG_exception(SWIG_RuntimeError, e.what());
-      }
-    }
-    
-    
-    
-    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(result));
-    
-    
-    return jsresult;
-#ifdef NAPI_CPP_EXCEPTIONS
-  } catch (...) {
-    std::rethrow_exception(std::current_exception());
-  }
-#else
-  goto fail;
-fail:
-  
-#endif
-  return Napi::Value();
-}
-
-
-// js_global_function
 Napi::Value _wrap_searchDirectionToString(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
@@ -1504,102 +1561,6 @@ Napi::Value _wrap_stringToSearchDirection(const Napi::CallbackInfo &info) {
   goto fail;
 fail:
   if (SWIG_IsNewObj(res1)) delete arg1;
-  
-#endif
-  return Napi::Value();
-}
-
-
-// js_global_function
-Napi::Value _wrap_hasFlag(const Napi::CallbackInfo &info) {
-  Napi::Env env = info.Env();
-  Napi::Value jsresult;
-  gradido::interaction::validate::Type arg1 ;
-  gradido::interaction::validate::Type arg2 ;
-  int val1 ;
-  int ecode1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  bool result;
-  
-  
-#ifdef NAPI_CPP_EXCEPTIONS
-  try {
-#endif
-    
-    if(static_cast<int>(info.Length()) < 2 || static_cast<int>(info.Length()) > 2) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_hasFlag.");
-    }
-    
-    ecode1 = SWIG_AsVal_int(info[0], &val1);
-    if (!SWIG_IsOK(ecode1)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "hasFlag" "', argument " "1"" of type '" "gradido::interaction::validate::Type""'");
-    } 
-    arg1 = static_cast< gradido::interaction::validate::Type >(val1);ecode2 = SWIG_AsVal_int(info[1], &val2);
-    if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "hasFlag" "', argument " "2"" of type '" "gradido::interaction::validate::Type""'");
-    } 
-    arg2 = static_cast< gradido::interaction::validate::Type >(val2);
-    
-    
-    
-    
-    {
-      try {
-        result = (bool)gradido::interaction::validate::hasFlag(arg1,arg2);
-      } catch (const gradido::interaction::validate::WrongAddressTypeException& e) {
-        std::string message = "WrongAddressTypeException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const gradido::interaction::validate::InvalidCreationException& e) {
-        std::string message = "InvalidCreationException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const InsufficientBalanceException& e) {
-        std::string message = "InsufficientBalanceException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const gradido::interaction::validate::AddressAlreadyExistException& e) {
-        std::string message = "AddressAlreadyExistException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const gradido::interaction::validate::PairingTransactionNotMatchException& e) {
-        std::string message = "PairingTransactionNotMatchException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const gradido::interaction::validate::TransactionValidationRequiredSignMissingException& e) {
-        std::string message = "TransactionValidationRequiredSignMissingException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());        
-      } catch (const gradido::interaction::validate::TransactionValidationMissingSignException& e) {
-        std::string message = "TransactionValidationMissingSignException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const gradido::interaction::validate::TransactionValidationForbiddenSignException& e) {
-        std::string message = "TransactionValidationForbiddenSignException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const gradido::interaction::validate::TransactionValidationInvalidSignatureException& e) {
-        std::string message = "TransactionValidationInvalidSignatureException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const gradido::interaction::validate::TransactionValidationInvalidInputException& e) {
-        std::string message = "TransactionValidationInvalidInputException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const gradido::interaction::validate::TransactionValidationException& e) {
-        std::string message = "TransactionValidationException: " + e.getFullString();
-        SWIG_exception(SWIG_RuntimeError, message.data());
-      } catch (const GradidoBlockchainException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
-      } catch (const std::exception& e) {
-        SWIG_exception(SWIG_RuntimeError, e.what());
-      }
-    }
-    
-    
-    
-    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
-    
-    
-    return jsresult;
-#ifdef NAPI_CPP_EXCEPTIONS
-  } catch (...) {
-    std::rethrow_exception(std::current_exception());
-  }
-#else
-  goto fail;
-fail:
   
 #endif
   return Napi::Value();
@@ -1842,9 +1803,8 @@ SWIGINTERN swig_type_info _swigt__p_DecryptionException = {"_p_DecryptionExcepti
 SWIGINTERN swig_type_info _swigt__p_EncryptionException = {"_p_EncryptionException", 0, 0, 0, 0, 0};
 SWIGINTERN swig_type_info _swigt__p_EncryptionKeyException = {"_p_EncryptionKeyException", 0, 0, 0, 0, 0};
 SWIGINTERN swig_type_info _swigt__p_MissingEncryptionException = {"_p_MissingEncryptionException", 0, 0, 0, 0, 0};
-SWIGINTERN swig_type_info _swigt__p_SignatureOctet = {"_p_SignatureOctet", "SignatureOctet *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_SignatureOctet = {"_p_SignatureOctet", "p_SignatureOctet|SignatureOctet *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_TimepointInterval = {"_p_TimepointInterval", "TimepointInterval *|p_TimepointInterval", 0, 0, (void*)0, 0};
-SWIGINTERN swig_type_info _swigt__p_TimepointInterval__MonthYearIterator = {"_p_TimepointInterval__MonthYearIterator", "TimepointInterval::MonthYearIterator *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_date__month = {"_p_date__month", "date::month *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_date__year = {"_p_date__year", "date::year *", 0, 0, (void*)0, 0};
@@ -1889,7 +1849,6 @@ SWIGINTERN swig_type_info _swigt__p_gradido__interaction__validate__Context = {"
 SWIGINTERN swig_type_info _swigt__p_hiero__AccountId = {"_p_hiero__AccountId", "hiero::AccountId *|p_hiero__AccountId", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_hiero__TopicId = {"_p_hiero__TopicId", "hiero::TopicId *|p_hiero__TopicId", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_hiero__TransactionId = {"_p_hiero__TransactionId", "p_hiero__TransactionId|hiero::TransactionId *", 0, 0, (void*)0, 0};
-SWIGINTERN swig_type_info _swigt__p_hiero__TransactionIdHasher = {"_p_hiero__TransactionIdHasher", "p_hiero__TransactionIdHasher|hiero::TransactionIdHasher *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_int = {"_p_int", "int32_t *|int_fast16_t *|int_fast32_t *|int_least32_t *|intptr_t *|int *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_long_long = {"_p_long_long", "int64_t *|int_fast64_t *|int_least64_t *|intmax_t *|long long *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_memory__Block = {"_p_memory__Block", "MemoryBin *|p_memory__Block|memory::Block *", 0, 0, (void*)0, 0};
@@ -1948,7 +1907,6 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_SecretKeyCryptographyException,
   &_swigt__p_SignatureOctet,
   &_swigt__p_TimepointInterval,
-  &_swigt__p_TimepointInterval__MonthYearIterator,
   &_swigt__p_char,
   &_swigt__p_date__month,
   &_swigt__p_date__year,
@@ -1993,7 +1951,6 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_hiero__AccountId,
   &_swigt__p_hiero__TopicId,
   &_swigt__p_hiero__TransactionId,
-  &_swigt__p_hiero__TransactionIdHasher,
   &_swigt__p_int,
   &_swigt__p_long_long,
   &_swigt__p_memory__Block,
@@ -2049,7 +2006,6 @@ SWIGINTERN swig_cast_info _swigc__p_MissingEncryptionException[] = {{&_swigt__p_
 SWIGINTERN swig_cast_info _swigc__p_SecretKeyCryptographyException[] = {  {&_swigt__p_SecretKeyCryptographyException, 0, 0, 0},  {&_swigt__p_DecryptionException, _p_DecryptionExceptionTo_p_SecretKeyCryptographyException, 0, 0},  {&_swigt__p_EncryptionException, _p_EncryptionExceptionTo_p_SecretKeyCryptographyException, 0, 0},  {&_swigt__p_EncryptionKeyException, _p_EncryptionKeyExceptionTo_p_SecretKeyCryptographyException, 0, 0},  {&_swigt__p_MissingEncryptionException, _p_MissingEncryptionExceptionTo_p_SecretKeyCryptographyException, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_SignatureOctet[] = {  {&_swigt__p_SignatureOctet, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_TimepointInterval[] = {  {&_swigt__p_TimepointInterval, 0, 0, 0},{0, 0, 0, 0}};
-SWIGINTERN swig_cast_info _swigc__p_TimepointInterval__MonthYearIterator[] = {  {&_swigt__p_TimepointInterval__MonthYearIterator, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_date__month[] = {  {&_swigt__p_date__month, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_date__year[] = {  {&_swigt__p_date__year, 0, 0, 0},{0, 0, 0, 0}};
@@ -2094,7 +2050,6 @@ SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__validate__Context[] = 
 SWIGINTERN swig_cast_info _swigc__p_hiero__AccountId[] = {  {&_swigt__p_hiero__AccountId, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_hiero__TopicId[] = {  {&_swigt__p_hiero__TopicId, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_hiero__TransactionId[] = {  {&_swigt__p_hiero__TransactionId, 0, 0, 0},{0, 0, 0, 0}};
-SWIGINTERN swig_cast_info _swigc__p_hiero__TransactionIdHasher[] = {  {&_swigt__p_hiero__TransactionIdHasher, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_long_long[] = {  {&_swigt__p_long_long, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_memory__Block[] = {  {&_swigt__p_memory__Block, 0, 0, 0},{0, 0, 0, 0}};
@@ -2150,7 +2105,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_SecretKeyCryptographyException,
   _swigc__p_SignatureOctet,
   _swigc__p_TimepointInterval,
-  _swigc__p_TimepointInterval__MonthYearIterator,
   _swigc__p_char,
   _swigc__p_date__month,
   _swigc__p_date__year,
@@ -2195,7 +2149,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_hiero__AccountId,
   _swigc__p_hiero__TopicId,
   _swigc__p_hiero__TransactionId,
-  _swigc__p_hiero__TransactionIdHasher,
   _swigc__p_int,
   _swigc__p_long_long,
   _swigc__p_memory__Block,
@@ -2240,6 +2193,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
 
-SWIGINTERN swig_type_info *swig_types[100];
-SWIGINTERN swig_module_info swig_module = {swig_types, 99, 0, 0, 0, 0};
+SWIGINTERN swig_type_info *swig_types[98];
+SWIGINTERN swig_module_info swig_module = {swig_types, 97, 0, 0, 0, 0};
 
