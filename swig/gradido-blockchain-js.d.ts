@@ -245,6 +245,20 @@ export  class MemoryBlock {
  static createPtr(block: MemoryBlock): MemoryBlockPtr;
 }
 
+export  class ConstBlockPtrHash {
+
+  call(s: any): number;
+
+  constructor();
+}
+
+export  class ConstBlockPtrEqual {
+
+  call(a: any, b: any): boolean;
+
+  constructor();
+}
+
 export  class MemoryBlockPtr {
 
   constructor(block: MemoryBlock);
@@ -1097,6 +1111,8 @@ export  class LedgerAnchor {
 
   constructor();
 
+  constructor(other: LedgerAnchor);
+
   constructor(iotaMessageId: MemoryBlock);
 
   constructor(hieroTransactionId: HieroTransactionId);
@@ -1446,6 +1462,8 @@ export const DeserializeType_HIERO_TOPIC_ID: DeserializeType;
 
 export const DeserializeType_HIERO_TRANSACTION_ID: DeserializeType;
 
+export const DeserializeType_LEDGER_ANCHOR: DeserializeType;
+
 export const DeserializeType_MAX: DeserializeType;
 
 export type DeserializeType = number & { readonly [_SWIG_type_tag]: 'DeserializeType'; };
@@ -1476,6 +1494,8 @@ export  class InteractionDeserialize {
 
   isHieroTransactionId(): boolean;
 
+  isLedgerAnchor(): boolean;
+
   getType(): DeserializeType;
 
   getTransactionBody(): TransactionBody|null;
@@ -1491,6 +1511,8 @@ export  class InteractionDeserialize {
   getHieroTopicId(): HieroTopicId;
 
   getTransactionTriggerEvent(): TransactionTriggerEvent;
+
+  getLedgerAnchor(): LedgerAnchor;
 }
 
 export  class InteractionSerialize {
@@ -1504,6 +1526,8 @@ export  class InteractionSerialize {
   constructor(topicId: HieroTopicId);
 
   constructor(transactionId: HieroTransactionId);
+
+  constructor(ledgerAnchor: LedgerAnchor);
 
   constructor(signatureMap: SignatureMap);
 

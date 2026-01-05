@@ -1853,6 +1853,8 @@ SWIGINTERN swig_type_info _swigt__p_int = {"_p_int", "int32_t *|int_fast16_t *|i
 SWIGINTERN swig_type_info _swigt__p_long_long = {"_p_long_long", "int64_t *|int_fast64_t *|int_least64_t *|intmax_t *|long long *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_memory__Block = {"_p_memory__Block", "MemoryBin *|p_memory__Block|memory::Block *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_memory__BlockPtrWrapper = {"_p_memory__BlockPtrWrapper", "p_memory__BlockPtrWrapper|std::vector< memory::BlockPtrWrapper >::value_type *|memory::BlockPtrWrapper *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_memory__ConstBlockPtrEqual = {"_p_memory__ConstBlockPtrEqual", "p_memory__ConstBlockPtrEqual|memory::ConstBlockPtrEqual *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_memory__ConstBlockPtrHash = {"_p_memory__ConstBlockPtrHash", "memory::ConstBlockPtrHash *|p_memory__ConstBlockPtrHash", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_second_type = {"_p_second_type", "second_type *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_short = {"_p_short", "int16_t *|int_least16_t *|short *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_signed_char = {"_p_signed_char", "int8_t *|int_fast8_t *|int_least8_t *|signed char *", 0, 0, (void*)0, 0};
@@ -1955,6 +1957,8 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_long_long,
   &_swigt__p_memory__Block,
   &_swigt__p_memory__BlockPtrWrapper,
+  &_swigt__p_memory__ConstBlockPtrEqual,
+  &_swigt__p_memory__ConstBlockPtrHash,
   &_swigt__p_second_type,
   &_swigt__p_short,
   &_swigt__p_signed_char,
@@ -2054,6 +2058,8 @@ SWIGINTERN swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 
 SWIGINTERN swig_cast_info _swigc__p_long_long[] = {  {&_swigt__p_long_long, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_memory__Block[] = {  {&_swigt__p_memory__Block, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_memory__BlockPtrWrapper[] = {  {&_swigt__p_memory__BlockPtrWrapper, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_memory__ConstBlockPtrEqual[] = {  {&_swigt__p_memory__ConstBlockPtrEqual, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_memory__ConstBlockPtrHash[] = {  {&_swigt__p_memory__ConstBlockPtrHash, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_second_type[] = {  {&_swigt__p_second_type, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_short[] = {  {&_swigt__p_short, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_signed_char[] = {  {&_swigt__p_signed_char, 0, 0, 0},{0, 0, 0, 0}};
@@ -2153,6 +2159,8 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_long_long,
   _swigc__p_memory__Block,
   _swigc__p_memory__BlockPtrWrapper,
+  _swigc__p_memory__ConstBlockPtrEqual,
+  _swigc__p_memory__ConstBlockPtrHash,
   _swigc__p_second_type,
   _swigc__p_short,
   _swigc__p_signed_char,
@@ -2193,6 +2201,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
 
-SWIGINTERN swig_type_info *swig_types[98];
-SWIGINTERN swig_module_info swig_module = {swig_types, 97, 0, 0, 0, 0};
+SWIGINTERN swig_type_info *swig_types[100];
+SWIGINTERN swig_module_info swig_module = {swig_types, 99, 0, 0, 0, 0};
 

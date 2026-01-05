@@ -99,6 +99,14 @@ void _exports_InteractionDeserialize_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("isLedgerAnchor");
+  members.insert({
+    "isLedgerAnchor",
+      _exports_InteractionDeserialize_templ::InstanceMethod("isLedgerAnchor",
+        &_exports_InteractionDeserialize_templ::_wrap_InteractionDeserialize_isLedgerAnchor,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getType");
   members.insert({
     "getType",
@@ -160,6 +168,14 @@ void _exports_InteractionDeserialize_inst::GetMembers(
     "getTransactionTriggerEvent",
       _exports_InteractionDeserialize_templ::InstanceMethod("getTransactionTriggerEvent",
         &_exports_InteractionDeserialize_templ::_wrap_InteractionDeserialize_getTransactionTriggerEvent,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getLedgerAnchor");
+  members.insert({
+    "getLedgerAnchor",
+      _exports_InteractionDeserialize_templ::InstanceMethod("getLedgerAnchor",
+        &_exports_InteractionDeserialize_templ::_wrap_InteractionDeserialize_getLedgerAnchor,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
