@@ -1573,6 +1573,8 @@ export  class TransactionEntry {
 
   constructor(confirmedTransaction: ConfirmedTransaction|null);
 
+  constructor(serializedTransaction: MemoryBlockPtr|null, confirmedTransaction: ConfirmedTransaction|null);
+
   constructor(transactionNr: number, month: number, year: number, transactionType: TransactionType, communityId: string);
 
   lt(b: TransactionEntry): boolean;

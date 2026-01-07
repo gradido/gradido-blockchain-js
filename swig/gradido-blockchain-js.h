@@ -3991,6 +3991,8 @@ Napi::Value _wrap_new_TransactionEntry__SWIG_1(const Napi::CallbackInfo &);
 Napi::Value _wrap_new_TransactionEntry__SWIG_2(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_new_TransactionEntry__SWIG_3(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_TransactionEntry__SWIG_4(const Napi::CallbackInfo &);
 virtual ~_exports_TransactionEntry_templ();
 // jsnapi_class_method_declaration
 Napi::Value _wrap_TransactionEntry_lt(const Napi::CallbackInfo &);
@@ -55017,6 +55019,73 @@ template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_new_TransactionEntry__SWIG_3(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Object self;
+  SwigValueWrapper< std::shared_ptr< memory::Block const > > arg1 ;
+  gradido::data::ConstConfirmedTransactionPtr arg2 ;
+  gradido::blockchain::TransactionEntry *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 2 || static_cast<int>(info.Length()) > 2) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_TransactionEntry__SWIG_3.");
+    }
+    {
+      {
+        void* argp = nullptr;
+        int res = SWIG_ConvertPtr(info[0], &argp, SWIGTYPE_p_memory__BlockPtrWrapper, 0);
+        if (!SWIG_IsOK(res)) {
+          SWIG_exception_fail(SWIG_ArgError(res), "Expected BlockPtrWrapper");
+        }
+        if (argp) {
+          memory::BlockPtrWrapper* wrapper = reinterpret_cast<memory::BlockPtrWrapper*>(argp);
+          arg1 = *wrapper;
+        } else {
+          arg1 = nullptr;
+        }
+      }
+    }
+    {
+      {
+        gradido::data::ConfirmedTransaction *plain_ptr;
+        int res = SWIG_ConvertPtr(info[1], reinterpret_cast<void**>(&plain_ptr), SWIGTYPE_p_gradido__data__ConfirmedTransaction,  0 );
+        if (!SWIG_IsOK(res)) {
+          SWIG_exception_fail(SWIG_ArgError(res), "in method '" "new_TransactionEntry" "', argument " "2"" of type '" "gradido::data::ConfirmedTransaction""'");
+        }
+        arg2 = std::shared_ptr<const gradido::data::ConfirmedTransaction>(plain_ptr, SWIG_null_deleter());
+      }
+    }
+    {
+      try {
+        result = (gradido::blockchain::TransactionEntry *)new gradido::blockchain::TransactionEntry(SWIG_STD_MOVE(arg1),SWIG_STD_MOVE(arg2));
+      } catch(const InvalidGradidoTransaction& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_new_TransactionEntry__SWIG_4(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
   uint64_t arg1 ;
   date::month arg2 ;
   date::year arg3 ;
@@ -55033,7 +55102,7 @@ Napi::Value _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_wrap_new_Transactio
     NAPI_CHECK_RESULT(info.This().ToObject(), self);
     this->owned = true;
     if(static_cast<int>(info.Length()) < 5 || static_cast<int>(info.Length()) > 5) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_TransactionEntry__SWIG_3.");
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_TransactionEntry__SWIG_4.");
     }
     ecode1 = SWIG_AsVal_unsigned_SS_long_SS_long(info[0], &val1);
     if (!SWIG_IsOK(ecode1)) {
@@ -55223,7 +55292,7 @@ _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_exports_TransactionEntry_templ(
   }
   
   // js_ctor_dispatch_case
-  if(static_cast<int>(info.Length()) >= 5 && static_cast<int>(info.Length()) <= 5) {
+  if(static_cast<int>(info.Length()) >= 2 && static_cast<int>(info.Length()) <= 2) {
 #ifdef NAPI_CPP_EXCEPTIONS
     bool tryNext = false;
     try {
@@ -55237,6 +55306,42 @@ _exports_TransactionEntry_templ<SWIG_OBJ_WRAP>::_exports_TransactionEntry_templ(
     return;
 #else
     _wrap_new_TransactionEntry__SWIG_3(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 5 && static_cast<int>(info.Length()) <= 5) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_TransactionEntry__SWIG_4(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_TransactionEntry__SWIG_4(info);
     if (env.IsExceptionPending()) {
       Napi::Error e = env.GetAndClearPendingException();
       Napi::Value typeErrorValue;
