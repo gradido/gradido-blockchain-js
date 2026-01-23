@@ -43,6 +43,14 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("createAndAddConfirmedTransactionExtern");
+  members.insert({
+    "createAndAddConfirmedTransactionExtern",
+      _exports_Abstract_templ::InstanceMethod("createAndAddConfirmedTransactionExtern",
+        &_exports_Abstract_templ::_wrap_Abstract_createAndAddConfirmedTransactionExtern,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("addTransactionTriggerEvent");
   members.insert({
     "addTransactionTriggerEvent",
@@ -91,6 +99,14 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("countAll");
+  members.insert({
+    "countAll",
+      _exports_Abstract_templ::InstanceMethod("countAll",
+        &_exports_Abstract_templ::_wrap_Abstract__wrap_Abstract_countAll,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("findOne");
   members.insert({
     "findOne",
@@ -104,6 +120,14 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
     "getAddressType",
       _exports_Abstract_templ::InstanceMethod("getAddressType",
         &_exports_Abstract_templ::_wrap_Abstract__wrap_Abstract_getAddressType,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getAddressTypeSlow");
+  members.insert({
+    "getAddressTypeSlow",
+      _exports_Abstract_templ::InstanceMethod("getAddressTypeSlow",
+        &_exports_Abstract_templ::_wrap_Abstract__wrap_Abstract_getAddressTypeSlow,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -123,11 +147,11 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getCommunityId");
+  members.erase("getCommunityIdIndex");
   members.insert({
-    "getCommunityId",
-      _exports_Abstract_templ::InstanceMethod("getCommunityId",
-        &_exports_Abstract_templ::_wrap_Abstract_getCommunityId,
+    "getCommunityIdIndex",
+      _exports_Abstract_templ::InstanceMethod("getCommunityIdIndex",
+        &_exports_Abstract_templ::_wrap_Abstract_getCommunityIdIndex,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -227,22 +251,6 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getTransactionForId");
-  members.insert({
-    "getTransactionForId",
-      _exports_InMemoryBlockchain_templ::InstanceMethod("getTransactionForId",
-        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_getTransactionForId,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("findByLedgerAnchor");
-  members.insert({
-    "findByLedgerAnchor",
-      _exports_InMemoryBlockchain_templ::InstanceMethod("findByLedgerAnchor",
-        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain__wrap_InMemoryBlockchain_findByLedgerAnchor,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("findOne");
   members.insert({
     "findOne",
@@ -259,11 +267,19 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getCommunityId");
+  members.erase("getTransactionForId");
   members.insert({
-    "getCommunityId",
-      _exports_InMemoryBlockchain_templ::InstanceMethod("getCommunityId",
-        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_getCommunityId,
+    "getTransactionForId",
+      _exports_InMemoryBlockchain_templ::InstanceMethod("getTransactionForId",
+        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_getTransactionForId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("findByLedgerAnchor");
+  members.insert({
+    "findByLedgerAnchor",
+      _exports_InMemoryBlockchain_templ::InstanceMethod("findByLedgerAnchor",
+        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain__wrap_InMemoryBlockchain_findByLedgerAnchor,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

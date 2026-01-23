@@ -43,6 +43,14 @@ void _exports_TransferAmount_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("isPairing");
+  members.insert({
+    "isPairing",
+      _exports_TransferAmount_templ::InstanceMethod("isPairing",
+        &_exports_TransferAmount_templ::_wrap_TransferAmount_isPairing,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getPublicKey");
   members.insert({
     "getPublicKey",
@@ -59,11 +67,11 @@ void _exports_TransferAmount_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getCommunityId");
+  members.erase("getCoinCommunityIdIndex");
   members.insert({
-    "getCommunityId",
-      _exports_TransferAmount_templ::InstanceMethod("getCommunityId",
-        &_exports_TransferAmount_templ::_wrap_TransferAmount_getCommunityId,
+    "getCoinCommunityIdIndex",
+      _exports_TransferAmount_templ::InstanceMethod("getCoinCommunityIdIndex",
+        &_exports_TransferAmount_templ::_wrap_TransferAmount_getCoinCommunityIdIndex,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

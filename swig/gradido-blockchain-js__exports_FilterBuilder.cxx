@@ -91,11 +91,11 @@ void _exports_FilterBuilder_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("setCoinCommunityId");
+  members.erase("setCoinCommunityIdIndex");
   members.insert({
-    "setCoinCommunityId",
-      _exports_FilterBuilder_templ::InstanceMethod("setCoinCommunityId",
-        &_exports_FilterBuilder_templ::_wrap_FilterBuilder_setCoinCommunityId,
+    "setCoinCommunityIdIndex",
+      _exports_FilterBuilder_templ::InstanceMethod("setCoinCommunityIdIndex",
+        &_exports_FilterBuilder_templ::_wrap_FilterBuilder_setCoinCommunityIdIndex,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

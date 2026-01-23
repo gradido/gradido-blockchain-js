@@ -98,12 +98,12 @@ void _exports_Filter_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
     });
   // jsnapi_register_member_variable
-  members.erase("coinCommunityId");
+  members.erase("coinCommunityIdIndex");
   members.insert({
-    "coinCommunityId",
-      _exports_Filter_templ::InstanceAccessor("coinCommunityId",
-        &_exports_Filter_templ::_wrap_Filter_coinCommunityId_get,
-        &_exports_Filter_templ::_wrap_Filter_coinCommunityId_set,
+    "coinCommunityIdIndex",
+      _exports_Filter_templ::InstanceAccessor("coinCommunityIdIndex",
+        &_exports_Filter_templ::_wrap_Filter_coinCommunityIdIndex_get,
+        &_exports_Filter_templ::_wrap_Filter_coinCommunityIdIndex_set,
         static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
     });
   // jsnapi_register_member_variable

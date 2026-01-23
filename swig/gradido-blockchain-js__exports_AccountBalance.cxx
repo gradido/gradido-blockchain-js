@@ -51,11 +51,11 @@ void _exports_AccountBalance_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getCommunityId");
+  members.erase("getCoinCommunityIdIndex");
   members.insert({
-    "getCommunityId",
-      _exports_AccountBalance_templ::InstanceMethod("getCommunityId",
-        &_exports_AccountBalance_templ::_wrap_AccountBalance_getCommunityId,
+    "getCoinCommunityIdIndex",
+      _exports_AccountBalance_templ::InstanceMethod("getCoinCommunityIdIndex",
+        &_exports_AccountBalance_templ::_wrap_AccountBalance_getCoinCommunityIdIndex,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -64,6 +64,14 @@ void _exports_AccountBalance_inst::GetMembers(
     "isTheSame",
       _exports_AccountBalance_templ::InstanceMethod("isTheSame",
         &_exports_AccountBalance_templ::_wrap_AccountBalance_isTheSame,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("belongsTo");
+  members.insert({
+    "belongsTo",
+      _exports_AccountBalance_templ::InstanceMethod("belongsTo",
+        &_exports_AccountBalance_templ::_wrap_AccountBalance_belongsTo,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

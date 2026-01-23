@@ -179,11 +179,19 @@ void _exports_TransactionBody_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getOtherGroup");
+  members.erase("getCommunityIdIndex");
   members.insert({
-    "getOtherGroup",
-      _exports_TransactionBody_templ::InstanceMethod("getOtherGroup",
-        &_exports_TransactionBody_templ::_wrap_TransactionBody_getOtherGroup,
+    "getCommunityIdIndex",
+      _exports_TransactionBody_templ::InstanceMethod("getCommunityIdIndex",
+        &_exports_TransactionBody_templ::_wrap_TransactionBody_getCommunityIdIndex,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getOtherCommunityIdIndex");
+  members.insert({
+    "getOtherCommunityIdIndex",
+      _exports_TransactionBody_templ::InstanceMethod("getOtherCommunityIdIndex",
+        &_exports_TransactionBody_templ::_wrap_TransactionBody_getOtherCommunityIdIndex,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

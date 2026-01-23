@@ -20,6 +20,8 @@
 %ignore gradido::GradidoTransactionBuilder::BodyBytesSignatureMap;
 %ignore gradido::GradidoTransactionBuilderException;
 %ignore gradido::GradidoTransactionWrongBuildingStateBuilderException;
+%ignore gradido::GradidoTransactionBuilder::setSenderCommunity(uint32_t);
+%ignore gradido::GradidoTransactionBuilder::setRecipientCommunity(uint32_t);
 %include "gradido_blockchain/GradidoTransactionBuilder.h"
 
 

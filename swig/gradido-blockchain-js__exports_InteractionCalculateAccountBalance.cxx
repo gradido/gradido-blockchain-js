@@ -39,7 +39,7 @@ void _exports_InteractionCalculateAccountBalance_inst::GetMembers(
   members.insert({
     "fromBegin",
       _exports_InteractionCalculateAccountBalance_templ::InstanceMethod("fromBegin",
-        &_exports_InteractionCalculateAccountBalance_templ::_wrap_InteractionCalculateAccountBalance_fromBegin,
+        &_exports_InteractionCalculateAccountBalance_templ::_wrap_InteractionCalculateAccountBalance__wrap_InteractionCalculateAccountBalance_fromBegin,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

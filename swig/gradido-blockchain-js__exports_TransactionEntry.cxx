@@ -99,11 +99,11 @@ void _exports_TransactionEntry_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getCoinCommunityId");
+  members.erase("getBlockchainCommunityIdIndex");
   members.insert({
-    "getCoinCommunityId",
-      _exports_TransactionEntry_templ::InstanceMethod("getCoinCommunityId",
-        &_exports_TransactionEntry_templ::_wrap_TransactionEntry_getCoinCommunityId,
+    "getBlockchainCommunityIdIndex",
+      _exports_TransactionEntry_templ::InstanceMethod("getBlockchainCommunityIdIndex",
+        &_exports_TransactionEntry_templ::_wrap_TransactionEntry_getBlockchainCommunityIdIndex,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -180,6 +180,14 @@ void _exports_TransactionEntry_inst::GetMembers(
     });
   
   /* add static class functions and variables */
+  // jsnapi_register_static_function
+  staticMembers.erase("getCoinCommunityIdIndex");
+  staticMembers.insert({
+    "getCoinCommunityIdIndex",
+      StaticMethod("getCoinCommunityIdIndex",
+        &_exports_TransactionEntry_templ::_wrap_TransactionEntry__wrap_TransactionEntry_getCoinCommunityIdIndex,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   
 #ifndef NAPI_CPP_EXCEPTIONS

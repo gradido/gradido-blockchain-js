@@ -777,17 +777,17 @@ export  class DurationSeconds {
 
 export  class TransferAmount {
 
-  constructor(pubkeyPtr: MemoryBlockPtr|null, amount: GradidoUnit, communityId: string);
-
-  constructor(pubkeyPtr: MemoryBlockPtr|null, amount: GradidoUnit);
+  constructor(pubkeyPtr: MemoryBlockPtr|null, amount: GradidoUnit, coinCommunityId: string);
 
   equal(other: TransferAmount): boolean;
+
+  isPairing(other: TransferAmount): boolean;
 
   getPublicKey(): MemoryBlockPtr|null;
 
   getAmount(): GradidoUnit;
 
-  getCommunityId(): string;
+  getCoinCommunityIdIndex(): number;
 
   toJson(pretty: boolean): string;
 
@@ -949,9 +949,11 @@ export  class AccountBalance {
 
   getBalance(): GradidoUnit;
 
-  getCommunityId(): string;
+  getCoinCommunityIdIndex(): number;
 
   isTheSame(other: AccountBalance): boolean;
+
+  belongsTo(publicKey: MemoryBlock, communityIdIndex: any): boolean;
 
   toJson(pretty: boolean): string;
 
@@ -1017,6 +1019,8 @@ export  class GradidoTransfer {
 
   isInvolved(publicKey: MemoryBlock): boolean;
 
+  isPairing(other: GradidoTransfer): boolean;
+
   getSender(): TransferAmount;
 
   getRecipient(): MemoryBlockPtr|null;
@@ -1056,6 +1060,8 @@ export  class GradidoRedeemDeferredTransfer {
   constructor(deferredTransferTransactionNr: number, transfer: GradidoTransfer);
 
   equal(other: GradidoRedeemDeferredTransfer): boolean;
+
+  isPairing(other: GradidoRedeemDeferredTransfer): boolean;
 
   getInvolvedAddresses(): MemoryBlocks;
 
@@ -1195,11 +1201,11 @@ export  class TransactionBody {
 
   constructor();
 
-  constructor(_createdAt: Date, _versionNumber: string, _type: CrossGroupType, _otherGroup: string);
+  constructor(createdAt: Date, versionNumber: string, communityIdIndex: number, type: CrossGroupType, otherCommunityIdIndex: any);
 
-  constructor(_createdAt: Date, _versionNumber: string, _type: CrossGroupType);
+  constructor(createdAt: Date, versionNumber: string, communityIdIndex: number, type: CrossGroupType);
 
-  constructor(_createdAt: Date, _versionNumber: string);
+  constructor(createdAt: Date, versionNumber: string, communityIdIndex: number);
 
   isTransfer(): boolean;
 
@@ -1237,7 +1243,9 @@ export  class TransactionBody {
 
   getType(): CrossGroupType;
 
-  getOtherGroup(): string;
+  getCommunityIdIndex(): number;
+
+  getOtherCommunityIdIndex(): any;
 
   getTransfer(): GradidoTransfer|null;
 
@@ -1285,9 +1293,9 @@ export  class GradidoTransaction {
 
   constructor();
 
-  constructor(signatureMap: SignatureMap, bodyBytes: MemoryBlockPtr|null, pairingLedgerAnchor: LedgerAnchor);
+  constructor(signatureMap: SignatureMap, bodyBytes: MemoryBlockPtr|null, communityIdIndex: number, pairingLedgerAnchor: LedgerAnchor);
 
-  constructor(signatureMap: SignatureMap, bodyBytes: MemoryBlockPtr|null);
+  constructor(signatureMap: SignatureMap, bodyBytes: MemoryBlockPtr|null, communityIdIndex: number);
 
   constructor(other: GradidoTransaction);
 
@@ -1310,6 +1318,8 @@ export  class GradidoTransaction {
   getSignatureMap(): SignatureMap;
 
   getBodyBytes(): MemoryBlockPtr|null;
+
+  getCommunityIdIndex(): number;
 
   getPairingLedgerAnchor(): LedgerAnchor;
 
@@ -1344,13 +1354,13 @@ export  class ConfirmedTransaction {
 
   getAccountBalances(): AccountBalances;
 
-  hasAccountBalance(publicKey: MemoryBlock): boolean;
+  hasAccountBalance(publicKey: MemoryBlock, communityIdIndex: any): boolean;
 
-  getAccountBalance(publicKey: MemoryBlockPtr|null, communityId: string): AccountBalance;
+  getAccountBalance(publicKey: MemoryBlockPtr|null, communityIdIndex: string): AccountBalance;
 
-  getDecayedAccountBalance(publicKey: MemoryBlockPtr|null, communityId: string, endDate: Date): GradidoUnit;
+  getDecayedAccountBalance(publicKey: MemoryBlockPtr|null, coinCommunityIdIndex: any, endDate: Date): GradidoUnit;
 
-  getDecayedAccountBalance(publicKey: MemoryBlockPtr|null, communityId: string): GradidoUnit;
+  getDecayedAccountBalance(publicKey: MemoryBlockPtr|null, coinCommunityIdIndex: any): GradidoUnit;
 
   getBalanceDerivationType(): BalanceDerivationType;
 
@@ -1429,9 +1439,9 @@ export  class GradidoTransactionBuilder {
 
   setTransactionBody(bodyBytes: MemoryBlockPtr|null): GradidoTransactionBuilder;
 
-  setSenderCommunity(senderCommunity: string): GradidoTransactionBuilder;
+  setSenderCommunity(senderCommunityId: string): GradidoTransactionBuilder;
 
-  setRecipientCommunity(recipientCommunity: string): GradidoTransactionBuilder;
+  setRecipientCommunity(recipientCommunityId: string): GradidoTransactionBuilder;
 
   sign(keyPair: KeyPairEd25519|null): GradidoTransactionBuilder;
 
@@ -1477,6 +1487,8 @@ export  class InteractionDeserialize {
   constructor(rawData: MemoryBlockPtr|null, hint: DeserializeType);
 
   constructor(rawData: MemoryBlockPtr|null);
+
+  run(communityIdIndex: number): void;
 
   run(): void;
 
@@ -1569,13 +1581,13 @@ export  class TransactionEntry {
 
   constructor();
 
-  constructor(serializedTransaction: MemoryBlockPtr|null);
+  constructor(serializedTransaction: MemoryBlockPtr|null, blockchainCommunityIdIndex: number);
 
-  constructor(confirmedTransaction: ConfirmedTransaction|null);
+  constructor(confirmedTransaction: ConfirmedTransaction|null, blockchainCommunityIdIndex: number);
 
-  constructor(serializedTransaction: MemoryBlockPtr|null, confirmedTransaction: ConfirmedTransaction|null);
+  constructor(serializedTransaction: MemoryBlockPtr|null, confirmedTransaction: ConfirmedTransaction|null, blockchainCommunityIdIndex: number);
 
-  constructor(transactionNr: number, month: number, year: number, transactionType: TransactionType, communityId: string);
+  constructor(transactionNr: number, month: number, year: number, transactionType: TransactionType, coinCommunityIdIndex: any, blockchainCommunityIdIndex: number);
 
   lt(b: TransactionEntry): boolean;
 
@@ -1593,7 +1605,11 @@ export  class TransactionEntry {
 
   getTransactionType(): TransactionType;
 
-  getCoinCommunityId(): string;
+  getCoinCommunityIdIndex(): any;
+
+  getBlockchainCommunityIdIndex(): number;
+
+ static getCoinCommunityIdIndex(body: TransactionBody): any;
 
   getTransactionBody(): TransactionBody|null;
 
@@ -1681,6 +1697,16 @@ export  class Filter {
 
   constructor();
 
+  constructor(_minTransactionNr: number, _maxTransactionNr: number, _involvedPublicKey: MemoryBlockPtr|null, _searchDirection: SearchDirection, _pagination: Pagination, coinCommunityIdIndex: any, _timepointInterval: TimepointInterval, _transactionType: TransactionType, _filterFunction: any);
+
+  constructor(_minTransactionNr: number, _maxTransactionNr: number, _involvedPublicKey: MemoryBlockPtr|null, _searchDirection: SearchDirection, _pagination: Pagination, coinCommunityIdIndex: any, _timepointInterval: TimepointInterval, _transactionType: TransactionType);
+
+  constructor(_minTransactionNr: number, _maxTransactionNr: number, _involvedPublicKey: MemoryBlockPtr|null, _searchDirection: SearchDirection, _pagination: Pagination, coinCommunityIdIndex: any, _timepointInterval: TimepointInterval);
+
+  constructor(_minTransactionNr: number, _maxTransactionNr: number, _involvedPublicKey: MemoryBlockPtr|null, _searchDirection: SearchDirection, _pagination: Pagination, coinCommunityIdIndex: any);
+
+  constructor(_maxTransactionNr: number, _involvedPublicKey: MemoryBlockPtr|null, _searchDirection: SearchDirection, coinCommunityIdIndex: any, _filterFunction: any);
+
   minTransactionNr: number;
 
   maxTransactionNr: number;
@@ -1695,7 +1721,7 @@ export  class Filter {
 
   pagination: Pagination;
 
-  coinCommunityId: string;
+  coinCommunityIdIndex: any;
 
   timepointInterval: TimepointInterval;
 
@@ -1730,7 +1756,7 @@ export  class FilterBuilder {
 
   setPagination(pagination: Pagination): FilterBuilder;
 
-  setCoinCommunityId(coinCommunityId: string): FilterBuilder;
+  setCoinCommunityIdIndex(coinCommunityIdIndex: any): FilterBuilder;
 
   setTimepointInterval(timepointInterval: TimepointInterval): FilterBuilder;
 
@@ -1760,6 +1786,8 @@ export abstract class Abstract {
 
   createAndAddConfirmedTransaction(gradidoTransaction: GradidoTransaction|null, ledgerAnchor: LedgerAnchor, confirmedAt: Timestamp): boolean;
 
+  createAndAddConfirmedTransactionExtern(gradidoTransaction: GradidoTransaction|null, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances): boolean;
+
   addTransactionTriggerEvent(transactionTriggerEvent: TransactionTriggerEvent|null): void;
 
   removeTransactionTriggerEvent(transactionTriggerEvent: TransactionTriggerEvent): void;
@@ -1774,6 +1802,10 @@ export abstract class Abstract {
 
   findAll(): TransactionEntries;
 
+  countAll(filter: Filter): number;
+
+  countAll(): number;
+
   findOne(filter: Filter): TransactionEntry|null;
 
   findOne(): TransactionEntry|null;
@@ -1782,13 +1814,17 @@ export abstract class Abstract {
 
   getAddressType(): AddressType;
 
+  getAddressTypeSlow(filter: Filter): AddressType;
+
+  getAddressTypeSlow(): AddressType;
+
   getTransactionForId(transactionId: number): TransactionEntry|null;
 
   findByLedgerAnchor(ledgerAnchor: LedgerAnchor, filter: Filter): TransactionEntry|null;
 
   findByLedgerAnchor(ledgerAnchor: LedgerAnchor): TransactionEntry|null;
 
-  getCommunityId(): string;
+  getCommunityIdIndex(): number;
 
   getStartDate(): Timestamp;
 }
@@ -1819,12 +1855,6 @@ export  class InMemoryBlockchain extends Abstract {
 
   findAll(): TransactionEntries;
 
-  getTransactionForId(transactionId: number): TransactionEntry|null;
-
-  findByLedgerAnchor(ledgerAnchor: LedgerAnchor, filter: Filter): TransactionEntry|null;
-
-  findByLedgerAnchor(ledgerAnchor: LedgerAnchor): TransactionEntry|null;
-
   findOne(filter: Filter): TransactionEntry|null;
 
   findOne(): TransactionEntry|null;
@@ -1833,7 +1863,11 @@ export  class InMemoryBlockchain extends Abstract {
 
   getAddressType(): AddressType;
 
-  getCommunityId(): string;
+  getTransactionForId(transactionId: number): TransactionEntry|null;
+
+  findByLedgerAnchor(ledgerAnchor: LedgerAnchor, filter: Filter): TransactionEntry|null;
+
+  findByLedgerAnchor(ledgerAnchor: LedgerAnchor): TransactionEntry|null;
 
   getStartDate(): Date;
 }
@@ -1842,20 +1876,26 @@ export  class InMemoryBlockchainProvider {
 
  static getInstance(): InMemoryBlockchainProvider;
 
-  clear(): void;
+  findBlockchain(communityIdIndex: number): Abstract|null;
 
-  findBlockchain(communityId: string): InMemoryBlockchain|null;
+  findBlockchain(communityId: string): Abstract|null;
+
+  clear(): void;
 }
 
 export  class InteractionCalculateAccountBalance {
 
   constructor(blockchain: Abstract|null);
 
-  fromBegin(startTransactionNr: number, publicKey: MemoryBlockPtr|null, endDate: Date, communityId: string): GradidoUnit;
+  fromBegin(startTransactionNr: number, publicKey: MemoryBlockPtr|null, endDate: Date, coinCommunityIdIndex: any): GradidoUnit;
 
-  fromEnd(publicKey: MemoryBlockPtr|null, endDate: Date, communityId: string, maxTransactionNr: number): GradidoUnit;
+  fromBegin(startTransactionNr: number, publicKey: MemoryBlockPtr|null, endDate: Date): GradidoUnit;
 
-  fromEnd(publicKey: MemoryBlockPtr|null, endDate: Date, communityId: string): GradidoUnit;
+  fromEnd(publicKey: MemoryBlockPtr|null, endDate: Date, coinCommunityIdIndex: any, maxTransactionNr: number): GradidoUnit;
+
+  fromEnd(publicKey: MemoryBlockPtr|null, endDate: Date, coinCommunityIdIndex: any): GradidoUnit;
+
+  fromEnd(publicKey: MemoryBlockPtr|null, endDate: Date): GradidoUnit;
 }
 
 export const ValidateType_SINGLE: ValidateType;

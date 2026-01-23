@@ -35,19 +35,19 @@ void _exports_InMemoryBlockchainProvider_inst::GetMembers(
   
   /* register wrapper functions */
   // jsnapi_register_member_function
+  members.erase("findBlockchain");
+  members.insert({
+    "findBlockchain",
+      _exports_InMemoryBlockchainProvider_templ::InstanceMethod("findBlockchain",
+        &_exports_InMemoryBlockchainProvider_templ::_wrap_InMemoryBlockchainProvider__wrap_InMemoryBlockchainProvider_findBlockchain,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("clear");
   members.insert({
     "clear",
       _exports_InMemoryBlockchainProvider_templ::InstanceMethod("clear",
         &_exports_InMemoryBlockchainProvider_templ::_wrap_InMemoryBlockchainProvider_clear,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("findBlockchain");
-  members.insert({
-    "findBlockchain",
-      _exports_InMemoryBlockchainProvider_templ::InstanceMethod("findBlockchain",
-        &_exports_InMemoryBlockchainProvider_templ::_wrap_InMemoryBlockchainProvider_findBlockchain,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

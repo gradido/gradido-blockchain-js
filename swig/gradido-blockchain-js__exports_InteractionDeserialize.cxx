@@ -39,7 +39,7 @@ void _exports_InteractionDeserialize_inst::GetMembers(
   members.insert({
     "run",
       _exports_InteractionDeserialize_templ::InstanceMethod("run",
-        &_exports_InteractionDeserialize_templ::_wrap_InteractionDeserialize_run,
+        &_exports_InteractionDeserialize_templ::_wrap_InteractionDeserialize__wrap_InteractionDeserialize_run,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

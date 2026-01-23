@@ -3112,21 +3112,9 @@ fail:
 SWIGINTERN std::string gradido_blockchain_Filter_toJson__SWIG_0(gradido::blockchain::Filter const *self,bool pretty){
         return serialization::toJsonString(*self, pretty);
     }
-SWIGINTERN std::shared_ptr< gradido::blockchain::TransactionEntry const > gradido_blockchain_InMemory_findOne__SWIG_0(gradido::blockchain::InMemory const *self,gradido::blockchain::Filter const &filter){
-            return static_cast<const gradido::blockchain::Abstract*>(self)->findOne(filter);
-        }
-SWIGINTERN gradido::data::AddressType gradido_blockchain_InMemory_getAddressType__SWIG_0(gradido::blockchain::InMemory const *self,gradido::blockchain::Filter const &filter){
-            return static_cast<const gradido::blockchain::Abstract*>(self)->getAddressType(filter);
-        }
-SWIGINTERN std::string_view gradido_blockchain_InMemory_getCommunityId(gradido::blockchain::InMemory const *self){
-            return static_cast<const gradido::blockchain::Abstract*>(self)->getCommunityId();
-        }
 SWIGINTERN Timepoint gradido_blockchain_InMemory_getStartDate(gradido::blockchain::InMemory const *self){
             return static_cast<const gradido::blockchain::Abstract*>(self)->getStartDate();
         }
-SWIGINTERN std::shared_ptr< gradido::blockchain::InMemory > gradido_blockchain_InMemoryProvider_getBlockchain(gradido::blockchain::InMemoryProvider *self,std::string_view communityId){
-        return std::dynamic_pointer_cast<gradido::blockchain::InMemory>(self->findBlockchain(communityId));
-    }
 
 // js_global_getter
 Napi::Value exports_ValidateType_SINGLE_get(const Napi::CallbackInfo &info) {
@@ -3798,6 +3786,9 @@ SWIG_PropagateClientData(void) {
 
 Napi::Object Init(Napi::Env env, Napi::Object exports) {
   SWIG_InitializeModule(env);
+
+  
+  gradido::g_appContext = std::make_unique<gradido::AppContext>(std::make_unique<RuntimeDictionary<std::string>>("communityIdDictionary"));
 
 
 CryptoConfig::loadMnemonicWordLists();

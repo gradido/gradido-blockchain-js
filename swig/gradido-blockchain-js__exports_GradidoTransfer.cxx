@@ -59,6 +59,14 @@ void _exports_GradidoTransfer_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("isPairing");
+  members.insert({
+    "isPairing",
+      _exports_GradidoTransfer_templ::InstanceMethod("isPairing",
+        &_exports_GradidoTransfer_templ::_wrap_GradidoTransfer_isPairing,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getSender");
   members.insert({
     "getSender",

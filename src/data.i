@@ -74,6 +74,11 @@ namespace gradido::data {
     %ignore EncryptedMemo::EncryptedMemo(MemoKeyType, memory::Block&&);
     %ignore EncryptedMemo::EncryptedMemo(EncryptedMemo&&);
     %ignore EncryptedMemo::EncryptedMemo(const EncryptedMemo&);
+    %ignore TransferAmount::TransferAmount(memory::ConstBlockPtr, const GradidoUnit&, uint32_t);
+    %ignore AccountBalance::AccountBalance(memory::ConstBlockPtr, GradidoUnit, uint32_t);
+    %ignore ConfirmedTransaction::getAccountBalance(memory::ConstBlockPtr, std::optional<uint32_t>) const;
+    %ignore ConfirmedTransaction::hasAccountBalance(memory::ConstBlockPtr, std::optional<uint32_t>) const;
+    %ignore ConfirmedTransaction::getDecayedAccountBalance(memory::ConstBlockPtr publicKey, std::optional<uint32_t> coinCommunityIdIndex, Timepoint endDate);
     %ignore operator+(const Timestamp& timestamp, const DurationSeconds& duration);
 }
 

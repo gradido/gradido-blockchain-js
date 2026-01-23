@@ -107,6 +107,14 @@ void _exports_GradidoTransaction_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("getCommunityIdIndex");
+  members.insert({
+    "getCommunityIdIndex",
+      _exports_GradidoTransaction_templ::InstanceMethod("getCommunityIdIndex",
+        &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction_getCommunityIdIndex,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getPairingLedgerAnchor");
   members.insert({
     "getPairingLedgerAnchor",

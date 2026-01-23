@@ -24,7 +24,10 @@ namespace gradido::blockchain {
 %include "gradido_blockchain/blockchain/InMemoryProvider.h"
 
 %extend gradido::blockchain::InMemoryProvider {
-    std::shared_ptr<gradido::blockchain::InMemory> getBlockchain(std::string_view communityId) {
+    std::shared_ptr<gradido::blockchain::InMemory> getBlockchain(const std::string& communityId) {
         return std::dynamic_pointer_cast<gradido::blockchain::InMemory>($self->findBlockchain(communityId));
+    }
+    std::shared_ptr<gradido::blockchain::InMemory> getBlockchain(uint32_t communityIdIndex) {
+        return std::dynamic_pointer_cast<gradido::blockchain::InMemory>($self->findBlockchain(communityIdIndex));
     }
 };

@@ -109,6 +109,18 @@ E string_to_enum(const std::string& name);
 %template(transactionTriggerEventTypeToString) enum_to_string<gradido::data::TransactionTriggerEventType>;
 %template(stringToTransactionTriggerEventType) string_to_enum<gradido::data::TransactionTriggerEventType>;
 
+// app context
+
+//#include "gradido_blockchain/AppContext.h"
+%{
+#include "gradido_blockchain/AppContext.h"
+#include "gradido_blockchain/lib/Dictionary.h"
+%}
+%init %{  
+  gradido::g_appContext = std::make_unique<gradido::AppContext>(std::make_unique<RuntimeDictionary<std::string>>("communityIdDictionary"));
+%}
+
+
 // base types
 %include "crypto/SignatureOctet.i"
 %include "MemoryBlock.i"

@@ -43,6 +43,14 @@ void _exports_GradidoRedeemDeferredTransfer_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("isPairing");
+  members.insert({
+    "isPairing",
+      _exports_GradidoRedeemDeferredTransfer_templ::InstanceMethod("isPairing",
+        &_exports_GradidoRedeemDeferredTransfer_templ::_wrap_GradidoRedeemDeferredTransfer_isPairing,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getInvolvedAddresses");
   members.insert({
     "getInvolvedAddresses",
