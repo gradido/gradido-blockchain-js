@@ -208,6 +208,8 @@ export  class MemoryBlock {
 
   constructor(data: string);
 
+  constructor(publicKey: any);
+
   constructor(other: MemoryBlock);
 
   size(): number;
@@ -1229,6 +1231,8 @@ export  class TransactionBody {
 
   isInvolved(publicKey: MemoryBlock): boolean;
 
+  isInvolved(publicKeyIndex: any): boolean;
+
   getTransferAmount(): TransferAmount;
 
   hasTransferAmount(): boolean;
@@ -1253,15 +1257,15 @@ export  class TransactionBody {
 
   getCommunityFriendsUpdate(): CommunityFriendsUpdate|null;
 
-  getRegisterAddress(): RegisterAddress|null;
-
   getDeferredTransfer(): GradidoDeferredTransfer|null;
-
-  getCommunityRoot(): CommunityRoot|null;
 
   getRedeemDeferredTransfer(): GradidoRedeemDeferredTransfer|null;
 
   getTimeoutDeferredTransfer(): GradidoTimeoutDeferredTransfer|null;
+
+  getCommunityRoot(): any;
+
+  getRegisterAddress(): any;
 
   toJson(pretty: boolean): string;
 
@@ -1403,11 +1407,7 @@ export  class GradidoTransactionBuilder {
 
   setRegisterAddress(userPubkey: MemoryBlockPtr|null, type: AddressType, nameHash: MemoryBlockPtr|null, accountPubkey: MemoryBlockPtr|null): GradidoTransactionBuilder;
 
-  setRegisterAddress(userPubkey: MemoryBlockPtr|null, type: AddressType, nameHash: MemoryBlockPtr|null): GradidoTransactionBuilder;
-
-  setRegisterAddress(userPubkey: MemoryBlockPtr|null, type: AddressType): GradidoTransactionBuilder;
-
-  setRegisterAddress(registerAddress: RegisterAddress): GradidoTransactionBuilder;
+  setRegisterAddress(userPubkey: any, type: AddressType, nameHash: any, accountPubkey: any): GradidoTransactionBuilder;
 
   setTransactionCreation(recipient: TransferAmount, targetDate: Date): GradidoTransactionBuilder;
 
@@ -1417,9 +1417,9 @@ export  class GradidoTransactionBuilder {
 
   setTransactionTransfer(transfer: GradidoTransfer): GradidoTransactionBuilder;
 
-  setCommunityRoot(pubkey: MemoryBlockPtr|null, gmwPubkey: MemoryBlockPtr|null, aufPubkey: MemoryBlockPtr|null): GradidoTransactionBuilder;
+  setCommunityRoot(pubkey: any, gmwPubkey: any, aufPubkey: any): GradidoTransactionBuilder;
 
-  setCommunityRoot(communityRoot: CommunityRoot): GradidoTransactionBuilder;
+  setCommunityRoot(pubkey: MemoryBlockPtr|null, gmwPubkey: MemoryBlockPtr|null, aufPubkey: MemoryBlockPtr|null): GradidoTransactionBuilder;
 
   setRedeemDeferredTransfer(deferredTransferTransactionNr: number, transactionTransfer: GradidoTransfer): GradidoTransactionBuilder;
 
@@ -1827,6 +1827,10 @@ export abstract class Abstract {
   getCommunityIdIndex(): number;
 
   getStartDate(): Timestamp;
+
+  getPublicKeyDictionary(): any;
+
+  getOrAddPublicKey(publicKey: any): number;
 }
 
 export  class InMemoryBlockchain extends Abstract {
@@ -1868,6 +1872,10 @@ export  class InMemoryBlockchain extends Abstract {
   findByLedgerAnchor(ledgerAnchor: LedgerAnchor, filter: Filter): TransactionEntry|null;
 
   findByLedgerAnchor(ledgerAnchor: LedgerAnchor): TransactionEntry|null;
+
+  getPublicKeyDictionary(): any;
+
+  getOrAddPublicKey(publicKey: any): number;
 
   getStartDate(): Date;
 }
@@ -1942,11 +1950,7 @@ export  class InteractionValidate {
 }
 
 
-export type RegisterAddress = (unknown & { readonly [_SWIG_type_tag]: 'RegisterAddress'; }) | null;
-
 export type TransferAmount = (unknown & { readonly [_SWIG_type_tag]: 'TransferAmount'; }) | null;
-
-export type CommunityRoot = (unknown & { readonly [_SWIG_type_tag]: 'CommunityRoot'; }) | null;
 
 export type DurationSeconds = (unknown & { readonly [_SWIG_type_tag]: 'DurationSeconds'; }) | null;
 

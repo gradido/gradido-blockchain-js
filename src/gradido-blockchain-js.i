@@ -114,10 +114,14 @@ E string_to_enum(const std::string& name);
 //#include "gradido_blockchain/AppContext.h"
 %{
 #include "gradido_blockchain/AppContext.h"
+#include "gradido_blockchain/crypto/ByteArray.h"
 #include "gradido_blockchain/lib/Dictionary.h"
 %}
 %init %{  
-  gradido::g_appContext = std::make_unique<gradido::AppContext>(std::make_unique<RuntimeDictionary<std::string>>("communityIdDictionary"));
+  gradido::g_appContext = std::make_unique<gradido::AppContext>(
+    std::make_unique<RuntimeDictionary<std::string>>("communityIdDictionary"),
+    std::make_unique<ThreadsafeRuntimeDictionary<GenericHash, GenericHashHash, GenericHashEqual>>("userNameHashDictionary")
+  );
 %}
 
 

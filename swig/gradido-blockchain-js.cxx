@@ -3788,7 +3788,10 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
   SWIG_InitializeModule(env);
 
   
-  gradido::g_appContext = std::make_unique<gradido::AppContext>(std::make_unique<RuntimeDictionary<std::string>>("communityIdDictionary"));
+  gradido::g_appContext = std::make_unique<gradido::AppContext>(
+    std::make_unique<RuntimeDictionary<std::string>>("communityIdDictionary"),
+    std::make_unique<ThreadsafeRuntimeDictionary<GenericHash, GenericHashHash, GenericHashEqual>>("userNameHashDictionary")
+  );
 
 
 CryptoConfig::loadMnemonicWordLists();
