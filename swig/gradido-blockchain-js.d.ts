@@ -996,6 +996,8 @@ export  class GradidoCreation {
 
   constructor(recipient: TransferAmount, targetDate: Date);
 
+  constructor(recipient: TransferAmount, targetDate: TimestampSeconds);
+
   getInvolvedAddresses(): MemoryBlocks;
 
   isInvolved(publicKey: MemoryBlock): boolean;
@@ -1168,14 +1170,6 @@ export  class RegisterAddress {
 
   constructor(_addressType: AddressType, _derivationIndex: number, userPubkeyPtr: MemoryBlockPtr|null, nameHashPtr: MemoryBlockPtr|null, accountPubkeyPtr: MemoryBlockPtr|null);
 
-  constructor(_addressType: AddressType, _derivationIndex: number, userPubkeyPtr: MemoryBlockPtr|null, nameHashPtr: MemoryBlockPtr|null);
-
-  constructor(_addressType: AddressType, _derivationIndex: number, userPubkeyPtr: MemoryBlockPtr|null);
-
-  constructor(_addressType: AddressType, _derivationIndex: number);
-
-  constructor(_addressType: AddressType);
-
   equal(other: RegisterAddress): boolean;
 
   getInvolvedAddresses(): MemoryBlocks;
@@ -1201,11 +1195,15 @@ export  class TransactionBody {
 
   constructor();
 
-  constructor(createdAt: Date, versionNumber: string, communityIdIndex: number, type: CrossGroupType, otherCommunityIdIndex: any);
+  constructor(createdAt: Date, communityIdIndex: number, type: CrossGroupType, otherCommunityIdIndex: any);
 
-  constructor(createdAt: Date, versionNumber: string, communityIdIndex: number, type: CrossGroupType);
+  constructor(createdAt: Date, communityIdIndex: number, type: CrossGroupType);
 
-  constructor(createdAt: Date, versionNumber: string, communityIdIndex: number);
+  constructor(createdAt: Date, communityIdIndex: number);
+
+ static fromGrdwTransactionBody(grdw_body: grdw_transaction_body, communityIdIndex: number): TransactionBody|null;
+
+  toGrdw(grdw_body: grdw_transaction_body): void;
 
   isTransfer(): boolean;
 
@@ -1238,8 +1236,6 @@ export  class TransactionBody {
   getMemos(): EncryptedMemos;
 
   getCreatedAt(): Timestamp;
-
-  getVersionNumber(): string;
 
   getType(): CrossGroupType;
 
@@ -1330,11 +1326,11 @@ export  class GradidoTransaction {
 
 export  class ConfirmedTransaction {
 
-  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances, balanceDerivationType: BalanceDerivationType, previousConfirmedTransaction: ConfirmedTransaction|null);
+  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances, balanceDerivationType: BalanceDerivationType, previousConfirmedTransaction: ConfirmedTransaction|null);
 
-  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances, balanceDerivationType: BalanceDerivationType);
+  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances, balanceDerivationType: BalanceDerivationType);
 
-  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, versionNumber: string, runningHash: MemoryBlockPtr|null, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances, balanceDerivationType: BalanceDerivationType);
+  constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, runningHash: MemoryBlockPtr|null, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances, balanceDerivationType: BalanceDerivationType);
 
   calculateRunningHash(previousConfirmedTransaction: ConfirmedTransaction|null): MemoryBlockPtr|null;
 
@@ -1345,8 +1341,6 @@ export  class ConfirmedTransaction {
   getGradidoTransaction(): GradidoTransaction|null;
 
   getConfirmedAt(): Timestamp;
-
-  getVersionNumber(): string;
 
   getRunningHash(): MemoryBlockPtr|null;
 
@@ -1957,6 +1951,8 @@ export type HieroTransactionId = (unknown & { readonly [_SWIG_type_tag]: 'HieroT
 export type Timestamp = (unknown & { readonly [_SWIG_type_tag]: 'Timestamp'; }) | null;
 
 export type GradidoDeferredTransfer = (unknown & { readonly [_SWIG_type_tag]: 'GradidoDeferredTransfer'; }) | null;
+
+export type grdw_transaction_body = (unknown & { readonly [_SWIG_type_tag]: 'grdw_transaction_body'; }) | null;
 
 export type TransactionTriggerEvent = (unknown & { readonly [_SWIG_type_tag]: 'TransactionTriggerEvent'; }) | null;
 

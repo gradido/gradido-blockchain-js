@@ -35,6 +35,14 @@ void _exports_TransactionBody_inst::GetMembers(
   
   /* register wrapper functions */
   // jsnapi_register_member_function
+  members.erase("toGrdw");
+  members.insert({
+    "toGrdw",
+      _exports_TransactionBody_templ::InstanceMethod("toGrdw",
+        &_exports_TransactionBody_templ::_wrap_TransactionBody_toGrdw,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("isTransfer");
   members.insert({
     "isTransfer",
@@ -163,14 +171,6 @@ void _exports_TransactionBody_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getVersionNumber");
-  members.insert({
-    "getVersionNumber",
-      _exports_TransactionBody_templ::InstanceMethod("getVersionNumber",
-        &_exports_TransactionBody_templ::_wrap_TransactionBody_getVersionNumber,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("getType");
   members.insert({
     "getType",
@@ -268,6 +268,14 @@ void _exports_TransactionBody_inst::GetMembers(
     });
   
   /* add static class functions and variables */
+  // jsnapi_register_static_function
+  staticMembers.erase("fromGrdwTransactionBody");
+  staticMembers.insert({
+    "fromGrdwTransactionBody",
+      StaticMethod("fromGrdwTransactionBody",
+        &_exports_TransactionBody_templ::_wrap_TransactionBody_fromGrdwTransactionBody,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   
 #ifndef NAPI_CPP_EXCEPTIONS

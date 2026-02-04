@@ -67,14 +67,6 @@ void _exports_ConfirmedTransaction_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getVersionNumber");
-  members.insert({
-    "getVersionNumber",
-      _exports_ConfirmedTransaction_templ::InstanceMethod("getVersionNumber",
-        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_getVersionNumber,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("getRunningHash");
   members.insert({
     "getRunningHash",
