@@ -35,6 +35,14 @@ void _exports_GradidoTransaction_inst::GetMembers(
   
   /* register wrapper functions */
   // jsnapi_register_member_function
+  members.erase("toGrdw");
+  members.insert({
+    "toGrdw",
+      _exports_GradidoTransaction_templ::InstanceMethod("toGrdw",
+        &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction_toGrdw,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getTransactionBody");
   members.insert({
     "getTransactionBody",
@@ -132,6 +140,14 @@ void _exports_GradidoTransaction_inst::GetMembers(
     });
   
   /* add static class functions and variables */
+  // jsnapi_register_static_function
+  staticMembers.erase("fromGrdw");
+  staticMembers.insert({
+    "fromGrdw",
+      StaticMethod("fromGrdw",
+        &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction_fromGrdw,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   
 #ifndef NAPI_CPP_EXCEPTIONS

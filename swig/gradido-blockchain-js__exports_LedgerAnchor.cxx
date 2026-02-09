@@ -123,6 +123,14 @@ void _exports_LedgerAnchor_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("getHieroTransactionIdCompact");
+  members.insert({
+    "getHieroTransactionIdCompact",
+      _exports_LedgerAnchor_templ::InstanceMethod("getHieroTransactionIdCompact",
+        &_exports_LedgerAnchor_templ::_wrap_LedgerAnchor_getHieroTransactionIdCompact,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getLegacyTransactionId");
   members.insert({
     "getLegacyTransactionId",

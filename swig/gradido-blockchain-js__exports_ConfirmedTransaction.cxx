@@ -35,6 +35,14 @@ void _exports_ConfirmedTransaction_inst::GetMembers(
   
   /* register wrapper functions */
   // jsnapi_register_member_function
+  members.erase("toGrdw");
+  members.insert({
+    "toGrdw",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("toGrdw",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_toGrdw,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("calculateRunningHash");
   members.insert({
     "calculateRunningHash",
@@ -180,6 +188,14 @@ void _exports_ConfirmedTransaction_inst::GetMembers(
     });
   
   /* add static class functions and variables */
+  // jsnapi_register_static_function
+  staticMembers.erase("fromGrdw");
+  staticMembers.insert({
+    "fromGrdw",
+      StaticMethod("fromGrdw",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_fromGrdw,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   
 #ifndef NAPI_CPP_EXCEPTIONS

@@ -1842,10 +1842,14 @@ SWIGINTERN swig_type_info _swigt__p_gradido__data__TimestampSeconds = {"_p_gradi
 SWIGINTERN swig_type_info _swigt__p_gradido__data__TransactionBody = {"_p_gradido__data__TransactionBody", "gradido::data::TransactionBody *|p_gradido__data__TransactionBody", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__TransactionTriggerEvent = {"_p_gradido__data__TransactionTriggerEvent", "p_gradido__data__TransactionTriggerEvent|gradido::data::TransactionTriggerEvent *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__TransferAmount = {"_p_gradido__data__TransferAmount", "gradido::data::TransferAmount *|p_gradido__data__TransferAmount", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_gradido__data__compact__HieroTransactionId = {"_p_gradido__data__compact__HieroTransactionId", "p_gradido__data__compact__HieroTransactionId|gradido::data::compact::HieroTransactionId *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__calculateAccountBalance__Context = {"_p_gradido__interaction__calculateAccountBalance__Context", "p_gradido__interaction__calculateAccountBalance__Context|gradido::interaction::calculateAccountBalance::Context *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__deserialize__Context = {"_p_gradido__interaction__deserialize__Context", "p_gradido__interaction__deserialize__Context|gradido::interaction::deserialize::Context *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__serialize__Context = {"_p_gradido__interaction__serialize__Context", "gradido::interaction::serialize::Context *|p_gradido__interaction__serialize__Context", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__validate__Context = {"_p_gradido__interaction__validate__Context", "p_gradido__interaction__validate__Context|gradido::interaction::validate::Context *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_grdu_memory = {"_p_grdu_memory", "grdu_memory *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_grdw_confirmed_transaction = {"_p_grdw_confirmed_transaction", "grdw_confirmed_transaction *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_grdw_gradido_transaction = {"_p_grdw_gradido_transaction", "grdw_gradido_transaction *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_grdw_transaction_body = {"_p_grdw_transaction_body", "grdw_transaction_body *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_hiero__AccountId = {"_p_hiero__AccountId", "hiero::AccountId *|p_hiero__AccountId", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_hiero__TopicId = {"_p_hiero__TopicId", "hiero::TopicId *|p_hiero__TopicId", 0, 0, (void*)0, 0};
@@ -1949,10 +1953,14 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_gradido__data__TransactionBody,
   &_swigt__p_gradido__data__TransactionTriggerEvent,
   &_swigt__p_gradido__data__TransferAmount,
+  &_swigt__p_gradido__data__compact__HieroTransactionId,
   &_swigt__p_gradido__interaction__calculateAccountBalance__Context,
   &_swigt__p_gradido__interaction__deserialize__Context,
   &_swigt__p_gradido__interaction__serialize__Context,
   &_swigt__p_gradido__interaction__validate__Context,
+  &_swigt__p_grdu_memory,
+  &_swigt__p_grdw_confirmed_transaction,
+  &_swigt__p_grdw_gradido_transaction,
   &_swigt__p_grdw_transaction_body,
   &_swigt__p_hiero__AccountId,
   &_swigt__p_hiero__TopicId,
@@ -2053,10 +2061,14 @@ SWIGINTERN swig_cast_info _swigc__p_gradido__data__TimestampSeconds[] = {  {&_sw
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__TransactionBody[] = {  {&_swigt__p_gradido__data__TransactionBody, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__TransactionTriggerEvent[] = {  {&_swigt__p_gradido__data__TransactionTriggerEvent, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__TransferAmount[] = {  {&_swigt__p_gradido__data__TransferAmount, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_gradido__data__compact__HieroTransactionId[] = {  {&_swigt__p_gradido__data__compact__HieroTransactionId, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__calculateAccountBalance__Context[] = {  {&_swigt__p_gradido__interaction__calculateAccountBalance__Context, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__deserialize__Context[] = {  {&_swigt__p_gradido__interaction__deserialize__Context, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__serialize__Context[] = {  {&_swigt__p_gradido__interaction__serialize__Context, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__validate__Context[] = {  {&_swigt__p_gradido__interaction__validate__Context, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_grdu_memory[] = {  {&_swigt__p_grdu_memory, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_grdw_confirmed_transaction[] = {  {&_swigt__p_grdw_confirmed_transaction, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_grdw_gradido_transaction[] = {  {&_swigt__p_grdw_gradido_transaction, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_grdw_transaction_body[] = {  {&_swigt__p_grdw_transaction_body, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_hiero__AccountId[] = {  {&_swigt__p_hiero__AccountId, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_hiero__TopicId[] = {  {&_swigt__p_hiero__TopicId, 0, 0, 0},{0, 0, 0, 0}};
@@ -2157,10 +2169,14 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_gradido__data__TransactionBody,
   _swigc__p_gradido__data__TransactionTriggerEvent,
   _swigc__p_gradido__data__TransferAmount,
+  _swigc__p_gradido__data__compact__HieroTransactionId,
   _swigc__p_gradido__interaction__calculateAccountBalance__Context,
   _swigc__p_gradido__interaction__deserialize__Context,
   _swigc__p_gradido__interaction__serialize__Context,
   _swigc__p_gradido__interaction__validate__Context,
+  _swigc__p_grdu_memory,
+  _swigc__p_grdw_confirmed_transaction,
+  _swigc__p_grdw_gradido_transaction,
   _swigc__p_grdw_transaction_body,
   _swigc__p_hiero__AccountId,
   _swigc__p_hiero__TopicId,
@@ -2213,6 +2229,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
 
-SWIGINTERN swig_type_info *swig_types[103];
-SWIGINTERN swig_module_info swig_module = {swig_types, 102, 0, 0, 0, 0};
+SWIGINTERN swig_type_info *swig_types[107];
+SWIGINTERN swig_module_info swig_module = {swig_types, 106, 0, 0, 0, 0};
 

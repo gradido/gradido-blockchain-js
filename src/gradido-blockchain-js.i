@@ -137,6 +137,7 @@ E string_to_enum(const std::string& name);
 %include "serialization/toJson.i"
 // base types
 %include "GradidoUnit.i"
+%include "compact.i"
 %include "data_hiero.i"
 %include "data.i"
 

@@ -568,6 +568,19 @@ export  class GradidoUnit {
   toJSON(key: string): string;
 }
 
+export  class HieroTransactionIdCompact {
+
+  seconds: number;
+
+  nanos: number;
+
+  accountNum: number;
+
+  equal(other: HieroTransactionIdCompact): boolean;
+
+  constructor();
+}
+
 export  class HieroAccountId {
 
   constructor();
@@ -832,6 +845,8 @@ export  class Timestamp {
   constructor(date: Date);
 
   constructor(_seconds: number, _nanos: number);
+
+ static now(): Timestamp;
 
   getDate(): Date;
 
@@ -1125,6 +1140,8 @@ export  class LedgerAnchor {
 
   constructor(hieroTransactionId: HieroTransactionId);
 
+  constructor(hieroTransactionId: HieroTransactionIdCompact);
+
   constructor(transactionId: number, type: LedgerAnchorType);
 
   isIotaMessageId(): boolean;
@@ -1148,6 +1165,8 @@ export  class LedgerAnchor {
   getIotaMessageId(): MemoryBlock;
 
   getHieroTransactionId(): HieroTransactionId;
+
+  getHieroTransactionIdCompact(): HieroTransactionIdCompact;
 
   getLegacyTransactionId(): number;
 
@@ -1203,7 +1222,7 @@ export  class TransactionBody {
 
  static fromGrdwTransactionBody(grdw_body: grdw_transaction_body, communityIdIndex: number): TransactionBody|null;
 
-  toGrdw(grdw_body: grdw_transaction_body): void;
+  toGrdw(alloc: grdu_memory, grdw_body: grdw_transaction_body): void;
 
   isTransfer(): boolean;
 
@@ -1295,6 +1314,10 @@ export  class GradidoTransaction {
 
   constructor(other: GradidoTransaction);
 
+ static fromGrdw(grdw_tx: any, communityIdIndex: number): GradidoTransaction|null;
+
+  toGrdw(alloc: grdu_memory, grdw_tx: any, communityIdIndex: number): void;
+
   getTransactionBody(): TransactionBody|null;
 
   isPairing(other: GradidoTransaction): boolean;
@@ -1331,6 +1354,10 @@ export  class ConfirmedTransaction {
   constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances, balanceDerivationType: BalanceDerivationType);
 
   constructor(id: number, gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp, runningHash: MemoryBlockPtr|null, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances, balanceDerivationType: BalanceDerivationType);
+
+ static fromGrdw(grdw_tx: grdw_confirmed_transaction, communityIdIndex: number): ConfirmedTransaction|null;
+
+  toGrdw(alloc: grdu_memory, grdw_tx: grdw_confirmed_transaction, communityIdIndex: number): void;
 
   calculateRunningHash(previousConfirmedTransaction: ConfirmedTransaction|null): MemoryBlockPtr|null;
 
@@ -1962,6 +1989,8 @@ export type GradidoRedeemDeferredTransfer = (unknown & { readonly [_SWIG_type_ta
 
 export type ConfirmedTransaction = (unknown & { readonly [_SWIG_type_tag]: 'ConfirmedTransaction'; }) | null;
 
+export type grdu_memory = (unknown & { readonly [_SWIG_type_tag]: 'grdu_memory'; }) | null;
+
 export type Abstract = (unknown & { readonly [_SWIG_type_tag]: 'Abstract'; }) | null;
 
 export type LedgerAnchor = (unknown & { readonly [_SWIG_type_tag]: 'LedgerAnchor'; }) | null;
@@ -1975,6 +2004,8 @@ export type GradidoTransaction = (unknown & { readonly [_SWIG_type_tag]: 'Gradid
 export type GradidoTimeoutDeferredTransfer = (unknown & { readonly [_SWIG_type_tag]: 'GradidoTimeoutDeferredTransfer'; }) | null;
 
 export type KeyPairEd25519 = (unknown & { readonly [_SWIG_type_tag]: 'KeyPairEd25519'; }) | null;
+
+export type grdw_confirmed_transaction = (unknown & { readonly [_SWIG_type_tag]: 'grdw_confirmed_transaction'; }) | null;
 
 export type TransactionBody = (unknown & { readonly [_SWIG_type_tag]: 'TransactionBody'; }) | null;
 

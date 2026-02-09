@@ -977,57 +977,61 @@ SWIGCLINKAGE SWIGINTERN swig_cast_info *swig_cast_initial[];
 #define SWIGTYPE_p_gradido__data__TransactionBody swig_types[48]
 #define SWIGTYPE_p_gradido__data__TransactionTriggerEvent swig_types[49]
 #define SWIGTYPE_p_gradido__data__TransferAmount swig_types[50]
-#define SWIGTYPE_p_gradido__interaction__calculateAccountBalance__Context swig_types[51]
-#define SWIGTYPE_p_gradido__interaction__deserialize__Context swig_types[52]
-#define SWIGTYPE_p_gradido__interaction__serialize__Context swig_types[53]
-#define SWIGTYPE_p_gradido__interaction__validate__Context swig_types[54]
-#define SWIGTYPE_p_grdw_transaction_body swig_types[55]
-#define SWIGTYPE_p_hiero__AccountId swig_types[56]
-#define SWIGTYPE_p_hiero__TopicId swig_types[57]
-#define SWIGTYPE_p_hiero__TransactionId swig_types[58]
-#define SWIGTYPE_p_int swig_types[59]
-#define SWIGTYPE_p_long_long swig_types[60]
-#define SWIGTYPE_p_memory__Block swig_types[61]
-#define SWIGTYPE_p_memory__BlockPtrWrapper swig_types[62]
-#define SWIGTYPE_p_memory__ConstBlockPtrEqual swig_types[63]
-#define SWIGTYPE_p_memory__ConstBlockPtrHash swig_types[64]
-#define SWIGTYPE_p_second_type swig_types[65]
-#define SWIGTYPE_p_short swig_types[66]
-#define SWIGTYPE_p_signed_char swig_types[67]
-#define SWIGTYPE_p_size_type swig_types[68]
-#define SWIGTYPE_p_std__chrono__system_clock__duration swig_types[69]
-#define SWIGTYPE_p_std__chrono__time_pointT_std__chrono__system_clock_t swig_types[70]
-#define SWIGTYPE_p_std__functionT_gradido__blockchain__FilterResult_fgradido__blockchain__TransactionEntry_const_RF_t swig_types[71]
-#define SWIGTYPE_p_std__optionalT_unsigned_int_t swig_types[72]
-#define SWIGTYPE_p_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t swig_types[73]
-#define SWIGTYPE_p_std__shared_ptrT_KeyPairEd25519Ex_t swig_types[74]
-#define SWIGTYPE_p_std__shared_ptrT_KeyPairEd25519_t swig_types[75]
-#define SWIGTYPE_p_std__shared_ptrT_Passphrase_t swig_types[76]
-#define SWIGTYPE_p_std__shared_ptrT_SecretKeyCryptography_t swig_types[77]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__Abstract_t swig_types[78]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__InMemory_t swig_types[79]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__TransactionEntry_const_t swig_types[80]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__TransactionEntry_t swig_types[81]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t swig_types[82]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t swig_types[83]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t swig_types[84]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__TransactionBody_const_t swig_types[85]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t swig_types[86]
-#define SWIGTYPE_p_std__shared_ptrT_memory__Block_const_t swig_types[87]
-#define SWIGTYPE_p_std__shared_ptrT_memory__Block_t swig_types[88]
-#define SWIGTYPE_p_std__vectorT_gradido__data__AccountBalance_t swig_types[89]
-#define SWIGTYPE_p_std__vectorT_gradido__data__EncryptedMemo_t swig_types[90]
-#define SWIGTYPE_p_std__vectorT_gradido__data__SignaturePair_t swig_types[91]
-#define SWIGTYPE_p_std__vectorT_memory__BlockPtrWrapper_t swig_types[92]
-#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_const_t_t swig_types[93]
-#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t swig_types[94]
-#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t swig_types[95]
-#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t swig_types[96]
-#define SWIGTYPE_p_unsigned_char swig_types[97]
-#define SWIGTYPE_p_unsigned_int swig_types[98]
-#define SWIGTYPE_p_unsigned_long_long swig_types[99]
-#define SWIGTYPE_p_unsigned_short swig_types[100]
-#define SWIGTYPE_p_value_type swig_types[101]
+#define SWIGTYPE_p_gradido__data__compact__HieroTransactionId swig_types[51]
+#define SWIGTYPE_p_gradido__interaction__calculateAccountBalance__Context swig_types[52]
+#define SWIGTYPE_p_gradido__interaction__deserialize__Context swig_types[53]
+#define SWIGTYPE_p_gradido__interaction__serialize__Context swig_types[54]
+#define SWIGTYPE_p_gradido__interaction__validate__Context swig_types[55]
+#define SWIGTYPE_p_grdu_memory swig_types[56]
+#define SWIGTYPE_p_grdw_confirmed_transaction swig_types[57]
+#define SWIGTYPE_p_grdw_gradido_transaction swig_types[58]
+#define SWIGTYPE_p_grdw_transaction_body swig_types[59]
+#define SWIGTYPE_p_hiero__AccountId swig_types[60]
+#define SWIGTYPE_p_hiero__TopicId swig_types[61]
+#define SWIGTYPE_p_hiero__TransactionId swig_types[62]
+#define SWIGTYPE_p_int swig_types[63]
+#define SWIGTYPE_p_long_long swig_types[64]
+#define SWIGTYPE_p_memory__Block swig_types[65]
+#define SWIGTYPE_p_memory__BlockPtrWrapper swig_types[66]
+#define SWIGTYPE_p_memory__ConstBlockPtrEqual swig_types[67]
+#define SWIGTYPE_p_memory__ConstBlockPtrHash swig_types[68]
+#define SWIGTYPE_p_second_type swig_types[69]
+#define SWIGTYPE_p_short swig_types[70]
+#define SWIGTYPE_p_signed_char swig_types[71]
+#define SWIGTYPE_p_size_type swig_types[72]
+#define SWIGTYPE_p_std__chrono__system_clock__duration swig_types[73]
+#define SWIGTYPE_p_std__chrono__time_pointT_std__chrono__system_clock_t swig_types[74]
+#define SWIGTYPE_p_std__functionT_gradido__blockchain__FilterResult_fgradido__blockchain__TransactionEntry_const_RF_t swig_types[75]
+#define SWIGTYPE_p_std__optionalT_unsigned_int_t swig_types[76]
+#define SWIGTYPE_p_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t swig_types[77]
+#define SWIGTYPE_p_std__shared_ptrT_KeyPairEd25519Ex_t swig_types[78]
+#define SWIGTYPE_p_std__shared_ptrT_KeyPairEd25519_t swig_types[79]
+#define SWIGTYPE_p_std__shared_ptrT_Passphrase_t swig_types[80]
+#define SWIGTYPE_p_std__shared_ptrT_SecretKeyCryptography_t swig_types[81]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__Abstract_t swig_types[82]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__InMemory_t swig_types[83]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__TransactionEntry_const_t swig_types[84]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__TransactionEntry_t swig_types[85]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t swig_types[86]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t swig_types[87]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t swig_types[88]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__TransactionBody_const_t swig_types[89]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t swig_types[90]
+#define SWIGTYPE_p_std__shared_ptrT_memory__Block_const_t swig_types[91]
+#define SWIGTYPE_p_std__shared_ptrT_memory__Block_t swig_types[92]
+#define SWIGTYPE_p_std__vectorT_gradido__data__AccountBalance_t swig_types[93]
+#define SWIGTYPE_p_std__vectorT_gradido__data__EncryptedMemo_t swig_types[94]
+#define SWIGTYPE_p_std__vectorT_gradido__data__SignaturePair_t swig_types[95]
+#define SWIGTYPE_p_std__vectorT_memory__BlockPtrWrapper_t swig_types[96]
+#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_const_t_t swig_types[97]
+#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t swig_types[98]
+#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t swig_types[99]
+#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t swig_types[100]
+#define SWIGTYPE_p_unsigned_char swig_types[101]
+#define SWIGTYPE_p_unsigned_int swig_types[102]
+#define SWIGTYPE_p_unsigned_long_long swig_types[103]
+#define SWIGTYPE_p_unsigned_short swig_types[104]
+#define SWIGTYPE_p_value_type swig_types[105]
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 SWIGCLINKAGE SWIGINTERN swig_type_info *swig_types[];
@@ -2363,6 +2367,43 @@ public:
 };
 // jsnapi_class_prologue_template
 template <typename SWIG_OBJ_WRAP>
+class _exports_HieroTransactionIdCompact_templ : public SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP> {
+public:
+  _exports_HieroTransactionIdCompact_templ(const Napi::CallbackInfo &);
+_exports_HieroTransactionIdCompact_templ(bool, const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroTransactionIdCompact_seconds_get(const Napi::CallbackInfo &);
+// jsnapi_class_setter_declaration
+void _wrap_HieroTransactionIdCompact_seconds_set(const Napi::CallbackInfo &, const Napi::Value &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroTransactionIdCompact_nanos_get(const Napi::CallbackInfo &);
+// jsnapi_class_setter_declaration
+void _wrap_HieroTransactionIdCompact_nanos_set(const Napi::CallbackInfo &, const Napi::Value &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroTransactionIdCompact_accountNum_get(const Napi::CallbackInfo &);
+// jsnapi_class_setter_declaration
+void _wrap_HieroTransactionIdCompact_accountNum_set(const Napi::CallbackInfo &, const Napi::Value &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_HieroTransactionIdCompact_equal(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_HieroTransactionIdCompact(const Napi::CallbackInfo &);
+virtual ~_exports_HieroTransactionIdCompact_templ();
+// jsnapi_class_epilogue_template
+};
+// jsnapi_class_instance
+class _exports_HieroTransactionIdCompact_inst : public _exports_HieroTransactionIdCompact_templ<_exports_HieroTransactionIdCompact_inst> {
+public:
+  using _exports_HieroTransactionIdCompact_templ::_exports_HieroTransactionIdCompact_templ;
+  virtual ~_exports_HieroTransactionIdCompact_inst() = default;
+  static void GetMembers(
+    Napi::Env,
+    std::map<std::string, _exports_HieroTransactionIdCompact_templ::PropertyDescriptor> &,
+    std::map<std::string, _exports_HieroTransactionIdCompact_templ::PropertyDescriptor> &
+    );
+  static Napi::Function GetClass(Napi::Env);
+};
+// jsnapi_class_prologue_template
+template <typename SWIG_OBJ_WRAP>
 class _exports_HieroAccountId_templ : public SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP> {
 public:
   _exports_HieroAccountId_templ(const Napi::CallbackInfo &);
@@ -2798,6 +2839,8 @@ Napi::Value _wrap_new_Timestamp__SWIG_0(const Napi::CallbackInfo &);
 Napi::Value _wrap_new_Timestamp__SWIG_1(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_new_Timestamp__SWIG_2(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+static Napi::Value _wrap_Timestamp_now(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_Timestamp_getDate(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
@@ -3336,6 +3379,8 @@ Napi::Value _wrap_new_LedgerAnchor__SWIG_2(const Napi::CallbackInfo &);
 Napi::Value _wrap_new_LedgerAnchor__SWIG_3(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_new_LedgerAnchor__SWIG_4(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_LedgerAnchor__SWIG_5(const Napi::CallbackInfo &);
 virtual ~_exports_LedgerAnchor_templ();
 // jsnapi_class_method_declaration
 Napi::Value _wrap_LedgerAnchor_isIotaMessageId(const Napi::CallbackInfo &);
@@ -3359,6 +3404,8 @@ Napi::Value _wrap_LedgerAnchor_getType(const Napi::CallbackInfo &);
 Napi::Value _wrap_LedgerAnchor_getIotaMessageId(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_LedgerAnchor_getHieroTransactionId(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_LedgerAnchor_getHieroTransactionIdCompact(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_LedgerAnchor_getLegacyTransactionId(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
@@ -3586,6 +3633,10 @@ Napi::Value _wrap_new_GradidoTransaction__SWIG_2(const Napi::CallbackInfo &);
 Napi::Value _wrap_new_GradidoTransaction__SWIG_3(const Napi::CallbackInfo &);
 virtual ~_exports_GradidoTransaction_templ();
 // jsnapi_class_method_declaration
+static Napi::Value _wrap_GradidoTransaction_fromGrdw(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_GradidoTransaction_toGrdw(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
 Napi::Value _wrap_GradidoTransaction_getTransactionBody(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_GradidoTransaction_isPairing(const Napi::CallbackInfo &);
@@ -3644,6 +3695,10 @@ Napi::Value _wrap_new_ConfirmedTransaction__SWIG_1(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_new_ConfirmedTransaction__SWIG_2(const Napi::CallbackInfo &);
 virtual ~_exports_ConfirmedTransaction_templ();
+// jsnapi_class_method_declaration
+static Napi::Value _wrap_ConfirmedTransaction_fromGrdw(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_ConfirmedTransaction_toGrdw(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_ConfirmedTransaction_calculateRunningHash__SWIG_0(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
@@ -21589,6 +21644,421 @@ fail:
 }
 
 
+// js_setter
+template <typename SWIG_OBJ_WRAP>
+void _exports_HieroTransactionIdCompact_templ<SWIG_OBJ_WRAP>::_wrap_HieroTransactionIdCompact_seconds_set(const Napi::CallbackInfo &info, const Napi::Value &value) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::compact::HieroTransactionId *arg1 = 0 ;
+  int64_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long long val2 ;
+  int ecode2 = 0 ;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__data__compact__HieroTransactionId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTransactionIdCompact_seconds_set" "', argument " "1"" of type '" "gradido::data::compact::HieroTransactionId *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::data::compact::HieroTransactionId * >(argp1);ecode2 = SWIG_AsVal_long_SS_long(value, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "HieroTransactionIdCompact_seconds_set" "', argument " "2"" of type '" "int64_t""'");
+    } 
+    arg2 = static_cast< int64_t >(val2);
+    
+    if (arg1) (arg1)->seconds = arg2;
+    
+    
+    return;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return;
+#endif
+}
+
+
+// js_getter
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTransactionIdCompact_templ<SWIG_OBJ_WRAP>::_wrap_HieroTransactionIdCompact_seconds_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::compact::HieroTransactionId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int64_t result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__data__compact__HieroTransactionId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTransactionIdCompact_seconds_get" "', argument " "1"" of type '" "gradido::data::compact::HieroTransactionId *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::data::compact::HieroTransactionId * >(argp1);
+    
+    result = (int64_t) ((arg1)->seconds);
+    
+    jsresult = SWIG_From_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< long long >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_setter
+template <typename SWIG_OBJ_WRAP>
+void _exports_HieroTransactionIdCompact_templ<SWIG_OBJ_WRAP>::_wrap_HieroTransactionIdCompact_nanos_set(const Napi::CallbackInfo &info, const Napi::Value &value) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::compact::HieroTransactionId *arg1 = 0 ;
+  int32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__data__compact__HieroTransactionId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTransactionIdCompact_nanos_set" "', argument " "1"" of type '" "gradido::data::compact::HieroTransactionId *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::data::compact::HieroTransactionId * >(argp1);ecode2 = SWIG_AsVal_int(value, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "HieroTransactionIdCompact_nanos_set" "', argument " "2"" of type '" "int32_t""'");
+    } 
+    arg2 = static_cast< int32_t >(val2);
+    
+    if (arg1) (arg1)->nanos = arg2;
+    
+    
+    return;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return;
+#endif
+}
+
+
+// js_getter
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTransactionIdCompact_templ<SWIG_OBJ_WRAP>::_wrap_HieroTransactionIdCompact_nanos_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::compact::HieroTransactionId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int32_t result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__data__compact__HieroTransactionId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTransactionIdCompact_nanos_get" "', argument " "1"" of type '" "gradido::data::compact::HieroTransactionId *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::data::compact::HieroTransactionId * >(argp1);
+    
+    result = (int32_t) ((arg1)->nanos);
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_setter
+template <typename SWIG_OBJ_WRAP>
+void _exports_HieroTransactionIdCompact_templ<SWIG_OBJ_WRAP>::_wrap_HieroTransactionIdCompact_accountNum_set(const Napi::CallbackInfo &info, const Napi::Value &value) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::compact::HieroTransactionId *arg1 = 0 ;
+  int32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__data__compact__HieroTransactionId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTransactionIdCompact_accountNum_set" "', argument " "1"" of type '" "gradido::data::compact::HieroTransactionId *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::data::compact::HieroTransactionId * >(argp1);ecode2 = SWIG_AsVal_int(value, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "HieroTransactionIdCompact_accountNum_set" "', argument " "2"" of type '" "int32_t""'");
+    } 
+    arg2 = static_cast< int32_t >(val2);
+    
+    if (arg1) (arg1)->accountNum = arg2;
+    
+    
+    return;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return;
+#endif
+}
+
+
+// js_getter
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTransactionIdCompact_templ<SWIG_OBJ_WRAP>::_wrap_HieroTransactionIdCompact_accountNum_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::compact::HieroTransactionId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int32_t result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__data__compact__HieroTransactionId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTransactionIdCompact_accountNum_get" "', argument " "1"" of type '" "gradido::data::compact::HieroTransactionId *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::data::compact::HieroTransactionId * >(argp1);
+    
+    result = (int32_t) ((arg1)->accountNum);
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_HieroTransactionIdCompact_templ<SWIG_OBJ_WRAP>::_wrap_HieroTransactionIdCompact_equal(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::compact::HieroTransactionId *arg1 = 0 ;
+  gradido::data::compact::HieroTransactionId *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_HieroTransactionIdCompact_equal.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__data__compact__HieroTransactionId, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTransactionIdCompact_equal" "', argument " "1"" of type '" "gradido::data::compact::HieroTransactionId const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::data::compact::HieroTransactionId * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_gradido__data__compact__HieroTransactionId,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HieroTransactionIdCompact_equal" "', argument " "2"" of type '" "gradido::data::compact::HieroTransactionId const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "HieroTransactionIdCompact_equal" "', argument " "2"" of type '" "gradido::data::compact::HieroTransactionId const &""'"); 
+    }
+    arg2 = reinterpret_cast< gradido::data::compact::HieroTransactionId * >(argp2);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)((gradido::data::compact::HieroTransactionId const *)arg1)->operator ==((gradido::data::compact::HieroTransactionId const &)*arg2);
+      } catch (const FixedPointedArithmetikOverflowException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+template <typename SWIG_OBJ_WRAP>
+// js_ctor
+// This is the main constructor
+_exports_HieroTransactionIdCompact_templ<SWIG_OBJ_WRAP>::_exports_HieroTransactionIdCompact_templ(const Napi::CallbackInfo &info)
+:SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP>(true, info) {
+  Napi::Env env = info.Env();
+  
+  this->info = SWIGTYPE_p_gradido__data__compact__HieroTransactionId;
+  if (info.Length() == 1 && info[0].IsExternal()) {
+    // This constructor has been called internally from C++/SWIG
+    // to wrap an already existing C++ object in JS
+    this->self = info[0].As<Napi::External<void>>().Data();
+    this->owned = false;
+    return;
+  }
+  this->owned = true;
+  
+  gradido::data::compact::HieroTransactionId *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroTransactionIdCompact.");
+    }
+    {
+      try {
+        result = (gradido::data::compact::HieroTransactionId *)new gradido::data::compact::HieroTransactionId();
+      } catch (const gradido::interaction::validate::WrongAddressTypeException& e) {
+        std::string message = "WrongAddressTypeException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const gradido::interaction::validate::InvalidCreationException& e) {
+        std::string message = "InvalidCreationException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const InsufficientBalanceException& e) {
+        std::string message = "InsufficientBalanceException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const gradido::interaction::validate::AddressAlreadyExistException& e) {
+        std::string message = "AddressAlreadyExistException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const gradido::interaction::validate::PairingTransactionNotMatchException& e) {
+        std::string message = "PairingTransactionNotMatchException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const gradido::interaction::validate::TransactionValidationRequiredSignMissingException& e) {
+        std::string message = "TransactionValidationRequiredSignMissingException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());        
+      } catch (const gradido::interaction::validate::TransactionValidationMissingSignException& e) {
+        std::string message = "TransactionValidationMissingSignException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const gradido::interaction::validate::TransactionValidationForbiddenSignException& e) {
+        std::string message = "TransactionValidationForbiddenSignException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const gradido::interaction::validate::TransactionValidationInvalidSignatureException& e) {
+        std::string message = "TransactionValidationInvalidSignatureException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const gradido::interaction::validate::TransactionValidationInvalidInputException& e) {
+        std::string message = "TransactionValidationInvalidInputException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const gradido::interaction::validate::TransactionValidationException& e) {
+        std::string message = "TransactionValidationException: " + e.getFullString();
+        SWIG_exception(SWIG_RuntimeError, message.data());
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+    return;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+fail:
+  
+  return;
+#endif
+}
+
+// This is the bypass constructor to be used from child classes
+template <typename SWIG_OBJ_WRAP>
+_exports_HieroTransactionIdCompact_templ<SWIG_OBJ_WRAP>::_exports_HieroTransactionIdCompact_templ(bool, const Napi::CallbackInfo &info)
+:SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP>(true, info) {
+  
+}
+
+
+// js_dtoroverride
+template <typename SWIG_OBJ_WRAP>
+_exports_HieroTransactionIdCompact_templ<SWIG_OBJ_WRAP>::~_exports_HieroTransactionIdCompact_templ() {
+  this->SWIG_Finalize();
+  auto arg1 = reinterpret_cast<gradido::data::compact::HieroTransactionId *>(this->self);
+  if (this->owned && arg1) {
+    delete arg1;
+    this->self = SWIG_NULLPTR;
+  }
+}
+
+
 // js_overloaded_ctor
 template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroAccountId__SWIG_0(const Napi::CallbackInfo &info) {
@@ -30201,6 +30671,54 @@ template <typename SWIG_OBJ_WRAP>
 _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_exports_Timestamp_templ(bool, const Napi::CallbackInfo &info)
 :SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP>(true, info) {
   
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_wrap_Timestamp_now(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::Timestamp result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_Timestamp_now.");
+    }
+    
+    
+    
+    
+    
+    
+    {
+      try {
+        result = gradido::data::Timestamp::now();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new gradido::data::Timestamp(result)), SWIGTYPE_p_gradido__data__Timestamp, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
 }
 
 
@@ -39486,6 +40004,54 @@ template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_LedgerAnchor_templ<SWIG_OBJ_WRAP>::_wrap_new_LedgerAnchor__SWIG_4(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Object self;
+  gradido::data::compact::HieroTransactionId *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  gradido::data::LedgerAnchor *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_LedgerAnchor__SWIG_4.");
+    }
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_gradido__data__compact__HieroTransactionId,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_LedgerAnchor" "', argument " "1"" of type '" "gradido::data::compact::HieroTransactionId const &""'"); 
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_LedgerAnchor" "', argument " "1"" of type '" "gradido::data::compact::HieroTransactionId const &""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::data::compact::HieroTransactionId * >(argp1);{
+      try {
+        result = (gradido::data::LedgerAnchor *)new gradido::data::LedgerAnchor((gradido::data::compact::HieroTransactionId const &)*arg1);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_LedgerAnchor_templ<SWIG_OBJ_WRAP>::_wrap_new_LedgerAnchor__SWIG_5(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
   uint64_t arg1 ;
   gradido::data::LedgerAnchor::Type arg2 ;
   unsigned long long val1 ;
@@ -39499,7 +40065,7 @@ Napi::Value _exports_LedgerAnchor_templ<SWIG_OBJ_WRAP>::_wrap_new_LedgerAnchor__
     NAPI_CHECK_RESULT(info.This().ToObject(), self);
     this->owned = true;
     if(static_cast<int>(info.Length()) < 2 || static_cast<int>(info.Length()) > 2) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_LedgerAnchor__SWIG_4.");
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_LedgerAnchor__SWIG_5.");
     }
     ecode1 = SWIG_AsVal_unsigned_SS_long_SS_long(info[0], &val1);
     if (!SWIG_IsOK(ecode1)) {
@@ -39696,7 +40262,7 @@ _exports_LedgerAnchor_templ<SWIG_OBJ_WRAP>::_exports_LedgerAnchor_templ(const Na
   }
   
   // js_ctor_dispatch_case
-  if(static_cast<int>(info.Length()) >= 2 && static_cast<int>(info.Length()) <= 2) {
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
 #ifdef NAPI_CPP_EXCEPTIONS
     bool tryNext = false;
     try {
@@ -39710,6 +40276,42 @@ _exports_LedgerAnchor_templ<SWIG_OBJ_WRAP>::_exports_LedgerAnchor_templ(const Na
     return;
 #else
     _wrap_new_LedgerAnchor__SWIG_4(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 2 && static_cast<int>(info.Length()) <= 2) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_LedgerAnchor__SWIG_5(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_LedgerAnchor__SWIG_5(info);
     if (env.IsExceptionPending()) {
       Napi::Error e = env.GetAndClearPendingException();
       Napi::Value typeErrorValue;
@@ -40351,6 +40953,61 @@ Napi::Value _exports_LedgerAnchor_templ<SWIG_OBJ_WRAP>::_wrap_LedgerAnchor_getHi
     
     
     jsresult = SWIG_NewPointerObj((new hiero::TransactionId(result)), SWIGTYPE_p_hiero__TransactionId, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_LedgerAnchor_templ<SWIG_OBJ_WRAP>::_wrap_LedgerAnchor_getHieroTransactionIdCompact(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::LedgerAnchor *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  gradido::data::compact::HieroTransactionId result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_LedgerAnchor_getHieroTransactionIdCompact.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__data__LedgerAnchor, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LedgerAnchor_getHieroTransactionIdCompact" "', argument " "1"" of type '" "gradido::data::LedgerAnchor const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::data::LedgerAnchor * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = ((gradido::data::LedgerAnchor const *)arg1)->getHieroTransactionIdCompact();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new gradido::data::compact::HieroTransactionId(result)), SWIGTYPE_p_gradido__data__compact__HieroTransactionId, SWIG_POINTER_OWN |  0 );
     
     
     return jsresult;
@@ -42202,18 +42859,21 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
   Napi::Env env = info.Env();
   Napi::Value jsresult;
   gradido::data::TransactionBody *arg1 = 0 ;
-  grdw_transaction_body *arg2 = 0 ;
+  grdu_memory *arg2 = 0 ;
+  grdw_transaction_body *arg3 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
   
   
 #ifdef NAPI_CPP_EXCEPTIONS
   try {
 #endif
     
-    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+    if(static_cast<int>(info.Length()) < 2 || static_cast<int>(info.Length()) > 2) {
       SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_TransactionBody_toGrdw.");
     }
     
@@ -42221,18 +42881,22 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     if (!SWIG_IsOK(res1)) {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TransactionBody_toGrdw" "', argument " "1"" of type '" "gradido::data::TransactionBody const *""'"); 
     }
-    arg1 = reinterpret_cast< gradido::data::TransactionBody * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2,SWIGTYPE_p_grdw_transaction_body, 0 |  0 );
+    arg1 = reinterpret_cast< gradido::data::TransactionBody * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2,SWIGTYPE_p_grdu_memory, 0 |  0 );
     if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TransactionBody_toGrdw" "', argument " "2"" of type '" "grdw_transaction_body *""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TransactionBody_toGrdw" "', argument " "2"" of type '" "grdu_memory *""'"); 
     }
-    arg2 = reinterpret_cast< grdw_transaction_body * >(argp2);
+    arg2 = reinterpret_cast< grdu_memory * >(argp2);res3 = SWIG_ConvertPtr(info[1], &argp3,SWIGTYPE_p_grdw_transaction_body, 0 |  0 );
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "TransactionBody_toGrdw" "', argument " "3"" of type '" "grdw_transaction_body *""'"); 
+    }
+    arg3 = reinterpret_cast< grdw_transaction_body * >(argp3);
     
     
     
     
     {
       try {
-        ((gradido::data::TransactionBody const *)arg1)->toGrdw(arg2);
+        ((gradido::data::TransactionBody const *)arg1)->toGrdw(arg2,arg3);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -45194,6 +45858,154 @@ _exports_GradidoTransaction_templ<SWIG_OBJ_WRAP>::~_exports_GradidoTransaction_t
 
 // js_function
 template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_GradidoTransaction_templ<SWIG_OBJ_WRAP>::_wrap_GradidoTransaction_fromGrdw(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  grdw_gradido_transaction *arg1 = 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  std::shared_ptr< gradido::data::GradidoTransaction const > result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 2 || static_cast<int>(info.Length()) > 2) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_GradidoTransaction_fromGrdw.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info[0], &argp1,SWIGTYPE_p_grdw_gradido_transaction, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GradidoTransaction_fromGrdw" "', argument " "1"" of type '" "grdw_gradido_transaction const *""'"); 
+    }
+    arg1 = reinterpret_cast< grdw_gradido_transaction * >(argp1);ecode2 = SWIG_AsVal_unsigned_SS_int(info[1], &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "GradidoTransaction_fromGrdw" "', argument " "2"" of type '" "uint32_t""'");
+    } 
+    arg2 = static_cast< uint32_t >(val2);
+    
+    
+    
+    
+    {
+      try {
+        result = gradido::data::GradidoTransaction::fromGrdw((grdw_gradido_transaction const *)arg1,arg2);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    {
+      if(!result) {
+        jsresult = env.Null();
+      } else {
+        jsresult = SWIG_NewPointerObj(const_cast<gradido::data::GradidoTransaction *>((&result)->get()), SWIGTYPE_p_gradido__data__GradidoTransaction, SWIG_POINTER_OWN |  0 );
+        auto *owner = new std::shared_ptr<const gradido::data::GradidoTransaction>(*&result);
+        auto finalizer = new SWIG_NAPI_Finalizer([owner](){
+          delete owner;
+          });
+        SWIG_NAPI_SetFinalizer(env, jsresult, finalizer);
+      }
+    }
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_GradidoTransaction_templ<SWIG_OBJ_WRAP>::_wrap_GradidoTransaction_toGrdw(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::GradidoTransaction *arg1 = 0 ;
+  grdu_memory *arg2 = 0 ;
+  grdw_gradido_transaction *arg3 = 0 ;
+  uint32_t arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  unsigned int val4 ;
+  int ecode4 = 0 ;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 3 || static_cast<int>(info.Length()) > 3) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_GradidoTransaction_toGrdw.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__data__GradidoTransaction, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GradidoTransaction_toGrdw" "', argument " "1"" of type '" "gradido::data::GradidoTransaction const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::data::GradidoTransaction * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2,SWIGTYPE_p_grdu_memory, 0 |  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GradidoTransaction_toGrdw" "', argument " "2"" of type '" "grdu_memory *""'"); 
+    }
+    arg2 = reinterpret_cast< grdu_memory * >(argp2);res3 = SWIG_ConvertPtr(info[1], &argp3,SWIGTYPE_p_grdw_gradido_transaction, 0 |  0 );
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "GradidoTransaction_toGrdw" "', argument " "3"" of type '" "grdw_gradido_transaction *""'"); 
+    }
+    arg3 = reinterpret_cast< grdw_gradido_transaction * >(argp3);ecode4 = SWIG_AsVal_unsigned_SS_int(info[2], &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "GradidoTransaction_toGrdw" "', argument " "4"" of type '" "uint32_t""'");
+    } 
+    arg4 = static_cast< uint32_t >(val4);
+    
+    
+    
+    
+    {
+      try {
+        ((gradido::data::GradidoTransaction const *)arg1)->toGrdw(arg2,arg3,arg4);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = env.Undefined();
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_GradidoTransaction_templ<SWIG_OBJ_WRAP>::_wrap_GradidoTransaction_getTransactionBody(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
@@ -46666,6 +47478,154 @@ _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::~_exports_ConfirmedTransacti
     delete arg1;
     this->self = SWIG_NULLPTR;
   }
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedTransaction_fromGrdw(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  grdw_confirmed_transaction *arg1 = 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  std::shared_ptr< gradido::data::ConfirmedTransaction const > result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 2 || static_cast<int>(info.Length()) > 2) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_ConfirmedTransaction_fromGrdw.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info[0], &argp1,SWIGTYPE_p_grdw_confirmed_transaction, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ConfirmedTransaction_fromGrdw" "', argument " "1"" of type '" "grdw_confirmed_transaction const *""'"); 
+    }
+    arg1 = reinterpret_cast< grdw_confirmed_transaction * >(argp1);ecode2 = SWIG_AsVal_unsigned_SS_int(info[1], &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ConfirmedTransaction_fromGrdw" "', argument " "2"" of type '" "uint32_t""'");
+    } 
+    arg2 = static_cast< uint32_t >(val2);
+    
+    
+    
+    
+    {
+      try {
+        result = gradido::data::ConfirmedTransaction::fromGrdw((grdw_confirmed_transaction const *)arg1,arg2);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    {
+      if(!result) {
+        jsresult = env.Null();
+      } else {
+        jsresult = SWIG_NewPointerObj(const_cast<gradido::data::ConfirmedTransaction *>((&result)->get()), SWIGTYPE_p_gradido__data__ConfirmedTransaction, SWIG_POINTER_OWN |  0 );
+        auto *owner = new std::shared_ptr<const gradido::data::ConfirmedTransaction>(*&result);
+        auto finalizer = new SWIG_NAPI_Finalizer([owner](){
+          delete owner;
+          });
+        SWIG_NAPI_SetFinalizer(env, jsresult, finalizer);
+      }
+    }
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_ConfirmedTransaction_templ<SWIG_OBJ_WRAP>::_wrap_ConfirmedTransaction_toGrdw(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::ConfirmedTransaction *arg1 = 0 ;
+  grdu_memory *arg2 = 0 ;
+  grdw_confirmed_transaction *arg3 = 0 ;
+  uint32_t arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  unsigned int val4 ;
+  int ecode4 = 0 ;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 3 || static_cast<int>(info.Length()) > 3) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_ConfirmedTransaction_toGrdw.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__data__ConfirmedTransaction, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ConfirmedTransaction_toGrdw" "', argument " "1"" of type '" "gradido::data::ConfirmedTransaction const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::data::ConfirmedTransaction * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2,SWIGTYPE_p_grdu_memory, 0 |  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ConfirmedTransaction_toGrdw" "', argument " "2"" of type '" "grdu_memory *""'"); 
+    }
+    arg2 = reinterpret_cast< grdu_memory * >(argp2);res3 = SWIG_ConvertPtr(info[1], &argp3,SWIGTYPE_p_grdw_confirmed_transaction, 0 |  0 );
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "ConfirmedTransaction_toGrdw" "', argument " "3"" of type '" "grdw_confirmed_transaction *""'"); 
+    }
+    arg3 = reinterpret_cast< grdw_confirmed_transaction * >(argp3);ecode4 = SWIG_AsVal_unsigned_SS_int(info[2], &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "ConfirmedTransaction_toGrdw" "', argument " "4"" of type '" "uint32_t""'");
+    } 
+    arg4 = static_cast< uint32_t >(val4);
+    
+    
+    
+    
+    {
+      try {
+        ((gradido::data::ConfirmedTransaction const *)arg1)->toGrdw(arg2,arg3,arg4);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = env.Undefined();
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
 }
 
 

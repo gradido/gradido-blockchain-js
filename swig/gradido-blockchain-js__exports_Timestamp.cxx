@@ -116,6 +116,14 @@ void _exports_Timestamp_inst::GetMembers(
     });
   
   /* add static class functions and variables */
+  // jsnapi_register_static_function
+  staticMembers.erase("now");
+  staticMembers.insert({
+    "now",
+      StaticMethod("now",
+        &_exports_Timestamp_templ::_wrap_Timestamp_now,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   
 #ifndef NAPI_CPP_EXCEPTIONS
