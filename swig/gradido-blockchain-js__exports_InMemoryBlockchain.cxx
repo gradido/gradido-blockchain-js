@@ -163,6 +163,22 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("getPublicKeyDictionary");
+  members.insert({
+    "getPublicKeyDictionary",
+      _exports_Abstract_templ::InstanceMethod("getPublicKeyDictionary",
+        &_exports_Abstract_templ::_wrap_Abstract_getPublicKeyDictionary,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getOrAddPublicKey");
+  members.insert({
+    "getOrAddPublicKey",
+      _exports_Abstract_templ::InstanceMethod("getOrAddPublicKey",
+        &_exports_Abstract_templ::_wrap_Abstract_getOrAddPublicKey,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("clear");
   members.insert({
     "clear",
@@ -280,6 +296,22 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
     "findByLedgerAnchor",
       _exports_InMemoryBlockchain_templ::InstanceMethod("findByLedgerAnchor",
         &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain__wrap_InMemoryBlockchain_findByLedgerAnchor,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getPublicKeyDictionary");
+  members.insert({
+    "getPublicKeyDictionary",
+      _exports_InMemoryBlockchain_templ::InstanceMethod("getPublicKeyDictionary",
+        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_getPublicKeyDictionary,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getOrAddPublicKey");
+  members.insert({
+    "getOrAddPublicKey",
+      _exports_InMemoryBlockchain_templ::InstanceMethod("getOrAddPublicKey",
+        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_getOrAddPublicKey,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

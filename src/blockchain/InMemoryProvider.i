@@ -12,8 +12,12 @@ namespace gradido::blockchain {
   // I cannot undefine the AbstractProvider Base class so let at least replace any by a meaningful name
   %typemap(ts) AbstractProvider* "AbstractBlockchainProvider";
   %rename(InMemoryBlockchainProvider) InMemoryProvider;    
-  %ignore InMemoryProvider::findBlockchain(std::string_view communityId);  
-  %rename(findBlockchain) InMemoryProvider::getBlockchain;
+  //%ignore InMemoryProvider::findBlockchain(std::string_view communityId);  
+  //%rename(findBlockchain) InMemoryProvider::getBlockchain;
+
+  // %ignore AbstractProvider;
+  %ignore GroupNotFoundException;
+  %ignore InMemoryProvider::findBlockchain;
 }
 
 %{

@@ -127,7 +127,7 @@ void _exports_TransactionBody_inst::GetMembers(
   members.insert({
     "isInvolved",
       _exports_TransactionBody_templ::InstanceMethod("isInvolved",
-        &_exports_TransactionBody_templ::_wrap_TransactionBody_isInvolved,
+        &_exports_TransactionBody_templ::_wrap_TransactionBody__wrap_TransactionBody_isInvolved,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -219,27 +219,11 @@ void _exports_TransactionBody_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getRegisterAddress");
-  members.insert({
-    "getRegisterAddress",
-      _exports_TransactionBody_templ::InstanceMethod("getRegisterAddress",
-        &_exports_TransactionBody_templ::_wrap_TransactionBody_getRegisterAddress,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("getDeferredTransfer");
   members.insert({
     "getDeferredTransfer",
       _exports_TransactionBody_templ::InstanceMethod("getDeferredTransfer",
         &_exports_TransactionBody_templ::_wrap_TransactionBody_getDeferredTransfer,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("getCommunityRoot");
-  members.insert({
-    "getCommunityRoot",
-      _exports_TransactionBody_templ::InstanceMethod("getCommunityRoot",
-        &_exports_TransactionBody_templ::_wrap_TransactionBody_getCommunityRoot,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -259,6 +243,22 @@ void _exports_TransactionBody_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("getCommunityRoot");
+  members.insert({
+    "getCommunityRoot",
+      _exports_TransactionBody_templ::InstanceMethod("getCommunityRoot",
+        &_exports_TransactionBody_templ::_wrap_TransactionBody_getCommunityRoot,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getRegisterAddress");
+  members.insert({
+    "getRegisterAddress",
+      _exports_TransactionBody_templ::InstanceMethod("getRegisterAddress",
+        &_exports_TransactionBody_templ::_wrap_TransactionBody_getRegisterAddress,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("toJson");
   members.insert({
     "toJson",
@@ -269,11 +269,11 @@ void _exports_TransactionBody_inst::GetMembers(
   
   /* add static class functions and variables */
   // jsnapi_register_static_function
-  staticMembers.erase("fromGrdwTransactionBody");
+  staticMembers.erase("fromGrdw");
   staticMembers.insert({
-    "fromGrdwTransactionBody",
-      StaticMethod("fromGrdwTransactionBody",
-        &_exports_TransactionBody_templ::_wrap_TransactionBody_fromGrdwTransactionBody,
+    "fromGrdw",
+      StaticMethod("fromGrdw",
+        &_exports_TransactionBody_templ::_wrap_TransactionBody_fromGrdw,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

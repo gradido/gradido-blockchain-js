@@ -117,7 +117,10 @@ E string_to_enum(const std::string& name);
 #include "gradido_blockchain/lib/Dictionary.h"
 %}
 %init %{  
-  gradido::g_appContext = std::make_unique<gradido::AppContext>(std::make_unique<RuntimeDictionary<std::string>>("communityIdDictionary"));
+  gradido::g_appContext = std::make_unique<gradido::AppContext>(
+    std::make_unique<RuntimeDictionary<std::string>>("communityIdDictionary"),
+    std::make_unique<RuntimeDictionary<GenericHash, GenericHashHash, GenericHashEqual>>("userNameHashDictionary")
+  );
 %}
 
 
@@ -137,7 +140,7 @@ E string_to_enum(const std::string& name);
 %include "serialization/toJson.i"
 // base types
 %include "GradidoUnit.i"
-%include "compact.i"
+%include "data_compact.i"
 %include "data_hiero.i"
 %include "data.i"
 

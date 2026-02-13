@@ -67,19 +67,19 @@ void _exports_EncryptedMemo_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("empty");
+  members.insert({
+    "empty",
+      _exports_EncryptedMemo_templ::InstanceMethod("empty",
+        &_exports_EncryptedMemo_templ::_wrap_EncryptedMemo_empty,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getMemo");
   members.insert({
     "getMemo",
       _exports_EncryptedMemo_templ::InstanceMethod("getMemo",
         &_exports_EncryptedMemo_templ::_wrap_EncryptedMemo_getMemo,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("getMemoPtr");
-  members.insert({
-    "getMemoPtr",
-      _exports_EncryptedMemo_templ::InstanceMethod("getMemoPtr",
-        &_exports_EncryptedMemo_templ::_wrap_EncryptedMemo_getMemoPtr,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

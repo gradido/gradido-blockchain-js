@@ -2514,6 +2514,35 @@ fail:
 
 
 // js_global_getter
+Napi::Value exports_DeserializeType_CONFIRMED_TRANSACTION_COMPACT_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(gradido::interaction::deserialize::Type::CONFIRMED_TRANSACTION_COMPACT));
+    
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return Napi::Value();
+#endif
+}
+
+
+// js_global_getter
 Napi::Value exports_DeserializeType_TRANSACTION_TRIGGER_EVENT_get(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
@@ -3115,6 +3144,12 @@ SWIGINTERN std::string gradido_blockchain_Filter_toJson__SWIG_0(gradido::blockch
 SWIGINTERN Timepoint gradido_blockchain_InMemory_getStartDate(gradido::blockchain::InMemory const *self){
             return static_cast<const gradido::blockchain::Abstract*>(self)->getStartDate();
         }
+SWIGINTERN std::shared_ptr< gradido::blockchain::InMemory > gradido_blockchain_InMemoryProvider_getBlockchain__SWIG_0(gradido::blockchain::InMemoryProvider *self,std::string const &communityId){
+        return std::dynamic_pointer_cast<gradido::blockchain::InMemory>(self->findBlockchain(communityId));
+    }
+SWIGINTERN std::shared_ptr< gradido::blockchain::InMemory > gradido_blockchain_InMemoryProvider_getBlockchain__SWIG_1(gradido::blockchain::InMemoryProvider *self,uint32_t communityIdIndex){
+        return std::dynamic_pointer_cast<gradido::blockchain::InMemory>(self->findBlockchain(communityIdIndex));
+    }
 
 // js_global_getter
 Napi::Value exports_ValidateType_SINGLE_get(const Napi::CallbackInfo &info) {
@@ -3788,7 +3823,10 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
   SWIG_InitializeModule(env);
 
   
-  gradido::g_appContext = std::make_unique<gradido::AppContext>(std::make_unique<RuntimeDictionary<std::string>>("communityIdDictionary"));
+  gradido::g_appContext = std::make_unique<gradido::AppContext>(
+    std::make_unique<RuntimeDictionary<std::string>>("communityIdDictionary"),
+    std::make_unique<RuntimeDictionary<GenericHash, GenericHashHash, GenericHashEqual>>("userNameHashDictionary")
+  );
 
 
 CryptoConfig::loadMnemonicWordLists();
@@ -5729,6 +5767,15 @@ do {
   Napi::Value value;
   NAPI_CHECK_RESULT(f.Call(0, SWIG_NULLPTR), value);
   Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Value("DeserializeType_CONFIRMED_TRANSACTION", value,
+    static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
+  NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
+} while (0);
+// jsnapi_register_global_constant
+do {
+  Napi::Function f = Napi::Function::New(env, exports_DeserializeType_CONFIRMED_TRANSACTION_COMPACT_get);
+  Napi::Value value;
+  NAPI_CHECK_RESULT(f.Call(0, SWIG_NULLPTR), value);
+  Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Value("DeserializeType_CONFIRMED_TRANSACTION_COMPACT", value,
     static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
   NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
 } while (0);
