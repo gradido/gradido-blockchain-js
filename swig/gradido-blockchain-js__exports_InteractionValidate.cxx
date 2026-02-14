@@ -35,6 +35,22 @@ void _exports_InteractionValidate_inst::GetMembers(
   
   /* register wrapper functions */
   // jsnapi_register_member_function
+  members.erase("disableVerify");
+  members.insert({
+    "disableVerify",
+      _exports_InteractionValidate_templ::InstanceMethod("disableVerify",
+        &_exports_InteractionValidate_templ::_wrap_InteractionValidate_disableVerify,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("disableRunningHashTest");
+  members.insert({
+    "disableRunningHashTest",
+      _exports_InteractionValidate_templ::InstanceMethod("disableRunningHashTest",
+        &_exports_InteractionValidate_templ::_wrap_InteractionValidate_disableRunningHashTest,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("run");
   members.insert({
     "run",

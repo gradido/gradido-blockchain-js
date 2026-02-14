@@ -211,6 +211,14 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("createAndAddConfirmedTransactionExternFast");
+  members.insert({
+    "createAndAddConfirmedTransactionExternFast",
+      _exports_InMemoryBlockchain_templ::InstanceMethod("createAndAddConfirmedTransactionExternFast",
+        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_createAndAddConfirmedTransactionExternFast,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("addTransactionTriggerEvent");
   members.insert({
     "addTransactionTriggerEvent",

@@ -155,6 +155,14 @@ void _exports_TransactionBody_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("getInvolvedAddressIndices");
+  members.insert({
+    "getInvolvedAddressIndices",
+      _exports_TransactionBody_templ::InstanceMethod("getInvolvedAddressIndices",
+        &_exports_TransactionBody_templ::_wrap_TransactionBody_getInvolvedAddressIndices,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getMemos");
   members.insert({
     "getMemos",

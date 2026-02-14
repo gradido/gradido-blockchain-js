@@ -51,14 +51,6 @@ void _exports_MemoryBlock_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("hash");
-  members.insert({
-    "hash",
-      _exports_MemoryBlock_templ::InstanceMethod("hash",
-        &_exports_MemoryBlock_templ::_wrap_MemoryBlock_hash,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("convertToHex");
   members.insert({
     "convertToHex",

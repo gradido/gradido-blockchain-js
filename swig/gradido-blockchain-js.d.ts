@@ -216,8 +216,6 @@ export  class MemoryBlock {
 
   data(): Buffer;
 
-  hash(): SignatureOctet;
-
   convertToHex(): string;
 
   convertToBase64(variant: number): string;
@@ -918,6 +916,8 @@ export  class SignatureMap {
 
   isTheSame(other: SignatureMap): boolean;
 
+  isPairing(other: SignatureMap): boolean;
+
   toJson(pretty: boolean): string;
 
   toJson(): string;
@@ -1248,13 +1248,15 @@ export  class TransactionBody {
 
   isInvolved(publicKey: MemoryBlock): boolean;
 
-  isInvolved(publicKeyIndex: any): boolean;
+  isInvolved(publicKeyIndex: PublicKeyIndex): boolean;
 
   getTransferAmount(): TransferAmount;
 
   hasTransferAmount(): boolean;
 
   getInvolvedAddresses(): MemoryBlocks;
+
+  getInvolvedAddressIndices(): any;
 
   getMemos(): EncryptedMemos;
 
@@ -1328,7 +1330,11 @@ export  class GradidoTransaction {
 
   isInvolved(publicKey: MemoryBlock): boolean;
 
+  isInvolved(publicKeyIndex: PublicKeyIndex): boolean;
+
   getInvolvedAddresses(): MemoryBlocks;
+
+  getInvolvedAddressIndices(): any;
 
   getSerializedTransaction(): MemoryBlockPtr|null;
 
@@ -1395,9 +1401,15 @@ export  class ConfirmedTransaction {
 
   isInvolved(publicKey: MemoryBlock): boolean;
 
+  isInvolved(publicKeyIndex: PublicKeyIndex): boolean;
+
   isBalanceUpdated(publicKey: MemoryBlock): boolean;
 
+  isBalanceUpdated(publicKeyIndex: PublicKeyIndex): boolean;
+
   getInvolvedAddresses(): MemoryBlocks;
+
+  getInvolvedAddressIndices(): any;
 
   isTheSame(other: ConfirmedTransaction): boolean;
 
@@ -1578,6 +1590,51 @@ export  class InteractionSerialize {
 
   run(): MemoryBlockPtr|null;
 }
+
+export  class VectorUint64 {
+
+  constructor();
+
+  constructor(n: number);
+
+  constructor(other: any);
+
+  size(): number;
+
+  capacity(): number;
+
+  reserve(n: number): void;
+
+  isEmpty(): boolean;
+
+  clear(): void;
+
+  add(x: any): void;
+
+  get(i: number): any;
+
+  set(i: number, val: any): void;
+}
+
+export const ThreadingPolicy_SingleThread: ThreadingPolicy;
+
+export const ThreadingPolicy_Quarter: ThreadingPolicy;
+
+export const ThreadingPolicy_Half: ThreadingPolicy;
+
+export const ThreadingPolicy_ThreeQuarter: ThreadingPolicy;
+
+export const ThreadingPolicy_All: ThreadingPolicy;
+
+export const ThreadingPolicy_AllExceptOne: ThreadingPolicy;
+
+export type ThreadingPolicy = number & { readonly [_SWIG_type_tag]: 'ThreadingPolicy'; };
+
+export function resolveThreadCount(policy: any): any;
+
+export function verifySignatures(filter: Filter, communityId: string, policy: any): any;
+
+export function verifySignatures(filter: Filter, communityId: string): any;
 
 export  class TransactionEntries {
 
@@ -1870,6 +1927,8 @@ export  class InMemoryBlockchain extends Abstract {
 
   createAndAddConfirmedTransactionExtern(gradidoTransaction: GradidoTransaction|null, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances): boolean;
 
+  createAndAddConfirmedTransactionExternFast(gradidoTransaction: GradidoTransaction|null, ledgerAnchor: LedgerAnchor, accountBalances: AccountBalances): boolean;
+
   addTransactionTriggerEvent(transactionTriggerEvent: TransactionTriggerEvent|null): void;
 
   removeTransactionTriggerEvent(transactionTriggerEvent: TransactionTriggerEvent): void;
@@ -1965,6 +2024,10 @@ export  class InteractionValidate {
 
   constructor(arg0: InteractionValidate);
 
+  disableVerify(): void;
+
+  disableRunningHashTest(): void;
+
   run(type: ValidateType, blockchain: Abstract|null): void;
 
   run(type: ValidateType): void;
@@ -2010,6 +2073,8 @@ export type GradidoCreation = (unknown & { readonly [_SWIG_type_tag]: 'GradidoCr
 export type AuthenticatedEncryption = (unknown & { readonly [_SWIG_type_tag]: 'AuthenticatedEncryption'; }) | null;
 
 export type GradidoTransaction = (unknown & { readonly [_SWIG_type_tag]: 'GradidoTransaction'; }) | null;
+
+export type PublicKeyIndex = (unknown & { readonly [_SWIG_type_tag]: 'PublicKeyIndex'; }) | null;
 
 export type GradidoTimeoutDeferredTransfer = (unknown & { readonly [_SWIG_type_tag]: 'GradidoTimeoutDeferredTransfer'; }) | null;
 

@@ -1444,6 +1444,303 @@ fail:
 
 
 // js_global_function
+Napi::Value _wrap_resolveThreadCount(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::batch::ThreadingPolicy arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  std::size_t result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_resolveThreadCount.");
+    }
+    
+    ecode1 = SWIG_AsVal_int(info[0], &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "resolveThreadCount" "', argument " "1"" of type '" "gradido::blockchain::batch::ThreadingPolicy""'");
+    } 
+    arg1 = static_cast< gradido::blockchain::batch::ThreadingPolicy >(val1);
+    
+    
+    
+    
+    {
+      try {
+        result = gradido::blockchain::batch::resolveThreadCount(arg1);
+      } catch (const gradido::interaction::serialize::MissingMemberException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_size_t  SWIG_NAPI_FROM_CALL_ARGS(static_cast< size_t >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_overloaded_function
+Napi::Value _wrap_verifySignatures__SWIG_0(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::Filter *arg1 = 0 ;
+  std::string *arg2 = 0 ;
+  gradido::blockchain::batch::ThreadingPolicy arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  int val3 ;
+  int ecode3 = 0 ;
+  std::vector< uint64_t > result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_gradido__blockchain__Filter,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "verifySignatures" "', argument " "1"" of type '" "gradido::blockchain::Filter const &""'"); 
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "verifySignatures" "', argument " "1"" of type '" "gradido::blockchain::Filter const &""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::Filter * >(argp1);{
+      {
+        std::string *ptr = (std::string *)0;
+        res2 = SWIG_AsPtr_std_string(info[1], &ptr);
+        if (!SWIG_IsOK(res2)) {
+          SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "verifySignatures" "', argument " "2"" of type '" "std::string const &""'"); 
+        }
+        if (!ptr) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "verifySignatures" "', argument " "2"" of type '" "std::string const &""'"); 
+        }
+        arg2 = ptr;
+      }
+    }
+    ecode3 = SWIG_AsVal_int(info[2], &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "verifySignatures" "', argument " "3"" of type '" "gradido::blockchain::batch::ThreadingPolicy""'");
+    } 
+    arg3 = static_cast< gradido::blockchain::batch::ThreadingPolicy >(val3);
+    
+    
+    
+    
+    {
+      try {
+        result = gradido::blockchain::batch::verifySignatures((gradido::blockchain::Filter const &)*arg1,(std::string const &)*arg2,arg3);
+      } catch (const gradido::interaction::serialize::MissingMemberException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new std::vector< uint64_t >(result)), SWIGTYPE_p_std__vectorT_uint64_t_t, SWIG_POINTER_OWN |  0 );
+    
+    if (SWIG_IsNewObj(res2)) delete arg2;
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    if (SWIG_IsNewObj(res2)) delete arg2;
+    
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_overloaded_function
+Napi::Value _wrap_verifySignatures__SWIG_1(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::Filter *arg1 = 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  std::vector< uint64_t > result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_gradido__blockchain__Filter,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "verifySignatures" "', argument " "1"" of type '" "gradido::blockchain::Filter const &""'"); 
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "verifySignatures" "', argument " "1"" of type '" "gradido::blockchain::Filter const &""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::Filter * >(argp1);{
+      {
+        std::string *ptr = (std::string *)0;
+        res2 = SWIG_AsPtr_std_string(info[1], &ptr);
+        if (!SWIG_IsOK(res2)) {
+          SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "verifySignatures" "', argument " "2"" of type '" "std::string const &""'"); 
+        }
+        if (!ptr) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "verifySignatures" "', argument " "2"" of type '" "std::string const &""'"); 
+        }
+        arg2 = ptr;
+      }
+    }
+    
+    
+    
+    
+    
+    {
+      try {
+        result = gradido::blockchain::batch::verifySignatures((gradido::blockchain::Filter const &)*arg1,(std::string const &)*arg2);
+      } catch (const gradido::interaction::serialize::MissingMemberException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new std::vector< uint64_t >(result)), SWIGTYPE_p_std__vectorT_uint64_t_t, SWIG_POINTER_OWN |  0 );
+    
+    if (SWIG_IsNewObj(res2)) delete arg2;
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    if (SWIG_IsNewObj(res2)) delete arg2;
+    
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_function_dispatcher
+Napi::Value _wrap_batch__wrap_verifySignatures(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 3 && static_cast<int>(info.Length()) <= 3) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_verifySignatures__SWIG_0(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_verifySignatures__SWIG_0(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 2 && static_cast<int>(info.Length()) <= 2) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_verifySignatures__SWIG_1(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_verifySignatures__SWIG_1(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  
+  SWIG_Error(SWIG_ERROR, "Illegal arguments for function verifySignatures.");
+  
+#ifndef NAPI_CPP_EXCEPTIONS
+  goto fail;
+fail:
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_function
 Napi::Value _wrap_searchDirectionToString(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
@@ -1894,11 +2191,13 @@ SWIGINTERN swig_type_info _swigt__p_std__shared_ptrT_memory__Block_t = {"_p_std_
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_gradido__data__AccountBalance_t = {"_p_std__vectorT_gradido__data__AccountBalance_t", "p_std__vectorT_gradido__data__AccountBalance_t|std::vector< gradido::data::AccountBalance > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_gradido__data__EncryptedMemo_t = {"_p_std__vectorT_gradido__data__EncryptedMemo_t", "std::vector< gradido::data::EncryptedMemo > *|p_std__vectorT_gradido__data__EncryptedMemo_t", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_gradido__data__SignaturePair_t = {"_p_std__vectorT_gradido__data__SignaturePair_t", "std::vector< gradido::data::SignaturePair > *|p_std__vectorT_gradido__data__SignaturePair_t", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_std__vectorT_gradido__data__compact__PublicKeyIndex_t = {"_p_std__vectorT_gradido__data__compact__PublicKeyIndex_t", "std::vector< gradido::data::compact::PublicKeyIndex > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_memory__BlockPtrWrapper_t = {"_p_std__vectorT_memory__BlockPtrWrapper_t", "p_std__vectorT_memory__BlockPtrWrapper_t|std::vector< memory::BlockPtrWrapper > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_const_t_t = {"_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_const_t_t", "gradido::blockchain::TransactionEntries *|std::vector< std::shared_ptr< gradido::blockchain::TransactionEntry const > > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t = {"_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t", "std::vector< std::shared_ptr< gradido::blockchain::TransactionEntry > > *|p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t = {"_p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t", "std::vector< std::shared_ptr< gradido::data::TransactionTriggerEvent const > > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t = {"_p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t", "std::vector< memory::ConstBlockPtr > *|std::vector< std::shared_ptr< memory::Block const > > *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_std__vectorT_uint64_t_t = {"_p_std__vectorT_uint64_t_t", "std::vector< uint64_t > *|std::vector< unsigned long long > *|p_std__vectorT_uint64_t_t", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "uint8_t *|uint_fast8_t *|uint_least8_t *|unsigned char *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_unsigned_int = {"_p_unsigned_int", "uint32_t *|uint_fast16_t *|uint_fast32_t *|uint_least32_t *|uintptr_t *|unsigned int *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_unsigned_long_long = {"_p_unsigned_long_long", "KeyHashed *|uint64_t *|uint_fast64_t *|uint_least64_t *|uintmax_t *|unsigned long long *", 0, 0, (void*)0, 0};
@@ -2012,11 +2311,13 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_std__vectorT_gradido__data__AccountBalance_t,
   &_swigt__p_std__vectorT_gradido__data__EncryptedMemo_t,
   &_swigt__p_std__vectorT_gradido__data__SignaturePair_t,
+  &_swigt__p_std__vectorT_gradido__data__compact__PublicKeyIndex_t,
   &_swigt__p_std__vectorT_memory__BlockPtrWrapper_t,
   &_swigt__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_const_t_t,
   &_swigt__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t,
   &_swigt__p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t,
   &_swigt__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t,
+  &_swigt__p_std__vectorT_uint64_t_t,
   &_swigt__p_unsigned_char,
   &_swigt__p_unsigned_int,
   &_swigt__p_unsigned_long_long,
@@ -2127,11 +2428,13 @@ SWIGINTERN swig_cast_info _swigc__p_std__shared_ptrT_memory__Block_t[] = {  {&_s
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_gradido__data__AccountBalance_t[] = {  {&_swigt__p_std__vectorT_gradido__data__AccountBalance_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_gradido__data__EncryptedMemo_t[] = {  {&_swigt__p_std__vectorT_gradido__data__EncryptedMemo_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_gradido__data__SignaturePair_t[] = {  {&_swigt__p_std__vectorT_gradido__data__SignaturePair_t, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_std__vectorT_gradido__data__compact__PublicKeyIndex_t[] = {  {&_swigt__p_std__vectorT_gradido__data__compact__PublicKeyIndex_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_memory__BlockPtrWrapper_t[] = {  {&_swigt__p_std__vectorT_memory__BlockPtrWrapper_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_const_t_t[] = {  {&_swigt__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_const_t_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t[] = {  {&_swigt__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t[] = {  {&_swigt__p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t[] = {  {&_swigt__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_std__vectorT_uint64_t_t[] = {  {&_swigt__p_std__vectorT_uint64_t_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_unsigned_char[] = {  {&_swigt__p_unsigned_char, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_unsigned_int[] = {  {&_swigt__p_unsigned_int, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_unsigned_long_long[] = {  {&_swigt__p_unsigned_long_long, 0, 0, 0},{0, 0, 0, 0}};
@@ -2242,11 +2545,13 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_std__vectorT_gradido__data__AccountBalance_t,
   _swigc__p_std__vectorT_gradido__data__EncryptedMemo_t,
   _swigc__p_std__vectorT_gradido__data__SignaturePair_t,
+  _swigc__p_std__vectorT_gradido__data__compact__PublicKeyIndex_t,
   _swigc__p_std__vectorT_memory__BlockPtrWrapper_t,
   _swigc__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_const_t_t,
   _swigc__p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t,
   _swigc__p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t,
   _swigc__p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t,
+  _swigc__p_std__vectorT_uint64_t_t,
   _swigc__p_unsigned_char,
   _swigc__p_unsigned_int,
   _swigc__p_unsigned_long_long,
@@ -2257,6 +2562,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
 
-SWIGINTERN swig_type_info *swig_types[114];
-SWIGINTERN swig_module_info swig_module = {swig_types, 113, 0, 0, 0, 0};
+SWIGINTERN swig_type_info *swig_types[116];
+SWIGINTERN swig_module_info swig_module = {swig_types, 115, 0, 0, 0, 0};
 

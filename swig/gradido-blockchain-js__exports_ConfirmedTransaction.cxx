@@ -151,7 +151,7 @@ void _exports_ConfirmedTransaction_inst::GetMembers(
   members.insert({
     "isInvolved",
       _exports_ConfirmedTransaction_templ::InstanceMethod("isInvolved",
-        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_isInvolved,
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction__wrap_ConfirmedTransaction_isInvolved,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -159,7 +159,7 @@ void _exports_ConfirmedTransaction_inst::GetMembers(
   members.insert({
     "isBalanceUpdated",
       _exports_ConfirmedTransaction_templ::InstanceMethod("isBalanceUpdated",
-        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_isBalanceUpdated,
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction__wrap_ConfirmedTransaction_isBalanceUpdated,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -168,6 +168,14 @@ void _exports_ConfirmedTransaction_inst::GetMembers(
     "getInvolvedAddresses",
       _exports_ConfirmedTransaction_templ::InstanceMethod("getInvolvedAddresses",
         &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_getInvolvedAddresses,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getInvolvedAddressIndices");
+  members.insert({
+    "getInvolvedAddressIndices",
+      _exports_ConfirmedTransaction_templ::InstanceMethod("getInvolvedAddressIndices",
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_getInvolvedAddressIndices,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

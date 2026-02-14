@@ -63,7 +63,7 @@ void _exports_GradidoTransaction_inst::GetMembers(
   members.insert({
     "isInvolved",
       _exports_GradidoTransaction_templ::InstanceMethod("isInvolved",
-        &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction_isInvolved,
+        &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction__wrap_GradidoTransaction_isInvolved,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -72,6 +72,14 @@ void _exports_GradidoTransaction_inst::GetMembers(
     "getInvolvedAddresses",
       _exports_GradidoTransaction_templ::InstanceMethod("getInvolvedAddresses",
         &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction_getInvolvedAddresses,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getInvolvedAddressIndices");
+  members.insert({
+    "getInvolvedAddressIndices",
+      _exports_GradidoTransaction_templ::InstanceMethod("getInvolvedAddressIndices",
+        &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction_getInvolvedAddressIndices,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

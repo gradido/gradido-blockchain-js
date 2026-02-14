@@ -151,6 +151,7 @@ E string_to_enum(const std::string& name);
 %include "interaction/deserialize.i"
 %include "interaction/serialize.i"
 
+%include "blockchain/blockchain_batch.i"
 %include "blockchain/blockchain.i"
 
 

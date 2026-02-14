@@ -8,25 +8,25 @@
 
 #include "swig/gradido-blockchain-js.h"
 
-/* Class: SignatureMap (_exports_SignatureMap) */
+/* Class: VectorUint64 (_exports_VectorUint64) */
 // jsnapi_getclass
-Napi::Function _exports_SignatureMap_inst::GetClass(Napi::Env env) {
-  std::map<std::string, _exports_SignatureMap_templ::PropertyDescriptor> members, staticMembers;
+Napi::Function _exports_VectorUint64_inst::GetClass(Napi::Env env) {
+  std::map<std::string, _exports_VectorUint64_templ::PropertyDescriptor> members, staticMembers;
   GetMembers(env, members, staticMembers);
   
-  std::vector<_exports_SignatureMap_inst::PropertyDescriptor> symbolTable;
+  std::vector<_exports_VectorUint64_inst::PropertyDescriptor> symbolTable;
   for (auto it = members.begin(); it != members.end(); it++)
   symbolTable.push_back(it->second);
   for (auto it = staticMembers.begin(); it != staticMembers.end(); it++)
   symbolTable.push_back(it->second);
   
-  return Napi::ObjectWrap<_exports_SignatureMap_inst>::DefineClass(env, "SignatureMap", symbolTable);
+  return Napi::ObjectWrap<_exports_VectorUint64_inst>::DefineClass(env, "VectorUint64", symbolTable);
 }
 
-void _exports_SignatureMap_inst::GetMembers(
+void _exports_VectorUint64_inst::GetMembers(
   Napi::Env env,
-  std::map<std::string, _exports_SignatureMap_templ::PropertyDescriptor> &members,
-  std::map<std::string, _exports_SignatureMap_templ::PropertyDescriptor> &staticMembers
+  std::map<std::string, _exports_VectorUint64_templ::PropertyDescriptor> &members,
+  std::map<std::string, _exports_VectorUint64_templ::PropertyDescriptor> &staticMembers
   ) {
   std::map<std::string, SWIG_NAPI_ObjectWrap_templ<SWIG_NAPI_ObjectWrap_inst>::PropertyDescriptor> baseMembers, baseStaticMembers;
   SWIG_NAPI_ObjectWrap_inst::GetMembers(env, baseMembers, baseStaticMembers);
@@ -35,59 +35,67 @@ void _exports_SignatureMap_inst::GetMembers(
   
   /* register wrapper functions */
   // jsnapi_register_member_function
-  members.erase("push");
+  members.erase("size");
   members.insert({
-    "push",
-      _exports_SignatureMap_templ::InstanceMethod("push",
-        &_exports_SignatureMap_templ::_wrap_SignatureMap_push,
+    "size",
+      _exports_VectorUint64_templ::InstanceMethod("size",
+        &_exports_VectorUint64_templ::_wrap_VectorUint64_size,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("capacity");
+  members.insert({
+    "capacity",
+      _exports_VectorUint64_templ::InstanceMethod("capacity",
+        &_exports_VectorUint64_templ::_wrap_VectorUint64_capacity,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
   members.erase("reserve");
   members.insert({
     "reserve",
-      _exports_SignatureMap_templ::InstanceMethod("reserve",
-        &_exports_SignatureMap_templ::_wrap_SignatureMap_reserve,
+      _exports_VectorUint64_templ::InstanceMethod("reserve",
+        &_exports_VectorUint64_templ::_wrap_VectorUint64_reserve,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("isEmpty");
+  members.insert({
+    "isEmpty",
+      _exports_VectorUint64_templ::InstanceMethod("isEmpty",
+        &_exports_VectorUint64_templ::_wrap_VectorUint64_isEmpty,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
   members.erase("clear");
   members.insert({
     "clear",
-      _exports_SignatureMap_templ::InstanceMethod("clear",
-        &_exports_SignatureMap_templ::_wrap_SignatureMap_clear,
+      _exports_VectorUint64_templ::InstanceMethod("clear",
+        &_exports_VectorUint64_templ::_wrap_VectorUint64_clear,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getSignaturePairs");
+  members.erase("add");
   members.insert({
-    "getSignaturePairs",
-      _exports_SignatureMap_templ::InstanceMethod("getSignaturePairs",
-        &_exports_SignatureMap_templ::_wrap_SignatureMap_getSignaturePairs,
+    "add",
+      _exports_VectorUint64_templ::InstanceMethod("add",
+        &_exports_VectorUint64_templ::_wrap_VectorUint64_add,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("isTheSame");
+  members.erase("get");
   members.insert({
-    "isTheSame",
-      _exports_SignatureMap_templ::InstanceMethod("isTheSame",
-        &_exports_SignatureMap_templ::_wrap_SignatureMap_isTheSame,
+    "get",
+      _exports_VectorUint64_templ::InstanceMethod("get",
+        &_exports_VectorUint64_templ::_wrap_VectorUint64_get,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("isPairing");
+  members.erase("set");
   members.insert({
-    "isPairing",
-      _exports_SignatureMap_templ::InstanceMethod("isPairing",
-        &_exports_SignatureMap_templ::_wrap_SignatureMap_isPairing,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("toJson");
-  members.insert({
-    "toJson",
-      _exports_SignatureMap_templ::InstanceMethod("toJson",
-        &_exports_SignatureMap_templ::_wrap_SignatureMap__wrap_SignatureMap_toJson,
+    "set",
+      _exports_VectorUint64_templ::InstanceMethod("set",
+        &_exports_VectorUint64_templ::_wrap_VectorUint64_set,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
