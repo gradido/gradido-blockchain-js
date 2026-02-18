@@ -3329,6 +3329,9 @@ fail:
 SWIGINTERN std::string gradido_blockchain_Filter_toJson__SWIG_0(gradido::blockchain::Filter const *self,bool pretty){
         return serialization::toJsonString(*self, pretty);
     }
+SWIGINTERN void gradido_blockchain_Filter_setCommunityId(gradido::blockchain::Filter *self,char const *communityId){
+        self->coinCommunityIdIndex = gradido::g_appContext->getOrAddCommunityIdIndex(communityId);
+    }
 SWIGINTERN Timepoint gradido_blockchain_InMemory_getStartDate(gradido::blockchain::InMemory const *self){
             return static_cast<const gradido::blockchain::Abstract*>(self)->getStartDate();
         }

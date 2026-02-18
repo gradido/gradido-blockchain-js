@@ -75,14 +75,6 @@ void _exports_GradidoUnit_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("mul");
-  members.insert({
-    "mul",
-      _exports_GradidoUnit_templ::InstanceMethod("mul",
-        &_exports_GradidoUnit_templ::_wrap_GradidoUnit_mul,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("plus");
   members.insert({
     "plus",
@@ -96,14 +88,6 @@ void _exports_GradidoUnit_inst::GetMembers(
     "minus",
       _exports_GradidoUnit_templ::InstanceMethod("minus",
         &_exports_GradidoUnit_templ::_wrap_GradidoUnit_minus,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("times");
-  members.insert({
-    "times",
-      _exports_GradidoUnit_templ::InstanceMethod("times",
-        &_exports_GradidoUnit_templ::_wrap_GradidoUnit_times,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

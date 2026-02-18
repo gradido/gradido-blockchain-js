@@ -67,6 +67,9 @@ namespace gradido::blockchain {
     std::string toJson(bool pretty = false) const {
         return serialization::toJsonString(*self, pretty);
     }
+    void setCommunityId(const char* communityId) {
+        self->coinCommunityIdIndex = gradido::g_appContext->getOrAddCommunityIdIndex(communityId);
+    }
 }
 %extend gradido::blockchain::Pagination {
     std::string toJson(bool pretty = false) const {

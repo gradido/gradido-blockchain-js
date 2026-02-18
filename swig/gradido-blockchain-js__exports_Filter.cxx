@@ -131,6 +131,14 @@ void _exports_Filter_inst::GetMembers(
         &_exports_Filter_templ::_wrap_Filter__wrap_Filter_toJson,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
+  // jsnapi_register_member_function
+  members.erase("setCommunityId");
+  members.insert({
+    "setCommunityId",
+      _exports_Filter_templ::InstanceMethod("setCommunityId",
+        &_exports_Filter_templ::_wrap_Filter_setCommunityId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
   
   /* add static class functions and variables */
   // jsnapi_register_static_constant

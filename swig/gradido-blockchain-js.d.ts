@@ -527,13 +527,9 @@ export  class GradidoUnit {
 
   sub(other: GradidoUnit): GradidoUnit;
 
-  mul(other: GradidoUnit): GradidoUnit;
-
   plus(other: GradidoUnit): GradidoUnit;
 
   minus(other: GradidoUnit): GradidoUnit;
-
-  times(other: GradidoUnit): GradidoUnit;
 
   gt(other: GradidoUnit): boolean;
 
@@ -1822,6 +1818,8 @@ export  class Filter {
   toJson(pretty: boolean): string;
 
   toJson(): string;
+
+  setCommunityId(communityId: string): void;
 }
 
 export  class FilterBuilder {

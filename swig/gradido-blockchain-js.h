@@ -1573,6 +1573,7 @@ Napi::Value _wrap_searchDirectionToString(const Napi::CallbackInfo &info);
 // js_global_declaration
 Napi::Value _wrap_stringToSearchDirection(const Napi::CallbackInfo &info);
 SWIGINTERN std::string gradido_blockchain_Filter_toJson__SWIG_0(gradido::blockchain::Filter const *self,bool pretty=false);
+SWIGINTERN void gradido_blockchain_Filter_setCommunityId(gradido::blockchain::Filter *self,char const *communityId);
 
 #include "gradido_blockchain/blockchain/Abstract.h"
 #include "gradido_blockchain/blockchain/InMemory.h"
@@ -2352,13 +2353,9 @@ Napi::Value _wrap_GradidoUnit_add(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_GradidoUnit_sub(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
-Napi::Value _wrap_GradidoUnit_mul(const Napi::CallbackInfo &);
-// jsnapi_class_method_declaration
 Napi::Value _wrap_GradidoUnit_plus(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_GradidoUnit_minus(const Napi::CallbackInfo &);
-// jsnapi_class_method_declaration
-Napi::Value _wrap_GradidoUnit_times(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_GradidoUnit_gt(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
@@ -4392,6 +4389,8 @@ Napi::Value _wrap_Filter_toJson__SWIG_0(const Napi::CallbackInfo &);
 Napi::Value _wrap_Filter_toJson__SWIG_1(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_Filter__wrap_Filter_toJson(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_Filter_setCommunityId(const Napi::CallbackInfo &);
 virtual ~_exports_Filter_templ();
 // jsnapi_class_epilogue_template
 };
@@ -20319,73 +20318,6 @@ fail:
 
 // js_function
 template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_mul(const Napi::CallbackInfo &info) {
-  Napi::Env env = info.Env();
-  Napi::Value jsresult;
-  GradidoUnit *arg1 = 0 ;
-  GradidoUnit *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  GradidoUnit *result = 0 ;
-  
-  
-#ifdef NAPI_CPP_EXCEPTIONS
-  try {
-#endif
-    
-    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_GradidoUnit_mul.");
-    }
-    
-    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_GradidoUnit, 0 |  0 );
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GradidoUnit_mul" "', argument " "1"" of type '" "GradidoUnit *""'"); 
-    }
-    arg1 = reinterpret_cast< GradidoUnit * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_GradidoUnit,  0 );
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GradidoUnit_mul" "', argument " "2"" of type '" "GradidoUnit const &""'"); 
-    }
-    if (!argp2) {
-      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "GradidoUnit_mul" "', argument " "2"" of type '" "GradidoUnit const &""'"); 
-    }
-    arg2 = reinterpret_cast< GradidoUnit * >(argp2);
-    
-    
-    
-    
-    {
-      try {
-        result = (GradidoUnit *) &(arg1)->operator *=((GradidoUnit const &)*arg2);
-      } catch (const FixedPointedArithmetikOverflowException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
-      } catch (const std::exception& e) {
-        SWIG_exception(SWIG_RuntimeError, e.what());
-      }
-    }
-    
-    
-    
-    jsresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_GradidoUnit, 0 |  0 );
-    
-    
-    return jsresult;
-#ifdef NAPI_CPP_EXCEPTIONS
-  } catch (...) {
-    std::rethrow_exception(std::current_exception());
-  }
-#else
-  goto fail;
-fail:
-  
-#endif
-  return Napi::Value();
-}
-
-
-// js_function
-template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_plus(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
@@ -20492,73 +20424,6 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_minus(c
     {
       try {
         result = ((GradidoUnit const *)arg1)->operator -((GradidoUnit const &)*arg2);
-      } catch (const FixedPointedArithmetikOverflowException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
-      } catch (const std::exception& e) {
-        SWIG_exception(SWIG_RuntimeError, e.what());
-      }
-    }
-    
-    
-    
-    jsresult = SWIG_NewPointerObj((new GradidoUnit(result)), SWIGTYPE_p_GradidoUnit, SWIG_POINTER_OWN |  0 );
-    
-    
-    return jsresult;
-#ifdef NAPI_CPP_EXCEPTIONS
-  } catch (...) {
-    std::rethrow_exception(std::current_exception());
-  }
-#else
-  goto fail;
-fail:
-  
-#endif
-  return Napi::Value();
-}
-
-
-// js_function
-template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_times(const Napi::CallbackInfo &info) {
-  Napi::Env env = info.Env();
-  Napi::Value jsresult;
-  GradidoUnit *arg1 = 0 ;
-  GradidoUnit *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  GradidoUnit result;
-  
-  
-#ifdef NAPI_CPP_EXCEPTIONS
-  try {
-#endif
-    
-    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_GradidoUnit_times.");
-    }
-    
-    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_GradidoUnit, 0 |  0 );
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GradidoUnit_times" "', argument " "1"" of type '" "GradidoUnit const *""'"); 
-    }
-    arg1 = reinterpret_cast< GradidoUnit * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_GradidoUnit,  0 );
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GradidoUnit_times" "', argument " "2"" of type '" "GradidoUnit const &""'"); 
-    }
-    if (!argp2) {
-      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "GradidoUnit_times" "', argument " "2"" of type '" "GradidoUnit const &""'"); 
-    }
-    arg2 = reinterpret_cast< GradidoUnit * >(argp2);
-    
-    
-    
-    
-    {
-      try {
-        result = ((GradidoUnit const *)arg1)->operator *((GradidoUnit const &)*arg2);
       } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
       } catch (const std::exception& e) {
@@ -62414,6 +62279,74 @@ Napi::Value _exports_Filter_templ<SWIG_OBJ_WRAP>::_wrap_Filter__wrap_Filter_toJs
 #ifndef NAPI_CPP_EXCEPTIONS
   goto fail;
 fail:
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_Filter_templ<SWIG_OBJ_WRAP>::_wrap_Filter_setCommunityId(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::Filter *arg1 = 0 ;
+  char *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_Filter_setCommunityId.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__Filter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Filter_setCommunityId" "', argument " "1"" of type '" "gradido::blockchain::Filter *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::Filter * >(argp1);res2 = SWIG_AsCharPtrAndSize(info[0], &buf2, NULL, &alloc2);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Filter_setCommunityId" "', argument " "2"" of type '" "char const *""'");
+    }
+    arg2 = reinterpret_cast< char * >(buf2);
+    
+    
+    
+    
+    {
+      try {
+        gradido_blockchain_Filter_setCommunityId(arg1,(char const *)arg2);
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = env.Undefined();
+    
+    if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+    
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  
 #endif
   return Napi::Value();
 }
