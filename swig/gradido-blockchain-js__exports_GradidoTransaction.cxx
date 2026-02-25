@@ -123,19 +123,19 @@ void _exports_GradidoTransaction_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getCommunityIdIndex");
-  members.insert({
-    "getCommunityIdIndex",
-      _exports_GradidoTransaction_templ::InstanceMethod("getCommunityIdIndex",
-        &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction_getCommunityIdIndex,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("getPairingLedgerAnchor");
   members.insert({
     "getPairingLedgerAnchor",
       _exports_GradidoTransaction_templ::InstanceMethod("getPairingLedgerAnchor",
         &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction_getPairingLedgerAnchor,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getCommunityId");
+  members.insert({
+    "getCommunityId",
+      _exports_GradidoTransaction_templ::InstanceMethod("getCommunityId",
+        &_exports_GradidoTransaction_templ::_wrap_GradidoTransaction_getCommunityId,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

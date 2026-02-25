@@ -1360,9 +1360,9 @@ export  class GradidoTransaction {
 
   getBodyBytes(): MemoryBlockPtr|null;
 
-  getCommunityIdIndex(): number;
-
   getPairingLedgerAnchor(): LedgerAnchor;
+
+  getCommunityId(): string;
 
   toJson(pretty: boolean): string;
 

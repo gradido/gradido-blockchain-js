@@ -2390,6 +2390,9 @@ SWIGINTERN std::string gradido_data_TransactionBody_toJson__SWIG_0(gradido::data
 SWIGINTERN std::string gradido_data_TransactionTriggerEvent_toJson__SWIG_0(gradido::data::TransactionTriggerEvent const *self,bool pretty){
         return serialization::toJsonString(*self, pretty);
     }
+SWIGINTERN std::string gradido_data_GradidoTransaction_getCommunityId(gradido::data::GradidoTransaction const *self){
+        return gradido::g_appContext->getCommunityIds().getDataForIndexOrThrow(self->getCommunityIdIndex());
+    }
 SWIGINTERN std::string gradido_data_GradidoTransaction_toJson__SWIG_0(gradido::data::GradidoTransaction const *self,bool pretty){
         return serialization::toJsonString(*self, pretty);
     }

@@ -79,6 +79,7 @@ namespace gradido::data {
     %ignore ConfirmedTransaction::getAccountBalance(memory::ConstBlockPtr, std::optional<uint32_t>) const;
     %ignore ConfirmedTransaction::hasAccountBalance(memory::ConstBlockPtr, std::optional<uint32_t>) const;
     %ignore ConfirmedTransaction::getDecayedAccountBalance(memory::ConstBlockPtr publicKey, std::optional<uint32_t> coinCommunityIdIndex, Timepoint endDate);
+    %ignore GradidoTransaction::getCommunityIdIndex() const;
     %ignore operator+(const Timestamp& timestamp, const DurationSeconds& duration);
 }
 
@@ -126,6 +127,16 @@ namespace gradido::data {
 %include "gradido_blockchain/data/ConfirmedTransaction.h"
 %include "gradido_blockchain/serialization/toJsonString.h"
 
+%{
+#include "gradido_blockchain/AppContext.h"
+%}
+
+// replace get communityIdIndex with get community id
+%extend gradido::data::GradidoTransaction {
+    std::string getCommunityId() const {
+        return gradido::g_appContext->getCommunityIds().getDataForIndexOrThrow(self->getCommunityIdIndex());
+    }
+}
 
 // toJson for each data Object
 %extend gradido::data::DurationSeconds {
