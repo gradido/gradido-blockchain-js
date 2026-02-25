@@ -1276,10 +1276,6 @@ export  class TransactionBody {
 
   getType(): CrossGroupType;
 
-  getCommunityIdIndex(): number;
-
-  getOtherCommunityIdIndex(): any;
-
   getTransfer(): GradidoTransfer|null;
 
   getCreation(): GradidoCreation|null;
@@ -1295,6 +1291,10 @@ export  class TransactionBody {
   getCommunityRoot(): any;
 
   getRegisterAddress(): any;
+
+  getOtherCommunityId(): string;
+
+  getCommunityId(): string;
 
   toJson(pretty: boolean): string;
 

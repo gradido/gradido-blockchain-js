@@ -2384,6 +2384,16 @@ SWIGINTERN std::string gradido_data_LedgerAnchor_toJson__SWIG_0(gradido::data::L
 SWIGINTERN std::string gradido_data_RegisterAddress_toJson__SWIG_0(gradido::data::RegisterAddress const *self,bool pretty){
         return serialization::toJsonString(*self, pretty);
     }
+SWIGINTERN std::string gradido_data_TransactionBody_getOtherCommunityId(gradido::data::TransactionBody const *self){
+        auto communityIdIndexOptional = self->getOtherCommunityIdIndex();
+        if (!communityIdIndexOptional) {
+            return "";
+        }
+        return gradido::g_appContext->getCommunityIds().getDataForIndexOrThrow(communityIdIndexOptional.value());
+    }
+SWIGINTERN std::string gradido_data_TransactionBody_getCommunityId(gradido::data::TransactionBody const *self){
+        return gradido::g_appContext->getCommunityIds().getDataForIndexOrThrow(self->getCommunityIdIndex());
+    }
 SWIGINTERN std::string gradido_data_TransactionBody_toJson__SWIG_0(gradido::data::TransactionBody const *self,bool pretty){
         return serialization::toJsonString(*self, pretty);
     }

@@ -1503,6 +1503,8 @@ SWIGINTERN std::string gradido_data_GradidoRedeemDeferredTransfer_toJson__SWIG_0
 SWIGINTERN std::string gradido_data_GradidoTimeoutDeferredTransfer_toJson__SWIG_0(gradido::data::GradidoTimeoutDeferredTransfer const *self,bool pretty=false);
 SWIGINTERN std::string gradido_data_LedgerAnchor_toJson__SWIG_0(gradido::data::LedgerAnchor const *self,bool pretty=false);
 SWIGINTERN std::string gradido_data_RegisterAddress_toJson__SWIG_0(gradido::data::RegisterAddress const *self,bool pretty=false);
+SWIGINTERN std::string gradido_data_TransactionBody_getOtherCommunityId(gradido::data::TransactionBody const *self);
+SWIGINTERN std::string gradido_data_TransactionBody_getCommunityId(gradido::data::TransactionBody const *self);
 SWIGINTERN std::string gradido_data_TransactionBody_toJson__SWIG_0(gradido::data::TransactionBody const *self,bool pretty=false);
 SWIGINTERN std::string gradido_data_TransactionTriggerEvent_toJson__SWIG_0(gradido::data::TransactionTriggerEvent const *self,bool pretty=false);
 SWIGINTERN std::string gradido_data_GradidoTransaction_getCommunityId(gradido::data::GradidoTransaction const *self);
@@ -3623,10 +3625,6 @@ Napi::Value _wrap_TransactionBody_getCreatedAt(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_TransactionBody_getType(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
-Napi::Value _wrap_TransactionBody_getCommunityIdIndex(const Napi::CallbackInfo &);
-// jsnapi_class_method_declaration
-Napi::Value _wrap_TransactionBody_getOtherCommunityIdIndex(const Napi::CallbackInfo &);
-// jsnapi_class_method_declaration
 Napi::Value _wrap_TransactionBody_getTransfer(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_TransactionBody_getCreation(const Napi::CallbackInfo &);
@@ -3642,6 +3640,10 @@ Napi::Value _wrap_TransactionBody_getTimeoutDeferredTransfer(const Napi::Callbac
 Napi::Value _wrap_TransactionBody_getCommunityRoot(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_TransactionBody_getRegisterAddress(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_TransactionBody_getOtherCommunityId(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_TransactionBody_getCommunityId(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_TransactionBody_toJson__SWIG_0(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
@@ -44988,116 +44990,6 @@ fail:
 
 // js_function
 template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody_getCommunityIdIndex(const Napi::CallbackInfo &info) {
-  Napi::Env env = info.Env();
-  Napi::Value jsresult;
-  gradido::data::TransactionBody *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  uint32_t result;
-  
-  
-#ifdef NAPI_CPP_EXCEPTIONS
-  try {
-#endif
-    
-    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_TransactionBody_getCommunityIdIndex.");
-    }
-    
-    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__data__TransactionBody, 0 |  0 );
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TransactionBody_getCommunityIdIndex" "', argument " "1"" of type '" "gradido::data::TransactionBody const *""'"); 
-    }
-    arg1 = reinterpret_cast< gradido::data::TransactionBody * >(argp1);
-    
-    
-    
-    
-    {
-      try {
-        result = (uint32_t)((gradido::data::TransactionBody const *)arg1)->getCommunityIdIndex();
-      } catch (const std::exception& e) {
-        SWIG_exception(SWIG_RuntimeError, e.what());
-      }
-    }
-    
-    
-    
-    jsresult = SWIG_From_unsigned_SS_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< unsigned int >(result));
-    
-    
-    return jsresult;
-#ifdef NAPI_CPP_EXCEPTIONS
-  } catch (...) {
-    std::rethrow_exception(std::current_exception());
-  }
-#else
-  goto fail;
-fail:
-  
-#endif
-  return Napi::Value();
-}
-
-
-// js_function
-template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody_getOtherCommunityIdIndex(const Napi::CallbackInfo &info) {
-  Napi::Env env = info.Env();
-  Napi::Value jsresult;
-  gradido::data::TransactionBody *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  std::optional< uint32_t > result;
-  
-  
-#ifdef NAPI_CPP_EXCEPTIONS
-  try {
-#endif
-    
-    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_TransactionBody_getOtherCommunityIdIndex.");
-    }
-    
-    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__data__TransactionBody, 0 |  0 );
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TransactionBody_getOtherCommunityIdIndex" "', argument " "1"" of type '" "gradido::data::TransactionBody const *""'"); 
-    }
-    arg1 = reinterpret_cast< gradido::data::TransactionBody * >(argp1);
-    
-    
-    
-    
-    {
-      try {
-        result = ((gradido::data::TransactionBody const *)arg1)->getOtherCommunityIdIndex();
-      } catch (const std::exception& e) {
-        SWIG_exception(SWIG_RuntimeError, e.what());
-      }
-    }
-    
-    
-    
-    jsresult = SWIG_NewPointerObj((new std::optional< uint32_t >(result)), SWIGTYPE_p_std__optionalT_unsigned_int_t, SWIG_POINTER_OWN |  0 );
-    
-    
-    return jsresult;
-#ifdef NAPI_CPP_EXCEPTIONS
-  } catch (...) {
-    std::rethrow_exception(std::current_exception());
-  }
-#else
-  goto fail;
-fail:
-  
-#endif
-  return Napi::Value();
-}
-
-
-// js_function
-template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody_getTransfer(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
@@ -45586,6 +45478,116 @@ Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody
     
     
     jsresult = SWIG_NewPointerObj((new std::optional< gradido::data::compact::RegisterAddressTx >(result)), SWIGTYPE_p_std__optionalT_gradido__data__compact__RegisterAddressTx_t, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody_getOtherCommunityId(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::TransactionBody *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::string result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_TransactionBody_getOtherCommunityId.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__data__TransactionBody, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TransactionBody_getOtherCommunityId" "', argument " "1"" of type '" "gradido::data::TransactionBody const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::data::TransactionBody * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = gradido_data_TransactionBody_getOtherCommunityId((gradido::data::TransactionBody const *)arg1);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_TransactionBody_templ<SWIG_OBJ_WRAP>::_wrap_TransactionBody_getCommunityId(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::TransactionBody *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::string result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_TransactionBody_getCommunityId.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__data__TransactionBody, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TransactionBody_getCommunityId" "', argument " "1"" of type '" "gradido::data::TransactionBody const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::data::TransactionBody * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = gradido_data_TransactionBody_getCommunityId((gradido::data::TransactionBody const *)arg1);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
     
     
     return jsresult;

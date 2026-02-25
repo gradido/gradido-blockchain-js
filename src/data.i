@@ -80,6 +80,8 @@ namespace gradido::data {
     %ignore ConfirmedTransaction::hasAccountBalance(memory::ConstBlockPtr, std::optional<uint32_t>) const;
     %ignore ConfirmedTransaction::getDecayedAccountBalance(memory::ConstBlockPtr publicKey, std::optional<uint32_t> coinCommunityIdIndex, Timepoint endDate);
     %ignore GradidoTransaction::getCommunityIdIndex() const;
+    %ignore TransactionBody::getCommunityIdIndex() const;
+    %ignore TransactionBody::getOtherCommunityIdIndex() const;
     %ignore operator+(const Timestamp& timestamp, const DurationSeconds& duration);
 }
 
@@ -133,6 +135,21 @@ namespace gradido::data {
 
 // replace get communityIdIndex with get community id
 %extend gradido::data::GradidoTransaction {
+    std::string getCommunityId() const {
+        return gradido::g_appContext->getCommunityIds().getDataForIndexOrThrow(self->getCommunityIdIndex());
+    }
+}
+%extend gradido::data::TransactionBody {
+    std::string getOtherCommunityId() const {
+        auto communityIdIndexOptional = self->getOtherCommunityIdIndex();
+        if (!communityIdIndexOptional) {
+            return "";
+        }
+        return gradido::g_appContext->getCommunityIds().getDataForIndexOrThrow(communityIdIndexOptional.value());
+    }
+}
+
+%extend gradido::data::TransactionBody {
     std::string getCommunityId() const {
         return gradido::g_appContext->getCommunityIds().getDataForIndexOrThrow(self->getCommunityIdIndex());
     }
