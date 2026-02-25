@@ -35,14 +35,6 @@ void _exports_InteractionDeserialize_inst::GetMembers(
   
   /* register wrapper functions */
   // jsnapi_register_member_function
-  members.erase("run");
-  members.insert({
-    "run",
-      _exports_InteractionDeserialize_templ::InstanceMethod("run",
-        &_exports_InteractionDeserialize_templ::_wrap_InteractionDeserialize__wrap_InteractionDeserialize_run,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("isGradidoTransaction");
   members.insert({
     "isGradidoTransaction",
@@ -192,6 +184,14 @@ void _exports_InteractionDeserialize_inst::GetMembers(
     "getLedgerAnchor",
       _exports_InteractionDeserialize_templ::InstanceMethod("getLedgerAnchor",
         &_exports_InteractionDeserialize_templ::_wrap_InteractionDeserialize_getLedgerAnchor,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("run");
+  members.insert({
+    "run",
+      _exports_InteractionDeserialize_templ::InstanceMethod("run",
+        &_exports_InteractionDeserialize_templ::_wrap_InteractionDeserialize__wrap_InteractionDeserialize_run,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

@@ -2715,6 +2715,9 @@ fail:
 #endif
 }
 
+SWIGINTERN void gradido_interaction_deserialize_Context_run__SWIG_1(gradido::interaction::deserialize::Context *self,std::string communityId){
+        self->run(gradido::g_appContext->getOrAddCommunityIdIndex(communityId));
+    }
 SWIGINTERN std::vector< unsigned long long >::const_reference std_vector_Sl_uint64_t_Sg__get(std::vector< uint64_t > *self,int i){
                 int size = int(self->size());
                 if (i>=0 && i<size)

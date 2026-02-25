@@ -1535,8 +1535,6 @@ export  class InteractionDeserialize {
 
   constructor(rawData: MemoryBlockPtr|null);
 
-  run(communityIdIndex: number): void;
-
   run(): void;
 
   isGradidoTransaction(): boolean;
@@ -1576,6 +1574,8 @@ export  class InteractionDeserialize {
   getTransactionTriggerEvent(): TransactionTriggerEvent;
 
   getLedgerAnchor(): LedgerAnchor;
+
+  run(communityId: string): void;
 }
 
 export  class InteractionSerialize {
