@@ -139,6 +139,14 @@ void _exports_Abstract_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("getConfirmedTxForId");
+  members.insert({
+    "getConfirmedTxForId",
+      _exports_Abstract_templ::InstanceMethod("getConfirmedTxForId",
+        &_exports_Abstract_templ::_wrap_Abstract_getConfirmedTxForId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("findByLedgerAnchor");
   members.insert({
     "findByLedgerAnchor",

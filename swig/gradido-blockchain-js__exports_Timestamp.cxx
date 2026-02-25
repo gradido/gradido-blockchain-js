@@ -75,6 +75,14 @@ void _exports_Timestamp_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("lte");
+  members.insert({
+    "lte",
+      _exports_Timestamp_templ::InstanceMethod("lte",
+        &_exports_Timestamp_templ::_wrap_Timestamp_lte,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("lt");
   members.insert({
     "lt",

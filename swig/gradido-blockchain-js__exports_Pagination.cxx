@@ -85,6 +85,14 @@ void _exports_Pagination_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("empty");
+  members.insert({
+    "empty",
+      _exports_Pagination_templ::InstanceMethod("empty",
+        &_exports_Pagination_templ::_wrap_Pagination_empty,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("toJson");
   members.insert({
     "toJson",

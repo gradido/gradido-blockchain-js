@@ -18,6 +18,12 @@ export  class TimepointInterval {
 
   constructor(date: Date);
 
+  constructor(date: any);
+
+  getStartDateYM(): any;
+
+  getEndDateYM(): any;
+
   getStartDate(): Date;
 
   getEndDate(): Date;
@@ -26,11 +32,17 @@ export  class TimepointInterval {
 
   setEndDate(endDate: Date): void;
 
+  setStartDate(startDate: any): void;
+
+  setEndDate(endDate: any): void;
+
   isEmpty(): boolean;
 
   isInsideInterval(month: number, year: number): boolean;
 
   isInsideInterval(date: Date): boolean;
+
+  isOverlap(other: TimepointInterval): boolean;
 
   equal(other: TimepointInterval): boolean;
 
@@ -813,6 +825,8 @@ export  class TimestampSeconds {
 
   getDate(): Date;
 
+  getAsYearMonth(): any;
+
   getSeconds(): number;
 
   equal(other: TimestampSeconds): boolean;
@@ -855,6 +869,8 @@ export  class Timestamp {
   equal(other: Timestamp): boolean;
 
   lt(other: Timestamp): boolean;
+
+  lte(other: Timestamp): boolean;
 
   gt(other: Timestamp): boolean;
 
@@ -1738,6 +1754,8 @@ export  class Pagination {
 
   notEqual(other: Pagination): boolean;
 
+  empty(): boolean;
+
   toJson(pretty: boolean): string;
 
   toJson(): string;
@@ -1851,6 +1869,51 @@ export  class FilterBuilder {
   constructor();
 }
 
+export const None: PublicKeySearchType;
+
+export const InvolvedPublicKey: PublicKeySearchType;
+
+export const BalanceChangingPublicKey: PublicKeySearchType;
+
+export const MissingCommunityId: PublicKeySearchType;
+
+export const MissingIndex: PublicKeySearchType;
+
+export type PublicKeySearchType = number & { readonly [_SWIG_type_tag]: 'PublicKeySearchType'; };
+
+export  class CompactFilter {
+
+  constructor();
+
+  constructor(filter: Filter, publicKeyDictionary: any, communityIdIndex: number);
+
+  constructor(filter: Filter, publicKeyDictionary: any);
+
+  searchDirection: SearchDirection;
+
+  transactionType: TransactionType;
+
+  publicKeySearchType: any;
+
+  coinCommunityIdIndex: number;
+
+  maxTransactionNr: number;
+
+  minTransactionNr: number;
+
+  publicKeyIndex: PublicKeyIndex;
+
+  pagination: Pagination;
+
+  timepointInterval: TimepointInterval;
+
+ static lastBalanceFor(publicKeyIndex: PublicKeyIndex): CompactFilter;
+
+  toJson(pretty: boolean): string;
+
+  toJson(): string;
+}
+
 export  class DeferredRedeemedTransferPair {
 
   constructor();
@@ -1874,15 +1937,17 @@ export abstract class Abstract {
 
   removeTransactionTriggerEvent(transactionTriggerEvent: TransactionTriggerEvent): void;
 
-  isTransactionExist(gradidoTransaction: GradidoTransaction|null): boolean;
+  isTransactionExist(gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp): boolean;
 
-  findTransactionTriggerEventsInRange(range: TimepointInterval): TransactionTriggerEvents;
+  findTransactionTriggerEventsInRange(startDate: Timestamp, endDate: Timestamp): TransactionTriggerEvents;
 
-  findNextTransactionTriggerEventInRange(range: TimepointInterval): TransactionTriggerEvent|null;
+  findNextTransactionTriggerEventInRange(startDate: Timestamp, endDate: Timestamp): TransactionTriggerEvent|null;
 
   findAll(filter: Filter): TransactionEntries;
 
   findAll(): TransactionEntries;
+
+  findAll(filter: CompactFilter): any;
 
   countAll(filter: Filter): number;
 
@@ -1891,6 +1956,8 @@ export abstract class Abstract {
   findOne(filter: Filter): TransactionEntry|null;
 
   findOne(): TransactionEntry|null;
+
+  findOne(filter: CompactFilter): any;
 
   getAddressType(filter: Filter): AddressType;
 
@@ -1901,6 +1968,8 @@ export abstract class Abstract {
   getAddressTypeSlow(): AddressType;
 
   getTransactionForId(transactionId: number): TransactionEntry|null;
+
+  getConfirmedTxForId(transactionId: number): any;
 
   findByLedgerAnchor(ledgerAnchor: LedgerAnchor, filter: Filter): TransactionEntry|null;
 
@@ -1931,17 +2000,17 @@ export  class InMemoryBlockchain extends Abstract {
 
   removeTransactionTriggerEvent(transactionTriggerEvent: TransactionTriggerEvent): void;
 
-  isTransactionExist(gradidoTransaction: GradidoTransaction|null): boolean;
+  findTransactionTriggerEventsInRange(startDate: Timestamp, endDate: Timestamp): TransactionTriggerEvents;
 
-  findTransactionTriggerEventsInRange(range: TimepointInterval): TransactionTriggerEvents;
-
-  findNextTransactionTriggerEventInRange(range: TimepointInterval): TransactionTriggerEvent|null;
+  findNextTransactionTriggerEventInRange(startDate: Timestamp, endDate: Timestamp): TransactionTriggerEvent|null;
 
   getSortedTransactions(): TransactionEntries;
 
   findAll(filter: Filter): TransactionEntries;
 
   findAll(): TransactionEntries;
+
+  findAll(filter: CompactFilter): any;
 
   findOne(filter: Filter): TransactionEntry|null;
 
@@ -1952,6 +2021,8 @@ export  class InMemoryBlockchain extends Abstract {
   getAddressType(): AddressType;
 
   getTransactionForId(transactionId: number): TransactionEntry|null;
+
+  getConfirmedTxForId(transactionId: number): any;
 
   findByLedgerAnchor(ledgerAnchor: LedgerAnchor, filter: Filter): TransactionEntry|null;
 
@@ -1983,11 +2054,17 @@ export  class InteractionCalculateAccountBalance {
 
   fromBegin(startTransactionNr: number, publicKey: MemoryBlockPtr|null, endDate: Date): GradidoUnit;
 
-  fromEnd(publicKey: MemoryBlockPtr|null, endDate: Date, coinCommunityIdIndex: any, maxTransactionNr: number): GradidoUnit;
+  fromEnd(publicKey: MemoryBlockPtr|null, endDate: Timestamp, coinCommunityIdIndex: any, maxTransactionNr: number): GradidoUnit;
 
-  fromEnd(publicKey: MemoryBlockPtr|null, endDate: Date, coinCommunityIdIndex: any): GradidoUnit;
+  fromEnd(publicKey: MemoryBlockPtr|null, endDate: Timestamp, coinCommunityIdIndex: any): GradidoUnit;
 
-  fromEnd(publicKey: MemoryBlockPtr|null, endDate: Date): GradidoUnit;
+  fromEnd(publicKey: MemoryBlockPtr|null, endDate: Timestamp): GradidoUnit;
+
+  fromEnd(balanceChangingPublicKey: PublicKeyIndex, endDate: Timestamp, coinCommunityIdIndex: any, maxTransactionNr: number): GradidoUnit;
+
+  fromEnd(balanceChangingPublicKey: PublicKeyIndex, endDate: Timestamp, coinCommunityIdIndex: any): GradidoUnit;
+
+  fromEnd(balanceChangingPublicKey: PublicKeyIndex, endDate: Timestamp): GradidoUnit;
 }
 
 export const ValidateType_SINGLE: ValidateType;

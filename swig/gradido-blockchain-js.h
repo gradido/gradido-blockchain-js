@@ -946,101 +946,104 @@ SWIGCLINKAGE SWIGINTERN swig_cast_info *swig_cast_initial[];
 #define SWIGTYPE_p_char swig_types[17]
 #define SWIGTYPE_p_date__month swig_types[18]
 #define SWIGTYPE_p_date__year swig_types[19]
-#define SWIGTYPE_p_difference_type swig_types[20]
-#define SWIGTYPE_p_first_type swig_types[21]
-#define SWIGTYPE_p_gradido__GradidoTransactionBuilder swig_types[22]
-#define SWIGTYPE_p_gradido__GradidoTransactionBuilderException swig_types[23]
-#define SWIGTYPE_p_gradido__GradidoTransactionWrongBuildingStateBuilderException swig_types[24]
-#define SWIGTYPE_p_gradido__blockchain__Abstract swig_types[25]
-#define SWIGTYPE_p_gradido__blockchain__AbstractProvider swig_types[26]
-#define SWIGTYPE_p_gradido__blockchain__Filter swig_types[27]
-#define SWIGTYPE_p_gradido__blockchain__FilterBuilder swig_types[28]
-#define SWIGTYPE_p_gradido__blockchain__InMemory swig_types[29]
-#define SWIGTYPE_p_gradido__blockchain__InMemoryProvider swig_types[30]
-#define SWIGTYPE_p_gradido__blockchain__Pagination swig_types[31]
-#define SWIGTYPE_p_gradido__blockchain__TransactionEntry swig_types[32]
-#define SWIGTYPE_p_gradido__data__AccountBalance swig_types[33]
-#define SWIGTYPE_p_gradido__data__CommunityFriendsUpdate swig_types[34]
-#define SWIGTYPE_p_gradido__data__CommunityRoot swig_types[35]
-#define SWIGTYPE_p_gradido__data__ConfirmedTransaction swig_types[36]
-#define SWIGTYPE_p_gradido__data__DurationSeconds swig_types[37]
-#define SWIGTYPE_p_gradido__data__EncryptedMemo swig_types[38]
-#define SWIGTYPE_p_gradido__data__GradidoCreation swig_types[39]
-#define SWIGTYPE_p_gradido__data__GradidoDeferredTransfer swig_types[40]
-#define SWIGTYPE_p_gradido__data__GradidoRedeemDeferredTransfer swig_types[41]
-#define SWIGTYPE_p_gradido__data__GradidoTimeoutDeferredTransfer swig_types[42]
-#define SWIGTYPE_p_gradido__data__GradidoTransaction swig_types[43]
-#define SWIGTYPE_p_gradido__data__GradidoTransfer swig_types[44]
-#define SWIGTYPE_p_gradido__data__LedgerAnchor swig_types[45]
-#define SWIGTYPE_p_gradido__data__RegisterAddress swig_types[46]
-#define SWIGTYPE_p_gradido__data__SignatureMap swig_types[47]
-#define SWIGTYPE_p_gradido__data__SignaturePair swig_types[48]
-#define SWIGTYPE_p_gradido__data__Timestamp swig_types[49]
-#define SWIGTYPE_p_gradido__data__TimestampSeconds swig_types[50]
-#define SWIGTYPE_p_gradido__data__TransactionBody swig_types[51]
-#define SWIGTYPE_p_gradido__data__TransactionTriggerEvent swig_types[52]
-#define SWIGTYPE_p_gradido__data__TransferAmount swig_types[53]
-#define SWIGTYPE_p_gradido__data__compact__HieroTransactionId swig_types[54]
-#define SWIGTYPE_p_gradido__data__compact__PublicKeyIndex swig_types[55]
-#define SWIGTYPE_p_gradido__interaction__calculateAccountBalance__Context swig_types[56]
-#define SWIGTYPE_p_gradido__interaction__deserialize__Context swig_types[57]
-#define SWIGTYPE_p_gradido__interaction__serialize__Context swig_types[58]
-#define SWIGTYPE_p_gradido__interaction__validate__Context swig_types[59]
-#define SWIGTYPE_p_grdu_memory swig_types[60]
-#define SWIGTYPE_p_grdw_confirmed_transaction swig_types[61]
-#define SWIGTYPE_p_grdw_gradido_transaction swig_types[62]
-#define SWIGTYPE_p_grdw_transaction_body swig_types[63]
-#define SWIGTYPE_p_hiero__AccountId swig_types[64]
-#define SWIGTYPE_p_hiero__TopicId swig_types[65]
-#define SWIGTYPE_p_hiero__TransactionId swig_types[66]
-#define SWIGTYPE_p_int swig_types[67]
-#define SWIGTYPE_p_long_long swig_types[68]
-#define SWIGTYPE_p_memory__Block swig_types[69]
-#define SWIGTYPE_p_memory__BlockPtrWrapper swig_types[70]
-#define SWIGTYPE_p_memory__ConstBlockPtrEqual swig_types[71]
-#define SWIGTYPE_p_memory__ConstBlockPtrHash swig_types[72]
-#define SWIGTYPE_p_second_type swig_types[73]
-#define SWIGTYPE_p_short swig_types[74]
-#define SWIGTYPE_p_signed_char swig_types[75]
-#define SWIGTYPE_p_size_type swig_types[76]
-#define SWIGTYPE_p_std__chrono__system_clock__duration swig_types[77]
-#define SWIGTYPE_p_std__chrono__time_pointT_std__chrono__system_clock_t swig_types[78]
-#define SWIGTYPE_p_std__functionT_gradido__blockchain__FilterResult_fgradido__blockchain__TransactionEntry_const_RF_t swig_types[79]
-#define SWIGTYPE_p_std__optionalT_gradido__data__compact__CommunityRootTx_t swig_types[80]
-#define SWIGTYPE_p_std__optionalT_gradido__data__compact__RegisterAddressTx_t swig_types[81]
-#define SWIGTYPE_p_std__optionalT_unsigned_int_t swig_types[82]
-#define SWIGTYPE_p_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t swig_types[83]
-#define SWIGTYPE_p_std__shared_ptrT_KeyPairEd25519Ex_t swig_types[84]
-#define SWIGTYPE_p_std__shared_ptrT_KeyPairEd25519_t swig_types[85]
-#define SWIGTYPE_p_std__shared_ptrT_Passphrase_t swig_types[86]
-#define SWIGTYPE_p_std__shared_ptrT_SecretKeyCryptography_t swig_types[87]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__Abstract_t swig_types[88]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__InMemory_t swig_types[89]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__TransactionEntry_const_t swig_types[90]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__TransactionEntry_t swig_types[91]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t swig_types[92]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t swig_types[93]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t swig_types[94]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__TransactionBody_const_t swig_types[95]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t swig_types[96]
-#define SWIGTYPE_p_std__shared_ptrT_gradido__data__compact__ConfirmedGradidoTx_const_t swig_types[97]
-#define SWIGTYPE_p_std__shared_ptrT_memory__Block_const_t swig_types[98]
-#define SWIGTYPE_p_std__shared_ptrT_memory__Block_t swig_types[99]
-#define SWIGTYPE_p_std__vectorT_gradido__data__AccountBalance_t swig_types[100]
-#define SWIGTYPE_p_std__vectorT_gradido__data__EncryptedMemo_t swig_types[101]
-#define SWIGTYPE_p_std__vectorT_gradido__data__SignaturePair_t swig_types[102]
-#define SWIGTYPE_p_std__vectorT_gradido__data__compact__PublicKeyIndex_t swig_types[103]
-#define SWIGTYPE_p_std__vectorT_memory__BlockPtrWrapper_t swig_types[104]
-#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_const_t_t swig_types[105]
-#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t swig_types[106]
-#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t swig_types[107]
-#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t swig_types[108]
-#define SWIGTYPE_p_std__vectorT_uint64_t_t swig_types[109]
-#define SWIGTYPE_p_unsigned_char swig_types[110]
-#define SWIGTYPE_p_unsigned_int swig_types[111]
-#define SWIGTYPE_p_unsigned_long_long swig_types[112]
-#define SWIGTYPE_p_unsigned_short swig_types[113]
-#define SWIGTYPE_p_value_type swig_types[114]
+#define SWIGTYPE_p_date__year_month swig_types[20]
+#define SWIGTYPE_p_difference_type swig_types[21]
+#define SWIGTYPE_p_first_type swig_types[22]
+#define SWIGTYPE_p_gradido__GradidoTransactionBuilder swig_types[23]
+#define SWIGTYPE_p_gradido__GradidoTransactionBuilderException swig_types[24]
+#define SWIGTYPE_p_gradido__GradidoTransactionWrongBuildingStateBuilderException swig_types[25]
+#define SWIGTYPE_p_gradido__blockchain__Abstract swig_types[26]
+#define SWIGTYPE_p_gradido__blockchain__AbstractProvider swig_types[27]
+#define SWIGTYPE_p_gradido__blockchain__CompactFilter swig_types[28]
+#define SWIGTYPE_p_gradido__blockchain__Filter swig_types[29]
+#define SWIGTYPE_p_gradido__blockchain__FilterBuilder swig_types[30]
+#define SWIGTYPE_p_gradido__blockchain__InMemory swig_types[31]
+#define SWIGTYPE_p_gradido__blockchain__InMemoryProvider swig_types[32]
+#define SWIGTYPE_p_gradido__blockchain__Pagination swig_types[33]
+#define SWIGTYPE_p_gradido__blockchain__TransactionEntry swig_types[34]
+#define SWIGTYPE_p_gradido__data__AccountBalance swig_types[35]
+#define SWIGTYPE_p_gradido__data__CommunityFriendsUpdate swig_types[36]
+#define SWIGTYPE_p_gradido__data__CommunityRoot swig_types[37]
+#define SWIGTYPE_p_gradido__data__ConfirmedTransaction swig_types[38]
+#define SWIGTYPE_p_gradido__data__DurationSeconds swig_types[39]
+#define SWIGTYPE_p_gradido__data__EncryptedMemo swig_types[40]
+#define SWIGTYPE_p_gradido__data__GradidoCreation swig_types[41]
+#define SWIGTYPE_p_gradido__data__GradidoDeferredTransfer swig_types[42]
+#define SWIGTYPE_p_gradido__data__GradidoRedeemDeferredTransfer swig_types[43]
+#define SWIGTYPE_p_gradido__data__GradidoTimeoutDeferredTransfer swig_types[44]
+#define SWIGTYPE_p_gradido__data__GradidoTransaction swig_types[45]
+#define SWIGTYPE_p_gradido__data__GradidoTransfer swig_types[46]
+#define SWIGTYPE_p_gradido__data__LedgerAnchor swig_types[47]
+#define SWIGTYPE_p_gradido__data__RegisterAddress swig_types[48]
+#define SWIGTYPE_p_gradido__data__SignatureMap swig_types[49]
+#define SWIGTYPE_p_gradido__data__SignaturePair swig_types[50]
+#define SWIGTYPE_p_gradido__data__Timestamp swig_types[51]
+#define SWIGTYPE_p_gradido__data__TimestampSeconds swig_types[52]
+#define SWIGTYPE_p_gradido__data__TransactionBody swig_types[53]
+#define SWIGTYPE_p_gradido__data__TransactionTriggerEvent swig_types[54]
+#define SWIGTYPE_p_gradido__data__TransferAmount swig_types[55]
+#define SWIGTYPE_p_gradido__data__compact__HieroTransactionId swig_types[56]
+#define SWIGTYPE_p_gradido__data__compact__PublicKeyIndex swig_types[57]
+#define SWIGTYPE_p_gradido__interaction__calculateAccountBalance__Context swig_types[58]
+#define SWIGTYPE_p_gradido__interaction__deserialize__Context swig_types[59]
+#define SWIGTYPE_p_gradido__interaction__serialize__Context swig_types[60]
+#define SWIGTYPE_p_gradido__interaction__validate__Context swig_types[61]
+#define SWIGTYPE_p_grdu_memory swig_types[62]
+#define SWIGTYPE_p_grdw_confirmed_transaction swig_types[63]
+#define SWIGTYPE_p_grdw_gradido_transaction swig_types[64]
+#define SWIGTYPE_p_grdw_transaction_body swig_types[65]
+#define SWIGTYPE_p_hiero__AccountId swig_types[66]
+#define SWIGTYPE_p_hiero__TopicId swig_types[67]
+#define SWIGTYPE_p_hiero__TransactionId swig_types[68]
+#define SWIGTYPE_p_int swig_types[69]
+#define SWIGTYPE_p_long_long swig_types[70]
+#define SWIGTYPE_p_memory__Block swig_types[71]
+#define SWIGTYPE_p_memory__BlockPtrWrapper swig_types[72]
+#define SWIGTYPE_p_memory__ConstBlockPtrEqual swig_types[73]
+#define SWIGTYPE_p_memory__ConstBlockPtrHash swig_types[74]
+#define SWIGTYPE_p_second_type swig_types[75]
+#define SWIGTYPE_p_short swig_types[76]
+#define SWIGTYPE_p_signed_char swig_types[77]
+#define SWIGTYPE_p_size_type swig_types[78]
+#define SWIGTYPE_p_std__chrono__system_clock__duration swig_types[79]
+#define SWIGTYPE_p_std__chrono__time_pointT_std__chrono__system_clock_t swig_types[80]
+#define SWIGTYPE_p_std__functionT_gradido__blockchain__FilterResult_fgradido__blockchain__TransactionEntry_const_RF_t swig_types[81]
+#define SWIGTYPE_p_std__optionalT_gradido__data__compact__CommunityRootTx_t swig_types[82]
+#define SWIGTYPE_p_std__optionalT_gradido__data__compact__RegisterAddressTx_t swig_types[83]
+#define SWIGTYPE_p_std__optionalT_unsigned_int_t swig_types[84]
+#define SWIGTYPE_p_std__pairT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t swig_types[85]
+#define SWIGTYPE_p_std__shared_ptrT_KeyPairEd25519Ex_t swig_types[86]
+#define SWIGTYPE_p_std__shared_ptrT_KeyPairEd25519_t swig_types[87]
+#define SWIGTYPE_p_std__shared_ptrT_Passphrase_t swig_types[88]
+#define SWIGTYPE_p_std__shared_ptrT_SecretKeyCryptography_t swig_types[89]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__Abstract_t swig_types[90]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__InMemory_t swig_types[91]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__TransactionEntry_const_t swig_types[92]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__blockchain__TransactionEntry_t swig_types[93]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_const_t swig_types[94]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__ConfirmedTransaction_t swig_types[95]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__GradidoTransaction_const_t swig_types[96]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__TransactionBody_const_t swig_types[97]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t swig_types[98]
+#define SWIGTYPE_p_std__shared_ptrT_gradido__data__compact__ConfirmedGradidoTx_const_t swig_types[99]
+#define SWIGTYPE_p_std__shared_ptrT_memory__Block_const_t swig_types[100]
+#define SWIGTYPE_p_std__shared_ptrT_memory__Block_t swig_types[101]
+#define SWIGTYPE_p_std__vectorT_gradido__data__AccountBalance_t swig_types[102]
+#define SWIGTYPE_p_std__vectorT_gradido__data__EncryptedMemo_t swig_types[103]
+#define SWIGTYPE_p_std__vectorT_gradido__data__SignaturePair_t swig_types[104]
+#define SWIGTYPE_p_std__vectorT_gradido__data__compact__PublicKeyIndex_t swig_types[105]
+#define SWIGTYPE_p_std__vectorT_memory__BlockPtrWrapper_t swig_types[106]
+#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_const_t_t swig_types[107]
+#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__blockchain__TransactionEntry_t_t swig_types[108]
+#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__data__TransactionTriggerEvent_const_t_t swig_types[109]
+#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__data__compact__ConfirmedGradidoTx_const_t_t swig_types[110]
+#define SWIGTYPE_p_std__vectorT_std__shared_ptrT_memory__Block_const_t_t swig_types[111]
+#define SWIGTYPE_p_std__vectorT_uint64_t_t swig_types[112]
+#define SWIGTYPE_p_unsigned_char swig_types[113]
+#define SWIGTYPE_p_unsigned_int swig_types[114]
+#define SWIGTYPE_p_unsigned_long_long swig_types[115]
+#define SWIGTYPE_p_unsigned_short swig_types[116]
+#define SWIGTYPE_p_value_type swig_types[117]
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 SWIGCLINKAGE SWIGINTERN swig_type_info *swig_types[];
@@ -1575,6 +1578,15 @@ Napi::Value _wrap_stringToSearchDirection(const Napi::CallbackInfo &info);
 SWIGINTERN std::string gradido_blockchain_Filter_toJson__SWIG_0(gradido::blockchain::Filter const *self,bool pretty=false);
 SWIGINTERN void gradido_blockchain_Filter_setCommunityId(gradido::blockchain::Filter *self,char const *communityId);
 
+#include "gradido_blockchain/blockchain/FilterResult.h"   
+#include "gradido_blockchain/blockchain/Pagination.h"   
+#include "gradido_blockchain/blockchain/SearchDirection.h"    
+#include "gradido_blockchain/blockchain/PublicKeySearchType.h"
+#include "gradido_blockchain/blockchain/CompactFilter.h"
+#include "gradido_blockchain/blockchain/FilterCriteria.h"
+
+SWIGINTERN std::string gradido_blockchain_CompactFilter_toJson__SWIG_0(gradido::blockchain::CompactFilter const *self,bool pretty=false);
+
 #include "gradido_blockchain/blockchain/Abstract.h"
 #include "gradido_blockchain/blockchain/InMemory.h"
 
@@ -1615,13 +1627,27 @@ Napi::Value _wrap_new_TimepointInterval__SWIG_1(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_new_TimepointInterval__SWIG_2(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
+Napi::Value _wrap_new_TimepointInterval__SWIG_3(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_TimepointInterval_getStartDateYM(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_TimepointInterval_getEndDateYM(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
 Napi::Value _wrap_TimepointInterval_getStartDate(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_TimepointInterval_getEndDate(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
-Napi::Value _wrap_TimepointInterval_setStartDate(const Napi::CallbackInfo &);
+Napi::Value _wrap_TimepointInterval_setStartDate__SWIG_0(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
-Napi::Value _wrap_TimepointInterval_setEndDate(const Napi::CallbackInfo &);
+Napi::Value _wrap_TimepointInterval_setEndDate__SWIG_0(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_TimepointInterval_setStartDate__SWIG_1(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_TimepointInterval__wrap_TimepointInterval_setStartDate(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_TimepointInterval_setEndDate__SWIG_1(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_TimepointInterval__wrap_TimepointInterval_setEndDate(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_TimepointInterval_isEmpty(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
@@ -1630,6 +1656,8 @@ Napi::Value _wrap_TimepointInterval_isInsideInterval__SWIG_0(const Napi::Callbac
 Napi::Value _wrap_TimepointInterval_isInsideInterval__SWIG_1(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_TimepointInterval__wrap_TimepointInterval_isInsideInterval(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_TimepointInterval_isOverlap(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_TimepointInterval_equal(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
@@ -2832,6 +2860,8 @@ Napi::Value _wrap_new_TimestampSeconds__SWIG_2(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_TimestampSeconds_getDate(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
+Napi::Value _wrap_TimestampSeconds_getAsYearMonth(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
 Napi::Value _wrap_TimestampSeconds_getSeconds(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_TimestampSeconds_equal(const Napi::CallbackInfo &);
@@ -2894,6 +2924,8 @@ Napi::Value _wrap_Timestamp_toString(const Napi::CallbackInfo &);
 Napi::Value _wrap_Timestamp_equal(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_Timestamp_lt__SWIG_0(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_Timestamp_lte(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_Timestamp_gt__SWIG_0(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
@@ -4277,6 +4309,8 @@ Napi::Value _wrap_Pagination_equal(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_Pagination_notEqual(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
+Napi::Value _wrap_Pagination_empty(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
 Napi::Value _wrap_Pagination_toJson__SWIG_0(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_Pagination_toJson__SWIG_1(const Napi::CallbackInfo &);
@@ -4453,6 +4487,87 @@ public:
     );
   static Napi::Function GetClass(Napi::Env);
 };
+// js_global_declaration
+Napi::Value exports_None_get(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value exports_InvolvedPublicKey_get(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value exports_BalanceChangingPublicKey_get(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value exports_MissingCommunityId_get(const Napi::CallbackInfo &info);
+// js_global_declaration
+Napi::Value exports_MissingIndex_get(const Napi::CallbackInfo &info);
+// jsnapi_class_prologue_template
+template <typename SWIG_OBJ_WRAP>
+class _exports_CompactFilter_templ : public SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP> {
+public:
+  _exports_CompactFilter_templ(const Napi::CallbackInfo &);
+_exports_CompactFilter_templ(bool, const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_CompactFilter__SWIG_0(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_CompactFilter__SWIG_1(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_new_CompactFilter__SWIG_2(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_CompactFilter_searchDirection_get(const Napi::CallbackInfo &);
+// jsnapi_class_setter_declaration
+void _wrap_CompactFilter_searchDirection_set(const Napi::CallbackInfo &, const Napi::Value &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_CompactFilter_transactionType_get(const Napi::CallbackInfo &);
+// jsnapi_class_setter_declaration
+void _wrap_CompactFilter_transactionType_set(const Napi::CallbackInfo &, const Napi::Value &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_CompactFilter_publicKeySearchType_get(const Napi::CallbackInfo &);
+// jsnapi_class_setter_declaration
+void _wrap_CompactFilter_publicKeySearchType_set(const Napi::CallbackInfo &, const Napi::Value &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_CompactFilter_coinCommunityIdIndex_get(const Napi::CallbackInfo &);
+// jsnapi_class_setter_declaration
+void _wrap_CompactFilter_coinCommunityIdIndex_set(const Napi::CallbackInfo &, const Napi::Value &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_CompactFilter_maxTransactionNr_get(const Napi::CallbackInfo &);
+// jsnapi_class_setter_declaration
+void _wrap_CompactFilter_maxTransactionNr_set(const Napi::CallbackInfo &, const Napi::Value &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_CompactFilter_minTransactionNr_get(const Napi::CallbackInfo &);
+// jsnapi_class_setter_declaration
+void _wrap_CompactFilter_minTransactionNr_set(const Napi::CallbackInfo &, const Napi::Value &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_CompactFilter_publicKeyIndex_get(const Napi::CallbackInfo &);
+// jsnapi_class_setter_declaration
+void _wrap_CompactFilter_publicKeyIndex_set(const Napi::CallbackInfo &, const Napi::Value &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_CompactFilter_pagination_get(const Napi::CallbackInfo &);
+// jsnapi_class_setter_declaration
+void _wrap_CompactFilter_pagination_set(const Napi::CallbackInfo &, const Napi::Value &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_CompactFilter_timepointInterval_get(const Napi::CallbackInfo &);
+// jsnapi_class_setter_declaration
+void _wrap_CompactFilter_timepointInterval_set(const Napi::CallbackInfo &, const Napi::Value &);
+// jsnapi_class_method_declaration
+static Napi::Value _wrap_CompactFilter_lastBalanceFor(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_CompactFilter_toJson__SWIG_0(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_CompactFilter_toJson__SWIG_1(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_CompactFilter__wrap_CompactFilter_toJson(const Napi::CallbackInfo &);
+virtual ~_exports_CompactFilter_templ();
+// jsnapi_class_epilogue_template
+};
+// jsnapi_class_instance
+class _exports_CompactFilter_inst : public _exports_CompactFilter_templ<_exports_CompactFilter_inst> {
+public:
+  using _exports_CompactFilter_templ::_exports_CompactFilter_templ;
+  virtual ~_exports_CompactFilter_inst() = default;
+  static void GetMembers(
+    Napi::Env,
+    std::map<std::string, _exports_CompactFilter_templ::PropertyDescriptor> &,
+    std::map<std::string, _exports_CompactFilter_templ::PropertyDescriptor> &
+    );
+  static Napi::Function GetClass(Napi::Env);
+};
 // jsnapi_class_prologue_template
 template <typename SWIG_OBJ_WRAP>
 class _exports_DeferredRedeemedTransferPair_templ : public SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP> {
@@ -4514,6 +4629,8 @@ Napi::Value _wrap_Abstract_findAll__SWIG_0(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_Abstract_findAll__SWIG_1(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
+Napi::Value _wrap_Abstract_findAll__SWIG_2(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
 Napi::Value _wrap_Abstract__wrap_Abstract_findAll(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_Abstract_countAll__SWIG_0(const Napi::CallbackInfo &);
@@ -4525,6 +4642,8 @@ Napi::Value _wrap_Abstract__wrap_Abstract_countAll(const Napi::CallbackInfo &);
 Napi::Value _wrap_Abstract_findOne__SWIG_0(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_Abstract_findOne__SWIG_1(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_Abstract_findOne__SWIG_2(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_Abstract__wrap_Abstract_findOne(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
@@ -4541,6 +4660,8 @@ Napi::Value _wrap_Abstract_getAddressTypeSlow__SWIG_1(const Napi::CallbackInfo &
 Napi::Value _wrap_Abstract__wrap_Abstract_getAddressTypeSlow(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_Abstract_getTransactionForId(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_Abstract_getConfirmedTxForId(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_Abstract_findByLedgerAnchor__SWIG_0(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
@@ -4591,8 +4712,6 @@ Napi::Value _wrap_InMemoryBlockchain_addTransactionTriggerEvent(const Napi::Call
 // jsnapi_class_method_declaration
 Napi::Value _wrap_InMemoryBlockchain_removeTransactionTriggerEvent(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
-Napi::Value _wrap_InMemoryBlockchain_isTransactionExist(const Napi::CallbackInfo &);
-// jsnapi_class_method_declaration
 Napi::Value _wrap_InMemoryBlockchain_findTransactionTriggerEventsInRange(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_InMemoryBlockchain_findNextTransactionTriggerEventInRange(const Napi::CallbackInfo &);
@@ -4602,6 +4721,8 @@ Napi::Value _wrap_InMemoryBlockchain_getSortedTransactions(const Napi::CallbackI
 Napi::Value _wrap_InMemoryBlockchain_findAll__SWIG_0(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_InMemoryBlockchain_findAll__SWIG_1(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_InMemoryBlockchain_findAll__SWIG_2(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_InMemoryBlockchain__wrap_InMemoryBlockchain_findAll(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
@@ -4618,6 +4739,8 @@ Napi::Value _wrap_InMemoryBlockchain_getAddressType__SWIG_1(const Napi::Callback
 Napi::Value _wrap_InMemoryBlockchain__wrap_InMemoryBlockchain_getAddressType(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_InMemoryBlockchain_getTransactionForId(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_InMemoryBlockchain_getConfirmedTxForId(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_InMemoryBlockchain_findByLedgerAnchor__SWIG_0(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
@@ -4694,6 +4817,12 @@ Napi::Value _wrap_InteractionCalculateAccountBalance_fromEnd__SWIG_0(const Napi:
 Napi::Value _wrap_InteractionCalculateAccountBalance_fromEnd__SWIG_1(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_InteractionCalculateAccountBalance_fromEnd__SWIG_2(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_InteractionCalculateAccountBalance_fromEnd__SWIG_3(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_InteractionCalculateAccountBalance_fromEnd__SWIG_4(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_InteractionCalculateAccountBalance_fromEnd__SWIG_5(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_InteractionCalculateAccountBalance__wrap_InteractionCalculateAccountBalance_fromEnd(const Napi::CallbackInfo &);
 virtual ~_exports_InteractionCalculateAccountBalance_templ();
@@ -4915,6 +5044,60 @@ fail:
 }
 
 
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_new_TimepointInterval__SWIG_3(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  date::year_month arg1 ;
+  void *argp1 ;
+  int res1 = 0 ;
+  TimepointInterval *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_TimepointInterval__SWIG_3.");
+    }
+    {
+      {
+        res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_date__year_month,  0 );
+        if (!SWIG_IsOK(res1)) {
+          SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_TimepointInterval" "', argument " "1"" of type '" "date::year_month const""'"); 
+        }  
+        if (!argp1) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_TimepointInterval" "', argument " "1"" of type '" "date::year_month const""'");
+        } else {
+          arg1 = *(reinterpret_cast< date::year_month * >(argp1));
+        }
+      }
+    }
+    {
+      try {
+        result = (TimepointInterval *)new TimepointInterval(SWIG_STD_MOVE(arg1));
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
 // js_ctor_dispatcher
 template <typename SWIG_OBJ_WRAP>
 _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_exports_TimepointInterval_templ(const Napi::CallbackInfo &info)
@@ -5041,6 +5224,42 @@ _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_exports_TimepointInterval_temp
 #endif
   }
   
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_TimepointInterval__SWIG_3(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_TimepointInterval__SWIG_3(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
   
   // default:
   SWIG_Error(SWIG_ERROR, "Illegal arguments for construction of _exports_TimepointInterval");
@@ -5057,6 +5276,116 @@ template <typename SWIG_OBJ_WRAP>
 _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_exports_TimepointInterval_templ(bool, const Napi::CallbackInfo &info)
 :SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP>(true, info) {
   
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInterval_getStartDateYM(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  TimepointInterval *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  date::year_month result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_TimepointInterval_getStartDateYM.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_TimepointInterval, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TimepointInterval_getStartDateYM" "', argument " "1"" of type '" "TimepointInterval const *""'"); 
+    }
+    arg1 = reinterpret_cast< TimepointInterval * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = ((TimepointInterval const *)arg1)->getStartDateYM();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new date::year_month(result)), SWIGTYPE_p_date__year_month, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInterval_getEndDateYM(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  TimepointInterval *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  date::year_month result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_TimepointInterval_getEndDateYM.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_TimepointInterval, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TimepointInterval_getEndDateYM" "', argument " "1"" of type '" "TimepointInterval const *""'"); 
+    }
+    arg1 = reinterpret_cast< TimepointInterval * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = ((TimepointInterval const *)arg1)->getEndDateYM();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new date::year_month(result)), SWIGTYPE_p_date__year_month, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
 }
 
 
@@ -5176,9 +5505,9 @@ fail:
 }
 
 
-// js_function
+// js_overloaded_function
 template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInterval_setStartDate(const Napi::CallbackInfo &info) {
+Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInterval_setStartDate__SWIG_0(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
   TimepointInterval *arg1 = 0 ;
@@ -5186,14 +5515,9 @@ Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInte
   void *argp1 = 0 ;
   int res1 = 0 ;
   
-  
 #ifdef NAPI_CPP_EXCEPTIONS
   try {
 #endif
-    
-    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_TimepointInterval_setStartDate.");
-    }
     
     res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_TimepointInterval, 0 |  0 );
     if (!SWIG_IsOK(res1)) {
@@ -5239,9 +5563,9 @@ fail:
 }
 
 
-// js_function
+// js_overloaded_function
 template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInterval_setEndDate(const Napi::CallbackInfo &info) {
+Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInterval_setEndDate__SWIG_0(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
   TimepointInterval *arg1 = 0 ;
@@ -5249,14 +5573,9 @@ Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInte
   void *argp1 = 0 ;
   int res1 = 0 ;
   
-  
 #ifdef NAPI_CPP_EXCEPTIONS
   try {
 #endif
-    
-    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_TimepointInterval_setEndDate.");
-    }
     
     res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_TimepointInterval, 0 |  0 );
     if (!SWIG_IsOK(res1)) {
@@ -5297,6 +5616,298 @@ Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInte
   goto fail;
 fail:
   
+#endif
+  return Napi::Value();
+}
+
+
+// js_overloaded_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInterval_setStartDate__SWIG_1(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  TimepointInterval *arg1 = 0 ;
+  date::year_month *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_TimepointInterval, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TimepointInterval_setStartDate" "', argument " "1"" of type '" "TimepointInterval *""'"); 
+    }
+    arg1 = reinterpret_cast< TimepointInterval * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_date__year_month,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TimepointInterval_setStartDate" "', argument " "2"" of type '" "date::year_month const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "TimepointInterval_setStartDate" "', argument " "2"" of type '" "date::year_month const &""'"); 
+    }
+    arg2 = reinterpret_cast< date::year_month * >(argp2);
+    
+    
+    
+    
+    {
+      try {
+        (arg1)->setStartDate((date::year_month const &)*arg2);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = env.Undefined();
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function_dispatcher
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInterval__wrap_TimepointInterval_setStartDate(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_TimepointInterval_setStartDate__SWIG_0(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_TimepointInterval_setStartDate__SWIG_0(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_TimepointInterval_setStartDate__SWIG_1(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_TimepointInterval_setStartDate__SWIG_1(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  SWIG_Error(SWIG_ERROR, "Illegal arguments for function setStartDate.");
+#ifndef NAPI_CPP_EXCEPTIONS
+  goto fail;
+fail:
+#endif
+  return Napi::Value();
+}
+
+
+// js_overloaded_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInterval_setEndDate__SWIG_1(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  TimepointInterval *arg1 = 0 ;
+  date::year_month *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_TimepointInterval, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TimepointInterval_setEndDate" "', argument " "1"" of type '" "TimepointInterval *""'"); 
+    }
+    arg1 = reinterpret_cast< TimepointInterval * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_date__year_month,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TimepointInterval_setEndDate" "', argument " "2"" of type '" "date::year_month const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "TimepointInterval_setEndDate" "', argument " "2"" of type '" "date::year_month const &""'"); 
+    }
+    arg2 = reinterpret_cast< date::year_month * >(argp2);
+    
+    
+    
+    
+    {
+      try {
+        (arg1)->setEndDate((date::year_month const &)*arg2);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = env.Undefined();
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function_dispatcher
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInterval__wrap_TimepointInterval_setEndDate(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_TimepointInterval_setEndDate__SWIG_0(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_TimepointInterval_setEndDate__SWIG_0(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_TimepointInterval_setEndDate__SWIG_1(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_TimepointInterval_setEndDate__SWIG_1(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  SWIG_Error(SWIG_ERROR, "Illegal arguments for function setEndDate.");
+#ifndef NAPI_CPP_EXCEPTIONS
+  goto fail;
+fail:
 #endif
   return Napi::Value();
 }
@@ -5566,6 +6177,71 @@ Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInte
 #ifndef NAPI_CPP_EXCEPTIONS
   goto fail;
 fail:
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_TimepointInterval_templ<SWIG_OBJ_WRAP>::_wrap_TimepointInterval_isOverlap(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  TimepointInterval *arg1 = 0 ;
+  TimepointInterval *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_TimepointInterval_isOverlap.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_TimepointInterval, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TimepointInterval_isOverlap" "', argument " "1"" of type '" "TimepointInterval const *""'"); 
+    }
+    arg1 = reinterpret_cast< TimepointInterval * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_TimepointInterval,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TimepointInterval_isOverlap" "', argument " "2"" of type '" "TimepointInterval const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "TimepointInterval_isOverlap" "', argument " "2"" of type '" "TimepointInterval const &""'"); 
+    }
+    arg2 = reinterpret_cast< TimepointInterval * >(argp2);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)((TimepointInterval const *)arg1)->isOverlap((TimepointInterval const &)*arg2);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
 #endif
   return Napi::Value();
 }
@@ -29729,6 +30405,61 @@ fail:
 
 // js_function
 template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_TimestampSeconds_templ<SWIG_OBJ_WRAP>::_wrap_TimestampSeconds_getAsYearMonth(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::TimestampSeconds *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  date::year_month result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_TimestampSeconds_getAsYearMonth.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__data__TimestampSeconds, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TimestampSeconds_getAsYearMonth" "', argument " "1"" of type '" "gradido::data::TimestampSeconds const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::data::TimestampSeconds * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = ((gradido::data::TimestampSeconds const *)arg1)->getAsYearMonth();
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new date::year_month(result)), SWIGTYPE_p_date__year_month, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_TimestampSeconds_templ<SWIG_OBJ_WRAP>::_wrap_TimestampSeconds_getSeconds(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
@@ -31089,6 +31820,71 @@ Napi::Value _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_wrap_Timestamp_lt__SWIG_0(
     {
       try {
         result = (bool)((gradido::data::Timestamp const *)arg1)->operator <((gradido::data::Timestamp const &)*arg2);
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_wrap_Timestamp_lte(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::Timestamp *arg1 = 0 ;
+  gradido::data::Timestamp *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_Timestamp_lte.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__data__Timestamp, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Timestamp_lte" "', argument " "1"" of type '" "gradido::data::Timestamp const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::data::Timestamp * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_gradido__data__Timestamp,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Timestamp_lte" "', argument " "2"" of type '" "gradido::data::Timestamp const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "Timestamp_lte" "', argument " "2"" of type '" "gradido::data::Timestamp const &""'"); 
+    }
+    arg2 = reinterpret_cast< gradido::data::Timestamp * >(argp2);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)((gradido::data::Timestamp const *)arg1)->operator <=((gradido::data::Timestamp const &)*arg2);
       } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
       }
@@ -59969,6 +60765,63 @@ fail:
 }
 
 
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_Pagination_templ<SWIG_OBJ_WRAP>::_wrap_Pagination_empty(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::Pagination *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_Pagination_empty.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__Pagination, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Pagination_empty" "', argument " "1"" of type '" "gradido::blockchain::Pagination const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::Pagination * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = (bool)((gradido::blockchain::Pagination const *)arg1)->empty();
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
 // js_overloaded_function
 template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_Pagination_templ<SWIG_OBJ_WRAP>::_wrap_Pagination_toJson__SWIG_0(const Napi::CallbackInfo &info) {
@@ -63259,6 +64112,1332 @@ _exports_FilterBuilder_templ<SWIG_OBJ_WRAP>::~_exports_FilterBuilder_templ() {
 
 // js_overloaded_ctor
 template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_new_CompactFilter__SWIG_0(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  gradido::blockchain::CompactFilter *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 0 || static_cast<int>(info.Length()) > 0) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_CompactFilter__SWIG_0.");
+    }
+    {
+      try {
+        result = (gradido::blockchain::CompactFilter *)new gradido::blockchain::CompactFilter();
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_new_CompactFilter__SWIG_1(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  gradido::blockchain::Filter *arg1 = 0 ;
+  IDictionary< PublicKey > *arg2 = 0 ;
+  uint32_t arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  unsigned int val3 ;
+  int ecode3 = 0 ;
+  gradido::blockchain::CompactFilter *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 3 || static_cast<int>(info.Length()) > 3) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_CompactFilter__SWIG_1.");
+    }
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_gradido__blockchain__Filter,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_CompactFilter" "', argument " "1"" of type '" "gradido::blockchain::Filter const &""'"); 
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_CompactFilter" "', argument " "1"" of type '" "gradido::blockchain::Filter const &""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::Filter * >(argp1);res2 = SWIG_ConvertPtr(info[1], &argp2, SWIGTYPE_p_IDictionaryT_PublicKey_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_CompactFilter" "', argument " "2"" of type '" "IDictionary< PublicKey > const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_CompactFilter" "', argument " "2"" of type '" "IDictionary< PublicKey > const &""'"); 
+    }
+    arg2 = reinterpret_cast< IDictionary< PublicKey > * >(argp2);ecode3 = SWIG_AsVal_unsigned_SS_int(info[2], &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_CompactFilter" "', argument " "3"" of type '" "uint32_t""'");
+    } 
+    arg3 = static_cast< uint32_t >(val3);{
+      try {
+        result = (gradido::blockchain::CompactFilter *)new gradido::blockchain::CompactFilter((gradido::blockchain::Filter const &)*arg1,(IDictionary< PublicKey > const &)*arg2,arg3);
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_new_CompactFilter__SWIG_2(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  gradido::blockchain::Filter *arg1 = 0 ;
+  IDictionary< PublicKey > *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  gradido::blockchain::CompactFilter *result;
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    NAPI_CHECK_RESULT(info.This().ToObject(), self);
+    this->owned = true;
+    if(static_cast<int>(info.Length()) < 2 || static_cast<int>(info.Length()) > 2) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_CompactFilter__SWIG_2.");
+    }
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_gradido__blockchain__Filter,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_CompactFilter" "', argument " "1"" of type '" "gradido::blockchain::Filter const &""'"); 
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_CompactFilter" "', argument " "1"" of type '" "gradido::blockchain::Filter const &""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::Filter * >(argp1);res2 = SWIG_ConvertPtr(info[1], &argp2, SWIGTYPE_p_IDictionaryT_PublicKey_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_CompactFilter" "', argument " "2"" of type '" "IDictionary< PublicKey > const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "new_CompactFilter" "', argument " "2"" of type '" "IDictionary< PublicKey > const &""'"); 
+    }
+    arg2 = reinterpret_cast< IDictionary< PublicKey > * >(argp2);{
+      try {
+        result = (gradido::blockchain::CompactFilter *)new gradido::blockchain::CompactFilter((gradido::blockchain::Filter const &)*arg1,(IDictionary< PublicKey > const &)*arg2);
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    this->self = result;
+    
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+#endif
+  
+  return Napi::Value();
+}
+
+
+// js_ctor_dispatcher
+template <typename SWIG_OBJ_WRAP>
+_exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_exports_CompactFilter_templ(const Napi::CallbackInfo &info)
+:SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP>(true, info) {
+  Napi::Env env = info.Env();
+  Napi::Object self;
+  NAPI_CHECK_RESULT(info.This().ToObject(), self);
+  this->info = SWIGTYPE_p_gradido__blockchain__CompactFilter;
+  if (info.Length() == 1 && info[0].IsExternal()) {
+    // This constructor has been called internally from C++/SWIG
+    // to wrap an already existing C++ object in JS
+    this->self = info[0].As<Napi::External<void>>().Data();
+    this->owned = false;
+    return;
+  }
+  
+  // switch all cases by means of series of if-returns.
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 0 && static_cast<int>(info.Length()) <= 0) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_CompactFilter__SWIG_0(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_CompactFilter__SWIG_0(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 3 && static_cast<int>(info.Length()) <= 3) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_CompactFilter__SWIG_1(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_CompactFilter__SWIG_1(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  // js_ctor_dispatch_case
+  if(static_cast<int>(info.Length()) >= 2 && static_cast<int>(info.Length()) <= 2) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      _wrap_new_CompactFilter__SWIG_2(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return;
+#else
+    _wrap_new_CompactFilter__SWIG_2(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return;
+    }
+#endif
+  }
+  
+  
+  // default:
+  SWIG_Error(SWIG_ERROR, "Illegal arguments for construction of _exports_CompactFilter");
+  
+#ifndef NAPI_CPP_EXCEPTIONS
+  goto fail;
+fail:
+  return;
+#endif
+}
+
+// This is the extendable constructor to be used from child classes
+template <typename SWIG_OBJ_WRAP>
+_exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_exports_CompactFilter_templ(bool, const Napi::CallbackInfo &info)
+:SWIG_NAPI_ObjectWrap_templ<SWIG_OBJ_WRAP>(true, info) {
+  
+}
+
+
+// js_setter
+template <typename SWIG_OBJ_WRAP>
+void _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_searchDirection_set(const Napi::CallbackInfo &info, const Napi::Value &value) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  gradido::blockchain::SearchDirection arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_searchDirection_set" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);ecode2 = SWIG_AsVal_int(value, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "CompactFilter_searchDirection_set" "', argument " "2"" of type '" "gradido::blockchain::SearchDirection""'");
+    } 
+    arg2 = static_cast< gradido::blockchain::SearchDirection >(val2);
+    
+    if (arg1) (arg1)->searchDirection = arg2;
+    
+    
+    return;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return;
+#endif
+}
+
+
+// js_getter
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_searchDirection_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  gradido::blockchain::SearchDirection result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_searchDirection_get" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);
+    
+    result = (gradido::blockchain::SearchDirection) ((arg1)->searchDirection);
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_setter
+template <typename SWIG_OBJ_WRAP>
+void _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_transactionType_set(const Napi::CallbackInfo &info, const Napi::Value &value) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  gradido::data::TransactionType arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_transactionType_set" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);ecode2 = SWIG_AsVal_int(value, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "CompactFilter_transactionType_set" "', argument " "2"" of type '" "gradido::data::TransactionType""'");
+    } 
+    arg2 = static_cast< gradido::data::TransactionType >(val2);
+    
+    if (arg1) (arg1)->transactionType = arg2;
+    
+    
+    return;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return;
+#endif
+}
+
+
+// js_getter
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_transactionType_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  gradido::data::TransactionType result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_transactionType_get" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);
+    
+    result = (gradido::data::TransactionType) ((arg1)->transactionType);
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_setter
+template <typename SWIG_OBJ_WRAP>
+void _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_publicKeySearchType_set(const Napi::CallbackInfo &info, const Napi::Value &value) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  gradido::blockchain::PublicKeySearchType arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_publicKeySearchType_set" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);ecode2 = SWIG_AsVal_int(value, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "CompactFilter_publicKeySearchType_set" "', argument " "2"" of type '" "gradido::blockchain::PublicKeySearchType""'");
+    } 
+    arg2 = static_cast< gradido::blockchain::PublicKeySearchType >(val2);
+    
+    if (arg1) (arg1)->publicKeySearchType = arg2;
+    
+    
+    return;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return;
+#endif
+}
+
+
+// js_getter
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_publicKeySearchType_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  gradido::blockchain::PublicKeySearchType result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_publicKeySearchType_get" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);
+    
+    result = (gradido::blockchain::PublicKeySearchType) ((arg1)->publicKeySearchType);
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_setter
+template <typename SWIG_OBJ_WRAP>
+void _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_coinCommunityIdIndex_set(const Napi::CallbackInfo &info, const Napi::Value &value) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  uint32_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_coinCommunityIdIndex_set" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);ecode2 = SWIG_AsVal_unsigned_SS_int(value, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "CompactFilter_coinCommunityIdIndex_set" "', argument " "2"" of type '" "uint32_t""'");
+    } 
+    arg2 = static_cast< uint32_t >(val2);
+    
+    if (arg1) (arg1)->coinCommunityIdIndex = arg2;
+    
+    
+    return;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return;
+#endif
+}
+
+
+// js_getter
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_coinCommunityIdIndex_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  uint32_t result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_coinCommunityIdIndex_get" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);
+    
+    result = (uint32_t) ((arg1)->coinCommunityIdIndex);
+    
+    jsresult = SWIG_From_unsigned_SS_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< unsigned int >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_setter
+template <typename SWIG_OBJ_WRAP>
+void _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_maxTransactionNr_set(const Napi::CallbackInfo &info, const Napi::Value &value) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  uint64_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned long long val2 ;
+  int ecode2 = 0 ;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_maxTransactionNr_set" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);ecode2 = SWIG_AsVal_unsigned_SS_long_SS_long(value, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "CompactFilter_maxTransactionNr_set" "', argument " "2"" of type '" "uint64_t""'");
+    } 
+    arg2 = static_cast< uint64_t >(val2);
+    
+    if (arg1) (arg1)->maxTransactionNr = arg2;
+    
+    
+    return;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return;
+#endif
+}
+
+
+// js_getter
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_maxTransactionNr_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  uint64_t result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_maxTransactionNr_get" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);
+    
+    result = (uint64_t) ((arg1)->maxTransactionNr);
+    
+    jsresult = SWIG_From_unsigned_SS_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< unsigned long long >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_setter
+template <typename SWIG_OBJ_WRAP>
+void _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_minTransactionNr_set(const Napi::CallbackInfo &info, const Napi::Value &value) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  uint64_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned long long val2 ;
+  int ecode2 = 0 ;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_minTransactionNr_set" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);ecode2 = SWIG_AsVal_unsigned_SS_long_SS_long(value, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "CompactFilter_minTransactionNr_set" "', argument " "2"" of type '" "uint64_t""'");
+    } 
+    arg2 = static_cast< uint64_t >(val2);
+    
+    if (arg1) (arg1)->minTransactionNr = arg2;
+    
+    
+    return;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return;
+#endif
+}
+
+
+// js_getter
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_minTransactionNr_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  uint64_t result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_minTransactionNr_get" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);
+    
+    result = (uint64_t) ((arg1)->minTransactionNr);
+    
+    jsresult = SWIG_From_unsigned_SS_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< unsigned long long >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_setter
+template <typename SWIG_OBJ_WRAP>
+void _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_publicKeyIndex_set(const Napi::CallbackInfo &info, const Napi::Value &value) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  gradido::data::compact::PublicKeyIndex *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_publicKeyIndex_set" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);res2 = SWIG_ConvertPtr(value, &argp2,SWIGTYPE_p_gradido__data__compact__PublicKeyIndex, 0 |  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CompactFilter_publicKeyIndex_set" "', argument " "2"" of type '" "gradido::data::compact::PublicKeyIndex *""'"); 
+    }
+    arg2 = reinterpret_cast< gradido::data::compact::PublicKeyIndex * >(argp2);
+    
+    if (arg1) (arg1)->publicKeyIndex = *arg2;
+    
+    
+    return;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return;
+#endif
+}
+
+
+// js_getter
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_publicKeyIndex_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  gradido::data::compact::PublicKeyIndex *result = 0 ;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_publicKeyIndex_get" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);
+    
+    result = (gradido::data::compact::PublicKeyIndex *)& ((arg1)->publicKeyIndex);
+    
+    jsresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_gradido__data__compact__PublicKeyIndex, 0 |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_setter
+template <typename SWIG_OBJ_WRAP>
+void _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_pagination_set(const Napi::CallbackInfo &info, const Napi::Value &value) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  gradido::blockchain::Pagination *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_pagination_set" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);res2 = SWIG_ConvertPtr(value, &argp2,SWIGTYPE_p_gradido__blockchain__Pagination, 0 |  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CompactFilter_pagination_set" "', argument " "2"" of type '" "gradido::blockchain::Pagination *""'"); 
+    }
+    arg2 = reinterpret_cast< gradido::blockchain::Pagination * >(argp2);
+    
+    if (arg1) (arg1)->pagination = *arg2;
+    
+    
+    return;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return;
+#endif
+}
+
+
+// js_getter
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_pagination_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  gradido::blockchain::Pagination *result = 0 ;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_pagination_get" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);
+    
+    result = (gradido::blockchain::Pagination *)& ((arg1)->pagination);
+    
+    jsresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_gradido__blockchain__Pagination, 0 |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_setter
+template <typename SWIG_OBJ_WRAP>
+void _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_timepointInterval_set(const Napi::CallbackInfo &info, const Napi::Value &value) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  TimepointInterval *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_timepointInterval_set" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);res2 = SWIG_ConvertPtr(value, &argp2,SWIGTYPE_p_TimepointInterval, 0 |  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CompactFilter_timepointInterval_set" "', argument " "2"" of type '" "TimepointInterval *""'"); 
+    }
+    arg2 = reinterpret_cast< TimepointInterval * >(argp2);
+    
+    if (arg1) (arg1)->timepointInterval = *arg2;
+    
+    
+    return;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return;
+#endif
+}
+
+
+// js_getter
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_timepointInterval_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  TimepointInterval *result = 0 ;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_timepointInterval_get" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);
+    
+    result = (TimepointInterval *)& ((arg1)->timepointInterval);
+    
+    jsresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_TimepointInterval, 0 |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_lastBalanceFor(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::data::compact::PublicKeyIndex arg1 ;
+  void *argp1 ;
+  int res1 = 0 ;
+  gradido::blockchain::CompactFilter result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_CompactFilter_lastBalanceFor.");
+    }
+    
+    {
+      {
+        res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_gradido__data__compact__PublicKeyIndex,  0 );
+        if (!SWIG_IsOK(res1)) {
+          SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_lastBalanceFor" "', argument " "1"" of type '" "gradido::data::compact::PublicKeyIndex""'"); 
+        }  
+        if (!argp1) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "CompactFilter_lastBalanceFor" "', argument " "1"" of type '" "gradido::data::compact::PublicKeyIndex""'");
+        } else {
+          arg1 = *(reinterpret_cast< gradido::data::compact::PublicKeyIndex * >(argp1));
+        }
+      }
+    }
+    
+    
+    
+    
+    
+    {
+      try {
+        result = gradido::blockchain::CompactFilter::lastBalanceFor(SWIG_STD_MOVE(arg1));
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new gradido::blockchain::CompactFilter(result)), SWIGTYPE_p_gradido__blockchain__CompactFilter, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_overloaded_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_toJson__SWIG_0(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  std::string result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_toJson" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);ecode2 = SWIG_AsVal_bool(info[0], &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "CompactFilter_toJson" "', argument " "2"" of type '" "bool""'");
+    } 
+    arg2 = static_cast< bool >(val2);
+    
+    
+    
+    
+    {
+      try {
+        result = gradido_blockchain_CompactFilter_toJson__SWIG_0((gradido::blockchain::CompactFilter const *)arg1,arg2);
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_overloaded_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter_toJson__SWIG_1(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::CompactFilter *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::string result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__CompactFilter, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CompactFilter_toJson" "', argument " "1"" of type '" "gradido::blockchain::CompactFilter const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp1);
+    
+    
+    
+    
+    {
+      try {
+        result = gradido_blockchain_CompactFilter_toJson__SWIG_0((gradido::blockchain::CompactFilter const *)arg1);
+      } catch (const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_From_std_string  SWIG_NAPI_FROM_CALL_ARGS(static_cast< std::string >(result));
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function_dispatcher
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_CompactFilter_templ<SWIG_OBJ_WRAP>::_wrap_CompactFilter__wrap_CompactFilter_toJson(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_CompactFilter_toJson__SWIG_0(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_CompactFilter_toJson__SWIG_0(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 0 && static_cast<int>(info.Length()) <= 0) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_CompactFilter_toJson__SWIG_1(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_CompactFilter_toJson__SWIG_1(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  SWIG_Error(SWIG_ERROR, "Illegal arguments for function toJson.");
+#ifndef NAPI_CPP_EXCEPTIONS
+  goto fail;
+fail:
+#endif
+  return Napi::Value();
+}
+
+
+// js_dtoroverride
+template <typename SWIG_OBJ_WRAP>
+_exports_CompactFilter_templ<SWIG_OBJ_WRAP>::~_exports_CompactFilter_templ() {
+  this->SWIG_Finalize();
+  auto arg1 = reinterpret_cast<gradido::blockchain::CompactFilter *>(this->self);
+  if (this->owned && arg1) {
+    delete arg1;
+    this->self = SWIG_NULLPTR;
+  }
+}
+
+
+// js_overloaded_ctor
+template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_DeferredRedeemedTransferPair_templ<SWIG_OBJ_WRAP>::_wrap_new_DeferredRedeemedTransferPair__SWIG_0(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Object self;
@@ -64124,8 +66303,11 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_isTransaction
   Napi::Value jsresult;
   gradido::blockchain::Abstract *arg1 = 0 ;
   gradido::data::ConstGradidoTransactionPtr arg2 ;
+  gradido::data::Timestamp arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
   bool result;
   
   
@@ -64133,7 +66315,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_isTransaction
   try {
 #endif
     
-    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+    if(static_cast<int>(info.Length()) < 2 || static_cast<int>(info.Length()) > 2) {
       SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_Abstract_isTransactionExist.");
     }
     
@@ -64151,6 +66333,19 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_isTransaction
         arg2 = std::shared_ptr<const gradido::data::GradidoTransaction>(plain_ptr, SWIG_null_deleter());
       }
     }
+    {
+      {
+        res3 = SWIG_ConvertPtr(info[1], &argp3, SWIGTYPE_p_gradido__data__Timestamp,  0 );
+        if (!SWIG_IsOK(res3)) {
+          SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Abstract_isTransactionExist" "', argument " "3"" of type '" "gradido::data::Timestamp""'"); 
+        }  
+        if (!argp3) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "Abstract_isTransactionExist" "', argument " "3"" of type '" "gradido::data::Timestamp""'");
+        } else {
+          arg3 = *(reinterpret_cast< gradido::data::Timestamp * >(argp3));
+        }
+      }
+    }
     
     
     
@@ -64158,7 +66353,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_isTransaction
     
     {
       try {
-        result = (bool)((gradido::blockchain::Abstract const *)arg1)->isTransactionExist(SWIG_STD_MOVE(arg2));
+        result = (bool)((gradido::blockchain::Abstract const *)arg1)->isTransactionExist(SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
       } catch(const InsufficientBalanceException &e) {
         SWIG_exception(SWIG_ValueError, e.getFullString().data());
       } catch(const BlockchainOrderException& e) {
@@ -64199,11 +66394,14 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_findTransacti
   Napi::Env env = info.Env();
   Napi::Value jsresult;
   gradido::blockchain::Abstract *arg1 = 0 ;
-  TimepointInterval arg2 ;
+  gradido::data::Timestamp arg2 ;
+  gradido::data::Timestamp arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 ;
   int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
   SwigValueWrapper< std::vector< std::shared_ptr< gradido::data::TransactionTriggerEvent const > > > result;
   
   
@@ -64211,7 +66409,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_findTransacti
   try {
 #endif
     
-    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+    if(static_cast<int>(info.Length()) < 2 || static_cast<int>(info.Length()) > 2) {
       SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_Abstract_findTransactionTriggerEventsInRange.");
     }
     
@@ -64221,14 +66419,27 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_findTransacti
     }
     arg1 = reinterpret_cast< gradido::blockchain::Abstract * >(argp1);{
       {
-        res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_TimepointInterval,  0 );
+        res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_gradido__data__Timestamp,  0 );
         if (!SWIG_IsOK(res2)) {
-          SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Abstract_findTransactionTriggerEventsInRange" "', argument " "2"" of type '" "TimepointInterval""'"); 
+          SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Abstract_findTransactionTriggerEventsInRange" "', argument " "2"" of type '" "gradido::data::Timestamp""'"); 
         }  
         if (!argp2) {
-          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "Abstract_findTransactionTriggerEventsInRange" "', argument " "2"" of type '" "TimepointInterval""'");
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "Abstract_findTransactionTriggerEventsInRange" "', argument " "2"" of type '" "gradido::data::Timestamp""'");
         } else {
-          arg2 = *(reinterpret_cast< TimepointInterval * >(argp2));
+          arg2 = *(reinterpret_cast< gradido::data::Timestamp * >(argp2));
+        }
+      }
+    }
+    {
+      {
+        res3 = SWIG_ConvertPtr(info[1], &argp3, SWIGTYPE_p_gradido__data__Timestamp,  0 );
+        if (!SWIG_IsOK(res3)) {
+          SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Abstract_findTransactionTriggerEventsInRange" "', argument " "3"" of type '" "gradido::data::Timestamp""'"); 
+        }  
+        if (!argp3) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "Abstract_findTransactionTriggerEventsInRange" "', argument " "3"" of type '" "gradido::data::Timestamp""'");
+        } else {
+          arg3 = *(reinterpret_cast< gradido::data::Timestamp * >(argp3));
         }
       }
     }
@@ -64239,7 +66450,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_findTransacti
     
     {
       try {
-        result = (arg1)->findTransactionTriggerEventsInRange(SWIG_STD_MOVE(arg2));
+        result = (arg1)->findTransactionTriggerEventsInRange(SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
       } catch(const InsufficientBalanceException &e) {
         SWIG_exception(SWIG_ValueError, e.getFullString().data());
       } catch(const BlockchainOrderException& e) {
@@ -64280,11 +66491,14 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_findNextTrans
   Napi::Env env = info.Env();
   Napi::Value jsresult;
   gradido::blockchain::Abstract *arg1 = 0 ;
-  TimepointInterval arg2 ;
+  gradido::data::Timestamp arg2 ;
+  gradido::data::Timestamp arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 ;
   int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
   std::shared_ptr< gradido::data::TransactionTriggerEvent const > result;
   
   
@@ -64292,7 +66506,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_findNextTrans
   try {
 #endif
     
-    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+    if(static_cast<int>(info.Length()) < 2 || static_cast<int>(info.Length()) > 2) {
       SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_Abstract_findNextTransactionTriggerEventInRange.");
     }
     
@@ -64302,14 +66516,27 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_findNextTrans
     }
     arg1 = reinterpret_cast< gradido::blockchain::Abstract * >(argp1);{
       {
-        res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_TimepointInterval,  0 );
+        res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_gradido__data__Timestamp,  0 );
         if (!SWIG_IsOK(res2)) {
-          SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Abstract_findNextTransactionTriggerEventInRange" "', argument " "2"" of type '" "TimepointInterval""'"); 
+          SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Abstract_findNextTransactionTriggerEventInRange" "', argument " "2"" of type '" "gradido::data::Timestamp""'"); 
         }  
         if (!argp2) {
-          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "Abstract_findNextTransactionTriggerEventInRange" "', argument " "2"" of type '" "TimepointInterval""'");
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "Abstract_findNextTransactionTriggerEventInRange" "', argument " "2"" of type '" "gradido::data::Timestamp""'");
         } else {
-          arg2 = *(reinterpret_cast< TimepointInterval * >(argp2));
+          arg2 = *(reinterpret_cast< gradido::data::Timestamp * >(argp2));
+        }
+      }
+    }
+    {
+      {
+        res3 = SWIG_ConvertPtr(info[1], &argp3, SWIGTYPE_p_gradido__data__Timestamp,  0 );
+        if (!SWIG_IsOK(res3)) {
+          SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Abstract_findNextTransactionTriggerEventInRange" "', argument " "3"" of type '" "gradido::data::Timestamp""'"); 
+        }  
+        if (!argp3) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "Abstract_findNextTransactionTriggerEventInRange" "', argument " "3"" of type '" "gradido::data::Timestamp""'");
+        } else {
+          arg3 = *(reinterpret_cast< gradido::data::Timestamp * >(argp3));
         }
       }
     }
@@ -64320,7 +66547,7 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_findNextTrans
     
     {
       try {
-        result = (arg1)->findNextTransactionTriggerEventInRange(SWIG_STD_MOVE(arg2));
+        result = (arg1)->findNextTransactionTriggerEventInRange(SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
       } catch(const InsufficientBalanceException &e) {
         SWIG_exception(SWIG_ValueError, e.getFullString().data());
       } catch(const BlockchainOrderException& e) {
@@ -64520,6 +66747,76 @@ fail:
 }
 
 
+// js_overloaded_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_findAll__SWIG_2(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::Abstract *arg1 = 0 ;
+  gradido::blockchain::CompactFilter *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  SwigValueWrapper< std::vector< std::shared_ptr< gradido::data::compact::ConfirmedGradidoTx const > > > result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__Abstract, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Abstract_findAll" "', argument " "1"" of type '" "gradido::blockchain::Abstract const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::Abstract * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_gradido__blockchain__CompactFilter,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Abstract_findAll" "', argument " "2"" of type '" "gradido::blockchain::CompactFilter const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "Abstract_findAll" "', argument " "2"" of type '" "gradido::blockchain::CompactFilter const &""'"); 
+    }
+    arg2 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp2);
+    
+    
+    
+    
+    {
+      try {
+        result = ((gradido::blockchain::Abstract const *)arg1)->findAll((gradido::blockchain::CompactFilter const &)*arg2);
+      } catch(const InsufficientBalanceException &e) {
+        SWIG_exception(SWIG_ValueError, e.getFullString().data());
+      } catch(const BlockchainOrderException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const CryptoConfig::MissingKeyException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const gradido::GradidoTransactionBuilderException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch(const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new gradido::data::compact::ConfirmedTxs(result)), SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__data__compact__ConfirmedGradidoTx_const_t_t, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
 // js_function_dispatcher
 template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract__wrap_Abstract_findAll(const Napi::CallbackInfo &info) {
@@ -64577,6 +66874,42 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract__wrap_Abstrac
     return jsresult;
 #else
     _wrap_Abstract_findAll__SWIG_1(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_Abstract_findAll__SWIG_2(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_Abstract_findAll__SWIG_2(info);
     if (env.IsExceptionPending()) {
       Napi::Error e = env.GetAndClearPendingException();
       Napi::Value typeErrorValue;
@@ -64980,6 +67313,76 @@ fail:
 }
 
 
+// js_overloaded_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_findOne__SWIG_2(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::Abstract *arg1 = 0 ;
+  gradido::blockchain::CompactFilter *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  SwigValueWrapper< std::shared_ptr< gradido::data::compact::ConfirmedGradidoTx const > > result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__Abstract, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Abstract_findOne" "', argument " "1"" of type '" "gradido::blockchain::Abstract const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::Abstract * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_gradido__blockchain__CompactFilter,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Abstract_findOne" "', argument " "2"" of type '" "gradido::blockchain::CompactFilter const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "Abstract_findOne" "', argument " "2"" of type '" "gradido::blockchain::CompactFilter const &""'"); 
+    }
+    arg2 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp2);
+    
+    
+    
+    
+    {
+      try {
+        result = ((gradido::blockchain::Abstract const *)arg1)->findOne((gradido::blockchain::CompactFilter const &)*arg2);
+      } catch(const InsufficientBalanceException &e) {
+        SWIG_exception(SWIG_ValueError, e.getFullString().data());
+      } catch(const BlockchainOrderException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const CryptoConfig::MissingKeyException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const gradido::GradidoTransactionBuilderException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch(const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new gradido::data::compact::ConstConfirmedTxPtr(result)), SWIGTYPE_p_std__shared_ptrT_gradido__data__compact__ConfirmedGradidoTx_const_t, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
 // js_function_dispatcher
 template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract__wrap_Abstract_findOne(const Napi::CallbackInfo &info) {
@@ -65037,6 +67440,42 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract__wrap_Abstrac
     return jsresult;
 #else
     _wrap_Abstract_findOne__SWIG_1(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_Abstract_findOne__SWIG_2(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_Abstract_findOne__SWIG_2(info);
     if (env.IsExceptionPending()) {
       Napi::Error e = env.GetAndClearPendingException();
       Napi::Value typeErrorValue;
@@ -65568,6 +68007,78 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_getTransactio
         SWIG_NAPI_SetFinalizer(env, jsresult, finalizer);
       }
     }
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_getConfirmedTxForId(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::Abstract *arg1 = 0 ;
+  uint64_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned long long val2 ;
+  int ecode2 = 0 ;
+  SwigValueWrapper< std::shared_ptr< gradido::data::compact::ConfirmedGradidoTx const > > result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_Abstract_getConfirmedTxForId.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__Abstract, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Abstract_getConfirmedTxForId" "', argument " "1"" of type '" "gradido::blockchain::Abstract const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::Abstract * >(argp1);ecode2 = SWIG_AsVal_unsigned_SS_long_SS_long(info[0], &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Abstract_getConfirmedTxForId" "', argument " "2"" of type '" "uint64_t""'");
+    } 
+    arg2 = static_cast< uint64_t >(val2);
+    
+    
+    
+    
+    {
+      try {
+        result = ((gradido::blockchain::Abstract const *)arg1)->getConfirmedTxForId(arg2);
+      } catch(const InsufficientBalanceException &e) {
+        SWIG_exception(SWIG_ValueError, e.getFullString().data());
+      } catch(const BlockchainOrderException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const CryptoConfig::MissingKeyException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const gradido::GradidoTransactionBuilderException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch(const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new gradido::data::compact::ConstConfirmedTxPtr(result)), SWIGTYPE_p_std__shared_ptrT_gradido__data__compact__ConfirmedGradidoTx_const_t, SWIG_POINTER_OWN |  0 );
     
     
     return jsresult;
@@ -66738,91 +69249,18 @@ fail:
 
 // js_function
 template <typename SWIG_OBJ_WRAP>
-Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBlockchain_isTransactionExist(const Napi::CallbackInfo &info) {
-  Napi::Env env = info.Env();
-  Napi::Value jsresult;
-  gradido::blockchain::InMemory *arg1 = 0 ;
-  gradido::data::ConstGradidoTransactionPtr arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool result;
-  
-  
-#ifdef NAPI_CPP_EXCEPTIONS
-  try {
-#endif
-    
-    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
-      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_InMemoryBlockchain_isTransactionExist.");
-    }
-    
-    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__InMemory, 0 |  0 );
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "InMemoryBlockchain_isTransactionExist" "', argument " "1"" of type '" "gradido::blockchain::InMemory const *""'"); 
-    }
-    arg1 = reinterpret_cast< gradido::blockchain::InMemory * >(argp1);{
-      {
-        gradido::data::GradidoTransaction *plain_ptr;
-        int res = SWIG_ConvertPtr(info[0], reinterpret_cast<void**>(&plain_ptr), SWIGTYPE_p_gradido__data__GradidoTransaction,  0 );
-        if (!SWIG_IsOK(res)) {
-          SWIG_exception_fail(SWIG_ArgError(res), "in method '" "InMemoryBlockchain_isTransactionExist" "', argument " "2"" of type '" "gradido::data::GradidoTransaction""'");
-        }
-        arg2 = std::shared_ptr<const gradido::data::GradidoTransaction>(plain_ptr, SWIG_null_deleter());
-      }
-    }
-    
-    
-    
-    
-    
-    {
-      try {
-        result = (bool)((gradido::blockchain::InMemory const *)arg1)->isTransactionExist(SWIG_STD_MOVE(arg2));
-      } catch(const InsufficientBalanceException &e) {
-        SWIG_exception(SWIG_ValueError, e.getFullString().data());
-      } catch(const BlockchainOrderException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
-      } catch (const CryptoConfig::MissingKeyException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
-      } catch (const gradido::GradidoTransactionBuilderException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
-      } catch(const GradidoBlockchainException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
-      } catch (const std::exception& e) {
-        SWIG_exception(SWIG_RuntimeError, e.what());
-      }
-    }
-    
-    
-    
-    jsresult = SWIG_From_bool  SWIG_NAPI_FROM_CALL_ARGS(static_cast< bool >(result));
-    
-    
-    return jsresult;
-#ifdef NAPI_CPP_EXCEPTIONS
-  } catch (...) {
-    std::rethrow_exception(std::current_exception());
-  }
-#else
-  goto fail;
-fail:
-  
-#endif
-  return Napi::Value();
-}
-
-
-// js_function
-template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBlockchain_findTransactionTriggerEventsInRange(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
   gradido::blockchain::InMemory *arg1 = 0 ;
-  TimepointInterval arg2 ;
+  gradido::data::Timestamp arg2 ;
+  gradido::data::Timestamp arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 ;
   int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
   SwigValueWrapper< std::vector< std::shared_ptr< gradido::data::TransactionTriggerEvent const > > > result;
   
   
@@ -66830,7 +69268,7 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
   try {
 #endif
     
-    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+    if(static_cast<int>(info.Length()) < 2 || static_cast<int>(info.Length()) > 2) {
       SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_InMemoryBlockchain_findTransactionTriggerEventsInRange.");
     }
     
@@ -66840,14 +69278,27 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
     }
     arg1 = reinterpret_cast< gradido::blockchain::InMemory * >(argp1);{
       {
-        res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_TimepointInterval,  0 );
+        res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_gradido__data__Timestamp,  0 );
         if (!SWIG_IsOK(res2)) {
-          SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "InMemoryBlockchain_findTransactionTriggerEventsInRange" "', argument " "2"" of type '" "TimepointInterval""'"); 
+          SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "InMemoryBlockchain_findTransactionTriggerEventsInRange" "', argument " "2"" of type '" "gradido::data::Timestamp""'"); 
         }  
         if (!argp2) {
-          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "InMemoryBlockchain_findTransactionTriggerEventsInRange" "', argument " "2"" of type '" "TimepointInterval""'");
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "InMemoryBlockchain_findTransactionTriggerEventsInRange" "', argument " "2"" of type '" "gradido::data::Timestamp""'");
         } else {
-          arg2 = *(reinterpret_cast< TimepointInterval * >(argp2));
+          arg2 = *(reinterpret_cast< gradido::data::Timestamp * >(argp2));
+        }
+      }
+    }
+    {
+      {
+        res3 = SWIG_ConvertPtr(info[1], &argp3, SWIGTYPE_p_gradido__data__Timestamp,  0 );
+        if (!SWIG_IsOK(res3)) {
+          SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "InMemoryBlockchain_findTransactionTriggerEventsInRange" "', argument " "3"" of type '" "gradido::data::Timestamp""'"); 
+        }  
+        if (!argp3) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "InMemoryBlockchain_findTransactionTriggerEventsInRange" "', argument " "3"" of type '" "gradido::data::Timestamp""'");
+        } else {
+          arg3 = *(reinterpret_cast< gradido::data::Timestamp * >(argp3));
         }
       }
     }
@@ -66858,7 +69309,7 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
     
     {
       try {
-        result = (arg1)->findTransactionTriggerEventsInRange(SWIG_STD_MOVE(arg2));
+        result = (arg1)->findTransactionTriggerEventsInRange(SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
       } catch(const InsufficientBalanceException &e) {
         SWIG_exception(SWIG_ValueError, e.getFullString().data());
       } catch(const BlockchainOrderException& e) {
@@ -66899,11 +69350,14 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
   Napi::Env env = info.Env();
   Napi::Value jsresult;
   gradido::blockchain::InMemory *arg1 = 0 ;
-  TimepointInterval arg2 ;
+  gradido::data::Timestamp arg2 ;
+  gradido::data::Timestamp arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 ;
   int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
   std::shared_ptr< gradido::data::TransactionTriggerEvent const > result;
   
   
@@ -66911,7 +69365,7 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
   try {
 #endif
     
-    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+    if(static_cast<int>(info.Length()) < 2 || static_cast<int>(info.Length()) > 2) {
       SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_InMemoryBlockchain_findNextTransactionTriggerEventInRange.");
     }
     
@@ -66921,14 +69375,27 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
     }
     arg1 = reinterpret_cast< gradido::blockchain::InMemory * >(argp1);{
       {
-        res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_TimepointInterval,  0 );
+        res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_gradido__data__Timestamp,  0 );
         if (!SWIG_IsOK(res2)) {
-          SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "InMemoryBlockchain_findNextTransactionTriggerEventInRange" "', argument " "2"" of type '" "TimepointInterval""'"); 
+          SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "InMemoryBlockchain_findNextTransactionTriggerEventInRange" "', argument " "2"" of type '" "gradido::data::Timestamp""'"); 
         }  
         if (!argp2) {
-          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "InMemoryBlockchain_findNextTransactionTriggerEventInRange" "', argument " "2"" of type '" "TimepointInterval""'");
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "InMemoryBlockchain_findNextTransactionTriggerEventInRange" "', argument " "2"" of type '" "gradido::data::Timestamp""'");
         } else {
-          arg2 = *(reinterpret_cast< TimepointInterval * >(argp2));
+          arg2 = *(reinterpret_cast< gradido::data::Timestamp * >(argp2));
+        }
+      }
+    }
+    {
+      {
+        res3 = SWIG_ConvertPtr(info[1], &argp3, SWIGTYPE_p_gradido__data__Timestamp,  0 );
+        if (!SWIG_IsOK(res3)) {
+          SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "InMemoryBlockchain_findNextTransactionTriggerEventInRange" "', argument " "3"" of type '" "gradido::data::Timestamp""'"); 
+        }  
+        if (!argp3) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "InMemoryBlockchain_findNextTransactionTriggerEventInRange" "', argument " "3"" of type '" "gradido::data::Timestamp""'");
+        } else {
+          arg3 = *(reinterpret_cast< gradido::data::Timestamp * >(argp3));
         }
       }
     }
@@ -66939,7 +69406,7 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
     
     {
       try {
-        result = (arg1)->findNextTransactionTriggerEventInRange(SWIG_STD_MOVE(arg2));
+        result = (arg1)->findNextTransactionTriggerEventInRange(SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
       } catch(const InsufficientBalanceException &e) {
         SWIG_exception(SWIG_ValueError, e.getFullString().data());
       } catch(const BlockchainOrderException& e) {
@@ -67216,6 +69683,76 @@ fail:
 }
 
 
+// js_overloaded_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBlockchain_findAll__SWIG_2(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::InMemory *arg1 = 0 ;
+  gradido::blockchain::CompactFilter *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  SwigValueWrapper< std::vector< std::shared_ptr< gradido::data::compact::ConfirmedGradidoTx const > > > result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__InMemory, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "InMemoryBlockchain_findAll" "', argument " "1"" of type '" "gradido::blockchain::InMemory const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::InMemory * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_gradido__blockchain__CompactFilter,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "InMemoryBlockchain_findAll" "', argument " "2"" of type '" "gradido::blockchain::CompactFilter const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "InMemoryBlockchain_findAll" "', argument " "2"" of type '" "gradido::blockchain::CompactFilter const &""'"); 
+    }
+    arg2 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp2);
+    
+    
+    
+    
+    {
+      try {
+        result = ((gradido::blockchain::InMemory const *)arg1)->findAll((gradido::blockchain::CompactFilter const &)*arg2);
+      } catch(const InsufficientBalanceException &e) {
+        SWIG_exception(SWIG_ValueError, e.getFullString().data());
+      } catch(const BlockchainOrderException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const CryptoConfig::MissingKeyException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const gradido::GradidoTransactionBuilderException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch(const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new gradido::data::compact::ConfirmedTxs(result)), SWIGTYPE_p_std__vectorT_std__shared_ptrT_gradido__data__compact__ConfirmedGradidoTx_const_t_t, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
 // js_function_dispatcher
 template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBlockchain__wrap_InMemoryBlockchain_findAll(const Napi::CallbackInfo &info) {
@@ -67273,6 +69810,42 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
     return jsresult;
 #else
     _wrap_InMemoryBlockchain_findAll__SWIG_1(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_InMemoryBlockchain_findAll__SWIG_2(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_InMemoryBlockchain_findAll__SWIG_2(info);
     if (env.IsExceptionPending()) {
       Napi::Error e = env.GetAndClearPendingException();
       Napi::Value typeErrorValue;
@@ -67826,6 +70399,78 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
         SWIG_NAPI_SetFinalizer(env, jsresult, finalizer);
       }
     }
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBlockchain_getConfirmedTxForId(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::InMemory *arg1 = 0 ;
+  uint64_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned long long val2 ;
+  int ecode2 = 0 ;
+  SwigValueWrapper< std::shared_ptr< gradido::data::compact::ConfirmedGradidoTx const > > result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_InMemoryBlockchain_getConfirmedTxForId.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__InMemory, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "InMemoryBlockchain_getConfirmedTxForId" "', argument " "1"" of type '" "gradido::blockchain::InMemory const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::InMemory * >(argp1);ecode2 = SWIG_AsVal_unsigned_SS_long_SS_long(info[0], &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "InMemoryBlockchain_getConfirmedTxForId" "', argument " "2"" of type '" "uint64_t""'");
+    } 
+    arg2 = static_cast< uint64_t >(val2);
+    
+    
+    
+    
+    {
+      try {
+        result = ((gradido::blockchain::InMemory const *)arg1)->getConfirmedTxForId(arg2);
+      } catch(const InsufficientBalanceException &e) {
+        SWIG_exception(SWIG_ValueError, e.getFullString().data());
+      } catch(const BlockchainOrderException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const CryptoConfig::MissingKeyException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const gradido::GradidoTransactionBuilderException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch(const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new gradido::data::compact::ConstConfirmedTxPtr(result)), SWIGTYPE_p_std__shared_ptrT_gradido__data__compact__ConfirmedGradidoTx_const_t, SWIG_POINTER_OWN |  0 );
     
     
     return jsresult;
@@ -69048,11 +71693,13 @@ Napi::Value _exports_InteractionCalculateAccountBalance_templ<SWIG_OBJ_WRAP>::_w
   Napi::Value jsresult;
   gradido::interaction::calculateAccountBalance::Context *arg1 = 0 ;
   SwigValueWrapper< std::shared_ptr< memory::Block const > > arg2 ;
-  Timepoint arg3 ;
+  gradido::data::Timestamp arg3 ;
   std::optional< uint32_t > arg4 ;
   uint64_t arg5 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
   void *argp4 ;
   int res4 = 0 ;
   unsigned long long val5 ;
@@ -69084,10 +71731,15 @@ Napi::Value _exports_InteractionCalculateAccountBalance_templ<SWIG_OBJ_WRAP>::_w
     }
     {
       {
-        if(!info[1].IsDate()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a Date object");
+        res3 = SWIG_ConvertPtr(info[1], &argp3, SWIGTYPE_p_gradido__data__Timestamp,  0 );
+        if (!SWIG_IsOK(res3)) {
+          SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "3"" of type '" "gradido::data::Timestamp""'"); 
+        }  
+        if (!argp3) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "3"" of type '" "gradido::data::Timestamp""'");
+        } else {
+          arg3 = *(reinterpret_cast< gradido::data::Timestamp * >(argp3));
         }
-        arg3 = Timepoint(std::chrono::milliseconds(static_cast<uint64_t>(info[1].As<Napi::Date>().ValueOf())));
       }
     }
     {
@@ -69148,10 +71800,12 @@ Napi::Value _exports_InteractionCalculateAccountBalance_templ<SWIG_OBJ_WRAP>::_w
   Napi::Value jsresult;
   gradido::interaction::calculateAccountBalance::Context *arg1 = 0 ;
   SwigValueWrapper< std::shared_ptr< memory::Block const > > arg2 ;
-  Timepoint arg3 ;
+  gradido::data::Timestamp arg3 ;
   std::optional< uint32_t > arg4 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
   void *argp4 ;
   int res4 = 0 ;
   GradidoUnit result;
@@ -69181,10 +71835,15 @@ Napi::Value _exports_InteractionCalculateAccountBalance_templ<SWIG_OBJ_WRAP>::_w
     }
     {
       {
-        if(!info[1].IsDate()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a Date object");
+        res3 = SWIG_ConvertPtr(info[1], &argp3, SWIGTYPE_p_gradido__data__Timestamp,  0 );
+        if (!SWIG_IsOK(res3)) {
+          SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "3"" of type '" "gradido::data::Timestamp""'"); 
+        }  
+        if (!argp3) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "3"" of type '" "gradido::data::Timestamp""'");
+        } else {
+          arg3 = *(reinterpret_cast< gradido::data::Timestamp * >(argp3));
         }
-        arg3 = Timepoint(std::chrono::milliseconds(static_cast<uint64_t>(info[1].As<Napi::Date>().ValueOf())));
       }
     }
     {
@@ -69241,9 +71900,11 @@ Napi::Value _exports_InteractionCalculateAccountBalance_templ<SWIG_OBJ_WRAP>::_w
   Napi::Value jsresult;
   gradido::interaction::calculateAccountBalance::Context *arg1 = 0 ;
   SwigValueWrapper< std::shared_ptr< memory::Block const > > arg2 ;
-  Timepoint arg3 ;
+  gradido::data::Timestamp arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
   GradidoUnit result;
   
 #ifdef NAPI_CPP_EXCEPTIONS
@@ -69271,10 +71932,306 @@ Napi::Value _exports_InteractionCalculateAccountBalance_templ<SWIG_OBJ_WRAP>::_w
     }
     {
       {
-        if(!info[1].IsDate()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a Date object");
+        res3 = SWIG_ConvertPtr(info[1], &argp3, SWIGTYPE_p_gradido__data__Timestamp,  0 );
+        if (!SWIG_IsOK(res3)) {
+          SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "3"" of type '" "gradido::data::Timestamp""'"); 
+        }  
+        if (!argp3) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "3"" of type '" "gradido::data::Timestamp""'");
+        } else {
+          arg3 = *(reinterpret_cast< gradido::data::Timestamp * >(argp3));
         }
-        arg3 = Timepoint(std::chrono::milliseconds(static_cast<uint64_t>(info[1].As<Napi::Date>().ValueOf())));
+      }
+    }
+    
+    
+    
+    
+    
+    {
+      try {
+        result = ((gradido::interaction::calculateAccountBalance::Context const *)arg1)->fromEnd(SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3));
+      } catch (const InsufficientBalanceException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new GradidoUnit(result)), SWIGTYPE_p_GradidoUnit, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_overloaded_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_InteractionCalculateAccountBalance_templ<SWIG_OBJ_WRAP>::_wrap_InteractionCalculateAccountBalance_fromEnd__SWIG_3(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::interaction::calculateAccountBalance::Context *arg1 = 0 ;
+  gradido::data::compact::PublicKeyIndex arg2 ;
+  gradido::data::Timestamp arg3 ;
+  std::optional< uint32_t > arg4 ;
+  uint64_t arg5 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  unsigned long long val5 ;
+  int ecode5 = 0 ;
+  GradidoUnit result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__interaction__calculateAccountBalance__Context, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "1"" of type '" "gradido::interaction::calculateAccountBalance::Context const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::interaction::calculateAccountBalance::Context * >(argp1);{
+      {
+        res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_gradido__data__compact__PublicKeyIndex,  0 );
+        if (!SWIG_IsOK(res2)) {
+          SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "2"" of type '" "gradido::data::compact::PublicKeyIndex""'"); 
+        }  
+        if (!argp2) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "2"" of type '" "gradido::data::compact::PublicKeyIndex""'");
+        } else {
+          arg2 = *(reinterpret_cast< gradido::data::compact::PublicKeyIndex * >(argp2));
+        }
+      }
+    }
+    {
+      {
+        res3 = SWIG_ConvertPtr(info[1], &argp3, SWIGTYPE_p_gradido__data__Timestamp,  0 );
+        if (!SWIG_IsOK(res3)) {
+          SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "3"" of type '" "gradido::data::Timestamp""'"); 
+        }  
+        if (!argp3) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "3"" of type '" "gradido::data::Timestamp""'");
+        } else {
+          arg3 = *(reinterpret_cast< gradido::data::Timestamp * >(argp3));
+        }
+      }
+    }
+    {
+      {
+        res4 = SWIG_ConvertPtr(info[2], &argp4, SWIGTYPE_p_std__optionalT_unsigned_int_t,  0 );
+        if (!SWIG_IsOK(res4)) {
+          SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "4"" of type '" "std::optional< uint32_t >""'"); 
+        }  
+        if (!argp4) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "4"" of type '" "std::optional< uint32_t >""'");
+        } else {
+          arg4 = *(reinterpret_cast< std::optional< uint32_t > * >(argp4));
+        }
+      }
+    }
+    ecode5 = SWIG_AsVal_unsigned_SS_long_SS_long(info[3], &val5);
+    if (!SWIG_IsOK(ecode5)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "5"" of type '" "uint64_t""'");
+    } 
+    arg5 = static_cast< uint64_t >(val5);
+    
+    
+    
+    
+    {
+      try {
+        result = ((gradido::interaction::calculateAccountBalance::Context const *)arg1)->fromEnd(SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3),SWIG_STD_MOVE(arg4),arg5);
+      } catch (const InsufficientBalanceException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new GradidoUnit(result)), SWIGTYPE_p_GradidoUnit, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_overloaded_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_InteractionCalculateAccountBalance_templ<SWIG_OBJ_WRAP>::_wrap_InteractionCalculateAccountBalance_fromEnd__SWIG_4(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::interaction::calculateAccountBalance::Context *arg1 = 0 ;
+  gradido::data::compact::PublicKeyIndex arg2 ;
+  gradido::data::Timestamp arg3 ;
+  std::optional< uint32_t > arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  void *argp4 ;
+  int res4 = 0 ;
+  GradidoUnit result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__interaction__calculateAccountBalance__Context, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "1"" of type '" "gradido::interaction::calculateAccountBalance::Context const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::interaction::calculateAccountBalance::Context * >(argp1);{
+      {
+        res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_gradido__data__compact__PublicKeyIndex,  0 );
+        if (!SWIG_IsOK(res2)) {
+          SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "2"" of type '" "gradido::data::compact::PublicKeyIndex""'"); 
+        }  
+        if (!argp2) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "2"" of type '" "gradido::data::compact::PublicKeyIndex""'");
+        } else {
+          arg2 = *(reinterpret_cast< gradido::data::compact::PublicKeyIndex * >(argp2));
+        }
+      }
+    }
+    {
+      {
+        res3 = SWIG_ConvertPtr(info[1], &argp3, SWIGTYPE_p_gradido__data__Timestamp,  0 );
+        if (!SWIG_IsOK(res3)) {
+          SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "3"" of type '" "gradido::data::Timestamp""'"); 
+        }  
+        if (!argp3) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "3"" of type '" "gradido::data::Timestamp""'");
+        } else {
+          arg3 = *(reinterpret_cast< gradido::data::Timestamp * >(argp3));
+        }
+      }
+    }
+    {
+      {
+        res4 = SWIG_ConvertPtr(info[2], &argp4, SWIGTYPE_p_std__optionalT_unsigned_int_t,  0 );
+        if (!SWIG_IsOK(res4)) {
+          SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "4"" of type '" "std::optional< uint32_t >""'"); 
+        }  
+        if (!argp4) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "4"" of type '" "std::optional< uint32_t >""'");
+        } else {
+          arg4 = *(reinterpret_cast< std::optional< uint32_t > * >(argp4));
+        }
+      }
+    }
+    
+    
+    
+    
+    
+    {
+      try {
+        result = ((gradido::interaction::calculateAccountBalance::Context const *)arg1)->fromEnd(SWIG_STD_MOVE(arg2),SWIG_STD_MOVE(arg3),SWIG_STD_MOVE(arg4));
+      } catch (const InsufficientBalanceException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new GradidoUnit(result)), SWIGTYPE_p_GradidoUnit, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_overloaded_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_InteractionCalculateAccountBalance_templ<SWIG_OBJ_WRAP>::_wrap_InteractionCalculateAccountBalance_fromEnd__SWIG_5(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::interaction::calculateAccountBalance::Context *arg1 = 0 ;
+  gradido::data::compact::PublicKeyIndex arg2 ;
+  gradido::data::Timestamp arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  GradidoUnit result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__interaction__calculateAccountBalance__Context, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "1"" of type '" "gradido::interaction::calculateAccountBalance::Context const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::interaction::calculateAccountBalance::Context * >(argp1);{
+      {
+        res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_gradido__data__compact__PublicKeyIndex,  0 );
+        if (!SWIG_IsOK(res2)) {
+          SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "2"" of type '" "gradido::data::compact::PublicKeyIndex""'"); 
+        }  
+        if (!argp2) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "2"" of type '" "gradido::data::compact::PublicKeyIndex""'");
+        } else {
+          arg2 = *(reinterpret_cast< gradido::data::compact::PublicKeyIndex * >(argp2));
+        }
+      }
+    }
+    {
+      {
+        res3 = SWIG_ConvertPtr(info[1], &argp3, SWIGTYPE_p_gradido__data__Timestamp,  0 );
+        if (!SWIG_IsOK(res3)) {
+          SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "3"" of type '" "gradido::data::Timestamp""'"); 
+        }  
+        if (!argp3) {
+          SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "InteractionCalculateAccountBalance_fromEnd" "', argument " "3"" of type '" "gradido::data::Timestamp""'");
+        } else {
+          arg3 = *(reinterpret_cast< gradido::data::Timestamp * >(argp3));
+        }
       }
     }
     
@@ -69404,6 +72361,114 @@ Napi::Value _exports_InteractionCalculateAccountBalance_templ<SWIG_OBJ_WRAP>::_w
     return jsresult;
 #else
     _wrap_InteractionCalculateAccountBalance_fromEnd__SWIG_2(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 4 && static_cast<int>(info.Length()) <= 4) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_InteractionCalculateAccountBalance_fromEnd__SWIG_3(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_InteractionCalculateAccountBalance_fromEnd__SWIG_3(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 3 && static_cast<int>(info.Length()) <= 3) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_InteractionCalculateAccountBalance_fromEnd__SWIG_4(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_InteractionCalculateAccountBalance_fromEnd__SWIG_4(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 2 && static_cast<int>(info.Length()) <= 2) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_InteractionCalculateAccountBalance_fromEnd__SWIG_5(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_InteractionCalculateAccountBalance_fromEnd__SWIG_5(info);
     if (env.IsExceptionPending()) {
       Napi::Error e = env.GetAndClearPendingException();
       Napi::Value typeErrorValue;

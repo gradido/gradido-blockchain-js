@@ -139,6 +139,14 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("getConfirmedTxForId");
+  members.insert({
+    "getConfirmedTxForId",
+      _exports_Abstract_templ::InstanceMethod("getConfirmedTxForId",
+        &_exports_Abstract_templ::_wrap_Abstract_getConfirmedTxForId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("findByLedgerAnchor");
   members.insert({
     "findByLedgerAnchor",
@@ -235,14 +243,6 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("isTransactionExist");
-  members.insert({
-    "isTransactionExist",
-      _exports_InMemoryBlockchain_templ::InstanceMethod("isTransactionExist",
-        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_isTransactionExist,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("findTransactionTriggerEventsInRange");
   members.insert({
     "findTransactionTriggerEventsInRange",
@@ -296,6 +296,14 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
     "getTransactionForId",
       _exports_InMemoryBlockchain_templ::InstanceMethod("getTransactionForId",
         &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_getTransactionForId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getConfirmedTxForId");
+  members.insert({
+    "getConfirmedTxForId",
+      _exports_InMemoryBlockchain_templ::InstanceMethod("getConfirmedTxForId",
+        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_getConfirmedTxForId,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

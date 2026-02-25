@@ -43,6 +43,14 @@ void _exports_TimestampSeconds_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("getAsYearMonth");
+  members.insert({
+    "getAsYearMonth",
+      _exports_TimestampSeconds_templ::InstanceMethod("getAsYearMonth",
+        &_exports_TimestampSeconds_templ::_wrap_TimestampSeconds_getAsYearMonth,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getSeconds");
   members.insert({
     "getSeconds",

@@ -1,5 +1,6 @@
 %include "TransactionEntry.i"
 %include "Filter.i"
+%include "CompactFilter.i"
 
 %exception {
     try {
