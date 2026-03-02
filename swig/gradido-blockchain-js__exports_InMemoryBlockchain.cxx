@@ -275,6 +275,14 @@ void _exports_InMemoryBlockchain_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("countAll");
+  members.insert({
+    "countAll",
+      _exports_InMemoryBlockchain_templ::InstanceMethod("countAll",
+        &_exports_InMemoryBlockchain_templ::_wrap_InMemoryBlockchain_countAll,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("findOne");
   members.insert({
     "findOne",

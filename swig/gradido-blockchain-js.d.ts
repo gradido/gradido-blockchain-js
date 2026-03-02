@@ -1953,6 +1953,8 @@ export abstract class Abstract {
 
   countAll(): number;
 
+  countAll(filter: CompactFilter): number;
+
   findOne(filter: Filter): TransactionEntry|null;
 
   findOne(): TransactionEntry|null;
@@ -2011,6 +2013,8 @@ export  class InMemoryBlockchain extends Abstract {
   findAll(): TransactionEntries;
 
   findAll(filter: CompactFilter): any;
+
+  countAll(filter: CompactFilter): number;
 
   findOne(filter: Filter): TransactionEntry|null;
 

@@ -4644,6 +4644,8 @@ Napi::Value _wrap_Abstract_countAll__SWIG_0(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_Abstract_countAll__SWIG_1(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
+Napi::Value _wrap_Abstract_countAll__SWIG_2(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
 Napi::Value _wrap_Abstract__wrap_Abstract_countAll(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_Abstract_findOne__SWIG_0(const Napi::CallbackInfo &);
@@ -4732,6 +4734,8 @@ Napi::Value _wrap_InMemoryBlockchain_findAll__SWIG_1(const Napi::CallbackInfo &)
 Napi::Value _wrap_InMemoryBlockchain_findAll__SWIG_2(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_InMemoryBlockchain__wrap_InMemoryBlockchain_findAll(const Napi::CallbackInfo &);
+// jsnapi_class_method_declaration
+Napi::Value _wrap_InMemoryBlockchain_countAll(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
 Napi::Value _wrap_InMemoryBlockchain_findOne__SWIG_0(const Napi::CallbackInfo &);
 // jsnapi_class_method_declaration
@@ -67086,6 +67090,78 @@ fail:
 }
 
 
+// js_overloaded_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract_countAll__SWIG_2(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::Abstract *arg1 = 0 ;
+  gradido::blockchain::CompactFilter *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  size_t result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__Abstract, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Abstract_countAll" "', argument " "1"" of type '" "gradido::blockchain::Abstract const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::Abstract * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_gradido__blockchain__CompactFilter,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Abstract_countAll" "', argument " "2"" of type '" "gradido::blockchain::CompactFilter const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "Abstract_countAll" "', argument " "2"" of type '" "gradido::blockchain::CompactFilter const &""'"); 
+    }
+    arg2 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp2);
+    
+    
+    
+    
+    {
+      try {
+        result = ((gradido::blockchain::Abstract const *)arg1)->countAll((gradido::blockchain::CompactFilter const &)*arg2);
+      } catch(const InsufficientBalanceException &e) {
+        SWIG_exception(SWIG_ValueError, e.getFullString().data());
+      } catch(const BlockchainOrderException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const CryptoConfig::MissingKeyException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const gradido::GradidoTransactionBuilderException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch(const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    {
+      jsresult = Napi::Number::New(env, static_cast<double>(result));
+    }
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
 // js_function_dispatcher
 template <typename SWIG_OBJ_WRAP>
 Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract__wrap_Abstract_countAll(const Napi::CallbackInfo &info) {
@@ -67143,6 +67219,42 @@ Napi::Value _exports_Abstract_templ<SWIG_OBJ_WRAP>::_wrap_Abstract__wrap_Abstrac
     return jsresult;
 #else
     _wrap_Abstract_countAll__SWIG_1(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 1 && static_cast<int>(info.Length()) <= 1) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_Abstract_countAll__SWIG_2(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_Abstract_countAll__SWIG_2(info);
     if (env.IsExceptionPending()) {
       Napi::Error e = env.GetAndClearPendingException();
       Napi::Value typeErrorValue;
@@ -69883,6 +69995,83 @@ Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBloc
 #ifndef NAPI_CPP_EXCEPTIONS
   goto fail;
 fail:
+#endif
+  return Napi::Value();
+}
+
+
+// js_function
+template <typename SWIG_OBJ_WRAP>
+Napi::Value _exports_InMemoryBlockchain_templ<SWIG_OBJ_WRAP>::_wrap_InMemoryBlockchain_countAll(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::InMemory *arg1 = 0 ;
+  gradido::blockchain::CompactFilter *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  size_t result;
+  
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
+      SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_InMemoryBlockchain_countAll.");
+    }
+    
+    res1 = SWIG_ConvertPtr(info.This(), &argp1,SWIGTYPE_p_gradido__blockchain__InMemory, 0 |  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "InMemoryBlockchain_countAll" "', argument " "1"" of type '" "gradido::blockchain::InMemory const *""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::InMemory * >(argp1);res2 = SWIG_ConvertPtr(info[0], &argp2, SWIGTYPE_p_gradido__blockchain__CompactFilter,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "InMemoryBlockchain_countAll" "', argument " "2"" of type '" "gradido::blockchain::CompactFilter const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "InMemoryBlockchain_countAll" "', argument " "2"" of type '" "gradido::blockchain::CompactFilter const &""'"); 
+    }
+    arg2 = reinterpret_cast< gradido::blockchain::CompactFilter * >(argp2);
+    
+    
+    
+    
+    {
+      try {
+        result = ((gradido::blockchain::InMemory const *)arg1)->countAll((gradido::blockchain::CompactFilter const &)*arg2);
+      } catch(const InsufficientBalanceException &e) {
+        SWIG_exception(SWIG_ValueError, e.getFullString().data());
+      } catch(const BlockchainOrderException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const CryptoConfig::MissingKeyException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const gradido::GradidoTransactionBuilderException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch(const GradidoBlockchainException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    {
+      jsresult = Napi::Number::New(env, static_cast<double>(result));
+    }
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
 #endif
   return Napi::Value();
 }
