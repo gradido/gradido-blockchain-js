@@ -3499,6 +3499,12 @@ SWIGINTERN std::string gradido_blockchain_CompactFilter_toJson__SWIG_0(gradido::
 SWIGINTERN Timepoint gradido_blockchain_InMemory_getStartDate(gradido::blockchain::InMemory const *self){
             return static_cast<const gradido::blockchain::Abstract*>(self)->getStartDate();
         }
+SWIGINTERN bool gradido_blockchain_InMemory_isTransactionExist(gradido::blockchain::InMemory const *self,gradido::data::ConstGradidoTransactionPtr gradidoTransaction,gradido::data::Timestamp confirmedAt){
+            return static_cast<const gradido::blockchain::Abstract*>(self)->isTransactionExist(gradidoTransaction, confirmedAt);
+        }
+SWIGINTERN gradido::data::AddressType gradido_blockchain_InMemory_getAddressTypeSlow(gradido::blockchain::InMemory const *self,gradido::blockchain::Filter const &filter){
+            return static_cast<const gradido::blockchain::Abstract*>(self)->getAddressTypeSlow(filter);
+        }
 SWIGINTERN std::shared_ptr< gradido::blockchain::InMemory > gradido_blockchain_InMemoryProvider_getBlockchain__SWIG_0(gradido::blockchain::InMemoryProvider *self,std::string const &communityId){
         return std::dynamic_pointer_cast<gradido::blockchain::InMemory>(self->findBlockchain(communityId));
     }
@@ -4773,16 +4779,26 @@ if (SWIGTYPE_p_gradido__interaction__calculateAccountBalance__Context->clientdat
 Napi::FunctionReference *_exports_InteractionCalculateAccountBalance_ctor_ref = new Napi::FunctionReference();
 *_exports_InteractionCalculateAccountBalance_ctor_ref = Napi::Persistent(_exports_InteractionCalculateAccountBalance_ctor);
 env.GetInstanceData<EnvInstanceData>()->ctor[56] = _exports_InteractionCalculateAccountBalance_ctor_ref;
+/* Class: InteractionCreateTransactionByEvent (_exports_InteractionCreateTransactionByEvent) */
+// jsnapi_registerclass
+Napi::Function _exports_InteractionCreateTransactionByEvent_ctor = _exports_InteractionCreateTransactionByEvent_inst::GetClass(env);
+exports.Set("InteractionCreateTransactionByEvent", _exports_InteractionCreateTransactionByEvent_ctor);
+if (SWIGTYPE_p_gradido__interaction__createTransactionByEvent__Context->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_gradido__interaction__createTransactionByEvent__Context->clientdata = new size_t(57);
+}
+Napi::FunctionReference *_exports_InteractionCreateTransactionByEvent_ctor_ref = new Napi::FunctionReference();
+*_exports_InteractionCreateTransactionByEvent_ctor_ref = Napi::Persistent(_exports_InteractionCreateTransactionByEvent_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[57] = _exports_InteractionCreateTransactionByEvent_ctor_ref;
 /* Class: InteractionValidate (_exports_InteractionValidate) */
 // jsnapi_registerclass
 Napi::Function _exports_InteractionValidate_ctor = _exports_InteractionValidate_inst::GetClass(env);
 exports.Set("InteractionValidate", _exports_InteractionValidate_ctor);
 if (SWIGTYPE_p_gradido__interaction__validate__Context->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_gradido__interaction__validate__Context->clientdata = new size_t(57);
+  SWIGTYPE_p_gradido__interaction__validate__Context->clientdata = new size_t(58);
 }
 Napi::FunctionReference *_exports_InteractionValidate_ctor_ref = new Napi::FunctionReference();
 *_exports_InteractionValidate_ctor_ref = Napi::Persistent(_exports_InteractionValidate_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[57] = _exports_InteractionValidate_ctor_ref;
+env.GetInstanceData<EnvInstanceData>()->ctor[58] = _exports_InteractionValidate_ctor_ref;
 
 
   /* initialize the inheritance helpers */
@@ -5653,6 +5669,21 @@ do {
   NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
   NAPI_CHECK_MAYBE(setProto.Call({
     _exports_InteractionCalculateAccountBalance_ctor, SWIG_NAPI_ObjectWrap_ctor
+  }));
+  NAPI_CHECK_MAYBE(setProto.Call({
+    protoSub, protoBase
+  }));
+} while (0);
+
+
+// Inheritance for _exports_InteractionCreateTransactionByEvent (InteractionCreateTransactionByEvent) <- SWIG_NAPI_ObjectWrap
+// jsnapi_setup_inheritance
+do {
+  Napi::Value protoBase, protoSub;
+  NAPI_CHECK_RESULT(_exports_InteractionCreateTransactionByEvent_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
+  NAPI_CHECK_MAYBE(setProto.Call({
+    _exports_InteractionCreateTransactionByEvent_ctor, SWIG_NAPI_ObjectWrap_ctor
   }));
   NAPI_CHECK_MAYBE(setProto.Call({
     protoSub, protoBase

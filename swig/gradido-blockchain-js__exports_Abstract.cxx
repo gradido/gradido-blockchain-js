@@ -99,14 +99,6 @@ void _exports_Abstract_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("countAll");
-  members.insert({
-    "countAll",
-      _exports_Abstract_templ::InstanceMethod("countAll",
-        &_exports_Abstract_templ::_wrap_Abstract__wrap_Abstract_countAll,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("findOne");
   members.insert({
     "findOne",
@@ -152,14 +144,6 @@ void _exports_Abstract_inst::GetMembers(
     "findByLedgerAnchor",
       _exports_Abstract_templ::InstanceMethod("findByLedgerAnchor",
         &_exports_Abstract_templ::_wrap_Abstract__wrap_Abstract_findByLedgerAnchor,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("getCommunityIdIndex");
-  members.insert({
-    "getCommunityIdIndex",
-      _exports_Abstract_templ::InstanceMethod("getCommunityIdIndex",
-        &_exports_Abstract_templ::_wrap_Abstract_getCommunityIdIndex,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

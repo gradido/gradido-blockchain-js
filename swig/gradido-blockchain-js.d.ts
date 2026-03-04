@@ -1949,12 +1949,6 @@ export abstract class Abstract {
 
   findAll(filter: CompactFilter): any;
 
-  countAll(filter: Filter): number;
-
-  countAll(): number;
-
-  countAll(filter: CompactFilter): number;
-
   findOne(filter: Filter): TransactionEntry|null;
 
   findOne(): TransactionEntry|null;
@@ -1976,8 +1970,6 @@ export abstract class Abstract {
   findByLedgerAnchor(ledgerAnchor: LedgerAnchor, filter: Filter): TransactionEntry|null;
 
   findByLedgerAnchor(ledgerAnchor: LedgerAnchor): TransactionEntry|null;
-
-  getCommunityIdIndex(): number;
 
   getStartDate(): Timestamp;
 
@@ -2014,8 +2006,6 @@ export  class InMemoryBlockchain extends Abstract {
 
   findAll(filter: CompactFilter): any;
 
-  countAll(filter: CompactFilter): number;
-
   findOne(filter: Filter): TransactionEntry|null;
 
   findOne(): TransactionEntry|null;
@@ -2037,6 +2027,10 @@ export  class InMemoryBlockchain extends Abstract {
   getOrAddPublicKey(publicKey: any): number;
 
   getStartDate(): Date;
+
+  isTransactionExist(gradidoTransaction: GradidoTransaction|null, confirmedAt: Timestamp): boolean;
+
+  getAddressTypeSlow(filter: Filter): AddressType;
 }
 
 export  class InMemoryBlockchainProvider {
@@ -2069,6 +2063,13 @@ export  class InteractionCalculateAccountBalance {
   fromEnd(balanceChangingPublicKey: PublicKeyIndex, endDate: Timestamp, coinCommunityIdIndex: any): GradidoUnit;
 
   fromEnd(balanceChangingPublicKey: PublicKeyIndex, endDate: Timestamp): GradidoUnit;
+}
+
+export  class InteractionCreateTransactionByEvent {
+
+  constructor(blockchain: Abstract|null);
+
+  run(transactionTriggerEvent: TransactionTriggerEvent|null): GradidoTransaction;
 }
 
 export const ValidateType_SINGLE: ValidateType;

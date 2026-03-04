@@ -154,6 +154,6 @@ E string_to_enum(const std::string& name);
 %include "blockchain/blockchain_batch.i"
 %include "blockchain/blockchain.i"
 
-
 %include "interaction/calculateAccountBalance.i"
+%include "interaction/createTransactionByEvent.i"
 %include "interaction/validate.i"

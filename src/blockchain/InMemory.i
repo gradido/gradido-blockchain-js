@@ -28,11 +28,20 @@ namespace gradido::blockchain {
         Timepoint getStartDate() const {
             return static_cast<const gradido::blockchain::Abstract*>($self)->getStartDate();
         }
+        bool isTransactionExist(gradido::data::ConstGradidoTransactionPtr gradidoTransaction, gradido::data::Timestamp confirmedAt) const {
+            return static_cast<const gradido::blockchain::Abstract*>($self)->isTransactionExist(gradidoTransaction, confirmedAt);
+        }
+        gradido::data::AddressType getAddressTypeSlow(const Filter& filter) const {
+            return static_cast<const gradido::blockchain::Abstract*>($self)->getAddressTypeSlow(filter);
+        }
     }
 
     %rename(InMemoryBlockchain) InMemory;
     %ignore InMemory::getProvider() const;
     %ignore Abstract::getProvider() const;
+    %ignore Abstract::getCommunityIdIndex() const;
+    %ignore Abstract::countAll(const Filter&) const;
+    %ignore Abstract::countAll(const CompactFilter&) const;
 }
 
 %{
