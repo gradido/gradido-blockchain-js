@@ -1341,15 +1341,6 @@ int SWIG_AsVal_long_SS_long (Napi::Value obj, long long* val);
 #endif
 
 
-#ifdef SWIG_LONG_LONG_AVAILABLE
-SWIGINTERNINLINE
-Napi::Value SWIG_From_long_SS_long(Napi::Env env, long long val)
-{
-  return Napi::Number::New(env, val);
-}
-#endif
-
-
 // #include "gradido_blockchain/memory/Block.h"
 #include "memory/BlockPtrWrapper.h"
 
@@ -7197,10 +7188,14 @@ Napi::Value _exports_MonotonicTimer_templ<SWIG_OBJ_WRAP>::_wrap_MonotonicTimer_s
     }
     arg2 = reinterpret_cast< char * >(buf2);{
       {
-        if(!info[1].IsNumber()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+        if(!info[1].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
         }
-        arg3 = static_cast<size_t>(info[1].As<Napi::Number>().Uint32Value());
+        bool lossless = false;
+        arg3 = static_cast<size_t>(info[1].As<Napi::BigInt>().Uint64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+        }
       }
     }
     
@@ -7219,7 +7214,7 @@ Napi::Value _exports_MonotonicTimer_templ<SWIG_OBJ_WRAP>::_wrap_MonotonicTimer_s
     
     
     {
-      jsresult = Napi::Number::New(env, static_cast<double>(result));
+      jsresult = Napi::BigInt::New(env, static_cast<uint64_t>(result));
     }
     
     if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
@@ -8008,8 +8003,6 @@ void _exports_SignatureOctet_templ<SWIG_OBJ_WRAP>::_wrap_SignatureOctet_octet_se
   int64_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  long long val2 ;
-  int ecode2 = 0 ;
   
 #ifdef NAPI_CPP_EXCEPTIONS
   try {
@@ -8019,11 +8012,19 @@ void _exports_SignatureOctet_templ<SWIG_OBJ_WRAP>::_wrap_SignatureOctet_octet_se
     if (!SWIG_IsOK(res1)) {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SignatureOctet_octet_set" "', argument " "1"" of type '" "SignatureOctet *""'"); 
     }
-    arg1 = reinterpret_cast< SignatureOctet * >(argp1);ecode2 = SWIG_AsVal_long_SS_long(value, &val2);
-    if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SignatureOctet_octet_set" "', argument " "2"" of type '" "int64_t""'");
-    } 
-    arg2 = static_cast< int64_t >(val2);
+    arg1 = reinterpret_cast< SignatureOctet * >(argp1);{
+      {
+        if(!value.IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
+        }
+        bool lossless = false;
+        arg2 = static_cast<int64_t>(value.As<Napi::BigInt>().Int64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in int64_t");
+        }
+      }
+    }
+    
     
     if (arg1) (arg1)->octet = arg2;
     
@@ -8064,7 +8065,9 @@ Napi::Value _exports_SignatureOctet_templ<SWIG_OBJ_WRAP>::_wrap_SignatureOctet_o
     
     result = (int64_t) ((arg1)->octet);
     
-    jsresult = SWIG_From_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< long long >(result));
+    {
+      jsresult = Napi::BigInt::New(env, static_cast<int64_t>(result));
+    }
     
     
     return jsresult;
@@ -8140,10 +8143,14 @@ Napi::Value _exports_MemoryBlocks_templ<SWIG_OBJ_WRAP>::_wrap_new_MemoryBlocks__
     }
     {
       {
-        if(!info[0].IsNumber()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
         }
-        arg1 = static_cast<size_t>(info[0].As<Napi::Number>().Uint32Value());
+        bool lossless = false;
+        arg1 = static_cast<size_t>(info[0].As<Napi::BigInt>().Uint64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+        }
       }
     }
     {
@@ -8414,7 +8421,7 @@ Napi::Value _exports_MemoryBlocks_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlocks_size(
     
     
     {
-      jsresult = Napi::Number::New(env, static_cast<double>(result));
+      jsresult = Napi::BigInt::New(env, static_cast<uint64_t>(result));
     }
     
     
@@ -8475,7 +8482,7 @@ Napi::Value _exports_MemoryBlocks_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlocks_capac
     
     
     {
-      jsresult = Napi::Number::New(env, static_cast<double>(result));
+      jsresult = Napi::BigInt::New(env, static_cast<uint64_t>(result));
     }
     
     
@@ -8518,10 +8525,14 @@ Napi::Value _exports_MemoryBlocks_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlocks_reser
     }
     arg1 = reinterpret_cast< std::vector< memory::BlockPtrWrapper > * >(argp1);{
       {
-        if(!info[0].IsNumber()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
         }
-        arg2 = static_cast<size_t>(info[0].As<Napi::Number>().Uint32Value());
+        bool lossless = false;
+        arg2 = static_cast<size_t>(info[0].As<Napi::BigInt>().Uint64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+        }
       }
     }
     
@@ -9363,7 +9374,7 @@ Napi::Value _exports_MemoryBlock_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlock_size(co
     
     
     {
-      jsresult = Napi::Number::New(env, static_cast<double>(result));
+      jsresult = Napi::BigInt::New(env, static_cast<uint64_t>(result));
     }
     
     
@@ -10638,7 +10649,7 @@ Napi::Value _exports_ConstBlockPtrHash_templ<SWIG_OBJ_WRAP>::_wrap_ConstBlockPtr
     
     
     {
-      jsresult = Napi::Number::New(env, static_cast<double>(result));
+      jsresult = Napi::BigInt::New(env, static_cast<uint64_t>(result));
     }
     
     
@@ -11063,7 +11074,7 @@ Napi::Value _exports_MemoryBlockPtr_templ<SWIG_OBJ_WRAP>::_wrap_MemoryBlockPtr_s
     
     
     {
-      jsresult = Napi::Number::New(env, static_cast<double>(result));
+      jsresult = Napi::BigInt::New(env, static_cast<uint64_t>(result));
     }
     
     
@@ -12934,10 +12945,14 @@ Napi::Value _exports_SecretKeyCryptography_templ<SWIG_OBJ_WRAP>::_wrap_new_Secre
     } 
     arg1 = static_cast< unsigned long long >(val1);{
       {
-        if(!info[1].IsNumber()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+        if(!info[1].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
         }
-        arg2 = static_cast<size_t>(info[1].As<Napi::Number>().Uint32Value());
+        bool lossless = false;
+        arg2 = static_cast<size_t>(info[1].As<Napi::BigInt>().Uint64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+        }
       }
     }
     ecode3 = SWIG_AsVal_int(info[2], &val3);
@@ -20616,8 +20631,6 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_fromGra
   Napi::Env env = info.Env();
   Napi::Value jsresult;
   int64_t arg1 ;
-  long long val1 ;
-  int ecode1 = 0 ;
   GradidoUnit result;
   
   
@@ -20629,11 +20642,19 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_fromGra
       SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_GradidoUnit_fromGradidoCent.");
     }
     
-    ecode1 = SWIG_AsVal_long_SS_long(info[0], &val1);
-    if (!SWIG_IsOK(ecode1)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "GradidoUnit_fromGradidoCent" "', argument " "1"" of type '" "int64_t""'");
-    } 
-    arg1 = static_cast< int64_t >(val1);
+    {
+      {
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
+        }
+        bool lossless = false;
+        arg1 = static_cast<int64_t>(info[0].As<Napi::BigInt>().Int64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in int64_t");
+        }
+      }
+    }
+    
     
     
     
@@ -21018,10 +21039,14 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_toStrin
     }
     arg2 = reinterpret_cast< char * >(buf2);{
       {
-        if(!info[1].IsNumber()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+        if(!info[1].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
         }
-        arg3 = static_cast<size_t>(info[1].As<Napi::Number>().Uint32Value());
+        bool lossless = false;
+        arg3 = static_cast<size_t>(info[1].As<Napi::BigInt>().Uint64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+        }
       }
     }
     ecode4 = SWIG_AsVal_int(info[2], &val4);
@@ -21048,7 +21073,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_toStrin
     
     
     {
-      jsresult = Napi::Number::New(env, static_cast<double>(result));
+      jsresult = Napi::BigInt::New(env, static_cast<uint64_t>(result));
     }
     
     if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
@@ -21099,10 +21124,14 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_toStrin
     }
     arg2 = reinterpret_cast< char * >(buf2);{
       {
-        if(!info[1].IsNumber()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+        if(!info[1].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
         }
-        arg3 = static_cast<size_t>(info[1].As<Napi::Number>().Uint32Value());
+        bool lossless = false;
+        arg3 = static_cast<size_t>(info[1].As<Napi::BigInt>().Uint64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+        }
       }
     }
     
@@ -21125,7 +21154,7 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_toStrin
     
     
     {
-      jsresult = Napi::Number::New(env, static_cast<double>(result));
+      jsresult = Napi::BigInt::New(env, static_cast<uint64_t>(result));
     }
     
     if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
@@ -21348,7 +21377,9 @@ Napi::Value _exports_GradidoUnit_templ<SWIG_OBJ_WRAP>::_wrap_GradidoUnit_getGrad
     
     
     
-    jsresult = SWIG_From_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< long long >(result));
+    {
+      jsresult = Napi::BigInt::New(env, static_cast<int64_t>(result));
+    }
     
     
     return jsresult;
@@ -22987,8 +23018,6 @@ void _exports_HieroTransactionIdCompact_templ<SWIG_OBJ_WRAP>::_wrap_HieroTransac
   int64_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  long long val2 ;
-  int ecode2 = 0 ;
   
 #ifdef NAPI_CPP_EXCEPTIONS
   try {
@@ -22998,11 +23027,19 @@ void _exports_HieroTransactionIdCompact_templ<SWIG_OBJ_WRAP>::_wrap_HieroTransac
     if (!SWIG_IsOK(res1)) {
       SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HieroTransactionIdCompact_seconds_set" "', argument " "1"" of type '" "gradido::data::compact::HieroTransactionId *""'"); 
     }
-    arg1 = reinterpret_cast< gradido::data::compact::HieroTransactionId * >(argp1);ecode2 = SWIG_AsVal_long_SS_long(value, &val2);
-    if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "HieroTransactionIdCompact_seconds_set" "', argument " "2"" of type '" "int64_t""'");
-    } 
-    arg2 = static_cast< int64_t >(val2);
+    arg1 = reinterpret_cast< gradido::data::compact::HieroTransactionId * >(argp1);{
+      {
+        if(!value.IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
+        }
+        bool lossless = false;
+        arg2 = static_cast<int64_t>(value.As<Napi::BigInt>().Int64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in int64_t");
+        }
+      }
+    }
+    
     
     if (arg1) (arg1)->seconds = arg2;
     
@@ -23043,7 +23080,9 @@ Napi::Value _exports_HieroTransactionIdCompact_templ<SWIG_OBJ_WRAP>::_wrap_Hiero
     
     result = (int64_t) ((arg1)->seconds);
     
-    jsresult = SWIG_From_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< long long >(result));
+    {
+      jsresult = Napi::BigInt::New(env, static_cast<int64_t>(result));
+    }
     
     
     return jsresult;
@@ -23441,12 +23480,6 @@ Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroAccount
   int64_t arg1 ;
   int64_t arg2 ;
   int64_t arg3 ;
-  long long val1 ;
-  int ecode1 = 0 ;
-  long long val2 ;
-  int ecode2 = 0 ;
-  long long val3 ;
-  int ecode3 = 0 ;
   hiero::AccountId *result;
 #ifdef NAPI_CPP_EXCEPTIONS
   try {
@@ -23456,19 +23489,43 @@ Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroAccount
     if(static_cast<int>(info.Length()) < 3 || static_cast<int>(info.Length()) > 3) {
       SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroAccountId__SWIG_1.");
     }
-    ecode1 = SWIG_AsVal_long_SS_long(info[0], &val1);
-    if (!SWIG_IsOK(ecode1)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_HieroAccountId" "', argument " "1"" of type '" "int64_t""'");
-    } 
-    arg1 = static_cast< int64_t >(val1);ecode2 = SWIG_AsVal_long_SS_long(info[1], &val2);
-    if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_HieroAccountId" "', argument " "2"" of type '" "int64_t""'");
-    } 
-    arg2 = static_cast< int64_t >(val2);ecode3 = SWIG_AsVal_long_SS_long(info[2], &val3);
-    if (!SWIG_IsOK(ecode3)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_HieroAccountId" "', argument " "3"" of type '" "int64_t""'");
-    } 
-    arg3 = static_cast< int64_t >(val3);{
+    {
+      {
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
+        }
+        bool lossless = false;
+        arg1 = static_cast<int64_t>(info[0].As<Napi::BigInt>().Int64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in int64_t");
+        }
+      }
+    }
+    {
+      {
+        if(!info[1].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
+        }
+        bool lossless = false;
+        arg2 = static_cast<int64_t>(info[1].As<Napi::BigInt>().Int64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in int64_t");
+        }
+      }
+    }
+    {
+      {
+        if(!info[2].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
+        }
+        bool lossless = false;
+        arg3 = static_cast<int64_t>(info[2].As<Napi::BigInt>().Int64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in int64_t");
+        }
+      }
+    }
+    {
       try {
         result = (hiero::AccountId *)new hiero::AccountId(arg1,arg2,arg3);
       } catch (const std::exception& e) {
@@ -23500,10 +23557,6 @@ Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroAccount
   int64_t arg1 ;
   int64_t arg2 ;
   memory::Block *arg3 = 0 ;
-  long long val1 ;
-  int ecode1 = 0 ;
-  long long val2 ;
-  int ecode2 = 0 ;
   void *argp3 = 0 ;
   int res3 = 0 ;
   hiero::AccountId *result;
@@ -23515,15 +23568,31 @@ Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroAccount
     if(static_cast<int>(info.Length()) < 3 || static_cast<int>(info.Length()) > 3) {
       SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroAccountId__SWIG_2.");
     }
-    ecode1 = SWIG_AsVal_long_SS_long(info[0], &val1);
-    if (!SWIG_IsOK(ecode1)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_HieroAccountId" "', argument " "1"" of type '" "int64_t""'");
-    } 
-    arg1 = static_cast< int64_t >(val1);ecode2 = SWIG_AsVal_long_SS_long(info[1], &val2);
-    if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_HieroAccountId" "', argument " "2"" of type '" "int64_t""'");
-    } 
-    arg2 = static_cast< int64_t >(val2);res3 = SWIG_ConvertPtr(info[2], &argp3, SWIGTYPE_p_memory__Block,  0 );
+    {
+      {
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
+        }
+        bool lossless = false;
+        arg1 = static_cast<int64_t>(info[0].As<Napi::BigInt>().Int64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in int64_t");
+        }
+      }
+    }
+    {
+      {
+        if(!info[1].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
+        }
+        bool lossless = false;
+        arg2 = static_cast<int64_t>(info[1].As<Napi::BigInt>().Int64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in int64_t");
+        }
+      }
+    }
+    res3 = SWIG_ConvertPtr(info[2], &argp3, SWIGTYPE_p_memory__Block,  0 );
     if (!SWIG_IsOK(res3)) {
       SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_HieroAccountId" "', argument " "3"" of type '" "memory::Block const &""'"); 
     }
@@ -23562,10 +23631,6 @@ Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroAccount
   int64_t arg1 ;
   int64_t arg2 ;
   memory::Block *arg3 = 0 ;
-  long long val1 ;
-  int ecode1 = 0 ;
-  long long val2 ;
-  int ecode2 = 0 ;
   void *argp3 = 0 ;
   int res3 = 0 ;
   std::unique_ptr< memory::Block > rvrdeleter3 ;
@@ -23578,15 +23643,31 @@ Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroAccount
     if(static_cast<int>(info.Length()) < 3 || static_cast<int>(info.Length()) > 3) {
       SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroAccountId__SWIG_3.");
     }
-    ecode1 = SWIG_AsVal_long_SS_long(info[0], &val1);
-    if (!SWIG_IsOK(ecode1)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_HieroAccountId" "', argument " "1"" of type '" "int64_t""'");
-    } 
-    arg1 = static_cast< int64_t >(val1);ecode2 = SWIG_AsVal_long_SS_long(info[1], &val2);
-    if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_HieroAccountId" "', argument " "2"" of type '" "int64_t""'");
-    } 
-    arg2 = static_cast< int64_t >(val2);res3 = SWIG_ConvertPtr(info[2], &argp3, SWIGTYPE_p_memory__Block, SWIG_POINTER_RELEASE |  0 );
+    {
+      {
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
+        }
+        bool lossless = false;
+        arg1 = static_cast<int64_t>(info[0].As<Napi::BigInt>().Int64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in int64_t");
+        }
+      }
+    }
+    {
+      {
+        if(!info[1].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
+        }
+        bool lossless = false;
+        arg2 = static_cast<int64_t>(info[1].As<Napi::BigInt>().Int64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in int64_t");
+        }
+      }
+    }
+    res3 = SWIG_ConvertPtr(info[2], &argp3, SWIGTYPE_p_memory__Block, SWIG_POINTER_RELEASE |  0 );
     if (!SWIG_IsOK(res3)) {
       if (res3 == SWIG_ERROR_RELEASE_NOT_OWNED) {
         SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_HieroAccountId" "', cannot release ownership as memory is not owned for argument " "3"" of type '" "memory::Block &&""'");
@@ -24119,7 +24200,9 @@ Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_HieroAccountId_g
     
     
     
-    jsresult = SWIG_From_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< long long >(result));
+    {
+      jsresult = Napi::BigInt::New(env, static_cast<int64_t>(result));
+    }
     
     
     return jsresult;
@@ -24174,7 +24257,9 @@ Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_HieroAccountId_g
     
     
     
-    jsresult = SWIG_From_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< long long >(result));
+    {
+      jsresult = Napi::BigInt::New(env, static_cast<int64_t>(result));
+    }
     
     
     return jsresult;
@@ -24229,7 +24314,9 @@ Napi::Value _exports_HieroAccountId_templ<SWIG_OBJ_WRAP>::_wrap_HieroAccountId_g
     
     
     
-    jsresult = SWIG_From_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< long long >(result));
+    {
+      jsresult = Napi::BigInt::New(env, static_cast<int64_t>(result));
+    }
     
     
     return jsresult;
@@ -24716,12 +24803,6 @@ Napi::Value _exports_HieroTopicId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroTopicId__
   int64_t arg1 ;
   int64_t arg2 ;
   int64_t arg3 ;
-  long long val1 ;
-  int ecode1 = 0 ;
-  long long val2 ;
-  int ecode2 = 0 ;
-  long long val3 ;
-  int ecode3 = 0 ;
   hiero::TopicId *result;
 #ifdef NAPI_CPP_EXCEPTIONS
   try {
@@ -24731,19 +24812,43 @@ Napi::Value _exports_HieroTopicId_templ<SWIG_OBJ_WRAP>::_wrap_new_HieroTopicId__
     if(static_cast<int>(info.Length()) < 3 || static_cast<int>(info.Length()) > 3) {
       SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_HieroTopicId__SWIG_1.");
     }
-    ecode1 = SWIG_AsVal_long_SS_long(info[0], &val1);
-    if (!SWIG_IsOK(ecode1)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_HieroTopicId" "', argument " "1"" of type '" "int64_t""'");
-    } 
-    arg1 = static_cast< int64_t >(val1);ecode2 = SWIG_AsVal_long_SS_long(info[1], &val2);
-    if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_HieroTopicId" "', argument " "2"" of type '" "int64_t""'");
-    } 
-    arg2 = static_cast< int64_t >(val2);ecode3 = SWIG_AsVal_long_SS_long(info[2], &val3);
-    if (!SWIG_IsOK(ecode3)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_HieroTopicId" "', argument " "3"" of type '" "int64_t""'");
-    } 
-    arg3 = static_cast< int64_t >(val3);{
+    {
+      {
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
+        }
+        bool lossless = false;
+        arg1 = static_cast<int64_t>(info[0].As<Napi::BigInt>().Int64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in int64_t");
+        }
+      }
+    }
+    {
+      {
+        if(!info[1].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
+        }
+        bool lossless = false;
+        arg2 = static_cast<int64_t>(info[1].As<Napi::BigInt>().Int64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in int64_t");
+        }
+      }
+    }
+    {
+      {
+        if(!info[2].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
+        }
+        bool lossless = false;
+        arg3 = static_cast<int64_t>(info[2].As<Napi::BigInt>().Int64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in int64_t");
+        }
+      }
+    }
+    {
       try {
         result = (hiero::TopicId *)new hiero::TopicId(arg1,arg2,arg3);
       } catch (const std::exception& e) {
@@ -25192,7 +25297,9 @@ Napi::Value _exports_HieroTopicId_templ<SWIG_OBJ_WRAP>::_wrap_HieroTopicId_getSh
     
     
     
-    jsresult = SWIG_From_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< long long >(result));
+    {
+      jsresult = Napi::BigInt::New(env, static_cast<int64_t>(result));
+    }
     
     
     return jsresult;
@@ -25247,7 +25354,9 @@ Napi::Value _exports_HieroTopicId_templ<SWIG_OBJ_WRAP>::_wrap_HieroTopicId_getRe
     
     
     
-    jsresult = SWIG_From_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< long long >(result));
+    {
+      jsresult = Napi::BigInt::New(env, static_cast<int64_t>(result));
+    }
     
     
     return jsresult;
@@ -25302,7 +25411,9 @@ Napi::Value _exports_HieroTopicId_templ<SWIG_OBJ_WRAP>::_wrap_HieroTopicId_getTo
     
     
     
-    jsresult = SWIG_From_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< long long >(result));
+    {
+      jsresult = Napi::BigInt::New(env, static_cast<int64_t>(result));
+    }
     
     
     return jsresult;
@@ -26821,10 +26932,14 @@ Napi::Value _exports_SignaturePairs_templ<SWIG_OBJ_WRAP>::_wrap_new_SignaturePai
     }
     {
       {
-        if(!info[0].IsNumber()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
         }
-        arg1 = static_cast<size_t>(info[0].As<Napi::Number>().Uint32Value());
+        bool lossless = false;
+        arg1 = static_cast<size_t>(info[0].As<Napi::BigInt>().Uint64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+        }
       }
     }
     {
@@ -27083,7 +27198,7 @@ Napi::Value _exports_SignaturePairs_templ<SWIG_OBJ_WRAP>::_wrap_SignaturePairs_s
     
     
     {
-      jsresult = Napi::Number::New(env, static_cast<double>(result));
+      jsresult = Napi::BigInt::New(env, static_cast<uint64_t>(result));
     }
     
     
@@ -27140,7 +27255,7 @@ Napi::Value _exports_SignaturePairs_templ<SWIG_OBJ_WRAP>::_wrap_SignaturePairs_c
     
     
     {
-      jsresult = Napi::Number::New(env, static_cast<double>(result));
+      jsresult = Napi::BigInt::New(env, static_cast<uint64_t>(result));
     }
     
     
@@ -27183,10 +27298,14 @@ Napi::Value _exports_SignaturePairs_templ<SWIG_OBJ_WRAP>::_wrap_SignaturePairs_r
     }
     arg1 = reinterpret_cast< std::vector< gradido::data::SignaturePair > * >(argp1);{
       {
-        if(!info[0].IsNumber()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
         }
-        arg2 = static_cast<size_t>(info[0].As<Napi::Number>().Uint32Value());
+        bool lossless = false;
+        arg2 = static_cast<size_t>(info[0].As<Napi::BigInt>().Uint64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+        }
       }
     }
     
@@ -27598,10 +27717,14 @@ Napi::Value _exports_EncryptedMemos_templ<SWIG_OBJ_WRAP>::_wrap_new_EncryptedMem
     }
     {
       {
-        if(!info[0].IsNumber()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
         }
-        arg1 = static_cast<size_t>(info[0].As<Napi::Number>().Uint32Value());
+        bool lossless = false;
+        arg1 = static_cast<size_t>(info[0].As<Napi::BigInt>().Uint64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+        }
       }
     }
     {
@@ -27860,7 +27983,7 @@ Napi::Value _exports_EncryptedMemos_templ<SWIG_OBJ_WRAP>::_wrap_EncryptedMemos_s
     
     
     {
-      jsresult = Napi::Number::New(env, static_cast<double>(result));
+      jsresult = Napi::BigInt::New(env, static_cast<uint64_t>(result));
     }
     
     
@@ -27917,7 +28040,7 @@ Napi::Value _exports_EncryptedMemos_templ<SWIG_OBJ_WRAP>::_wrap_EncryptedMemos_c
     
     
     {
-      jsresult = Napi::Number::New(env, static_cast<double>(result));
+      jsresult = Napi::BigInt::New(env, static_cast<uint64_t>(result));
     }
     
     
@@ -27960,10 +28083,14 @@ Napi::Value _exports_EncryptedMemos_templ<SWIG_OBJ_WRAP>::_wrap_EncryptedMemos_r
     }
     arg1 = reinterpret_cast< std::vector< gradido::data::EncryptedMemo > * >(argp1);{
       {
-        if(!info[0].IsNumber()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
         }
-        arg2 = static_cast<size_t>(info[0].As<Napi::Number>().Uint32Value());
+        bool lossless = false;
+        arg2 = static_cast<size_t>(info[0].As<Napi::BigInt>().Uint64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+        }
       }
     }
     
@@ -28375,10 +28502,14 @@ Napi::Value _exports_AccountBalances_templ<SWIG_OBJ_WRAP>::_wrap_new_AccountBala
     }
     {
       {
-        if(!info[0].IsNumber()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
         }
-        arg1 = static_cast<size_t>(info[0].As<Napi::Number>().Uint32Value());
+        bool lossless = false;
+        arg1 = static_cast<size_t>(info[0].As<Napi::BigInt>().Uint64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+        }
       }
     }
     {
@@ -28637,7 +28768,7 @@ Napi::Value _exports_AccountBalances_templ<SWIG_OBJ_WRAP>::_wrap_AccountBalances
     
     
     {
-      jsresult = Napi::Number::New(env, static_cast<double>(result));
+      jsresult = Napi::BigInt::New(env, static_cast<uint64_t>(result));
     }
     
     
@@ -28694,7 +28825,7 @@ Napi::Value _exports_AccountBalances_templ<SWIG_OBJ_WRAP>::_wrap_AccountBalances
     
     
     {
-      jsresult = Napi::Number::New(env, static_cast<double>(result));
+      jsresult = Napi::BigInt::New(env, static_cast<uint64_t>(result));
     }
     
     
@@ -28737,10 +28868,14 @@ Napi::Value _exports_AccountBalances_templ<SWIG_OBJ_WRAP>::_wrap_AccountBalances
     }
     arg1 = reinterpret_cast< std::vector< gradido::data::AccountBalance > * >(argp1);{
       {
-        if(!info[0].IsNumber()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
         }
-        arg2 = static_cast<size_t>(info[0].As<Napi::Number>().Uint32Value());
+        bool lossless = false;
+        arg2 = static_cast<size_t>(info[0].As<Napi::BigInt>().Uint64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+        }
       }
     }
     
@@ -30778,8 +30913,6 @@ Napi::Value _exports_TimestampSeconds_templ<SWIG_OBJ_WRAP>::_wrap_new_TimestampS
   Napi::Env env = info.Env();
   Napi::Object self;
   int64_t arg1 ;
-  long long val1 ;
-  int ecode1 = 0 ;
   gradido::data::TimestampSeconds *result;
 #ifdef NAPI_CPP_EXCEPTIONS
   try {
@@ -30789,11 +30922,19 @@ Napi::Value _exports_TimestampSeconds_templ<SWIG_OBJ_WRAP>::_wrap_new_TimestampS
     if(static_cast<int>(info.Length()) < 1 || static_cast<int>(info.Length()) > 1) {
       SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_TimestampSeconds__SWIG_2.");
     }
-    ecode1 = SWIG_AsVal_long_SS_long(info[0], &val1);
-    if (!SWIG_IsOK(ecode1)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_TimestampSeconds" "', argument " "1"" of type '" "int64_t""'");
-    } 
-    arg1 = static_cast< int64_t >(val1);{
+    {
+      {
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
+        }
+        bool lossless = false;
+        arg1 = static_cast<int64_t>(info[0].As<Napi::BigInt>().Int64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in int64_t");
+        }
+      }
+    }
+    {
       try {
         result = (gradido::data::TimestampSeconds *)new gradido::data::TimestampSeconds(arg1);
       } catch (const std::exception& e) {
@@ -31113,7 +31254,9 @@ Napi::Value _exports_TimestampSeconds_templ<SWIG_OBJ_WRAP>::_wrap_TimestampSecon
     
     
     
-    jsresult = SWIG_From_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< long long >(result));
+    {
+      jsresult = Napi::BigInt::New(env, static_cast<int64_t>(result));
+    }
     
     
     return jsresult;
@@ -31875,8 +32018,6 @@ Napi::Value _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_wrap_new_Timestamp__SWIG_2
   Napi::Object self;
   int64_t arg1 ;
   int32_t arg2 ;
-  long long val1 ;
-  int ecode1 = 0 ;
   int val2 ;
   int ecode2 = 0 ;
   gradido::data::Timestamp *result;
@@ -31888,11 +32029,19 @@ Napi::Value _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_wrap_new_Timestamp__SWIG_2
     if(static_cast<int>(info.Length()) < 2 || static_cast<int>(info.Length()) > 2) {
       SWIG_Error(SWIG_ERROR, "Illegal number of arguments for _wrap_new_Timestamp__SWIG_2.");
     }
-    ecode1 = SWIG_AsVal_long_SS_long(info[0], &val1);
-    if (!SWIG_IsOK(ecode1)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_Timestamp" "', argument " "1"" of type '" "int64_t""'");
-    } 
-    arg1 = static_cast< int64_t >(val1);ecode2 = SWIG_AsVal_int(info[1], &val2);
+    {
+      {
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
+        }
+        bool lossless = false;
+        arg1 = static_cast<int64_t>(info[0].As<Napi::BigInt>().Int64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in int64_t");
+        }
+      }
+    }
+    ecode2 = SWIG_AsVal_int(info[1], &val2);
     if (!SWIG_IsOK(ecode2)) {
       SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_Timestamp" "', argument " "2"" of type '" "int32_t""'");
     } 
@@ -32209,7 +32358,9 @@ Napi::Value _exports_Timestamp_templ<SWIG_OBJ_WRAP>::_wrap_Timestamp_getSeconds(
     
     
     
-    jsresult = SWIG_From_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< long long >(result));
+    {
+      jsresult = Napi::BigInt::New(env, static_cast<int64_t>(result));
+    }
     
     
     return jsresult;
@@ -33717,7 +33868,9 @@ Napi::Value _exports_SignaturePair_templ<SWIG_OBJ_WRAP>::_wrap_SignaturePair_has
     
     
     
-    jsresult = SWIG_From_long_SS_long  SWIG_NAPI_FROM_CALL_ARGS(static_cast< long long >(result));
+    {
+      jsresult = Napi::BigInt::New(env, static_cast<int64_t>(result));
+    }
     
     
     return jsresult;
@@ -33945,10 +34098,14 @@ Napi::Value _exports_SignatureMap_templ<SWIG_OBJ_WRAP>::_wrap_new_SignatureMap__
     }
     {
       {
-        if(!info[0].IsNumber()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
         }
-        arg1 = static_cast<size_t>(info[0].As<Napi::Number>().Uint32Value());
+        bool lossless = false;
+        arg1 = static_cast<size_t>(info[0].As<Napi::BigInt>().Uint64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+        }
       }
     }
     {
@@ -34046,10 +34203,14 @@ Napi::Value _exports_SignatureMap_templ<SWIG_OBJ_WRAP>::_wrap_new_SignatureMap__
     }
     {
       {
-        if(!info[1].IsNumber()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+        if(!info[1].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
         }
-        arg2 = static_cast<size_t>(info[1].As<Napi::Number>().Uint32Value());
+        bool lossless = false;
+        arg2 = static_cast<size_t>(info[1].As<Napi::BigInt>().Uint64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+        }
       }
     }
     {
@@ -34400,10 +34561,14 @@ Napi::Value _exports_SignatureMap_templ<SWIG_OBJ_WRAP>::_wrap_SignatureMap_reser
     }
     arg1 = reinterpret_cast< gradido::data::SignatureMap * >(argp1);{
       {
-        if(!info[0].IsNumber()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
         }
-        arg2 = static_cast<size_t>(info[0].As<Napi::Number>().Uint32Value());
+        bool lossless = false;
+        arg2 = static_cast<size_t>(info[0].As<Napi::BigInt>().Uint64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+        }
       }
     }
     
@@ -57319,10 +57484,14 @@ Napi::Value _exports_VectorUint64_templ<SWIG_OBJ_WRAP>::_wrap_new_VectorUint64__
     }
     {
       {
-        if(!info[0].IsNumber()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
         }
-        arg1 = static_cast<size_t>(info[0].As<Napi::Number>().Uint32Value());
+        bool lossless = false;
+        arg1 = static_cast<size_t>(info[0].As<Napi::BigInt>().Uint64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+        }
       }
     }
     {
@@ -57587,7 +57756,7 @@ Napi::Value _exports_VectorUint64_templ<SWIG_OBJ_WRAP>::_wrap_VectorUint64_size(
     
     
     {
-      jsresult = Napi::Number::New(env, static_cast<double>(result));
+      jsresult = Napi::BigInt::New(env, static_cast<uint64_t>(result));
     }
     
     
@@ -57646,7 +57815,7 @@ Napi::Value _exports_VectorUint64_templ<SWIG_OBJ_WRAP>::_wrap_VectorUint64_capac
     
     
     {
-      jsresult = Napi::Number::New(env, static_cast<double>(result));
+      jsresult = Napi::BigInt::New(env, static_cast<uint64_t>(result));
     }
     
     
@@ -57689,10 +57858,14 @@ Napi::Value _exports_VectorUint64_templ<SWIG_OBJ_WRAP>::_wrap_VectorUint64_reser
     }
     arg1 = reinterpret_cast< std::vector< uint64_t > * >(argp1);{
       {
-        if(!info[0].IsNumber()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
         }
-        arg2 = static_cast<size_t>(info[0].As<Napi::Number>().Uint32Value());
+        bool lossless = false;
+        arg2 = static_cast<size_t>(info[0].As<Napi::BigInt>().Uint64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+        }
       }
     }
     
@@ -58116,10 +58289,14 @@ Napi::Value _exports_TransactionEntries_templ<SWIG_OBJ_WRAP>::_wrap_new_Transact
     }
     {
       {
-        if(!info[0].IsNumber()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
         }
-        arg1 = static_cast<size_t>(info[0].As<Napi::Number>().Uint32Value());
+        bool lossless = false;
+        arg1 = static_cast<size_t>(info[0].As<Napi::BigInt>().Uint64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+        }
       }
     }
     {
@@ -58384,7 +58561,7 @@ Napi::Value _exports_TransactionEntries_templ<SWIG_OBJ_WRAP>::_wrap_TransactionE
     
     
     {
-      jsresult = Napi::Number::New(env, static_cast<double>(result));
+      jsresult = Napi::BigInt::New(env, static_cast<uint64_t>(result));
     }
     
     
@@ -58443,7 +58620,7 @@ Napi::Value _exports_TransactionEntries_templ<SWIG_OBJ_WRAP>::_wrap_TransactionE
     
     
     {
-      jsresult = Napi::Number::New(env, static_cast<double>(result));
+      jsresult = Napi::BigInt::New(env, static_cast<uint64_t>(result));
     }
     
     
@@ -58486,10 +58663,14 @@ Napi::Value _exports_TransactionEntries_templ<SWIG_OBJ_WRAP>::_wrap_TransactionE
     }
     arg1 = reinterpret_cast< std::vector< std::shared_ptr< gradido::blockchain::TransactionEntry > > * >(argp1);{
       {
-        if(!info[0].IsNumber()) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+        if(!info[0].IsBigInt()) {
+          SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
         }
-        arg2 = static_cast<size_t>(info[0].As<Napi::Number>().Uint32Value());
+        bool lossless = false;
+        arg2 = static_cast<size_t>(info[0].As<Napi::BigInt>().Uint64Value(&lossless));
+        if (!lossless) {
+          SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+        }
       }
     }
     

@@ -42,19 +42,43 @@ typedef std::chrono::system_clock::duration Duration;
 }
 
 // converting size_t
-%typemap(ts) size_t "number";
-%typemap(cstype) size_t "number";
+%typemap(ts) size_t "bigint";
+%typemap(cstype) size_t "bigint";
 // Typemap for size_t -> JavaScript Number
 %typemap(out) size_t {
-    $result = Napi::Number::New(env, static_cast<double>($1));
+    $result = Napi::BigInt::New(env, static_cast<uint64_t>($1));
 }
 
-// Typemap for JavaScript Number -> size_t
+// Typemap for JavaScript bigint -> size_t
 %typemap(in) size_t {
-    if(!$input.IsNumber()) {
-        SWIG_exception_fail(SWIG_TypeError, "Expected a number");
+    if(!$input.IsBigInt()) {
+        SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
     }
-    $1 = static_cast<size_t>($input.As<Napi::Number>().Uint32Value());
+    bool lossless = false;
+    $1 = static_cast<size_t>($input.As<Napi::BigInt>().Uint64Value(&lossless));
+    if (!lossless) {
+        SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in size_t");
+    }
+}
+
+// converting int64_t
+%typemap(ts) int64_t "bigint";
+%typemap(cstype) int64_t "bigint";
+// Typemap for int64_t -> JavaScript Number
+%typemap(out) int64_t {
+    $result = Napi::BigInt::New(env, static_cast<int64_t>($1));
+}
+
+// Typemap for JavaScript bigint -> int64_t
+%typemap(in) int64_t {
+    if(!$input.IsBigInt()) {
+        SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
+    }
+    bool lossless = false;
+    $1 = static_cast<int64_t>($input.As<Napi::BigInt>().Int64Value(&lossless));
+    if (!lossless) {
+        SWIG_exception_fail(SWIG_OverflowError, "BigInt value is too large to fit in int64_t");
+    }
 }
 
 // typemaps for date Month and date Year

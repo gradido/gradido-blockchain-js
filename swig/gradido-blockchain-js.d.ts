@@ -71,7 +71,7 @@ export  class MonotonicTimer {
 
   string(): string;
 
-  string(buffer: string, bufferSize: number): number;
+  string(buffer: string, bufferSize: bigint): bigint;
 }
 
 export const AddressType_NONE: AddressType;
@@ -188,22 +188,22 @@ export  class SignatureOctet {
 
   empty(): boolean;
 
-  octet: number;
+  octet: bigint;
 }
 
 export  class MemoryBlocks {
 
   constructor();
 
-  constructor(n: number);
+  constructor(n: bigint);
 
   constructor(other: MemoryBlocks);
 
-  size(): number;
+  size(): bigint;
 
-  capacity(): number;
+  capacity(): bigint;
 
-  reserve(n: number): void;
+  reserve(n: bigint): void;
 
   isEmpty(): boolean;
 
@@ -226,7 +226,7 @@ export  class MemoryBlock {
 
   constructor(other: MemoryBlock);
 
-  size(): number;
+  size(): bigint;
 
   data(): Buffer;
 
@@ -261,7 +261,7 @@ export  class MemoryBlock {
 
 export  class ConstBlockPtrHash {
 
-  call(s: any): number;
+  call(s: any): bigint;
 
   constructor();
 }
@@ -277,7 +277,7 @@ export  class MemoryBlockPtr {
 
   constructor(block: MemoryBlock);
 
-  size(): number;
+  size(): bigint;
 
   isNull(): boolean;
 
@@ -345,7 +345,7 @@ export  class SecretKeyCryptography {
 
   constructor();
 
-  constructor(opslimit: number, memlimit: number, algo: number);
+  constructor(opslimit: number, memlimit: bigint, algo: number);
 
   equal(b: SecretKeyCryptography|null): boolean;
 
@@ -525,7 +525,7 @@ export  class GradidoUnit {
 
  static fromString(stringAmount: string): GradidoUnit;
 
- static fromGradidoCent(gddCent: number): GradidoUnit;
+ static fromGradidoCent(gddCent: bigint): GradidoUnit;
 
   roundToPrecision(precision: number): GradidoUnit;
 
@@ -535,11 +535,11 @@ export  class GradidoUnit {
 
   toString(): string;
 
-  toString(buffer: string, bufferSize: number, precision: number): number;
+  toString(buffer: string, bufferSize: bigint, precision: number): bigint;
 
-  toString(buffer: string, bufferSize: number): number;
+  toString(buffer: string, bufferSize: bigint): bigint;
 
-  getGradidoCent(): number;
+  getGradidoCent(): bigint;
 
   value(): number;
 
@@ -586,7 +586,7 @@ export  class GradidoUnit {
 
 export  class HieroTransactionIdCompact {
 
-  seconds: number;
+  seconds: bigint;
 
   nanos: number;
 
@@ -601,11 +601,11 @@ export  class HieroAccountId {
 
   constructor();
 
-  constructor(shardNum: number, realmNum: number, accountNum: number);
+  constructor(shardNum: bigint, realmNum: bigint, accountNum: bigint);
 
-  constructor(shardNum: number, realmNum: number, alias: MemoryBlock);
+  constructor(shardNum: bigint, realmNum: bigint, alias: MemoryBlock);
 
-  constructor(shardNum: number, realmNum: number, alias: MemoryBlock);
+  constructor(shardNum: bigint, realmNum: bigint, alias: MemoryBlock);
 
   constructor(accountIdString: string);
 
@@ -613,11 +613,11 @@ export  class HieroAccountId {
 
   constructor(other: HieroAccountId);
 
-  getShardNum(): number;
+  getShardNum(): bigint;
 
-  getRealmNum(): number;
+  getRealmNum(): bigint;
 
-  getAccountNum(): number;
+  getAccountNum(): bigint;
 
   getAlias(): MemoryBlock;
 
@@ -638,7 +638,7 @@ export  class HieroTopicId {
 
   constructor();
 
-  constructor(shardNum: number, realmNum: number, topicNum: number);
+  constructor(shardNum: bigint, realmNum: bigint, topicNum: bigint);
 
   constructor(topicIdString: string);
 
@@ -646,11 +646,11 @@ export  class HieroTopicId {
 
   constructor(other: HieroTopicId);
 
-  getShardNum(): number;
+  getShardNum(): bigint;
 
-  getRealmNum(): number;
+  getRealmNum(): bigint;
 
-  getTopicNum(): number;
+  getTopicNum(): bigint;
 
   toString(): string;
 
@@ -700,15 +700,15 @@ export  class SignaturePairs {
 
   constructor();
 
-  constructor(n: number);
+  constructor(n: bigint);
 
   constructor(other: SignaturePairs);
 
-  size(): number;
+  size(): bigint;
 
-  capacity(): number;
+  capacity(): bigint;
 
-  reserve(n: number): void;
+  reserve(n: bigint): void;
 
   isEmpty(): boolean;
 
@@ -725,15 +725,15 @@ export  class EncryptedMemos {
 
   constructor();
 
-  constructor(n: number);
+  constructor(n: bigint);
 
   constructor(other: EncryptedMemos);
 
-  size(): number;
+  size(): bigint;
 
-  capacity(): number;
+  capacity(): bigint;
 
-  reserve(n: number): void;
+  reserve(n: bigint): void;
 
   isEmpty(): boolean;
 
@@ -750,15 +750,15 @@ export  class AccountBalances {
 
   constructor();
 
-  constructor(n: number);
+  constructor(n: bigint);
 
   constructor(other: AccountBalances);
 
-  size(): number;
+  size(): bigint;
 
-  capacity(): number;
+  capacity(): bigint;
 
-  reserve(n: number): void;
+  reserve(n: bigint): void;
 
   isEmpty(): boolean;
 
@@ -829,13 +829,13 @@ export  class TimestampSeconds {
 
   constructor(date: Date);
 
-  constructor(seconds: number);
+  constructor(seconds: bigint);
 
   getDate(): Date;
 
   getAsYearMonth(): any;
 
-  getSeconds(): number;
+  getSeconds(): bigint;
 
   equal(other: TimestampSeconds): boolean;
 
@@ -862,13 +862,13 @@ export  class Timestamp {
 
   constructor(date: Date);
 
-  constructor(_seconds: number, _nanos: number);
+  constructor(_seconds: bigint, _nanos: number);
 
  static now(): Timestamp;
 
   getDate(): Date;
 
-  getSeconds(): number;
+  getSeconds(): bigint;
 
   getNanos(): number;
 
@@ -909,7 +909,7 @@ export  class SignaturePair {
 
   getSignature(): MemoryBlockPtr|null;
 
-  hash(): number;
+  hash(): bigint;
 
   toJson(pretty: boolean): string;
 
@@ -918,17 +918,17 @@ export  class SignaturePair {
 
 export  class SignatureMap {
 
-  constructor(sizeHint: number);
+  constructor(sizeHint: bigint);
 
   constructor();
 
-  constructor(firstSignaturePair: SignaturePair, sizeHint: number);
+  constructor(firstSignaturePair: SignaturePair, sizeHint: bigint);
 
   constructor(firstSignaturePair: SignaturePair);
 
   push(signaturePair: SignaturePair): void;
 
-  reserve(sizeHint: number): void;
+  reserve(sizeHint: bigint): void;
 
   clear(): void;
 
@@ -1615,15 +1615,15 @@ export  class VectorUint64 {
 
   constructor();
 
-  constructor(n: number);
+  constructor(n: bigint);
 
   constructor(other: any);
 
-  size(): number;
+  size(): bigint;
 
-  capacity(): number;
+  capacity(): bigint;
 
-  reserve(n: number): void;
+  reserve(n: bigint): void;
 
   isEmpty(): boolean;
 
@@ -1660,15 +1660,15 @@ export  class TransactionEntries {
 
   constructor();
 
-  constructor(n: number);
+  constructor(n: bigint);
 
   constructor(other: TransactionEntries);
 
-  size(): number;
+  size(): bigint;
 
-  capacity(): number;
+  capacity(): bigint;
 
-  reserve(n: number): void;
+  reserve(n: bigint): void;
 
   isEmpty(): boolean;
 
