@@ -35,6 +35,14 @@ void _exports_GradidoUnit_inst::GetMembers(
   
   /* register wrapper functions */
   // jsnapi_register_member_function
+  members.erase("roundToPrecision");
+  members.insert({
+    "roundToPrecision",
+      _exports_GradidoUnit_templ::InstanceMethod("roundToPrecision",
+        &_exports_GradidoUnit_templ::_wrap_GradidoUnit__wrap_GradidoUnit_roundToPrecision,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("toString");
   members.insert({
     "toString",

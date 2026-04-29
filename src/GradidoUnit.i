@@ -8,6 +8,8 @@
         $function
     } catch (const FixedPointedArithmetikOverflowException& e) {
         SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+    } catch (const InvalidGradidoUnitStringException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
     } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
     }
@@ -23,6 +25,7 @@
 %ignore GradidoUnit::GradidoUnit(int64_t gddCent);
 
 %ignore FixedPointedArithmetikOverflowException;
+%ignore InvalidGradidoUnitStringException;
 %include "gradido_blockchain/GradidoUnit.h"
 
 %extend GradidoUnit { 

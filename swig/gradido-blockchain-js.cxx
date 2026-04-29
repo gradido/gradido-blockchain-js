@@ -911,6 +911,93 @@ SWIGINTERN std::string TimepointInterval_toJson__SWIG_0(TimepointInterval const 
         return serialization::toJsonString(*self, pretty);
     }
 
+SWIGINTERN int
+SWIG_AsCharPtrAndSize(Napi::Value valRef, char** cptr, size_t* psize, int *alloc)
+{
+  if(valRef.IsString()) {
+    Napi::String js_str;
+    NAPI_CHECK_RESULT(valRef.ToString(), js_str);
+
+    std::string str = js_str.Utf8Value();
+    size_t len = str.size() + 1;
+    char* cstr = (char*) (new char[len]());
+    memcpy(cstr, str.data(), len);
+    
+    if(alloc) *alloc = SWIG_NEWOBJ;
+    if(psize) *psize = len;
+    if(cptr) *cptr = cstr;
+    
+    return SWIG_OK;
+  } else if (valRef.IsNull()) {
+    if (cptr) *cptr = 0;
+    return SWIG_OK;
+  } else {
+    if(valRef.IsObject()) {
+      swig_type_info* pchar_descriptor = SWIG_pchar_descriptor();
+      Napi::Object obj;
+      NAPI_CHECK_RESULT(valRef.ToObject(), obj);
+      // try if the object is a wrapped char[]
+      if (pchar_descriptor) {
+        void* vptr = 0;
+        if (SWIG_ConvertPtr(obj, &vptr, pchar_descriptor, 0) == SWIG_OK) {
+          if (cptr) *cptr = (char *) vptr;
+          if (psize) *psize = vptr ? (strlen((char *)vptr) + 1) : 0;
+          if (alloc) *alloc = SWIG_OLDOBJ;
+          return SWIG_OK;
+        }
+      }
+    }
+  }
+  goto fail;
+fail:
+  return SWIG_TypeError;
+}
+
+
+SWIGINTERN
+int SWIG_AsVal_unsigned_SS_long (Napi::Value obj, unsigned long *val)
+{
+  if(!obj.IsNumber()) {
+    return SWIG_TypeError;
+  }
+  if (val) {
+    Napi::Number num;
+    NAPI_CHECK_RESULT(obj.ToNumber(), num);
+    if (num.Int64Value() < 0) {
+      return SWIG_TypeError;
+    }
+    *val = static_cast<unsigned long>(num.Int64Value());
+  }
+  return SWIG_OK;
+  goto fail;
+fail:
+  return SWIG_ERROR;
+}
+
+
+#ifdef SWIG_LONG_LONG_AVAILABLE
+SWIGINTERN
+int SWIG_AsVal_unsigned_SS_long_SS_long (Napi::Value obj, unsigned long long *val)
+{
+  if(!obj.IsNumber()) {
+    return SWIG_TypeError;
+  }
+  if (obj.ToNumber().Int64Value() < 0) {
+    return SWIG_TypeError;
+  }
+  if (val) {
+    Napi::Number num;
+    NAPI_CHECK_RESULT(obj.ToNumber(), num);
+    *val = static_cast<unsigned long long>(num.Int64Value());
+  }
+  return SWIG_OK;
+  goto fail;
+fail:
+  return SWIG_ERROR;
+}
+#endif
+
+
 // js_global_getter
 Napi::Value exports_AddressType_NONE_get(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
@@ -1800,49 +1887,6 @@ fail:
 }
 
 
-SWIGINTERN int
-SWIG_AsCharPtrAndSize(Napi::Value valRef, char** cptr, size_t* psize, int *alloc)
-{
-  if(valRef.IsString()) {
-    Napi::String js_str;
-    NAPI_CHECK_RESULT(valRef.ToString(), js_str);
-
-    std::string str = js_str.Utf8Value();
-    size_t len = str.size() + 1;
-    char* cstr = (char*) (new char[len]());
-    memcpy(cstr, str.data(), len);
-    
-    if(alloc) *alloc = SWIG_NEWOBJ;
-    if(psize) *psize = len;
-    if(cptr) *cptr = cstr;
-    
-    return SWIG_OK;
-  } else if (valRef.IsNull()) {
-    if (cptr) *cptr = 0;
-    return SWIG_OK;
-  } else {
-    if(valRef.IsObject()) {
-      swig_type_info* pchar_descriptor = SWIG_pchar_descriptor();
-      Napi::Object obj;
-      NAPI_CHECK_RESULT(valRef.ToObject(), obj);
-      // try if the object is a wrapped char[]
-      if (pchar_descriptor) {
-        void* vptr = 0;
-        if (SWIG_ConvertPtr(obj, &vptr, pchar_descriptor, 0) == SWIG_OK) {
-          if (cptr) *cptr = (char *) vptr;
-          if (psize) *psize = vptr ? (strlen((char *)vptr) + 1) : 0;
-          if (alloc) *alloc = SWIG_OLDOBJ;
-          return SWIG_OK;
-        }
-      }
-    }
-  }
-  goto fail;
-fail:
-  return SWIG_TypeError;
-}
-
-
 SWIGCLINKAGE int
 SWIG_AsPtr_std_string (Napi::Value obj, std::string **val) 
 {
@@ -1868,50 +1912,6 @@ SWIG_AsPtr_std_string (Napi::Value obj, std::string **val)
   }
   return SWIG_ERROR;
 }
-
-
-SWIGINTERN
-int SWIG_AsVal_unsigned_SS_long (Napi::Value obj, unsigned long *val)
-{
-  if(!obj.IsNumber()) {
-    return SWIG_TypeError;
-  }
-  if (val) {
-    Napi::Number num;
-    NAPI_CHECK_RESULT(obj.ToNumber(), num);
-    if (num.Int64Value() < 0) {
-      return SWIG_TypeError;
-    }
-    *val = static_cast<unsigned long>(num.Int64Value());
-  }
-  return SWIG_OK;
-  goto fail;
-fail:
-  return SWIG_ERROR;
-}
-
-
-#ifdef SWIG_LONG_LONG_AVAILABLE
-SWIGINTERN
-int SWIG_AsVal_unsigned_SS_long_SS_long (Napi::Value obj, unsigned long long *val)
-{
-  if(!obj.IsNumber()) {
-    return SWIG_TypeError;
-  }
-  if (obj.ToNumber().Int64Value() < 0) {
-    return SWIG_TypeError;
-  }
-  if (val) {
-    Napi::Number num;
-    NAPI_CHECK_RESULT(obj.ToNumber(), num);
-    *val = static_cast<unsigned long long>(num.Int64Value());
-  }
-  return SWIG_OK;
-  goto fail;
-fail:
-  return SWIG_ERROR;
-}
-#endif
 
 
 SWIGINTERN
@@ -4188,6 +4188,7 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
     std::make_unique<RuntimeDictionary<std::string>>("communityIdDictionary"),
     std::make_unique<RuntimeDictionary<GenericHash, GenericHashHash, GenericHashEqual>>("userNameHashDictionary")
   );
+  grdu_mono_timer_init();
 
 
 CryptoConfig::loadMnemonicWordLists();
@@ -4219,16 +4220,16 @@ if (SWIGTYPE_p_TimepointInterval->clientdata == SWIG_NULLPTR) {
 Napi::FunctionReference *_exports_TimepointInterval_ctor_ref = new Napi::FunctionReference();
 *_exports_TimepointInterval_ctor_ref = Napi::Persistent(_exports_TimepointInterval_ctor);
 env.GetInstanceData<EnvInstanceData>()->ctor[0] = _exports_TimepointInterval_ctor_ref;
-/* Class: Profiler (_exports_Profiler) */
+/* Class: MonotonicTimer (_exports_MonotonicTimer) */
 // jsnapi_registerclass
-Napi::Function _exports_Profiler_ctor = _exports_Profiler_inst::GetClass(env);
-exports.Set("Profiler", _exports_Profiler_ctor);
-if (SWIGTYPE_p_Profiler->clientdata == SWIG_NULLPTR) {
-  SWIGTYPE_p_Profiler->clientdata = new size_t(1);
+Napi::Function _exports_MonotonicTimer_ctor = _exports_MonotonicTimer_inst::GetClass(env);
+exports.Set("MonotonicTimer", _exports_MonotonicTimer_ctor);
+if (SWIGTYPE_p_MonotonicTimer->clientdata == SWIG_NULLPTR) {
+  SWIGTYPE_p_MonotonicTimer->clientdata = new size_t(1);
 }
-Napi::FunctionReference *_exports_Profiler_ctor_ref = new Napi::FunctionReference();
-*_exports_Profiler_ctor_ref = Napi::Persistent(_exports_Profiler_ctor);
-env.GetInstanceData<EnvInstanceData>()->ctor[1] = _exports_Profiler_ctor_ref;
+Napi::FunctionReference *_exports_MonotonicTimer_ctor_ref = new Napi::FunctionReference();
+*_exports_MonotonicTimer_ctor_ref = Napi::Persistent(_exports_MonotonicTimer_ctor);
+env.GetInstanceData<EnvInstanceData>()->ctor[1] = _exports_MonotonicTimer_ctor_ref;
 /* Class: SignatureOctet (_exports_SignatureOctet) */
 // jsnapi_registerclass
 Napi::Function _exports_SignatureOctet_ctor = _exports_SignatureOctet_inst::GetClass(env);
@@ -4836,14 +4837,14 @@ do {
 } while (0);
 
 
-// Inheritance for _exports_Profiler (Profiler) <- SWIG_NAPI_ObjectWrap
+// Inheritance for _exports_MonotonicTimer (MonotonicTimer) <- SWIG_NAPI_ObjectWrap
 // jsnapi_setup_inheritance
 do {
   Napi::Value protoBase, protoSub;
-  NAPI_CHECK_RESULT(_exports_Profiler_ctor.Get("prototype"), protoSub);
+  NAPI_CHECK_RESULT(_exports_MonotonicTimer_ctor.Get("prototype"), protoSub);
   NAPI_CHECK_RESULT(SWIG_NAPI_ObjectWrap_ctor.Get("prototype"), protoBase);
   NAPI_CHECK_MAYBE(setProto.Call({
-    _exports_Profiler_ctor, SWIG_NAPI_ObjectWrap_ctor
+    _exports_MonotonicTimer_ctor, SWIG_NAPI_ObjectWrap_ctor
   }));
   NAPI_CHECK_MAYBE(setProto.Call({
     protoSub, protoBase

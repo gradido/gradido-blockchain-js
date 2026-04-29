@@ -68,7 +68,7 @@ E string_to_enum(const std::string& name);
 %include <nodejs_buffer.i>
 %include "types.i"
 %include "lib/TimepointInterval.i"
-%include "lib/Profiler.i"
+%include "lib/MonotonicTimer.i"
 
 // enums
 %include "gradido_blockchain/data/AddressType.h"
@@ -115,12 +115,14 @@ E string_to_enum(const std::string& name);
 %{
 #include "gradido_blockchain/AppContext.h"
 #include "gradido_blockchain/lib/Dictionary.h"
+#include "gradido_blockchain_core/utils/mono_timer.h"
 %}
 %init %{  
   gradido::g_appContext = std::make_unique<gradido::AppContext>(
     std::make_unique<RuntimeDictionary<std::string>>("communityIdDictionary"),
     std::make_unique<RuntimeDictionary<GenericHash, GenericHashHash, GenericHashEqual>>("userNameHashDictionary")
   );
+  grdu_mono_timer_init();
 %}
 
 

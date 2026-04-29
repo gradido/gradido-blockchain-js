@@ -8,25 +8,25 @@
 
 #include "swig/gradido-blockchain-js.h"
 
-/* Class: Profiler (_exports_Profiler) */
+/* Class: MonotonicTimer (_exports_MonotonicTimer) */
 // jsnapi_getclass
-Napi::Function _exports_Profiler_inst::GetClass(Napi::Env env) {
-  std::map<std::string, _exports_Profiler_templ::PropertyDescriptor> members, staticMembers;
+Napi::Function _exports_MonotonicTimer_inst::GetClass(Napi::Env env) {
+  std::map<std::string, _exports_MonotonicTimer_templ::PropertyDescriptor> members, staticMembers;
   GetMembers(env, members, staticMembers);
   
-  std::vector<_exports_Profiler_inst::PropertyDescriptor> symbolTable;
+  std::vector<_exports_MonotonicTimer_inst::PropertyDescriptor> symbolTable;
   for (auto it = members.begin(); it != members.end(); it++)
   symbolTable.push_back(it->second);
   for (auto it = staticMembers.begin(); it != staticMembers.end(); it++)
   symbolTable.push_back(it->second);
   
-  return Napi::ObjectWrap<_exports_Profiler_inst>::DefineClass(env, "Profiler", symbolTable);
+  return Napi::ObjectWrap<_exports_MonotonicTimer_inst>::DefineClass(env, "MonotonicTimer", symbolTable);
 }
 
-void _exports_Profiler_inst::GetMembers(
+void _exports_MonotonicTimer_inst::GetMembers(
   Napi::Env env,
-  std::map<std::string, _exports_Profiler_templ::PropertyDescriptor> &members,
-  std::map<std::string, _exports_Profiler_templ::PropertyDescriptor> &staticMembers
+  std::map<std::string, _exports_MonotonicTimer_templ::PropertyDescriptor> &members,
+  std::map<std::string, _exports_MonotonicTimer_templ::PropertyDescriptor> &staticMembers
   ) {
   std::map<std::string, SWIG_NAPI_ObjectWrap_templ<SWIG_NAPI_ObjectWrap_inst>::PropertyDescriptor> baseMembers, baseStaticMembers;
   SWIG_NAPI_ObjectWrap_inst::GetMembers(env, baseMembers, baseStaticMembers);
@@ -38,48 +38,48 @@ void _exports_Profiler_inst::GetMembers(
   members.erase("reset");
   members.insert({
     "reset",
-      _exports_Profiler_templ::InstanceMethod("reset",
-        &_exports_Profiler_templ::_wrap_Profiler_reset,
+      _exports_MonotonicTimer_templ::InstanceMethod("reset",
+        &_exports_MonotonicTimer_templ::_wrap_MonotonicTimer_reset,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
   members.erase("millis");
   members.insert({
     "millis",
-      _exports_Profiler_templ::InstanceMethod("millis",
-        &_exports_Profiler_templ::_wrap_Profiler_millis,
+      _exports_MonotonicTimer_templ::InstanceMethod("millis",
+        &_exports_MonotonicTimer_templ::_wrap_MonotonicTimer_millis,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
   members.erase("micros");
   members.insert({
     "micros",
-      _exports_Profiler_templ::InstanceMethod("micros",
-        &_exports_Profiler_templ::_wrap_Profiler_micros,
+      _exports_MonotonicTimer_templ::InstanceMethod("micros",
+        &_exports_MonotonicTimer_templ::_wrap_MonotonicTimer_micros,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
   members.erase("nanos");
   members.insert({
     "nanos",
-      _exports_Profiler_templ::InstanceMethod("nanos",
-        &_exports_Profiler_templ::_wrap_Profiler_nanos,
+      _exports_MonotonicTimer_templ::InstanceMethod("nanos",
+        &_exports_MonotonicTimer_templ::_wrap_MonotonicTimer_nanos,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
   members.erase("seconds");
   members.insert({
     "seconds",
-      _exports_Profiler_templ::InstanceMethod("seconds",
-        &_exports_Profiler_templ::_wrap_Profiler_seconds,
+      _exports_MonotonicTimer_templ::InstanceMethod("seconds",
+        &_exports_MonotonicTimer_templ::_wrap_MonotonicTimer_seconds,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
   members.erase("string");
   members.insert({
     "string",
-      _exports_Profiler_templ::InstanceMethod("string",
-        &_exports_Profiler_templ::_wrap_Profiler_string,
+      _exports_MonotonicTimer_templ::InstanceMethod("string",
+        &_exports_MonotonicTimer_templ::_wrap_MonotonicTimer__wrap_MonotonicTimer_string,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

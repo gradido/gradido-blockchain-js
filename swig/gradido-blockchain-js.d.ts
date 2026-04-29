@@ -53,11 +53,11 @@ export  class TimepointInterval {
   toJson(): string;
 }
 
-export  class Profiler {
+export  class MonotonicTimer {
 
   constructor();
 
-  constructor(copy: Profiler);
+  constructor(copy: MonotonicTimer);
 
   reset(): void;
 
@@ -70,6 +70,8 @@ export  class Profiler {
   seconds(): number;
 
   string(): string;
+
+  string(buffer: string, bufferSize: number): number;
 }
 
 export const AddressType_NONE: AddressType;
@@ -521,15 +523,21 @@ export  class GradidoUnit {
 
   constructor(gdd: number);
 
-  constructor(stringAmount: string);
-
  static fromString(stringAmount: string): GradidoUnit;
 
  static fromGradidoCent(gddCent: number): GradidoUnit;
 
+  roundToPrecision(precision: number): GradidoUnit;
+
+  roundToPrecision(): GradidoUnit;
+
   toString(precision: number): string;
 
   toString(): string;
+
+  toString(buffer: string, bufferSize: number, precision: number): number;
+
+  toString(buffer: string, bufferSize: number): number;
 
   getGradidoCent(): number;
 
@@ -559,7 +567,7 @@ export  class GradidoUnit {
 
   negated(): GradidoUnit;
 
-  calculateDecay(seconds: number): GradidoUnit;
+  calculateDecay(seconds: any): GradidoUnit;
 
   calculateDecay(duration: number): GradidoUnit;
 
@@ -1949,6 +1957,8 @@ export abstract class Abstract {
 
   findAll(filter: CompactFilter): any;
 
+  findAll(filter: CompactFilter, elementFilter: any): any;
+
   findOne(filter: Filter): TransactionEntry|null;
 
   findOne(): TransactionEntry|null;
@@ -2005,6 +2015,8 @@ export  class InMemoryBlockchain extends Abstract {
   findAll(): TransactionEntries;
 
   findAll(filter: CompactFilter): any;
+
+  findAll(filter: CompactFilter, elementFilter: any): any;
 
   findOne(filter: Filter): TransactionEntry|null;
 

@@ -7,7 +7,7 @@
 }
 
 %{
-  #include "gradido_blockchain/lib/Profiler.h"
+  #include "gradido_blockchain/lib/MonotonicTimer.h"
 %}
 
-%include "gradido_blockchain/lib/Profiler.h"
+%include "gradido_blockchain/lib/MonotonicTimer.h"

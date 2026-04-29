@@ -41,10 +41,11 @@ endif()
 include_directories(
 	"src/cpp"
 	"deps/gradido_blockchain/dependencies"
-	"deps/gradido_blockchain/dependencies/tinf/src/" 
+	"deps/gradido_blockchain/dependencies/tinf/src" 
 	"deps/gradido_blockchain/dependencies/protopuf/include"
 	"deps/gradido_blockchain/dependencies/rapidjson/include"
-	"deps/gradido_blockchain/dependencies/furi/code/"
+	"deps/gradido_blockchain/dependencies/furi/code"
+	"deps/gradido_blockchain/dependencies/gradido-blockchain-core/include"
 	"deps/gradido_blockchain/dependencies/magic_enum/include"
 	"deps/gradido_blockchain/dependencies/cpp-httplib"
 	"deps/gradido_blockchain/dependencies/date/include"
@@ -60,7 +61,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "" SUFFIX ".node")
 
 # Essential library files to link to a node addon,
 # you should add this line in every CMake.js based project.
-target_link_libraries(${PROJECT_NAME} ${CMAKE_JS_LIB} GradidoBlockchain sodium)
+target_link_libraries(${PROJECT_NAME} ${CMAKE_JS_LIB} GradidoBlockchain sodium )
 if(MSVC)
 	target_link_libraries(${PROJECT_NAME} ${libuv_LIBRARIES})
 	target_compile_definitions(${PROJECT_NAME} PRIVATE NOMINMAX)
