@@ -2226,9 +2226,6 @@ SWIGINTERN bool KeyPairEd25519Ex_verify__SWIG_0(KeyPairEd25519Ex const *self,std
 SWIGINTERN bool KeyPairEd25519Ex_verify__SWIG_1(KeyPairEd25519Ex const *self,memory::Block const &message,memory::Block const &signature){
     return self->verify(message, signature);
   }
-SWIGINTERN bool KeyPairEd25519Ex_is3rdHighestBitClear(KeyPairEd25519Ex const *self){
-    return self->is3rdHighestBitClear();
-  }
 SWIGINTERN memory::ConstBlockPtr KeyPairEd25519Ex_getPublicKey(KeyPairEd25519Ex const *self){
     return self->getPublicKey();
   }
@@ -2252,12 +2249,6 @@ SWIGINTERN bool KeyPairEd25519Ex_hasPrivateKey(KeyPairEd25519Ex const *self){
   }
 SWIGINTERN memory::Block KeyPairEd25519Ex_getCryptedPrivKey(KeyPairEd25519Ex const *self,SecretKeyCryptography const &password){
     return self->getCryptedPrivKey(password);
-  }
-SWIGINTERN void KeyPairEd25519Ex_normalizeBytesForce3rd(memory::Block &key){
-    KeyPairEd25519::normalizeBytesForce3rd(key);
-  }
-SWIGINTERN bool KeyPairEd25519Ex_isNormalized(KeyPairEd25519Ex const *self){
-    return self->isNormalized();
   }
 
 SWIGINTERN

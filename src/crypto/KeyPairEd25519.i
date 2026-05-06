@@ -103,10 +103,6 @@
     return self->verify(message, signature);
   }
 
-  bool is3rdHighestBitClear() const {
-    return self->is3rdHighestBitClear();
-  }
-
   inline memory::ConstBlockPtr getPublicKey() const {
     return self->getPublicKey();
   }
@@ -137,14 +133,6 @@
 
   memory::Block getCryptedPrivKey(const SecretKeyCryptography& password) const {
     return self->getCryptedPrivKey(password);
-  }
-
-  static void normalizeBytesForce3rd(memory::Block& key) {
-    KeyPairEd25519::normalizeBytesForce3rd(key);
-  }
-
-  inline bool isNormalized() const {
-    return self->isNormalized();
   }
 }
 

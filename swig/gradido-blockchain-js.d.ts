@@ -398,8 +398,6 @@ export  class KeyPairEd25519 {
 
   verify(message: MemoryBlock, signature: MemoryBlock): boolean;
 
-  is3rdHighestBitClear(): boolean;
-
   getPublicKey(): MemoryBlockPtr|null;
 
   getChainCode(): MemoryBlockPtr|null;
@@ -415,10 +413,6 @@ export  class KeyPairEd25519 {
   hasPrivateKey(): boolean;
 
   getCryptedPrivKey(password: SecretKeyCryptography): MemoryBlock;
-
- static normalizeBytesForce3rd(key: MemoryBlock): void;
-
-  isNormalized(): boolean;
 }
 
 export  class KeyPairEd25519Ex extends KeyPairEd25519 {
@@ -455,8 +449,6 @@ export  class KeyPairEd25519Ex extends KeyPairEd25519 {
 
   verify(message: MemoryBlock, signature: MemoryBlock): boolean;
 
-  is3rdHighestBitClear(): boolean;
-
   getPublicKey(): MemoryBlockPtr|null;
 
   getChainCode(): MemoryBlockPtr|null;
@@ -472,10 +464,6 @@ export  class KeyPairEd25519Ex extends KeyPairEd25519 {
   hasPrivateKey(): boolean;
 
   getCryptedPrivKey(password: SecretKeyCryptography): MemoryBlock;
-
- static normalizeBytesForce3rd(key: MemoryBlock): void;
-
-  isNormalized(): boolean;
 }
 
 export  class AuthenticatedEncryption {

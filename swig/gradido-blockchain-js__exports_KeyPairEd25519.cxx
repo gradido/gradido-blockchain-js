@@ -59,14 +59,6 @@ void _exports_KeyPairEd25519_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("is3rdHighestBitClear");
-  members.insert({
-    "is3rdHighestBitClear",
-      _exports_KeyPairEd25519_templ::InstanceMethod("is3rdHighestBitClear",
-        &_exports_KeyPairEd25519_templ::_wrap_KeyPairEd25519_is3rdHighestBitClear,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("getPublicKey");
   members.insert({
     "getPublicKey",
@@ -122,14 +114,6 @@ void _exports_KeyPairEd25519_inst::GetMembers(
         &_exports_KeyPairEd25519_templ::_wrap_KeyPairEd25519_getCryptedPrivKey,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
-  // jsnapi_register_member_function
-  members.erase("isNormalized");
-  members.insert({
-    "isNormalized",
-      _exports_KeyPairEd25519_templ::InstanceMethod("isNormalized",
-        &_exports_KeyPairEd25519_templ::_wrap_KeyPairEd25519_isNormalized,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
   
   /* add static class functions and variables */
   // jsnapi_register_static_function
@@ -162,14 +146,6 @@ void _exports_KeyPairEd25519_inst::GetMembers(
     "getDerivationType",
       StaticMethod("getDerivationType",
         &_exports_KeyPairEd25519_templ::_wrap_KeyPairEd25519_getDerivationType,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_static_function
-  staticMembers.erase("normalizeBytesForce3rd");
-  staticMembers.insert({
-    "normalizeBytesForce3rd",
-      StaticMethod("normalizeBytesForce3rd",
-        &_exports_KeyPairEd25519_templ::_wrap_KeyPairEd25519_normalizeBytesForce3rd,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   
