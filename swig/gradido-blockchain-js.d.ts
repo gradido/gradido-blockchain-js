@@ -400,6 +400,8 @@ export  class KeyPairEd25519 {
 
   getPublicKey(): MemoryBlockPtr|null;
 
+  getSlip10PublicKey(): MemoryBlock;
+
   getChainCode(): MemoryBlockPtr|null;
 
   isTheSame(b: KeyPairEd25519 | KeyPairEd25519Ex): boolean;
@@ -1232,7 +1234,7 @@ export  class TransactionBody {
 
  static fromGrdw(grdw_body: grdw_transaction_body, communityIdIndex: number): TransactionBody|null;
 
-  toGrdw(alloc: grdu_memory, grdw_body: grdw_transaction_body): void;
+  toGrdw(alloc: grd_memory, grdw_body: grdw_transaction_body): void;
 
   isTransfer(): boolean;
 
@@ -1328,9 +1330,9 @@ export  class GradidoTransaction {
 
   constructor(other: GradidoTransaction);
 
- static fromGrdw(grdw_tx: any, communityIdIndex: number): GradidoTransaction|null;
+ static fromGrdw(grdw_tx: grdw_gradido_transaction, communityIdIndex: number): GradidoTransaction|null;
 
-  toGrdw(alloc: grdu_memory, grdw_tx: any, communityIdIndex: number): void;
+  toGrdw(alloc: grd_memory, grdw_tx: grdw_gradido_transaction, communityIdIndex: number): void;
 
   getTransactionBody(): TransactionBody|null;
 
@@ -1375,7 +1377,7 @@ export  class ConfirmedTransaction {
 
  static fromGrdw(grdw_tx: grdw_confirmed_transaction, communityIdIndex: number): ConfirmedTransaction|null;
 
-  toGrdw(alloc: grdu_memory, grdw_tx: grdw_confirmed_transaction, communityIdIndex: number): void;
+  toGrdw(alloc: grd_memory, grdw_tx: grdw_confirmed_transaction, communityIdIndex: number): void;
 
   calculateRunningHash(previousConfirmedTransaction: ConfirmedTransaction|null): MemoryBlockPtr|null;
 
@@ -1473,8 +1475,6 @@ export  class GradidoTransactionBuilder {
   setCreatedAt(createdAt: Date): GradidoTransactionBuilder;
 
   addMemo(memo: EncryptedMemo): GradidoTransactionBuilder;
-
-  setVersionNumber(versionNumber: string): GradidoTransactionBuilder;
 
   setTransactionBody(body: TransactionBody): GradidoTransactionBuilder;
 
@@ -2126,6 +2126,8 @@ export type DurationSeconds = (unknown & { readonly [_SWIG_type_tag]: 'DurationS
 
 export type CommunityFriendsUpdate = (unknown & { readonly [_SWIG_type_tag]: 'CommunityFriendsUpdate'; }) | null;
 
+export type grd_memory = (unknown & { readonly [_SWIG_type_tag]: 'grd_memory'; }) | null;
+
 export type HieroTransactionId = (unknown & { readonly [_SWIG_type_tag]: 'HieroTransactionId'; }) | null;
 
 export type Timestamp = (unknown & { readonly [_SWIG_type_tag]: 'Timestamp'; }) | null;
@@ -2142,8 +2144,6 @@ export type GradidoRedeemDeferredTransfer = (unknown & { readonly [_SWIG_type_ta
 
 export type ConfirmedTransaction = (unknown & { readonly [_SWIG_type_tag]: 'ConfirmedTransaction'; }) | null;
 
-export type grdu_memory = (unknown & { readonly [_SWIG_type_tag]: 'grdu_memory'; }) | null;
-
 export type Abstract = (unknown & { readonly [_SWIG_type_tag]: 'Abstract'; }) | null;
 
 export type LedgerAnchor = (unknown & { readonly [_SWIG_type_tag]: 'LedgerAnchor'; }) | null;
@@ -2151,6 +2151,8 @@ export type LedgerAnchor = (unknown & { readonly [_SWIG_type_tag]: 'LedgerAnchor
 export type GradidoCreation = (unknown & { readonly [_SWIG_type_tag]: 'GradidoCreation'; }) | null;
 
 export type AuthenticatedEncryption = (unknown & { readonly [_SWIG_type_tag]: 'AuthenticatedEncryption'; }) | null;
+
+export type grdw_gradido_transaction = (unknown & { readonly [_SWIG_type_tag]: 'grdw_gradido_transaction'; }) | null;
 
 export type GradidoTransaction = (unknown & { readonly [_SWIG_type_tag]: 'GradidoTransaction'; }) | null;
 

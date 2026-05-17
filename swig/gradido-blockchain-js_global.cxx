@@ -2151,8 +2151,8 @@ SWIGINTERN swig_type_info _swigt__p_gradido__interaction__createTransactionByEve
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__deserialize__Context = {"_p_gradido__interaction__deserialize__Context", "p_gradido__interaction__deserialize__Context|gradido::interaction::deserialize::Context *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__serialize__Context = {"_p_gradido__interaction__serialize__Context", "gradido::interaction::serialize::Context *|p_gradido__interaction__serialize__Context", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__validate__Context = {"_p_gradido__interaction__validate__Context", "p_gradido__interaction__validate__Context|gradido::interaction::validate::Context *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_grd_memory = {"_p_grd_memory", "grd_memory *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_grdd_duration_seconds = {"_p_grdd_duration_seconds", "grdd_duration_seconds *", 0, 0, (void*)0, 0};
-SWIGINTERN swig_type_info _swigt__p_grdu_memory = {"_p_grdu_memory", "grdu_memory *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_grdw_confirmed_transaction = {"_p_grdw_confirmed_transaction", "grdw_confirmed_transaction *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_grdw_gradido_transaction = {"_p_grdw_gradido_transaction", "grdw_gradido_transaction *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_grdw_transaction_body = {"_p_grdw_transaction_body", "grdw_transaction_body *", 0, 0, (void*)0, 0};
@@ -2278,8 +2278,8 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_gradido__interaction__deserialize__Context,
   &_swigt__p_gradido__interaction__serialize__Context,
   &_swigt__p_gradido__interaction__validate__Context,
+  &_swigt__p_grd_memory,
   &_swigt__p_grdd_duration_seconds,
-  &_swigt__p_grdu_memory,
   &_swigt__p_grdw_confirmed_transaction,
   &_swigt__p_grdw_gradido_transaction,
   &_swigt__p_grdw_transaction_body,
@@ -2402,8 +2402,8 @@ SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__createTransactionByEve
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__deserialize__Context[] = {  {&_swigt__p_gradido__interaction__deserialize__Context, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__serialize__Context[] = {  {&_swigt__p_gradido__interaction__serialize__Context, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__validate__Context[] = {  {&_swigt__p_gradido__interaction__validate__Context, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_grd_memory[] = {  {&_swigt__p_grd_memory, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_grdd_duration_seconds[] = {  {&_swigt__p_grdd_duration_seconds, 0, 0, 0},{0, 0, 0, 0}};
-SWIGINTERN swig_cast_info _swigc__p_grdu_memory[] = {  {&_swigt__p_grdu_memory, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_grdw_confirmed_transaction[] = {  {&_swigt__p_grdw_confirmed_transaction, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_grdw_gradido_transaction[] = {  {&_swigt__p_grdw_gradido_transaction, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_grdw_transaction_body[] = {  {&_swigt__p_grdw_transaction_body, 0, 0, 0},{0, 0, 0, 0}};
@@ -2526,8 +2526,8 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_gradido__interaction__deserialize__Context,
   _swigc__p_gradido__interaction__serialize__Context,
   _swigc__p_gradido__interaction__validate__Context,
+  _swigc__p_grd_memory,
   _swigc__p_grdd_duration_seconds,
-  _swigc__p_grdu_memory,
   _swigc__p_grdw_confirmed_transaction,
   _swigc__p_grdw_gradido_transaction,
   _swigc__p_grdw_transaction_body,

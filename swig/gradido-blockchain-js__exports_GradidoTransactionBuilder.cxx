@@ -147,14 +147,6 @@ void _exports_GradidoTransactionBuilder_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("setVersionNumber");
-  members.insert({
-    "setVersionNumber",
-      _exports_GradidoTransactionBuilder_templ::InstanceMethod("setVersionNumber",
-        &_exports_GradidoTransactionBuilder_templ::_wrap_GradidoTransactionBuilder_setVersionNumber,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("setTransactionBody");
   members.insert({
     "setTransactionBody",
