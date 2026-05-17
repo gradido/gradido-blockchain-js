@@ -453,6 +453,8 @@ export  class KeyPairEd25519Ex extends KeyPairEd25519 {
 
   getPublicKey(): MemoryBlockPtr|null;
 
+  getSlip10PublicKey(): MemoryBlock;
+
   getChainCode(): MemoryBlockPtr|null;
 
   isTheSame(b: KeyPairEd25519 | KeyPairEd25519Ex): boolean;
