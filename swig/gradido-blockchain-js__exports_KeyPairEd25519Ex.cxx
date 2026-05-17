@@ -67,6 +67,14 @@ void _exports_KeyPairEd25519Ex_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("getSlip10PublicKey");
+  members.insert({
+    "getSlip10PublicKey",
+      _exports_KeyPairEd25519_templ::InstanceMethod("getSlip10PublicKey",
+        &_exports_KeyPairEd25519_templ::_wrap_KeyPairEd25519_getSlip10PublicKey,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getChainCode");
   members.insert({
     "getChainCode",
