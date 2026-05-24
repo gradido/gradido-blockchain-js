@@ -1514,7 +1514,6 @@ SWIGINTERN std::string gradido_data_ConfirmedTransaction_toJson__SWIG_0(gradido:
 #include "gradido_blockchain/AppContext.h"
 #include "gradido_blockchain/data/adapter/uuid.h"
 #include "gradido_blockchain/data/ByteArray.h"
-using gradido::data::adapter::uuidToString;
 
 
 #include "gradido_blockchain/GradidoTransactionBuilder.h"
