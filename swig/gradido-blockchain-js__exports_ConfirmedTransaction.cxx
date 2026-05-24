@@ -111,7 +111,7 @@ void _exports_ConfirmedTransaction_inst::GetMembers(
   members.insert({
     "getAccountBalance",
       _exports_ConfirmedTransaction_templ::InstanceMethod("getAccountBalance",
-        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction_getAccountBalance,
+        &_exports_ConfirmedTransaction_templ::_wrap_ConfirmedTransaction__wrap_ConfirmedTransaction_getAccountBalance,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

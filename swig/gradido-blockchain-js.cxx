@@ -2383,10 +2383,10 @@ SWIGINTERN std::string gradido_data_TransactionBody_getOtherCommunityId(gradido:
         if (!communityIdIndexOptional) {
             return "";
         }
-        return gradido::g_appContext->getCommunityIds().getDataForIndexOrThrow(communityIdIndexOptional.value());
+        return uuidToString(gradido::g_appContext->getCommunityIds().getDataForIndexOrThrow(communityIdIndexOptional.value()));
     }
 SWIGINTERN std::string gradido_data_TransactionBody_getCommunityId(gradido::data::TransactionBody const *self){
-        return gradido::g_appContext->getCommunityIds().getDataForIndexOrThrow(self->getCommunityIdIndex());
+        return uuidToString(gradido::g_appContext->getCommunityIds().getDataForIndexOrThrow(self->getCommunityIdIndex()));
     }
 SWIGINTERN std::string gradido_data_TransactionBody_toJson__SWIG_0(gradido::data::TransactionBody const *self,bool pretty){
         return serialization::toJsonString(*self, pretty);
@@ -2395,7 +2395,7 @@ SWIGINTERN std::string gradido_data_TransactionTriggerEvent_toJson__SWIG_0(gradi
         return serialization::toJsonString(*self, pretty);
     }
 SWIGINTERN std::string gradido_data_GradidoTransaction_getCommunityId(gradido::data::GradidoTransaction const *self){
-        return gradido::g_appContext->getCommunityIds().getDataForIndexOrThrow(self->getCommunityIdIndex());
+        return uuidToString(gradido::g_appContext->getCommunityIds().getDataForIndexOrThrow(self->getCommunityIdIndex()));
     }
 SWIGINTERN std::string gradido_data_GradidoTransaction_toJson__SWIG_0(gradido::data::GradidoTransaction const *self,bool pretty){
         return serialization::toJsonString(*self, pretty);
@@ -4177,9 +4177,9 @@ SWIG_PropagateClientData(void) {
 Napi::Object Init(Napi::Env env, Napi::Object exports) {
   SWIG_InitializeModule(env);
 
-  
+
   gradido::g_appContext = std::make_unique<gradido::AppContext>(
-    std::make_unique<RuntimeDictionary<std::string>>("communityIdDictionary"),
+    std::make_unique<RuntimeDictionary<Uuid, UuidHash, UuidEqual>>("communityIdDictionary"),
     std::make_unique<RuntimeDictionary<GenericHash, GenericHashHash, GenericHashEqual>>("userNameHashDictionary")
   );
   grdu_mono_timer_init();

@@ -974,6 +974,8 @@ export  class AccountBalance {
 
   constructor(publicKey: MemoryBlockPtr|null, balance: GradidoUnit, communityId: string);
 
+  constructor(publicKey: MemoryBlockPtr|null, balance: GradidoUnit, communityUuid: any);
+
   getPublicKey(): MemoryBlockPtr|null;
 
   getBalance(): GradidoUnit;
@@ -1401,6 +1403,8 @@ export  class ConfirmedTransaction {
 
   getAccountBalance(publicKey: MemoryBlockPtr|null, communityIdIndex: string): AccountBalance;
 
+  getAccountBalance(publicKey: MemoryBlockPtr|null, communityUuid: any): AccountBalance;
+
   getDecayedAccountBalance(publicKey: MemoryBlockPtr|null, coinCommunityIdIndex: any, endDate: Date): GradidoUnit;
 
   getDecayedAccountBalance(publicKey: MemoryBlockPtr|null, coinCommunityIdIndex: any): GradidoUnit;
@@ -1645,6 +1649,10 @@ export function resolveThreadCount(policy: any): any;
 export function verifySignatures(filter: Filter, communityId: string, policy: any): any;
 
 export function verifySignatures(filter: Filter, communityId: string): any;
+
+export function verifySignatures(filter: Filter, communityId: any, policy: any): any;
+
+export function verifySignatures(filter: Filter, communityId: any): any;
 
 export  class TransactionEntries {
 

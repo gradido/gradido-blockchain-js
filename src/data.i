@@ -131,12 +131,15 @@ namespace gradido::data {
 
 %{
 #include "gradido_blockchain/AppContext.h"
+#include "gradido_blockchain/data/adapter/uuid.h"
+#include "gradido_blockchain/data/ByteArray.h"
+using gradido::data::adapter::uuidToString;
 %}
 
 // replace get communityIdIndex with get community id
 %extend gradido::data::GradidoTransaction {
     std::string getCommunityId() const {
-        return gradido::g_appContext->getCommunityIds().getDataForIndexOrThrow(self->getCommunityIdIndex());
+        return uuidToString(gradido::g_appContext->getCommunityIds().getDataForIndexOrThrow(self->getCommunityIdIndex()));
     }
 }
 %extend gradido::data::TransactionBody {
@@ -145,13 +148,13 @@ namespace gradido::data {
         if (!communityIdIndexOptional) {
             return "";
         }
-        return gradido::g_appContext->getCommunityIds().getDataForIndexOrThrow(communityIdIndexOptional.value());
+        return uuidToString(gradido::g_appContext->getCommunityIds().getDataForIndexOrThrow(communityIdIndexOptional.value()));
     }
 }
 
 %extend gradido::data::TransactionBody {
     std::string getCommunityId() const {
-        return gradido::g_appContext->getCommunityIds().getDataForIndexOrThrow(self->getCommunityIdIndex());
+        return uuidToString(gradido::g_appContext->getCommunityIds().getDataForIndexOrThrow(self->getCommunityIdIndex()));
     }
 }
 
@@ -175,7 +178,7 @@ namespace gradido::data {
     std::string toJson(bool pretty = false) const {
         return serialization::toJsonString(*self, pretty);
     }
-}   
+}
 %extend gradido::data::SignaturePair {
     std::string toJson(bool pretty = false) const {
         return serialization::toJsonString(*self, pretty);

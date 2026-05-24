@@ -35,7 +35,7 @@ E string_to_enum(const std::string& name);
 %}
 
 
-// operator remapping with names because no operator overloading in javascript 
+// operator remapping with names because no operator overloading in javascript
 %rename(call) operator();
 // %rename(clone) operator=;
 %rename(equal) operator==;
@@ -56,7 +56,7 @@ E string_to_enum(const std::string& name);
 %ignore operator&;
 %ignore operator=;
 
-// std libs 
+// std libs
 %include <std_string.i>
 %include <std_except.i>
 %include <std_unique_ptr.i>
@@ -114,12 +114,16 @@ E string_to_enum(const std::string& name);
 //#include "gradido_blockchain/AppContext.h"
 %{
 #include "gradido_blockchain/AppContext.h"
+#include "gradido_blockchain/data/ByteArray.h"
 #include "gradido_blockchain/lib/Dictionary.h"
 #include "gradido_blockchain_core/utils/mono_timer.h"
+
+using gradido::data::GenericHash, gradido::data::GenericHashHash, gradido::data::GenericHashEqual;
+using gradido::data::Uuid, gradido::data::UuidHash, gradido::data::UuidEqual;
 %}
-%init %{  
+%init %{
   gradido::g_appContext = std::make_unique<gradido::AppContext>(
-    std::make_unique<RuntimeDictionary<std::string>>("communityIdDictionary"),
+    std::make_unique<RuntimeDictionary<Uuid, UuidHash, UuidEqual>>("communityIdDictionary"),
     std::make_unique<RuntimeDictionary<GenericHash, GenericHashHash, GenericHashEqual>>("userNameHashDictionary")
   );
   grdu_mono_timer_init();

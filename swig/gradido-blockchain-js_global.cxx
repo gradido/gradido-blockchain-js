@@ -1652,6 +1652,141 @@ fail:
 }
 
 
+// js_global_overloaded_function
+Napi::Value _wrap_verifySignatures__SWIG_2(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::Filter *arg1 = 0 ;
+  gradido::data::Uuid *arg2 = 0 ;
+  gradido::blockchain::batch::ThreadingPolicy arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  std::vector< uint64_t > result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_gradido__blockchain__Filter,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "verifySignatures" "', argument " "1"" of type '" "gradido::blockchain::Filter const &""'"); 
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "verifySignatures" "', argument " "1"" of type '" "gradido::blockchain::Filter const &""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::Filter * >(argp1);res2 = SWIG_ConvertPtr(info[1], &argp2, SWIGTYPE_p_gradido__data__Uuid,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "verifySignatures" "', argument " "2"" of type '" "gradido::data::Uuid const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "verifySignatures" "', argument " "2"" of type '" "gradido::data::Uuid const &""'"); 
+    }
+    arg2 = reinterpret_cast< gradido::data::Uuid * >(argp2);ecode3 = SWIG_AsVal_int(info[2], &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "verifySignatures" "', argument " "3"" of type '" "gradido::blockchain::batch::ThreadingPolicy""'");
+    } 
+    arg3 = static_cast< gradido::blockchain::batch::ThreadingPolicy >(val3);
+    
+    
+    
+    
+    {
+      try {
+        result = gradido::blockchain::batch::verifySignatures((gradido::blockchain::Filter const &)*arg1,(gradido::data::Uuid const &)*arg2,arg3);
+      } catch (const gradido::interaction::serialize::MissingMemberException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new std::vector< uint64_t >(result)), SWIGTYPE_p_std__vectorT_uint64_t_t, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
+// js_global_overloaded_function
+Napi::Value _wrap_verifySignatures__SWIG_3(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  gradido::blockchain::Filter *arg1 = 0 ;
+  gradido::data::Uuid *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  std::vector< uint64_t > result;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    res1 = SWIG_ConvertPtr(info[0], &argp1, SWIGTYPE_p_gradido__blockchain__Filter,  0 );
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "verifySignatures" "', argument " "1"" of type '" "gradido::blockchain::Filter const &""'"); 
+    }
+    if (!argp1) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "verifySignatures" "', argument " "1"" of type '" "gradido::blockchain::Filter const &""'"); 
+    }
+    arg1 = reinterpret_cast< gradido::blockchain::Filter * >(argp1);res2 = SWIG_ConvertPtr(info[1], &argp2, SWIGTYPE_p_gradido__data__Uuid,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "verifySignatures" "', argument " "2"" of type '" "gradido::data::Uuid const &""'"); 
+    }
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "verifySignatures" "', argument " "2"" of type '" "gradido::data::Uuid const &""'"); 
+    }
+    arg2 = reinterpret_cast< gradido::data::Uuid * >(argp2);
+    
+    
+    
+    
+    {
+      try {
+        result = gradido::blockchain::batch::verifySignatures((gradido::blockchain::Filter const &)*arg1,(gradido::data::Uuid const &)*arg2);
+      } catch (const gradido::interaction::serialize::MissingMemberException& e) {
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
+      } catch (const std::exception& e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
+      }
+    }
+    
+    
+    
+    jsresult = SWIG_NewPointerObj((new std::vector< uint64_t >(result)), SWIGTYPE_p_std__vectorT_uint64_t_t, SWIG_POINTER_OWN |  0 );
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+#endif
+  return Napi::Value();
+}
+
+
 // js_global_function_dispatcher
 Napi::Value _wrap_batch__wrap_verifySignatures(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
@@ -1708,6 +1843,78 @@ Napi::Value _wrap_batch__wrap_verifySignatures(const Napi::CallbackInfo &info) {
     return jsresult;
 #else
     _wrap_verifySignatures__SWIG_1(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 3 && static_cast<int>(info.Length()) <= 3) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_verifySignatures__SWIG_2(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_verifySignatures__SWIG_2(info);
+    if (env.IsExceptionPending()) {
+      Napi::Error e = env.GetAndClearPendingException();
+      Napi::Value typeErrorValue;
+      bool isTypeError;
+      Napi::Function typeErrorCons;
+      // Yes, this is ugly
+      // TODO: Fix this in Node.js when the core team grows up
+      NAPI_CHECK_RESULT(env.Global().Get("TypeError"), typeErrorValue);
+      typeErrorCons = typeErrorValue.As<Napi::Function>();
+      NAPI_CHECK_RESULT(e.Value().InstanceOf(typeErrorCons), isTypeError);
+      if (!isTypeError) {
+        // This is not the error you are looking for
+        e.ThrowAsJavaScriptException();
+        SWIG_fail;
+      }
+    } else {
+      return jsresult;
+    }
+#endif
+  }
+  
+  // js_function_dispatch_case
+  if(static_cast<int>(info.Length()) >= 2 && static_cast<int>(info.Length()) <= 2) {
+#ifdef NAPI_CPP_EXCEPTIONS
+    bool tryNext = false;
+    try {
+      jsresult = _wrap_verifySignatures__SWIG_3(info);
+    } catch (const Napi::TypeError &) {
+      tryNext = true;
+    } catch (const Napi::Error &e) {
+      throw e;
+    }
+    if (!tryNext)
+    return jsresult;
+#else
+    _wrap_verifySignatures__SWIG_3(info);
     if (env.IsExceptionPending()) {
       Napi::Error e = env.GetAndClearPendingException();
       Napi::Value typeErrorValue;
@@ -2089,14 +2296,12 @@ static void *_p_std__shared_ptrT_gradido__blockchain__InMemory_tTo_p_std__shared
     return (void *) new std::shared_ptr< gradido::blockchain::Abstract >(*(std::shared_ptr< gradido::blockchain::InMemory > *)x);
 }
 SWIGINTERN swig_type_info _swigt__p_AuthenticatedEncryption = {"_p_AuthenticatedEncryption", "AuthenticatedEncryption *|p_AuthenticatedEncryption", 0, 0, (void*)0, 0};
-SWIGINTERN swig_type_info _swigt__p_GenericHash = {"_p_GenericHash", "GenericHash *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_GradidoUnit = {"_p_GradidoUnit", "p_GradidoUnit|GradidoUnit *", 0, 0, (void*)0, 0};
-SWIGINTERN swig_type_info _swigt__p_IDictionaryT_PublicKey_t = {"_p_IDictionaryT_PublicKey_t", "IDictionary< PublicKey > *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_IDictionaryT_gradido__data__PublicKey_t = {"_p_IDictionaryT_gradido__data__PublicKey_t", "IDictionary< gradido::data::PublicKey > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_KeyPairEd25519 = {"_p_KeyPairEd25519", "p_KeyPairEd25519|KeyPairEd25519 *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_KeyPairEd25519Ex = {"_p_KeyPairEd25519Ex", "p_KeyPairEd25519Ex|KeyPairEd25519Ex *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_MonotonicTimer = {"_p_MonotonicTimer", "p_MonotonicTimer|MonotonicTimer *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_Passphrase = {"_p_Passphrase", "p_Passphrase|Passphrase *", 0, 0, (void*)0, 0};
-SWIGINTERN swig_type_info _swigt__p_PublicKey = {"_p_PublicKey", "PublicKey *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_SecretKeyCryptography = {"_p_SecretKeyCryptography", "p_SecretKeyCryptography|SecretKeyCryptography *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_SecretKeyCryptographyException = {"_p_SecretKeyCryptographyException", "SecretKeyCryptographyException *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_DecryptionException = {"_p_DecryptionException", 0, 0, 0, 0, 0};
@@ -2105,6 +2310,7 @@ SWIGINTERN swig_type_info _swigt__p_EncryptionKeyException = {"_p_EncryptionKeyE
 SWIGINTERN swig_type_info _swigt__p_MissingEncryptionException = {"_p_MissingEncryptionException", 0, 0, 0, 0, 0};
 SWIGINTERN swig_type_info _swigt__p_SignatureOctet = {"_p_SignatureOctet", "p_SignatureOctet|SignatureOctet *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_TimepointInterval = {"_p_TimepointInterval", "TimepointInterval *|p_TimepointInterval", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_Uuid = {"_p_Uuid", "Uuid *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_date__month = {"_p_date__month", "date::month *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_date__year = {"_p_date__year", "date::year *", 0, 0, (void*)0, 0};
@@ -2129,6 +2335,7 @@ SWIGINTERN swig_type_info _swigt__p_gradido__data__CommunityRoot = {"_p_gradido_
 SWIGINTERN swig_type_info _swigt__p_gradido__data__ConfirmedTransaction = {"_p_gradido__data__ConfirmedTransaction", "p_gradido__data__ConfirmedTransaction|gradido::data::ConfirmedTransaction *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__DurationSeconds = {"_p_gradido__data__DurationSeconds", "gradido::data::DurationSeconds *|p_gradido__data__DurationSeconds", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__EncryptedMemo = {"_p_gradido__data__EncryptedMemo", "gradido::data::EncryptedMemo *|std::vector< gradido::data::EncryptedMemo >::value_type *|p_gradido__data__EncryptedMemo", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_gradido__data__GenericHash = {"_p_gradido__data__GenericHash", "gradido::data::GenericHash *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__GradidoCreation = {"_p_gradido__data__GradidoCreation", "p_gradido__data__GradidoCreation|gradido::data::GradidoCreation *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__GradidoDeferredTransfer = {"_p_gradido__data__GradidoDeferredTransfer", "p_gradido__data__GradidoDeferredTransfer|gradido::data::GradidoDeferredTransfer *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__GradidoRedeemDeferredTransfer = {"_p_gradido__data__GradidoRedeemDeferredTransfer", "p_gradido__data__GradidoRedeemDeferredTransfer|gradido::data::GradidoRedeemDeferredTransfer *", 0, 0, (void*)0, 0};
@@ -2136,6 +2343,7 @@ SWIGINTERN swig_type_info _swigt__p_gradido__data__GradidoTimeoutDeferredTransfe
 SWIGINTERN swig_type_info _swigt__p_gradido__data__GradidoTransaction = {"_p_gradido__data__GradidoTransaction", "p_gradido__data__GradidoTransaction|gradido::data::GradidoTransaction *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__GradidoTransfer = {"_p_gradido__data__GradidoTransfer", "gradido::data::GradidoTransfer *|p_gradido__data__GradidoTransfer", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__LedgerAnchor = {"_p_gradido__data__LedgerAnchor", "gradido::data::LedgerAnchor *|p_gradido__data__LedgerAnchor", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_gradido__data__PublicKey = {"_p_gradido__data__PublicKey", "gradido::data::PublicKey *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__RegisterAddress = {"_p_gradido__data__RegisterAddress", "gradido::data::RegisterAddress *|p_gradido__data__RegisterAddress", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__SignatureMap = {"_p_gradido__data__SignatureMap", "gradido::data::SignatureMap *|p_gradido__data__SignatureMap", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__SignaturePair = {"_p_gradido__data__SignaturePair", "p_gradido__data__SignaturePair|std::vector< gradido::data::SignaturePair >::value_type *|gradido::data::SignaturePair *", 0, 0, (void*)0, 0};
@@ -2144,6 +2352,7 @@ SWIGINTERN swig_type_info _swigt__p_gradido__data__TimestampSeconds = {"_p_gradi
 SWIGINTERN swig_type_info _swigt__p_gradido__data__TransactionBody = {"_p_gradido__data__TransactionBody", "gradido::data::TransactionBody *|p_gradido__data__TransactionBody", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__TransactionTriggerEvent = {"_p_gradido__data__TransactionTriggerEvent", "p_gradido__data__TransactionTriggerEvent|gradido::data::TransactionTriggerEvent *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__TransferAmount = {"_p_gradido__data__TransferAmount", "gradido::data::TransferAmount *|p_gradido__data__TransferAmount", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_gradido__data__Uuid = {"_p_gradido__data__Uuid", "gradido::data::Uuid *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__compact__HieroTransactionId = {"_p_gradido__data__compact__HieroTransactionId", "p_gradido__data__compact__HieroTransactionId|gradido::data::compact::HieroTransactionId *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__compact__PublicKeyIndex = {"_p_gradido__data__compact__PublicKeyIndex", "gradido::data::compact::PublicKeyIndex *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__interaction__calculateAccountBalance__Context = {"_p_gradido__interaction__calculateAccountBalance__Context", "p_gradido__interaction__calculateAccountBalance__Context|gradido::interaction::calculateAccountBalance::Context *", 0, 0, (void*)0, 0};
@@ -2219,19 +2428,18 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_DecryptionException,
   &_swigt__p_EncryptionException,
   &_swigt__p_EncryptionKeyException,
-  &_swigt__p_GenericHash,
   &_swigt__p_GradidoUnit,
-  &_swigt__p_IDictionaryT_PublicKey_t,
+  &_swigt__p_IDictionaryT_gradido__data__PublicKey_t,
   &_swigt__p_KeyPairEd25519,
   &_swigt__p_KeyPairEd25519Ex,
   &_swigt__p_MissingEncryptionException,
   &_swigt__p_MonotonicTimer,
   &_swigt__p_Passphrase,
-  &_swigt__p_PublicKey,
   &_swigt__p_SecretKeyCryptography,
   &_swigt__p_SecretKeyCryptographyException,
   &_swigt__p_SignatureOctet,
   &_swigt__p_TimepointInterval,
+  &_swigt__p_Uuid,
   &_swigt__p_char,
   &_swigt__p_date__month,
   &_swigt__p_date__year,
@@ -2256,6 +2464,7 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_gradido__data__ConfirmedTransaction,
   &_swigt__p_gradido__data__DurationSeconds,
   &_swigt__p_gradido__data__EncryptedMemo,
+  &_swigt__p_gradido__data__GenericHash,
   &_swigt__p_gradido__data__GradidoCreation,
   &_swigt__p_gradido__data__GradidoDeferredTransfer,
   &_swigt__p_gradido__data__GradidoRedeemDeferredTransfer,
@@ -2263,6 +2472,7 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_gradido__data__GradidoTransaction,
   &_swigt__p_gradido__data__GradidoTransfer,
   &_swigt__p_gradido__data__LedgerAnchor,
+  &_swigt__p_gradido__data__PublicKey,
   &_swigt__p_gradido__data__RegisterAddress,
   &_swigt__p_gradido__data__SignatureMap,
   &_swigt__p_gradido__data__SignaturePair,
@@ -2271,6 +2481,7 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_gradido__data__TransactionBody,
   &_swigt__p_gradido__data__TransactionTriggerEvent,
   &_swigt__p_gradido__data__TransferAmount,
+  &_swigt__p_gradido__data__Uuid,
   &_swigt__p_gradido__data__compact__HieroTransactionId,
   &_swigt__p_gradido__data__compact__PublicKeyIndex,
   &_swigt__p_gradido__interaction__calculateAccountBalance__Context,
@@ -2340,14 +2551,12 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
 };
 
 SWIGINTERN swig_cast_info _swigc__p_AuthenticatedEncryption[] = {  {&_swigt__p_AuthenticatedEncryption, 0, 0, 0},{0, 0, 0, 0}};
-SWIGINTERN swig_cast_info _swigc__p_GenericHash[] = {  {&_swigt__p_GenericHash, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_GradidoUnit[] = {  {&_swigt__p_GradidoUnit, 0, 0, 0},{0, 0, 0, 0}};
-SWIGINTERN swig_cast_info _swigc__p_IDictionaryT_PublicKey_t[] = {  {&_swigt__p_IDictionaryT_PublicKey_t, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_IDictionaryT_gradido__data__PublicKey_t[] = {  {&_swigt__p_IDictionaryT_gradido__data__PublicKey_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_KeyPairEd25519[] = {  {&_swigt__p_KeyPairEd25519, 0, 0, 0},  {&_swigt__p_KeyPairEd25519Ex, _p_KeyPairEd25519ExTo_p_KeyPairEd25519, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_KeyPairEd25519Ex[] = {  {&_swigt__p_KeyPairEd25519Ex, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_MonotonicTimer[] = {  {&_swigt__p_MonotonicTimer, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_Passphrase[] = {  {&_swigt__p_Passphrase, 0, 0, 0},{0, 0, 0, 0}};
-SWIGINTERN swig_cast_info _swigc__p_PublicKey[] = {  {&_swigt__p_PublicKey, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_SecretKeyCryptography[] = {  {&_swigt__p_SecretKeyCryptography, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_DecryptionException[] = {{&_swigt__p_DecryptionException, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_EncryptionException[] = {{&_swigt__p_EncryptionException, 0, 0, 0},{0, 0, 0, 0}};
@@ -2356,6 +2565,7 @@ SWIGINTERN swig_cast_info _swigc__p_MissingEncryptionException[] = {{&_swigt__p_
 SWIGINTERN swig_cast_info _swigc__p_SecretKeyCryptographyException[] = {  {&_swigt__p_SecretKeyCryptographyException, 0, 0, 0},  {&_swigt__p_DecryptionException, _p_DecryptionExceptionTo_p_SecretKeyCryptographyException, 0, 0},  {&_swigt__p_EncryptionException, _p_EncryptionExceptionTo_p_SecretKeyCryptographyException, 0, 0},  {&_swigt__p_EncryptionKeyException, _p_EncryptionKeyExceptionTo_p_SecretKeyCryptographyException, 0, 0},  {&_swigt__p_MissingEncryptionException, _p_MissingEncryptionExceptionTo_p_SecretKeyCryptographyException, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_SignatureOctet[] = {  {&_swigt__p_SignatureOctet, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_TimepointInterval[] = {  {&_swigt__p_TimepointInterval, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_Uuid[] = {  {&_swigt__p_Uuid, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_date__month[] = {  {&_swigt__p_date__month, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_date__year[] = {  {&_swigt__p_date__year, 0, 0, 0},{0, 0, 0, 0}};
@@ -2380,6 +2590,7 @@ SWIGINTERN swig_cast_info _swigc__p_gradido__data__CommunityRoot[] = {  {&_swigt
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__ConfirmedTransaction[] = {  {&_swigt__p_gradido__data__ConfirmedTransaction, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__DurationSeconds[] = {  {&_swigt__p_gradido__data__DurationSeconds, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__EncryptedMemo[] = {  {&_swigt__p_gradido__data__EncryptedMemo, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_gradido__data__GenericHash[] = {  {&_swigt__p_gradido__data__GenericHash, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__GradidoCreation[] = {  {&_swigt__p_gradido__data__GradidoCreation, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__GradidoDeferredTransfer[] = {  {&_swigt__p_gradido__data__GradidoDeferredTransfer, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__GradidoRedeemDeferredTransfer[] = {  {&_swigt__p_gradido__data__GradidoRedeemDeferredTransfer, 0, 0, 0},{0, 0, 0, 0}};
@@ -2387,6 +2598,7 @@ SWIGINTERN swig_cast_info _swigc__p_gradido__data__GradidoTimeoutDeferredTransfe
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__GradidoTransaction[] = {  {&_swigt__p_gradido__data__GradidoTransaction, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__GradidoTransfer[] = {  {&_swigt__p_gradido__data__GradidoTransfer, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__LedgerAnchor[] = {  {&_swigt__p_gradido__data__LedgerAnchor, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_gradido__data__PublicKey[] = {  {&_swigt__p_gradido__data__PublicKey, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__RegisterAddress[] = {  {&_swigt__p_gradido__data__RegisterAddress, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__SignatureMap[] = {  {&_swigt__p_gradido__data__SignatureMap, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__SignaturePair[] = {  {&_swigt__p_gradido__data__SignaturePair, 0, 0, 0},{0, 0, 0, 0}};
@@ -2395,6 +2607,7 @@ SWIGINTERN swig_cast_info _swigc__p_gradido__data__TimestampSeconds[] = {  {&_sw
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__TransactionBody[] = {  {&_swigt__p_gradido__data__TransactionBody, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__TransactionTriggerEvent[] = {  {&_swigt__p_gradido__data__TransactionTriggerEvent, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__TransferAmount[] = {  {&_swigt__p_gradido__data__TransferAmount, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_gradido__data__Uuid[] = {  {&_swigt__p_gradido__data__Uuid, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__compact__HieroTransactionId[] = {  {&_swigt__p_gradido__data__compact__HieroTransactionId, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__compact__PublicKeyIndex[] = {  {&_swigt__p_gradido__data__compact__PublicKeyIndex, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__interaction__calculateAccountBalance__Context[] = {  {&_swigt__p_gradido__interaction__calculateAccountBalance__Context, 0, 0, 0},{0, 0, 0, 0}};
@@ -2467,19 +2680,18 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_DecryptionException,
   _swigc__p_EncryptionException,
   _swigc__p_EncryptionKeyException,
-  _swigc__p_GenericHash,
   _swigc__p_GradidoUnit,
-  _swigc__p_IDictionaryT_PublicKey_t,
+  _swigc__p_IDictionaryT_gradido__data__PublicKey_t,
   _swigc__p_KeyPairEd25519,
   _swigc__p_KeyPairEd25519Ex,
   _swigc__p_MissingEncryptionException,
   _swigc__p_MonotonicTimer,
   _swigc__p_Passphrase,
-  _swigc__p_PublicKey,
   _swigc__p_SecretKeyCryptography,
   _swigc__p_SecretKeyCryptographyException,
   _swigc__p_SignatureOctet,
   _swigc__p_TimepointInterval,
+  _swigc__p_Uuid,
   _swigc__p_char,
   _swigc__p_date__month,
   _swigc__p_date__year,
@@ -2504,6 +2716,7 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_gradido__data__ConfirmedTransaction,
   _swigc__p_gradido__data__DurationSeconds,
   _swigc__p_gradido__data__EncryptedMemo,
+  _swigc__p_gradido__data__GenericHash,
   _swigc__p_gradido__data__GradidoCreation,
   _swigc__p_gradido__data__GradidoDeferredTransfer,
   _swigc__p_gradido__data__GradidoRedeemDeferredTransfer,
@@ -2511,6 +2724,7 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_gradido__data__GradidoTransaction,
   _swigc__p_gradido__data__GradidoTransfer,
   _swigc__p_gradido__data__LedgerAnchor,
+  _swigc__p_gradido__data__PublicKey,
   _swigc__p_gradido__data__RegisterAddress,
   _swigc__p_gradido__data__SignatureMap,
   _swigc__p_gradido__data__SignaturePair,
@@ -2519,6 +2733,7 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_gradido__data__TransactionBody,
   _swigc__p_gradido__data__TransactionTriggerEvent,
   _swigc__p_gradido__data__TransferAmount,
+  _swigc__p_gradido__data__Uuid,
   _swigc__p_gradido__data__compact__HieroTransactionId,
   _swigc__p_gradido__data__compact__PublicKeyIndex,
   _swigc__p_gradido__interaction__calculateAccountBalance__Context,
@@ -2590,6 +2805,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (END) -------- */
 
-SWIGINTERN swig_type_info *swig_types[123];
-SWIGINTERN swig_module_info swig_module = {swig_types, 122, 0, 0, 0, 0};
+SWIGINTERN swig_type_info *swig_types[125];
+SWIGINTERN swig_module_info swig_module = {swig_types, 124, 0, 0, 0, 0};
 
