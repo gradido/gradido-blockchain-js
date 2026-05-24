@@ -113,6 +113,7 @@ namespace gradido::data {
 %include "gradido_blockchain/data/SignaturePair.h"
 %include "gradido_blockchain/data/SignatureMap.h"
 %include "gradido_blockchain/data/EncryptedMemo.h"
+%include "gradido_blockchain/data/ByteArray.h"
 %include "gradido_blockchain/data/AccountBalance.h"
 %include "gradido_blockchain/data/CommunityFriendsUpdate.h"
 %include "gradido_blockchain/data/CommunityRoot.h"

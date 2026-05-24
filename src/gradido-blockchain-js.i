@@ -118,13 +118,11 @@ E string_to_enum(const std::string& name);
 #include "gradido_blockchain/lib/Dictionary.h"
 #include "gradido_blockchain_core/utils/mono_timer.h"
 
-using gradido::data::GenericHash, gradido::data::GenericHashHash, gradido::data::GenericHashEqual;
-using gradido::data::Uuid, gradido::data::UuidHash, gradido::data::UuidEqual;
 %}
 %init %{
   gradido::g_appContext = std::make_unique<gradido::AppContext>(
-    std::make_unique<RuntimeDictionary<Uuid, UuidHash, UuidEqual>>("communityIdDictionary"),
-    std::make_unique<RuntimeDictionary<GenericHash, GenericHashHash, GenericHashEqual>>("userNameHashDictionary")
+    std::make_unique<RuntimeDictionary<gradido::data::Uuid, gradido::data::UuidHash, gradido::data::UuidEqual>>("communityIdDictionary"),
+    std::make_unique<RuntimeDictionary<gradido::data::GenericHash, gradido::data::GenericHashHash, gradido::data::GenericHashEqual>>("userNameHashDictionary")
   );
   grdu_mono_timer_init();
 %}
