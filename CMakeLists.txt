@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.15)
 project(gradido-blockchain-js)
 IF(WIN32)
 	set(CMAKE_CXX_FLAGS         "/MP /EHsc /std:c++20 /permissive- /Zc:__cplusplus /GR")
-	set(BUILD_SHARED_LIBS ON)
+	#set(BUILD_SHARED_LIBS ON)
 ELSE()
 	SET(CMAKE_CXX_FLAGS "-std=c++20 -fexceptions -frtti" )# -fPIC" )
 ENDIF()
@@ -41,7 +41,7 @@ endif()
 include_directories(
 	"src/cpp"
 	"deps/gradido_blockchain/dependencies"
-	"deps/gradido_blockchain/dependencies/tinf/src" 
+	"deps/gradido_blockchain/dependencies/tinf/src"
 	"deps/gradido_blockchain/dependencies/protopuf/include"
 	"deps/gradido_blockchain/dependencies/rapidjson/include"
 	"deps/gradido_blockchain/dependencies/furi/code"
@@ -49,7 +49,7 @@ include_directories(
 	"deps/gradido_blockchain/dependencies/magic_enum/include"
 	"deps/gradido_blockchain/dependencies/cpp-httplib"
 	"deps/gradido_blockchain/dependencies/date/include"
-	"deps/gradido_blockchain/dependencies/ed25519_bip32_c_interface/include"	
+	"deps/gradido_blockchain/dependencies/ed25519_bip32_c_interface/include"
 )
 
 FILE(GLOB_RECURSE SWIG_GENERATED_INTERFACE "swig/*.cxx" "swig/*.h" "src/cpp/*.h" "src/cpp/*.cpp")
