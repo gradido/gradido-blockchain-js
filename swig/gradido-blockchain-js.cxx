@@ -2229,6 +2229,9 @@ SWIGINTERN bool KeyPairEd25519Ex_verify__SWIG_1(KeyPairEd25519Ex const *self,mem
 SWIGINTERN memory::ConstBlockPtr KeyPairEd25519Ex_getPublicKey(KeyPairEd25519Ex const *self){
     return self->getPublicKey();
   }
+SWIGINTERN memory::Block KeyPairEd25519Ex_getSlip10PublicKey(KeyPairEd25519Ex const *self){
+    return self->getSlip10PublicKey();
+  }
 SWIGINTERN memory::ConstBlockPtr KeyPairEd25519Ex_getChainCode(KeyPairEd25519Ex const *self){
     return self->getChainCode();
   }

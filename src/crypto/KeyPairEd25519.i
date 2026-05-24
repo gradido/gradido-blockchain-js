@@ -106,6 +106,9 @@
   inline memory::ConstBlockPtr getPublicKey() const {
     return self->getPublicKey();
   }
+  inline memory::Block getSlip10PublicKey() const {
+    return self->getSlip10PublicKey();
+  }
 
   inline memory::ConstBlockPtr getChainCode() const {
     return self->getChainCode();
