@@ -74,77 +74,95 @@ export  class MonotonicTimer {
   string(buffer: string, bufferSize: bigint): bigint;
 }
 
-export const AddressType_NONE: AddressType;
-
-export const AddressType_COMMUNITY_HUMAN: AddressType;
-
-export const AddressType_COMMUNITY_GMW: AddressType;
-
-export const AddressType_COMMUNITY_AUF: AddressType;
-
-export const AddressType_COMMUNITY_PROJECT: AddressType;
-
-export const AddressType_SUBACCOUNT: AddressType;
-
-export const AddressType_CRYPTO_ACCOUNT: AddressType;
-
-export const AddressType_DEFERRED_TRANSFER: AddressType;
-
-export type AddressType = number & { readonly [_SWIG_type_tag]: 'AddressType'; };
-
-export const BalanceDerivationType_UNSPECIFIED: BalanceDerivationType;
-
-export const BalanceDerivationType_NODE: BalanceDerivationType;
-
-export const BalanceDerivationType_EXTERN: BalanceDerivationType;
-
-export type BalanceDerivationType = number & { readonly [_SWIG_type_tag]: 'BalanceDerivationType'; };
-
-export const CrossGroupType_LOCAL: CrossGroupType;
-
-export const CrossGroupType_INBOUND: CrossGroupType;
-
-export const CrossGroupType_OUTBOUND: CrossGroupType;
-
-export const CrossGroupType_CROSS: CrossGroupType;
-
-export type CrossGroupType = number & { readonly [_SWIG_type_tag]: 'CrossGroupType'; };
-
-export const TransactionType_NONE: TransactionType;
-
-export const TransactionType_CREATION: TransactionType;
-
-export const TransactionType_TRANSFER: TransactionType;
-
-export const TransactionType_COMMUNITY_FRIENDS_UPDATE: TransactionType;
-
-export const TransactionType_REGISTER_ADDRESS: TransactionType;
-
-export const TransactionType_DEFERRED_TRANSFER: TransactionType;
-
-export const TransactionType_COMMUNITY_ROOT: TransactionType;
-
-export const TransactionType_REDEEM_DEFERRED_TRANSFER: TransactionType;
-
-export const TransactionType_TIMEOUT_DEFERRED_TRANSFER: TransactionType;
-
-export const TransactionType_MAX_VALUE: TransactionType;
-
-export type TransactionType = number & { readonly [_SWIG_type_tag]: 'TransactionType'; };
-
-export const MemoKeyType_SHARED_SECRET: MemoKeyType;
-
-export const MemoKeyType_COMMUNITY_SECRET: MemoKeyType;
-
-export const MemoKeyType_PLAIN: MemoKeyType;
-
-export type MemoKeyType = number & { readonly [_SWIG_type_tag]: 'MemoKeyType'; };
-
 export const TransactionTriggerEventType_NONE: TransactionTriggerEventType;
 
 export const TransactionTriggerEventType_DEFERRED_TIMEOUT_REVERSAL: TransactionTriggerEventType;
 
 export type TransactionTriggerEventType = number & { readonly [_SWIG_type_tag]: 'TransactionTriggerEventType'; };
+
+export const GRDT_ADDRESS_NONE: grdt_address;
+
+export const GRDT_ADDRESS_COMMUNITY_HUMAN: grdt_address;
+
+export const GRDT_ADDRESS_COMMUNITY_GMW: grdt_address;
+
+export const GRDT_ADDRESS_COMMUNITY_AUF: grdt_address;
+
+export const GRDT_ADDRESS_COMMUNITY_PROJECT: grdt_address;
+
+export const GRDT_ADDRESS_SUBACCOUNT: grdt_address;
+
+export const GRDT_ADDRESS_CRYPTO_ACCOUNT: grdt_address;
+
+export const GRDT_ADDRESS_DEFERRED_TRANSFER: grdt_address;
+
+export type grdt_address = number & { readonly [_SWIG_type_tag]: 'grdt_address'; };
+
+export const GRDT_BALANCE_DERIVATION_UNSPECIFIED: grdt_balance_derivation;
+
+export const GRDT_BALANCE_DERIVATION_NODE: grdt_balance_derivation;
+
+export const GRDT_BALANCE_DERIVATION_EXTERN: grdt_balance_derivation;
+
+export type grdt_balance_derivation = number & { readonly [_SWIG_type_tag]: 'grdt_balance_derivation'; };
+
+export const GRDT_CROSS_GROUP_LOCAL: grdt_cross_group;
+
+export const GRDT_CROSS_GROUP_INBOUND: grdt_cross_group;
+
+export const GRDT_CROSS_GROUP_OUTBOUND: grdt_cross_group;
+
+export const GRDT_CROSS_GROUP_CROSS: grdt_cross_group;
+
+export type grdt_cross_group = number & { readonly [_SWIG_type_tag]: 'grdt_cross_group'; };
+
+export const GRDT_LEDGER_ANCHOR_UNSPECIFIED: grdt_ledger_anchor;
+
+export const GRDT_LEDGER_ANCHOR_HIERO_TRANSACTION_ID: grdt_ledger_anchor;
+
+export const GRDT_LEDGER_ANCHOR_LEGACY_GRADIDO_DB_TRANSACTION_ID: grdt_ledger_anchor;
+
+export const GRDT_LEDGER_ANCHOR_NODE_TRIGGER_TRANSACTION_ID: grdt_ledger_anchor;
+
+export const GRDT_LEDGER_ANCHOR_LEGACY_GRADIDO_DB_COMMUNITY_ID: grdt_ledger_anchor;
+
+export const GRDT_LEDGER_ANCHOR_LEGACY_GRADIDO_DB_USER_ID: grdt_ledger_anchor;
+
+export const GRDT_LEDGER_ANCHOR_LEGACY_GRADIDO_DB_CONTRIBUTION_ID: grdt_ledger_anchor;
+
+export const GRDT_LEDGER_ANCHOR_LEGACY_GRADIDO_DB_TRANSACTION_LINK_ID: grdt_ledger_anchor;
+
+export type grdt_ledger_anchor = number & { readonly [_SWIG_type_tag]: 'grdt_ledger_anchor'; };
+
+export const GRDT_TRANSACTION_NONE: grdt_transaction;
+
+export const GRDT_TRANSACTION_CREATION: grdt_transaction;
+
+export const GRDT_TRANSACTION_TRANSFER: grdt_transaction;
+
+export const GRDT_TRANSACTION_COMMUNITY_FRIENDS_UPDATE: grdt_transaction;
+
+export const GRDT_TRANSACTION_REGISTER_ADDRESS: grdt_transaction;
+
+export const GRDT_TRANSACTION_DEFERRED_TRANSFER: grdt_transaction;
+
+export const GRDT_TRANSACTION_COMMUNITY_ROOT: grdt_transaction;
+
+export const GRDT_TRANSACTION_REDEEM_DEFERRED_TRANSFER: grdt_transaction;
+
+export const GRDT_TRANSACTION_TIMEOUT_DEFERRED_TRANSFER: grdt_transaction;
+
+export const GRDT_TRANSACTION_COUNT: grdt_transaction;
+
+export type grdt_transaction = number & { readonly [_SWIG_type_tag]: 'grdt_transaction'; };
+
+export const GRDT_MEMO_KEY_SHARED_SECRET: grdt_memo_key;
+
+export const GRDT_MEMO_KEY_COMMUNITY_SECRET: grdt_memo_key;
+
+export const GRDT_MEMO_KEY_PLAIN: grdt_memo_key;
+
+export type grdt_memo_key = number & { readonly [_SWIG_type_tag]: 'grdt_memo_key'; };
 
 export function addressTypeToString(value: AddressType): string;
 
@@ -169,6 +187,10 @@ export function stringToMemoKeyType(name: string): MemoKeyType;
 export function transactionTriggerEventTypeToString(value: TransactionTriggerEventType): string;
 
 export function stringToTransactionTriggerEventType(name: string): TransactionTriggerEventType;
+
+export function ledgerAnchorTypeToString(value: LedgerAnchorType): string;
+
+export function stringToLedgerAnchorType(name: string): LedgerAnchorType;
 
 export  class SignatureOctet {
 
@@ -763,10 +785,6 @@ export  class AccountBalances {
   set(i: number, val: AccountBalance): void;
 }
 
-export function ledgerAnchorTypeToString(value: LedgerAnchorType): string;
-
-export function stringToLedgerAnchorType(name: string): LedgerAnchorType;
-
 export  class DurationSeconds {
 
   constructor();
@@ -1126,41 +1144,17 @@ export  class GradidoTimeoutDeferredTransfer {
   toJson(): string;
 }
 
-export type LedgerAnchor_Type = number & { readonly [_SWIG_type_tag]: 'LedgerAnchor_Type'; };
-
 export  class LedgerAnchor {
-
- static readonly Type_UNSPECIFIED: LedgerAnchor_Type;
-
- static readonly Type_IOTA_MESSAGE_ID: LedgerAnchor_Type;
-
- static readonly Type_HIERO_TRANSACTION_ID: LedgerAnchor_Type;
-
- static readonly Type_LEGACY_GRADIDO_DB_TRANSACTION_ID: LedgerAnchor_Type;
-
- static readonly Type_NODE_TRIGGER_TRANSACTION_ID: LedgerAnchor_Type;
-
- static readonly Type_LEGACY_GRADIDO_DB_COMMUNITY_ID: LedgerAnchor_Type;
-
- static readonly Type_LEGACY_GRADIDO_DB_USER_ID: LedgerAnchor_Type;
-
- static readonly Type_LEGACY_GRADIDO_DB_CONTRIBUTION_ID: LedgerAnchor_Type;
-
- static readonly Type_LEGACY_GRADIDO_DB_TRANSACTION_LINK_ID: LedgerAnchor_Type;
 
   constructor();
 
   constructor(other: LedgerAnchor);
-
-  constructor(iotaMessageId: MemoryBlock);
 
   constructor(hieroTransactionId: HieroTransactionId);
 
   constructor(hieroTransactionId: HieroTransactionIdCompact);
 
   constructor(transactionId: number, type: LedgerAnchorType);
-
-  isIotaMessageId(): boolean;
 
   isHieroTransactionId(): boolean;
 
@@ -1176,15 +1170,15 @@ export  class LedgerAnchor {
 
   isLegacyGradidoDbTransactionLinkId(): boolean;
 
-  getType(): LedgerAnchorType;
+  isLegacyGradidoId(): boolean;
 
-  getIotaMessageId(): MemoryBlock;
+  getType(): LedgerAnchorType;
 
   getHieroTransactionId(): HieroTransactionId;
 
   getHieroTransactionIdCompact(): HieroTransactionIdCompact;
 
-  getLegacyTransactionId(): number;
+  getLegacyGradidoDbId(): number;
 
   getNodeTriggeredTransactionId(): number;
 

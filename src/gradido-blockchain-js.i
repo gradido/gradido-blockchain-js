@@ -71,19 +71,21 @@ E string_to_enum(const std::string& name);
 %include "lib/MonotonicTimer.i"
 
 // enums
-%include "gradido_blockchain/data/AddressType.h"
-%include "gradido_blockchain/data/BalanceDerivationType.h"
-%include "gradido_blockchain/data/CrossGroupType.h"
-%include "gradido_blockchain/data/TransactionType.h"
-%include "gradido_blockchain/data/MemoKeyType.h"
 %include "gradido_blockchain/data/TransactionTriggerEventType.h"
+%include "gradido_blockchain_core/types/address.h"
+%include "gradido_blockchain_core/types/balance_derivation.h"
+%include "gradido_blockchain_core/types/cross_group.h"
+%include "gradido_blockchain_core/types/ledger_anchor.h"
+%include "gradido_blockchain_core/types/transaction.h"
+%include "gradido_blockchain_core/types/memo_key.h"
 
-%typemap(ts) gradido::data::AddressType "AddressType";
-%typemap(ts) gradido::data::BalanceDerivationType "BalanceDerivationType";
-%typemap(ts) gradido::data::CrossGroupType "CrossGroupType";
-%typemap(ts) gradido::data::TransactionType "TransactionType";
-%typemap(ts) gradido::data::MemoKeyType "MemoKeyType";
+%typemap(ts) grdt_address "AddressType";
+%typemap(ts) grdt_balance_derivation "BalanceDerivationType";
+%typemap(ts) grdt_cross_group "CrossGroupType";
+%typemap(ts) grdt_transaction "TransactionType";
+%typemap(ts) grdt_memo_key "MemoKeyType";
 %typemap(ts) gradido::data::TransactionTriggerEventType "TransactionTriggerEventType";
+%typemap(ts) grdt_ledger_anchor "LedgerAnchorType";
 
 // needed for string_to_enum to get more infos on exception
 %exception {
@@ -96,18 +98,20 @@ E string_to_enum(const std::string& name);
     }
 }
 
-%template(addressTypeToString) enum_to_string<gradido::data::AddressType>;
-%template(stringToAddressType) string_to_enum<gradido::data::AddressType>;
-%template(balanceDerivationTypeToString) enum_to_string<gradido::data::BalanceDerivationType>;
-%template(stringToBalanceDerivationType) string_to_enum<gradido::data::BalanceDerivationType>;
-%template(crossGroupTypeToString) enum_to_string<gradido::data::CrossGroupType>;
-%template(stringToCrossGroupType) string_to_enum<gradido::data::CrossGroupType>;
-%template(transactionTypeToString) enum_to_string<gradido::data::TransactionType>;
-%template(stringToTransactionType) string_to_enum<gradido::data::TransactionType>;
-%template(memoKeyTypeToString) enum_to_string<gradido::data::MemoKeyType>;
-%template(stringToMemoKeyType) string_to_enum<gradido::data::MemoKeyType>;
+%template(addressTypeToString) enum_to_string<grdt_address>;
+%template(stringToAddressType) string_to_enum<grdt_address>;
+%template(balanceDerivationTypeToString) enum_to_string<grdt_balance_derivation>;
+%template(stringToBalanceDerivationType) string_to_enum<grdt_balance_derivation>;
+%template(crossGroupTypeToString) enum_to_string<grdt_cross_group>;
+%template(stringToCrossGroupType) string_to_enum<grdt_cross_group>;
+%template(transactionTypeToString) enum_to_string<grdt_transaction>;
+%template(stringToTransactionType) string_to_enum<grdt_transaction>;
+%template(memoKeyTypeToString) enum_to_string<grdt_memo_key>;
+%template(stringToMemoKeyType) string_to_enum<grdt_memo_key>;
 %template(transactionTriggerEventTypeToString) enum_to_string<gradido::data::TransactionTriggerEventType>;
 %template(stringToTransactionTriggerEventType) string_to_enum<gradido::data::TransactionTriggerEventType>;
+%template(ledgerAnchorTypeToString) enum_to_string<grdt_ledger_anchor>;
+%template(stringToLedgerAnchorType) string_to_enum<grdt_ledger_anchor>;
 
 // app context
 

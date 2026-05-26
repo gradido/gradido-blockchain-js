@@ -71,7 +71,7 @@ namespace gradido::data {
     %ignore EncryptedMemo::EncryptedMemo(const char*);
     %ignore EncryptedMemo::EncryptedMemo(const char*, const AuthenticatedEncryption&);
     %ignore EncryptedMemo::EncryptedMemo(const char*, const AuthenticatedEncryption&, const AuthenticatedEncryption&);
-    %ignore EncryptedMemo::EncryptedMemo(MemoKeyType, memory::Block&&);
+    %ignore EncryptedMemo::EncryptedMemo(grdt_memo_key, memory::Block&&);
     %ignore EncryptedMemo::EncryptedMemo(EncryptedMemo&&);
     %ignore EncryptedMemo::EncryptedMemo(const EncryptedMemo&);
     %ignore TransferAmount::TransferAmount(memory::ConstBlockPtr, const GradidoUnit&, uint32_t);
@@ -100,11 +100,6 @@ namespace gradido::data {
 %typemap(out) uint8_t* {
   $result = Napi::Buffer<uint8_t>::Copy(info.Env(), arg1->data(), arg1->size());
 }
-
-// enum inside class
-%typemap(ts) gradido::data::LedgerAnchor::Type "LedgerAnchorType";
-%template(ledgerAnchorTypeToString) enum_to_string<gradido::data::LedgerAnchor::Type>;
-%template(stringToLedgerAnchorType) string_to_enum<gradido::data::LedgerAnchor::Type>;
 
 %include "gradido_blockchain/data/DurationSeconds.h"
 %include "gradido_blockchain/data/TransferAmount.h"

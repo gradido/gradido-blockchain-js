@@ -31,7 +31,7 @@ namespace gradido::blockchain {
         bool isTransactionExist(gradido::data::ConstGradidoTransactionPtr gradidoTransaction, gradido::data::Timestamp confirmedAt) const {
             return static_cast<const gradido::blockchain::Abstract*>($self)->isTransactionExist(gradidoTransaction, confirmedAt);
         }
-        gradido::data::AddressType getAddressTypeSlow(const Filter& filter) const {
+        grdt_address getAddressTypeSlow(const Filter& filter) const {
             return static_cast<const gradido::blockchain::Abstract*>($self)->getAddressTypeSlow(filter);
         }
     }
@@ -49,6 +49,5 @@ namespace gradido::blockchain {
 #include "gradido_blockchain/blockchain/InMemory.h"
 %}
 
-%include "gradido_blockchain/blockchain/Abstract.h"    
+%include "gradido_blockchain/blockchain/Abstract.h"
 %include "gradido_blockchain/blockchain/InMemory.h"
-
