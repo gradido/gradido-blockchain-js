@@ -15,6 +15,8 @@
     }
 }
 
+%typemap(ts) std::optional<GradidoUnit> "GradidoUnit | null";
+
 %{
 #include "gradido_blockchain/GradidoUnit.h"
 %}

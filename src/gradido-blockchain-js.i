@@ -55,6 +55,7 @@ E string_to_enum(const std::string& name);
 %ignore operator|;
 %ignore operator&;
 %ignore operator=;
+%ignore gradido::blockchain::batch::resolveThreadCount;
 
 // std libs
 %include <std_string.i>
@@ -71,7 +72,9 @@ E string_to_enum(const std::string& name);
 %include "lib/MonotonicTimer.i"
 
 // enums
+%include "gradido_blockchain/blockchain/batch/ThreadingPolicy.h"
 %include "gradido_blockchain/data/TransactionTriggerEventType.h"
+%include "gradido_blockchain_core/result.h"
 %include "gradido_blockchain_core/types/address.h"
 %include "gradido_blockchain_core/types/balance_derivation.h"
 %include "gradido_blockchain_core/types/cross_group.h"
@@ -84,8 +87,12 @@ E string_to_enum(const std::string& name);
 %typemap(ts) grdt_cross_group "CrossGroupType";
 %typemap(ts) grdt_transaction "TransactionType";
 %typemap(ts) grdt_memo_key "MemoKeyType";
+%typemap(ts) grd_result "GradidoCoreResult";
 %typemap(ts) gradido::data::TransactionTriggerEventType "TransactionTriggerEventType";
 %typemap(ts) grdt_ledger_anchor "LedgerAnchorType";
+%typemap(ts) gradido::blockchain::batch::ThreadingPolicy "ThreadingPolicy";
+
+%typemap(ts) std::optional<grdt_address> "grdt_address | null";
 
 // needed for string_to_enum to get more infos on exception
 %exception {
@@ -108,6 +115,8 @@ E string_to_enum(const std::string& name);
 %template(stringToTransactionType) string_to_enum<grdt_transaction>;
 %template(memoKeyTypeToString) enum_to_string<grdt_memo_key>;
 %template(stringToMemoKeyType) string_to_enum<grdt_memo_key>;
+%template(gradidoCoreResultToString) enum_to_string<grd_result>;
+%template(stringToGradidoCoreResult) string_to_enum<grd_result>;
 %template(transactionTriggerEventTypeToString) enum_to_string<gradido::data::TransactionTriggerEventType>;
 %template(stringToTransactionTriggerEventType) string_to_enum<gradido::data::TransactionTriggerEventType>;
 %template(ledgerAnchorTypeToString) enum_to_string<grdt_ledger_anchor>;
@@ -151,6 +160,7 @@ E string_to_enum(const std::string& name);
 %include "data_compact.i"
 %include "data_hiero.i"
 %include "data.i"
+%include "data_runtime.i"
 
 // advanced types
 %include "GradidoTransactionBuilder.i"

@@ -6,6 +6,89 @@
     }
 }
 
+%typemap(ts) const gradido::data::PublicKey& "Buffer";
+%typemap(cstype) const gradido::data::PublicKey& "Buffer";
+%typemap(in) const gradido::data::PublicKey& {
+  try {
+    Napi::Buffer buffer = $input.As<Napi::Buffer<uint8_t>>();
+    if(buffer.Length() != 32) {
+      SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer with 32 bytes as input");
+    }
+    $1 = new gradido::data::PublicKey(buffer.Data());  
+  } catch(Napi::Error& ex) {
+    SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer as input");
+  } 
+}
+%typemap(freearg) const gradido::data::GenericHash& {
+  delete $1;
+}
+%typemap(ts) gradido::data::PublicKey "Buffer";
+%typemap(out) gradido::data::PublicKey  {
+  $result = Napi::Buffer<uint8_t>::Copy(info.Env(), $1.data(), $1.size());
+}
+
+
+%typemap(ts) std::optional<gradido::data::PublicKey> "Buffer | null";
+%typemap(out) std::optional<gradido::data::PublicKey>  {
+  if ($1.has_value()) {
+    $result = Napi::Buffer<uint8_t>::Copy(info.Env(), $1->data(), $1->size());
+  } else {
+    $result = info.Env().Null();
+  }
+}
+
+%typemap(ts) const gradido::data::GenericHash& "Buffer";
+%typemap(cstype) const gradido::data::GenericHash& "Buffer";
+%typemap(in) const gradido::data::GenericHash& {
+  try {
+    Napi::Buffer buffer = $input.As<Napi::Buffer<uint8_t>>();
+    if(buffer.Length() != 32) {
+      SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer with 32 bytes as input");
+    }
+    $1 = new gradido::data::GenericHash(buffer.Data());    
+  } catch(Napi::Error& ex) {
+    SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer as input");
+  } 
+}
+%typemap(freearg) const gradido::data::GenericHash& {
+  delete $1;
+}
+
+%typemap(ts) gradido::data::GenericHash "Buffer";
+%typemap(out) gradido::data::GenericHash  {
+  $result = Napi::Buffer<uint8_t>::Copy(info.Env(), $1.data(), $1.size());
+}
+
+%typemap(ts) std::optional<gradido::data::GenericHash> "Buffer | null";
+
+%typemap(ts) const gradido::data::Uuid& "Buffer";
+%typemap(cstype) const gradido::data::Uuid& "Buffer";
+%typemap(in) const gradido::data::Uuid& {
+  try {
+    Napi::Buffer buffer = $input.As<Napi::Buffer<uint8_t>>();
+    if(buffer.Length() != 16) {
+      SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer with 16 bytes as input");
+    }
+    static gradido::data::Uuid tempUuid(buffer.Data());
+    $1 = new gradido::data::Uuid(buffer.Data());  
+  } catch(Napi::Error& ex) {
+    SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer as input");
+  } 
+}
+%typemap(freearg) const gradido::data::Uuid& {
+  delete $1;
+}
+%typemap(ts) gradido::data::Uuid "Buffer";
+%typemap(out) gradido::data::Uuid  {
+  $result = Napi::Buffer<uint8_t>::Copy(info.Env(), $1.data(), $1.size());
+}
+
+%typemap(ts) std::optional<gradido::data::Uuid> "Buffer | null";
+
+
+%typemap(ts) std::optional<gradido::data::LedgerAnchor> "LedgerAnchor | null";
+
+
 %unique_ptr(gradido::data::EncryptedMemo)
 %unique_ptr(gradido::data::AccountBalance)
 %unique_ptr(gradido::data::GradidoTransfer)
@@ -61,11 +144,17 @@
 %typemap(ts) const std::vector<gradido::data::SignaturePair>& "SignaturePairs";
 %template(SignaturePairs) std::vector<gradido::data::SignaturePair>;
 
+%typemap(ts) std::vector<grdw_signature_pair> "CoreSignaturePairs";
+%typemap(ts) const grdw_signature_pair& "CoreSignaturePair";
+%typemap(ts) const std::vector<grdw_signature_pair>& "CoreSignaturePairs";
+%template(CoreSignaturePairs) std::vector<grdw_signature_pair>;
+
 // Encrypted Memos vector
 %typemap(ts) std::vector<gradido::data::EncryptedMemo> "EncryptedMemos";
 %typemap(ts) const gradido::data::EncryptedMemo& "EncryptedMemo";
 %typemap(ts) const std::vector<gradido::data::EncryptedMemo>& "EncryptedMemos";
 %template(EncryptedMemos) std::vector<gradido::data::EncryptedMemo>;
+
 
 namespace gradido::data {
     %ignore EncryptedMemo::EncryptedMemo(const char*);
@@ -83,13 +172,18 @@ namespace gradido::data {
     %ignore TransactionBody::getCommunityIdIndex() const;
     %ignore TransactionBody::getOtherCommunityIdIndex() const;
     %ignore operator+(const Timestamp& timestamp, const DurationSeconds& duration);
+    %ignore TimestampSeconds::getAsYearMonth() const;
 }
 
 // Account Balances vector
 %typemap(ts) std::vector<gradido::data::AccountBalance> "AccountBalances";
+%typemap(ts) std::vector<grdw_account_balance> "AccountBalances";
 %typemap(ts) const gradido::data::AccountBalance& "AccountBalance";
 %typemap(ts) const std::vector<gradido::data::AccountBalance>& "AccountBalances";
 %template(AccountBalances) std::vector<gradido::data::AccountBalance>;
+%template(AccountBalances) std::vector<grdw_account_balance>;
+
+
 
 // Transaction Trigger Events vector
 %typemap(ts) std::vector<std::shared_ptr<const gradido::data::TransactionTriggerEvent>> "TransactionTriggerEvents";
@@ -124,6 +218,8 @@ namespace gradido::data {
 %include "gradido_blockchain/data/GradidoTransaction.h"
 %include "gradido_blockchain/data/ConfirmedTransaction.h"
 %include "gradido_blockchain/serialization/toJsonString.h"
+
+
 
 %{
 #include "gradido_blockchain/AppContext.h"
