@@ -51,6 +51,14 @@ void _exports_CompleteTransaction_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("validate");
+  members.insert({
+    "validate",
+      _exports_CompleteTransaction_templ::InstanceMethod("validate",
+        &_exports_CompleteTransaction_templ::_wrap_CompleteTransaction__wrap_CompleteTransaction_validate,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getId");
   members.insert({
     "getId",

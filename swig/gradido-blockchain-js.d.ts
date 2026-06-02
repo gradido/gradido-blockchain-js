@@ -94,6 +94,8 @@ export const GRD_ERROR_INVALID_PARAM: grd_result;
 
 export const GRD_ERROR_INVALID_ENUM_TYPE: grd_result;
 
+export const GRD_ERROR_INVALID_STATE: grd_result;
+
 export const GRD_ERROR_NULL_POINTER: grd_result;
 
 export const GRD_ERROR_ARITHMETIC_OVERFLOW: grd_result;
@@ -1498,6 +1500,10 @@ export  class CompleteTransaction {
   initFromProtobuf(inputBuffer: Buffer, communityUuid: Buffer): GradidoCoreResult;
 
   initFromProtobuf(serializedConfirmedTx: MemoryBlock, communityUuid: Buffer): GradidoCoreResult;
+
+  validate(verifySignatures: boolean): GradidoCoreResult;
+
+  validate(): GradidoCoreResult;
 
   getId(): number;
 
