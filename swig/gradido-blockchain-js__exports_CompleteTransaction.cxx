@@ -99,22 +99,6 @@ void _exports_CompleteTransaction_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("hasAccountBalance");
-  members.insert({
-    "hasAccountBalance",
-      _exports_CompleteTransaction_templ::InstanceMethod("hasAccountBalance",
-        &_exports_CompleteTransaction_templ::_wrap_CompleteTransaction_hasAccountBalance,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("getAccountBalance");
-  members.insert({
-    "getAccountBalance",
-      _exports_CompleteTransaction_templ::InstanceMethod("getAccountBalance",
-        &_exports_CompleteTransaction_templ::_wrap_CompleteTransaction_getAccountBalance,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("getDecayedAccountBalance");
   members.insert({
     "getDecayedAccountBalance",
@@ -323,19 +307,19 @@ void _exports_CompleteTransaction_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getSender");
+  members.erase("getSenderPublicKey");
   members.insert({
-    "getSender",
-      _exports_CompleteTransaction_templ::InstanceMethod("getSender",
-        &_exports_CompleteTransaction_templ::_wrap_CompleteTransaction_getSender,
+    "getSenderPublicKey",
+      _exports_CompleteTransaction_templ::InstanceMethod("getSenderPublicKey",
+        &_exports_CompleteTransaction_templ::_wrap_CompleteTransaction_getSenderPublicKey,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getRecipient");
+  members.erase("getRecipientPublicKey");
   members.insert({
-    "getRecipient",
-      _exports_CompleteTransaction_templ::InstanceMethod("getRecipient",
-        &_exports_CompleteTransaction_templ::_wrap_CompleteTransaction_getRecipient,
+    "getRecipientPublicKey",
+      _exports_CompleteTransaction_templ::InstanceMethod("getRecipientPublicKey",
+        &_exports_CompleteTransaction_templ::_wrap_CompleteTransaction_getRecipientPublicKey,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -424,6 +408,30 @@ void _exports_CompleteTransaction_inst::GetMembers(
     "getPreviousTx",
       _exports_CompleteTransaction_templ::InstanceMethod("getPreviousTx",
         &_exports_CompleteTransaction_templ::_wrap_CompleteTransaction_getPreviousTx,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getSenderCommunityUuidString");
+  members.insert({
+    "getSenderCommunityUuidString",
+      _exports_CompleteTransaction_templ::InstanceMethod("getSenderCommunityUuidString",
+        &_exports_CompleteTransaction_templ::_wrap_CompleteTransaction_getSenderCommunityUuidString,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getRecipientCommunityUuidString");
+  members.insert({
+    "getRecipientCommunityUuidString",
+      _exports_CompleteTransaction_templ::InstanceMethod("getRecipientCommunityUuidString",
+        &_exports_CompleteTransaction_templ::_wrap_CompleteTransaction_getRecipientCommunityUuidString,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
+  members.erase("getAccountBalance");
+  members.insert({
+    "getAccountBalance",
+      _exports_CompleteTransaction_templ::InstanceMethod("getAccountBalance",
+        &_exports_CompleteTransaction_templ::_wrap_CompleteTransaction__wrap_CompleteTransaction_getAccountBalance,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   

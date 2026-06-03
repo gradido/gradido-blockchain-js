@@ -1733,6 +1733,8 @@ Napi::Value _wrap_verifySignatures__SWIG_2(const Napi::CallbackInfo &info) {
   gradido::blockchain::batch::ThreadingPolicy arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
   int val3 ;
   int ecode3 = 0 ;
   std::vector< uint64_t > result;
@@ -1748,21 +1750,14 @@ Napi::Value _wrap_verifySignatures__SWIG_2(const Napi::CallbackInfo &info) {
     if (!argp1) {
       SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "verifySignatures" "', argument " "1"" of type '" "gradido::blockchain::Filter const &""'"); 
     }
-    arg1 = reinterpret_cast< gradido::blockchain::Filter * >(argp1);{
-      {
-        try {
-          Napi::Buffer buffer = info[1].As<Napi::Buffer<uint8_t>>();
-          if(buffer.Length() != 16) {
-            SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer with 16 bytes as input");
-          }
-          static gradido::data::Uuid tempUuid(buffer.Data());
-          arg2 = new gradido::data::Uuid(buffer.Data());  
-        } catch(Napi::Error& ex) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer as input");
-        } 
-      }
+    arg1 = reinterpret_cast< gradido::blockchain::Filter * >(argp1);res2 = SWIG_ConvertPtr(info[1], &argp2, SWIGTYPE_p_gradido__data__ByteArrayT_16_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "verifySignatures" "', argument " "2"" of type '" "gradido::data::Uuid const &""'"); 
     }
-    ecode3 = SWIG_AsVal_int(info[2], &val3);
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "verifySignatures" "', argument " "2"" of type '" "gradido::data::Uuid const &""'"); 
+    }
+    arg2 = reinterpret_cast< gradido::data::Uuid * >(argp2);ecode3 = SWIG_AsVal_int(info[2], &val3);
     if (!SWIG_IsOK(ecode3)) {
       SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "verifySignatures" "', argument " "3"" of type '" "gradido::blockchain::batch::ThreadingPolicy""'");
     } 
@@ -1785,25 +1780,15 @@ Napi::Value _wrap_verifySignatures__SWIG_2(const Napi::CallbackInfo &info) {
     
     jsresult = SWIG_NewPointerObj((new std::vector< uint64_t >(result)), SWIGTYPE_p_std__vectorT_uint64_t_t, SWIG_POINTER_OWN |  0 );
     
-    {
-      delete arg2;
-    }
     
     return jsresult;
 #ifdef NAPI_CPP_EXCEPTIONS
   } catch (...) {
-    {
-      delete arg2;
-    }
-    
     std::rethrow_exception(std::current_exception());
   }
 #else
   goto fail;
 fail:
-  {
-    delete arg2;
-  }
   
 #endif
   return Napi::Value();
@@ -1818,6 +1803,8 @@ Napi::Value _wrap_verifySignatures__SWIG_3(const Napi::CallbackInfo &info) {
   gradido::data::Uuid *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
   std::vector< uint64_t > result;
   
 #ifdef NAPI_CPP_EXCEPTIONS
@@ -1831,21 +1818,14 @@ Napi::Value _wrap_verifySignatures__SWIG_3(const Napi::CallbackInfo &info) {
     if (!argp1) {
       SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "verifySignatures" "', argument " "1"" of type '" "gradido::blockchain::Filter const &""'"); 
     }
-    arg1 = reinterpret_cast< gradido::blockchain::Filter * >(argp1);{
-      {
-        try {
-          Napi::Buffer buffer = info[1].As<Napi::Buffer<uint8_t>>();
-          if(buffer.Length() != 16) {
-            SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer with 16 bytes as input");
-          }
-          static gradido::data::Uuid tempUuid(buffer.Data());
-          arg2 = new gradido::data::Uuid(buffer.Data());  
-        } catch(Napi::Error& ex) {
-          SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer as input");
-        } 
-      }
+    arg1 = reinterpret_cast< gradido::blockchain::Filter * >(argp1);res2 = SWIG_ConvertPtr(info[1], &argp2, SWIGTYPE_p_gradido__data__ByteArrayT_16_t,  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "verifySignatures" "', argument " "2"" of type '" "gradido::data::Uuid const &""'"); 
     }
-    
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "verifySignatures" "', argument " "2"" of type '" "gradido::data::Uuid const &""'"); 
+    }
+    arg2 = reinterpret_cast< gradido::data::Uuid * >(argp2);
     
     
     
@@ -1864,25 +1844,15 @@ Napi::Value _wrap_verifySignatures__SWIG_3(const Napi::CallbackInfo &info) {
     
     jsresult = SWIG_NewPointerObj((new std::vector< uint64_t >(result)), SWIGTYPE_p_std__vectorT_uint64_t_t, SWIG_POINTER_OWN |  0 );
     
-    {
-      delete arg2;
-    }
     
     return jsresult;
 #ifdef NAPI_CPP_EXCEPTIONS
   } catch (...) {
-    {
-      delete arg2;
-    }
-    
     std::rethrow_exception(std::current_exception());
   }
 #else
   goto fail;
 fail:
-  {
-    delete arg2;
-  }
   
 #endif
   return Napi::Value();
@@ -2439,6 +2409,7 @@ SWIGINTERN swig_type_info _swigt__p_gradido__data__ByteArrayHashT_32_t = {"_p_gr
 SWIGINTERN swig_type_info _swigt__p_gradido__data__ByteArrayHashT_crypto_generichash_BYTES_t = {"_p_gradido__data__ByteArrayHashT_crypto_generichash_BYTES_t", "gradido::data::GenericHashHash *|gradido::data::ByteArrayHash< crypto_generichash_BYTES > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__ByteArrayT_16_t = {"_p_gradido__data__ByteArrayT_16_t", "gradido::data::Uuid *|gradido::data::ByteArray< 16 > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__ByteArrayT_32_t = {"_p_gradido__data__ByteArrayT_32_t", "gradido::data::PublicKey *|gradido::data::ByteArray< 32 > *", 0, 0, (void*)0, 0};
+SWIGINTERN swig_type_info _swigt__p_gradido__data__ByteArrayT_32_t__ConstViewType = {"_p_gradido__data__ByteArrayT_32_t__ConstViewType", "gradido::data::PublicKey::ConstViewType *|gradido::data::ByteArray< 32 >::ConstViewType *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__ByteArrayT_64_t = {"_p_gradido__data__ByteArrayT_64_t", "gradido::data::PrivateKey *|gradido::data::Signature *|gradido::data::ByteArray< 64 > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__ByteArrayT_crypto_generichash_BYTES_t = {"_p_gradido__data__ByteArrayT_crypto_generichash_BYTES_t", "gradido::data::GenericHash *|gradido::data::ByteArray< crypto_generichash_BYTES > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_gradido__data__CommunityFriendsUpdate = {"_p_gradido__data__CommunityFriendsUpdate", "p_gradido__data__CommunityFriendsUpdate|gradido::data::CommunityFriendsUpdate *", 0, 0, (void*)0, 0};
@@ -2506,7 +2477,6 @@ SWIGINTERN swig_type_info _swigt__p_std__functionT_gradido__blockchain__FilterRe
 SWIGINTERN swig_type_info _swigt__p_std__functionT_gradido__blockchain__FilterResult_fgradido__data__compact__ConfirmedGradidoTx_const_RF_t = {"_p_std__functionT_gradido__blockchain__FilterResult_fgradido__data__compact__ConfirmedGradidoTx_const_RF_t", "std::function< gradido::blockchain::FilterResult (gradido::data::compact::ConfirmedGradidoTx const &) > *|std::function< enum gradido::blockchain::FilterResult (gradido::data::compact::ConfirmedGradidoTx const &) > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__optionalT_GradidoUnit_t = {"_p_std__optionalT_GradidoUnit_t", "std::optional< GradidoUnit > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__optionalT_gradido__data__ByteArrayT_16_t_t = {"_p_std__optionalT_gradido__data__ByteArrayT_16_t_t", "std::optional< gradido::data::Uuid > *|std::optional< gradido::data::ByteArray< 16 > > *", 0, 0, (void*)0, 0};
-SWIGINTERN swig_type_info _swigt__p_std__optionalT_gradido__data__ByteArrayT_crypto_generichash_BYTES_t_t = {"_p_std__optionalT_gradido__data__ByteArrayT_crypto_generichash_BYTES_t_t", "std::optional< gradido::data::GenericHash > *|std::optional< gradido::data::ByteArray< crypto_generichash_BYTES > > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__optionalT_gradido__data__LedgerAnchor_t = {"_p_std__optionalT_gradido__data__LedgerAnchor_t", "std::optional< gradido::data::LedgerAnchor > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__optionalT_gradido__data__compact__CommunityRootTx_t = {"_p_std__optionalT_gradido__data__compact__CommunityRootTx_t", "std::optional< gradido::data::compact::CommunityRootTx > *", 0, 0, (void*)0, 0};
 SWIGINTERN swig_type_info _swigt__p_std__optionalT_gradido__data__compact__RegisterAddressTx_t = {"_p_std__optionalT_gradido__data__compact__RegisterAddressTx_t", "std::optional< gradido::data::compact::RegisterAddressTx > *", 0, 0, (void*)0, 0};
@@ -2598,6 +2568,7 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_gradido__data__ByteArrayHashT_crypto_generichash_BYTES_t,
   &_swigt__p_gradido__data__ByteArrayT_16_t,
   &_swigt__p_gradido__data__ByteArrayT_32_t,
+  &_swigt__p_gradido__data__ByteArrayT_32_t__ConstViewType,
   &_swigt__p_gradido__data__ByteArrayT_64_t,
   &_swigt__p_gradido__data__ByteArrayT_crypto_generichash_BYTES_t,
   &_swigt__p_gradido__data__CommunityFriendsUpdate,
@@ -2665,7 +2636,6 @@ SWIGINTERN swig_type_info *swig_type_initial[] = {
   &_swigt__p_std__functionT_gradido__blockchain__FilterResult_fgradido__data__compact__ConfirmedGradidoTx_const_RF_t,
   &_swigt__p_std__optionalT_GradidoUnit_t,
   &_swigt__p_std__optionalT_gradido__data__ByteArrayT_16_t_t,
-  &_swigt__p_std__optionalT_gradido__data__ByteArrayT_crypto_generichash_BYTES_t_t,
   &_swigt__p_std__optionalT_gradido__data__LedgerAnchor_t,
   &_swigt__p_std__optionalT_gradido__data__compact__CommunityRootTx_t,
   &_swigt__p_std__optionalT_gradido__data__compact__RegisterAddressTx_t,
@@ -2754,6 +2724,7 @@ SWIGINTERN swig_cast_info _swigc__p_gradido__data__ByteArrayHashT_32_t[] = {  {&
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__ByteArrayHashT_crypto_generichash_BYTES_t[] = {  {&_swigt__p_gradido__data__ByteArrayHashT_crypto_generichash_BYTES_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__ByteArrayT_16_t[] = {  {&_swigt__p_gradido__data__ByteArrayT_16_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__ByteArrayT_32_t[] = {  {&_swigt__p_gradido__data__ByteArrayT_32_t, 0, 0, 0},{0, 0, 0, 0}};
+SWIGINTERN swig_cast_info _swigc__p_gradido__data__ByteArrayT_32_t__ConstViewType[] = {  {&_swigt__p_gradido__data__ByteArrayT_32_t__ConstViewType, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__ByteArrayT_64_t[] = {  {&_swigt__p_gradido__data__ByteArrayT_64_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__ByteArrayT_crypto_generichash_BYTES_t[] = {  {&_swigt__p_gradido__data__ByteArrayT_crypto_generichash_BYTES_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_gradido__data__CommunityFriendsUpdate[] = {  {&_swigt__p_gradido__data__CommunityFriendsUpdate, 0, 0, 0},{0, 0, 0, 0}};
@@ -2821,7 +2792,6 @@ SWIGINTERN swig_cast_info _swigc__p_std__functionT_gradido__blockchain__FilterRe
 SWIGINTERN swig_cast_info _swigc__p_std__functionT_gradido__blockchain__FilterResult_fgradido__data__compact__ConfirmedGradidoTx_const_RF_t[] = {  {&_swigt__p_std__functionT_gradido__blockchain__FilterResult_fgradido__data__compact__ConfirmedGradidoTx_const_RF_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__optionalT_GradidoUnit_t[] = {  {&_swigt__p_std__optionalT_GradidoUnit_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__optionalT_gradido__data__ByteArrayT_16_t_t[] = {  {&_swigt__p_std__optionalT_gradido__data__ByteArrayT_16_t_t, 0, 0, 0},{0, 0, 0, 0}};
-SWIGINTERN swig_cast_info _swigc__p_std__optionalT_gradido__data__ByteArrayT_crypto_generichash_BYTES_t_t[] = {  {&_swigt__p_std__optionalT_gradido__data__ByteArrayT_crypto_generichash_BYTES_t_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__optionalT_gradido__data__LedgerAnchor_t[] = {  {&_swigt__p_std__optionalT_gradido__data__LedgerAnchor_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__optionalT_gradido__data__compact__CommunityRootTx_t[] = {  {&_swigt__p_std__optionalT_gradido__data__compact__CommunityRootTx_t, 0, 0, 0},{0, 0, 0, 0}};
 SWIGINTERN swig_cast_info _swigc__p_std__optionalT_gradido__data__compact__RegisterAddressTx_t[] = {  {&_swigt__p_std__optionalT_gradido__data__compact__RegisterAddressTx_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -2910,6 +2880,7 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_gradido__data__ByteArrayHashT_crypto_generichash_BYTES_t,
   _swigc__p_gradido__data__ByteArrayT_16_t,
   _swigc__p_gradido__data__ByteArrayT_32_t,
+  _swigc__p_gradido__data__ByteArrayT_32_t__ConstViewType,
   _swigc__p_gradido__data__ByteArrayT_64_t,
   _swigc__p_gradido__data__ByteArrayT_crypto_generichash_BYTES_t,
   _swigc__p_gradido__data__CommunityFriendsUpdate,
@@ -2977,7 +2948,6 @@ SWIGINTERN swig_cast_info *swig_cast_initial[] = {
   _swigc__p_std__functionT_gradido__blockchain__FilterResult_fgradido__data__compact__ConfirmedGradidoTx_const_RF_t,
   _swigc__p_std__optionalT_GradidoUnit_t,
   _swigc__p_std__optionalT_gradido__data__ByteArrayT_16_t_t,
-  _swigc__p_std__optionalT_gradido__data__ByteArrayT_crypto_generichash_BYTES_t_t,
   _swigc__p_std__optionalT_gradido__data__LedgerAnchor_t,
   _swigc__p_std__optionalT_gradido__data__compact__CommunityRootTx_t,
   _swigc__p_std__optionalT_gradido__data__compact__RegisterAddressTx_t,

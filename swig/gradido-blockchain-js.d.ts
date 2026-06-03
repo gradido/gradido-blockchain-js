@@ -88,6 +88,8 @@ export const GRD_SUCCESS: grd_result;
 
 export const GRD_WARNING_USED_DYNAMIC_ALLOCATION_FALLBACK: grd_result;
 
+export const GRD_ERROR_NOT_IMPLEMENTED_YET: grd_result;
+
 export const GRD_ERROR_NOT_INITIALIZED: grd_result;
 
 export const GRD_ERROR_INVALID_PARAM: grd_result;
@@ -1051,7 +1053,9 @@ export  class AccountBalance {
 
   constructor(publicKey: MemoryBlockPtr|null, balance: GradidoUnit, communityId: string);
 
-  constructor(publicKey: MemoryBlockPtr|null, balance: GradidoUnit, communityUuid: Buffer);
+  constructor(publicKey: MemoryBlockPtr|null, balance: GradidoUnit, communityUuid: any);
+
+  constructor(coreAccountBalance: grdw_account_balance);
 
   constructor(coreAccountBalance: grdw_account_balance);
 
@@ -1460,7 +1464,7 @@ export  class ConfirmedTransaction {
 
   getAccountBalance(publicKey: MemoryBlockPtr|null, communityIdIndex: string): AccountBalance;
 
-  getAccountBalance(publicKey: MemoryBlockPtr|null, communityUuid: Buffer): AccountBalance;
+  getAccountBalance(publicKey: MemoryBlockPtr|null, communityUuid: any): AccountBalance;
 
   getDecayedAccountBalance(publicKey: MemoryBlockPtr|null, coinCommunityIdIndex: number | null, endDate: Date): GradidoUnit;
 
@@ -1515,13 +1519,11 @@ export  class CompleteTransaction {
 
   getAccountBalances(): AccountBalances;
 
-  hasAccountBalance(publicKey: Buffer, coinCommunityUuid: Buffer): boolean;
+  getDecayedAccountBalance(publicKey: Buffer, coinCommunityUuid: Buffer | null, endDate: Date): GradidoUnit;
 
-  getAccountBalance(publicKey: Buffer, coinCommunityUuid: Buffer): grdw_account_balance;
+  getDecayedAccountBalance(publicKey: Buffer, coinCommunityUuid: Buffer | null): GradidoUnit;
 
-  getDecayedAccountBalance(publicKey: Buffer, coinCommunityUuid: Buffer, endDate: Date): GradidoUnit;
-
-  getDecayedAccountBalance(publicKey: Buffer, coinCommunityUuid: Buffer): GradidoUnit;
+  getDecayedAccountBalance(publicKey: Buffer): GradidoUnit;
 
   getBalanceDerivationType(): BalanceDerivationType;
 
@@ -1573,9 +1575,9 @@ export  class CompleteTransaction {
 
   getOtherCommunityUuid(): Buffer | null;
 
-  getSender(): Buffer | null;
+  getSenderPublicKey(): Buffer | null;
 
-  getRecipient(): Buffer | null;
+  getRecipientPublicKey(): Buffer | null;
 
   getRegisteredUser(): Buffer | null;
 
@@ -1598,6 +1600,14 @@ export  class CompleteTransaction {
   getDeferredTransferTimeoutDuration(): bigint | null;
 
   getPreviousTx(): bigint | null;
+
+  getSenderCommunityUuidString(): string;
+
+  getRecipientCommunityUuidString(): string;
+
+  getAccountBalance(publicKey: Buffer, coinCommunityUuid: Buffer | null): AccountBalance;
+
+  getAccountBalance(publicKey: Buffer): AccountBalance;
 }
 
 export  class GradidoTransactionBuilder {
@@ -1622,7 +1632,7 @@ export  class GradidoTransactionBuilder {
 
   setRegisterAddress(userPubkey: MemoryBlockPtr|null, type: AddressType, nameHash: MemoryBlockPtr|null, accountPubkey: MemoryBlockPtr|null): GradidoTransactionBuilder;
 
-  setRegisterAddress(userPubkey: Buffer, type: AddressType, nameHash: Buffer, accountPubkey: Buffer): GradidoTransactionBuilder;
+  setRegisterAddress(userPubkey: any, type: AddressType, nameHash: any, accountPubkey: any): GradidoTransactionBuilder;
 
   setTransactionCreation(recipient: TransferAmount, targetDate: Date): GradidoTransactionBuilder;
 
@@ -1632,7 +1642,7 @@ export  class GradidoTransactionBuilder {
 
   setTransactionTransfer(transfer: GradidoTransfer): GradidoTransactionBuilder;
 
-  setCommunityRoot(pubkey: Buffer, gmwPubkey: Buffer, aufPubkey: Buffer): GradidoTransactionBuilder;
+  setCommunityRoot(pubkey: any, gmwPubkey: any, aufPubkey: any): GradidoTransactionBuilder;
 
   setCommunityRoot(pubkey: MemoryBlockPtr|null, gmwPubkey: MemoryBlockPtr|null, aufPubkey: MemoryBlockPtr|null): GradidoTransactionBuilder;
 
@@ -1800,9 +1810,9 @@ export function verifySignatures(filter: Filter, communityId: string, policy: Th
 
 export function verifySignatures(filter: Filter, communityId: string): any;
 
-export function verifySignatures(filter: Filter, communityId: Buffer, policy: ThreadingPolicy): any;
+export function verifySignatures(filter: Filter, communityId: any, policy: ThreadingPolicy): any;
 
-export function verifySignatures(filter: Filter, communityId: Buffer): any;
+export function verifySignatures(filter: Filter, communityId: any): any;
 
 export  class TransactionEntries {
 
@@ -2133,7 +2143,7 @@ export abstract class Abstract {
 
   getPublicKeyDictionary(): any;
 
-  getOrAddPublicKey(publicKey: Buffer): number;
+  getOrAddPublicKey(publicKey: any): number;
 }
 
 export  class InMemoryBlockchain extends Abstract {
@@ -2184,7 +2194,7 @@ export  class InMemoryBlockchain extends Abstract {
 
   getPublicKeyDictionary(): any;
 
-  getOrAddPublicKey(publicKey: Buffer): number;
+  getOrAddPublicKey(publicKey: any): number;
 
   getStartDate(): Date;
 
@@ -2315,8 +2325,6 @@ export type ConfirmedTransaction = (unknown & { readonly [_SWIG_type_tag]: 'Conf
 export type Abstract = (unknown & { readonly [_SWIG_type_tag]: 'Abstract'; }) | null;
 
 export type LedgerAnchor = (unknown & { readonly [_SWIG_type_tag]: 'LedgerAnchor'; }) | null;
-
-export type grdw_account_balance = (unknown & { readonly [_SWIG_type_tag]: 'grdw_account_balance'; }) | null;
 
 export type GradidoCreation = (unknown & { readonly [_SWIG_type_tag]: 'GradidoCreation'; }) | null;
 

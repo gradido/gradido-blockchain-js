@@ -1289,6 +1289,35 @@ fail:
 
 
 // js_global_getter
+Napi::Value exports_GRD_ERROR_NOT_IMPLEMENTED_YET_get(const Napi::CallbackInfo &info) {
+  Napi::Env env = info.Env();
+  Napi::Value jsresult;
+  
+#ifdef NAPI_CPP_EXCEPTIONS
+  try {
+#endif
+    
+    
+    
+    jsresult = SWIG_From_int  SWIG_NAPI_FROM_CALL_ARGS(static_cast< int >(GRD_ERROR_NOT_IMPLEMENTED_YET));
+    
+    
+    
+    return jsresult;
+#ifdef NAPI_CPP_EXCEPTIONS
+  } catch (...) {
+    std::rethrow_exception(std::current_exception());
+  }
+#else
+  goto fail;
+fail:
+  
+  return Napi::Value();
+#endif
+}
+
+
+// js_global_getter
 Napi::Value exports_GRD_ERROR_NOT_INITIALIZED_get(const Napi::CallbackInfo &info) {
   Napi::Env env = info.Env();
   Napi::Value jsresult;
@@ -3345,6 +3374,23 @@ SWIGINTERN std::string gradido_data_GradidoTransaction_toJson__SWIG_0(gradido::d
 SWIGINTERN std::string gradido_data_ConfirmedTransaction_toJson__SWIG_0(gradido::data::ConfirmedTransaction const *self,bool pretty){
         return serialization::toJsonString(*self, pretty);
     }
+SWIGINTERN std::string gradido_data_runtime_CompleteTransaction_getSenderCommunityUuidString(gradido::data::runtime::CompleteTransaction const *self){
+    std::optional<std::span<const uint8_t, 16>> uuid = self->getSenderCommunityUuid();
+    if (!uuid.has_value()) { return "";}
+    char uuidString[37];
+    grdu_uuid_to_string(uuidString, uuid->data());
+    return std::string(uuidString);
+  }
+SWIGINTERN std::string gradido_data_runtime_CompleteTransaction_getRecipientCommunityUuidString(gradido::data::runtime::CompleteTransaction const *self){
+    std::optional<std::span<const uint8_t, 16>> uuid = self->getRecipientCommunityUuid();
+    if (!uuid.has_value()) { return "";}
+    char uuidString[37];
+    grdu_uuid_to_string(uuidString, uuid->data());
+    return std::string(uuidString);
+  }
+SWIGINTERN gradido::data::AccountBalance gradido_data_runtime_CompleteTransaction_getAccountBalance__SWIG_0(gradido::data::runtime::CompleteTransaction const *self,gradido::data::PublicKey::ConstViewType publicKey,std::optional< gradido::data::Uuid > coinCommunityUuid){
+    return self->getAccountBalance(publicKey, coinCommunityUuid);
+  }
 
 // js_global_getter
 Napi::Value exports_DeserializeType_UNKNOWN_get(const Napi::CallbackInfo &info) {
@@ -6567,6 +6613,15 @@ do {
   Napi::Value value;
   NAPI_CHECK_RESULT(f.Call(0, SWIG_NULLPTR), value);
   Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Value("GRD_WARNING_USED_DYNAMIC_ALLOCATION_FALLBACK", value,
+    static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
+  NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
+} while (0);
+// jsnapi_register_global_constant
+do {
+  Napi::Function f = Napi::Function::New(env, exports_GRD_ERROR_NOT_IMPLEMENTED_YET_get);
+  Napi::Value value;
+  NAPI_CHECK_RESULT(f.Call(0, SWIG_NULLPTR), value);
+  Napi::PropertyDescriptor pd = Napi::PropertyDescriptor::Value("GRD_ERROR_NOT_IMPLEMENTED_YET", value,
     static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable));
   NAPI_CHECK_MAYBE(exports.DefineProperty(pd));
 } while (0);

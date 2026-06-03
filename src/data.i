@@ -6,22 +6,20 @@
     }
 }
 
-%typemap(ts) const gradido::data::PublicKey& "Buffer";
-%typemap(cstype) const gradido::data::PublicKey& "Buffer";
-%typemap(in) const gradido::data::PublicKey& {
+%typemap(ts) gradido::data::PublicKey::ConstViewType "Buffer";
+%typemap(cstype) gradido::data::PublicKey::ConstViewType "Buffer";
+%typemap(in) gradido::data::PublicKey::ConstViewType {
   try {
     Napi::Buffer buffer = $input.As<Napi::Buffer<uint8_t>>();
     if(buffer.Length() != 32) {
       SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer with 32 bytes as input");
     }
-    $1 = new gradido::data::PublicKey(buffer.Data());  
+    $1 = gradido::data::PublicKey::ConstViewType(buffer.Data(), 32);  
   } catch(Napi::Error& ex) {
     SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer as input");
   } 
 }
-%typemap(freearg) const gradido::data::GenericHash& {
-  delete $1;
-}
+
 %typemap(ts) gradido::data::PublicKey "Buffer";
 %typemap(out) gradido::data::PublicKey  {
   $result = Napi::Buffer<uint8_t>::Copy(info.Env(), $1.data(), $1.size());
@@ -37,57 +35,75 @@
   }
 }
 
-%typemap(ts) const gradido::data::GenericHash& "Buffer";
-%typemap(cstype) const gradido::data::GenericHash& "Buffer";
-%typemap(in) const gradido::data::GenericHash& {
-  try {
-    Napi::Buffer buffer = $input.As<Napi::Buffer<uint8_t>>();
-    if(buffer.Length() != 32) {
-      SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer with 32 bytes as input");
-    }
-    $1 = new gradido::data::GenericHash(buffer.Data());    
-  } catch(Napi::Error& ex) {
-    SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer as input");
-  } 
+%typemap(ts) std::optional<gradido::data::PublicKey::ConstViewType> "Buffer | null";
+%typemap(out) std::optional<gradido::data::PublicKey::ConstViewType>  {
+  if ($1.has_value()) {
+    $result = Napi::Buffer<uint8_t>::Copy(info.Env(), $1->data(), $1->size());
+  } else {
+    $result = info.Env().Null();
+  }
 }
-%typemap(freearg) const gradido::data::GenericHash& {
-  delete $1;
-}
+
 
 %typemap(ts) gradido::data::GenericHash "Buffer";
 %typemap(out) gradido::data::GenericHash  {
   $result = Napi::Buffer<uint8_t>::Copy(info.Env(), $1.data(), $1.size());
 }
 
+
+%typemap(ts) std::optional<gradido::data::GenericHash> "Buffer | null";
+%typemap(out) std::optional<gradido::data::GenericHash>  {
+  if ($1.has_value()) {
+    $result = Napi::Buffer<uint8_t>::Copy(info.Env(), $1->data(), $1->size());
+  } else {
+    $result = info.Env().Null();
+  }
+}
+
+%typemap(ts) std::optional<gradido::data::GenericHash::ConstViewType> "Buffer | null";
+%typemap(out) std::optional<gradido::data::GenericHash::ConstViewType>  {
+  if ($1.has_value()) {
+    $result = Napi::Buffer<uint8_t>::Copy(info.Env(), $1->data(), $1->size());
+  } else {
+    $result = info.Env().Null();
+  }
+}
+
 %typemap(ts) std::optional<gradido::data::GenericHash> "Buffer | null";
 
-%typemap(ts) const gradido::data::Uuid& "Buffer";
-%typemap(cstype) const gradido::data::Uuid& "Buffer";
-%typemap(in) const gradido::data::Uuid& {
+%typemap(ts) std::optional<gradido::data::Uuid> "Buffer | null";
+%typemap(cstype) std::optional<gradido::data::Uuid> "Buffer | null";
+%typemap(in) std::optional<gradido::data::Uuid> {
   try {
-    Napi::Buffer buffer = $input.As<Napi::Buffer<uint8_t>>();
-    if(buffer.Length() != 16) {
-      SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer with 16 bytes as input");
+    if ($input.IsNull()) {
+      $1 = std::nullopt;
+    } else {
+        Napi::Buffer buffer = $input.As<Napi::Buffer<uint8_t>>();
+        if(buffer.Length() != 16) {
+        SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer with 16 bytes as input");
+        }
+        $1 = std::make_optional(buffer.Data());  
     }
-    static gradido::data::Uuid tempUuid(buffer.Data());
-    $1 = new gradido::data::Uuid(buffer.Data());  
   } catch(Napi::Error& ex) {
     SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer as input");
   } 
 }
-%typemap(freearg) const gradido::data::Uuid& {
-  delete $1;
-}
+
 %typemap(ts) gradido::data::Uuid "Buffer";
 %typemap(out) gradido::data::Uuid  {
   $result = Napi::Buffer<uint8_t>::Copy(info.Env(), $1.data(), $1.size());
 }
 
 %typemap(ts) std::optional<gradido::data::Uuid> "Buffer | null";
-
+%typemap(out) std::optional<gradido::data::Uuid>  {
+  if ($1.has_value()) {
+    $result = Napi::Buffer<uint8_t>::Copy(info.Env(), $1->data(), $1->size());
+  } else {
+    $result = info.Env().Null();
+  }
+}
 
 %typemap(ts) std::optional<gradido::data::LedgerAnchor> "LedgerAnchor | null";
-
 
 %unique_ptr(gradido::data::EncryptedMemo)
 %unique_ptr(gradido::data::AccountBalance)

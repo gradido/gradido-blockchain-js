@@ -10,6 +10,8 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
+add_compile_definitions(USE_SODIUM)
+
 add_subdirectory(deps/gradido_blockchain)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
