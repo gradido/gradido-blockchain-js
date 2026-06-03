@@ -18,7 +18,7 @@ namespace memory {
   %ignore Block::fromHex(const char* hexString, size_t stringSize);
   %ignore Block::fromBase64(const char* base64String, size_t size, int variant);
   %ignore Block::isTheSame(const Block& b) const;
-  %ignore Block::Block(const Block& other);
+  // %ignore Block::Block(const Block& other);
   %ignore Block::Block(Block&& other);
   %ignore Block::operator=;
   %ignore ConstBlockPtrComparator;

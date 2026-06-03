@@ -292,6 +292,8 @@ export  class MemoryBlock {
 
   constructor(data: string);
 
+  constructor(other: MemoryBlock);
+
   size(): bigint;
 
   data(): Buffer;
