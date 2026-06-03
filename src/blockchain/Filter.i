@@ -2,16 +2,16 @@
     try {
         $function
     } catch (const GradidoBlockchainException& e) {
-        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());    
+        SWIG_exception(SWIG_RuntimeError, e.getFullString().data());
     } catch (const std::exception& e) {
         SWIG_exception(SWIG_RuntimeError, e.what());
     }
 }
 
 %{
-#include "gradido_blockchain/blockchain/FilterResult.h"   
-#include "gradido_blockchain/blockchain/Pagination.h"   
-#include "gradido_blockchain/blockchain/SearchDirection.h"    
+#include "gradido_blockchain/blockchain/FilterResult.h"
+#include "gradido_blockchain/blockchain/Pagination.h"
+#include "gradido_blockchain/blockchain/SearchDirection.h"
 #include "gradido_blockchain/blockchain/Filter.h"
 #include "gradido_blockchain/blockchain/FilterBuilder.h"
 #include "gradido_blockchain/blockchain/FilterCriteria.h"
@@ -20,16 +20,16 @@
 
 namespace gradido::blockchain {
     %ignore Filter::matches(std::shared_ptr<const TransactionEntry> entry, FilterCriteria type) const;
-    //%ignore Filter::Filter();   
+    //%ignore Filter::Filter();
     %ignore Filter::Filter(
       uint64_t _minTransactionNr,
       uint64_t _maxTransactionNr,
       memory::ConstBlockPtr _involvedPublicKey = nullptr,
       SearchDirection _searchDirection = SearchDirection::DESC,
-      Pagination _pagination = Pagination(0),					
+      Pagination _pagination = Pagination(0),
       std::string_view coinCommunityId = std::string_view(),
       TimepointInterval _timepointInterval = TimepointInterval(),
-      data::TransactionType _transactionType = data::TransactionType::NONE,
+      grdt_transaction _transactionType = GRDT_TRANSACTION_NONE,
       std::function<FilterResult(const TransactionEntry&)> _filterFunction = nullptr
     );
     %ignore Filter::Filter(
@@ -76,4 +76,3 @@ namespace gradido::blockchain {
         return serialization::toJsonString(*self, pretty);
     }
 }
-    

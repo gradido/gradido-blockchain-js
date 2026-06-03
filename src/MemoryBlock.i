@@ -6,6 +6,7 @@ namespace memory {
   %ignore Block::Block(size_t size);
   %ignore Block::Block(const std::vector<unsigned char>& data);
   %ignore Block::Block(std::span<std::byte> data);
+  %ignore Block::Block(const gradido::data::PublicKey& publicKey);
   %ignore Block::data();
   %ignore Block::span() const;
   %ignore Block::operator uint8_t*();
@@ -26,6 +27,8 @@ namespace memory {
   %ignore BlockPtrWrapper::BlockPtrWrapper();
   %ignore BlockPtrWrapper::BlockPtrWrapper(const ConstBlockPtr& block);
   %ignore BlockPtrWrapper::BlockPtrWrapper(const BlockPtrWrapper& block);
+  %ignore ConstBlockPtrHash;
+  %ignore ConstBlockPtrEqual;
 }
 
 %extend memory::Block {
@@ -49,11 +52,13 @@ namespace memory {
 %{
 // #include "gradido_blockchain/memory/Block.h"
 #include "memory/BlockPtrWrapper.h"
+#include "gradido_blockchain_core/memory.h"
 
 %}
 
 %typemap(ts) const memory::Block& "MemoryBlock"
 %typemap(ts) const memory::BlockPtrWrapper& "MemoryBlockPtr"
+%typemap(ts) const grd_memory_block& "Buffer"
 %typemap(ts) memory::Block const "MemoryBlock"
 %typemap(ts) std::vector<memory::BlockPtrWrapper> "MemoryBlocks";
 %typemap(ts) const std::vector<memory::BlockPtrWrapper>& "MemoryBlocks";
@@ -72,6 +77,15 @@ namespace memory {
   } catch(Napi::Error& ex) {
     SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer as input");
   } 
+}
+
+%typemap(in) grd_memory_block {
+  try {
+    Napi::Buffer buffer = $input.As<Napi::Buffer<uint8_t>>();
+    $1 = { .data = buffer.Data(), .size = buffer.Length() };
+  } catch(Napi::Error& ex) {
+    SWIG_exception_fail(SWIG_TypeError, "Expected a Buffer as input");
+  }
 }
 
 %typemap(in) memory::ConstBlockPtr {

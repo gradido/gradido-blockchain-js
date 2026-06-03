@@ -35,22 +35,6 @@ void _exports_TimepointInterval_inst::GetMembers(
   
   /* register wrapper functions */
   // jsnapi_register_member_function
-  members.erase("getStartDateYM");
-  members.insert({
-    "getStartDateYM",
-      _exports_TimepointInterval_templ::InstanceMethod("getStartDateYM",
-        &_exports_TimepointInterval_templ::_wrap_TimepointInterval_getStartDateYM,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("getEndDateYM");
-  members.insert({
-    "getEndDateYM",
-      _exports_TimepointInterval_templ::InstanceMethod("getEndDateYM",
-        &_exports_TimepointInterval_templ::_wrap_TimepointInterval_getEndDateYM,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("getStartDate");
   members.insert({
     "getStartDate",
@@ -71,7 +55,7 @@ void _exports_TimepointInterval_inst::GetMembers(
   members.insert({
     "setStartDate",
       _exports_TimepointInterval_templ::InstanceMethod("setStartDate",
-        &_exports_TimepointInterval_templ::_wrap_TimepointInterval__wrap_TimepointInterval_setStartDate,
+        &_exports_TimepointInterval_templ::_wrap_TimepointInterval_setStartDate,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -79,7 +63,7 @@ void _exports_TimepointInterval_inst::GetMembers(
   members.insert({
     "setEndDate",
       _exports_TimepointInterval_templ::InstanceMethod("setEndDate",
-        &_exports_TimepointInterval_templ::_wrap_TimepointInterval__wrap_TimepointInterval_setEndDate,
+        &_exports_TimepointInterval_templ::_wrap_TimepointInterval_setEndDate,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function

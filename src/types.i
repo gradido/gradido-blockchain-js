@@ -106,3 +106,30 @@ typedef std::chrono::system_clock::duration Duration;
 %typemap(out) date::year {
     $result = Napi::Number::New(env, static_cast<int>($1));
 }
+
+
+%typemap(ts) std::optional<uint32_t> "number | null";
+%typemap(ts) std::optional<uint64_t> "bigint | null";
+
+%typemap(ts) std::optional<grdd_timestamp_seconds> "bigint | null";
+%typemap(ts) grdd_duration_seconds "bigint";
+
+%typemap(in) grdd_duration_seconds {
+    if(!$input.IsBigInt()) {
+        SWIG_exception_fail(SWIG_TypeError, "Expected a bigint");
+    }
+    bool lossless = false;
+    $1 = grdd_duration_seconds($input.As<Napi::BigInt>().Int64Value(&lossless));
+    if (!lossless) {
+        SWIG_exception_fail(SWIG_OverflowError, "Value does not fit in target type");
+    }
+}
+%typemap(ts) std::optional<grdd_duration_seconds> "bigint | null";
+
+%typemap(out) std::optional<T> {
+  if ($1.has_value()) {
+    $result = SWIG_NewPointerObj((new T($1.value())), $descriptor(T*), SWIG_POINTER_OWN | 0);
+  } else {
+    $result = info.Env().Null();
+  }
+}

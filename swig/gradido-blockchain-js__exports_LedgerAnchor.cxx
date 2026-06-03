@@ -35,14 +35,6 @@ void _exports_LedgerAnchor_inst::GetMembers(
   
   /* register wrapper functions */
   // jsnapi_register_member_function
-  members.erase("isIotaMessageId");
-  members.insert({
-    "isIotaMessageId",
-      _exports_LedgerAnchor_templ::InstanceMethod("isIotaMessageId",
-        &_exports_LedgerAnchor_templ::_wrap_LedgerAnchor_isIotaMessageId,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
   members.erase("isHieroTransactionId");
   members.insert({
     "isHieroTransactionId",
@@ -99,19 +91,19 @@ void _exports_LedgerAnchor_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
+  members.erase("isLegacyGradidoId");
+  members.insert({
+    "isLegacyGradidoId",
+      _exports_LedgerAnchor_templ::InstanceMethod("isLegacyGradidoId",
+        &_exports_LedgerAnchor_templ::_wrap_LedgerAnchor_isLegacyGradidoId,
+        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
+    });
+  // jsnapi_register_member_function
   members.erase("getType");
   members.insert({
     "getType",
       _exports_LedgerAnchor_templ::InstanceMethod("getType",
         &_exports_LedgerAnchor_templ::_wrap_LedgerAnchor_getType,
-        static_cast<napi_property_attributes>(napi_writable | napi_configurable))
-    });
-  // jsnapi_register_member_function
-  members.erase("getIotaMessageId");
-  members.insert({
-    "getIotaMessageId",
-      _exports_LedgerAnchor_templ::InstanceMethod("getIotaMessageId",
-        &_exports_LedgerAnchor_templ::_wrap_LedgerAnchor_getIotaMessageId,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -131,11 +123,11 @@ void _exports_LedgerAnchor_inst::GetMembers(
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
-  members.erase("getLegacyTransactionId");
+  members.erase("getLegacyGradidoDbId");
   members.insert({
-    "getLegacyTransactionId",
-      _exports_LedgerAnchor_templ::InstanceMethod("getLegacyTransactionId",
-        &_exports_LedgerAnchor_templ::_wrap_LedgerAnchor_getLegacyTransactionId,
+    "getLegacyGradidoDbId",
+      _exports_LedgerAnchor_templ::InstanceMethod("getLegacyGradidoDbId",
+        &_exports_LedgerAnchor_templ::_wrap_LedgerAnchor_getLegacyGradidoDbId,
         static_cast<napi_property_attributes>(napi_writable | napi_configurable))
     });
   // jsnapi_register_member_function
@@ -188,87 +180,6 @@ void _exports_LedgerAnchor_inst::GetMembers(
     });
   
   /* add static class functions and variables */
-  // jsnapi_register_static_constant
-  staticMembers.erase("Type_UNSPECIFIED");
-  staticMembers.insert({
-    "Type_UNSPECIFIED",
-      StaticAccessor("Type_UNSPECIFIED",
-        &_exports_LedgerAnchor_templ::exports_LedgerAnchor_Type_UNSPECIFIED_get,
-        &JS_veto_set_static_variable,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
-    });
-  // jsnapi_register_static_constant
-  staticMembers.erase("Type_IOTA_MESSAGE_ID");
-  staticMembers.insert({
-    "Type_IOTA_MESSAGE_ID",
-      StaticAccessor("Type_IOTA_MESSAGE_ID",
-        &_exports_LedgerAnchor_templ::exports_LedgerAnchor_Type_IOTA_MESSAGE_ID_get,
-        &JS_veto_set_static_variable,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
-    });
-  // jsnapi_register_static_constant
-  staticMembers.erase("Type_HIERO_TRANSACTION_ID");
-  staticMembers.insert({
-    "Type_HIERO_TRANSACTION_ID",
-      StaticAccessor("Type_HIERO_TRANSACTION_ID",
-        &_exports_LedgerAnchor_templ::exports_LedgerAnchor_Type_HIERO_TRANSACTION_ID_get,
-        &JS_veto_set_static_variable,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
-    });
-  // jsnapi_register_static_constant
-  staticMembers.erase("Type_LEGACY_GRADIDO_DB_TRANSACTION_ID");
-  staticMembers.insert({
-    "Type_LEGACY_GRADIDO_DB_TRANSACTION_ID",
-      StaticAccessor("Type_LEGACY_GRADIDO_DB_TRANSACTION_ID",
-        &_exports_LedgerAnchor_templ::exports_LedgerAnchor_Type_LEGACY_GRADIDO_DB_TRANSACTION_ID_get,
-        &JS_veto_set_static_variable,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
-    });
-  // jsnapi_register_static_constant
-  staticMembers.erase("Type_NODE_TRIGGER_TRANSACTION_ID");
-  staticMembers.insert({
-    "Type_NODE_TRIGGER_TRANSACTION_ID",
-      StaticAccessor("Type_NODE_TRIGGER_TRANSACTION_ID",
-        &_exports_LedgerAnchor_templ::exports_LedgerAnchor_Type_NODE_TRIGGER_TRANSACTION_ID_get,
-        &JS_veto_set_static_variable,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
-    });
-  // jsnapi_register_static_constant
-  staticMembers.erase("Type_LEGACY_GRADIDO_DB_COMMUNITY_ID");
-  staticMembers.insert({
-    "Type_LEGACY_GRADIDO_DB_COMMUNITY_ID",
-      StaticAccessor("Type_LEGACY_GRADIDO_DB_COMMUNITY_ID",
-        &_exports_LedgerAnchor_templ::exports_LedgerAnchor_Type_LEGACY_GRADIDO_DB_COMMUNITY_ID_get,
-        &JS_veto_set_static_variable,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
-    });
-  // jsnapi_register_static_constant
-  staticMembers.erase("Type_LEGACY_GRADIDO_DB_USER_ID");
-  staticMembers.insert({
-    "Type_LEGACY_GRADIDO_DB_USER_ID",
-      StaticAccessor("Type_LEGACY_GRADIDO_DB_USER_ID",
-        &_exports_LedgerAnchor_templ::exports_LedgerAnchor_Type_LEGACY_GRADIDO_DB_USER_ID_get,
-        &JS_veto_set_static_variable,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
-    });
-  // jsnapi_register_static_constant
-  staticMembers.erase("Type_LEGACY_GRADIDO_DB_CONTRIBUTION_ID");
-  staticMembers.insert({
-    "Type_LEGACY_GRADIDO_DB_CONTRIBUTION_ID",
-      StaticAccessor("Type_LEGACY_GRADIDO_DB_CONTRIBUTION_ID",
-        &_exports_LedgerAnchor_templ::exports_LedgerAnchor_Type_LEGACY_GRADIDO_DB_CONTRIBUTION_ID_get,
-        &JS_veto_set_static_variable,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
-    });
-  // jsnapi_register_static_constant
-  staticMembers.erase("Type_LEGACY_GRADIDO_DB_TRANSACTION_LINK_ID");
-  staticMembers.insert({
-    "Type_LEGACY_GRADIDO_DB_TRANSACTION_LINK_ID",
-      StaticAccessor("Type_LEGACY_GRADIDO_DB_TRANSACTION_LINK_ID",
-        &_exports_LedgerAnchor_templ::exports_LedgerAnchor_Type_LEGACY_GRADIDO_DB_TRANSACTION_LINK_ID_get,
-        &JS_veto_set_static_variable,
-        static_cast<napi_property_attributes>(napi_writable | napi_enumerable | napi_configurable))
-    });
   
   
 #ifndef NAPI_CPP_EXCEPTIONS
